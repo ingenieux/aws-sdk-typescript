@@ -234,8 +234,8 @@ partition the data across node groups (shards).
 
 When a Redis (cluster mode disabled) replication group has been successfully
 created, you can add one or more read replicas to it, up to a total of 5 read
-replicas. You cannot alter a Redis (cluster mode enabled) replication group once
-it has been created.
+replicas. You cannot alter a Redis (cluster mode enabled) replication group
+after it has been created.
 
 This operation is valid for Redis only.
      *
@@ -1390,6 +1390,23 @@ appropriate time range.
 
 Note: This parameter is only valid if the Engine parameter is redis . **/
         SnapshotWindow?: String;
+        /** The password used to access a password protected server.
+
+Password constraints:
+
+ &amp;#42; Must be only printable ASCII characters.
+   
+   
+ * Must be at least 16 characters and no more than 128 characters in length.
+   
+   
+ * Cannot contain any of the following characters: &#x27;/&#x27;, &#x27;&quot;&#x27;, or &quot;@&quot;.
+   
+   
+
+For more information, see AUTH password [http://redis.io/commands/AUTH] at
+Redis. **/
+        AuthToken?: String;
     }
     export interface CreateCacheClusterResult {
         CacheCluster?: CacheCluster;
@@ -1487,10 +1504,7 @@ should use ReplicasPerNodeGroup instead.
 
 If Multi-AZ is enabled , the value of this parameter must be at least 2.
 
-The maximum permitted value for NumCacheClusters is 6 (primary plus 5 replicas).
-If you need to exceed this limit, fill out the ElastiCache Limit Increase
-Request form at http://aws.amazon.com/contact-us/elasticache-node-limit-request/
-[http://aws.amazon.com/contact-us/elasticache-node-limit-request/] . **/
+The maximum permitted value for NumCacheClusters is 6 (primary plus 5 replicas). **/
         NumCacheClusters?: IntegerOptional;
         /** A list of EC2 Availability Zones in which the replication group&#x27;s cache clusters
 are created. The order of the Availability Zones in the list is the order in
@@ -1709,6 +1723,23 @@ appropriate time range.
 
 This parameter is only valid if the Engine parameter is redis . **/
         SnapshotWindow?: String;
+        /** The password used to access a password protected server.
+
+Password constraints:
+
+ &amp;#42; Must be only printable ASCII characters.
+   
+   
+ * Must be at least 16 characters and no more than 128 characters in length.
+   
+   
+ * Cannot contain any of the following characters: &#x27;/&#x27;, &#x27;&quot;&#x27;, or &quot;@&quot;.
+   
+   
+
+For more information, see AUTH password [http://redis.io/commands/AUTH] at
+Redis. **/
+        AuthToken?: String;
     }
     export interface CreateReplicationGroupResult {
         ReplicationGroup?: ReplicationGroup;
@@ -2203,7 +2234,7 @@ Default: 50
 
 Constraints: minimum 20; maximum 50. **/
         MaxRecords?: IntegerOptional;
-        /** A boolean value which if true, the node group (shard) configuration is included
+        /** A Boolean value which if true, the node group (shard) configuration is included
 in the snapshot description. **/
         ShowNodeGroupConfig?: BooleanOptional;
     }
@@ -2895,7 +2926,8 @@ Service Namespaces
         ReplicationGroupId?: String;
         /** The description of the replication group. **/
         Description?: String;
-        /** The current state of this replication group - creating , available , etc. **/
+        /** The current state of this replication group - creating , available , modifying , 
+deleting , create-failed , snapshotting . **/
         Status?: String;
         /** A group of settings to be applied to the replication group, either immediately
 or during the next maintenance window. **/

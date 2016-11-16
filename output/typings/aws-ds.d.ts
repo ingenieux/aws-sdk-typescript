@@ -28,6 +28,13 @@ address, you must add a CIDR address block to correctly route traffic to and
 from your Microsoft AD on Amazon Web Services. AddIpRoutes adds this address
 block. You can also use AddIpRoutes to facilitate routing traffic that uses
 public IP ranges from your Microsoft AD on AWS to a peer VPC.
+
+Before you call AddIpRoutes , ensure that all of the required permissions have
+been explicitly granted through a policy. For details about what permissions are
+required to run the AddIpRoutes operation, see AWS Directory Service API
+Permissions: Actions, Resources, and Conditions Reference
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+.
      *
      * @error EntityDoesNotExistException   
      * @error EntityAlreadyExistsException   
@@ -40,7 +47,7 @@ public IP ranges from your Microsoft AD on AWS to a peer VPC.
     addIpRoutes(params: DirectoryService.AddIpRoutesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.EntityAlreadyExistsException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.IpRouteLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.AddIpRoutesResult|any) => void): Request<DirectoryService.AddIpRoutesResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.EntityAlreadyExistsException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.IpRouteLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Adds or overwrites one or more tags for the specified Amazon Directory Services
-directory. Each directory can have a maximum of 10 tags. Each tag consists of a
+directory. Each directory can have a maximum of 50 tags. Each tag consists of a
 key and optional value. Tag keys must be unique to each resource.
      *
      * @error EntityDoesNotExistException   
@@ -51,7 +58,25 @@ key and optional value. Tag keys must be unique to each resource.
      */
     addTagsToResource(params: DirectoryService.AddTagsToResourceRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.TagLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.AddTagsToResourceResult|any) => void): Request<DirectoryService.AddTagsToResourceResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.TagLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
+     * Cancels an in-progress schema extension to a Microsoft AD directory. Once a
+schema extension has started replicating to all domain controllers, the task can
+no longer be canceled. A schema extension can be canceled during any of the
+following states; Initializing , CreatingSnapshot , and UpdatingSchema .
+     *
+     * @error EntityDoesNotExistException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    cancelSchemaExtension(params: DirectoryService.CancelSchemaExtensionRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CancelSchemaExtensionResult|any) => void): Request<DirectoryService.CancelSchemaExtensionResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
+    /**
      * Creates an AD Connector to connect to an on-premises directory.
+
+Before you call ConnectDirectory , ensure that all of the required permissions
+have been explicitly granted through a policy. For details about what
+permissions are required to run the ConnectDirectory operation, see AWS
+Directory Service API Permissions: Actions, Resources, and Conditions Reference
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+.
      *
      * @error DirectoryLimitExceededException   
      * @error InvalidParameterException   
@@ -104,6 +129,13 @@ domain. The conditional forwarder points to the trusted domain.
     createConditionalForwarder(params: DirectoryService.CreateConditionalForwarderRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateConditionalForwarderResult|any) => void): Request<DirectoryService.CreateConditionalForwarderResult|any,DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Creates a Simple AD directory.
+
+Before you call CreateDirectory , ensure that all of the required permissions
+have been explicitly granted through a policy. For details about what
+permissions are required to run the CreateDirectory operation, see AWS Directory
+Service API Permissions: Actions, Resources, and Conditions Reference
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+.
      *
      * @error DirectoryLimitExceededException   
      * @error InvalidParameterException   
@@ -113,6 +145,13 @@ domain. The conditional forwarder points to the trusted domain.
     createDirectory(params: DirectoryService.CreateDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateDirectoryResult|any) => void): Request<DirectoryService.CreateDirectoryResult|any,DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Creates a Microsoft AD in the AWS cloud.
+
+Before you call CreateMicrosoftAD , ensure that all of the required permissions
+have been explicitly granted through a policy. For details about what
+permissions are required to run the CreateMicrosoftAD operation, see AWS
+Directory Service API Permissions: Actions, Resources, and Conditions Reference
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+.
      *
      * @error DirectoryLimitExceededException   
      * @error InvalidParameterException   
@@ -164,6 +203,13 @@ between a Microsoft AD in the AWS cloud and an external domain.
     deleteConditionalForwarder(params: DirectoryService.DeleteConditionalForwarderRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteConditionalForwarderResult|any) => void): Request<DirectoryService.DeleteConditionalForwarderResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Deletes an AWS Directory Service directory.
+
+Before you call DeleteDirectory , ensure that all of the required permissions
+have been explicitly granted through a policy. For details about what
+permissions are required to run the DeleteDirectory operation, see AWS Directory
+Service API Permissions: Actions, Resources, and Conditions Reference
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+.
      *
      * @error EntityDoesNotExistException   
      * @error ClientException   
@@ -347,6 +393,15 @@ User Service (RADIUS) server for an AD Connector directory.
      */
     listIpRoutes(params: DirectoryService.ListIpRoutesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ListIpRoutesResult|any) => void): Request<DirectoryService.ListIpRoutesResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
+     * Lists all schema extensions applied to a Microsoft AD Directory.
+     *
+     * @error InvalidNextTokenException   
+     * @error EntityDoesNotExistException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    listSchemaExtensions(params: DirectoryService.ListSchemaExtensionsRequest, callback?: (err: DirectoryService.InvalidNextTokenException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ListSchemaExtensionsResult|any) => void): Request<DirectoryService.ListSchemaExtensionsResult|any,DirectoryService.InvalidNextTokenException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
+    /**
      * Lists all tags on an Amazon Directory Services directory.
      *
      * @error EntityDoesNotExistException   
@@ -405,6 +460,17 @@ value changes to Active , the restore operation is complete.
      * @error ServiceException   
      */
     restoreFromSnapshot(params: DirectoryService.RestoreFromSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RestoreFromSnapshotResult|any) => void): Request<DirectoryService.RestoreFromSnapshotResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
+    /**
+     * Applies a schema extension to a Microsoft AD directory.
+     *
+     * @error DirectoryUnavailableException   
+     * @error EntityDoesNotExistException   
+     * @error InvalidParameterException   
+     * @error SnapshotLimitExceededException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    startSchemaExtension(params: DirectoryService.StartSchemaExtensionRequest, callback?: (err: DirectoryService.DirectoryUnavailableException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.SnapshotLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.StartSchemaExtensionResult|any) => void): Request<DirectoryService.StartSchemaExtensionResult|any,DirectoryService.DirectoryUnavailableException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.SnapshotLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Updates a conditional forwarder that has been set up for your AWS directory.
      *
@@ -477,6 +543,8 @@ cloud and an external domain.
     
     export type ConnectedDirectoriesLimitReached = boolean;
     
+    export type CreateSnapshotBeforeSchemaExtension = boolean;
+    
     export type CreatedDateTime = number;
     
     export type DeleteAssociatedConditionalForwarder = boolean;
@@ -501,6 +569,8 @@ cloud and an external domain.
     
     export type DnsIpAddrs = IpAddr[];
     
+    export type EndDateTime = number;
+    
     export type EventTopics = EventTopic[];
     
     export type ExceptionMessage = string;
@@ -520,6 +590,8 @@ cloud and an external domain.
     export type LastUpdatedDateTime = number;
     
     export type LaunchTime = number;
+    
+    export type LdifContent = string;
     
     export type Limit = number;
     
@@ -557,6 +629,14 @@ cloud and an external domain.
     
     export type SID = string;
     
+    export type SchemaExtensionId = string;
+    
+    export type SchemaExtensionStatus = string;
+    
+    export type SchemaExtensionStatusReason = string;
+    
+    export type SchemaExtensionsInfo = SchemaExtensionInfo[];
+    
     export type SecurityGroupId = string;
     
     export type Server = string;
@@ -578,6 +658,8 @@ cloud and an external domain.
     export type SsoEnabled = boolean;
     
     export type StageReason = string;
+    
+    export type StartDateTime = number;
     
     export type StartTime = number;
     
@@ -724,6 +806,14 @@ publicly. **/
         Message?: ExceptionMessage;
         /** The identifier of the request that caused the exception. **/
         RequestId?: RequestId;
+    }
+    export interface CancelSchemaExtensionRequest {
+        /** The identifier of the directory whose schema extension will be canceled. **/
+        DirectoryId: DirectoryId;
+        /** The identifier of the schema extension that will be canceled. **/
+        SchemaExtensionId: SchemaExtensionId;
+    }
+    export interface CancelSchemaExtensionResult {
     }
     export interface ClientException {
         Message?: ExceptionMessage;
@@ -1322,6 +1412,24 @@ parameter in a subsequent call to ListIpRoutes to retrieve the next set of
 items. **/
         NextToken?: NextToken;
     }
+    export interface ListSchemaExtensionsRequest {
+        /** The identifier of the directory from which to retrieve the schema extension
+information. **/
+        DirectoryId: DirectoryId;
+        /** The ListSchemaExtensions.NextToken value from a previous call to 
+ListSchemaExtensions . Pass null if this is the first call. **/
+        NextToken?: NextToken;
+        /** The maximum number of items to return. **/
+        Limit?: Limit;
+    }
+    export interface ListSchemaExtensionsResult {
+        /** Information about the schema extensions applied to the directory. **/
+        SchemaExtensionsInfo?: SchemaExtensionsInfo;
+        /** If not null, more results are available. Pass this value for the NextToken 
+parameter in a subsequent call to ListSchemaExtensions to retrieve the next set
+of items. **/
+        NextToken?: NextToken;
+    }
     export interface ListTagsForResourceRequest {
         /** Identifier (ID) of the directory for which you want to retrieve tags. **/
         ResourceId: ResourceId;
@@ -1389,6 +1497,23 @@ topic must be in the same region as the specified Directory ID. **/
     }
     export interface RestoreFromSnapshotResult {
     }
+    export interface SchemaExtensionInfo {
+        /** The identifier of the directory to which the schema extension is applied. **/
+        DirectoryId?: DirectoryId;
+        /** The identifier of the schema extension. **/
+        SchemaExtensionId?: SchemaExtensionId;
+        /** A description of the schema extension. **/
+        Description?: Description;
+        /** The current status of the schema extension. **/
+        SchemaExtensionStatus?: SchemaExtensionStatus;
+        /** The reason for the SchemaExtensionStatus . **/
+        SchemaExtensionStatusReason?: SchemaExtensionStatusReason;
+        /** The date and time that the schema extension started being applied to the
+directory. **/
+        StartDateTime?: StartDateTime;
+        /** The date and time that the schema extension was completed. **/
+        EndDateTime?: EndDateTime;
+    }
     export interface ServiceException {
         Message?: ExceptionMessage;
         RequestId?: RequestId;
@@ -1418,6 +1543,22 @@ topic must be in the same region as the specified Directory ID. **/
         ManualSnapshotsCurrentCount?: Limit;
         /** Indicates if the manual snapshot limit has been reached. **/
         ManualSnapshotsLimitReached?: ManualSnapshotsLimitReached;
+    }
+    export interface StartSchemaExtensionRequest {
+        /** The identifier of the directory for which the schema extension will be applied
+to. **/
+        DirectoryId: DirectoryId;
+        /** If true, creates a snapshot of the directory before applying the schema
+extension. **/
+        CreateSnapshotBeforeSchemaExtension: CreateSnapshotBeforeSchemaExtension;
+        /** The LDIF file represented as a string. The file size can be no larger than 1MB. **/
+        LdifContent: LdifContent;
+        /** A description of the schema extension. **/
+        Description: Description;
+    }
+    export interface StartSchemaExtensionResult {
+        /** The identifier of the schema extension that will be applied. **/
+        SchemaExtensionId?: SchemaExtensionId;
     }
     export interface Tag {
         /** Required name of the tag. The string value can be Unicode characters and cannot
