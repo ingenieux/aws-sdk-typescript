@@ -23,30 +23,29 @@ declare module "aws-sdk" {
     /**
      * Associates an Amazon VPC with a private hosted zone.
 
-The VPC and the hosted zone must already exist, and you must have created a
-private hosted zone. You cannot convert a public hosted zone into a private
-hosted zone.
+To perform the association, the VPC and the private hosted zone must already
+exist. You can&#x27;t convert a public hosted zone into a private hosted zone.
 
 Send a POST request to the /2013-04-01/hostedzone/ hosted zone ID /associatevpc 
-resource. The request body must include an XML document with a 
-AssociateVPCWithHostedZoneRequest element. The response returns the 
-AssociateVPCWithHostedZoneResponse element.
+resource. The request body must include a document with an 
+AssociateVPCWithHostedZoneRequest element. The response contains a ChangeInfo 
+data type that you can use to track the progress of the request.
 
-If you used different accounts to create the hosted zone and to create the
-Amazon VPCs that you want to associate with the hosted zone, we need to update
-account permissions for you. For more information, see Associating Amazon VPCs
-and Private Hosted Zones That You Create with Different AWS Accounts
-[http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs-different-accounts.html] 
-in the Amazon Route 53 Developer Guide.
+If you want to associate a VPC that was created by using one AWS account with a
+private hosted zone that was created by using a different account, the AWS
+account that created the private hosted zone must first submit a 
+CreateVPCAssociationAuthorization request. Then the account that created the VPC
+must submit an AssociateVPCWithHostedZone request.
      *
      * @error NoSuchHostedZone   
+     * @error NotAuthorizedException   
      * @error InvalidVPCId   
      * @error InvalidInput   
      * @error PublicZoneVPCAssociation   
      * @error ConflictingDomainExists   
      * @error LimitsExceeded   
      */
-    associateVPCWithHostedZone(params: Route53.AssociateVPCWithHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|Route53.PublicZoneVPCAssociation|Route53.ConflictingDomainExists|Route53.LimitsExceeded|any, data: Route53.AssociateVPCWithHostedZoneResponse|any) => void): Request<Route53.AssociateVPCWithHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|Route53.PublicZoneVPCAssociation|Route53.ConflictingDomainExists|Route53.LimitsExceeded|any>;
+    associateVPCWithHostedZone(params: Route53.AssociateVPCWithHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.NotAuthorizedException|Route53.InvalidVPCId|Route53.InvalidInput|Route53.PublicZoneVPCAssociation|Route53.ConflictingDomainExists|Route53.LimitsExceeded|any, data: Route53.AssociateVPCWithHostedZoneResponse|any) => void): Request<Route53.AssociateVPCWithHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.NotAuthorizedException|Route53.InvalidVPCId|Route53.InvalidInput|Route53.PublicZoneVPCAssociation|Route53.ConflictingDomainExists|Route53.LimitsExceeded|any>;
     /**
      * Create, change, update, or delete authoritative DNS information on all Amazon
 Route 53 servers. Send a POST request to:
@@ -68,7 +67,7 @@ resource record set in a single operation. If either the DELETE or the CREATE
 action fails, then both changes (plus any other changes in the batch) fail, and
 the original CNAME record continues to exist.
 
-Due to the nature of transactional changes, you cannot delete the same resource
+Due to the nature of transactional changes, you can&#x27;t delete the same resource
 record set more than once in a single change batch. If you attempt to delete the
 same change batch more than once, Amazon Route 53 returns an InvalidChangeBatch 
 error.
@@ -89,11 +88,28 @@ Use ChangeResourceRecordsSetsRequest to perform the following actions:
  &amp;#42; CREATE : Creates a resource record set that has the specified values.
    
    
- * DELETE : Deletes an existing resource record set that has the specified
-   values for Name , Type , Set Identifier (for code latency, weighted,
-   geolocation, and failover resource record sets), and TTL (except alias
-   resource record sets, for which the TTL is determined by the AWS resource
-   you&#x27;re routing queries to).
+ * DELETE : Deletes an existing resource record set that has the applicable
+   values for the following elements:
+   
+    * Name : required to delete any resource record set
+      
+      
+    * Type : required to delete any resource record set
+      
+      
+    * AliasTarget , DNSName , EvaluateTargetHealth , and HostedZoneId : required
+      to delete an alias resource record set
+      
+      
+    * SetIdentifier : required to delete a failover, geolocation, latency, or
+      weighted resource record set
+      
+      
+    * TTL : required to delete any resource record set except an alias resource
+      record set (For alias resource record sets, the TTL is determined by the
+      AWS resource tat you&#x27;re routing traffic to.)
+      
+      
    
    
  * UPSERT : If a resource record set does not already exist, AWS creates it. If
@@ -146,18 +162,18 @@ in the AWS Billing and Cost Management User Guide .
      * Creates a new health check.
 
 To create a new health check, send a POST request to the /2013-04-01/healthcheck 
-resource. The request body must include an XML document with a 
+resource. The request body must include a document with a 
 CreateHealthCheckRequest element. The response returns the 
 CreateHealthCheckResponse element, containing the health check ID specified when
 adding health check to a resource record set. For information about adding
 health checks to resource record sets, see ResourceRecordSet$HealthCheckId in 
 ChangeResourceRecordSets .
 
-If you are registering Amazon EC2 instances with an Elastic Load Balancing (ELB)
-load balancer, do not create Amazon Route 53 health checks for the Amazon EC2
-instances. When you register an Amazon EC2 instance with a load balancer, you
-configure settings for an ELB health check, which performs a similar function to
-an Amazon Route 53 health check.
+If you are registering EC2 instances with an Elastic Load Balancing (ELB) load
+balancer, do not create Amazon Route 53 health checks for the EC2 instances.
+When you register an EC2 instance with a load balancer, you configure settings
+for an ELB health check, which performs a similar function to an Amazon Route 53
+health check.
 
 You can associate health checks with failover resource record sets in a private
 hosted zone. Note the following:
@@ -177,7 +193,7 @@ hosted zone. Note the following:
    Amazon EC2 StatusCheckFailed metric, add an alarm to the metric, and then
    create a health check that is based on the state of the alarm. For
    information about creating CloudWatch metrics and alarms by using the
-   CloudWatch console, see the Amazon CloudWatch Developer Guide
+   CloudWatch console, see the Amazon CloudWatch User Guide
    [http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html] 
    .
      *
@@ -191,21 +207,21 @@ hosted zone. Note the following:
 (DNS) routes traffic on the Internet for a domain, such as example.com, and its
 subdomains.
 
-Public hosted zones cannot be converted to a private hosted zone or vice versa.
+Public hosted zones can&#x27;t be converted to a private hosted zone or vice versa.
 Instead, create a new hosted zone with the same name and create new resource
 record sets.
 
 Send a POST request to the /2013-04-01/hostedzone resource. The request body
-must include an XML document with a CreateHostedZoneRequest element. The
-response returns the CreateHostedZoneResponse element containing metadata about
-the hosted zone.
+must include a document with a CreateHostedZoneRequest element. The response
+returns the CreateHostedZoneResponse element containing metadata about the
+hosted zone.
 
 Fore more information about charges for hosted zones, see Amazon Route 53
 Pricing [http://aws.amazon.com/route53/pricing/] .
 
 Note the following:
 
- &amp;#42; You cannot create a hosted zone for a top-level domain (TLD).
+ &amp;#42; You can&#x27;t create a hosted zone for a top-level domain (TLD).
    
    
  * Amazon Route 53 automatically creates a default SOA record and four NS
@@ -250,9 +266,9 @@ CreateReusableDelegationSet marks the delegation set associated with that zone
 as reusable
 
 Send a POST request to the /2013-04-01/delegationset resource. The request body
-must include an XML document with a CreateReusableDelegationSetRequest element.
+must include a document with a CreateReusableDelegationSetRequest element.
 
-A reusable delegation set cannot be associated with a private hosted zone/
+A reusable delegation set can&#x27;t be associated with a private hosted zone/
 
 For more information, including a procedure on how to create and configure a
 reusable delegation set (also known as white label name servers), see 
@@ -327,13 +343,36 @@ information about the new version of the traffic policy.
      */
     createTrafficPolicyVersion(params: Route53.CreateTrafficPolicyVersionRequest, callback?: (err: Route53.NoSuchTrafficPolicy|Route53.InvalidInput|Route53.ConcurrentModification|Route53.InvalidTrafficPolicyDocument|any, data: Route53.CreateTrafficPolicyVersionResponse|any) => void): Request<Route53.CreateTrafficPolicyVersionResponse|any,Route53.NoSuchTrafficPolicy|Route53.InvalidInput|Route53.ConcurrentModification|Route53.InvalidTrafficPolicyDocument|any>;
     /**
+     * Authorizes the AWS account that created a specified VPC to submit an 
+AssociateVPCWithHostedZone request to associate the VPC with a specified hosted
+zone that was created by a different account. To submit a 
+CreateVPCAssociationAuthorization request, you must use the account that created
+the hosted zone. After you authorize the association, use the account that
+created the VPC to submit an AssociateVPCWithHostedZone request.
+
+If you want to associate multiple VPCs that you created by using one account
+with a hosted zone that you created by using a different account, you must
+submit one authorization request for each VPC.
+
+Send a POST request to the /2013-04-01/hostedzone/ hosted zone ID 
+/authorizevpcassociation resource. The request body must include a document with
+a CreateVPCAssociationAuthorizationRequest element. The response contains
+information about the authorization.
+     *
+     * @error TooManyVPCAssociationAuthorizations   
+     * @error NoSuchHostedZone   
+     * @error InvalidVPCId   
+     * @error InvalidInput   
+     */
+    createVPCAssociationAuthorization(params: Route53.CreateVPCAssociationAuthorizationRequest, callback?: (err: Route53.TooManyVPCAssociationAuthorizations|Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|any, data: Route53.CreateVPCAssociationAuthorizationResponse|any) => void): Request<Route53.CreateVPCAssociationAuthorizationResponse|any,Route53.TooManyVPCAssociationAuthorizations|Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|any>;
+    /**
      * Deletes a health check. Send a DELETE request to the /2013-04-01/healthcheck/ 
 health check ID resource.
 
 Amazon Route 53 does not prevent you from deleting a health check even if the
 health check is associated with one or more resource record sets. If you delete
 a health check and you don&#x27;t update the associated resource record sets, the
-future status of the health check cannot be predicted and may change. This will
+future status of the health check can&#x27;t be predicted and may change. This will
 affect the routing of DNS queries for your DNS failover configuration. For more
 information, see Replacing and Deleting Health Checks
 [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html] 
@@ -407,15 +446,40 @@ records.
      */
     deleteTrafficPolicyInstance(params: Route53.DeleteTrafficPolicyInstanceRequest, callback?: (err: Route53.NoSuchTrafficPolicyInstance|Route53.InvalidInput|Route53.PriorRequestNotComplete|any, data: Route53.DeleteTrafficPolicyInstanceResponse|any) => void): Request<Route53.DeleteTrafficPolicyInstanceResponse|any,Route53.NoSuchTrafficPolicyInstance|Route53.InvalidInput|Route53.PriorRequestNotComplete|any>;
     /**
+     * Removes authorization to submit an AssociateVPCWithHostedZone request to
+associate a specified VPC with a hosted zone that was created by a different
+account. You must use the account that created the hosted zone to submit a 
+DeleteVPCAssociationAuthorization request.
+
+Sending this request only prevents the AWS account that created the VPC from
+associating the VPC with the Amazon Route 53 hosted zone in the future. If the
+VPC is already associated with the hosted zone, 
+DeleteVPCAssociationAuthorization won&#x27;t disassociate the VPC from the hosted
+zone. If you want to delete an existing association, use 
+DisassociateVPCFromHostedZone .
+
+Send a DELETE request to the /2013-04-01/hostedzone/ hosted zone ID 
+/deauthorizevpcassociation resource. The request body must include a document
+with a DeleteVPCAssociationAuthorizationRequest element.
+     *
+     * @error VPCAssociationAuthorizationNotFound   
+     * @error NoSuchHostedZone   
+     * @error InvalidVPCId   
+     * @error InvalidInput   
+     */
+    deleteVPCAssociationAuthorization(params: Route53.DeleteVPCAssociationAuthorizationRequest, callback?: (err: Route53.VPCAssociationAuthorizationNotFound|Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|any, data: Route53.DeleteVPCAssociationAuthorizationResponse|any) => void): Request<Route53.DeleteVPCAssociationAuthorizationResponse|any,Route53.VPCAssociationAuthorizationNotFound|Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|any>;
+    /**
      * Disassociates a VPC from a Amazon Route 53 private hosted zone.
 
+You can&#x27;t disassociate the last VPC from a private hosted zone.
+
 Send a POST request to the /2013-04-01/hostedzone/ hosted zone ID 
-/disassociatevpc resource. The request body must include an XML document with a 
-DisassociateVPCFromHostedZoneRequest element. The response returns the 
+/disassociatevpc resource. The request body must include a document with a 
+DisassociateVPCFromHostedZoneRequest element. The response includes a 
 DisassociateVPCFromHostedZoneResponse element.
 
-You can only disassociate a VPC from a private hosted zone when two or more VPCs
-are associated with that hosted zone. You cannot convert a private hosted zone
+You can&#x27;t disassociate a VPC from a private hosted zone when only one VPC is
+associated with the hosted zone. You also can&#x27;t convert a private hosted zone
 into a public hosted zone.
      *
      * @error NoSuchHostedZone   
@@ -441,13 +505,6 @@ following values:
      * @error InvalidInput   
      */
     getChange(params: Route53.GetChangeRequest, callback?: (err: Route53.NoSuchChange|Route53.InvalidInput|any, data: Route53.GetChangeResponse|any) => void): Request<Route53.GetChangeResponse|any,Route53.NoSuchChange|Route53.InvalidInput|any>;
-    /**
-     * Returns the status and changes of a change batch request.
-     *
-     * @error NoSuchChange   
-     * @error InvalidInput   
-     */
-    getChangeDetails(params: Route53.GetChangeDetailsRequest, callback?: (err: Route53.NoSuchChange|Route53.InvalidInput|any, data: Route53.GetChangeDetailsResponse|any) => void): Request<Route53.GetChangeDetailsResponse|any,Route53.NoSuchChange|Route53.InvalidInput|any>;
     /**
      * Retrieves a list of the IP ranges used by Amazon Route 53 health checkers to
 check the health of your resources. Send a GET request to the / Amazon Route 53
@@ -565,21 +622,6 @@ To get the number of traffic policy instances, send a GET request to the
      *
      */
     getTrafficPolicyInstanceCount(params: Route53.GetTrafficPolicyInstanceCountRequest, callback?: (err: any, data: Route53.GetTrafficPolicyInstanceCountResponse|any) => void): Request<Route53.GetTrafficPolicyInstanceCountResponse|any,any>;
-    /**
-     * Gets the list of ChangeBatches in a given time period for a given hosted zone.
-     *
-     * @error NoSuchHostedZone   
-     * @error InvalidInput   
-     */
-    listChangeBatchesByHostedZone(params: Route53.ListChangeBatchesByHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.ListChangeBatchesByHostedZoneResponse|any) => void): Request<Route53.ListChangeBatchesByHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.InvalidInput|any>;
-    /**
-     * Gets the list of ChangeBatches in a given time period for a given hosted zone
-and RRSet.
-     *
-     * @error NoSuchHostedZone   
-     * @error InvalidInput   
-     */
-    listChangeBatchesByRRSet(params: Route53.ListChangeBatchesByRRSetRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.ListChangeBatchesByRRSetResponse|any) => void): Request<Route53.ListChangeBatchesByRRSetResponse|any,Route53.NoSuchHostedZone|Route53.InvalidInput|any>;
     /**
      * Retrieves a list of supported geo locations. Send a GET request to the 
 /2013-04-01/geolocations resource. The response to this request includes a 
@@ -1029,6 +1071,35 @@ maxitems traffic policies to the next:
      */
     listTrafficPolicyVersions(params: Route53.ListTrafficPolicyVersionsRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicy|any, data: Route53.ListTrafficPolicyVersionsResponse|any) => void): Request<Route53.ListTrafficPolicyVersionsResponse|any,Route53.InvalidInput|Route53.NoSuchTrafficPolicy|any>;
     /**
+     * Gets a list of the VPCs that were created by other accounts and that can be
+associated with a specified hosted zone because you&#x27;ve submitted one or more 
+CreateVPCAssociationAuthorization requests.
+
+Send a GET request to the /2013-04-01/hostedzone/ hosted zone ID 
+/authorizevpcassociation resource. The response to this request includes a VPCs 
+element with a VPC child element for each VPC that can be associated with the
+hosted zone.
+
+Amazon Route 53 returns up to 50 VPCs per page. To return fewer VPCs per page,
+include the MaxResults parameter:
+
+/2013-04-01/hostedzone/ hosted zone ID /authorizevpcassociation?MaxItems= VPCs
+per page
+
+If the response includes a NextToken element, there are more VPCs to list. To
+get the next page of VPCs, submit another ListVPCAssociationAuthorizations 
+request, and include the value of the NextToken element from the response in the 
+NextToken request parameter:
+
+/2013-04-01/hostedzone/ hosted zone ID /authorizevpcassociation?MaxItems= VPCs
+per page &amp;NextToken=
+     *
+     * @error NoSuchHostedZone   
+     * @error InvalidInput   
+     * @error InvalidPaginationToken   
+     */
+    listVPCAssociationAuthorizations(params: Route53.ListVPCAssociationAuthorizationsRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|Route53.InvalidPaginationToken|any, data: Route53.ListVPCAssociationAuthorizationsResponse|any) => void): Request<Route53.ListVPCAssociationAuthorizationsResponse|any,Route53.NoSuchHostedZone|Route53.InvalidInput|Route53.InvalidPaginationToken|any>;
+    /**
      * Gets the value that Amazon Route 53 returns in response to a DNS request for a
 specified record name and type. You can optionally specify the IP address of a
 DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
@@ -1041,7 +1112,7 @@ DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
      * Updates an existing health check.
 
 Send a POST request to the /2013-04-01/healthcheck/ health check ID resource.
-The request body must include an XML document with an UpdateHealthCheckRequest 
+The request body must include a document with an UpdateHealthCheckRequest 
 element. For more information about updating health checks, see Creating,
 Updating, and Deleting Health Checks
 [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html] 
@@ -1112,8 +1183,6 @@ performs the following operations:
 
   export module Route53 {
     
-    export type AWSAccountID = string;
-    
     export type AlarmName = string;
     
     export type AliasHealthEnabled = boolean;
@@ -1121,8 +1190,6 @@ performs the following operations:
     export type AssociateVPCComment = string;
     
     export type ChangeAction = string;
-    
-    export type ChangeBatchRecords = ChangeBatchRecord[];
     
     export type ChangeStatus = string;
     
@@ -1139,8 +1206,6 @@ performs the following operations:
     export type DNSName = string;
     
     export type DNSRCode = string;
-    
-    export type Date = string;
     
     export type DelegationSetNameServers = DNSName[];
     
@@ -1214,6 +1279,8 @@ performs the following operations:
     
     export type IsPrivateZone = boolean;
     
+    export type MaxResults = string;
+    
     export type MeasureLatency = boolean;
     
     export type Message = string;
@@ -1231,6 +1298,8 @@ performs the following operations:
     export type PageMaxItems = string;
     
     export type PageTruncated = boolean;
+    
+    export type PaginationToken = string;
     
     export type Period = number;
     
@@ -1346,22 +1415,23 @@ are routed:
 
 A CloudFront distributionSpecify Z2FDTNDATAQYW2 .
 
-Alias resource record sets for CloudFront cannot be created in a private zone.
+Alias resource record sets for CloudFront can&#x27;t be created in a private zone.
 
 Elastic Beanstalk environmentSpecify the hosted zone ID for the region in which
 you created the environment. The environment must have a regionalized subdomain.
 For a list of regions and the corresponding hosted zone IDs, see AWS Elastic
 Beanstalk
 [http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region] 
-in the Regions and Endpoints chapter of the AWS General Reference .
+in the Regions and Endpoints chapter of the Amazon Web Services General
+Reference .
 
 ELB load balancerSpecify the value of the hosted zone ID for the load balancer.
 Use the following methods to get the hosted zone ID:
 
- &amp;#42; AWS Management Console: Go to the Amazon EC2; page, click Load Balancers in
-   the navigation pane, select the load balancer, and get the value of the
+ &amp;#42; AWS Management Console: Go to the Amazon EC2 page, click Load Balancers in
+   the navigation pane, select the load balancer, and get the value of the 
    Hosted Zone ID field on the Description tab. Use the same process to get the
-   DNS Name. See HostedZone$Name .
+   value of DNS Name . See HostedZone$Name .
    
    
  * Elastic Load Balancing API: Use DescribeLoadBalancers to get the value of 
@@ -1383,7 +1453,7 @@ information about valid values, see the table Amazon S3 (S3) Website Endpoints
 Amazon Web Services General Reference .
 
 Another Amazon Route 53 resource record set in your hosted zoneSpecify the
-hosted zone ID of your hosted zone. (An alias resource record set cannot
+hosted zone ID of your hosted zone. (An alias resource record set can&#x27;t
 reference a resource record set in a different hosted zone.) **/
         HostedZoneId: ResourceId;
         /** Alias resource record sets only: The value that you specify depends on where you
@@ -1406,7 +1476,7 @@ want to route queries:
    use the following methods to get the value of the CNAME attribute:
    
     * AWS Managment Console : For information about how to get the value by
-      using the console, see Using Custom Domains with Elastic Beanstalk
+      using the console, see Using Custom Domains with AWS Elastic Beanstalk
       [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html] 
       in the AWS Elastic Beanstalk Developer Guide .
       
@@ -1432,10 +1502,10 @@ want to route queries:
    get one value from the console and the other value from the API or the CLI,
    creating the resource record set will fail.
    
-    * AWS Management Console : Go to the Amazon EC2 page, click Load Balancers
-      in the navigation pane, choose the load balancer, choose the Description
-      tab, and get the value of the DNS Name field that begins with dualstack.
-      Use the same process to get the Hosted Zone ID. See HostedZone$Id .
+    * AWS Management Console : Go to the EC2 page, click Load Balancers in the
+      navigation pane, choose the load balancer, choose the Description tab, and
+      get the value of the DNS Name field that begins with dualstack. Use the
+      same process to get the Hosted Zone ID . See HostedZone$Id .
       
       
     * Elastic Load Balancing API : Use DescribeLoadBalancers
@@ -1458,10 +1528,10 @@ want to route queries:
    information about valid values, see the table Amazon Simple Storage Service
    (S3) Website Endpoints
    [http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region] in the 
-   Amazon Web Services General Reference . For more information about using
-   Amazon S3 buckets for websites, see Hosting a Static Website on Amazon S3
+   Amazon Web Services General Reference . For more information about using S3
+   buckets for websites, see Hosting a Static Website on Amazon S3
    [http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html] in the 
-   Amazon Simple Storage Service Developer Guide.
+   Amazon S3 Developer Guide.
    
    
  * Another Amazon Route 53 resource record set : Specify the value of the Name 
@@ -1505,7 +1575,7 @@ resource record set:
 
 Note the following:
 
- * You cannot set EvaluateTargetHealth to true when the alias target is a
+ * You can&#x27;t set EvaluateTargetHealth to true when the alias target is a
    CloudFront distribution.
    
    
@@ -1523,25 +1593,24 @@ Note the following:
    and if the environment contains an ELB load balancer, Elastic Load Balancing
    routes queries only to the healthy Amazon EC2 instances that are registered
    with the load balancer. (An environment automatically contains an ELB load
-   balancer if it includes more than one Amazon EC2 instance.) If you set 
-   EvaluateTargetHealth to true and either no Amazon EC2 instances are healthy
-   or the load balancer itself is unhealthy, Amazon Route 53 routes queries to
-   other available resources that are healthy, if any.
+   balancer if it includes more than one EC2 instance.) If you set 
+   EvaluateTargetHealth to true and either no EC2 instances are healthy or the
+   load balancer itself is unhealthy, Amazon Route 53 routes queries to other
+   available resources that are healthy, if any.
    
-   If the environment contains a single Amazon EC2 instance, there are no
-   special requirements.
+   If the environment contains a single EC2 instance, there are no special
+   requirements.
    
    
  * If you specify an ELB load balancer in AliasTarget , Elastic Load Balancing
-   routes queries only to the healthy Amazon EC2 instances that are registered
-   with the load balancer. If no Amazon EC2 instances are healthy or if the load
-   balancer itself is unhealthy, and if EvaluateTargetHealth is true for the
-   corresponding alias resource record set, Amazon Route 53 routes queries to
-   other resources. When you create a load balancer, you configure settings for
-   Elastic Load Balancing health checks; they&#x27;re not Amazon Route 53 health
-   checks, but they perform a similar function. Do not create Amazon Route 53
-   health checks for the Amazon EC2 instances that you register with an ELB load
-   balancer.
+   routes queries only to the healthy EC2 instances that are registered with the
+   load balancer. If no EC2 instances are healthy or if the load balancer itself
+   is unhealthy, and if EvaluateTargetHealth is true for the corresponding alias
+   resource record set, Amazon Route 53 routes queries to other resources. When
+   you create a load balancer, you configure settings for Elastic Load Balancing
+   health checks; they&#x27;re not Amazon Route 53 health checks, but they perform a
+   similar function. Do not create Amazon Route 53 health checks for the EC2
+   instances that you register with an ELB load balancer.
    
    For more information, see How Health Checks Work in More Complex Amazon Route
    53 Configurations
@@ -1561,13 +1630,13 @@ the Amazon Route 53 Developer Guide . **/
         EvaluateTargetHealth: AliasHealthEnabled;
     }
     export interface AssociateVPCWithHostedZoneRequest {
-        /** The ID of the hosted zone you want to associate your VPC with.
+        /** The ID of the private hosted zone that you want to associate an Amazon VPC with.
 
-Note that you cannot associate a VPC with a hosted zone that doesn&#x27;t have an
+Note that you can&#x27;t associate a VPC with a hosted zone that doesn&#x27;t have an
 existing VPC association. **/
         HostedZoneId: ResourceId;
-        /** A complex type containing information about the Amazon VPC that you&#x27;re
-associating with the specified hosted zone. **/
+        /** A complex type that contains information about the VPC that you want to
+associate with a private hosted zone. **/
         VPC: VPC;
         /** Optional: A comment about the association request. **/
         Comment?: AssociateVPCComment;
@@ -1611,31 +1680,6 @@ associating with the specified hosted zone. **/
         Comment?: ResourceDescription;
         /** Information about the changes to make to the record sets. **/
         Changes: Changes;
-    }
-    export interface ChangeBatchRecord {
-        /** The ID of the request. Use this ID to track when the change has completed across
-all Amazon Route 53 DNS servers. **/
-        Id: ResourceId;
-        /** The date and time the change was submitted, in the format YYYY-MM-DDThh:mm:ssZ ,
-as specified in the ISO 8601 standard (for example, 2009-11-19T19:37:58Z). The Z 
-after the time indicates that the time is listed in Coordinated Universal Time
-(UTC). **/
-        SubmittedAt?: TimeStamp;
-        /** The current state of the request. PENDING indicates that this request has not
-yet been applied to all Amazon Route 53 DNS servers.
-
-Valid Values: PENDING | INSYNC **/
-        Status: ChangeStatus;
-        /** A complex type that describes change information about changes made to your
-hosted zone.
-
-This element contains an ID that you use when performing a GetChange action to
-get detailed information about the change. **/
-        Comment?: ResourceDescription;
-        /** The AWS account ID attached to the changes. **/
-        Submitter?: AWSAccountID;
-        /** A list of changes made in the ChangeBatch. **/
-        Changes?: Changes;
     }
     export interface ChangeInfo {
         /** The ID of the request. **/
@@ -1708,7 +1752,7 @@ evaluation period in seconds. **/
         /** The namespace of the metric that the alarm is associated with. For more
 information, see Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference
 [http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html] 
-in the Amazon CloudWatch Developer Guide . **/
+in the Amazon CloudWatch User Guide . **/
         Namespace: Namespace;
         /** For the metric that the CloudWatch alarm is associated with, the statistic that
 is applied to the metric. **/
@@ -1717,7 +1761,7 @@ is applied to the metric. **/
 contains information about the dimensions for the metric.For information, see 
 Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference [
 http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html] 
-in the Amazon CloudWatch Developer Guide . **/
+in the Amazon CloudWatch User Guide . **/
         Dimensions?: DimensionList;
     }
     export interface ConcurrentModification {
@@ -1759,7 +1803,7 @@ other than Amazon Route 53, change the name servers for your domain to the set
 of NameServers that CreateHostedZone returns in the DelegationSet element. **/
         Name: DNSName;
         /** The VPC that you want your hosted zone to be associated with. By providing this
-parameter, your newly created hosted cannot be resolved anywhere other than the
+parameter, your newly created hosted can&#x27;t be resolved anywhere other than the
 given VPC. **/
         VPC?: VPC;
         /** A unique string that identifies the request and that allows failed 
@@ -1844,8 +1888,8 @@ sets in the specified hosted zone. **/
         Name: TrafficPolicyName;
         /** The definition of this traffic policy in JSON format. For more information, see 
 Traffic Policy Document Format
-[http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/api-policies-traffic-policy-document-format.html] 
-in the Amazon Route 53 API Reference . **/
+[http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html] 
+. **/
         Document: TrafficPolicyDocument;
         /** (Optional) Any comments that you want to include about the traffic policy. **/
         Comment?: TrafficPolicyComment;
@@ -1872,6 +1916,20 @@ any. **/
         TrafficPolicy: TrafficPolicy;
         /** A unique URL that represents a new traffic policy version. **/
         Location: ResourceURI;
+    }
+    export interface CreateVPCAssociationAuthorizationRequest {
+        /** The ID of the private hosted zone that you want to authorize associating a VPC
+with. **/
+        HostedZoneId: ResourceId;
+        /** A complex type that contains the VPC ID and region for the VPC that you want to
+authorize associating with your hosted zone. **/
+        VPC: VPC;
+    }
+    export interface CreateVPCAssociationAuthorizationResponse {
+        /** The ID of the hosted zone that you authorized associating a VPC with. **/
+        HostedZoneId: ResourceId;
+        /** The VPC that you authorized associating with a hosted zone. **/
+        VPC: VPC;
     }
     export interface DelegationSet {
         /** The ID that Amazon Route 53 assigns to a reusable delegation set. **/
@@ -1945,6 +2003,18 @@ instance. **/
     }
     export interface DeleteTrafficPolicyResponse {
     }
+    export interface DeleteVPCAssociationAuthorizationRequest {
+        /** When removing authorization to associate a VPC that was created by one AWS
+account with a hosted zone that was created with a different AWS account, the ID
+of the hosted zone. **/
+        HostedZoneId: ResourceId;
+        /** When removing authorization to associate a VPC that was created by one AWS
+account with a hosted zone that was created with a different AWS account, a
+complex type that includes the ID and region of the VPC. **/
+        VPC: VPC;
+    }
+    export interface DeleteVPCAssociationAuthorizationResponse {
+    }
     export interface Dimension {
         /** For the metric that the CloudWatch alarm is associated with, the name of one
 dimension. **/
@@ -1954,17 +2024,17 @@ dimension. **/
         Value: DimensionField;
     }
     export interface DisassociateVPCFromHostedZoneRequest {
-        /** The ID of the VPC that you want to disassociate from an Amazon Route 53 hosted
-zone. **/
+        /** The ID of the private hosted zone that you want to disassociate a VPC from. **/
         HostedZoneId: ResourceId;
-        /** A complex type containing information about the Amazon VPC that you&#x27;re
+        /** A complex type that contains information about the VPC that you&#x27;re
 disassociating from the specified hosted zone. **/
         VPC: VPC;
         /** Optional: A comment about the disassociation request. **/
         Comment?: DisassociateVPCComment;
     }
     export interface DisassociateVPCFromHostedZoneResponse {
-        /** A complex type that describes the changes made to your hosted zone. **/
+        /** A complex type that describes the changes made to the specified private hosted
+zone. **/
         ChangeInfo: ChangeInfo;
     }
     export interface GeoLocation {
@@ -1996,17 +2066,6 @@ province in Canada. **/
         /** The full name of the subdivision, for example, a state in the United States or a
 province in Canada. **/
         SubdivisionName?: GeoLocationSubdivisionName;
-    }
-    export interface GetChangeDetailsRequest {
-        /** The ID of the change batch. This is the value that you specified in the change
-ID parameter when you submitted the request. **/
-        Id: ResourceId;
-    }
-    export interface GetChangeDetailsResponse {
-        /** A complex type that contains information about the specified change batch,
-including the change batch ID, the status of the change, and the contained
-changes. **/
-        ChangeBatchRecord: ChangeBatchRecord;
     }
     export interface GetChangeRequest {
         /** The ID of the change batch request. The value that you specify here is the value
@@ -2241,18 +2300,18 @@ FullyQualifiedDomainName at the interval that you specify in RequestInterval.
 Using an IP address that DNS returns, Amazon Route 53 then checks the health of
 the endpoint.
 
-If the endpoint is an Amazon EC2 instance, we recommend that you create an
-Elastic IP address, associate it with your Amazon EC2 instance, and specify the
-Elastic IP address for IPAddress . This ensures that the IP address of your
-instance will never change.
+If the endpoint is an EC2 instance, we recommend that you create an Elastic IP
+address, associate it with your EC2 instance, and specify the Elastic IP address
+for IPAddress . This ensures that the IP address of your instance will never
+change.
 
 For more information, see HealthCheckConfig$FullyQualifiedDomainName .
 
-Contraints: Amazon Route 53 cannot check the health of endpoints for which the
-IP address is in local, private, non-routable, or multicast ranges. For more
-information about IP addresses for which you cannot create health checks, see 
-RFC 5735, Special Use IPv4 Addresses [https://tools.ietf.org/html/rfc5735] and 
-RFC 6598, IANA-Reserved IPv4 Prefix for Shared Address Space
+Constraints: Amazon Route 53 can&#x27;t check the health of endpoints for which the
+IP address is in local, private, non-routable, or \ multicast ranges. For more
+information about IP addresses for which you can&#x27;t create health checks, see RFC
+5735, Special Use IPv4 Addresses [https://tools.ietf.org/html/rfc5735] and RFC
+6598, IANA-Reserved IPv4 Prefix for Shared Address Space
 [https://tools.ietf.org/html/rfc6598] .
 
 When the value of Type is CALCULATED or CLOUDWATCH_METRIC , omit IPAddress. **/
@@ -2542,6 +2601,9 @@ and Comment elements don&#x27;t appear in the response. **/
         /** Descriptive message for the error response. **/
         message?: ErrorMessage;
     }
+    export interface InvalidPaginationToken {
+        message?: ErrorMessage;
+    }
     export interface InvalidTrafficPolicyDocument {
         /** Descriptive message for the error response. **/
         message?: ErrorMessage;
@@ -2557,63 +2619,6 @@ and Comment elements don&#x27;t appear in the response. **/
     export interface LimitsExceeded {
         /** Descriptive message for the error response. **/
         message?: ErrorMessage;
-    }
-    export interface ListChangeBatchesByHostedZoneRequest {
-        /** The ID of the hosted zone that you want to see changes for. **/
-        HostedZoneId: ResourceId;
-        /** The start of the time period you want to see changes for. **/
-        StartDate: Date;
-        /** The end of the time period you want to see changes for. **/
-        EndDate: Date;
-        /** The maximum number of items on a page. **/
-        MaxItems?: PageMaxItems;
-        /** The page marker. **/
-        Marker?: PageMarker;
-    }
-    export interface ListChangeBatchesByHostedZoneResponse {
-        /** The value that you specified for the maxitems parameter in the call to 
-ListHostedZones that produced the current response. **/
-        MaxItems: PageMaxItems;
-        /** For the second and subsequent calls to ListHostedZones, Marker is the value that
-you specified for the marker parameter in the request that produced the current
-response. **/
-        Marker: PageMarker;
-        /** A flag that indicates if there are more change batches to list. **/
-        IsTruncated?: PageTruncated;
-        /** The change batches within the given hosted zone and time period. **/
-        ChangeBatchRecords: ChangeBatchRecords;
-        /** The next page marker. **/
-        NextMarker?: PageMarker;
-    }
-    export interface ListChangeBatchesByRRSetRequest {
-        /** The ID of the hosted zone that you want to see changes for. **/
-        HostedZoneId: ResourceId;
-        /** The name of the RRSet that you want to see changes for. **/
-        Name: DNSName;
-        /** The type of the RRSet that you want to see changes for. **/
-        Type: RRType;
-        /** The identifier of the RRSet that you want to see changes for. **/
-        SetIdentifier?: ResourceRecordSetIdentifier;
-        /** The start of the time period you want to see changes for. **/
-        StartDate: Date;
-        /** The end of the time period you want to see changes for. **/
-        EndDate: Date;
-        /** The maximum number of items on a page. **/
-        MaxItems?: PageMaxItems;
-        /** The page marker. **/
-        Marker?: PageMarker;
-    }
-    export interface ListChangeBatchesByRRSetResponse {
-        /** The maximum number of items on a page. **/
-        MaxItems: PageMaxItems;
-        /** The page marker. **/
-        Marker: PageMarker;
-        /** A flag that indicates if there are more change batches to list. **/
-        IsTruncated?: PageTruncated;
-        /** The change batches within the given hosted zone and time period. **/
-        ChangeBatchRecords: ChangeBatchRecords;
-        /** The next page marker. **/
-        NextMarker?: PageMarker;
     }
     export interface ListGeoLocationsRequest {
         /** The code for the continent with which you want to start listing locations that
@@ -2839,7 +2844,7 @@ CNAME | MX | NAPTR | PTR | SPF | SRV | TXT
 
 Values for alias resource record sets:
 
- &amp;#42; CloudFront distribution : A
+ &amp;#42; CloudFront distribution : A or AAAA
    
    
  * Elastic Beanstalk environment that has a regionalized subdomain : A
@@ -3233,6 +3238,35 @@ This element is present only if IsTruncated is true . **/
 ListTrafficPolicyVersions that produced the current response. **/
         MaxItems: PageMaxItems;
     }
+    export interface ListVPCAssociationAuthorizationsRequest {
+        /** The ID of the hosted zone for which you want a list of VPCs that can be
+associated with the hosted zone. **/
+        HostedZoneId: ResourceId;
+        /** Optional : If a response includes a NextToken element, there are more VPCs that
+can be associated with the specified hosted zone. To get the next page of
+results, submit another request, and include the value of the NextToken element
+in from the response in the NextToken parameter in another 
+ListVPCAssociationAuthorizations request. **/
+        NextToken?: PaginationToken;
+        /** Optional : An integer that specifies the maximum number of VPCs that you want
+Amazon Route 53 to return. **/
+        MaxResults?: MaxResults;
+    }
+    export interface ListVPCAssociationAuthorizationsResponse {
+        /** The ID of the hosted zone that you can associate the listed VPCs with. **/
+        HostedZoneId: ResourceId;
+        /** When the response includes a NextToken element, there are more VPCs that can be
+associated with the specified hosted zone. To get the next page of VPCs, submit
+another ListVPCAssociationAuthorizations request, and include the value of the 
+NextToken element from the response in the NextToken request parameter:
+
+/2013-04-01/hostedzone/ hosted zone ID /authorizevpcassociation?MaxItems= VPCs
+per page &amp;NextToken= **/
+        NextToken?: PaginationToken;
+        /** The list of VPCs that are authorized to be associated with the specified hosted
+zone. **/
+        VPCs: VPCs;
+    }
     export interface NoSuchChange {
         message?: ErrorMessage;
     }
@@ -3257,6 +3291,10 @@ ListTrafficPolicyVersions that produced the current response. **/
         message?: ErrorMessage;
     }
     export interface NoSuchTrafficPolicyInstance {
+        /** Descriptive message for the error response. **/
+        message?: ErrorMessage;
+    }
+    export interface NotAuthorizedException {
         /** Descriptive message for the error response. **/
         message?: ErrorMessage;
     }
@@ -3315,7 +3353,7 @@ name. For example, *.example.com . Note the following:
    
 
 You can use the * wildcard as the leftmost label in a domain name, for example, 
-*.example.com . You cannot use an * for one of the middle labels, for example, 
+*.example.com . You can&#x27;t use an * for one of the middle labels, for example, 
 marketing.*.example.com . In addition, the * must replace the entire label; for
 example, you can&#x27;t specify prod*.example.com . **/
         Name: DNSName;
@@ -3345,8 +3383,12 @@ Values for alias resource record sets:
 
  &amp;#42; CloudFront distributions: A
    
+   If IPv6 is enabled for the distribution, create two resource record sets to
+   route traffic to your distribution, one with a value of A and one with a
+   value of AAAA .
    
- * Elastic Beanstalk environment that has a regionalized subdomain : A
+   
+ * AWS Elastic Beanstalk environment that has a regionalized subdomain : A
    
    
  * ELB load balancers: A | AAAA
@@ -3380,7 +3422,7 @@ the following:
  * You can only specify one ResourceRecord per weighted resource record set.
    
    
- * You cannot create latency, failover, or geolocation resource record sets that
+ * You can&#x27;t create latency, failover, or geolocation resource record sets that
    have the same values for the Name and Type elements as weighted resource
    record sets.
    
@@ -3401,11 +3443,11 @@ the following:
    [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html] 
    in the Amazon Route 53 Developer Guide . **/
         Weight?: ResourceRecordSetWeight;
-        /** Latency-based resource record sets only: The Amazon EC2 region where the
+        /** Latency-based resource record sets only: The Amazon EC2 Region where the
 resource that is specified in this resource record set resides. The resource
-typically is an AWS resource, such as an Amazon EC2 instance or an ELB load
-balancer, and is referred to by an IP address or a DNS domain name, depending on
-the record type.
+typically is an AWS resource, such as an EC2 instance or an ELB load balancer,
+and is referred to by an IP address or a DNS domain name, depending on the
+record type.
 
 Creating latency and latency alias resource record sets in private hosted zones
 is not supported.
@@ -3413,7 +3455,7 @@ is not supported.
 When Amazon Route 53 receives a DNS query for a domain name and type for which
 you have created latency resource record sets, Amazon Route 53 selects the
 latency resource record set that has the lowest latency between the end user and
-the associated Amazon EC2 region. Amazon Route 53 then returns the value that is
+the associated Amazon EC2 Region. Amazon Route 53 then returns the value that is
 associated with the selected resource record set.
 
 Note the following:
@@ -3422,15 +3464,15 @@ Note the following:
    
    
  * You can only create one latency resource record set for each Amazon EC2
-   region.
+   Region.
    
    
  * You are not required to create latency resource record sets for all Amazon
-   EC2 regions. Amazon Route 53 will choose the region with the best latency
+   EC2 Regions. Amazon Route 53 will choose the region with the best latency
    from among the regions for which you create latency resource record sets.
    
    
- * You cannot create non-latency resource record sets that have the same values
+ * You can&#x27;t create non-latency resource record sets that have the same values
    for the Name and Type elements as latency resource record sets. **/
         Region?: ResourceRecordSetRegion;
         /** Geo location resource record sets only: A complex type that lets you control how
@@ -3448,7 +3490,7 @@ the same continent), priority goes to the smallest geographic region. This
 allows you to route most queries for a continent to one resource and to route
 queries for a country on that continent to a different resource.
 
-You cannot create two geolocation resource record sets that specify the same
+You can&#x27;t create two geolocation resource record sets that specify the same
 geographic location.
 
 The value &amp;#42; in the CountryCode element matches all geographic locations that
@@ -3466,7 +3508,7 @@ addresses that aren&#x27;t mapped to a location. If you don&#x27;t create a * re
 record set, Amazon Route 53 returns a &quot;no answer&quot; response for queries from
 those locations.
 
-You cannot create non-geolocation resource record sets that have the same values
+You can&#x27;t create non-geolocation resource record sets that have the same values
 for the Name and Type elements as geolocation resource record sets. **/
         GeoLocation?: GeoLocation;
         /** Failover resource record sets only: To configure failover, you add the Failover 
@@ -3501,8 +3543,8 @@ included the HealthCheckId element in both resource record sets:
    
    
 
-You cannot create non-failover resource record sets that have the same values
-for the Name and Type elements as failover resource record sets.
+You can&#x27;t create non-failover resource record sets that have the same values for
+the Name and Type elements as failover resource record sets.
 
 For failover alias resource record sets, you must also include the 
 EvaluateTargetHealth element and set the value to true.
@@ -3548,9 +3590,9 @@ Valid values: PRIMARY | SECONDARY **/
 If you are creating an alias resource record set, omit ResourceRecords . **/
         ResourceRecords?: ResourceRecords;
         /** Alias resource record sets only: Information about the CloudFront distribution,
-Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon
-Route 53 resource record set to which you are redirecting queries. The Elastic
-Beanstalk environment must have a regionalized subdomain.
+AWS Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or
+Amazon Route 53 resource record set to which you are redirecting queries. The
+AWS Elastic Beanstalk environment must have a regionalized subdomain.
 
 If you&#x27;re creating resource records sets for a private hosted zone, note the
 following:
@@ -3771,6 +3813,10 @@ TCP . **/
         /** Descriptive message for the error response. **/
         message?: ErrorMessage;
     }
+    export interface TooManyVPCAssociationAuthorizations {
+        /** Descriptive message for the error response. **/
+        message?: ErrorMessage;
+    }
     export interface TrafficPolicy {
         /** The ID that Amazon Route 53 assigned to a traffic policy when you created it. **/
         Id: TrafficPolicyId;
@@ -3785,7 +3831,7 @@ use a traffic policy to create a traffic policy instance. **/
         /** The definition of a traffic policy in JSON format. You specify the JSON document
 to use for a new traffic policy in the CreateTrafficPolicy request. For more
 information about the JSON format, see Traffic Policy Document Format
-[http://docs.aws.amazon.com/Route53/latest/api-reference/api-policies-traffic-policy-document-format.html] 
+[http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html] 
 . **/
         Document: TrafficPolicyDocument;
         /** The comment that you specify in the CreateTrafficPolicy request, if any. **/
@@ -3883,10 +3929,10 @@ FullyQualifiedDomainName at the interval you specify in RequestInterval . Using
 an IP address that DNS returns, Amazon Route 53 then checks the health of the
 endpoint.
 
-f the endpoint is an Amazon EC2 instance, we recommend that you create an
-Elastic IP address, associate it with your Amazon EC2 instance, and specify the
-Elastic IP address for IPAddress . This ensures that the IP address of your
-instance never changes. For more information, see Elastic IP Addresses (EIP)
+f the endpoint is an EC2 instance, we recommend that you create an Elastic IP
+address, associate it with your EC2 instance, and specify the Elastic IP address
+for IPAddress . This ensures that the IP address of your instance never changes.
+For more information, see Elastic IP Addresses (EIP)
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html] 
 in the Amazon EC2 User Guide for Linux Instances .
 
@@ -4088,6 +4134,10 @@ resource record sets for the specified traffic policy instance. **/
 specified Amazon Route 53 hosted zone. **/
         VPCRegion?: VPCRegion;
         VPCId?: VPCId;
+    }
+    export interface VPCAssociationAuthorizationNotFound {
+        /** Descriptive message for the error response. **/
+        message?: ErrorMessage;
     }
     export interface VPCAssociationNotFound {
         /** Descriptive message for the error response. **/
