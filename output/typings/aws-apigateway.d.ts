@@ -135,8 +135,9 @@ associated API stages, specified in the payload.
      * @error TooManyRequestsException   
      * @error LimitExceededException   
      * @error ConflictException   
+     * @error NotFoundException   
      */
-    createUsagePlan(params: APIGateway.CreateUsagePlanRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.ConflictException|any, data: APIGateway.UsagePlan|any) => void): Request<APIGateway.UsagePlan|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.ConflictException|any>;
+    createUsagePlan(params: APIGateway.CreateUsagePlanRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.ConflictException|APIGateway.NotFoundException|any, data: APIGateway.UsagePlan|any) => void): Request<APIGateway.UsagePlan|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.ConflictException|APIGateway.NotFoundException|any>;
     /**
      * Creates a usage plan key for adding an existing API key to a usage plan.
      *
@@ -610,8 +611,9 @@ usage plan.
      * @error UnauthorizedException   
      * @error TooManyRequestsException   
      * @error ConflictException   
+     * @error NotFoundException   
      */
-    getUsagePlans(params: APIGateway.GetUsagePlansRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any, data: APIGateway.UsagePlans|any) => void): Request<APIGateway.UsagePlans|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any>;
+    getUsagePlans(params: APIGateway.GetUsagePlansRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|APIGateway.NotFoundException|any, data: APIGateway.UsagePlans|any) => void): Request<APIGateway.UsagePlans|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|APIGateway.NotFoundException|any>;
     /**
      * Import API keys from an external source, such as a CSV-formatted file.
      *
@@ -903,6 +905,8 @@ with a specified API key.
     
     export type CacheClusterStatus = string;
     
+    export type ContentHandlingStrategy = string;
+    
     export type Double = number;
     
     export type Integer = number;
@@ -1046,31 +1050,38 @@ failOnWarnings option is set to true. **/
         id?: String;
         /** [Required] The name of the authorizer. **/
         name?: String;
-        /** [Required] The type of the authorizer. Currently, the only valid type is TOKEN. **/
+        /** [Required] The type of the authorizer. Currently, the valid type is TOKEN for a
+Lambda function or COGNITO_USER_POOLS for an Amazon Cognito user pool. **/
         type?: AuthorizerType;
-        /** A list of the provider ARNs of the authorizer. **/
+        /** A list of the provider ARNs of the authorizer. For an TOKEN authorizer, this is
+not defined. For authorizers of the COGNITO_USER_POOLS type, each element
+corresponds to a user pool ARN of this format: 
+arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id} . **/
         providerARNs?: ListOfARNs;
         /** Optional customer-defined field, used in Swagger imports/exports. Has no
 functional impact. **/
         authType?: String;
-        /** [Required] Specifies the authorizer&#x27;s Uniform Resource Identifier (URI). For
-TOKEN authorizers, this must be a well-formed Lambda function URI. The URI
-should be of the form arn:aws:apigateway:{region}:lambda:path/{service_api} . 
-Region is used to determine the right endpoint. In this case, path is used to
-indicate that the remaining substring in the URI should be treated as the path
-to the resource, including the initial / . For Lambda functions, this is usually
-of the form /2015-03-31/functions/[FunctionARN]/invocations **/
+        /** [Required] Specifies the authorizer&#x27;s Uniform Resource Identifier (URI). For 
+TOKEN authorizers, this must be a well-formed Lambda function URI, for example, 
+arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations 
+. In general, the URI has this form 
+arn:aws:apigateway:{region}:lambda:path/{service_api} , where {region} is the
+same as the region hosting the Lambda function, path indicates that the
+remaining substring in the URI should be treated as the path to the resource,
+including the initial / . For Lambda functions, this is usually of the form
+/2015-03-31/functions/[FunctionARN]/invocations. **/
         authorizerUri?: String;
         /** Specifies the credentials required for the authorizer, if any. Two options are
 available. To specify an IAM role for Amazon API Gateway to assume, use the
 role&#x27;s Amazon Resource Name (ARN). To use resource-based permissions on the
 Lambda function, specify null. **/
         authorizerCredentials?: String;
-        /** [Required] The source of the identity in an incoming request. For TOKEN
-authorizers, this value is a mapping expression with the same syntax as
+        /** [Required] The source of the identity in an incoming request. For a TOKEN 
+authorizer, this value is a mapping expression with the same syntax as
 integration parameter mappings. The only valid source for tokens is &#x27;header&#x27;, so
 the expression should match &#x27;method.request.header.[headerName]&#x27;. The value of
-the header &#x27;[headerName]&#x27; will be interpreted as the incoming token. **/
+the header &#x27;[headerName]&#x27; will be interpreted as the incoming token. For 
+COGNITO_USER_POOLS authorizers, this property is used. **/
         identitySource?: String;
         /** A validation expression for the incoming identity. For TOKEN authorizers, this
 value should be a regular expression. The incoming token from the client is
@@ -1186,7 +1197,7 @@ base path name. **/
         /** The RestApi resource identifier for the Deployment resource to create. **/
         restApiId: String;
         /** The name of the Stage resource for the Deployment resource to create. **/
-        stageName: String;
+        stageName?: String;
         /** The description of the Stage resource for the Deployment resource to create. **/
         stageDescription?: String;
         /** The description for the Deployment resource to create. **/
@@ -1246,6 +1257,9 @@ JSON-schema draft v4 [http://json-schema.org/documentation.html] model. **/
         description?: String;
         /** The ID of the RestApi that you want to clone from. **/
         cloneFrom?: String;
+        /** The list of binary media types supported by the RestApi . By default, the 
+RestApi supports only UTF-8-encoded text payloads. **/
+        binaryMediaTypes?: ListOfString;
     }
     export interface CreateStageRequest {
         /** The identifier of the RestApi resource for the Stage resource to create. **/
@@ -1453,7 +1467,7 @@ valid &#x27;accept&#x27; type in the request. **/
         apiKey: String;
         /** A boolean flag to specify whether ( true ) or not ( false ) the result contains
 the key value. **/
-        includeValue?: Boolean;
+        includeValue?: NullableBoolean;
     }
     export interface GetApiKeysRequest {
         /** The position of the current ApiKeys resource to get information about. **/
@@ -1462,9 +1476,10 @@ the key value. **/
         limit?: NullableInteger;
         /** The name of queried API keys. **/
         nameQuery?: String;
+        customerId?: String;
         /** A boolean flag to specify whether ( true ) or not ( false ) the result contains
 key values. **/
-        includeValues?: Boolean;
+        includeValues?: NullableBoolean;
     }
     export interface GetAuthorizerRequest {
         /** The RestApi identifier for the Authorizer resource. **/
@@ -1810,6 +1825,22 @@ WHEN_NO_TEMPLATES , and NEVER .
    content type associated with the mapping templates defined in the integration
    request or no mapping template is defined in the integration request. **/
         passthroughBehavior?: String;
+        /** Specifies how to handle request payload content type conversions. Supported
+values are CONVERT_TO_BINARY and CONVERT_TO_TEXT , with the following behaviors:
+
+ &amp;#42; CONVERT_TO_BINARY : Converts a request payload from a Base64-encoded string
+   to the corresponding binary blob.
+   
+   
+ * CONVERT_TO_TEXT : Converts a request payload from a binary blob to a
+   Base64-encoded string.
+   
+   
+
+If this property is not defined, the request payload will be passed through from
+the method request to integration request without modification, provided that
+the passthroughBehaviors is configured to support payload pass-through. **/
+        contentHandling?: ContentHandlingStrategy;
         /** Specifies the integration&#x27;s cache namespace. **/
         cacheNamespace?: String;
         /** Specifies the integration&#x27;s cache key parameters. **/
@@ -1863,6 +1894,21 @@ $ prefix. **/
 Response templates are represented as a key/value map, with a content-type as
 the key and a template as the value. **/
         responseTemplates?: MapOfStringToString;
+        /** Specifies how to handle response payload content type conversions. Supported
+values are CONVERT_TO_BINARY and CONVERT_TO_TEXT , with the following behaviors:
+
+ &amp;#42; CONVERT_TO_BINARY : Converts a response payload from a Base64-encoded string
+   to the corresponding binary blob.
+   
+   
+ * CONVERT_TO_TEXT : Converts a response payload from a binary blob to a
+   Base64-encoded string.
+   
+   
+
+If this property is not defined, the response payload will be passed through
+from the integration response to the method response without modification. **/
+        contentHandling?: ContentHandlingStrategy;
     }
     export interface LimitExceededException {
         retryAfterSeconds?: String;
@@ -2114,6 +2160,22 @@ are three valid values: WHEN_NO_MATCH , WHEN_NO_TEMPLATES , and NEVER .
         cacheNamespace?: String;
         /** Specifies a put integration input&#x27;s cache key parameters. **/
         cacheKeyParameters?: ListOfString;
+        /** Specifies how to handle request payload content type conversions. Supported
+values are CONVERT_TO_BINARY and CONVERT_TO_TEXT , with the following behaviors:
+
+ &amp;#42; CONVERT_TO_BINARY : Converts a request payload from a Base64-encoded string
+   to the corresponding binary blob.
+   
+   
+ * CONVERT_TO_TEXT : Converts a request payload from a binary blob to a
+   Base64-encoded string.
+   
+   
+
+If this property is not defined, the request payload will be passed through from
+the method request to integration request without modification, provided that
+the passthroughBehaviors is configured to support payload pass-through. **/
+        contentHandling?: ContentHandlingStrategy;
     }
     export interface PutIntegrationResponseRequest {
         /** Specifies a put integration response request&#x27;s API identifier. **/
@@ -2141,6 +2203,21 @@ the $ prefix. **/
         responseParameters?: MapOfStringToString;
         /** Specifies a put integration response&#x27;s templates. **/
         responseTemplates?: MapOfStringToString;
+        /** Specifies how to handle response payload content type conversions. Supported
+values are CONVERT_TO_BINARY and CONVERT_TO_TEXT , with the following behaviors:
+
+ &amp;#42; CONVERT_TO_BINARY : Converts a response payload from a Base64-encoded string
+   to the corresponding binary blob.
+   
+   
+ * CONVERT_TO_TEXT : Converts a response payload from a binary blob to a
+   Base64-encoded string.
+   
+   
+
+If this property is not defined, the response payload will be passed through
+from the integration response to the method response without modification. **/
+        contentHandling?: ContentHandlingStrategy;
     }
     export interface PutMethodRequest {
         /** The RestApi identifier for the new Method resource. **/
@@ -2269,6 +2346,9 @@ Amazon API Gateway. **/
         /** The warning messages reported when failonwarnings is turned on during API
 import. **/
         warnings?: ListOfString;
+        /** The list of binary media types supported by the RestApi . By default, the 
+RestApi supports only UTF-8-encoded text payloads. **/
+        binaryMediaTypes?: ListOfString;
     }
     export interface RestApis {
         position?: String;

@@ -36,84 +36,83 @@ health.
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * Deletes all specified alarms. In the event of an error, no alarms are deleted.
+     * Deletes the specified alarms. In the event of an error, no alarms are deleted.
      *
      * @error ResourceNotFound   
      */
     deleteAlarms(params: CloudWatch.DeleteAlarmsInput, callback?: (err: CloudWatch.ResourceNotFound|any, data: any) => void): Request<any,CloudWatch.ResourceNotFound|any>;
     /**
-     * Retrieves history for the specified alarm. Filter alarms by date range or item
-type. If an alarm name is not specified, Amazon CloudWatch returns histories for
-all of the owner&#x27;s alarms.
+     * Retrieves the history for the specified alarm. You can filter the results by
+date range or item type. If an alarm name is not specified, the histories for
+all alarms are returned.
 
-Amazon CloudWatch retains the history of an alarm for two weeks, whether or not
-you delete the alarm.
+Note that Amazon CloudWatch retains the history of an alarm even if you delete
+the alarm.
      *
      * @error InvalidNextToken   
      */
     describeAlarmHistory(params: CloudWatch.DescribeAlarmHistoryInput, callback?: (err: CloudWatch.InvalidNextToken|any, data: CloudWatch.DescribeAlarmHistoryOutput|any) => void): Request<CloudWatch.DescribeAlarmHistoryOutput|any,CloudWatch.InvalidNextToken|any>;
     /**
-     * Retrieves alarms with the specified names. If no name is specified, all alarms
-for the user are returned. Alarms can be retrieved by using only a prefix for
-the alarm name, the alarm state, or a prefix for any action.
+     * Retrieves the specified alarms. If no alarms are specified, all alarms are
+returned. Alarms can be retrieved by using only a prefix for the alarm name, the
+alarm state, or a prefix for any action.
      *
      * @error InvalidNextToken   
      */
     describeAlarms(params: CloudWatch.DescribeAlarmsInput, callback?: (err: CloudWatch.InvalidNextToken|any, data: CloudWatch.DescribeAlarmsOutput|any) => void): Request<CloudWatch.DescribeAlarmsOutput|any,CloudWatch.InvalidNextToken|any>;
     /**
-     * Retrieves all alarms for a single metric. Specify a statistic, period, or unit
-to filter the set of alarms further.
+     * Retrieves the alarms for the specified metric. Specify a statistic, period, or
+unit to filter the results.
      *
      */
     describeAlarmsForMetric(params: CloudWatch.DescribeAlarmsForMetricInput, callback?: (err: any, data: CloudWatch.DescribeAlarmsForMetricOutput|any) => void): Request<CloudWatch.DescribeAlarmsForMetricOutput|any,any>;
     /**
-     * Disables actions for the specified alarms. When an alarm&#x27;s actions are disabled
-the alarm&#x27;s state may change, but none of the alarm&#x27;s actions will execute.
+     * Disables the actions for the specified alarms. When an alarm&#x27;s actions are
+disabled, the alarm actions do not execute when the alarm state changes.
      *
      */
     disableAlarmActions(params: CloudWatch.DisableAlarmActionsInput, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
-     * Enables actions for the specified alarms.
+     * Enables the actions for the specified alarms.
      *
      */
     enableAlarmActions(params: CloudWatch.EnableAlarmActionsInput, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Gets statistics for the specified metric.
 
-The maximum number of data points that can be queried is 50,850, whereas the
-maximum number of data points returned from a single GetMetricStatistics request
-is 1,440. If you make a request that generates more than 1,440 data points,
-Amazon CloudWatch returns an error. In such a case, you can alter the request by
-narrowing the specified time range or increasing the specified period. A period
-can be as short as one minute (60 seconds) or as long as one day (86,400
-seconds). Alternatively, you can make multiple requests across adjacent time
-ranges. GetMetricStatistics does not return the data in chronological order.
+Amazon CloudWatch retains metric data as follows:
+
+ &amp;#42; Data points with a period of 60 seconds (1 minute) are available for 15 days
+   
+   
+ * Data points with a period of 300 seconds (5 minute) are available for 63 days
+   
+   
+ * Data points with a period of 3600 seconds (1 hour) are available for 455 days
+   (15 months)
+   
+   
+
+Note that CloudWatch started retaining 5-minute and 1-hour metric data as of 9
+July 2016.
+
+The maximum number of data points returned from a single call is 1,440. If you
+request more than 1,440 data points, Amazon CloudWatch returns an error. To
+reduce the number of data points, you can narrow the specified time range and
+make multiple requests across adjacent time ranges, or you can increase the
+specified period. A period can be as short as one minute (60 seconds). Note that
+data points are not returned in chronological order.
 
 Amazon CloudWatch aggregates data points based on the length of the period that
-you specify. For example, if you request statistics with a one-minute
-granularity, Amazon CloudWatch aggregates data points with time stamps that fall
-within the same one-minute period. In such a case, the data points queried can
-greatly outnumber the data points returned.
+you specify. For example, if you request statistics with a one-hour period,
+Amazon CloudWatch aggregates all data points with time stamps that fall within
+each one-hour period. Therefore, the number of values aggregated by CloudWatch
+is larger than the number of data points returned.
 
-The following examples show various statistics allowed by the data point query
-maximum of 50,850 when you call GetMetricStatistics on Amazon EC2 instances with
-detailed (one-minute) monitoring enabled:
-
- &amp;#42; Statistics for up to 400 instances for a span of one hour
-   
-   
- * Statistics for up to 35 instances over a span of 24 hours
-   
-   
- * Statistics for up to 2 instances over a span of 2 weeks
-   
-   
-
-For information about the namespace, metric names, and dimensions that other
-Amazon Web Services products use to send metrics to CloudWatch, go to Amazon
-CloudWatch Metrics, Namespaces, and Dimensions Reference
-[http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html] 
-in the Amazon CloudWatch Developer Guide .
+For a list of metrics and dimensions supported by AWS services, see the Amazon
+CloudWatch Metrics and Dimensions Reference
+[http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html] 
+in the Amazon CloudWatch User Guide .
      *
      * @error InvalidParameterValueException   
      * @error MissingRequiredParameterException   
@@ -122,68 +121,68 @@ in the Amazon CloudWatch Developer Guide .
      */
     getMetricStatistics(params: CloudWatch.GetMetricStatisticsInput, callback?: (err: CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any, data: CloudWatch.GetMetricStatisticsOutput|any) => void): Request<CloudWatch.GetMetricStatisticsOutput|any,CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any>;
     /**
-     * Returns a list of valid metrics stored for the AWS account owner. Returned
-metrics can be used with GetMetricStatistics to obtain statistical data for a
-given metric.
+     * List the specified metrics. You can use the returned metrics with 
+GetMetricStatistics to obtain statistical data.
 
-Up to 500 results are returned for any one call. To retrieve further results,
-use returned NextToken values with subsequent ListMetrics operations.
+Up to 500 results are returned for any one call. To retrieve additional results,
+use the returned token with subsequent calls.
 
-If you create a metric with PutMetricData , allow up to fifteen minutes for the
-metric to appear in calls to ListMetrics . Statistics about the metric, however,
-are available sooner using GetMetricStatistics .
+After you create a metric, allow up to fifteen minutes before the metric
+appears. Statistics about the metric, however, are available sooner using 
+GetMetricStatistics .
      *
      * @error InternalServiceFault   
      * @error InvalidParameterValueException   
      */
     listMetrics(params: CloudWatch.ListMetricsInput, callback?: (err: CloudWatch.InternalServiceFault|CloudWatch.InvalidParameterValueException|any, data: CloudWatch.ListMetricsOutput|any) => void): Request<CloudWatch.ListMetricsOutput|any,CloudWatch.InternalServiceFault|CloudWatch.InvalidParameterValueException|any>;
     /**
-     * Creates or updates an alarm and associates it with the specified Amazon
-CloudWatch metric. Optionally, this operation can associate one or more Amazon
-SNS resources with the alarm.
+     * Creates or updates an alarm and associates it with the specified metric.
+Optionally, this operation can associate one or more Amazon SNS resources with
+the alarm.
 
 When this operation creates an alarm, the alarm state is immediately set to 
-INSUFFICIENT_DATA . The alarm is evaluated and its StateValue is set
-appropriately. Any actions associated with the StateValue are then executed.
+INSUFFICIENT_DATA . The alarm is evaluated and its state is set appropriately.
+Any actions associated with the state are then executed.
 
-When updating an existing alarm, its StateValue is left unchanged, but it
-completely overwrites the alarm&#x27;s previous configuration.
+When you update an existing alarm, its state is left unchanged, but the update
+completely overwrites the previous configuration of the alarm.
 
-If you are using an AWS Identity and Access Management (IAM) account to create
-or modify an alarm, you must have the following Amazon EC2 permissions:
+If you are an AWS Identity and Access Management (IAM) user, you must have
+Amazon EC2 permissions for some operations:
 
- &amp;#42; ec2:DescribeInstanceStatus and ec2:DescribeInstances for all alarms on Amazon
-   EC2 instance status metrics.
+ &amp;#42; ec2:DescribeInstanceStatus and ec2:DescribeInstances for all alarms on EC2
+   instance status metrics
    
    
- * ec2:StopInstances for alarms with stop actions.
+ * ec2:StopInstances for alarms with stop actions
    
    
- * ec2:TerminateInstances for alarms with terminate actions.
+ * ec2:TerminateInstances for alarms with terminate actions
    
    
- * ec2:DescribeInstanceRecoveryAttribute , and ec2:RecoverInstances for alarms
-   with recover actions.
+ * ec2:DescribeInstanceRecoveryAttribute and ec2:RecoverInstances for alarms
+   with recover actions
    
    
 
 If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2,
-you can still create an alarm but the stop or terminate actions won&#x27;t be
-performed on the Amazon EC2 instance. However, if you are later granted
-permission to use the associated Amazon EC2 APIs, the alarm actions you created
-earlier will be performed. For more information about IAM permissions, see 
-Permissions and Policies
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html] in 
-Using IAM .
+you can still create an alarm, but the stop or terminate actions won&#x27;t be
+performed. However, if you are later granted the required permissions, the alarm
+actions that you created earlier will be performed.
 
-If you are using an IAM role (e.g., an Amazon EC2 instance profile), you cannot
-stop or terminate the instance using alarm actions. However, you can still see
-the alarm state and perform any other actions such as Amazon SNS notifications
-or Auto Scaling policies.
+If you are using an IAM role (for example, an Amazon EC2 instance profile), you
+cannot stop or terminate the instance using alarm actions. However, you can
+still see the alarm state and perform any other actions such as Amazon SNS
+notifications or Auto Scaling policies.
 
 If you are using temporary security credentials granted using the AWS Security
 Token Service (AWS STS), you cannot stop or terminate an Amazon EC2 instance
 using alarm actions.
+
+Note that you must create at least one stop, terminate, or reboot alarm using
+the Amazon EC2 or CloudWatch console to create the EC2ActionsAccess IAM role.
+After this IAM role is created, you can create stop, terminate, or reboot alarms
+using a command-line interface or an API.
      *
      * @error LimitExceededFault   
      */
@@ -203,8 +202,9 @@ rejects values that are either too small or too large. Values must be in the
 range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
 In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
 
-Data that is timestamped 24 hours or more in the past may take in excess of 48
-hours to become available from submission time using GetMetricStatistics .
+Data points with time stamps from 24 hours ago or longer can take at least 48
+hours to become available for GetMetricStatistics from the time they are
+submitted.
      *
      * @error InvalidParameterValueException   
      * @error MissingRequiredParameterException   
@@ -213,14 +213,14 @@ hours to become available from submission time using GetMetricStatistics .
      */
     putMetricData(params: CloudWatch.PutMetricDataInput, callback?: (err: CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any, data: any) => void): Request<any,CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any>;
     /**
-     * Temporarily sets the state of an alarm for testing purposes. When the updated 
-StateValue differs from the previous value, the action configured for the
-appropriate state is invoked. For example, if your alarm is configured to send
-an Amazon SNS message when an alarm is triggered, temporarily changing the
-alarm&#x27;s state to ALARM sends an Amazon SNS message. The alarm returns to its
-actual state (often within seconds). Because the alarm state change happens very
-quickly, it is typically only visible in the alarm&#x27;s History tab in the Amazon
-CloudWatch console or through DescribeAlarmHistory .
+     * Temporarily sets the state of an alarm for testing purposes. When the updated
+state differs from the previous value, the action configured for the appropriate
+state is invoked. For example, if your alarm is configured to send an Amazon SNS
+message when an alarm is triggered, temporarily changing the alarm state to 
+ALARM sends an Amazon SNS message. The alarm returns to its actual state (often
+within seconds). Because the alarm state change happens very quickly, it is
+typically only visible in the alarm&#x27;s History tab in the Amazon CloudWatch
+console or through DescribeAlarmHistory .
      *
      * @error ResourceNotFound   
      * @error InvalidFormatFault   
@@ -253,6 +253,8 @@ CloudWatch console or through DescribeAlarmHistory .
     
     export type DatapointValue = number;
     
+    export type DatapointValueMap = {[key:string]: DatapointValue};
+    
     export type Datapoints = Datapoint[];
     
     export type DimensionFilters = DimensionFilter[];
@@ -266,6 +268,10 @@ CloudWatch console or through DescribeAlarmHistory .
     export type ErrorMessage = string;
     
     export type EvaluationPeriods = number;
+    
+    export type ExtendedStatistic = string;
+    
+    export type ExtendedStatistics = ExtendedStatistic[];
     
     export type FaultDescription = string;
     
@@ -320,30 +326,32 @@ CloudWatch console or through DescribeAlarmHistory .
         Timestamp?: Timestamp;
         /** The type of alarm history item. **/
         HistoryItemType?: HistoryItemType;
-        /** A human-readable summary of the alarm history. **/
+        /** A summary of the alarm history, in text format. **/
         HistorySummary?: HistorySummary;
-        /** Machine-readable data about the alarm in JSON format. **/
+        /** Data about the alarm, in JSON format. **/
         HistoryData?: HistoryData;
     }
     export interface Datapoint {
-        /** The time stamp used for the datapoint. **/
+        /** The time stamp used for the data point. **/
         Timestamp?: Timestamp;
-        /** The number of metric values that contributed to the aggregate value of this
-datapoint. **/
+        /** The number of metric values that contributed to the aggregate value of this data
+point. **/
         SampleCount?: DatapointValue;
-        /** The average of metric values that correspond to the datapoint. **/
+        /** The average of the metric values that correspond to the data point. **/
         Average?: DatapointValue;
-        /** The sum of metric values used for the datapoint. **/
+        /** The sum of the metric values for the data point. **/
         Sum?: DatapointValue;
-        /** The minimum metric value used for the datapoint. **/
+        /** The minimum metric value for the data point. **/
         Minimum?: DatapointValue;
-        /** The maximum of the metric value used for the datapoint. **/
+        /** The maximum metric value for the data point. **/
         Maximum?: DatapointValue;
-        /** The standard unit used for the datapoint. **/
+        /** The standard unit for the data point. **/
         Unit?: StandardUnit;
+        /** The percentile statistic for the data point. **/
+        ExtendedStatistics?: DatapointValueMap;
     }
     export interface DeleteAlarmsInput {
-        /** A list of alarms to be deleted. **/
+        /** The alarms to be deleted. **/
         AlarmNames: AlarmNames;
     }
     export interface DescribeAlarmHistoryInput {
@@ -362,9 +370,9 @@ available. **/
         NextToken?: NextToken;
     }
     export interface DescribeAlarmHistoryOutput {
-        /** A list of alarm histories in JSON format. **/
+        /** The alarm histories, in JSON format. **/
         AlarmHistoryItems?: AlarmHistoryItems;
-        /** A string that marks the start of the next batch of returned results. **/
+        /** The token that marks the start of the next batch of returned results. **/
         NextToken?: NextToken;
     }
     export interface DescribeAlarmsForMetricInput {
@@ -372,25 +380,27 @@ available. **/
         MetricName: MetricName;
         /** The namespace of the metric. **/
         Namespace: Namespace;
-        /** The statistic for the metric. **/
+        /** The statistic for the metric, other than percentiles. For percentile statistics,
+use ExtendedStatistics . **/
         Statistic?: Statistic;
-        /** The list of dimensions associated with the metric. If the metric has any
-associated dimensions, you must specify them in order for the
-DescribeAlarmsForMetric to succeed. **/
+        /** The percentile statistic for the metric. Specify a value between p0.0 and p100. **/
+        ExtendedStatistic?: ExtendedStatistic;
+        /** The dimensions associated with the metric. If the metric has any associated
+dimensions, you must specify them in order for the call to succeed. **/
         Dimensions?: Dimensions;
-        /** The period in seconds over which the statistic is applied. **/
+        /** The period, in seconds, over which the statistic is applied. **/
         Period?: Period;
         /** The unit for the metric. **/
         Unit?: StandardUnit;
     }
     export interface DescribeAlarmsForMetricOutput {
-        /** A list of information for each alarm with the specified metric. **/
+        /** The information for each alarm with the specified metric. **/
         MetricAlarms?: MetricAlarms;
     }
     export interface DescribeAlarmsInput {
-        /** A list of alarm names to retrieve information for. **/
+        /** The names of the alarms. **/
         AlarmNames?: AlarmNames;
-        /** The alarm name prefix. AlarmNames cannot be specified if this parameter is
+        /** The alarm name prefix. You cannot specify AlarmNames if this parameter is
 specified. **/
         AlarmNamePrefix?: AlarmNamePrefix;
         /** The state value to be used in matching alarms. **/
@@ -404,32 +414,29 @@ available. **/
         NextToken?: NextToken;
     }
     export interface DescribeAlarmsOutput {
-        /** A list of information for the specified alarms. **/
+        /** The information for the specified alarms. **/
         MetricAlarms?: MetricAlarms;
-        /** A string that marks the start of the next batch of returned results. **/
+        /** The token that marks the start of the next batch of returned results. **/
         NextToken?: NextToken;
     }
     export interface Dimension {
         /** The name of the dimension. **/
         Name: DimensionName;
-        /** The value representing the dimension measurement **/
+        /** The value representing the dimension measurement. **/
         Value: DimensionValue;
     }
     export interface DimensionFilter {
         /** The dimension name to be matched. **/
         Name: DimensionName;
-        /** The value of the dimension to be matched.
-
-Specifying a Name without specifying a Value returns all values associated with
-that Name . **/
+        /** The value of the dimension to be matched. **/
         Value?: DimensionValue;
     }
     export interface DisableAlarmActionsInput {
-        /** The names of the alarms to disable actions for. **/
+        /** The names of the alarms. **/
         AlarmNames: AlarmNames;
     }
     export interface EnableAlarmActionsInput {
-        /** The names of the alarms to enable actions for. **/
+        /** The names of the alarms. **/
         AlarmNames: AlarmNames;
     }
     export interface GetMetricStatisticsInput {
@@ -437,44 +444,69 @@ that Name . **/
         Namespace: Namespace;
         /** The name of the metric, with or without spaces. **/
         MetricName: MetricName;
-        /** A list of dimensions describing qualities of the metric. **/
+        /** The dimensions. CloudWatch treats each unique combination of dimensions as a
+separate metric. You can&#x27;t retrieve statistics using combinations of dimensions
+that were not specially published. You must specify the same dimensions that
+were used when the metrics were created. For an example, see Dimension
+Combinations
+[http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations] 
+in the Amazon CloudWatch User Guide . **/
         Dimensions?: Dimensions;
-        /** The time stamp to use for determining the first datapoint to return. The value
-specified is inclusive; results include datapoints with the time stamp
-specified. The time stamp must be in ISO 8601 UTC format (e.g.,
-2014-09-03T23:00:00Z).
+        /** The time stamp that determines the first data point to return. Note that start
+times are evaluated relative to the time that CloudWatch receives the request.
 
-The specified start time is rounded down to the nearest value. Datapoints are
-returned for start times up to two weeks in the past. Specified start times that
-are more than two weeks in the past will not return datapoints for metrics that
-are older than two weeks.
+The value specified is inclusive; results include data points with the specified
+time stamp. The time stamp must be in ISO 8601 UTC format (for example,
+2016-10-03T23:00:00Z).
 
-Data that is timestamped 24 hours or more in the past may take in excess of 48
-hours to become available from submission time using GetMetricStatistics . **/
+CloudWatch rounds the specified time stamp as follows:
+
+ &amp;#42; Start time less than 15 days ago - Round down to the nearest whole minute.
+   For example, 12:32:34 is rounded down to 12:32:00.
+   
+   
+ * Start time between 15 and 63 days ago - Round down to the nearest 5-minute
+   clock interval. For example, 12:32:34 is rounded down to 12:30:00.
+   
+   
+ * Start time greater than 63 days ago - Round down to the nearest 1-hour clock
+   interval. For example, 12:32:34 is rounded down to 12:00:00. **/
         StartTime: Timestamp;
-        /** The time stamp to use for determining the last datapoint to return. The value
-specified is exclusive; results will include datapoints up to the time stamp
-specified. The time stamp must be in ISO 8601 UTC format (e.g.,
-2014-09-03T23:00:00Z). **/
+        /** The time stamp that determines the last data point to return.
+
+The value specified is exclusive; results will include data points up to the
+specified time stamp. The time stamp must be in ISO 8601 UTC format (for
+example, 2016-10-10T23:00:00Z). **/
         EndTime: Timestamp;
-        /** The granularity, in seconds, of the returned datapoints. A Period can be as
-short as one minute (60 seconds) or as long as one day (86,400 seconds), and
-must be a multiple of 60. The default value is 60. **/
+        /** The granularity, in seconds, of the returned data points. A period can be as
+short as one minute (60 seconds) and must be a multiple of 60. The default value
+is 60.
+
+If the StartTime parameter specifies a time stamp that is greater than 15 days
+ago, you must specify the period as follows or no data points in that time range
+is returned:
+
+ &amp;#42; Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5
+   minutes).
+   
+   
+ * Start time greater than 63 days ago - Use a multiple of 3600 seconds (1
+   hour). **/
         Period: Period;
-        /** The metric statistics to return. For information about specific statistics
-returned by GetMetricStatistics, see Statistics
-[http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Statistic] 
-in the Amazon CloudWatch Developer Guide . **/
-        Statistics: Statistics;
-        /** The specific unit for a given metric. Metrics may be reported in multiple units.
-Not supplying a unit results in all units being returned. If the metric only
-ever reports one unit, specifying a unit will have no effect. **/
+        /** The metric statistics, other than percentile. For percentile statistics, use 
+ExtendedStatistic . **/
+        Statistics?: Statistics;
+        /** The percentile statistics. Specify values between p0.0 and p100. **/
+        ExtendedStatistics?: ExtendedStatistics;
+        /** The unit for a given metric. Metrics may be reported in multiple units. Not
+supplying a unit results in all units being returned. If the metric only ever
+reports one unit, specifying a unit has no effect. **/
         Unit?: StandardUnit;
     }
     export interface GetMetricStatisticsOutput {
-        /** A label describing the specified metric. **/
+        /** A label for the specified metric. **/
         Label?: MetricLabel;
-        /** The datapoints for the specified metric. **/
+        /** The data points for the specified metric. **/
         Datapoints?: Datapoints;
     }
     export interface InternalServiceFault {
@@ -506,16 +538,16 @@ ever reports one unit, specifying a unit will have no effect. **/
         Namespace?: Namespace;
         /** The name of the metric to filter against. **/
         MetricName?: MetricName;
-        /** A list of dimensions to filter against. **/
+        /** The dimensions to filter against. **/
         Dimensions?: DimensionFilters;
         /** The token returned by a previous call to indicate that there is more data
 available. **/
         NextToken?: NextToken;
     }
     export interface ListMetricsOutput {
-        /** A list of metrics used to generate statistics for an AWS account. **/
+        /** The metrics. **/
         Metrics?: Metrics;
-        /** A string that marks the start of the next batch of returned results. **/
+        /** The token that marks the start of the next batch of returned results. **/
         NextToken?: NextToken;
     }
     export interface Metric {
@@ -523,7 +555,7 @@ available. **/
         Namespace?: Namespace;
         /** The name of the metric. **/
         MetricName?: MetricName;
-        /** A list of dimensions associated with the metric. **/
+        /** The dimensions for the metric. **/
         Dimensions?: Dimensions;
     }
     export interface MetricAlarm {
@@ -531,72 +563,72 @@ available. **/
         AlarmName?: AlarmName;
         /** The Amazon Resource Name (ARN) of the alarm. **/
         AlarmArn?: AlarmArn;
-        /** The description for the alarm. **/
+        /** The description of the alarm. **/
         AlarmDescription?: AlarmDescription;
         /** The time stamp of the last update to the alarm configuration. **/
         AlarmConfigurationUpdatedTimestamp?: Timestamp;
-        /** Indicates whether actions should be executed during any changes to the alarm&#x27;s
+        /** Indicates whether actions should be executed during any changes to the alarm
 state. **/
         ActionsEnabled?: ActionsEnabled;
-        /** The list of actions to execute when this alarm transitions into an OK state from
-any other state. Each action is specified as an Amazon Resource Name (ARN). **/
+        /** The actions to execute when this alarm transitions to the OK state from any
+other state. Each action is specified as an Amazon Resource Name (ARN). **/
         OKActions?: ResourceList;
-        /** The list of actions to execute when this alarm transitions into an ALARM state
-from any other state. Each action is specified as an Amazon Resource Name (ARN). **/
+        /** The actions to execute when this alarm transitions to the ALARM state from any
+other state. Each action is specified as an Amazon Resource Name (ARN). **/
         AlarmActions?: ResourceList;
-        /** The list of actions to execute when this alarm transitions into an 
-INSUFFICIENT_DATA state from any other state. Each action is specified as an
-Amazon Resource Name (ARN).
-
-The current WSDL lists this attribute as UnknownActions . **/
+        /** The actions to execute when this alarm transitions to the INSUFFICIENT_DATA 
+state from any other state. Each action is specified as an Amazon Resource Name
+(ARN). **/
         InsufficientDataActions?: ResourceList;
         /** The state value for the alarm. **/
         StateValue?: StateValue;
-        /** A human-readable explanation for the alarm&#x27;s state. **/
+        /** An explanation for the alarm state, in text format. **/
         StateReason?: StateReason;
-        /** An explanation for the alarm&#x27;s state in machine-readable JSON format **/
+        /** An explanation for the alarm state, in JSON format. **/
         StateReasonData?: StateReasonData;
-        /** The time stamp of the last update to the alarm&#x27;s state. **/
+        /** The time stamp of the last update to the alarm state. **/
         StateUpdatedTimestamp?: Timestamp;
-        /** The name of the alarm&#x27;s metric. **/
+        /** The name of the metric associated with the alarm. **/
         MetricName?: MetricName;
-        /** The namespace of alarm&#x27;s associated metric. **/
+        /** The namespace of the metric associated with the alarm. **/
         Namespace?: Namespace;
-        /** The statistic to apply to the alarm&#x27;s associated metric. **/
+        /** The statistic for the metric associated with the alarm, other than percentile.
+For percentile statistics, use ExtendedStatistic . **/
         Statistic?: Statistic;
-        /** The list of dimensions associated with the alarm&#x27;s associated metric. **/
+        /** The percentile statistic for the metric associated with the alarm. Specify a
+value between p0.0 and p100. **/
+        ExtendedStatistic?: ExtendedStatistic;
+        /** The dimensions for the metric associated with the alarm. **/
         Dimensions?: Dimensions;
-        /** The period in seconds over which the statistic is applied. **/
+        /** The period, in seconds, over which the statistic is applied. **/
         Period?: Period;
-        /** The unit of the alarm&#x27;s associated metric. **/
+        /** The unit of the metric associated with the alarm. **/
         Unit?: StandardUnit;
         /** The number of periods over which data is compared to the specified threshold. **/
         EvaluationPeriods?: EvaluationPeriods;
-        /** The value against which the specified statistic is compared. **/
+        /** The value to compare with the specified statistic. **/
         Threshold?: Threshold;
-        /** The arithmetic operation to use when comparing the specified Statistic and 
-Threshold . The specified Statistic value is used as the first operand. **/
+        /** The arithmetic operation to use when comparing the specified statistic and
+threshold. The specified statistic value is used as the first operand. **/
         ComparisonOperator?: ComparisonOperator;
     }
     export interface MetricDatum {
         /** The name of the metric. **/
         MetricName: MetricName;
-        /** A list of dimensions associated with the metric. Note, when using the Dimensions
-value in a query, you need to append .member.N to it (e.g.,
-Dimensions.member.N). **/
+        /** The dimensions associated with the metric. **/
         Dimensions?: Dimensions;
-        /** The time stamp used for the metric in ISO 8601 Universal Coordinated Time (UTC)
-format. If not specified, the default value is set to the time the metric data
-was received. **/
+        /** The time the metric data was received, expressed as the number of milliseconds
+since Jan 1, 1970 00:00:00 UTC. **/
         Timestamp?: Timestamp;
         /** The value for the metric.
 
-Although the Value parameter accepts numbers of type Double , Amazon CloudWatch
-rejects values that are either too small or too large. Values must be in the
-range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
-In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported. **/
+Although the parameter accepts numbers of type Double, Amazon CloudWatch rejects
+values that are either too small or too large. Values must be in the range of
+8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In
+addition, special values (for example, NaN, +Infinity, -Infinity) are not
+supported. **/
         Value?: DatapointValue;
-        /** A set of statistical values describing the metric. **/
+        /** The statistical values for the metric. **/
         StatisticValues?: StatisticSet;
         /** The unit of the metric. **/
         Unit?: StandardUnit;
@@ -606,106 +638,90 @@ In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
         message?: AwsQueryErrorMessage;
     }
     export interface PutMetricAlarmInput {
-        /** The descriptive name for the alarm. This name must be unique within the user&#x27;s
-AWS account **/
+        /** The name for the alarm. This name must be unique within the AWS account. **/
         AlarmName: AlarmName;
         /** The description for the alarm. **/
         AlarmDescription?: AlarmDescription;
-        /** Indicates whether or not actions should be executed during any changes to the
-alarm&#x27;s state. **/
+        /** Indicates whether actions should be executed during any changes to the alarm
+state. **/
         ActionsEnabled?: ActionsEnabled;
-        /** The list of actions to execute when this alarm transitions into an OK state from
-any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /** The actions to execute when this alarm transitions to an OK state from any other
+state. Each action is specified as an Amazon Resource Name (ARN).
 
-Valid Values: arn:aws:automate: region (e.g., us-east-1) :ec2:stop |
-arn:aws:automate: region (e.g., us-east-1) :ec2:terminate | arn:aws:automate: 
-region (e.g., us-east-1) :ec2:recover
+Valid Values: arn:aws:automate: region :ec2:stop | arn:aws:automate: region 
+:ec2:terminate | arn:aws:automate: region :ec2:recover
 
 Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{ customer-account 
 }:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{ 
 customer-account }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 |
 arn:aws:swf:us-east-1:{ customer-account 
-}:action/actions/AWS_EC2.InstanceId.Reboot/1.0
-
-Note: You must create at least one stop, terminate, or reboot alarm using the
-Amazon EC2 or CloudWatch console to create the EC2ActionsAccess IAM role for the
-first time. After this IAM role is created, you can create stop, terminate, or
-reboot alarms using the CLI. **/
+}:action/actions/AWS_EC2.InstanceId.Reboot/1.0 **/
         OKActions?: ResourceList;
-        /** The list of actions to execute when this alarm transitions into an ALARM state
-from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /** The actions to execute when this alarm transitions to the ALARM state from any
+other state. Each action is specified as an Amazon Resource Name (ARN).
 
-Valid Values: arn:aws:automate: region (e.g., us-east-1) :ec2:stop |
-arn:aws:automate: region (e.g., us-east-1) :ec2:terminate | arn:aws:automate: 
-region (e.g., us-east-1) :ec2:recover
+Valid Values: arn:aws:automate: region :ec2:stop | arn:aws:automate: region 
+:ec2:terminate | arn:aws:automate: region :ec2:recover
 
 Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{ customer-account 
 }:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{ 
 customer-account }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 |
 arn:aws:swf:us-east-1:{ customer-account 
-}:action/actions/AWS_EC2.InstanceId.Reboot/1.0
-
-Note: You must create at least one stop, terminate, or reboot alarm using the
-Amazon EC2 or CloudWatch console to create the EC2ActionsAccess IAM role for the
-first time. After this IAM role is created, you can create stop, terminate, or
-reboot alarms using the CLI. **/
+}:action/actions/AWS_EC2.InstanceId.Reboot/1.0 **/
         AlarmActions?: ResourceList;
-        /** The list of actions to execute when this alarm transitions into an 
-INSUFFICIENT_DATA state from any other state. Each action is specified as an
-Amazon Resource Name (ARN).
+        /** The actions to execute when this alarm transitions to the INSUFFICIENT_DATA 
+state from any other state. Each action is specified as an Amazon Resource Name
+(ARN).
 
-Valid Values: arn:aws:automate: region (e.g., us-east-1) :ec2:stop |
-arn:aws:automate: region (e.g., us-east-1) :ec2:terminate | arn:aws:automate: 
-region (e.g., us-east-1) :ec2:recover
+Valid Values: arn:aws:automate: region :ec2:stop | arn:aws:automate: region 
+:ec2:terminate | arn:aws:automate: region :ec2:recover
 
 Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{ customer-account 
 }:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{ 
 customer-account }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 |
 arn:aws:swf:us-east-1:{ customer-account 
-}:action/actions/AWS_EC2.InstanceId.Reboot/1.0
-
-Note: You must create at least one stop, terminate, or reboot alarm using the
-Amazon EC2 or CloudWatch console to create the EC2ActionsAccess IAM role for the
-first time. After this IAM role is created, you can create stop, terminate, or
-reboot alarms using the CLI. **/
+}:action/actions/AWS_EC2.InstanceId.Reboot/1.0 **/
         InsufficientDataActions?: ResourceList;
-        /** The name for the alarm&#x27;s associated metric. **/
+        /** The name for the metric associated with the alarm. **/
         MetricName: MetricName;
-        /** The namespace for the alarm&#x27;s associated metric. **/
+        /** The namespace for the metric associated with the alarm. **/
         Namespace: Namespace;
-        /** The statistic to apply to the alarm&#x27;s associated metric. **/
-        Statistic: Statistic;
-        /** The dimensions for the alarm&#x27;s associated metric. **/
+        /** The statistic for the metric associated with the alarm, other than percentile.
+For percentile statistics, use ExtendedStatistic . **/
+        Statistic?: Statistic;
+        /** The percentile statistic for the metric associated with the alarm. Specify a
+value between p0.0 and p100. **/
+        ExtendedStatistic?: ExtendedStatistic;
+        /** The dimensions for the metric associated with the alarm. **/
         Dimensions?: Dimensions;
-        /** The period in seconds over which the specified statistic is applied. **/
+        /** The period, in seconds, over which the specified statistic is applied. **/
         Period: Period;
-        /** The statistic&#x27;s unit of measure. For example, the units for the Amazon EC2
+        /** The unit of measure for the statistic. For example, the units for the Amazon EC2
 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an
 instance receives on all network interfaces. You can also specify a unit when
 you create a custom metric. Units help provide conceptual meaning to your data.
 Metric data points that specify a unit of measure, such as Percent, are
 aggregated separately.
 
-Note: If you specify a unit, you must use a unit that is appropriate for the
-metric. Otherwise, this can cause an Amazon CloudWatch alarm to get stuck in the
-INSUFFICIENT DATA state. **/
+If you specify a unit, you must use a unit that is appropriate for the metric.
+Otherwise, the Amazon CloudWatch alarm can get stuck in the INSUFFICIENT DATA 
+state. **/
         Unit?: StandardUnit;
         /** The number of periods over which data is compared to the specified threshold. **/
         EvaluationPeriods: EvaluationPeriods;
         /** The value against which the specified statistic is compared. **/
         Threshold: Threshold;
-        /** The arithmetic operation to use when comparing the specified Statistic and 
-Threshold . The specified Statistic value is used as the first operand. **/
+        /** The arithmetic operation to use when comparing the specified statistic and
+threshold. The specified statistic value is used as the first operand. **/
         ComparisonOperator: ComparisonOperator;
     }
     export interface PutMetricDataInput {
         /** The namespace for the metric data.
 
 You cannot specify a namespace that begins with &quot;AWS/&quot;. Namespaces that begin
-with &quot;AWS/&quot; are reserved for other Amazon Web Services products that send
-metrics to Amazon CloudWatch. **/
+with &quot;AWS/&quot; are reserved for use by Amazon Web Services products. **/
         Namespace: Namespace;
-        /** A list of data describing the metric. **/
+        /** The data for the metric. **/
         MetricData: MetricData;
     }
     export interface ResourceNotFound {
@@ -713,16 +729,14 @@ metrics to Amazon CloudWatch. **/
         message?: ErrorMessage;
     }
     export interface SetAlarmStateInput {
-        /** The descriptive name for the alarm. This name must be unique within the user&#x27;s
-AWS account. The maximum length is 255 characters. **/
+        /** The name for the alarm. This name must be unique within the AWS account. The
+maximum length is 255 characters. **/
         AlarmName: AlarmName;
         /** The value of the state. **/
         StateValue: StateValue;
-        /** The reason that this alarm is set to this specific state (in human-readable text
-format) **/
+        /** The reason that this alarm is set to this specific state, in text format. **/
         StateReason: StateReason;
-        /** The reason that this alarm is set to this specific state (in machine-readable
-JSON format) **/
+        /** The reason that this alarm is set to this specific state, in JSON format. **/
         StateReasonData?: StateReasonData;
     }
     export interface StatisticSet {
