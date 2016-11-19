@@ -262,7 +262,10 @@ You need permission for the lambda:GetPolicy action.
      */
     getPolicy(params: Lambda.GetPolicyRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.GetPolicyResponse|any) => void): Request<Lambda.GetPolicyResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any>;
     /**
-     * Invokes a specific Lambda function.
+     * Invokes a specific Lambda function. For an example, see Create the Lambda
+Function and Test It Manually
+[http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually] 
+.
 
 If you are using the versioning feature, you can invoke the specific function
 version by providing function version or alias name that is pointing to the
@@ -290,8 +293,12 @@ This operation requires permission for the lambda:InvokeFunction action.
      * @error InvalidSubnetIDException   
      * @error InvalidSecurityGroupIDException   
      * @error InvalidZipFileException   
+     * @error KMSDisabledException   
+     * @error KMSInvalidStateException   
+     * @error KMSAccessDeniedException   
+     * @error KMSNotFoundException   
      */
-    invoke(params: Lambda.InvocationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|Lambda.InvalidZipFileException|any, data: Lambda.InvocationResponse|any) => void): Request<Lambda.InvocationResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|Lambda.InvalidZipFileException|any>;
+    invoke(params: Lambda.InvocationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|Lambda.InvalidZipFileException|Lambda.KMSDisabledException|Lambda.KMSInvalidStateException|Lambda.KMSAccessDeniedException|Lambda.KMSNotFoundException|any, data: Lambda.InvocationResponse|any) => void): Request<Lambda.InvocationResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|Lambda.InvalidZipFileException|Lambda.KMSDisabledException|Lambda.KMSInvalidStateException|Lambda.KMSAccessDeniedException|Lambda.KMSNotFoundException|any>;
     /**
      * This API is deprecated. We recommend you use Invoke API (see Invoke ).
 
@@ -513,6 +520,12 @@ action.
     
     export type Enabled = boolean;
     
+    export type EnvironmentVariableName = string;
+    
+    export type EnvironmentVariableValue = string;
+    
+    export type EnvironmentVariables = {[key:string]: EnvironmentVariableValue};
+    
     export type EventSourceMappingsList = EventSourceMappingConfiguration[];
     
     export type EventSourcePosition = string;
@@ -532,6 +545,8 @@ action.
     export type Integer = number;
     
     export type InvocationType = string;
+    
+    export type KMSKeyArn = string;
     
     export type LogType = string;
     
@@ -613,13 +628,14 @@ If you add a permission for the Amazon S3 principal without providing the source
 ARN, any AWS account that creates a mapping to your function ARN can send events
 to invoke your Lambda function from Amazon S3. **/
         SourceArn?: Arn;
-        /** This parameter is used for S3 and SES only. The AWS account ID (without a
-hyphen) of the source owner. For example, if the SourceArn identifies a bucket,
-then this is the bucket owner&#x27;s account ID. You can use this additional
-condition to ensure the bucket you specify is owned by a specific account (it is
-possible the bucket owner deleted the bucket and some other AWS account created
-the bucket). You can also use this condition to specify all sources (that is,
-you don&#x27;t specify the SourceArn ) owned by a specific account. **/
+        /** This parameter is used for S3, SES, CloudWatch Logs and CloudWatch Rules only.
+The AWS account ID (without a hyphen) of the source owner. For example, if the 
+SourceArn identifies a bucket, then this is the bucket owner&#x27;s account ID. You
+can use this additional condition to ensure the bucket you specify is owned by a
+specific account (it is possible the bucket owner deleted the bucket and some
+other AWS account created the bucket). You can also use this condition to
+specify all sources (that is, you don&#x27;t specify the SourceArn ) owned by a
+specific account. **/
         SourceAccount?: SourceOwner;
         /** A unique token that must be supplied by the principal invoking the function.
 This is currently only used for Alexa Smart Home functions. **/
@@ -757,6 +773,11 @@ function and publish a version as an atomic operation. **/
 identifying the list of security group IDs and subnet IDs. These must belong to
 the same VPC. You must provide at least one security group and one subnet ID. **/
         VpcConfig?: VpcConfig;
+        Environment?: Environment;
+        /** The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&#x27;s
+environment variables. If not provided, AWS Lambda will use a default service
+key. **/
+        KMSKeyArn?: KMSKeyArn;
     }
     export interface DeleteAliasRequest {
         /** The Lambda function name for which the alias is created. Deleting an alias does
@@ -812,6 +833,23 @@ including all of its versions and aliases. **/
     export interface ENILimitReachedException {
         Type?: String;
         Message?: String;
+    }
+    export interface Environment {
+        /** The key-value pairs that represent your environment&#x27;s configuration settings.
+The value you specify cannot contain a &quot;,&quot;. **/
+        Variables?: EnvironmentVariables;
+    }
+    export interface EnvironmentError {
+        /** The error code returned by the environment error object. **/
+        ErrorCode?: String;
+        /** The message returned by the environment error object. **/
+        Message?: String;
+    }
+    export interface EnvironmentResponse {
+        /** The key-value pairs returned that represent your environment&#x27;s configuration
+settings or error information. **/
+        Variables?: EnvironmentVariables;
+        Error?: EnvironmentError;
     }
     export interface EventSourceMappingConfiguration {
         /** The AWS Lambda assigned opaque identifier for the mapping. **/
@@ -895,6 +933,12 @@ value based on your expected execution time. The default is 3 seconds. **/
         Version?: Version;
         /** VPC configuration associated with your Lambda function. **/
         VpcConfig?: VpcConfigResponse;
+        /** The parent object that contains your environment&#x27;s configuration settings. **/
+        Environment?: EnvironmentResponse;
+        /** The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&#x27;s
+environment variables. If empty, it means you are using the AWS Lambda default
+service key. **/
+        KMSKeyArn?: KMSKeyArn;
     }
     export interface GetAliasRequest {
         /** Function name for which the alias is created. An alias is a subresource that
@@ -1061,7 +1105,7 @@ an Handled error, see Programming Model
 present only if the invocation type is RequestResponse and the logs were
 requested. **/
         LogResult?: String;
-        /** It is the JSON representation of the object returned by the Lambda function. In
+        /** It is the JSON representation of the object returned by the Lambda function.
 This is present only if the invocation type is RequestResponse .
 
 In the event of a function error this field contains a message describing the
@@ -1078,6 +1122,22 @@ Unhandled errors AWS Lambda reports the message. **/
     export interface InvokeAsyncResponse {
         /** It will be 202 upon success. **/
         Status?: HttpStatus;
+    }
+    export interface KMSAccessDeniedException {
+        Type?: String;
+        Message?: String;
+    }
+    export interface KMSDisabledException {
+        Type?: String;
+        Message?: String;
+    }
+    export interface KMSInvalidStateException {
+        Type?: String;
+        Message?: String;
+    }
+    export interface KMSNotFoundException {
+        Type?: String;
+        Message?: String;
     }
     export interface ListAliasesRequest {
         /** Lambda function name for which the alias is created. **/
@@ -1331,6 +1391,12 @@ operation might need less memory compared to an image processing function. The
 default value is 128 MB. The value must be a multiple of 64 MB. **/
         MemorySize?: MemorySize;
         VpcConfig?: VpcConfig;
+        /** The parent object that contains your environment&#x27;s configuration settings. **/
+        Environment?: Environment;
+        /** The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&#x27;s
+environment variables. If you elect to use the AWS Lambda default service key,
+pass in an empty string (&quot;&quot;) for this parameter. **/
+        KMSKeyArn?: KMSKeyArn;
         /** The runtime environment for the Lambda function.
 
 To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use earlier
