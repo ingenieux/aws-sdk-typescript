@@ -1009,6 +1009,14 @@ aws_account_id :container-instance/ container_instance_ID . **/
         containerInstanceArn?: String;
         /** The EC2 instance ID of the container instance. **/
         ec2InstanceId?: String;
+        /** The version counter for the container instance. Every time a container instance
+experiences a change that triggers a CloudWatch event, the version counter is
+incremented. If you are replicating your Amazon ECS container instance state
+with CloudWatch events, you can compare the version of a container instance
+reported by the Amazon ECS APIs with the version reported in CloudWatch events
+for the container instance (inside the detail object) to verify that the version
+in your event stream is current. **/
+        version?: Long;
         /** The version information for the Amazon ECS container agent and Docker daemon
 running on the container instance. **/
         versionInfo?: VersionInfo;
@@ -1203,6 +1211,7 @@ target group. **/
         force?: BoxedBoolean;
     }
     export interface DeregisterContainerInstanceResponse {
+        /** The container instance that was deregistered. **/
         containerInstance?: ContainerInstance;
     }
     export interface DeregisterTaskDefinitionRequest {
@@ -1689,6 +1698,7 @@ registered). **/
         attributes?: Attributes;
     }
     export interface RegisterContainerInstanceResponse {
+        /** The container instance that was registered. **/
         containerInstance?: ContainerInstance;
     }
     export interface RegisterTaskDefinitionRequest {
@@ -1909,6 +1919,7 @@ API operations on this task. Up to 255 characters are allowed in this message. *
         reason?: String;
     }
     export interface StopTaskResponse {
+        /** The task that was stopped. **/
         task?: Task;
     }
     export interface SubmitContainerStateChangeRequest {
@@ -1970,6 +1981,13 @@ request. **/
 ECS service, then the startedBy parameter contains the deployment ID of the
 service that starts it. **/
         startedBy?: String;
+        /** The version counter for the task. Every time a task experiences a change that
+triggers a CloudWatch event, the version counter is incremented. If you are
+replicating your Amazon ECS task state with CloudWatch events, you can compare
+the version of a task reported by the Amazon ECS APIs with the version reported
+in CloudWatch events for the task (inside the detail object) to verify that the
+version in your event stream is current. **/
+        version?: Long;
         /** The reason the task was stopped. **/
         stoppedReason?: String;
         /** The Unix timestamp for when the task was created (the task entered the PENDING 
@@ -2052,6 +2070,7 @@ agent. **/
         containerInstance: String;
     }
     export interface UpdateContainerAgentResponse {
+        /** The container instance for which the container agent was updated. **/
         containerInstance?: ContainerInstance;
     }
     export interface UpdateInProgressException {

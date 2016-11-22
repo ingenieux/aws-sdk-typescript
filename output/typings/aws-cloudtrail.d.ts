@@ -31,15 +31,17 @@ automatically. For information about the AWS SDKs, including how to download and
 install them, see the Tools for Amazon Web Services page
 [http://aws.amazon.com/tools/] .
 
-See the CloudTrail User Guide for information about the data that is included
-with each AWS API call listed in the log files.
+See the AWS CloudTrail User Guide
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html] 
+for information about the data that is included with each AWS API call listed in
+the log files.
    *
    */
   export class CloudTrail extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * Adds one or more tags to a trail, up to a limit of 10. Tags must be unique per
+     * Adds one or more tags to a trail, up to a limit of 50. Tags must be unique per
 trail. Overwrites an existing tag&#x27;s value when a new value is specified for an
 existing tag key. If you specify a key without a value, the tag will be created
 with the specified key and a value of null. You can tag a trail that applies to
@@ -103,6 +105,30 @@ account.
      */
     describeTrails(params: CloudTrail.DescribeTrailsRequest, callback?: (err: CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.DescribeTrailsResponse|any) => void): Request<CloudTrail.DescribeTrailsResponse|any,CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
     /**
+     * Describes the settings for the event selectors that you configured for your
+trail. The information returned for your event selectors includes the following:
+
+ &amp;#42; The S3 objects that you are logging for data events.
+   
+   
+ * If your event selector includes management events.
+   
+   
+ * If your event selector includes read-only events, write-only events, or all.
+   
+   
+
+For more information, see Configuring Event Selectors for Trails
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html] 
+in the AWS CloudTrail User Guide .
+     *
+     * @error TrailNotFoundException   
+     * @error InvalidTrailNameException   
+     * @error UnsupportedOperationException   
+     * @error OperationNotPermittedException   
+     */
+    getEventSelectors(params: CloudTrail.GetEventSelectorsRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.GetEventSelectorsResponse|any) => void): Request<CloudTrail.GetEventSelectorsResponse|any,CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
+    /**
      * Returns a JSON-formatted list of information about the specified trail. Fields
 include information on delivery errors, Amazon SNS and Amazon S3 errors, and
 start and stop logging times for each trail. This operation returns trail status
@@ -145,12 +171,27 @@ corresponding public key.
      * Looks up API activity events captured by CloudTrail that create, update, or
 delete resources in your account. Events for a region can be looked up for the
 times in which you had CloudTrail turned on in that region during the last seven
-days. Lookup supports five different attributes: time range (defined by a start
-time and end time), user name, event name, resource type, and resource name. All
-attributes are optional. The maximum number of attributes that can be specified
-in any one lookup request are time range and one other attribute. The default
-number of results returned is 10, with a maximum of 50 possible. The response
-includes a token that you can use to get the next page of results.
+days. Lookup supports the following attributes:
+
+ &amp;#42; Event ID
+   
+   
+ * Event name
+   
+   
+ * Resource name
+   
+   
+ * Resource type
+   
+   
+ * User name
+   
+   
+
+All attributes are optional. The default number of results returned is 10, with
+a maximum of 50 possible. The response includes a token that you can use to get
+the next page of results.
 
 The rate of lookup requests is limited to one per second per account. If this
 limit is exceeded, a throttling error occurs.
@@ -164,6 +205,51 @@ lookup if CloudTrail logging was not enabled when the events occurred.
      * @error InvalidNextTokenException   
      */
     lookupEvents(params: CloudTrail.LookupEventsRequest, callback?: (err: CloudTrail.InvalidLookupAttributesException|CloudTrail.InvalidTimeRangeException|CloudTrail.InvalidMaxResultsException|CloudTrail.InvalidNextTokenException|any, data: CloudTrail.LookupEventsResponse|any) => void): Request<CloudTrail.LookupEventsResponse|any,CloudTrail.InvalidLookupAttributesException|CloudTrail.InvalidTimeRangeException|CloudTrail.InvalidMaxResultsException|CloudTrail.InvalidNextTokenException|any>;
+    /**
+     * Configures an event selector for your trail. Use event selectors to specify the
+type of events that you want your trail to log. When an event occurs in your
+account, CloudTrail evaluates the event selectors in all trails. For each trail,
+if the event matches any event selector, the trail processes and logs the event.
+If the event doesn&#x27;t match any event selector, the trail doesn&#x27;t log the event.
+
+Example
+
+ 1. You create an event selector for a trail and specify that you want
+    write-only events.
+    
+    
+ 2. The EC2 GetConsoleOutput and RunInstances API operations occur in your
+    account.
+    
+    
+ 3. CloudTrail evaluates whether the events match your event selectors.
+    
+    
+ 4. The RunInstances is a write-only event and it matches your event selector.
+    The trail logs the event.
+    
+    
+ 5. The GetConsoleOutput is a read-only event but it doesn&#x27;t match your event
+    selector. The trail doesn&#x27;t log the event.
+    
+    
+
+The PutEventSelectors operation must be called from the region in which the
+trail was created; otherwise, an InvalidHomeRegionException is thrown.
+
+You can configure up to five event selectors for each trail. For more
+information, see Configuring Event Selectors for Trails
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html] 
+in the AWS CloudTrail User Guide .
+     *
+     * @error TrailNotFoundException   
+     * @error InvalidTrailNameException   
+     * @error InvalidHomeRegionException   
+     * @error InvalidEventSelectorsException   
+     * @error UnsupportedOperationException   
+     * @error OperationNotPermittedException   
+     */
+    putEventSelectors(params: CloudTrail.PutEventSelectorsRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|CloudTrail.InvalidEventSelectorsException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.PutEventSelectorsResponse|any) => void): Request<CloudTrail.PutEventSelectorsResponse|any,CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|CloudTrail.InvalidEventSelectorsException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
     /**
      * Removes the specified tags from a trail.
      *
@@ -242,7 +328,13 @@ otherwise, an InvalidHomeRegionException is thrown.
     
     export type ByteBuffer = any;
     
+    export type DataResourceValues = String[];
+    
+    export type DataResources = DataResource[];
+    
     export type Date = number;
+    
+    export type EventSelectors = EventSelector[];
     
     export type EventsList = Event[];
     
@@ -255,6 +347,8 @@ otherwise, an InvalidHomeRegionException is thrown.
     export type NextToken = string;
     
     export type PublicKeyList = PublicKey[];
+    
+    export type ReadWriteType = string;
     
     export type ResourceIdList = String[];
     
@@ -276,7 +370,7 @@ format of a trail ARN is:
 
 arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         ResourceId: String;
-        /** Contains a list of CloudTrail tags, up to a limit of 10. **/
+        /** Contains a list of CloudTrail tags, up to a limit of 50 **/
         TagsList?: TagsList;
     }
     export interface AddTagsResponse {
@@ -402,11 +496,24 @@ value is a fully specified ARN to a KMS key in the format:
 arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
         KmsKeyId?: String;
     }
+    export interface DataResource {
+        /** The resource type in which you want to log data events. You can specify only the
+following value: AWS::S3::Object . **/
+        Type?: String;
+        /** A list of ARN-like strings for the specified S3 objects.
+
+To log data events for all objects in an S3 bucket, specify the bucket and an
+empty object prefix such as arn:aws:s3:::bucket-1/ . The trail logs data events
+for all objects in this S3 bucket.
+
+To log data events for specific objects, specify the S3 bucket and object prefix
+such as arn:aws:s3:::bucket-1/example-images . The trail logs data events for
+objects in this S3 bucket that match the prefix. **/
+        Values?: DataResourceValues;
+    }
     export interface DeleteTrailRequest {
         /** Specifies the name or the CloudTrail ARN of the trail to be deleted. The format
-of a trail ARN is:
-
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+of a trail ARN is: arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
     }
     export interface DeleteTrailResponse {
@@ -450,6 +557,8 @@ The default is true. **/
         EventName?: String;
         /** The date and time of the event returned. **/
         EventTime?: Date;
+        /** The AWS service that the request was made to. **/
+        EventSource?: String;
         /** A user name or role name of the requester that called the API in the event
 returned. **/
         Username?: String;
@@ -457,6 +566,63 @@ returned. **/
         Resources?: ResourceList;
         /** A JSON string that contains a representation of the event returned. **/
         CloudTrailEvent?: String;
+    }
+    export interface EventSelector {
+        /** Specify if you want your trail to log read-only events, write-only events, or
+all. For example, the EC2 GetConsoleOutput is a read-only API operation and 
+RunInstances is a write-only API operation.
+
+By default, the value is All . **/
+        ReadWriteType?: ReadWriteType;
+        /** Specify if you want your event selector to include management events for your
+trail.
+
+For more information, see Management Events
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#event-selector-for-management-events] 
+in the AWS CloudTrail User Guide .
+
+By default, the value is true . **/
+        IncludeManagementEvents?: Boolean;
+        /** CloudTrail supports logging only data events for S3 objects. You can specify up
+to 50 S3 buckets and object prefixes for an event selector.
+
+For more information, see Data Events
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#data-events-resources] 
+in the AWS CloudTrail User Guide . **/
+        DataResources?: DataResources;
+    }
+    export interface GetEventSelectorsRequest {
+        /** Specifies the name of the trail or trail ARN. If you specify a trail name, the
+string must meet the following requirements:
+
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+   underscores (_), or dashes (-)
+   
+   
+ * Start with a letter or number, and end with a letter or number
+   
+   
+ * Be between 3 and 128 characters
+   
+   
+ * Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
+   my--namespace are invalid.
+   
+   
+ * Not be in IP address format (for example, 192.168.5.4)
+   
+   
+
+If you specify a trail ARN, it must be in the format:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+        TrailName?: String;
+    }
+    export interface GetEventSelectorsResponse {
+        /** The specified trail ARN that has the event selectors. **/
+        TrailARN?: String;
+        /** The event selectors that are configured for the trail. **/
+        EventSelectors?: EventSelectors;
     }
     export interface GetTrailStatusRequest {
         /** Specifies the name or the CloudTrail ARN of the trail for which you are
@@ -540,6 +706,8 @@ CloudTrail can again write to the bucket. **/
     export interface InvalidCloudWatchLogsLogGroupArnException {
     }
     export interface InvalidCloudWatchLogsRoleArnException {
+    }
+    export interface InvalidEventSelectorsException {
     }
     export interface InvalidHomeRegionException {
     }
@@ -660,6 +828,45 @@ the call with NextToken should include those same parameters. **/
         /** The fingerprint of the public key. **/
         Fingerprint?: String;
     }
+    export interface PutEventSelectorsRequest {
+        /** Specifies the name of the trail or trail ARN. If you specify a trail name, the
+string must meet the following requirements:
+
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+   underscores (_), or dashes (-)
+   
+   
+ * Start with a letter or number, and end with a letter or number
+   
+   
+ * Be between 3 and 128 characters
+   
+   
+ * Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
+   my--namespace are invalid.
+   
+   
+ * Not be in IP address format (for example, 192.168.5.4)
+   
+   
+
+If you specify a trail ARN, it must be in the format:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+        TrailName?: String;
+        /** Specifies the settings for your event selectors. You can configure up to five
+event selectors for a trail. **/
+        EventSelectors?: EventSelectors;
+    }
+    export interface PutEventSelectorsResponse {
+        /** Specifies the ARN of the trail that was updated with event selectors. The format
+of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+        TrailARN?: String;
+        /** Specifies the event selectors configured for your trail. **/
+        EventSelectors?: EventSelectors;
+    }
     export interface RemoveTagsRequest {
         /** Specifies the ARN of the trail from which tags should be removed. The format of
 a trail ARN is:
@@ -771,6 +978,8 @@ value is a fully specified ARN to a KMS key in the format:
 
 arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
         KmsKeyId?: String;
+        /** Specifies if the trail has custom event selectors. **/
+        HasCustomEventSelectors?: Boolean;
     }
     export interface TrailAlreadyExistsException {
     }
