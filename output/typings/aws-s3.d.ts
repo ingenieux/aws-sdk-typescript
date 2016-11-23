@@ -790,6 +790,8 @@ parts storage.
     
     export type TargetPrefix = string;
     
+    export type Tier = string;
+    
     export type Token = string;
     
     export type TopicArn = string;
@@ -1498,6 +1500,10 @@ Useful for downloading just a part of an object. **/
         Bucket: BucketName;
         Key: ObjectKey;
         RequestPayer?: RequestPayer;
+    }
+    export interface GlacierJobParameters {
+        /** Glacier retrieval tier at which the restore will be processed. **/
+        Tier: Tier;
     }
     export interface Grant {
         Grantee?: Grantee;
@@ -2307,6 +2313,8 @@ not supported. **/
     export interface RestoreRequest {
         /** Lifetime of the active copy in days **/
         Days: Days;
+        /** Glacier related prameters pertaining to this job. **/
+        GlacierJobParameters?: GlacierJobParameters;
     }
     export interface RoutingRule {
         /** A container for describing a condition that must be met for the specified
