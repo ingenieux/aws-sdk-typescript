@@ -66,15 +66,33 @@ Markers) in the bucket must be deleted before the bucket itself can be deleted.
      */
     deleteBucket(params: S3.DeleteBucketRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
+     * Deletes an analytics configuration for the bucket (specified by the analytics
+configuration ID).
+     *
+     */
+    deleteBucketAnalyticsConfiguration(params: S3.DeleteBucketAnalyticsConfigurationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
+    /**
      * Deletes the cors configuration information set for the bucket.
      *
      */
     deleteBucketCors(params: S3.DeleteBucketCorsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
+     * Deletes an inventory configuration (identified by the inventory ID) from the
+bucket.
+     *
+     */
+    deleteBucketInventoryConfiguration(params: S3.DeleteBucketInventoryConfigurationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
+    /**
      * Deletes the lifecycle configuration from the bucket.
      *
      */
     deleteBucketLifecycle(params: S3.DeleteBucketLifecycleRequest, callback?: (err: any, data: any) => void): Request<any,any>;
+    /**
+     * Deletes a metrics configuration (specified by the metrics configuration ID) from
+the bucket.
+     *
+     */
+    deleteBucketMetricsConfiguration(params: S3.DeleteBucketMetricsConfigurationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the policy from the bucket.
      *
@@ -103,6 +121,11 @@ version, Amazon S3 does not remove any objects.
      */
     deleteObject(params: S3.DeleteObjectRequest, callback?: (err: any, data: S3.DeleteObjectOutput|any) => void): Request<S3.DeleteObjectOutput|any,any>;
     /**
+     * Removes the tag-set from an existing object.
+     *
+     */
+    deleteObjectTagging(params: S3.DeleteObjectTaggingRequest, callback?: (err: any, data: S3.DeleteObjectTaggingOutput|any) => void): Request<S3.DeleteObjectTaggingOutput|any,any>;
+    /**
      * This operation enables you to delete multiple objects from a bucket using a
 single HTTP request. You may specify up to 1000 keys.
      *
@@ -119,10 +142,22 @@ single HTTP request. You may specify up to 1000 keys.
      */
     getBucketAcl(params: S3.GetBucketAclRequest, callback?: (err: any, data: S3.GetBucketAclOutput|any) => void): Request<S3.GetBucketAclOutput|any,any>;
     /**
+     * Gets an analytics configuration for the bucket (specified by the analytics
+configuration ID).
+     *
+     */
+    getBucketAnalyticsConfiguration(params: S3.GetBucketAnalyticsConfigurationRequest, callback?: (err: any, data: S3.GetBucketAnalyticsConfigurationOutput|any) => void): Request<S3.GetBucketAnalyticsConfigurationOutput|any,any>;
+    /**
      * Returns the cors configuration for the bucket.
      *
      */
     getBucketCors(params: S3.GetBucketCorsRequest, callback?: (err: any, data: S3.GetBucketCorsOutput|any) => void): Request<S3.GetBucketCorsOutput|any,any>;
+    /**
+     * Returns an inventory configuration (identified by the inventory ID) from the
+bucket.
+     *
+     */
+    getBucketInventoryConfiguration(params: S3.GetBucketInventoryConfigurationRequest, callback?: (err: any, data: S3.GetBucketInventoryConfigurationOutput|any) => void): Request<S3.GetBucketInventoryConfigurationOutput|any,any>;
     /**
      * Deprecated, see the GetBucketLifecycleConfiguration operation.
      *
@@ -144,6 +179,12 @@ and modify that status. To use GET, you must be the bucket owner.
      *
      */
     getBucketLogging(params: S3.GetBucketLoggingRequest, callback?: (err: any, data: S3.GetBucketLoggingOutput|any) => void): Request<S3.GetBucketLoggingOutput|any,any>;
+    /**
+     * Gets a metrics configuration (specified by the metrics configuration ID) from
+the bucket.
+     *
+     */
+    getBucketMetricsConfiguration(params: S3.GetBucketMetricsConfigurationRequest, callback?: (err: any, data: S3.GetBucketMetricsConfigurationOutput|any) => void): Request<S3.GetBucketMetricsConfigurationOutput|any,any>;
     /**
      * Deprecated, see the GetBucketNotificationConfiguration operation.
      *
@@ -197,6 +238,11 @@ and modify that status. To use GET, you must be the bucket owner.
      */
     getObjectAcl(params: S3.GetObjectAclRequest, callback?: (err: S3.NoSuchKey|any, data: S3.GetObjectAclOutput|any) => void): Request<S3.GetObjectAclOutput|any,S3.NoSuchKey|any>;
     /**
+     * Returns the tag-set of an object.
+     *
+     */
+    getObjectTagging(params: S3.GetObjectTaggingRequest, callback?: (err: any, data: S3.GetObjectTaggingOutput|any) => void): Request<S3.GetObjectTaggingOutput|any,any>;
+    /**
      * Return torrent files from a bucket.
      *
      */
@@ -216,6 +262,21 @@ metadata. To use HEAD, you must have READ access to the object.
      * @error NoSuchKey   
      */
     headObject(params: S3.HeadObjectRequest, callback?: (err: S3.NoSuchKey|any, data: S3.HeadObjectOutput|any) => void): Request<S3.HeadObjectOutput|any,S3.NoSuchKey|any>;
+    /**
+     * Lists the analytics configurations for the bucket.
+     *
+     */
+    listBucketAnalyticsConfigurations(params: S3.ListBucketAnalyticsConfigurationsRequest, callback?: (err: any, data: S3.ListBucketAnalyticsConfigurationsOutput|any) => void): Request<S3.ListBucketAnalyticsConfigurationsOutput|any,any>;
+    /**
+     * Returns a list of inventory configurations for the bucket.
+     *
+     */
+    listBucketInventoryConfigurations(params: S3.ListBucketInventoryConfigurationsRequest, callback?: (err: any, data: S3.ListBucketInventoryConfigurationsOutput|any) => void): Request<S3.ListBucketInventoryConfigurationsOutput|any,any>;
+    /**
+     * Lists the metrics configurations for the bucket.
+     *
+     */
+    listBucketMetricsConfigurations(params: S3.ListBucketMetricsConfigurationsRequest, callback?: (err: any, data: S3.ListBucketMetricsConfigurationsOutput|any) => void): Request<S3.ListBucketMetricsConfigurationsOutput|any,any>;
     /**
      * Returns a list of all buckets owned by the authenticated sender of the request.
      *
@@ -264,10 +325,22 @@ use this revised API for new application development.
      */
     putBucketAcl(params: S3.PutBucketAclRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
+     * Sets an analytics configuration for the bucket (specified by the analytics
+configuration ID).
+     *
+     */
+    putBucketAnalyticsConfiguration(params: S3.PutBucketAnalyticsConfigurationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
+    /**
      * Sets the cors configuration for a bucket.
      *
      */
     putBucketCors(params: S3.PutBucketCorsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
+    /**
+     * Adds an inventory configuration (identified by the inventory ID) from the
+bucket.
+     *
+     */
+    putBucketInventoryConfiguration(params: S3.PutBucketInventoryConfigurationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deprecated, see the PutBucketLifecycleConfiguration operation.
      *
@@ -286,6 +359,12 @@ you must be the bucket owner.
      *
      */
     putBucketLogging(params: S3.PutBucketLoggingRequest, callback?: (err: any, data: any) => void): Request<any,any>;
+    /**
+     * Sets a metrics configuration (specified by the metrics configuration ID) for the
+bucket.
+     *
+     */
+    putBucketMetricsConfiguration(params: S3.PutBucketMetricsConfigurationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deprecated, see the PutBucketNotificationConfiguraiton operation.
      *
@@ -346,6 +425,11 @@ object that already exists in a bucket
      * @error NoSuchKey   
      */
     putObjectAcl(params: S3.PutObjectAclRequest, callback?: (err: S3.NoSuchKey|any, data: S3.PutObjectAclOutput|any) => void): Request<S3.PutObjectAclOutput|any,S3.NoSuchKey|any>;
+    /**
+     * Sets the supplied tag-set to an object that already exists in a bucket
+     *
+     */
+    putObjectTagging(params: S3.PutObjectTaggingRequest, callback?: (err: any, data: S3.PutObjectTaggingOutput|any) => void): Request<S3.PutObjectTaggingOutput|any,any>;
     /**
      * Restores an archived copy of an object back into Amazon S3
      *
@@ -462,6 +546,8 @@ parts storage.
     
     export type AcceptRanges = string;
     
+    export type AccountId = string;
+    
     export type AllowedHeader = string;
     
     export type AllowedHeaders = AllowedHeader[];
@@ -473,6 +559,12 @@ parts storage.
     export type AllowedOrigin = string;
     
     export type AllowedOrigins = AllowedOrigin[];
+    
+    export type AnalyticsConfigurationList = AnalyticsConfiguration[];
+    
+    export type AnalyticsId = string;
+    
+    export type AnalyticsS3ExportFileFormat = string;
     
     export type Body = any;
     
@@ -620,6 +712,22 @@ parts storage.
     
     export type Initiated = number;
     
+    export type InventoryConfigurationList = InventoryConfiguration[];
+    
+    export type InventoryFormat = string;
+    
+    export type InventoryFrequency = string;
+    
+    export type InventoryId = string;
+    
+    export type InventoryIncludedObjectVersions = string;
+    
+    export type InventoryOptionalField = string;
+    
+    export type InventoryOptionalFields = InventoryOptionalField[];
+    
+    export type IsEnabled = boolean;
+    
     export type IsLatest = boolean;
     
     export type IsTruncated = boolean;
@@ -665,6 +773,10 @@ parts storage.
     export type MetadataKey = string;
     
     export type MetadataValue = string;
+    
+    export type MetricsConfigurationList = MetricsConfiguration[];
+    
+    export type MetricsId = string;
     
     export type MissingMeta = number;
     
@@ -780,9 +892,17 @@ parts storage.
     
     export type StorageClass = string;
     
+    export type StorageClassAnalysisSchemaVersion = string;
+    
     export type Suffix = string;
     
+    export type TagCount = number;
+    
     export type TagSet = Tag[];
+    
+    export type TaggingDirective = string;
+    
+    export type TaggingHeader = string;
     
     export type TargetBucket = string;
     
@@ -836,6 +956,48 @@ abort an Incomplete Multipart Upload. **/
         /** A list of grants. **/
         Grants?: Grants;
         Owner?: Owner;
+    }
+    export interface AnalyticsAndOperator {
+        /** The prefix to use when evaluating an AND predicate. **/
+        Prefix?: Prefix;
+        /** The list of tags to use when evaluating an AND predicate. **/
+        Tags?: TagSet;
+    }
+    export interface AnalyticsConfiguration {
+        /** The identifier used to represent an analytics configuration. **/
+        Id: AnalyticsId;
+        /** The filter used to describe a set of objects for analyses. A filter must have
+exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no
+filter is provided, all objects will be considered in any analysis. **/
+        Filter?: AnalyticsFilter;
+        /** If present, it indicates that data related to access patterns will be collected
+and made available to analyze the tradeoffs between different storage classes. **/
+        StorageClassAnalysis: StorageClassAnalysis;
+    }
+    export interface AnalyticsExportDestination {
+        /** A destination signifying output to an S3 bucket. **/
+        S3BucketDestination: AnalyticsS3BucketDestination;
+    }
+    export interface AnalyticsFilter {
+        /** The prefix to use when evaluating an analytics filter. **/
+        Prefix?: Prefix;
+        /** The tag to use when evaluating an analytics filter. **/
+        Tag?: Tag;
+        /** A conjunction (logical AND) of predicates, which is used in evaluating an
+analytics filter. The operator must have at least two predicates. **/
+        And?: AnalyticsAndOperator;
+    }
+    export interface AnalyticsS3BucketDestination {
+        /** The file format used when exporting data to Amazon S3. **/
+        Format: AnalyticsS3ExportFileFormat;
+        /** The account ID that owns the destination bucket. If no account ID is provided,
+the owner will not be validated prior to exporting data. **/
+        BucketAccountId?: AccountId;
+        /** The Amazon resource name (ARN) of the bucket to which data is exported. **/
+        Bucket: BucketName;
+        /** The prefix to use when exporting data. The exported data begins with this
+prefix. **/
+        Prefix?: Prefix;
     }
     export interface Bucket {
         /** The name of the bucket. **/
@@ -998,6 +1160,9 @@ slash (/). Must be URL-encoded. **/
         /** Specifies whether the metadata is copied from the source object or replaced with
 metadata provided in the request. **/
         MetadataDirective?: MetadataDirective;
+        /** Specifies whether the object tag-set are copied from the source object or
+replaced with tag-set provided in the request. **/
+        TaggingDirective?: TaggingDirective;
         /** The Server-side encryption algorithm used when storing this object in S3 (e.g.,
 AES256, aws:kms). **/
         ServerSideEncryption?: ServerSideEncryption;
@@ -1036,6 +1201,10 @@ Amazon S3 uses this header for a message integrity check to ensure the
 encryption key was transmitted without error. **/
         CopySourceSSECustomerKeyMD5?: CopySourceSSECustomerKeyMD5;
         RequestPayer?: RequestPayer;
+        /** The tag-set for the object destination object this value must be used in
+conjunction with the TaggingDirective. The tag-set must be encoded as URL Query
+parameters **/
+        Tagging?: TaggingHeader;
     }
     export interface CopyObjectResult {
         ETag?: ETag;
@@ -1164,11 +1333,29 @@ http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signatur
 must set its value to true. **/
         Quiet?: Quiet;
     }
+    export interface DeleteBucketAnalyticsConfigurationRequest {
+        /** The name of the bucket from which an analytics configuration is deleted. **/
+        Bucket: BucketName;
+        /** The identifier used to represent an analytics configuration. **/
+        Id: AnalyticsId;
+    }
     export interface DeleteBucketCorsRequest {
         Bucket: BucketName;
     }
+    export interface DeleteBucketInventoryConfigurationRequest {
+        /** The name of the bucket containing the inventory configuration to delete. **/
+        Bucket: BucketName;
+        /** The ID used to identify the inventory configuration. **/
+        Id: InventoryId;
+    }
     export interface DeleteBucketLifecycleRequest {
         Bucket: BucketName;
+    }
+    export interface DeleteBucketMetricsConfigurationRequest {
+        /** The name of the bucket containing the metrics configuration to delete. **/
+        Bucket: BucketName;
+        /** The ID used to identify the metrics configuration. **/
+        Id: MetricsId;
     }
     export interface DeleteBucketPolicyRequest {
         Bucket: BucketName;
@@ -1215,6 +1402,16 @@ value that is displayed on your authentication device. **/
         /** VersionId used to reference a specific version of the object. **/
         VersionId?: ObjectVersionId;
         RequestPayer?: RequestPayer;
+    }
+    export interface DeleteObjectTaggingOutput {
+        /** The versionId of the object the tag-set was removed from. **/
+        VersionId?: ObjectVersionId;
+    }
+    export interface DeleteObjectTaggingRequest {
+        Bucket: BucketName;
+        Key: ObjectKey;
+        /** The versionId of the object that the tag-set will be removed from. **/
+        VersionId?: ObjectVersionId;
     }
     export interface DeleteObjectsOutput {
         Deleted?: DeletedObjects;
@@ -1278,11 +1475,31 @@ Amazon Simple Storage Service Developer Guide. **/
     export interface GetBucketAclRequest {
         Bucket: BucketName;
     }
+    export interface GetBucketAnalyticsConfigurationOutput {
+        /** The configuration and any analyses for the analytics filter. **/
+        AnalyticsConfiguration?: AnalyticsConfiguration;
+    }
+    export interface GetBucketAnalyticsConfigurationRequest {
+        /** The name of the bucket from which an analytics configuration is retrieved. **/
+        Bucket: BucketName;
+        /** The identifier used to represent an analytics configuration. **/
+        Id: AnalyticsId;
+    }
     export interface GetBucketCorsOutput {
         CORSRules?: CORSRules;
     }
     export interface GetBucketCorsRequest {
         Bucket: BucketName;
+    }
+    export interface GetBucketInventoryConfigurationOutput {
+        /** Specifies the inventory configuration. **/
+        InventoryConfiguration?: InventoryConfiguration;
+    }
+    export interface GetBucketInventoryConfigurationRequest {
+        /** The name of the bucket containing the inventory configuration to retrieve. **/
+        Bucket: BucketName;
+        /** The ID used to identify the inventory configuration. **/
+        Id: InventoryId;
     }
     export interface GetBucketLifecycleConfigurationOutput {
         Rules?: LifecycleRules;
@@ -1307,6 +1524,16 @@ Amazon Simple Storage Service Developer Guide. **/
     }
     export interface GetBucketLoggingRequest {
         Bucket: BucketName;
+    }
+    export interface GetBucketMetricsConfigurationOutput {
+        /** Specifies the metrics configuration. **/
+        MetricsConfiguration?: MetricsConfiguration;
+    }
+    export interface GetBucketMetricsConfigurationRequest {
+        /** The name of the bucket containing the metrics configuration to retrieve. **/
+        Bucket: BucketName;
+        /** The ID used to identify the metrics configuration. **/
+        Id: MetricsId;
     }
     export interface GetBucketNotificationConfigurationRequest {
         /** Name of the bucket to get the notification configuration for. **/
@@ -1440,6 +1667,8 @@ encryption key that was used for the object. **/
         ReplicationStatus?: ReplicationStatus;
         /** The count of parts this object has. **/
         PartsCount?: PartsCount;
+        /** The number of tags, if any, on the object. **/
+        TagCount?: TagCount;
     }
     export interface GetObjectRequest {
         Bucket: BucketName;
@@ -1491,6 +1720,15 @@ encryption key was transmitted without error. **/
 10,000. Effectively performs a &#x27;ranged&#x27; GET request for the part specified.
 Useful for downloading just a part of an object. **/
         PartNumber?: PartNumber;
+    }
+    export interface GetObjectTaggingOutput {
+        VersionId?: ObjectVersionId;
+        TagSet: TagSet;
+    }
+    export interface GetObjectTaggingRequest {
+        Bucket: BucketName;
+        Key: ObjectKey;
+        VersionId: ObjectVersionId;
     }
     export interface GetObjectTorrentOutput {
         Body?: Body;
@@ -1646,6 +1884,47 @@ principal is an IAM User, it provides a user ARN value. **/
         /** Name of the Principal. **/
         DisplayName?: DisplayName;
     }
+    export interface InventoryConfiguration {
+        /** Contains information about where to publish the inventory results. **/
+        Destination: InventoryDestination;
+        /** Specifies whether the inventory is enabled or disabled. **/
+        IsEnabled: IsEnabled;
+        /** Specifies an inventory filter. The inventory only includes objects that meet the
+filter&#x27;s criteria. **/
+        Filter?: InventoryFilter;
+        /** The ID used to identify the inventory configuration. **/
+        Id: InventoryId;
+        /** Specifies which object version(s) to included in the inventory results. **/
+        IncludedObjectVersions: InventoryIncludedObjectVersions;
+        /** Contains the optional fields that are included in the inventory results. **/
+        OptionalFields?: InventoryOptionalFields;
+        /** Specifies the schedule for generating inventory results. **/
+        Schedule: InventorySchedule;
+    }
+    export interface InventoryDestination {
+        /** Contains the bucket name, file format, bucket owner (optional), and prefix
+(optional) where inventory results are published. **/
+        S3BucketDestination: InventoryS3BucketDestination;
+    }
+    export interface InventoryFilter {
+        /** The prefix that an object must have to be included in the inventory results. **/
+        Prefix: Prefix;
+    }
+    export interface InventoryS3BucketDestination {
+        /** The ID of the account that owns the destination bucket. **/
+        AccountId?: AccountId;
+        /** The Amazon resource name (ARN) of the bucket where inventory results will be
+published. **/
+        Bucket: BucketName;
+        /** Specifies the output format of the inventory results. **/
+        Format: InventoryFormat;
+        /** The prefix that is prepended to all inventory results. **/
+        Prefix?: Prefix;
+    }
+    export interface InventorySchedule {
+        /** Specifies how frequently inventory results are produced. **/
+        Frequency: InventoryFrequency;
+    }
     export interface LambdaFunctionConfiguration {
         Id?: NotificationId;
         /** Lambda cloud function ARN that Amazon S3 can invoke when it detects events of
@@ -1674,8 +1953,10 @@ Lifecycle Expiration Policy. **/
         Expiration?: LifecycleExpiration;
         /** Unique identifier for the rule. The value cannot be longer than 255 characters. **/
         ID?: ID;
-        /** Prefix identifying one or more objects to which the rule applies. **/
-        Prefix: Prefix;
+        /** Prefix identifying one or more objects to which the rule applies. This is
+deprecated; use Filter instead. **/
+        Prefix?: Prefix;
+        Filter?: LifecycleRuleFilter;
         /** If &#x27;Enabled&#x27;, the rule is currently being applied. If &#x27;Disabled&#x27;, the rule is
 not currently being applied. **/
         Status: ExpirationStatus;
@@ -1683,6 +1964,88 @@ not currently being applied. **/
         NoncurrentVersionTransitions?: NoncurrentVersionTransitionList;
         NoncurrentVersionExpiration?: NoncurrentVersionExpiration;
         AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
+    }
+    export interface LifecycleRuleAndOperator {
+        Prefix?: Prefix;
+        /** All of these tags must exist in the object&#x27;s tag set in order for the rule to
+apply. **/
+        Tags?: TagSet;
+    }
+    export interface LifecycleRuleFilter {
+        /** Prefix identifying one or more objects to which the rule applies. **/
+        Prefix?: Prefix;
+        /** This tag must exist in the object&#x27;s tag set in order for the rule to apply. **/
+        Tag?: Tag;
+        And?: LifecycleRuleAndOperator;
+    }
+    export interface ListBucketAnalyticsConfigurationsOutput {
+        /** Indicates whether the returned list of analytics configurations is complete. A
+value of true indicates that the list is not complete and the
+NextContinuationToken will be provided for a subsequent request. **/
+        IsTruncated?: IsTruncated;
+        /** The ContinuationToken that represents where this request began. **/
+        ContinuationToken?: Token;
+        /** NextContinuationToken is sent when isTruncated is true, which indicates that
+there are more analytics configurations to list. The next request must include
+this NextContinuationToken. The token is obfuscated and is not a usable value. **/
+        NextContinuationToken?: NextToken;
+        /** The list of analytics configurations for a bucket. **/
+        AnalyticsConfigurationList?: AnalyticsConfigurationList;
+    }
+    export interface ListBucketAnalyticsConfigurationsRequest {
+        /** The name of the bucket from which analytics configurations are retrieved. **/
+        Bucket: BucketName;
+        /** The ContinuationToken that represents a placeholder from where this request
+should begin. **/
+        ContinuationToken?: Token;
+    }
+    export interface ListBucketInventoryConfigurationsOutput {
+        /** If sent in the request, the marker that is used as a starting point for this
+inventory configuration list response. **/
+        ContinuationToken?: Token;
+        /** The list of inventory configurations for a bucket. **/
+        InventoryConfigurationList?: InventoryConfigurationList;
+        /** Indicates whether the returned list of inventory configurations is truncated in
+this response. A value of true indicates that the list is truncated. **/
+        IsTruncated?: IsTruncated;
+        /** The marker used to continue this inventory configuration listing. Use the
+NextContinuationToken from this response to continue the listing in a subsequent
+request. The continuation token is an opaque value that Amazon S3 understands. **/
+        NextContinuationToken?: NextToken;
+    }
+    export interface ListBucketInventoryConfigurationsRequest {
+        /** The name of the bucket containing the inventory configurations to retrieve. **/
+        Bucket: BucketName;
+        /** The marker used to continue an inventory configuration listing that has been
+truncated. Use the NextContinuationToken from a previously truncated list
+response to continue the listing. The continuation token is an opaque value that
+Amazon S3 understands. **/
+        ContinuationToken?: Token;
+    }
+    export interface ListBucketMetricsConfigurationsOutput {
+        /** Indicates whether the returned list of metrics configurations is complete. A
+value of true indicates that the list is not complete and the
+NextContinuationToken will be provided for a subsequent request. **/
+        IsTruncated?: IsTruncated;
+        /** The marker that is used as a starting point for this metrics configuration list
+response. This value is present if it was sent in the request. **/
+        ContinuationToken?: Token;
+        /** The marker used to continue a metrics configuration listing that has been
+truncated. Use the NextContinuationToken from a previously truncated list
+response to continue the listing. The continuation token is an opaque value that
+Amazon S3 understands. **/
+        NextContinuationToken?: NextToken;
+        /** The list of metrics configurations for a bucket. **/
+        MetricsConfigurationList?: MetricsConfigurationList;
+    }
+    export interface ListBucketMetricsConfigurationsRequest {
+        /** The name of the bucket containing the metrics configurations to retrieve. **/
+        Bucket: BucketName;
+        /** The marker that is used to continue a metrics configuration listing that has
+been truncated. Use the NextContinuationToken from a previously truncated list
+response to continue the listing. The continuation token is an opaque value that
+Amazon S3 understands. **/
+        ContinuationToken?: Token;
     }
     export interface ListBucketsOutput {
         Buckets?: Buckets;
@@ -1934,6 +2297,30 @@ distinguished by key. **/
 stored under. **/
         TargetPrefix?: TargetPrefix;
     }
+    export interface MetricsAndOperator {
+        /** The prefix used when evaluating an AND predicate. **/
+        Prefix?: Prefix;
+        /** The list of tags used when evaluating an AND predicate. **/
+        Tags?: TagSet;
+    }
+    export interface MetricsConfiguration {
+        /** The ID used to identify the metrics configuration. **/
+        Id: MetricsId;
+        /** Specifies a metrics configuration filter. The metrics configuration will only
+include objects that meet the filter&#x27;s criteria. A filter must be a prefix, a
+tag, or a conjunction (MetricsAndOperator). **/
+        Filter?: MetricsFilter;
+    }
+    export interface MetricsFilter {
+        /** The prefix used when evaluating a metrics filter. **/
+        Prefix?: Prefix;
+        /** The tag used when evaluating a metrics filter. **/
+        Tag?: Tag;
+        /** A conjunction (logical AND) of predicates, which is used in evaluating a metrics
+filter. The operator must have at least two predicates, and an object must match
+all of the predicates in order for the filter to apply. **/
+        And?: MetricsAndOperator;
+    }
     export interface MultipartUpload {
         /** Upload ID that identifies the multipart upload. **/
         UploadId?: MultipartUploadId;
@@ -2059,10 +2446,26 @@ bucket. **/
         /** Allows grantee to write the ACL for the applicable bucket. **/
         GrantWriteACP?: GrantWriteACP;
     }
+    export interface PutBucketAnalyticsConfigurationRequest {
+        /** The name of the bucket to which an analytics configuration is stored. **/
+        Bucket: BucketName;
+        /** The identifier used to represent an analytics configuration. **/
+        Id: AnalyticsId;
+        /** The configuration and any analyses for the analytics filter. **/
+        AnalyticsConfiguration: AnalyticsConfiguration;
+    }
     export interface PutBucketCorsRequest {
         Bucket: BucketName;
         CORSConfiguration: CORSConfiguration;
         ContentMD5?: ContentMD5;
+    }
+    export interface PutBucketInventoryConfigurationRequest {
+        /** The name of the bucket where the inventory configuration will be stored. **/
+        Bucket: BucketName;
+        /** The ID used to identify the inventory configuration. **/
+        Id: InventoryId;
+        /** Specifies the inventory configuration. **/
+        InventoryConfiguration: InventoryConfiguration;
     }
     export interface PutBucketLifecycleConfigurationRequest {
         Bucket: BucketName;
@@ -2077,6 +2480,14 @@ bucket. **/
         Bucket: BucketName;
         BucketLoggingStatus: BucketLoggingStatus;
         ContentMD5?: ContentMD5;
+    }
+    export interface PutBucketMetricsConfigurationRequest {
+        /** The name of the bucket for which the metrics configuration is set. **/
+        Bucket: BucketName;
+        /** The ID used to identify the metrics configuration. **/
+        Id: MetricsId;
+        /** Specifies the metrics configuration. **/
+        MetricsConfiguration: MetricsConfiguration;
     }
     export interface PutBucketNotificationConfigurationRequest {
         Bucket: BucketName;
@@ -2235,6 +2646,18 @@ SDKs and CLI can be found at
 http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version **/
         SSEKMSKeyId?: SSEKMSKeyId;
         RequestPayer?: RequestPayer;
+        /** The tag-set for the object. The tag-set must be encoded as URL Query parameters **/
+        Tagging?: TaggingHeader;
+    }
+    export interface PutObjectTaggingOutput {
+        VersionId?: ObjectVersionId;
+    }
+    export interface PutObjectTaggingRequest {
+        Bucket: BucketName;
+        Key: ObjectKey;
+        VersionId: ObjectVersionId;
+        ContentMD5?: ContentMD5;
+        Tagging: Tagging;
     }
     export interface QueueConfiguration {
         Id?: NotificationId;
@@ -2343,6 +2766,17 @@ not currently being applied. **/
     }
     export interface S3KeyFilter {
         FilterRules?: FilterRuleList;
+    }
+    export interface StorageClassAnalysis {
+        /** A container used to describe how data related to the storage class analysis
+should be exported. **/
+        DataExport?: StorageClassAnalysisDataExport;
+    }
+    export interface StorageClassAnalysisDataExport {
+        /** The version of the output schema to use when exporting data. Must be V_1. **/
+        OutputSchemaVersion: StorageClassAnalysisSchemaVersion;
+        /** The place to store the data for an analysis. **/
+        Destination: AnalyticsExportDestination;
     }
     export interface Tag {
         /** Name of the tag. **/
