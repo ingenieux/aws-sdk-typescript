@@ -75,6 +75,28 @@ internet.
      */
     createDeployment(params: APIGateway.CreateDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployment|any) => void): Request<APIGateway.Deployment|any,APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any>;
     /**
+     * 
+     *
+     * @error BadRequestException   
+     * @error ConflictException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error LimitExceededException   
+     * @error TooManyRequestsException   
+     */
+    createDocumentationPart(params: APIGateway.CreateDocumentationPartRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.DocumentationPart|any) => void): Request<APIGateway.DocumentationPart|any,APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * 
+     *
+     * @error BadRequestException   
+     * @error ConflictException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error LimitExceededException   
+     * @error TooManyRequestsException   
+     */
+    createDocumentationVersion(params: APIGateway.CreateDocumentationVersionRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.DocumentationVersion|any) => void): Request<APIGateway.DocumentationVersion|any,APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any>;
+    /**
      * Creates a new domain name.
      *
      * @error UnauthorizedException   
@@ -196,6 +218,26 @@ are no Stage resources associated with it.
      * @error TooManyRequestsException   
      */
     deleteDeployment(params: APIGateway.DeleteDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * 
+     *
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     * @error ConflictException   
+     * @error BadRequestException   
+     */
+    deleteDocumentationPart(params: APIGateway.DeleteDocumentationPartRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|APIGateway.BadRequestException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|APIGateway.BadRequestException|any>;
+    /**
+     * 
+     *
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error BadRequestException   
+     * @error ConflictException   
+     * @error TooManyRequestsException   
+     */
+    deleteDocumentationVersion(params: APIGateway.DeleteDocumentationVersionRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any>;
     /**
      * Deletes the DomainName resource.
      *
@@ -424,6 +466,40 @@ AWS CLI
      */
     getDeployments(params: APIGateway.GetDeploymentsRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployments|any) => void): Request<APIGateway.Deployments|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any>;
     /**
+     * 
+     *
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    getDocumentationPart(params: APIGateway.GetDocumentationPartRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.DocumentationPart|any) => void): Request<APIGateway.DocumentationPart|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * 
+     *
+     * @error BadRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    getDocumentationParts(params: APIGateway.GetDocumentationPartsRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.DocumentationParts|any) => void): Request<APIGateway.DocumentationParts|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * 
+     *
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    getDocumentationVersion(params: APIGateway.GetDocumentationVersionRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.DocumentationVersion|any) => void): Request<APIGateway.DocumentationVersion|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * 
+     *
+     * @error BadRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    getDocumentationVersions(params: APIGateway.GetDocumentationVersionsRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.DocumentationVersions|any) => void): Request<APIGateway.DocumentationVersions|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
      * Represents a domain name that is contained in a simpler, more intuitive URL that
 can be called.
      *
@@ -626,6 +702,16 @@ usage plan.
      */
     importApiKeys(params: APIGateway.ImportApiKeysRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.ConflictException|any, data: APIGateway.ApiKeyIds|any) => void): Request<APIGateway.ApiKeyIds|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.ConflictException|any>;
     /**
+     * 
+     *
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error BadRequestException   
+     * @error LimitExceededException   
+     * @error TooManyRequestsException   
+     */
+    importDocumentationParts(params: APIGateway.ImportDocumentationPartsRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.DocumentationPartIds|any) => void): Request<APIGateway.DocumentationPartIds|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any>;
+    /**
      * A feature of the Amazon API Gateway control service for creating a new API from
 an external API definition file.
      *
@@ -777,6 +863,27 @@ AWS CLI
      */
     updateDeployment(params: APIGateway.UpdateDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployment|any) => void): Request<APIGateway.Deployment|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any>;
     /**
+     * 
+     *
+     * @error BadRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error ConflictException   
+     * @error LimitExceededException   
+     * @error TooManyRequestsException   
+     */
+    updateDocumentationPart(params: APIGateway.UpdateDocumentationPartRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.DocumentationPart|any) => void): Request<APIGateway.DocumentationPart|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * 
+     *
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error ConflictException   
+     * @error BadRequestException   
+     * @error TooManyRequestsException   
+     */
+    updateDocumentationVersion(params: APIGateway.UpdateDocumentationVersionRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.DocumentationVersion|any) => void): Request<APIGateway.DocumentationVersion|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    /**
      * Changes information about the DomainName resource.
      *
      * @error UnauthorizedException   
@@ -907,6 +1014,10 @@ with a specified API key.
     
     export type ContentHandlingStrategy = string;
     
+    export type DocumentationPartLocationStatusCode = string;
+    
+    export type DocumentationPartType = string;
+    
     export type Double = number;
     
     export type Integer = number;
@@ -926,6 +1037,10 @@ with a specified API key.
     export type ListOfClientCertificate = ClientCertificate[];
     
     export type ListOfDeployment = Deployment[];
+    
+    export type ListOfDocumentationPart = DocumentationPart[];
+    
+    export type ListOfDocumentationVersion = DocumentationVersion[];
     
     export type ListOfDomainName = DomainName[];
     
@@ -1013,6 +1128,9 @@ features list will include an entry of &quot;UsagePlans&quot; . **/
         value?: String;
         /** The name of the API Key. **/
         name?: String;
+        /** An AWS Marketplace customer identifier , when integrating with the AWS SaaS
+Marketplace. **/
+        customerId?: String;
         /** The description of the API Key. **/
         description?: String;
         /** Specifies whether the API Key can be used by callers. **/
@@ -1154,6 +1272,9 @@ the created API key value. **/
         value?: String;
         /** DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key. **/
         stageKeys?: ListOfStageKeys;
+        /** An AWS Marketplace customer identifier , when integrating with the AWS SaaS
+Marketplace. **/
+        customerId?: String;
     }
     export interface CreateAuthorizerRequest {
         /** The RestApi identifier under which the Authorizer will be created. **/
@@ -1212,6 +1333,28 @@ with the new deployment. Variable names can have alphanumeric and underscore
 characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+ . **/
         variables?: MapOfStringToString;
     }
+    export interface CreateDocumentationPartRequest {
+        /** [Required] The identifier of an API of the to-be-created documentation part. **/
+        restApiId: String;
+        /** [Required] The location of the targeted API entity of the to-be-created
+documentation part. **/
+        location: DocumentationPartLocation;
+        /** [Required] The new documentation content map of the targeted API entity.
+Enclosed key-value pairs are API-specific, but only Swagger-compliant key-value
+pairs can be exported and, hence, published. **/
+        properties: String;
+    }
+    export interface CreateDocumentationVersionRequest {
+        /** [Required] Specifies the API identifier of the to-be-created documentation
+version. **/
+        restApiId: String;
+        /** [Required] The version identifier of the new snapshot. **/
+        documentationVersion: String;
+        /** The stage name to be associated with the new documentation snapshot. **/
+        stageName?: String;
+        /** A description about the new documentation snapshot. **/
+        description?: String;
+    }
     export interface CreateDomainNameRequest {
         /** The name of the DomainName resource. **/
         domainName: String;
@@ -1255,6 +1398,8 @@ JSON-schema draft v4 [http://json-schema.org/documentation.html] model. **/
         name: String;
         /** The description of the RestApi . **/
         description?: String;
+        /** A version identifier for the API. **/
+        version?: String;
         /** The ID of the RestApi that you want to clone from. **/
         cloneFrom?: String;
         /** The list of binary media types supported by the RestApi . By default, the 
@@ -1278,6 +1423,8 @@ RestApi supports only UTF-8-encoded text payloads. **/
 names can have alphanumeric and underscore characters, and the values must match 
 [A-Za-z0-9-._~:/?#&amp;=,]+ . **/
         variables?: MapOfStringToString;
+        /** The version of the associated API documentation. **/
+        documentationVersion?: String;
     }
     export interface CreateUsagePlanKeyRequest {
         /** The Id of the UsagePlan resource representing the usage plan containing the
@@ -1325,6 +1472,19 @@ to-be-created UsagePlanKey resource representing a plan customer. **/
         restApiId: String;
         /** The identifier of the Deployment resource to delete. **/
         deploymentId: String;
+    }
+    export interface DeleteDocumentationPartRequest {
+        /** [Required] Specifies the identifier of an API of the to-be-deleted documentation
+part. **/
+        restApiId: String;
+        /** [Required] The identifier of the to-be-deleted documentation part. **/
+        documentationPartId: String;
+    }
+    export interface DeleteDocumentationVersionRequest {
+        /** [Required] The identifier of an API of a to-be-deleted documentation snapshot. **/
+        restApiId: String;
+        /** [Required] The version identifier of a to-be-deleted documentation snapshot. **/
+        documentationVersion: String;
     }
     export interface DeleteDomainNameRequest {
         /** The name of the DomainName resource to be deleted. **/
@@ -1416,6 +1576,85 @@ created. **/
 resources. **/
         items?: ListOfDeployment;
     }
+    export interface DocumentationPart {
+        /** The DocumentationPart identifier, generated by Amazon API Gateway when the 
+DocumentationPart is created. **/
+        id?: String;
+        /** The location of the API entity to which the documentation applies. Valid fields
+depend on the targeted API entity type. All the valid location fields are not
+required. If not explicitly specified, a valid location field is treated as a
+wildcard and associated documentation content may be inherited by matching
+entities, unless overridden. **/
+        location?: DocumentationPartLocation;
+        /** A content map of API-specific key-value pairs describing the targeted API
+entity. The map must be encoded as a JSON string, e.g., &quot;{ \&quot;description\&quot;:
+\&quot;The API does ...\&quot; }&quot; . Only Swagger-compliant documentation-related fields
+from the properties map are exported and, hence, published as part of the API
+entity definitions, while the original documentation parts are exported in a
+Swagger extension of x-amazon-apigateway-documentation . **/
+        properties?: String;
+    }
+    export interface DocumentationPartIds {
+        /** A list of the returned documentation part identifiers. **/
+        ids?: ListOfString;
+        /** A list of warning messages reported during import of documentation parts. **/
+        warnings?: ListOfString;
+    }
+    export interface DocumentationPartLocation {
+        /** The type of API entity to which the documentation content applies. It is a valid
+and required field for API entity types of API , AUTHORIZER , MODEL , RESOURCE , 
+METHOD , PATH_PARAMETER , QUERY_PARAMETER , REQUEST_HEADER , REQUEST_BODY , 
+RESPONSE , RESPONSE_HEADER , and RESPONSE_BODY . Content inheritance does not
+apply to any entity of the API , AUTHROZER , MODEL , or RESOURCE type. **/
+        type: DocumentationPartType;
+        /** The URL path of the target. It is a valid field for the API entity types of 
+RESOURCE , METHOD , PATH_PARAMETER , QUERY_PARAMETER , REQUEST_HEADER , 
+REQUEST_BODY , RESPONSE , RESPONSE_HEADER , and RESPONSE_BODY . The default
+value is / for the root resource. When an applicable child entity inherits the
+content of another entity of the same type with more general specifications of
+the other location attributes, the child entity&#x27;s path attribute must match that
+of the parent entity as a prefix. **/
+        path?: String;
+        /** The HTTP verb of a method. It is a valid field for the API entity types of 
+METHOD , PATH_PARAMETER , QUERY_PARAMETER , REQUEST_HEADER , REQUEST_BODY , 
+RESPONSE , RESPONSE_HEADER , and RESPONSE_BODY . The default value is &amp;#42; for any
+method. When an applicable child entity inherits the content of an entity of the
+same type with more general specifications of the other location attributes, the
+child entity&#x27;s method attribute must match that of the parent entity exactly. **/
+        method?: String;
+        /** The HTTP status code of a response. It is a valid field for the API entity types
+of RESPONSE , RESPONSE_HEADER , and RESPONSE_BODY . The default value is &amp;#42; for
+any status code. When an applicable child entity inherits the content of an
+entity of the same type with more general specifications of the other location 
+attributes, the child entity&#x27;s statusCode attribute must match that of the
+parent entity exactly. **/
+        statusCode?: DocumentationPartLocationStatusCode;
+        /** The name of the targeted API entity. It is a valid and required field for the
+API entity types of AUTHORIZER , MODEL , PATH_PARAMETER , QUERY_PARAMETER , 
+REQUEST_HEADER , REQUEST_BODY and RESPONSE_HEADER . It is an invalid field for
+any other entity type. **/
+        name?: String;
+    }
+    export interface DocumentationParts {
+        position?: String;
+        /** The current page of DocumentationPart resources in the DocumentationParts 
+collection. **/
+        items?: ListOfDocumentationPart;
+    }
+    export interface DocumentationVersion {
+        /** The version identifier of the API documentation snapshot. **/
+        version?: String;
+        /** The date when the API documentation snapshot is created. **/
+        createdDate?: Timestamp;
+        /** The description of the API documentation snapshot. **/
+        description?: String;
+    }
+    export interface DocumentationVersions {
+        position?: String;
+        /** The current page of DocumentationVersion items from the DocumentationVersions 
+collection of an API. **/
+        items?: ListOfDocumentationVersion;
+    }
     export interface DomainName {
         /** The name of the DomainName resource. **/
         domainName?: String;
@@ -1476,6 +1715,8 @@ the key value. **/
         limit?: NullableInteger;
         /** The name of queried API keys. **/
         nameQuery?: String;
+        /** The identifier of a customer in AWS Marketplace or an external system, such as a
+developer portal. **/
         customerId?: String;
         /** A boolean flag to specify whether ( true ) or not ( false ) the result contains
 key values. **/
@@ -1545,6 +1786,44 @@ information about. **/
         position?: String;
         /** The maximum number of Deployment resources in the collection to get information
 about. The default limit is 25. It should be an integer between 1 - 500. **/
+        limit?: NullableInteger;
+    }
+    export interface GetDocumentationPartRequest {
+        /** [Required] The identifier of an API of the to-be-retrieved documentation part. **/
+        restApiId: String;
+        /** [Required] The identifier of the to-be-retrieved documentation part. **/
+        documentationPartId: String;
+    }
+    export interface GetDocumentationPartsRequest {
+        /** [Required] The identifier of the API of the to-be-retrieved documentation parts. **/
+        restApiId: String;
+        /** The type of API entities of the to-be-retrieved documentation parts. **/
+        type?: DocumentationPartType;
+        /** The name of API entities of the to-be-retrieved documentation parts. **/
+        nameQuery?: String;
+        /** The path of API entities of the to-be-retrieved documentation parts. **/
+        path?: String;
+        /** The position of the to-be-retrieved documentation part in the DocumentationParts 
+collection. **/
+        position?: String;
+        /** The size of the paged results. **/
+        limit?: NullableInteger;
+    }
+    export interface GetDocumentationVersionRequest {
+        /** [Required] The identifier of the API of the to-be-retrieved documentation
+snapshot. **/
+        restApiId: String;
+        /** [Required] The version identifier of the to-be-retrieved documentation snapshot. **/
+        documentationVersion: String;
+    }
+    export interface GetDocumentationVersionsRequest {
+        /** [Required] The identifier of an API of the to-be-retrieved documentation
+versions. **/
+        restApiId: String;
+        /** The position of the returned DocumentationVersion in the DocumentationVersions 
+collection. **/
+        position?: String;
+        /** The page size of the returned documentation versions. **/
         limit?: NullableInteger;
     }
     export interface GetDomainNameRequest {
@@ -1754,6 +2033,21 @@ only the csv format is supported. **/
         /** A query parameter to indicate whether to rollback ApiKey importation ( true ) or
 not ( false ) when error is encountered. **/
         failOnWarnings?: Boolean;
+    }
+    export interface ImportDocumentationPartsRequest {
+        /** [Required] The identifier of an API of the to-be-imported documentation parts. **/
+        restApiId: String;
+        /** A query parameter to indicate whether to overwrite ( OVERWRITE ) any existing 
+DocumentationParts definition or to merge ( MERGE ) the new definition into the
+existing one. The default value is MERGE . **/
+        mode?: PutMode;
+        /** A query parameter to specify whether to rollback the documentation importation ( 
+true ) or not ( false ) when a warning is encountered. The default value is 
+false . **/
+        failOnWarnings?: Boolean;
+        /** [Required] Raw byte array representing the to-be-imported documentation parts.
+To import from a Swagger file, this is a JSON object. **/
+        body: Blob;
     }
     export interface ImportRestApiRequest {
         /** A query parameter to indicate whether to rollback the API creation ( true ) or
@@ -2343,6 +2637,8 @@ Amazon API Gateway. **/
         /** The date when the API was created, in ISO 8601 format
 [http://www.iso.org/iso/home/standards/iso8601.htm] . **/
         createdDate?: Timestamp;
+        /** A version identifier for the API. **/
+        version?: String;
         /** The warning messages reported when failonwarnings is turned on during API
 import. **/
         warnings?: ListOfString;
@@ -2392,6 +2688,8 @@ overriding all methods in the stage. **/
 have alphanumeric and underscore characters, and the values must match 
 [A-Za-z0-9-._~:/?#&amp;=,]+ . **/
         variables?: MapOfStringToString;
+        /** The version of the associated API documentation. **/
+        documentationVersion?: String;
         /** The date and time that the stage was created, in ISO 8601 format
 [http://www.iso.org/iso/home/standards/iso8601.htm] . **/
         createdDate?: Timestamp;
@@ -2551,6 +2849,24 @@ about. **/
 order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
+    export interface UpdateDocumentationPartRequest {
+        /** [Required] The identifier of an API of the to-be-updated documentation part. **/
+        restApiId: String;
+        /** [Required] The identifier of the to-be-updated documentation part. **/
+        documentationPartId: String;
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
+        patchOperations?: ListOfPatchOperation;
+    }
+    export interface UpdateDocumentationVersionRequest {
+        /** [Required] The identifier of an API of the to-be-updated documentation version. **/
+        restApiId: String;
+        /** [Required] The version identifier of the to-be-updated documentation version. **/
+        documentationVersion: String;
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
+        patchOperations?: ListOfPatchOperation;
+    }
     export interface UpdateDomainNameRequest {
         /** The name of the DomainName resource to be changed. **/
         domainName: String;
@@ -2686,6 +3002,9 @@ quota, remaining quota] . **/
         throttle?: ThrottleSettings;
         /** The maximum number of permitted requests per a given unit time interval. **/
         quota?: QuotaSettings;
+        /** The AWS Markeplace product identifier to associate with the usage plan as a SaaS
+product on AWS Marketplace. **/
+        productCode?: String;
     }
     export interface UsagePlanKey {
         /** The Id of a usage plan key. **/

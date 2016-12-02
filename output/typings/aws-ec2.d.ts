@@ -8,7 +8,7 @@
 declare module "aws-sdk" {
 
  /**
-   * apiVersion: 2016-09-15
+   * apiVersion: 2016-11-15
    * endpointPrefix: ec2
    * serviceAbbreviation: Amazon EC2
    * signatureVersion: v4
@@ -24,7 +24,7 @@ develop and deploy applications faster.
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * Purchases Convertible Reserved Instance offerings described in the 
+     * Accepts the Convertible Reserved Instance exchange quote described in the 
 GetReservedInstancesExchangeQuote call.
      *
      */
@@ -54,6 +54,18 @@ allocate.
      *
      */
     allocateHosts(params: EC2.AllocateHostsRequest, callback?: (err: any, data: EC2.AllocateHostsResult|any) => void): Request<EC2.AllocateHostsResult|any,any>;
+    /**
+     * Assigns one or more IPv6 addresses to the specified network interface. You can
+specify one or more specific IPv6 addresses, or you can specify the number of
+IPv6 addresses to be automatically assigned from within the subnet&#x27;s IPv6 CIDR
+block range. You can assign as many IPv6 addresses to a network interface as you
+can assign private IPv4 addresses, and the limit varies per instance type. For
+information, see IP Addresses Per Network Interface Per Instance Type
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI] 
+in the Amazon Elastic Compute Cloud User Guide .
+     *
+     */
+    assignIpv6Addresses(params: EC2.AssignIpv6AddressesRequest, callback?: (err: any, data: EC2.AssignIpv6AddressesResult|any) => void): Request<EC2.AssignIpv6AddressesResult|any,any>;
     /**
      * Assigns one or more secondary private IP addresses to the specified network
 interface. You can specify one or more specific secondary IP addresses, or you
@@ -125,6 +137,20 @@ the Amazon Virtual Private Cloud User Guide .
      *
      */
     associateRouteTable(params: EC2.AssociateRouteTableRequest, callback?: (err: any, data: EC2.AssociateRouteTableResult|any) => void): Request<EC2.AssociateRouteTableResult|any,any>;
+    /**
+     * Associates a CIDR block with your subnet. You can only associate a single IPv6
+CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of
+/64.
+     *
+     */
+    associateSubnetCidrBlock(params: EC2.AssociateSubnetCidrBlockRequest, callback?: (err: any, data: EC2.AssociateSubnetCidrBlockResult|any) => void): Request<EC2.AssociateSubnetCidrBlockResult|any,any>;
+    /**
+     * Associates a CIDR block with your VPC. You can only associate a single
+Amazon-provided IPv6 CIDR block with your VPC. The IPv6 CIDR block size is fixed
+at /56.
+     *
+     */
+    associateVpcCidrBlock(params: EC2.AssociateVpcCidrBlockRequest, callback?: (err: any, data: EC2.AssociateVpcCidrBlockResult|any) => void): Request<EC2.AssociateVpcCidrBlockResult|any,any>;
     /**
      * Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more
 of the VPC&#x27;s security groups. You cannot link an EC2-Classic instance to more
@@ -207,14 +233,14 @@ Amazon Virtual Private Cloud User Guide .
     /**
      * [EC2-VPC only] Adds one or more egress rules to a security group for use with a
 VPC. Specifically, this action permits instances to send traffic to one or more
-destination CIDR IP address ranges, or to one or more destination security
-groups for the same VPC. This action doesn&#x27;t apply to security groups for use in
-EC2-Classic. For more information, see Security Groups for Your VPC
+destination IPv4 or IPv6 CIDR address ranges, or to one or more destination
+security groups for the same VPC. This action doesn&#x27;t apply to security groups
+for use in EC2-Classic. For more information, see Security Groups for Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html] 
-in the Amazon Virtual Private Cloud User Guide .
-
-You can have up to 50 rules per security group (covering both ingress and egress
-rules).
+in the Amazon Virtual Private Cloud User Guide . For more information about
+security group limits, see Amazon VPC Limits
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html] 
+.
 
 Each rule consists of the protocol (for example, TCP), plus either a CIDR range
 or a source group. For the TCP and UDP protocols, you must also specify the
@@ -230,23 +256,23 @@ However, a small delay might occur.
     /**
      * Adds one or more ingress rules to a security group.
 
-EC2-Classic: You can have up to 100 rules per group.
-
-EC2-VPC: You can have up to 50 rules per group (covering both ingress and egress
-rules).
-
 Rule changes are propagated to instances within the security group as quickly as
 possible. However, a small delay might occur.
 
-[EC2-Classic] This action gives one or more CIDR IP address ranges permission to
-access a security group in your account, or gives one or more security groups
+[EC2-Classic] This action gives one or more IPv4 CIDR address ranges permission
+to access a security group in your account, or gives one or more security groups
 (called the source groups ) permission to access a security group for your
-account. A source group can be for your own AWS account, or another.
+account. A source group can be for your own AWS account, or another. You can
+have up to 100 rules per group.
 
-[EC2-VPC] This action gives one or more CIDR IP address ranges permission to
-access a security group in your VPC, or gives one or more other security groups
-(called the source groups ) permission to access a security group for your VPC.
-The security groups must all be for the same VPC.
+[EC2-VPC] This action gives one or more IPv4 or IPv6 CIDR address ranges
+permission to access a security group in your VPC, or gives one or more other
+security groups (called the source groups ) permission to access a security
+group for your VPC. The security groups must all be for the same VPC or a peer
+VPC in a VPC peering connection. For more information about VPC security group
+limits, see Amazon VPC Limits
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html] 
+.
      *
      */
     authorizeSecurityGroupIngress(params: EC2.AuthorizeSecurityGroupIngressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -458,6 +484,14 @@ the Amazon Virtual Private Cloud User Guide .
      */
     createDhcpOptions(params: EC2.CreateDhcpOptionsRequest, callback?: (err: any, data: EC2.CreateDhcpOptionsResult|any) => void): Request<EC2.CreateDhcpOptionsResult|any,any>;
     /**
+     * [IPv6 only] Creates an egress-only Internet gateway for your VPC. An egress-only
+Internet gateway is used to enable outbound communication over IPv6 from
+instances in your VPC to the Internet, and prevents hosts outside of your VPC
+from initiating an IPv6 connection with your instance.
+     *
+     */
+    createEgressOnlyInternetGateway(params: EC2.CreateEgressOnlyInternetGatewayRequest, callback?: (err: any, data: EC2.CreateEgressOnlyInternetGatewayResult|any) => void): Request<EC2.CreateEgressOnlyInternetGatewayResult|any,any>;
+    /**
      * Creates one or more flow logs to capture IP traffic for a specific network
 interface, subnet, or VPC. Flow logs are delivered to a specified log group in
 Amazon CloudWatch Logs. If you specify a VPC or subnet in the request, a log
@@ -571,7 +605,7 @@ Amazon Virtual Private Cloud User Guide .
 
 For more information about network interfaces, see Elastic Network Interfaces
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Virtual Private Cloud User Guide .
      *
      */
     createNetworkInterface(params: EC2.CreateNetworkInterfaceRequest, callback?: (err: any, data: EC2.CreateNetworkInterfaceResult|any) => void): Request<EC2.CreateNetworkInterfaceResult|any,any>;
@@ -615,12 +649,12 @@ the Amazon Elastic Compute Cloud User Guide .
      * Creates a route in a route table within a VPC.
 
 You must specify one of the following targets: Internet gateway or virtual
-private gateway, NAT instance, NAT gateway, VPC peering connection, or network
-interface.
+private gateway, NAT instance, NAT gateway, VPC peering connection, network
+interface, or egress-only Internet gateway.
 
 When determining how to route traffic, we use the route with the most specific
-match. For example, let&#x27;s say the traffic is destined for 192.0.2.3 , and the
-route table includes the following two routes:
+match. For example, traffic is destined for the IPv4 address 192.0.2.3 , and the
+route table includes the following two IPv4 routes:
 
  &amp;#42; 192.0.2.0/24 (goes to some target A)
    
@@ -729,11 +763,15 @@ Amazon Elastic Compute Cloud User Guide .
 
 When you create each subnet, you provide the VPC ID and the CIDR block you want
 for the subnet. After you create a subnet, you can&#x27;t change its CIDR block. The
-subnet&#x27;s CIDR block can be the same as the VPC&#x27;s CIDR block (assuming you want
-only a single subnet in the VPC), or a subset of the VPC&#x27;s CIDR block. If you
-create more than one subnet in a VPC, the subnets&#x27; CIDR blocks must not overlap.
-The smallest subnet (and VPC) you can create uses a /28 netmask (16 IP
-addresses), and the largest uses a /16 netmask (65,536 IP addresses).
+subnet&#x27;s IPv4 CIDR block can be the same as the VPC&#x27;s IPv4 CIDR block (assuming
+you want only a single subnet in the VPC), or a subset of the VPC&#x27;s IPv4 CIDR
+block. If you create more than one subnet in a VPC, the subnets&#x27; CIDR blocks
+must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28
+netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4
+addresses).
+
+If you&#x27;ve associated an IPv6 CIDR block with your VPC, you can create a subnet
+with an IPv6 CIDR block that uses a /64 prefix length.
 
 AWS reserves both the first four and the last IP address in each subnet&#x27;s CIDR
 block. They&#x27;re not available for use.
@@ -791,13 +829,16 @@ the Amazon Elastic Compute Cloud User Guide .
      */
     createVolume(params: EC2.CreateVolumeRequest, callback?: (err: any, data: EC2.Volume|any) => void): Request<EC2.Volume|any,any>;
     /**
-     * Creates a VPC with the specified CIDR block.
-
-The smallest VPC you can create uses a /28 netmask (16 IP addresses), and the
-largest uses a /16 netmask (65,536 IP addresses). To help you decide how big to
-make your VPC, see Your VPC and Subnets
+     * Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can
+create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16
+netmask (65,536 IPv4 addresses). To help you decide how big to make your VPC,
+see Your VPC and Subnets
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html] in the 
 Amazon Virtual Private Cloud User Guide .
+
+You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The
+IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon&#x27;s pool of
+IPv6 addresses. You cannot choose the IPv6 range for your VPC.
 
 By default, each instance you launch in the VPC has the default DHCP options,
 which includes only a default DNS server that we provide (AmazonProvidedDNS).
@@ -903,6 +944,11 @@ the VPC.
      *
      */
     deleteDhcpOptions(params: EC2.DeleteDhcpOptionsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
+    /**
+     * Deletes an egress-only Internet gateway.
+     *
+     */
+    deleteEgressOnlyInternetGateway(params: EC2.DeleteEgressOnlyInternetGatewayRequest, callback?: (err: any, data: EC2.DeleteEgressOnlyInternetGatewayResult|any) => void): Request<EC2.DeleteEgressOnlyInternetGatewayResult|any,any>;
     /**
      * Deletes one or more flow logs.
      *
@@ -1185,6 +1231,11 @@ the Amazon Virtual Private Cloud User Guide .
      *
      */
     describeDhcpOptions(params: EC2.DescribeDhcpOptionsRequest, callback?: (err: any, data: EC2.DescribeDhcpOptionsResult|any) => void): Request<EC2.DescribeDhcpOptionsResult|any,any>;
+    /**
+     * Describes one or more of your egress-only Internet gateways.
+     *
+     */
+    describeEgressOnlyInternetGateways(params: EC2.DescribeEgressOnlyInternetGatewaysRequest, callback?: (err: any, data: EC2.DescribeEgressOnlyInternetGatewaysResult|any) => void): Request<EC2.DescribeEgressOnlyInternetGatewaysResult|any,any>;
     /**
      * Describes one or more of your export tasks.
      *
@@ -1651,9 +1702,8 @@ instances are terminated.
      */
     describeSpotInstanceRequests(params: EC2.DescribeSpotInstanceRequestsRequest, callback?: (err: any, data: EC2.DescribeSpotInstanceRequestsResult|any) => void): Request<EC2.DescribeSpotInstanceRequestsResult|any,any>;
     /**
-     * Describes the Spot price history. The prices returned are listed in
-chronological order, from the oldest to the most recent, for up to the past 90
-days. For more information, see Spot Instance Pricing History
+     * Describes the Spot price history. For more information, see Spot Instance
+Pricing History
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html] 
 in the Amazon Elastic Compute Cloud User Guide .
 
@@ -1917,6 +1967,20 @@ the Amazon Virtual Private Cloud User Guide .
      */
     disassociateRouteTable(params: EC2.DisassociateRouteTableRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
+     * Disassociates a CIDR block from a subnet. Currently, you can disassociate an
+IPv6 CIDR block only. You must detach or delete all gateways and resources that
+are associated with the CIDR block before you can disassociate it.
+     *
+     */
+    disassociateSubnetCidrBlock(params: EC2.DisassociateSubnetCidrBlockRequest, callback?: (err: any, data: EC2.DisassociateSubnetCidrBlockResult|any) => void): Request<EC2.DisassociateSubnetCidrBlockResult|any,any>;
+    /**
+     * Disassociates a CIDR block from a VPC. Currently, you can disassociate an IPv6
+CIDR block only. You must detach or delete all gateways and resources that are
+associated with the CIDR block before you can disassociate it.
+     *
+     */
+    disassociateVpcCidrBlock(params: EC2.DisassociateVpcCidrBlockRequest, callback?: (err: any, data: EC2.DisassociateVpcCidrBlockResult|any) => void): Request<EC2.DisassociateVpcCidrBlockResult|any,any>;
+    /**
      * Enables a virtual private gateway (VGW) to propagate routes to the specified
 route table of a VPC.
      *
@@ -1947,8 +2011,8 @@ address when addressed from an instance in the VPC to which it&#x27;s linked.
 Similarly, the DNS hostname of an instance in a VPC resolves to its private IP
 address when addressed from a linked EC2-Classic instance. For more information
 about ClassicLink, see ClassicLink
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html] in the
-Amazon Elastic Compute Cloud User Guide.
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html] in the 
+Amazon Elastic Compute Cloud User Guide .
      *
      */
     enableVpcClassicLinkDnsSupport(params: EC2.EnableVpcClassicLinkDnsSupportRequest, callback?: (err: any, data: EC2.EnableVpcClassicLinkDnsSupportResult|any) => void): Request<EC2.EnableVpcClassicLinkDnsSupportResult|any,any>;
@@ -2011,8 +2075,8 @@ generated password.
     getPasswordData(params: EC2.GetPasswordDataRequest, callback?: (err: any, data: EC2.GetPasswordDataResult|any) => void): Request<EC2.GetPasswordDataResult|any,any>;
     /**
      * Returns details about the values and term of your specified Convertible Reserved
-Instances. When an offering ID is specified it returns information about whether
-the exchange is valid and can be performed.
+Instances. When a target configuration is specified, it returns information
+about whether the exchange is valid and can be performed.
      *
      */
     getReservedInstancesExchangeQuote(params: EC2.GetReservedInstancesExchangeQuoteRequest, callback?: (err: any, data: EC2.GetReservedInstancesExchangeQuoteResult|any) => void): Request<EC2.GetReservedInstancesExchangeQuoteResult|any,any>;
@@ -2226,7 +2290,7 @@ that are interrupted or that you terminate manually.
      */
     modifySpotFleetRequest(params: EC2.ModifySpotFleetRequestRequest, callback?: (err: any, data: EC2.ModifySpotFleetRequestResponse|any) => void): Request<EC2.ModifySpotFleetRequestResponse|any,any>;
     /**
-     * Modifies a subnet attribute.
+     * Modifies a subnet attribute. You can only modify one attribute at a time.
      *
      */
     modifySubnetAttribute(params: EC2.ModifySubnetAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2284,10 +2348,12 @@ for a VPC peering connection, use the DescribeVpcPeeringConnections command.
      */
     modifyVpcPeeringConnectionOptions(params: EC2.ModifyVpcPeeringConnectionOptionsRequest, callback?: (err: any, data: EC2.ModifyVpcPeeringConnectionOptionsResult|any) => void): Request<EC2.ModifyVpcPeeringConnectionOptionsResult|any,any>;
     /**
-     * Enables monitoring for a running instance. For more information about monitoring
-instances, see Monitoring Your Instances and Volumes
+     * Enables detailed monitoring for a running instance. Otherwise, basic monitoring
+is enabled. For more information, see Monitoring Your Instances and Volumes
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html] in
 the Amazon Elastic Compute Cloud User Guide .
+
+To disable detailed monitoring, see .
      *
      */
     monitorInstances(params: EC2.MonitorInstancesRequest, callback?: (err: any, data: EC2.MonitorInstancesResult|any) => void): Request<EC2.MonitorInstancesResult|any,any>;
@@ -2458,7 +2524,8 @@ Amazon Virtual Private Cloud User Guide .
     /**
      * Replaces an existing route within a route table in a VPC. You must provide only
 one of the following: Internet gateway or virtual private gateway, NAT instance,
-NAT gateway, VPC peering connection, or network interface.
+NAT gateway, VPC peering connection, network interface, or egress-only Internet
+gateway.
 
 For more information about route tables, see Route Tables
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html] in
@@ -2574,10 +2641,10 @@ EC2-VPC. This action doesn&#x27;t apply to security groups for use in EC2-Classi
 The values that you specify in the revoke request (for example, ports) must
 match the existing rule&#x27;s values for the rule to be revoked.
 
-Each rule consists of the protocol and the CIDR range or source security group.
-For the TCP and UDP protocols, you must also specify the destination port or
-range of ports. For the ICMP protocol, you must also specify the ICMP type and
-code.
+Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source
+security group. For the TCP and UDP protocols, you must also specify the
+destination port or range of ports. For the ICMP protocol, you must also specify
+the ICMP type and code.
 
 Rule changes are propagated to instances within the security group as quickly as
 possible. However, a small delay might occur.
@@ -2603,28 +2670,53 @@ possible. However, a small delay might occur.
      * Launches the specified number of instances using an AMI for which you have
 permissions.
 
-When you launch an instance, it enters the pending state. After the instance is
-ready for you, it enters the running state. To check the state of your instance,
-call DescribeInstances .
+You can specify a number of options, or leave the default options. The following
+rules apply:
+
+ &amp;#42; [EC2-VPC] If you don&#x27;t specify a subnet ID, we choose a default subnet from
+   your default VPC for you. If you don&#x27;t have a default VPC, you must specify a
+   subnet ID in the request.
+   
+   
+ * [EC2-Classic] If don&#x27;t specify an Availability Zone, we choose one for you.
+   
+   
+ * Some instance types must be launched into a VPC. If you do not have a default
+   VPC, or if you do not specify a subnet ID, the request fails. For more
+   information, see Instance Types Available Only in a VPC
+   [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types] 
+   .
+   
+   
+ * [EC2-VPC] All instances have a network interface with a primary private IPv4
+   address. If you don&#x27;t specify this address, we choose one from the IPv4 range
+   of your subnet.
+   
+   
+ * Not all instance types support IPv6 addresses. For more information, see 
+   Amazon EC2 Instance Types [http://aws.amazon.com/ec2/instance-types/] .
+   
+   
+ * If you don&#x27;t specify a security group ID, we use the default security group.
+   For more information, see Security Groups
+   [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html] 
+   .
+   
+   
+ * If any of the AMIs have a product code attached for which the user has not
+   subscribed, the request fails.
+   
+   
 
 To ensure faster instance launches, break up large requests into smaller
-batches. For example, create five separate launch requests for 100 instances
-each instead of one launch request for 500 instances.
+batches. For example, create 5 separate launch requests for 100 instances each
+instead of 1 launch request for 500 instances.
 
-To tag your instance, ensure that it is running as CreateTags requires a
-resource ID. For more information about tagging, see Tagging Your Amazon EC2
-Resources [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] .
-
-If you don&#x27;t specify a security group when launching an instance, Amazon EC2
-uses the default security group. For more information, see Security Groups
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html] 
-in the Amazon Elastic Compute Cloud User Guide .
-
-[EC2-VPC only accounts] If you don&#x27;t specify a subnet in the request, we choose
-a default subnet from your default VPC for you.
-
-[EC2-Classic accounts] If you&#x27;re launching into EC2-Classic and you don&#x27;t
-specify an Availability Zone, we choose one for you.
+An instance is ready for you to use when it&#x27;s in the running state. You can
+check the state of your instance using DescribeInstances . After launch, you can
+apply tags to your running instance (requires a resource ID). For more
+information, see CreateTags and Tagging Your Amazon EC2 Resources
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] .
 
 Linux instances have access to the public key of the key pair at boot. You can
 use this key to provide secure access to the instance. Amazon EC2 public images
@@ -2633,22 +2725,7 @@ information, see Key Pairs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html] in the 
 Amazon Elastic Compute Cloud User Guide .
 
-You can provide optional user data when launching an instance. For more
-information, see Instance Metadata
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html] 
-in the Amazon Elastic Compute Cloud User Guide .
-
-If any of the AMIs have a product code attached for which the user has not
-subscribed, RunInstances fails.
-
-Some instance types can only be launched into a VPC. If you do not have a
-default VPC, or if you do not specify a subnet ID in the request, RunInstances 
-fails. For more information, see Instance Types Available Only in a VPC
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types] 
-.
-
-For more information about troubleshooting, see What To Do If An Instance
-Immediately Terminates
+For troubleshooting, see What To Do If An Instance Immediately Terminates
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html] 
 , and Troubleshooting Connecting to Your Instance
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html] 
@@ -2762,13 +2839,18 @@ in the Amazon Elastic Compute Cloud User Guide .
      */
     terminateInstances(params: EC2.TerminateInstancesRequest, callback?: (err: any, data: EC2.TerminateInstancesResult|any) => void): Request<EC2.TerminateInstancesResult|any,any>;
     /**
+     * Unassigns one or more IPv6 addresses from a network interface.
+     *
+     */
+    unassignIpv6Addresses(params: EC2.UnassignIpv6AddressesRequest, callback?: (err: any, data: EC2.UnassignIpv6AddressesResult|any) => void): Request<EC2.UnassignIpv6AddressesResult|any,any>;
+    /**
      * Unassigns one or more secondary private IP addresses from a network interface.
      *
      */
     unassignPrivateIpAddresses(params: EC2.UnassignPrivateIpAddressesRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
-     * Disables monitoring for a running instance. For more information about
-monitoring instances, see Monitoring Your Instances and Volumes
+     * Disables detailed monitoring for a running instance. For more information, see 
+Monitoring Your Instances and Volumes
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html] in
 the Amazon Elastic Compute Cloud User Guide .
      *
@@ -2883,6 +2965,12 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type Double = number;
     
+    export type EgressOnlyInternetGatewayId = string;
+    
+    export type EgressOnlyInternetGatewayIdList = EgressOnlyInternetGatewayId[];
+    
+    export type EgressOnlyInternetGatewayList = EgressOnlyInternetGateway[];
+    
     export type EventCode = string;
     
     export type EventType = string;
@@ -2969,6 +3057,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type InstanceIdStringList = String[];
     
+    export type InstanceIpv6AddressList = InstanceIpv6Address[];
+    
     export type InstanceLifecycleType = string;
     
     export type InstanceList = Instance[];
@@ -3007,6 +3097,14 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type IpRanges = String[];
     
+    export type Ipv6Address = string;
+    
+    export type Ipv6AddressList = String[];
+    
+    export type Ipv6CidrBlockSet = Ipv6CidrBlock[];
+    
+    export type Ipv6RangeList = Ipv6Range[];
+    
     export type KeyNameStringList = String[];
     
     export type KeyPairList = KeyPairInfo[];
@@ -3044,6 +3142,8 @@ the Amazon Elastic Compute Cloud User Guide .
     export type NetworkInterfaceAttribute = string;
     
     export type NetworkInterfaceIdList = String[];
+    
+    export type NetworkInterfaceIpv6AddressesList = NetworkInterfaceIpv6Address[];
     
     export type NetworkInterfaceList = NetworkInterface[];
     
@@ -3201,6 +3301,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type ScheduledInstancesBlockDeviceMappingSet = ScheduledInstancesBlockDeviceMapping[];
     
+    export type ScheduledInstancesIpv6AddressList = ScheduledInstancesIpv6Address[];
+    
     export type ScheduledInstancesNetworkInterfaceSet = ScheduledInstancesNetworkInterface[];
     
     export type ScheduledInstancesSecurityGroupIdSet = String[];
@@ -3251,7 +3353,11 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type String = string;
     
+    export type SubnetCidrBlockStateCode = string;
+    
     export type SubnetIdStringList = String[];
+    
+    export type SubnetIpv6CidrBlockAssociationSet = SubnetIpv6CidrBlockAssociation[];
     
     export type SubnetList = Subnet[];
     
@@ -3321,6 +3427,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type VpcAttributeName = string;
     
+    export type VpcCidrBlockStateCode = string;
+    
     export type VpcClassicLinkIdList = String[];
     
     export type VpcClassicLinkList = VpcClassicLink[];
@@ -3328,6 +3436,8 @@ the Amazon Elastic Compute Cloud User Guide .
     export type VpcEndpointSet = VpcEndpoint[];
     
     export type VpcIdStringList = String[];
+    
+    export type VpcIpv6CidrBlockAssociationSet = VpcIpv6CidrBlockAssociation[];
     
     export type VpcList = Vpc[];
     
@@ -3361,10 +3471,10 @@ actually making the request, and provides an error response. If you have the
 required permissions, the error response is DryRunOperation . Otherwise, it is 
 UnauthorizedOperation . **/
         DryRun?: Boolean;
-        /** The IDs of the Convertible Reserved Instances that you want to exchange for
-other Convertible Reserved Instances of the same or higher value. **/
+        /** The IDs of the Convertible Reserved Instances to exchange for other Convertible
+Reserved Instances of the same or higher value. **/
         ReservedInstanceIds: ReservedInstanceIdSet;
-        /** The configurations of the Convertible Reserved Instance offerings you are
+        /** The configurations of the Convertible Reserved Instance offerings that you are
 purchasing in this exchange. **/
         TargetConfigurations?: TargetConfigurationRequestSet;
     }
@@ -3470,6 +3580,23 @@ parameters. **/
 instance onto a specific host. **/
         HostIds?: ResponseHostIdList;
     }
+    export interface AssignIpv6AddressesRequest {
+        /** The ID of the network interface. **/
+        NetworkInterfaceId: String;
+        /** One or more specific IPv6 addresses to be assigned to the network interface. You
+can&#x27;t use this option if you&#x27;re specifying a number of IPv6 addresses. **/
+        Ipv6Addresses?: Ipv6AddressList;
+        /** The number of IPv6 addresses to assign to the network interface. Amazon EC2
+automatically selects the IPv6 addresses from the subnet range. You can&#x27;t use
+this option if specifying specific IPv6 addresses. **/
+        Ipv6AddressCount?: Integer;
+    }
+    export interface AssignIpv6AddressesResult {
+        /** The ID of the network interface. **/
+        NetworkInterfaceId?: String;
+        /** The IPv6 addresses assigned to the network interface. **/
+        AssignedIpv6Addresses?: Ipv6AddressList;
+    }
     export interface AssignPrivateIpAddressesRequest {
         /** The ID of the network interface. **/
         NetworkInterfaceId: String;
@@ -3549,6 +3676,32 @@ UnauthorizedOperation . **/
     export interface AssociateRouteTableResult {
         /** The route table association ID (needed to disassociate the route table). **/
         AssociationId?: String;
+    }
+    export interface AssociateSubnetCidrBlockRequest {
+        /** The ID of your subnet. **/
+        SubnetId: String;
+        /** The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length. **/
+        Ipv6CidrBlock: String;
+    }
+    export interface AssociateSubnetCidrBlockResult {
+        /** The ID of the subnet. **/
+        SubnetId?: String;
+        /** Information about the IPv6 CIDR block association. **/
+        Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation;
+    }
+    export interface AssociateVpcCidrBlockRequest {
+        /** The ID of the VPC. **/
+        VpcId: String;
+        /** Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the
+VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR
+block. **/
+        AmazonProvidedIpv6CidrBlock?: Boolean;
+    }
+    export interface AssociateVpcCidrBlockResult {
+        /** The ID of the VPC. **/
+        VpcId?: String;
+        /** Information about the IPv6 CIDR block association. **/
+        Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation;
     }
     export interface AttachClassicLinkVpcRequest {
         /** Checks whether you have the required permissions for the action, without
@@ -3658,8 +3811,8 @@ We recommend that you specify the port range in a set of IP permissions instead.
         /** The end of port range for the TCP and UDP protocols, or an ICMP type number. We
 recommend that you specify the port range in a set of IP permissions instead. **/
         ToPort?: Integer;
-        /** The CIDR IP address range. We recommend that you specify the CIDR range in a set
-of IP permissions instead. **/
+        /** The CIDR IPv4 address range. We recommend that you specify the CIDR range in a
+set of IP permissions instead. **/
         CidrIp?: String;
         /** A set of IP permissions. You can&#x27;t specify a destination security group and a
 CIDR IP address range. **/
@@ -3691,16 +3844,19 @@ with a specific IP protocol and port range, use a set of IP permissions instead.
         SourceSecurityGroupOwnerId?: String;
         /** The IP protocol name ( tcp , udp , icmp ) or number (see Protocol Numbers
 [http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] ).
-(VPC only) Use -1 to specify all traffic. If you specify -1 , traffic on all
-ports is allowed, regardless of any ports you specify. **/
+(VPC only) Use -1 to specify all protocols. If you specify -1 , or a protocol
+number other than tcp , udp , icmp , or 58 (ICMPv6), traffic on all ports is
+allowed, regardless of any ports you specify. For tcp , udp , and icmp , you
+must specify a port range. For protocol 58 (ICMPv6), you can optionally specify
+a port range; if you don&#x27;t, traffic for all types and codes is allowed. **/
         IpProtocol?: String;
-        /** The start of port range for the TCP and UDP protocols, or an ICMP type number.
-For the ICMP type number, use -1 to specify all ICMP types. **/
+        /** The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type
+number. For the ICMP/ICMPv6 type number, use -1 to specify all types. **/
         FromPort?: Integer;
-        /** The end of port range for the TCP and UDP protocols, or an ICMP code number. For
-the ICMP code number, use -1 to specify all ICMP codes for the ICMP type. **/
+        /** The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code
+number. For the ICMP/ICMPv6 code number, use -1 to specify all codes. **/
         ToPort?: Integer;
-        /** The CIDR IP address range. You can&#x27;t specify this parameter when specifying a
+        /** The CIDR IPv4 address range. You can&#x27;t specify this parameter when specifying a
 source security group. **/
         CidrIp?: String;
         /** A set of IP permissions. Can be used to specify multiple rules in a single
@@ -4104,6 +4260,27 @@ UnauthorizedOperation . **/
         /** A set of DHCP options. **/
         DhcpOptions?: DhcpOptions;
     }
+    export interface CreateEgressOnlyInternetGatewayRequest {
+        /** Checks whether you have the required permissions for the action, without
+actually making the request, and provides an error response. If you have the
+required permissions, the error response is DryRunOperation . Otherwise, it is 
+UnauthorizedOperation . **/
+        DryRun?: Boolean;
+        /** The ID of the VPC for which to create the egress-only Internet gateway. **/
+        VpcId: String;
+        /** Unique, case-sensitive identifier you provide to ensure the idempotency of the
+request. For more information, see How to Ensure Idempotency
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
+. **/
+        ClientToken?: String;
+    }
+    export interface CreateEgressOnlyInternetGatewayResult {
+        /** Information about the egress-only Internet gateway. **/
+        EgressOnlyInternetGateway?: EgressOnlyInternetGateway;
+        /** Unique, case-sensitive identifier you provide to ensure the idempotency of the
+request. **/
+        ClientToken?: String;
+    }
     export interface CreateFlowLogsRequest {
         /** One or more subnet, network interface, or VPC IDs.
 
@@ -4234,18 +4411,27 @@ ascending order by rule number.
 Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is
 reserved for internal use. **/
         RuleNumber: Integer;
-        /** The protocol. A value of -1 means all protocols. **/
+        /** The protocol. A value of -1 or all means all protocols. If you specify all , -1 
+, or a protocol number other than tcp , udp , or icmp , traffic on all ports is
+allowed, regardless of any ports or ICMP types or codes you specify. If you
+specify protocol 58 (ICMPv6) and specify an IPv4 CIDR block, traffic for all
+ICMP types and codes allowed, regardless of any that you specify. If you specify
+protocol 58 (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP
+type and code. **/
         Protocol: String;
         /** Indicates whether to allow or deny the traffic that matches the rule. **/
         RuleAction: RuleAction;
         /** Indicates whether this is an egress rule (rule is applied to traffic leaving the
 subnet). **/
         Egress: Boolean;
-        /** The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 
-). **/
-        CidrBlock: String;
-        /** ICMP protocol: The ICMP type and code. Required if specifying ICMP for the
-protocol. **/
+        /** The IPv4 network range to allow or deny, in CIDR notation (for example 
+172.16.0.0/24 ). **/
+        CidrBlock?: String;
+        /** The IPv6 network range to allow or deny, in CIDR notation (for example 
+2001:db8:1234:1a00::/64 ). **/
+        Ipv6CidrBlock?: String;
+        /** ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP
+protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block. **/
         IcmpTypeCode?: IcmpTypeCode;
         /** TCP or UDP protocols: The range of ports the rule applies to. **/
         PortRange?: PortRange;
@@ -4268,27 +4454,36 @@ UnauthorizedOperation . **/
         SubnetId: String;
         /** A description for the network interface. **/
         Description?: String;
-        /** The primary private IP address of the network interface. If you don&#x27;t specify an
-IP address, Amazon EC2 selects one for you from the subnet range. If you specify
-an IP address, you cannot indicate any IP addresses specified in 
-privateIpAddresses as primary (only one IP address can be designated as
-primary). **/
+        /** The primary private IPv4 address of the network interface. If you don&#x27;t specify
+an IPv4 address, Amazon EC2 selects one for you from the subnet&#x27;s IPv4 CIDR
+range. If you specify an IP address, you cannot indicate any IP addresses
+specified in privateIpAddresses as primary (only one IP address can be
+designated as primary). **/
         PrivateIpAddress?: String;
         /** The IDs of one or more security groups. **/
         Groups?: SecurityGroupIdStringList;
-        /** One or more private IP addresses. **/
+        /** One or more private IPv4 addresses. **/
         PrivateIpAddresses?: PrivateIpAddressSpecificationList;
-        /** The number of secondary private IP addresses to assign to a network interface.
-When you specify a number of secondary IP addresses, Amazon EC2 selects these IP
-addresses within the subnet range. You can&#x27;t specify this option and specify
-more than one private IP address using privateIpAddresses .
+        /** The number of secondary private IPv4 addresses to assign to a network interface.
+When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these
+IP addresses within the subnet&#x27;s IPv4 CIDR range. You can&#x27;t specify this option
+and specify more than one private IP address using privateIpAddresses .
 
 The number of IP addresses you can assign to a network interface varies by
-instance type. For more information, see Private IP Addresses Per ENI Per
-Instance Type
+instance type. For more information, see IP Addresses Per ENI Per Instance Type
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI] 
-in the Amazon Elastic Compute Cloud User Guide . **/
+in the Amazon Virtual Private Cloud User Guide . **/
         SecondaryPrivateIpAddressCount?: Integer;
+        /** One or more specific IPv6 addresses from the IPv6 CIDR block range of your
+subnet. You can&#x27;t use this option if you&#x27;re specifying a number of IPv6
+addresses. **/
+        Ipv6Addresses?: InstanceIpv6AddressList;
+        /** The number of IPv6 addresses to assign to a network interface. Amazon EC2
+automatically selects the IPv6 addresses from the subnet range. You can&#x27;t use
+this option if specifying specific IPv6 addresses. If your subnet has the 
+AssignIpv6AddressOnCreation attribute set to true , you can specify 0 to
+override this setting. **/
+        Ipv6AddressCount?: Integer;
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
 required permissions, the error response is DryRunOperation . Otherwise, it is 
@@ -4342,11 +4537,16 @@ UnauthorizedOperation . **/
         DryRun?: Boolean;
         /** The ID of the route table for the route. **/
         RouteTableId: String;
-        /** The CIDR address block used for the destination match. Routing decisions are
-based on the most specific match. **/
-        DestinationCidrBlock: String;
+        /** The IPv4 CIDR address block used for the destination match. Routing decisions
+are based on the most specific match. **/
+        DestinationCidrBlock?: String;
         /** The ID of an Internet gateway or virtual private gateway attached to your VPC. **/
         GatewayId?: String;
+        /** The IPv6 CIDR block used for the destination match. Routing decisions are based
+on the most specific match. **/
+        DestinationIpv6CidrBlock?: String;
+        /** [IPv6 traffic only] The ID of an egress-only Internet gateway. **/
+        EgressOnlyInternetGatewayId?: String;
         /** The ID of a NAT instance in your VPC. The operation fails if you specify an
 instance ID unless exactly one network interface is attached. **/
         InstanceId?: String;
@@ -4354,7 +4554,7 @@ instance ID unless exactly one network interface is attached. **/
         NetworkInterfaceId?: String;
         /** The ID of a VPC peering connection. **/
         VpcPeeringConnectionId?: String;
-        /** The ID of a NAT gateway. **/
+        /** [IPv4 traffic only] The ID of a NAT gateway. **/
         NatGatewayId?: String;
     }
     export interface CreateRouteResult {
@@ -4437,8 +4637,12 @@ UnauthorizedOperation . **/
         DryRun?: Boolean;
         /** The ID of the VPC. **/
         VpcId: String;
-        /** The network range for the subnet, in CIDR notation. For example, 10.0.0.0/24 . **/
+        /** The IPv4 network range for the subnet, in CIDR notation. For example, 
+10.0.0.0/24 . **/
         CidrBlock: String;
+        /** The IPv6 network range for the subnet, in CIDR notation. The subnet size must
+use a /64 prefix length. **/
+        Ipv6CidrBlock?: String;
         /** The Availability Zone for the subnet.
 
 Default: AWS selects one for you. If you create more than one subnet in your
@@ -4506,7 +4710,7 @@ Magnetic volumes.
 Default: standard **/
         VolumeType?: VolumeType;
         /** Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per
-second (IOPS) to provision for the volume, with a maximum ratio of 30 IOPS/GiB.
+second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB.
 
 Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes **/
         Iops?: Integer;
@@ -4584,7 +4788,7 @@ actually making the request, and provides an error response. If you have the
 required permissions, the error response is DryRunOperation . Otherwise, it is 
 UnauthorizedOperation . **/
         DryRun?: Boolean;
-        /** The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16 . **/
+        /** The IPv4 network range for the VPC, in CIDR notation. For example, 10.0.0.0/16 . **/
         CidrBlock: String;
         /** The tenancy options for instances launched into the VPC. For default , instances
 are launched with shared tenancy by default. You can launch instances with any
@@ -4597,6 +4801,10 @@ dedicated values only.
 
 Default: default **/
         InstanceTenancy?: Tenancy;
+        /** Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the
+VPC. You cannot specify the range of IP addresses, or the size of the CIDR
+block. **/
+        AmazonProvidedIpv6CidrBlock?: Boolean;
     }
     export interface CreateVpcResult {
         /** Information about the VPC. **/
@@ -4678,6 +4886,19 @@ UnauthorizedOperation . **/
         DryRun?: Boolean;
         /** The ID of the DHCP options set. **/
         DhcpOptionsId: String;
+    }
+    export interface DeleteEgressOnlyInternetGatewayRequest {
+        /** Checks whether you have the required permissions for the action, without
+actually making the request, and provides an error response. If you have the
+required permissions, the error response is DryRunOperation . Otherwise, it is 
+UnauthorizedOperation . **/
+        DryRun?: Boolean;
+        /** The ID of the egress-only Internet gateway. **/
+        EgressOnlyInternetGatewayId: EgressOnlyInternetGatewayId;
+    }
+    export interface DeleteEgressOnlyInternetGatewayResult {
+        /** Returns true if the request succeeds; otherwise, it returns an error. **/
+        ReturnCode?: Boolean;
     }
     export interface DeleteFlowLogsRequest {
         /** One or more flow log IDs. **/
@@ -4761,9 +4982,12 @@ UnauthorizedOperation . **/
         DryRun?: Boolean;
         /** The ID of the route table. **/
         RouteTableId: String;
-        /** The CIDR range for the route. The value you specify must match the CIDR for the
-route exactly. **/
-        DestinationCidrBlock: String;
+        /** The IPv4 CIDR range for the route. The value you specify must match the CIDR for
+the route exactly. **/
+        DestinationCidrBlock?: String;
+        /** The IPv6 CIDR range for the route. The value you specify must match the CIDR for
+the route exactly. **/
+        DestinationIpv6CidrBlock?: String;
     }
     export interface DeleteRouteTableRequest {
         /** Checks whether you have the required permissions for the action, without
@@ -5197,6 +5421,28 @@ Default: Describes all your DHCP options sets. **/
         /** Information about one or more DHCP options sets. **/
         DhcpOptions?: DhcpOptionsList;
     }
+    export interface DescribeEgressOnlyInternetGatewaysRequest {
+        /** Checks whether you have the required permissions for the action, without
+actually making the request, and provides an error response. If you have the
+required permissions, the error response is DryRunOperation . Otherwise, it is 
+UnauthorizedOperation . **/
+        DryRun?: Boolean;
+        /** One or more egress-only Internet gateway IDs. **/
+        EgressOnlyInternetGatewayIds?: EgressOnlyInternetGatewayIdList;
+        /** The maximum number of results to return for the request in a single page. The
+remaining results can be seen by sending another request with the returned 
+NextToken value. This value can be between 5 and 1000; if MaxResults is given a
+value larger than 1000, only 1000 results are returned. **/
+        MaxResults?: Integer;
+        /** The token to retrieve the next page of results. **/
+        NextToken?: String;
+    }
+    export interface DescribeEgressOnlyInternetGatewaysResult {
+        /** Information about the egress-only Internet gateways. **/
+        EgressOnlyInternetGateways?: EgressOnlyInternetGatewayList;
+        /** The token to use to retrieve the next page of results. **/
+        NextToken?: String;
+    }
     export interface DescribeExportTasksRequest {
         /** One or more export task IDs. **/
         ExportTaskIds?: ExportTaskIdStringList;
@@ -5426,6 +5672,10 @@ account ID, self (the sender of the request), or all (public AMIs). **/
    
    
  * description - The description of the image (provided during image creation).
+   
+   
+ * ena-support - A Boolean that indicates whether enhanced networking with ENA
+   is enabled.
    
    
  * hypervisor - The hypervisor type ( ovm | xen ).
@@ -5668,6 +5918,22 @@ Default: Describes all your instances. **/
  * architecture - The instance architecture ( i386 | x86_64 ).
    
    
+ * association.public-ip - The address of the Elastic IP address (IPv4) bound to
+   the network interface.
+   
+   
+ * association.ip-owner-id - The owner of the Elastic IP address (IPv4)
+   associated with the network interface.
+   
+   
+ * association.allocation-id - The allocation ID returned when you allocated the
+   Elastic IP address (IPv4) for your network interface.
+   
+   
+ * association.association-id - The association ID returned when the network
+   interface was associated with an IPv4 address.
+   
+   
  * availability-zone - The Availability Zone of the instance.
    
    
@@ -5745,7 +6011,7 @@ Default: Describes all your instances. **/
  * instance.group-name - The name of the security group for the instance.
    
    
- * ip-address - The public IP address of the instance.
+ * ip-address - The public IPv4 address of the instance.
    
    
  * kernel-id - The kernel ID.
@@ -5761,8 +6027,107 @@ Default: Describes all your instances. **/
  * launch-time - The time when the instance was launched.
    
    
- * monitoring-state - Indicates whether monitoring is enabled for the instance ( 
+ * monitoring-state - Indicates whether detailed monitoring is enabled ( 
    disabled | enabled ).
+   
+   
+ * network-interface.addresses.private-ip-address - The private IPv4 address
+   associated with the network interface.
+   
+   
+ * network-interface.addresses.primary - Specifies whether the IPv4 address of
+   the network interface is the primary private IPv4 address.
+   
+   
+ * network-interface.addresses.association.public-ip - The ID of the association
+   of an Elastic IP address (IPv4) with a network interface.
+   
+   
+ * network-interface.addresses.association.ip-owner-id - The owner ID of the
+   private IPv4 address associated with the network interface.
+   
+   
+ * network-interface.attachment.attachment-id - The ID of the interface
+   attachment.
+   
+   
+ * network-interface.attachment.instance-id - The ID of the instance to which
+   the network interface is attached.
+   
+   
+ * network-interface.attachment.instance-owner-id - The owner ID of the instance
+   to which the network interface is attached.
+   
+   
+ * network-interface.attachment.device-index - The device index to which the
+   network interface is attached.
+   
+   
+ * network-interface.attachment.status - The status of the attachment ( 
+   attaching | attached | detaching | detached ).
+   
+   
+ * network-interface.attachment.attach-time - The time that the network
+   interface was attached to an instance.
+   
+   
+ * network-interface.attachment.delete-on-termination - Specifies whether the
+   attachment is deleted when an instance is terminated.
+   
+   
+ * network-interface.availability-zone - The Availability Zone for the network
+   interface.
+   
+   
+ * network-interface.description - The description of the network interface.
+   
+   
+ * network-interface.group-id - The ID of a security group associated with the
+   network interface.
+   
+   
+ * network-interface.group-name - The name of a security group associated with
+   the network interface.
+   
+   
+ * network-interface.ipv6-addresses.ipv6-address - The IPv6 address associated
+   with the network interface.
+   
+   
+ * network-interface.mac-address - The MAC address of the network interface.
+   
+   
+ * network-interface.network-interface-id - The ID of the network interface.
+   
+   
+ * network-interface.owner-id - The ID of the owner of the network interface.
+   
+   
+ * network-interface.private-dns-name - The private DNS name of the network
+   interface.
+   
+   
+ * network-interface.requester-id - The requester ID for the network interface.
+   
+   
+ * network-interface.requester-managed - Indicates whether the network interface
+   is being managed by AWS.
+   
+   
+ * network-interface.status - The status of the network interface ( available )
+   | in-use ).
+   
+   
+ * network-interface.source-dest-check - Whether the network interface performs
+   source/destination checking. A value of true means checking is enabled, and 
+   false means checking is disabled. The value must be false for the network
+   interface to perform network address translation (NAT) in your VPC.
+   
+   
+ * network-interface.subnet-id - The ID of the subnet for the network interface.
+   
+   
+ * network-interface.vpc-id - The ID of the VPC for the network interface.
    
    
  * owner-id - The AWS account ID of the instance owner.
@@ -5775,10 +6140,10 @@ Default: Describes all your instances. **/
    otherwise, leave blank.
    
    
- * private-dns-name - The private DNS name of the instance.
+ * private-dns-name - The private IPv4 DNS name of the instance.
    
    
- * private-ip-address - The private IP address of the instance.
+ * private-ip-address - The private IPv4 address of the instance.
    
    
  * product-code - The product code associated with the AMI used to launch the
@@ -5858,118 +6223,7 @@ Default: Describes all your instances. **/
    hvm ).
    
    
- * vpc-id - The ID of the VPC that the instance is running in.
-   
-   
- * network-interface.description - The description of the network interface.
-   
-   
- * network-interface.subnet-id - The ID of the subnet for the network interface.
-   
-   
- * network-interface.vpc-id - The ID of the VPC for the network interface.
-   
-   
- * network-interface.network-interface-id - The ID of the network interface.
-   
-   
- * network-interface.owner-id - The ID of the owner of the network interface.
-   
-   
- * network-interface.availability-zone - The Availability Zone for the network
-   interface.
-   
-   
- * network-interface.requester-id - The requester ID for the network interface.
-   
-   
- * network-interface.requester-managed - Indicates whether the network interface
-   is being managed by AWS.
-   
-   
- * network-interface.status - The status of the network interface ( available )
-   | in-use ).
-   
-   
- * network-interface.mac-address - The MAC address of the network interface.
-   
-   
- * network-interface.private-dns-name - The private DNS name of the network
-   interface.
-   
-   
- * network-interface.source-dest-check - Whether the network interface performs
-   source/destination checking. A value of true means checking is enabled, and 
-   false means checking is disabled. The value must be false for the network
-   interface to perform network address translation (NAT) in your VPC.
-   
-   
- * network-interface.group-id - The ID of a security group associated with the
-   network interface.
-   
-   
- * network-interface.group-name - The name of a security group associated with
-   the network interface.
-   
-   
- * network-interface.attachment.attachment-id - The ID of the interface
-   attachment.
-   
-   
- * network-interface.attachment.instance-id - The ID of the instance to which
-   the network interface is attached.
-   
-   
- * network-interface.attachment.instance-owner-id - The owner ID of the instance
-   to which the network interface is attached.
-   
-   
- * network-interface.addresses.private-ip-address - The private IP address
-   associated with the network interface.
-   
-   
- * network-interface.attachment.device-index - The device index to which the
-   network interface is attached.
-   
-   
- * network-interface.attachment.status - The status of the attachment ( 
-   attaching | attached | detaching | detached ).
-   
-   
- * network-interface.attachment.attach-time - The time that the network
-   interface was attached to an instance.
-   
-   
- * network-interface.attachment.delete-on-termination - Specifies whether the
-   attachment is deleted when an instance is terminated.
-   
-   
- * network-interface.addresses.primary - Specifies whether the IP address of the
-   network interface is the primary private IP address.
-   
-   
- * network-interface.addresses.association.public-ip - The ID of the association
-   of an Elastic IP address with a network interface.
-   
-   
- * network-interface.addresses.association.ip-owner-id - The owner ID of the
-   private IP address associated with the network interface.
-   
-   
- * association.public-ip - The address of the Elastic IP address bound to the
-   network interface.
-   
-   
- * association.ip-owner-id - The owner of the Elastic IP address associated with
-   the network interface.
-   
-   
- * association.allocation-id - The allocation ID returned when you allocated the
-   Elastic IP address for your network interface.
-   
-   
- * association.association-id - The association ID returned when the network
-   interface was associated with an IP address. **/
+ * vpc-id - The ID of the VPC that the instance is running in. **/
         Filters?: FilterList;
         /** The token to request the next page of results. **/
         NextToken?: String;
@@ -6138,7 +6392,7 @@ Default: Describes all your network ACLs. **/
  * default - Indicates whether the ACL is the default network ACL for the VPC.
    
    
- * entry.cidr - The CIDR range specified in the entry.
+ * entry.cidr - The IPv4 CIDR range specified in the entry.
    
    
  * entry.egress - Indicates whether the entry applies to egress traffic.
@@ -6148,6 +6402,9 @@ Default: Describes all your network ACLs. **/
    
    
  * entry.icmp.type - The ICMP type specified in the entry, if any.
+   
+   
+ * entry.ipv6-cidr - The IPv6 CIDR range specified in the entry.
    
    
  * entry.port-range.from - The start of the port range specified in the entry.
@@ -6228,16 +6485,16 @@ Default: Describes all your network interfaces. **/
         NetworkInterfaceIds?: NetworkInterfaceIdList;
         /** One or more filters.
 
- &amp;#42; addresses.private-ip-address - The private IP addresses associated with the
+ &amp;#42; addresses.private-ip-address - The private IPv4 addresses associated with the
    network interface.
    
    
- * addresses.primary - Whether the private IP address is the primary IP address
-   associated with the network interface.
+ * addresses.primary - Whether the private IPv4 address is the primary IP
+   address associated with the network interface.
    
    
  * addresses.association.public-ip - The association ID returned when the
-   network interface was associated with the Elastic IP address.
+   network interface was associated with the Elastic IP address (IPv4).
    
    
  * addresses.association.owner-id - The owner ID of the addresses associated
@@ -6245,22 +6502,23 @@ Default: Describes all your network interfaces. **/
    
    
  * association.association-id - The association ID returned when the network
-   interface was associated with an IP address.
+   interface was associated with an IPv4 address.
    
    
  * association.allocation-id - The allocation ID returned when you allocated the
-   Elastic IP address for your network interface.
+   Elastic IP address (IPv4) for your network interface.
    
    
- * association.ip-owner-id - The owner of the Elastic IP address associated with
+ * association.ip-owner-id - The owner of the Elastic IP address (IPv4)
+   associated with the network interface.
+   
+   
+ * association.public-ip - The address of the Elastic IP address (IPv4) bound to
    the network interface.
    
    
- * association.public-ip - The address of the Elastic IP address bound to the
-   network interface.
-   
-   
- * association.public-dns-name - The public DNS name for the network interface.
+ * association.public-dns-name - The public DNS name for the network interface
+   (IPv4).
    
    
  * attachment.attachment-id - The ID of the interface attachment.
@@ -6307,6 +6565,10 @@ Default: Describes all your network interfaces. **/
    interface.
    
    
+ * ipv6-addresses.ipv6-address - An IPv6 address associated with the network
+   interface.
+   
+   
  * mac-address - The MAC address of the network interface.
    
    
@@ -6316,11 +6578,11 @@ Default: Describes all your network interfaces. **/
  * owner-id - The AWS account ID of the network interface owner.
    
    
- * private-ip-address - The private IP address or addresses of the network
+ * private-ip-address - The private IPv4 address or addresses of the network
    interface.
    
    
- * private-dns-name - The private DNS name of the network interface.
+ * private-dns-name - The private DNS name of the network interface (IPv4).
    
    
  * requester-id - The ID of the entity that launched the instance on your behalf
@@ -6751,12 +7013,20 @@ Default: Describes all your route tables. **/
  * route-table-id - The ID of the route table.
    
    
- * route.destination-cidr-block - The CIDR range specified in a route in the
-   table.
+ * route.destination-cidr-block - The IPv4 CIDR range specified in a route in
+   the table.
+   
+   
+ * route.destination-ipv6-cidr-block - The IPv6 CIDR range specified in a route
+   in the route table.
    
    
  * route.destination-prefix-list-id - The ID (prefix) of the AWS service
    specified in a route in the table.
+   
+   
+ * route.egress-only-internet-gateway-id - The ID of an egress-only Internet
+   gateway specified in a route in the route table.
    
    
  * route.gateway-id - The ID of a gateway specified in a route in the table.
@@ -6937,7 +7207,8 @@ rule - match all filters.
  * group-name - The name of the security group.
    
    
- * ip-permission.cidr - A CIDR range that has been granted permission.
+ * ip-permission.cidr - An IPv4 CIDR range that has been granted permission in a
+   security group rule.
    
    
  * ip-permission.from-port - The start of port range for the TCP and UDP
@@ -6950,6 +7221,10 @@ rule - match all filters.
    
  * ip-permission.group-name - The name of a security group that has been granted
    permission.
+   
+   
+ * ip-permission.ipv6-cidr - An IPv6 CIDR range that has been granted permission
+   in a security group rule.
    
    
  * ip-permission.protocol - The IP protocol for the permission ( tcp | udp | 
@@ -7357,7 +7632,8 @@ Z). **/
 price history data, in UTC format (for example, YYYY - MM - DD T HH : MM : SS 
 Z). **/
         EndTime?: DateTime;
-        /** Filters the results by the specified instance types. **/
+        /** Filters the results by the specified instance types. Note that T2 and HS1
+instance types are not supported. **/
         InstanceTypes?: InstanceTypeList;
         /** Filters the results by the specified basic product descriptions. **/
         ProductDescriptions?: ProductDescriptionList;
@@ -7437,17 +7713,29 @@ Default: Describes all your subnets. **/
    availability-zone as the filter name.
    
    
- * available-ip-address-count - The number of IP addresses in the subnet that
+ * available-ip-address-count - The number of IPv4 addresses in the subnet that
    are available.
    
    
- * cidrBlock - The CIDR block of the subnet. The CIDR block you specify must
-   exactly match the subnet&#x27;s CIDR block for information to be returned for the
-   subnet. You can also use cidr or cidr-block as the filter names.
+ * cidrBlock - The IPv4 CIDR block of the subnet. The CIDR block you specify
+   must exactly match the subnet&#x27;s CIDR block for information to be returned for
+   the subnet. You can also use cidr or cidr-block as the filter names.
    
    
  * defaultForAz - Indicates whether this is the default subnet for the
    Availability Zone. You can also use default-for-az as the filter name.
+   
+   
+ * ipv6-cidr-block-association.ipv6-cidr-block - An IPv6 CIDR block associated
+   with the subnet.
+   
+   
+ * ipv6-cidr-block-association.association-id - An association ID for an IPv6
+   CIDR block associated with the subnet.
+   
+   
+ * ipv6-cidr-block-association.state - The state of an IPv6 CIDR block
+   associated with the subnet.
    
    
  * state - The state of the subnet ( pending | available ).
@@ -7849,7 +8137,7 @@ Default: Describes all your VPC peering connections. **/
         VpcPeeringConnectionIds?: ValueStringList;
         /** One or more filters.
 
- &amp;#42; accepter-vpc-info.cidr-block - The CIDR block of the peer VPC.
+ &amp;#42; accepter-vpc-info.cidr-block - The IPv4 CIDR block of the peer VPC.
    
    
  * accepter-vpc-info.owner-id - The AWS account ID of the owner of the peer VPC.
@@ -7862,7 +8150,7 @@ Default: Describes all your VPC peering connections. **/
    connection.
    
    
- * requester-vpc-info.cidr-block - The CIDR block of the requester&#x27;s VPC.
+ * requester-vpc-info.cidr-block - The IPv4 CIDR block of the requester&#x27;s VPC.
    
    
  * requester-vpc-info.owner-id - The AWS account ID of the owner of the
@@ -7915,12 +8203,25 @@ Default: Describes all your VPCs. **/
         VpcIds?: VpcIdStringList;
         /** One or more filters.
 
- &amp;#42; cidr - The CIDR block of the VPC. The CIDR block you specify must exactly
-   match the VPC&#x27;s CIDR block for information to be returned for the VPC. Must
-   contain the slash followed by one or two digits (for example, /28 ).
+ &amp;#42; cidr - The IPv4 CIDR block of the VPC. The CIDR block you specify must
+   exactly match the VPC&#x27;s CIDR block for information to be returned for the
+   VPC. Must contain the slash followed by one or two digits (for example, /28 
+   ).
    
    
  * dhcp-options-id - The ID of a set of DHCP options.
+   
+   
+ * ipv6-cidr-block-association.ipv6-cidr-block - An IPv6 CIDR block associated
+   with the VPC.
+   
+   
+ * ipv6-cidr-block-association.association-id - The association ID for an IPv6
+   CIDR block associated with the VPC.
+   
+   
+ * ipv6-cidr-block-association.state - The state of an IPv6 CIDR block
+   associated with the VPC.
    
    
  * isDefault - Indicates whether the VPC is the default VPC.
@@ -8205,6 +8506,26 @@ UnauthorizedOperation . **/
 and subnet. **/
         AssociationId: String;
     }
+    export interface DisassociateSubnetCidrBlockRequest {
+        /** The association ID for the CIDR block. **/
+        AssociationId: String;
+    }
+    export interface DisassociateSubnetCidrBlockResult {
+        /** The ID of the subnet. **/
+        SubnetId?: String;
+        /** Information about the IPv6 CIDR block association. **/
+        Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation;
+    }
+    export interface DisassociateVpcCidrBlockRequest {
+        /** The association ID for the CIDR block. **/
+        AssociationId: String;
+    }
+    export interface DisassociateVpcCidrBlockResult {
+        /** The ID of the VPC. **/
+        VpcId?: String;
+        /** Information about the IPv6 CIDR block association. **/
+        Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation;
+    }
     export interface DiskImage {
         /** Information about the disk image. **/
         Image?: DiskImageDetail;
@@ -8307,6 +8628,12 @@ only be attached to instances that support Amazon EBS encryption. **/
         VolumeId?: String;
         /** Indicates whether the volume is deleted on instance termination. **/
         DeleteOnTermination?: Boolean;
+    }
+    export interface EgressOnlyInternetGateway {
+        /** The ID of the egress-only Internet gateway. **/
+        EgressOnlyInternetGatewayId?: EgressOnlyInternetGatewayId;
+        /** Information about the attachment of the egress-only Internet gateway. **/
+        Attachments?: InternetGatewayAttachmentList;
     }
     export interface EnableVgwRoutePropagationRequest {
         /** The ID of the route table. **/
@@ -8569,10 +8896,10 @@ actually making the request, and provides an error response. If you have the
 required permissions, the error response is DryRunOperation . Otherwise, it is 
 UnauthorizedOperation . **/
         DryRun?: Boolean;
-        /** The ID/s of the Convertible Reserved Instances you want to exchange. **/
+        /** The IDs of the Convertible Reserved Instances to exchange. **/
         ReservedInstanceIds: ReservedInstanceIdSet;
-        /** The configuration requirements of the Convertible Reserved Instances you want in
-exchange for your current Convertible Reserved Instances. **/
+        /** The configuration requirements of the Convertible Reserved Instances to exchange
+for your current Convertible Reserved Instances. **/
         TargetConfigurations?: TargetConfigurationRequestSet;
     }
     export interface GetReservedInstancesExchangeQuoteResult {
@@ -8588,9 +8915,9 @@ exchange for your current Convertible Reserved Instances. **/
         CurrencyCode?: String;
         /** The new end date of the reservation term. **/
         OutputReservedInstancesWillExpireAt?: DateTime;
-        /** If true , the exchange is valid. If false , the exchange cannot be performed. **/
+        /** If true , the exchange is valid. If false , the exchange cannot be completed. **/
         IsValidExchange?: Boolean;
-        /** Describes the reason why the exchange can not be completed. **/
+        /** Describes the reason why the exchange cannot be completed. **/
         ValidationFailureReason?: String;
     }
     export interface GroupIdentifier {
@@ -8720,9 +9047,9 @@ year) | 94608000 (3 years) . **/
         Name?: String;
     }
     export interface IcmpTypeCode {
-        /** The ICMP code. A value of -1 means all codes for the specified ICMP type. **/
-        Type?: Integer;
         /** The ICMP type. A value of -1 means all types. **/
+        Type?: Integer;
+        /** The ICMP code. A value of -1 means all codes for the specified ICMP type. **/
         Code?: Integer;
     }
     export interface IdFormat {
@@ -9084,14 +9411,18 @@ UnauthorizedOperation . **/
         ImageId?: String;
         /** The current state of the instance. **/
         State?: InstanceState;
-        /** The private DNS name assigned to the instance. This DNS name can only be used
-inside the Amazon EC2 network. This name is not available until the instance
-enters the running state. For EC2-VPC, this name is only available if you&#x27;ve
-enabled DNS hostnames for your VPC. **/
+        /** (IPv4 only) The private DNS hostname name assigned to the instance. This DNS
+hostname can only be used inside the Amazon EC2 network. This name is not
+available until the instance enters the running state.
+
+[EC2-VPC] The Amazon-provided DNS server will resolve Amazon-provided private
+DNS hostnames if you&#x27;ve enabled DNS resolution and DNS hostnames in your VPC. If
+you are not using the Amazon-provided DNS server in your VPC, your custom domain
+name servers must resolve the hostname as appropriate. **/
         PrivateDnsName?: String;
-        /** The public DNS name assigned to the instance. This name is not available until
-the instance enters the running state. For EC2-VPC, this name is only available
-if you&#x27;ve enabled DNS hostnames for your VPC. **/
+        /** (IPv4 only) The public DNS name assigned to the instance. This name is not
+available until the instance enters the running state. For EC2-VPC, this name is
+only available if you&#x27;ve enabled DNS hostnames for your VPC. **/
         PublicDnsName?: String;
         /** The reason for the most recent state transition. This might be an empty string. **/
         StateTransitionReason?: String;
@@ -9115,15 +9446,15 @@ group. **/
         RamdiskId?: String;
         /** The value is Windows for Windows instances; otherwise blank. **/
         Platform?: PlatformValues;
-        /** The monitoring information for the instance. **/
+        /** The monitoring for the instance. **/
         Monitoring?: Monitoring;
         /** [EC2-VPC] The ID of the subnet in which the instance is running. **/
         SubnetId?: String;
         /** [EC2-VPC] The ID of the VPC in which the instance is running. **/
         VpcId?: String;
-        /** The private IP address assigned to the instance. **/
+        /** The private IPv4 address assigned to the instance. **/
         PrivateIpAddress?: String;
-        /** The public IP address assigned to the instance, if applicable. **/
+        /** The public IPv4 address assigned to the instance, if applicable. **/
         PublicIpAddress?: String;
         /** The reason for the most recent state transition. **/
         StateReason?: StateReason;
@@ -9250,10 +9581,14 @@ launched. **/
         /** The target virtualization environment. **/
         TargetEnvironment?: ExportEnvironment;
     }
+    export interface InstanceIpv6Address {
+        /** The IPv6 address. **/
+        Ipv6Address?: String;
+    }
     export interface InstanceMonitoring {
         /** The ID of the instance. **/
         InstanceId?: String;
-        /** The monitoring information. **/
+        /** The monitoring for the instance. **/
         Monitoring?: Monitoring;
     }
     export interface InstanceNetworkInterface {
@@ -9271,7 +9606,7 @@ launched. **/
         Status?: NetworkInterfaceStatus;
         /** The MAC address. **/
         MacAddress?: String;
-        /** The IP address of the network interface within the subnet. **/
+        /** The IPv4 address of the network interface within the subnet. **/
         PrivateIpAddress?: String;
         /** The private DNS name. **/
         PrivateDnsName?: String;
@@ -9281,11 +9616,13 @@ launched. **/
         Groups?: GroupIdentifierList;
         /** The network interface attachment. **/
         Attachment?: InstanceNetworkInterfaceAttachment;
-        /** The association information for an Elastic IP associated with the network
+        /** The association information for an Elastic IPv4 associated with the network
 interface. **/
         Association?: InstanceNetworkInterfaceAssociation;
-        /** The private IP addresses associated with the network interface. **/
+        /** One or more private IPv4 addresses associated with the network interface. **/
         PrivateIpAddresses?: InstancePrivateIpAddressList;
+        /** One or more IPv6 addresses associated with the network interface. **/
+        Ipv6Addresses?: InstanceIpv6AddressList;
     }
     export interface InstanceNetworkInterfaceAssociation {
         /** The public IP address or Elastic IP address bound to the network interface. **/
@@ -9321,7 +9658,7 @@ creating a network interface when launching an instance. **/
         /** The description of the network interface. Applies only if creating a network
 interface when launching an instance. **/
         Description?: String;
-        /** The private IP address of the network interface. Applies only if creating a
+        /** The private IPv4 address of the network interface. Applies only if creating a
 network interface when launching an instance. You cannot specify this option if
 you&#x27;re launching more than one instance in a RunInstances request. **/
         PrivateIpAddress?: String;
@@ -9332,28 +9669,39 @@ creating a network interface when launching an instance. **/
 can specify true only if creating a new network interface when launching an
 instance. **/
         DeleteOnTermination?: Boolean;
-        /** One or more private IP addresses to assign to the network interface. Only one
-private IP address can be designated as primary. You cannot specify this option
-if you&#x27;re launching more than one instance in a RunInstances request. **/
+        /** One or more private IPv4 addresses to assign to the network interface. Only one
+private IPv4 address can be designated as primary. You cannot specify this
+option if you&#x27;re launching more than one instance in a RunInstances request. **/
         PrivateIpAddresses?: PrivateIpAddressSpecificationList;
-        /** The number of secondary private IP addresses. You can&#x27;t specify this option and
-specify more than one private IP address using the private IP addresses option.
-You cannot specify this option if you&#x27;re launching more than one instance in a 
-RunInstances request. **/
+        /** The number of secondary private IPv4 addresses. You can&#x27;t specify this option
+and specify more than one private IP address using the private IP addresses
+option. You cannot specify this option if you&#x27;re launching more than one
+instance in a RunInstances request. **/
         SecondaryPrivateIpAddressCount?: Integer;
-        /** Indicates whether to assign a public IP address to an instance you launch in a
+        /** Indicates whether to assign a public IPv4 address to an instance you launch in a
 VPC. The public IP address can only be assigned to a network interface for eth0,
 and can only be assigned to a new network interface, not an existing one. You
 cannot specify more than one network interface in the request. If launching into
 a default subnet, the default value is true . **/
         AssociatePublicIpAddress?: Boolean;
+        /** One or more IPv6 addresses to assign to the network interface. You cannot
+specify this option and the option to assign a number of IPv6 addresses in the
+same request. You cannot specify this option if you&#x27;ve specified a minimum
+number of instances to launch. **/
+        Ipv6Addresses?: InstanceIpv6AddressList;
+        /** A number of IPv6 addresses to assign to the network interface. Amazon EC2
+chooses the IPv6 addresses from the range of the subnet. You cannot specify this
+option and the option to assign specific IPv6 addresses in the same request. You
+can specify this option if you&#x27;ve specified a minimum number of instances to
+launch. **/
+        Ipv6AddressCount?: Integer;
     }
     export interface InstancePrivateIpAddress {
-        /** The private IP address of the network interface. **/
+        /** The private IPv4 address of the network interface. **/
         PrivateIpAddress?: String;
-        /** The private DNS name. **/
+        /** The private IPv4 DNS name. **/
         PrivateDnsName?: String;
-        /** Indicates whether this IP address is the primary private IP address of the
+        /** Indicates whether this IPv4 address is the primary private IP address of the
 network interface. **/
         Primary?: Boolean;
         /** The association information for an Elastic IP address for the network interface. **/
@@ -9453,22 +9801,28 @@ following text: [Completed]. **/
         State?: AttachmentStatus;
     }
     export interface IpPermission {
-        /** The IP protocol name (for tcp , udp , and icmp ) or number (see Protocol Numbers
+        /** The IP protocol name ( tcp , udp , icmp ) or number (see Protocol Numbers
 [http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] ).
 
-[EC2-VPC only] When you authorize or revoke security group rules, you can use -1 
-to specify all. **/
+[EC2-VPC only] Use -1 to specify all protocols. When authorizing security group
+rules, specifying -1 or a protocol number other than tcp , udp , icmp , or 58 
+(ICMPv6) allows traffic on all ports, regardless of any port range you specify.
+For tcp , udp , and icmp , you must specify a port range. For 58 (ICMPv6), you
+can optionally specify a port range; if you don&#x27;t, traffic for all types and
+codes is allowed when authorizing rules. **/
         IpProtocol?: String;
-        /** The start of port range for the TCP and UDP protocols, or an ICMP type number. A
-value of -1 indicates all ICMP types. **/
+        /** The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type
+number. A value of -1 indicates all ICMP/ICMPv6 types. **/
         FromPort?: Integer;
-        /** The end of port range for the TCP and UDP protocols, or an ICMP code. A value of 
--1 indicates all ICMP codes for the specified ICMP type. **/
+        /** The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A
+value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. **/
         ToPort?: Integer;
         /** One or more security group and AWS account ID pairs. **/
         UserIdGroupPairs?: UserIdGroupPairList;
-        /** One or more IP ranges. **/
+        /** One or more IPv4 ranges. **/
         IpRanges?: IpRangeList;
+        /** [EC2-VPC only] One or more IPv6 ranges. **/
+        Ipv6Ranges?: Ipv6RangeList;
         /** (Valid for AuthorizeSecurityGroupEgress , RevokeSecurityGroupEgress and 
 DescribeSecurityGroups only) One or more prefix list IDs for an AWS service. In
 an AuthorizeSecurityGroupEgress request, this is the AWS service that you want
@@ -9477,9 +9831,18 @@ group. **/
         PrefixListIds?: PrefixListIdList;
     }
     export interface IpRange {
-        /** The CIDR range. You can either specify a CIDR range or a source security group,
-not both. **/
+        /** The IPv4 CIDR range. You can either specify a CIDR range or a source security
+group, not both. To specify a single IPv4 address, use the /32 prefix. **/
         CidrIp?: String;
+    }
+    export interface Ipv6CidrBlock {
+        /** The IPv6 CIDR block. **/
+        Ipv6CidrBlock?: String;
+    }
+    export interface Ipv6Range {
+        /** The IPv6 CIDR range. You can either specify a CIDR range or a source security
+group, not both. To specify a single IPv6 address, use the /128 prefix. **/
+        CidrIpv6?: String;
     }
     export interface KeyPair {
         /** The name of the key pair. **/
@@ -9540,7 +9903,8 @@ your Spot Instances, these volumes are not encrypted. **/
         BlockDeviceMappings?: BlockDeviceMappingList;
         /** The ID of the subnet in which to launch the instance. **/
         SubnetId?: String;
-        /** One or more network interfaces. **/
+        /** One or more network interfaces. If you specify a network interface, you must
+specify subnet IDs and security group IDs using the network interface. **/
         NetworkInterfaces?: InstanceNetworkInterfaceSpecificationList;
         /** The IAM instance profile. **/
         IamInstanceProfile?: IamInstanceProfileSpecification;
@@ -9782,9 +10146,16 @@ Spot fleet. **/
     export interface ModifySubnetAttributeRequest {
         /** The ID of the subnet. **/
         SubnetId: String;
-        /** Specify true to indicate that instances launched into the specified subnet
-should be assigned public IP address. **/
+        /** Specify true to indicate that network interfaces created in the specified subnet
+should be assigned a public IPv4 address. This includes a network interface
+that&#x27;s created when launching an instance into the subnet (the instance
+therefore receives a public IPv4 address). **/
         MapPublicIpOnLaunch?: AttributeBooleanValue;
+        /** Specify true to indicate that network interfaces created in the specified subnet
+should be assigned an IPv6 address. This includes a network interface that&#x27;s
+created when launching an instance into the subnet (the instance therefore
+receives an IPv6 address). **/
+        AssignIpv6AddressOnCreation?: AttributeBooleanValue;
     }
     export interface ModifyVolumeAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
@@ -9869,11 +10240,12 @@ UnauthorizedOperation . **/
         InstanceIds: InstanceIdStringList;
     }
     export interface MonitorInstancesResult {
-        /** Monitoring information for one or more instances. **/
+        /** The monitoring information. **/
         InstanceMonitorings?: InstanceMonitoringList;
     }
     export interface Monitoring {
-        /** Indicates whether monitoring is enabled for the instance. **/
+        /** Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
+enabled. **/
         State?: MonitoringState;
     }
     export interface MoveAddressToVpcRequest {
@@ -10015,8 +10387,10 @@ rule number. **/
         /** Indicates whether the rule is an egress rule (applied to traffic leaving the
 subnet). **/
         Egress?: Boolean;
-        /** The network range to allow or deny, in CIDR notation. **/
+        /** The IPv4 network range to allow or deny, in CIDR notation. **/
         CidrBlock?: String;
+        /** The IPv6 network range to allow or deny, in CIDR notation. **/
+        Ipv6CidrBlock?: String;
         /** ICMP protocol: The ICMP type and code. **/
         IcmpTypeCode?: IcmpTypeCode;
         /** TCP or UDP protocols: The range of ports the rule applies to. **/
@@ -10044,7 +10418,7 @@ Management Console or Auto Scaling). **/
         Status?: NetworkInterfaceStatus;
         /** The MAC address. **/
         MacAddress?: String;
-        /** The IP address of the network interface within the subnet. **/
+        /** The IPv4 address of the network interface within the subnet. **/
         PrivateIpAddress?: String;
         /** The private DNS name. **/
         PrivateDnsName?: String;
@@ -10054,13 +10428,15 @@ Management Console or Auto Scaling). **/
         Groups?: GroupIdentifierList;
         /** The network interface attachment. **/
         Attachment?: NetworkInterfaceAttachment;
-        /** The association information for an Elastic IP associated with the network
-interface. **/
+        /** The association information for an Elastic IP address (IPv4) associated with the
+network interface. **/
         Association?: NetworkInterfaceAssociation;
         /** Any tags assigned to the network interface. **/
         TagSet?: TagList;
-        /** The private IP addresses associated with the network interface. **/
+        /** The private IPv4 addresses associated with the network interface. **/
         PrivateIpAddresses?: NetworkInterfacePrivateIpAddressList;
+        /** The IPv6 addresses associated with the network interface. **/
+        Ipv6Addresses?: NetworkInterfaceIpv6AddressesList;
         /** The type of interface. **/
         InterfaceType?: NetworkInterfaceType;
     }
@@ -10100,15 +10476,19 @@ terminated. **/
 terminated. **/
         DeleteOnTermination?: Boolean;
     }
+    export interface NetworkInterfaceIpv6Address {
+        /** The IPv6 address. **/
+        Ipv6Address?: String;
+    }
     export interface NetworkInterfacePrivateIpAddress {
-        /** The private IP address. **/
+        /** The private IPv4 address. **/
         PrivateIpAddress?: String;
         /** The private DNS name. **/
         PrivateDnsName?: String;
-        /** Indicates whether this IP address is the primary private IP address of the
+        /** Indicates whether this IPv4 address is the primary private IPv4 address of the
 network interface. **/
         Primary?: Boolean;
-        /** The association information for an Elastic IP address associated with the
+        /** The association information for an Elastic IP address (IPv4) associated with the
 network interface. **/
         Association?: NetworkInterfaceAssociation;
     }
@@ -10219,10 +10599,10 @@ only supported currency is USD . **/
         Count?: Integer;
     }
     export interface PrivateIpAddressSpecification {
-        /** The private IP addresses. **/
+        /** The private IPv4 addresses. **/
         PrivateIpAddress: String;
-        /** Indicates whether the private IP address is the primary private IP address. Only
-one IP address can be designated as primary. **/
+        /** Indicates whether the private IPv4 address is the primary private IPv4 address.
+Only one IPv4 address can be designated as primary. **/
         Primary?: Boolean;
     }
     export interface ProductCode {
@@ -10496,7 +10876,13 @@ UnauthorizedOperation . **/
         NetworkAclId: String;
         /** The rule number of the entry to replace. **/
         RuleNumber: Integer;
-        /** The IP protocol. You can specify all or -1 to mean all protocols. **/
+        /** The IP protocol. You can specify all or -1 to mean all protocols. If you specify 
+all , -1 , or a protocol number other than tcp , udp , or icmp , traffic on all
+ports is allowed, regardless of any ports or ICMP types or codes you specify. If
+you specify protocol 58 (ICMPv6) and specify an IPv4 CIDR block, traffic for all
+ICMP types and codes allowed, regardless of any that you specify. If you specify
+protocol 58 (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP
+type and code. **/
         Protocol: String;
         /** Indicates whether to allow or deny the traffic that matches the rule. **/
         RuleAction: RuleAction;
@@ -10504,13 +10890,17 @@ UnauthorizedOperation . **/
 
 Default: If no value is specified, we replace the ingress rule. **/
         Egress: Boolean;
-        /** The network range to allow or deny, in CIDR notation. **/
-        CidrBlock: String;
-        /** ICMP protocol: The ICMP type and code. Required if specifying 1 (ICMP) for the
-protocol. **/
+        /** The IPv4 network range to allow or deny, in CIDR notation (for example 
+172.16.0.0/24 ). **/
+        CidrBlock?: String;
+        /** The IPv6 network range to allow or deny, in CIDR notation (for example 
+2001:bd8:1234:1a00::/64 ). **/
+        Ipv6CidrBlock?: String;
+        /** ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP
+(1) protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block. **/
         IcmpTypeCode?: IcmpTypeCode;
         /** TCP or UDP protocols: The range of ports the rule applies to. Required if
-specifying 6 (TCP) or 17 (UDP) for the protocol. **/
+specifying TCP (6) or UDP (17) for the protocol. **/
         PortRange?: PortRange;
     }
     export interface ReplaceRouteRequest {
@@ -10521,18 +10911,23 @@ UnauthorizedOperation . **/
         DryRun?: Boolean;
         /** The ID of the route table. **/
         RouteTableId: String;
-        /** The CIDR address block used for the destination match. The value you provide
-must match the CIDR of an existing route in the table. **/
-        DestinationCidrBlock: String;
+        /** The IPv4 CIDR address block used for the destination match. The value you
+provide must match the CIDR of an existing route in the table. **/
+        DestinationCidrBlock?: String;
         /** The ID of an Internet gateway or virtual private gateway. **/
         GatewayId?: String;
+        /** The IPv6 CIDR address block used for the destination match. The value you
+provide must match the CIDR of an existing route in the table. **/
+        DestinationIpv6CidrBlock?: String;
+        /** [IPv6 traffic only] The ID of an egress-only Internet gateway. **/
+        EgressOnlyInternetGatewayId?: String;
         /** The ID of a NAT instance in your VPC. **/
         InstanceId?: String;
         /** The ID of a network interface. **/
         NetworkInterfaceId?: String;
         /** The ID of a VPC peering connection. **/
         VpcPeeringConnectionId?: String;
-        /** The ID of a NAT gateway. **/
+        /** [IPv4 traffic only] The ID of a NAT gateway. **/
         NatGatewayId?: String;
     }
     export interface ReplaceRouteTableAssociationRequest {
@@ -10716,7 +11111,8 @@ your Spot Instances, these volumes are not encrypted. **/
         BlockDeviceMappings?: BlockDeviceMappingList;
         /** The ID of the subnet in which to launch the instance. **/
         SubnetId?: String;
-        /** One or more network interfaces. **/
+        /** One or more network interfaces. If you specify a network interface, you must
+specify subnet IDs and security group IDs using the network interface. **/
         NetworkInterfaces?: InstanceNetworkInterfaceSpecificationList;
         /** The IAM instance profile. **/
         IamInstanceProfile?: IamInstanceProfileSpecification;
@@ -10816,7 +11212,8 @@ EC2-Classic or EC2-VPC. **/
         InstanceCount?: Integer;
         /** The instance type for the modified Reserved Instances. **/
         InstanceType?: InstanceType;
-        /** Whether the Reserved Instance is standard or convertible . **/
+        /** Whether the Reserved Instance is applied to instances in a region or instances
+in a specific Availability Zone. **/
         Scope?: scope;
     }
     export interface ReservedInstancesId {
@@ -11059,7 +11456,7 @@ address range. **/
         IpPermissions?: IpPermissionList;
     }
     export interface Route {
-        /** The CIDR block used for the destination match. **/
+        /** The IPv4 CIDR block used for the destination match. **/
         DestinationCidrBlock?: String;
         /** The prefix of the AWS service. **/
         DestinationPrefixListId?: String;
@@ -11090,6 +11487,10 @@ or the specified NAT instance has been terminated). **/
    
  * EnableVgwRoutePropagation - The route was propagated by route propagation. **/
         Origin?: RouteOrigin;
+        /** The IPv6 CIDR block used for the destination match. **/
+        DestinationIpv6CidrBlock?: String;
+        /** The ID of the egress-only Internet gateway. **/
+        EgressOnlyInternetGatewayId?: String;
     }
     export interface RouteTable {
         /** The ID of the route table. **/
@@ -11116,7 +11517,8 @@ or the specified NAT instance has been terminated). **/
         Main?: Boolean;
     }
     export interface RunInstancesMonitoringEnabled {
-        /** Indicates whether monitoring is enabled for the instance. **/
+        /** Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
+enabled. **/
         Enabled: Boolean;
     }
     export interface RunInstancesRequest {
@@ -11207,10 +11609,8 @@ status cannot be changed using this action. **/
         /** [EC2-VPC] The ID of the subnet to launch the instance into. **/
         SubnetId?: String;
         /** If you set this parameter to true , you can&#x27;t terminate the instance using the
-Amazon EC2 console, CLI, or API; otherwise, you can. If you set this parameter
-to true and then later want to be able to terminate the instance, you must first
-change the value of the disableApiTermination attribute to false using 
-ModifyInstanceAttribute . Alternatively, if you set 
+Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to 
+false after launch, use ModifyInstanceAttribute . Alternatively, if you set 
 InstanceInitiatedShutdownBehavior to terminate , you can terminate the instance
 by running the shutdown command from the instance.
 
@@ -11221,18 +11621,25 @@ from the instance (using the operating system command for system shutdown).
 
 Default: stop **/
         InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
-        /** [EC2-VPC] The primary IP address. You must specify a value from the IP address
-range of the subnet.
+        /** [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4
+address range of the subnet.
 
-Only one private IP address can be designated as primary. Therefore, you can&#x27;t
-specify this parameter if PrivateIpAddresses.n.Primary is set to true and 
-PrivateIpAddresses.n.PrivateIpAddress is set to an IP address.
-
-You cannot specify this option if you&#x27;re launching more than one instance in the
-request.
-
-Default: We select an IP address from the IP address range of the subnet. **/
+Only one private IP address can be designated as primary. You can&#x27;t specify this
+option if you&#x27;ve specified the option to designate a private IP address as the
+primary IP address in a network interface specification. You cannot specify this
+option if you&#x27;re launching more than one instance in the request. **/
         PrivateIpAddress?: String;
+        /** [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to
+associate with the primary network interface. You cannot specify this option and
+the option to assign a number of IPv6 addresses in the same request. You cannot
+specify this option if you&#x27;ve specified a minimum number of instances to launch. **/
+        Ipv6Addresses?: InstanceIpv6AddressList;
+        /** [EC2-VPC] A number of IPv6 addresses to associate with the primary network
+interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+You cannot specify this option and the option to assign specific IPv6 addresses
+in the same request. You can specify this option if you&#x27;ve specified a minimum
+number of instances to launch. **/
+        Ipv6AddressCount?: Integer;
         /** Unique, case-sensitive identifier you provide to ensure the idempotency of the
 request. For more information, see Ensuring Idempotency
 [http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
@@ -11453,6 +11860,10 @@ only to instances that support them. **/
         /** The name. **/
         Name?: String;
     }
+    export interface ScheduledInstancesIpv6Address {
+        /** The IPv6 address. **/
+        Ipv6Address?: Ipv6Address;
+    }
     export interface ScheduledInstancesLaunchSpecification {
         /** The ID of the Amazon Machine Image (AMI). **/
         ImageId: String;
@@ -11502,22 +11913,27 @@ Default: false **/
         SubnetId?: String;
         /** The description. **/
         Description?: String;
-        /** The IP address of the network interface within the subnet. **/
+        /** The IPv4 address of the network interface within the subnet. **/
         PrivateIpAddress?: String;
-        /** The private IP addresses. **/
+        /** The private IPv4 addresses. **/
         PrivateIpAddressConfigs?: PrivateIpAddressConfigSet;
-        /** The number of secondary private IP addresses. **/
+        /** The number of secondary private IPv4 addresses. **/
         SecondaryPrivateIpAddressCount?: Integer;
-        /** Indicates whether to assign a public IP address to instances launched in a VPC.
-The public IP address can only be assigned to a network interface for eth0, and
-can only be assigned to a new network interface, not an existing one. You cannot
-specify more than one network interface in the request. If launching into a
-default subnet, the default value is true . **/
+        /** Indicates whether to assign a public IPv4 address to instances launched in a
+VPC. The public IPv4 address can only be assigned to a network interface for
+eth0, and can only be assigned to a new network interface, not an existing one.
+You cannot specify more than one network interface in the request. If launching
+into a default subnet, the default value is true . **/
         AssociatePublicIpAddress?: Boolean;
         /** The IDs of one or more security groups. **/
         Groups?: ScheduledInstancesSecurityGroupIdSet;
         /** Indicates whether to delete the interface when the instance is terminated. **/
         DeleteOnTermination?: Boolean;
+        /** One or more specific IPv6 addresses from the subnet range. **/
+        Ipv6Addresses?: ScheduledInstancesIpv6AddressList;
+        /** The number of IPv6 addresses to assign to the network interface. The IPv6
+addresses are automatically selected from the subnet range. **/
+        Ipv6AddressCount?: Integer;
     }
     export interface ScheduledInstancesPlacement {
         /** The Availability Zone. **/
@@ -11526,10 +11942,10 @@ default subnet, the default value is true . **/
         GroupName?: String;
     }
     export interface ScheduledInstancesPrivateIpAddressConfig {
-        /** The IP address. **/
+        /** The IPv4 address. **/
         PrivateIpAddress?: String;
-        /** Indicates whether this is a primary IP address. Otherwise, this is a secondary
-IP address. **/
+        /** Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary
+IPv4 address. **/
         Primary?: Boolean;
     }
     export interface SecurityGroup {
@@ -11699,7 +12115,7 @@ text from a file. Otherwise, you must provide Base64-encoded text. **/
         UserData?: String;
         /** Deprecated. **/
         AddressingType?: String;
-        /** The instance type. **/
+        /** The instance type. Note that T2 and HS1 instance types are not supported. **/
         InstanceType?: InstanceType;
         /** The placement information. **/
         Placement?: SpotPlacement;
@@ -11715,7 +12131,8 @@ text from a file. Otherwise, you must provide Base64-encoded text. **/
 subnets, separate them using commas; for example, &quot;subnet-a61dafcf,
 subnet-65ea5f08&quot;. **/
         SubnetId?: String;
-        /** One or more network interfaces. **/
+        /** One or more network interfaces. If you specify a network interface, you must
+specify subnet IDs and security group IDs using the network interface. **/
         NetworkInterfaces?: InstanceNetworkInterfaceSpecificationList;
         /** The IAM instance profile. **/
         IamInstanceProfile?: IamInstanceProfileSpecification;
@@ -11892,7 +12309,7 @@ commas; for example, &quot;us-west-2a, us-west-2b&quot;. **/
         GroupName?: String;
     }
     export interface SpotPrice {
-        /** The instance type. **/
+        /** The instance type. Note that T2 and HS1 instance types are not supported. **/
         InstanceType?: InstanceType;
         /** A general description of the AMI. **/
         ProductDescription?: RIProductDescription;
@@ -12020,19 +12437,39 @@ Default: false **/
         State?: SubnetState;
         /** The ID of the VPC the subnet is in. **/
         VpcId?: String;
-        /** The CIDR block assigned to the subnet. **/
+        /** The IPv4 CIDR block assigned to the subnet. **/
         CidrBlock?: String;
-        /** The number of unused IP addresses in the subnet. Note that the IP addresses for
-any stopped instances are considered unavailable. **/
+        /** Information about the IPv6 CIDR blocks associated with the subnet. **/
+        Ipv6CidrBlockAssociationSet?: SubnetIpv6CidrBlockAssociationSet;
+        /** Indicates whether a network interface created in this subnet (including a
+network interface created by RunInstances ) receives an IPv6 address. **/
+        AssignIpv6AddressOnCreation?: Boolean;
+        /** The number of unused private IPv4 addresses in the subnet. Note that the IPv4
+addresses for any stopped instances are considered unavailable. **/
         AvailableIpAddressCount?: Integer;
         /** The Availability Zone of the subnet. **/
         AvailabilityZone?: String;
         /** Indicates whether this is the default subnet for the Availability Zone. **/
         DefaultForAz?: Boolean;
-        /** Indicates whether instances launched in this subnet receive a public IP address. **/
+        /** Indicates whether instances launched in this subnet receive a public IPv4
+address. **/
         MapPublicIpOnLaunch?: Boolean;
         /** Any tags assigned to the subnet. **/
         Tags?: TagList;
+    }
+    export interface SubnetCidrBlockState {
+        /** The state of a CIDR block. **/
+        State?: SubnetCidrBlockStateCode;
+        /** A message about the status of the CIDR block, if applicable. **/
+        StatusMessage?: String;
+    }
+    export interface SubnetIpv6CidrBlockAssociation {
+        /** The IPv6 CIDR block. **/
+        Ipv6CidrBlock?: String;
+        /** Information about the state of the CIDR block. **/
+        Ipv6CidrBlockState?: SubnetCidrBlockState;
+        /** The association ID for the CIDR block. **/
+        AssociationId?: String;
     }
     export interface Tag {
         /** The key of the tag.
@@ -12064,9 +12501,7 @@ applied to. This parameter is reserved and cannot be specified in a request **/
         InstanceCount?: Integer;
     }
     export interface TargetConfigurationRequest {
-        /** The Convertible Reserved Instance offering ID. If this isn&#x27;t included in the
-request, the response lists your current Convertible Reserved Instance/s and
-their value/s. **/
+        /** The Convertible Reserved Instance offering ID. **/
         OfferingId: String;
         /** The number of instances the Covertible Reserved Instance offering can be applied
 to. This parameter is reserved and cannot be specified in a request **/
@@ -12097,6 +12532,18 @@ smaller batches. **/
         /** Information about one or more terminated instances. **/
         TerminatingInstances?: InstanceStateChangeList;
     }
+    export interface UnassignIpv6AddressesRequest {
+        /** The ID of the network interface. **/
+        NetworkInterfaceId: String;
+        /** The IPv6 addresses to unassign from the network interface. **/
+        Ipv6Addresses: Ipv6AddressList;
+    }
+    export interface UnassignIpv6AddressesResult {
+        /** The ID of the network interface. **/
+        NetworkInterfaceId?: String;
+        /** The IPv6 addresses that have been unassigned from the network interface. **/
+        UnassignedIpv6Addresses?: Ipv6AddressList;
+    }
     export interface UnassignPrivateIpAddressesRequest {
         /** The ID of the network interface. **/
         NetworkInterfaceId: String;
@@ -12114,14 +12561,14 @@ UnauthorizedOperation . **/
         InstanceIds: InstanceIdStringList;
     }
     export interface UnmonitorInstancesResult {
-        /** Monitoring information for one or more instances. **/
+        /** The monitoring information. **/
         InstanceMonitorings?: InstanceMonitoringList;
     }
     export interface UnsuccessfulItem {
-        /** Information about the error. **/
-        Error: UnsuccessfulItemError;
         /** The ID of the resource. **/
         ResourceId?: String;
+        /** Information about the error. **/
+        Error: UnsuccessfulItemError;
     }
     export interface UnsuccessfulItemError {
         /** The error code. **/
@@ -12291,7 +12738,7 @@ not used in requests to create gp2 , st1 , sc1 , or standard volumes. **/
         VpcId?: String;
         /** The current state of the VPC. **/
         State?: VpcState;
-        /** The CIDR block for the VPC. **/
+        /** The IPv4 CIDR block for the VPC. **/
         CidrBlock?: String;
         /** The ID of the set of DHCP options you&#x27;ve associated with the VPC (or default if
 the default options are associated with the VPC). **/
@@ -12302,12 +12749,20 @@ the default options are associated with the VPC). **/
         InstanceTenancy?: Tenancy;
         /** Indicates whether the VPC is the default VPC. **/
         IsDefault?: Boolean;
+        /** Information about the IPv6 CIDR blocks associated with the VPC. **/
+        Ipv6CidrBlockAssociationSet?: VpcIpv6CidrBlockAssociationSet;
     }
     export interface VpcAttachment {
         /** The ID of the VPC. **/
         VpcId?: String;
         /** The current state of the attachment. **/
         State?: AttachmentStatus;
+    }
+    export interface VpcCidrBlockState {
+        /** The state of the CIDR block. **/
+        State?: VpcCidrBlockStateCode;
+        /** A message about the status of the CIDR block, if applicable. **/
+        StatusMessage?: String;
     }
     export interface VpcClassicLink {
         /** The ID of the VPC. **/
@@ -12332,6 +12787,14 @@ the default options are associated with the VPC). **/
         RouteTableIds?: ValueStringList;
         /** The date and time the VPC endpoint was created. **/
         CreationTimestamp?: DateTime;
+    }
+    export interface VpcIpv6CidrBlockAssociation {
+        /** The IPv6 CIDR block. **/
+        Ipv6CidrBlock?: String;
+        /** Information about the state of the CIDR block. **/
+        Ipv6CidrBlockState?: VpcCidrBlockState;
+        /** The association ID for the IPv6 CIDR block. **/
+        AssociationId?: String;
     }
     export interface VpcPeeringConnection {
         /** Information about the accepter VPC. CIDR block information is not returned when
@@ -12367,12 +12830,14 @@ addresses when queried from instances in a peer VPC. **/
         Message?: String;
     }
     export interface VpcPeeringConnectionVpcInfo {
-        /** The CIDR block for the VPC. **/
+        /** The IPv4 CIDR block for the VPC. **/
         CidrBlock?: String;
         /** The AWS account ID of the VPC owner. **/
         OwnerId?: String;
         /** The ID of the VPC. **/
         VpcId?: String;
+        /** The IPv6 CIDR block for the VPC. **/
+        Ipv6CidrBlockSet?: Ipv6CidrBlockSet;
         /** Information about the VPC peering connection options for the accepter or
 requester VPC. **/
         PeeringOptions?: VpcPeeringConnectionOptionsDescription;

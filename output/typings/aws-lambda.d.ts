@@ -174,6 +174,19 @@ This operation requires permission for the lambda:DeleteFunction action.
      */
     deleteFunction(params: Lambda.DeleteFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.ResourceConflictException|any, data: any) => void): Request<any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.ResourceConflictException|any>;
     /**
+     * Returns a customer&#x27;s account settings.
+
+You can use this operation to retrieve Lambda limit information such as code
+size and concurrency limits. For more information on limits, see AWS Lambda
+Limits [http://docs.aws.amazon.com/lambda/latest/dg/limits.html] . You can also
+retrieve resource usage statistics such as code storage usage and function
+count.
+     *
+     * @error TooManyRequestsException   
+     * @error ServiceException   
+     */
+    getAccountSettings(params: Lambda.GetAccountSettingsRequest, callback?: (err: Lambda.TooManyRequestsException|Lambda.ServiceException|any, data: Lambda.GetAccountSettingsResponse|any) => void): Request<Lambda.GetAccountSettingsResponse|any,Lambda.TooManyRequestsException|Lambda.ServiceException|any>;
+    /**
      * Returns the specified alias information such as the alias ARN, description, and
 function version it is pointing to. For more information, see Introduction to
 AWS Lambda Aliases
@@ -560,6 +573,8 @@ action.
     
     export type Qualifier = string;
     
+    export type ResourceArn = string;
+    
     export type RoleArn = string;
     
     export type Runtime = string;
@@ -573,6 +588,8 @@ action.
     export type SecurityGroupId = string;
     
     export type SecurityGroupIds = SecurityGroupId[];
+    
+    export type SensitiveString = string;
     
     export type SourceOwner = string;
     
@@ -594,6 +611,30 @@ action.
     
     export type VpcId = string;
 
+    export interface AccountLimit {
+        /** Maximum size, in megabytes, of a code package you can upload per region. The
+default size is 75 GB. **/
+        TotalCodeSize?: Long;
+        /** Size, in bytes, of code/dependencies that you can zip into a deployment package
+(uncompressed zip/jar size) for uploading. The default limit is 250 MB. **/
+        CodeSizeUnzipped?: Long;
+        /** Size, in bytes, of a single zipped code/dependencies package you can upload for
+your Lambda function(.zip/.jar file). Try using AWS S3 for uploading larger
+files. Default limit is 50 MB. **/
+        CodeSizeZipped?: Long;
+        /** Number of simultaneous executions of your function per region. For more
+information or to request a limit increase for concurrent executions, see Lambda
+Function Concurrent Executions
+[http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html] . The
+default limit is 100. **/
+        ConcurrentExecutions?: Integer;
+    }
+    export interface AccountUsage {
+        /** Total size, in megabytes, of the account&#x27;s deployment packages per region. **/
+        TotalCodeSize?: Long;
+        /** The number of your account&#x27;s existing functions per region. **/
+        FunctionCount?: Long;
+    }
     export interface AddPermissionRequest {
         /** Name of the Lambda function whose resource policy you are updating by adding a
 new permission.
@@ -723,11 +764,19 @@ Enabled is true. **/
 source at the time of invoking your function. Your function receives an event
 with all the retrieved records. The default is 100 records. **/
         BatchSize?: BatchSize;
-        /** The position in the stream where AWS Lambda should start reading. For more
-information, go to ShardIteratorType
+        /** The position in the stream where AWS Lambda should start reading. Valid only for
+Kinesis streams. For more information, go to ShardIteratorType
 [http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType] 
 in the Amazon Kinesis API Reference . **/
         StartingPosition: EventSourcePosition;
+        /** The timestamp of the data record from which to start reading. Used with shard
+iterator type
+[http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType] 
+AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator
+returned is for the next (later) record. If the timestamp is older than the
+current trim horizon, the iterator returned is for the oldest untrimmed data
+record (TRIM_HORIZON). Valid only for Kinesis streams. **/
+        StartingPositionTimestamp?: Date;
     }
     export interface CreateFunctionRequest {
         /** The name you want to assign to the function you are uploading. The function
@@ -737,7 +786,11 @@ names are used to specify functions to other AWS Lambda APIs, such as Invoke . *
         /** The runtime environment for the Lambda function you are uploading.
 
 To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use earlier
-runtime (v0.10.42), set the value to &quot;nodejs&quot;. **/
+runtime (v0.10.42), set the value to &quot;nodejs&quot;.
+
+You can no longer create functions using the v0.10.42 runtime version as of
+November, 2016. Existing functions will be supported until early 2017 but we
+recommend you migrate them to nodejs4.3 runtime version as soon as possible. **/
         Runtime: Runtime;
         /** The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it
 executes your function to access any other Amazon Web Services (AWS) resources.
@@ -773,11 +826,19 @@ function and publish a version as an atomic operation. **/
 identifying the list of security group IDs and subnet IDs. These must belong to
 the same VPC. You must provide at least one security group and one subnet ID. **/
         VpcConfig?: VpcConfig;
+        /** The parent object that contains the target ARN (Amazon Resource Name) of an
+Amazon SQS queue or Amazon SNS topic. **/
+        DeadLetterConfig?: DeadLetterConfig;
         Environment?: Environment;
         /** The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&#x27;s
 environment variables. If not provided, AWS Lambda will use a default service
 key. **/
         KMSKeyArn?: KMSKeyArn;
+    }
+    export interface DeadLetterConfig {
+        /** The ARN (Amazon Resource Value) of an Amazon SQS queue or Amazon SNS topic you
+specify as your Dead Letter Queue (DLQ). **/
+        TargetArn?: ResourceArn;
     }
     export interface DeleteAliasRequest {
         /** The Lambda function name for which the alias is created. Deleting an alias does
@@ -843,7 +904,7 @@ The value you specify cannot contain a &quot;,&quot;. **/
         /** The error code returned by the environment error object. **/
         ErrorCode?: String;
         /** The message returned by the environment error object. **/
-        Message?: String;
+        Message?: SensitiveString;
     }
     export interface EnvironmentResponse {
         /** The key-value pairs returned that represent your environment&#x27;s configuration
@@ -933,12 +994,21 @@ value based on your expected execution time. The default is 3 seconds. **/
         Version?: Version;
         /** VPC configuration associated with your Lambda function. **/
         VpcConfig?: VpcConfigResponse;
+        /** The parent object that contains the target ARN (Amazon Resource Name) of an
+Amazon SQS queue or Amazon SNS topic. **/
+        DeadLetterConfig?: DeadLetterConfig;
         /** The parent object that contains your environment&#x27;s configuration settings. **/
         Environment?: EnvironmentResponse;
         /** The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&#x27;s
 environment variables. If empty, it means you are using the AWS Lambda default
 service key. **/
         KMSKeyArn?: KMSKeyArn;
+    }
+    export interface GetAccountSettingsRequest {
+    }
+    export interface GetAccountSettingsResponse {
+        AccountLimit?: AccountLimit;
+        AccountUsage?: AccountUsage;
     }
     export interface GetAliasRequest {
         /** Function name for which the alias is created. An alias is a subresource that
@@ -1393,15 +1463,21 @@ default value is 128 MB. The value must be a multiple of 64 MB. **/
         VpcConfig?: VpcConfig;
         /** The parent object that contains your environment&#x27;s configuration settings. **/
         Environment?: Environment;
+        /** The runtime environment for the Lambda function.
+
+To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use earlier
+runtime (v0.10.42), set the value to &quot;nodejs&quot;.
+
+You can no longer downgrade to the v0.10.42 runtime version. This version will
+no longer be supported as of early 2017. **/
+        Runtime?: Runtime;
+        /** The parent object that contains the target ARN (Amazon Resource Name) of an
+Amazon SQS queue or Amazon SNS topic. **/
+        DeadLetterConfig?: DeadLetterConfig;
         /** The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&#x27;s
 environment variables. If you elect to use the AWS Lambda default service key,
 pass in an empty string (&quot;&quot;) for this parameter. **/
         KMSKeyArn?: KMSKeyArn;
-        /** The runtime environment for the Lambda function.
-
-To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use earlier
-runtime (v0.10.42), set the value to &quot;nodejs&quot;. **/
-        Runtime?: Runtime;
     }
     export interface VpcConfig {
         /** A list of one or more subnet IDs in your VPC. **/
