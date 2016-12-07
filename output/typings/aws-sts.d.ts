@@ -337,7 +337,7 @@ For more information about how to use web identity federation and the
 AssumeRoleWithWebIdentity API, see the following resources:
 
  &amp;#42; Using Web Identity Federation APIs for Mobile Apps
-   [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc_manual] 
+   [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc_manual.html] 
    and Federation Through a Web-based Identity Provider
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity] 
    .
@@ -464,7 +464,7 @@ make API calls to any AWS service with the following exceptions:
  &amp;#42; You cannot use these credentials to call any IAM APIs.
    
    
- * You cannot call any STS APIs.
+ * You cannot call any STS APIs except GetCallerIdentity .
    
    
 
@@ -547,7 +547,7 @@ make API calls to any AWS service with the following exceptions:
    included in the request.
    
    
- * You cannot call any STS API except AssumeRole .
+ * You cannot call any STS API except AssumeRole or GetCallerIdentity .
    
    
 

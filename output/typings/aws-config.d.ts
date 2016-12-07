@@ -186,8 +186,9 @@ time AWS Config failed to invoke the rule, and the related error for the last
 failure.
      *
      * @error NoSuchConfigRuleException   
+     * @error InvalidParameterValueException   
      */
-    describeConfigRuleEvaluationStatus(params: ConfigService.DescribeConfigRuleEvaluationStatusRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeConfigRuleEvaluationStatusResponse|any) => void): Request<ConfigService.DescribeConfigRuleEvaluationStatusResponse|any,ConfigService.NoSuchConfigRuleException|any>;
+    describeConfigRuleEvaluationStatus(params: ConfigService.DescribeConfigRuleEvaluationStatusRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.InvalidParameterValueException|any, data: ConfigService.DescribeConfigRuleEvaluationStatusResponse|any) => void): Request<ConfigService.DescribeConfigRuleEvaluationStatusResponse|any,ConfigService.NoSuchConfigRuleException|ConfigService.InvalidParameterValueException|any>;
     /**
      * Returns details about your AWS Config rules.
      *
@@ -343,7 +344,12 @@ If you are updating a rule that you added previously, you can specify the rule
 by ConfigRuleName , ConfigRuleId , or ConfigRuleArn in the ConfigRule data type
 that you use in this request.
 
-The maximum number of rules that AWS Config supports is 25.
+The maximum number of rules that AWS Config supports is 50.
+
+For more information about requesting a rule limit increase, see AWS Config
+Limits
+[http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config] 
+in the AWS General Reference Guide .
 
 For more information about developing and using AWS Config rules, see Evaluating
 AWS Resource Configurations with AWS Config
@@ -413,8 +419,14 @@ rule.
      */
     putEvaluations(params: ConfigService.PutEvaluationsRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.InvalidResultTokenException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.PutEvaluationsResponse|any) => void): Request<ConfigService.PutEvaluationsResponse|any,ConfigService.InvalidParameterValueException|ConfigService.InvalidResultTokenException|ConfigService.NoSuchConfigRuleException|any>;
     /**
-     * Evaluates your resources against the specified Config rules. You can specify up
-to 25 Config rules per request.
+     * Runs an on-demand evaluation for the specified Config rules against the last
+known configuration state of the resources. Use StartConfigRulesEvaluation when
+you want to test a rule that you updated is working as expected. 
+StartConfigRulesEvaluation does not re-record the latest configuration state for
+your resources; it re-runs an evaluation against the last known state of your
+resources.
+
+You can specify up to 25 Config rules per request.
 
 An existing StartConfigRulesEvaluation call must complete for the specified
 rules before you can call the API again. If you chose to have AWS Config stream
@@ -598,9 +610,13 @@ in your AWS account.
     
     export type ResourceTypes = StringWithCharLimit256[];
     
+    export type RuleLimit = number;
+    
     export type SourceDetails = SourceDetail[];
     
     export type String = string;
+    
+    export type StringWithCharLimit1024 = string;
     
     export type StringWithCharLimit128 = string;
     
@@ -715,7 +731,7 @@ recording group changes. **/
 notifications that cause the function to evaluate your AWS resources. **/
         Source: Source;
         /** A string in JSON format that is passed to the AWS Config rule Lambda function. **/
-        InputParameters?: StringWithCharLimit256;
+        InputParameters?: StringWithCharLimit1024;
         /** The maximum frequency with which AWS Config runs evaluations for a rule. You can
 specify a value for MaximumExecutionFrequency when:
 
@@ -1004,10 +1020,26 @@ in a paginated response. **/
 If you do not specify any names, AWS Config returns status information for all
 AWS managed Config rules that you use. **/
         ConfigRuleNames?: ConfigRuleNames;
+        /** The NextToken string returned on a previous page that you use to get the next
+page of results in a paginated response. **/
+        NextToken?: String;
+        /** The number of rule evaluation results that you want returned.
+
+This parameter is required if the rule limit for your account is more than the
+default of 50 rules.
+
+For more information about requesting a rule limit increase, see AWS Config
+Limits
+[http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config] 
+in the AWS General Reference Guide . **/
+        Limit?: RuleLimit;
     }
     export interface DescribeConfigRuleEvaluationStatusResponse {
         /** Status information about your AWS managed Config rules. **/
         ConfigRulesEvaluationStatus?: ConfigRuleEvaluationStatusList;
+        /** The string that you use in a subsequent request to get the next page of results
+in a paginated response. **/
+        NextToken?: String;
     }
     export interface DescribeConfigRulesRequest {
         /** The names of the AWS Config rules for which you want details. If you do not
@@ -1080,8 +1112,8 @@ Config. **/
         /** The time of the event in AWS Config that triggered the evaluation. For
 event-based evaluations, the time indicates when AWS Config created the
 configuration item that triggered the evaluation. For periodic evaluations, the
-time indicates when AWS Config delivered the configuration snapshot that
-triggered the evaluation. **/
+time indicates when AWS Config triggered the evaluation at the frequency that
+you specified (for example, every 24 hours). **/
         OrderingTimestamp: OrderingTimestamp;
     }
     export interface EvaluationResult {
@@ -1403,7 +1435,7 @@ ComplianceResourceTypes . **/
     }
     export interface Source {
         /** Indicates whether AWS or the customer owns and manages the AWS Config rule. **/
-        Owner?: Owner;
+        Owner: Owner;
         /** For AWS Config managed rules, a predefined identifier from a list. For example, 
 IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using
 AWS Managed Config Rules
@@ -1413,7 +1445,7 @@ AWS Managed Config Rules
 For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule&#x27;s
 AWS Lambda function, such as 
 arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name . **/
-        SourceIdentifier?: StringWithCharLimit256;
+        SourceIdentifier: StringWithCharLimit256;
         /** Provides the source and type of the event that causes AWS Config to evaluate
 your AWS resources. **/
         SourceDetails?: SourceDetails;
