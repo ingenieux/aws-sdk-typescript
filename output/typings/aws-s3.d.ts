@@ -1728,7 +1728,7 @@ Useful for downloading just a part of an object. **/
     export interface GetObjectTaggingRequest {
         Bucket: BucketName;
         Key: ObjectKey;
-        VersionId: ObjectVersionId;
+        VersionId?: ObjectVersionId;
     }
     export interface GetObjectTorrentOutput {
         Body?: Body;
@@ -2655,7 +2655,7 @@ http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signatur
     export interface PutObjectTaggingRequest {
         Bucket: BucketName;
         Key: ObjectKey;
-        VersionId: ObjectVersionId;
+        VersionId?: ObjectVersionId;
         ContentMD5?: ContentMD5;
         Tagging: Tagging;
     }

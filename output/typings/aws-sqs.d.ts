@@ -23,24 +23,9 @@ they travel between computers. By using Amazon SQS, you can move data between
 distributed components of your applications that perform different tasks without
 losing messages or requiring each component to be always available.
 
-Topics
-
- &amp;#42; 
-   
-   
- * 
-   
-   
- * CommonParameters
-   
-   
- * CommonErrors
-   
-   
-
 Helpful Links
 
- * Making API Requests
+ &amp;#42; Making API Requests
    [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html]
    
    
@@ -48,11 +33,11 @@ Helpful Links
    
    
  * Using Amazon SQS Message Attributes
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html]
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html]
    
    
  * Using Amazon SQS Dead Letter Queues
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html]
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html]
    
    
  * Regions and Endpoints
@@ -115,7 +100,7 @@ The maximum allowed timeout value you can set the value to is 12 hours. This
 means you can&#x27;t extend the timeout of a message in an existing queue to more
 than a total visibility timeout of 12 hours. (For more information visibility
 timeout, see Visibility Timeout
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html] 
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html] 
 in the Amazon SQS Developer Guide .)
 
 For example, let&#x27;s say you have a message and its default message visibility
@@ -126,13 +111,17 @@ results in a total visibility timeout of 13 minutes. You can continue to call
 ChangeMessageVisibility to extend the visibility timeout to a maximum of 12
 hours. If you try to extend beyond 12 hours, the request will be rejected.
 
-There is a 120,000 limit for the number of inflight messages per queue. Messages
-are inflight after they have been received from the queue by a consuming
-component, but have not yet been deleted from the queue. If you reach the
-120,000 limit, you will receive an OverLimit error message from Amazon SQS. To
-help avoid reaching the limit, you should delete the messages from the queue
-after they have been processed. You can also increase the number of queues you
-use to process the messages.
+A message is considered to be in flight after it&#x27;s received from a queue by a
+consumer, but not yet deleted from the queue.
+
+For standard queues, there can be a maximum of 120,000 inflight messages per
+queue. If you reach this limit, Amazon SQS returns the OverLimit error message.
+To avoid reaching the limit, you should delete messages from the queue after
+they&#x27;re processed. You can also increase the number of queues you use to process
+your messages.
+
+For FIFO queues, there can be a maximum of 20,000 inflight messages per queue.
+If you reach this limit, Amazon SQS returns no error messages.
 
 If you attempt to set the VisibilityTimeout to an amount more than the maximum
 time left, Amazon SQS returns an error. It will not automatically recalculate
@@ -185,7 +174,7 @@ You can pass one or more attributes in the request.
    queue for your application or delete your existing standard queue and
    recreate it as a FIFO queue. For more information, see Moving From a Standard
    Queue to a FIFO Queue
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-moving.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving] 
    in the Amazon SQS Developer Guide .
    
    
@@ -292,7 +281,7 @@ wait at least 60 seconds before creating a queue with the same name.
 
 We reserve the right to delete queues that have had no activity for more than 30
 days. For more information, see How Amazon SQS Queues Work
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html] 
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-how-it-works.html] 
 in the Amazon SQS Developer Guide .
      *
      */
@@ -331,7 +320,7 @@ configured with a dead letter queue.
 
 For more information about using dead letter queues, see Using Amazon SQS Dead
 Letter Queues
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html] 
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html] 
 in the Amazon SQS Developer Guide .
      *
      * @error QueueDoesNotExist   
@@ -363,7 +352,7 @@ received, but will be deleted within the next minute.
     /**
      * Retrieves one or more messages, with a maximum limit of 10 messages, from the
 specified queue. Long poll support is enabled by using the WaitTimeSeconds 
-parameter. For more information, see Amazon SQS Long Poll
+parameter. For more information, see Amazon SQS Long Polling
 [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html] 
 in the Amazon SQS Developer Guide .
 
@@ -399,14 +388,14 @@ For each message returned, the response includes the following:
 
 The receipt handle is the identifier you must provide when deleting the message.
 For more information, see Queue and Message Identifiers
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html] 
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html] 
 in the Amazon SQS Developer Guide .
 
 You can provide the VisibilityTimeout parameter in your request, which will be
 applied to the messages that Amazon SQS returns in the response. If you don&#x27;t
 include the parameter, the overall visibility timeout for the queue is used for
 the returned messages. For more information, see Visibility Timeout
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html] 
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html] 
 in the Amazon SQS Developer Guide .
 
 A message that is not deleted or a message whose visibility is not extended
@@ -690,7 +679,7 @@ parameters that the CreateQueue action uses:
  * RedrivePolicy - The parameters for the dead letter queue functionality of the
    source queue. For more information about the redrive policy and dead letter
    queues, see Using Amazon SQS Dead Letter Queues
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html] 
    in the Amazon SQS Developer Guide .
    
    The dead letter queue of a FIFO queue must also be a FIFO queue. Similarly,
@@ -700,7 +689,7 @@ parameters that the CreateQueue action uses:
  * VisibilityTimeout - The visibility timeout for the queue. An integer from 0
    to 43200 (12 hours). The default is 30. For more information about the
    visibility timeout, see Visibility Timeout
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html] 
    in the Amazon SQS Developer Guide .
    
    
@@ -833,7 +822,7 @@ The following attributes are supported:
  * ApproximateNumberOfMessages - Returns the approximate number of visible
    messages in a queue. For more information, see Resources Required to Process
    Messages
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-resources-required-process-messages.html] 
    in the Amazon SQS Developer Guide .
    
    
@@ -844,7 +833,7 @@ The following attributes are supported:
  * ApproximateNumberOfMessagesNotVisible - Returns the approximate number of
    messages that have not timed-out and are not deleted. For more information,
    see Resources Required to Process Messages
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-resources-required-process-messages.html] 
    in the Amazon SQS Developer Guide .
    
    
@@ -880,13 +869,13 @@ The following attributes are supported:
  * RedrivePolicy - Returns the parameters for dead letter queue functionality of
    the source queue. For more information about the redrive policy and dead
    letter queues, see Using Amazon SQS Dead Letter Queues
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html] 
    in the Amazon SQS Developer Guide .
    
    
  * VisibilityTimeout - Returns the visibility timeout for the queue. For more
    information about the visibility timeout, see Visibility Timeout
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html] 
    in the Amazon SQS Developer Guide .
    
    
@@ -977,8 +966,8 @@ decodes the message before creating the MD5 digest. For information about MD5,
 see RFC1321 [https://www.ietf.org/rfc/rfc1321.txt] . **/
         MD5OfMessageAttributes?: String;
         /** Each message attribute consists of a Name, Type, and Value. For more
-information, see Message Attribute Items
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV] 
+information, see Message Attribute Items and Validation
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation] 
 in the Amazon SQS Developer Guide . **/
         MessageAttributes?: MessageBodyAttributeMap;
     }
@@ -998,8 +987,8 @@ encrypted data, or images. **/
 Binary. For the Number data type, you must use StringValue.
 
 You can also append custom labels. For more information, see Message Attribute
-Data Types
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes] 
+Data Types and Validation
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-data-types-validation] 
 in the Amazon SQS Developer Guide . **/
         DataType: String;
     }
@@ -1174,7 +1163,7 @@ visibility timeout has not yet expired.
    ReceiveRequestAttemptId return the same messages and receipt handles. If a
    retry occurs within the deduplication interval, it resets the visibility
    timeout. For more information, see Visibility Timeout
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html] 
    in the Amazon Simple Queue Service Developer Guide .
    
    If a caller of the ReceiveMessage action is still processing messages when
@@ -1249,8 +1238,8 @@ When you set FifoQueue , you can&#x27;t set DelaySeconds per message. You can se
 this parameter only on a queue level. **/
         DelaySeconds?: Integer;
         /** Each message attribute consists of a Name, Type, and Value. For more
-information, see Message Attribute Items
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV] 
+information, see Message Attribute Items and Validation
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation] 
 in the Amazon SQS Developer Guide . **/
         MessageAttributes?: MessageBodyAttributeMap;
         /** This parameter applies only to FIFO (first-in-first-out) queues.
@@ -1392,8 +1381,8 @@ When you set FifoQueue , you can&#x27;t set DelaySeconds per message. You can se
 this parameter only on a queue level. **/
         DelaySeconds?: Integer;
         /** Each message attribute consists of a Name, Type, and Value. For more
-information, see Message Attribute Items
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV] 
+information, see Message Attribute Items and Validation
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation] 
 in the Amazon SQS Developer Guide . **/
         MessageAttributes?: MessageBodyAttributeMap;
         /** This parameter applies only to FIFO (first-in-first-out) queues.
@@ -1501,7 +1490,7 @@ see RFC1321 [https://www.ietf.org/rfc/rfc1321.txt] . **/
         MD5OfMessageAttributes?: String;
         /** An element containing the message ID of the message sent to the queue. For more
 information, see Queue and Message Identifiers
-[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html] 
+[http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html] 
 in the Amazon SQS Developer Guide . **/
         MessageId?: String;
         /** This element applies only to FIFO (first-in-first-out) queues.
@@ -1551,7 +1540,7 @@ parameters that the SetQueueAttributes action uses:
  * RedrivePolicy - The parameters for the dead letter queue functionality of the
    source queue. For more information about the redrive policy and dead letter
    queues, see Using Amazon SQS Dead Letter Queues
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html] 
    in the Amazon SQS Developer Guide .
    
    The dead letter queue of a FIFO queue must also be a FIFO queue. Similarly,
@@ -1561,7 +1550,7 @@ parameters that the SetQueueAttributes action uses:
  * VisibilityTimeout - The visibility timeout for the queue. An integer from 0
    to 43200 (12 hours). The default is 30. For more information about the
    visibility timeout, see Visibility Timeout
-   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html] 
+   [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html] 
    in the Amazon SQS Developer Guide .
    
    
