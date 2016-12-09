@@ -60,17 +60,17 @@ You can work with pipelines by calling:
    
    
 
-Pipelines include stages , which are which are logical groupings of gates and
-actions. Each stage contains one or more actions that must complete before the
-next stage begins. A stage will result in success or failure. If a stage fails,
-then the pipeline stops at that stage and will remain stopped until either a new
-version of an artifact appears in the source location, or a user takes action to
-re-run the most recent artifact through the pipeline. You can call 
-GetPipelineState , which displays the status of a pipeline, including the status
-of stages in the pipeline, or GetPipeline , which returns the entire structure
-of the pipeline, including the stages of that pipeline. For more information
-about the structure of stages and actions, also refer to the AWS CodePipeline
-Pipeline Structure Reference
+Pipelines include stages , which are logical groupings of gates and actions.
+Each stage contains one or more actions that must complete before the next stage
+begins. A stage will result in success or failure. If a stage fails, then the
+pipeline stops at that stage and will remain stopped until either a new version
+of an artifact appears in the source location, or a user takes action to re-run
+the most recent artifact through the pipeline. You can call GetPipelineState ,
+which displays the status of a pipeline, including the status of stages in the
+pipeline, or GetPipeline , which returns the entire structure of the pipeline,
+including the stages of that pipeline. For more information about the structure
+of stages and actions, also refer to the AWS CodePipeline Pipeline Structure
+Reference
 [http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html] 
 .
 
@@ -594,8 +594,8 @@ number of the pipeline by 1.
         /** The unique system-generated ID of the job for which you want to confirm receipt. **/
         jobId: JobId;
         /** A system-generated random number that AWS CodePipeline uses to ensure that the
-job is being worked on by only one job worker. This number must be returned in
-the response. **/
+job is being worked on by only one job worker. Get this number from the response
+of the PollForJobs request that returned this job. **/
         nonce: Nonce;
     }
     export interface AcknowledgeJobOutput {
@@ -606,8 +606,8 @@ the response. **/
         /** The unique system-generated ID of the job. **/
         jobId: ThirdPartyJobId;
         /** A system-generated random number that AWS CodePipeline uses to ensure that the
-job is being worked on by only one job worker. This number must be returned in
-the response. **/
+job is being worked on by only one job worker. Get this number from the response
+to a GetThirdPartyJobDetails request. **/
         nonce: Nonce;
         /** The clientToken portion of the clientId and clientToken pair used to verify that
 the calling entity is allowed access to the job and its details. **/
@@ -1052,8 +1052,8 @@ consumed by different following actions. **/
         /** Additional data about a job. **/
         data?: JobData;
         /** A system-generated random number that AWS CodePipeline uses to ensure that the
-job is being worked on by only one job worker. This number must be returned in
-the response. **/
+job is being worked on by only one job worker. Use this number in an 
+AcknowledgeJob request. **/
         nonce?: Nonce;
         /** The ID of the AWS account to use when performing the job. **/
         accountId?: AccountId;
@@ -1398,8 +1398,8 @@ optional and might not be present. **/
         /** The data to be returned by the third party job worker. **/
         data?: ThirdPartyJobData;
         /** A system-generated random number that AWS CodePipeline uses to ensure that the
-job is being worked on by only one job worker. This number must be returned in
-the response. **/
+job is being worked on by only one job worker. Use this number in an 
+AcknowledgeThirdPartyJob request. **/
         nonce?: Nonce;
     }
     export interface TransitionState {

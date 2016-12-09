@@ -109,8 +109,9 @@ Resources
      *
      * @error DBInstanceNotFoundFault   
      * @error DBSnapshotNotFoundFault   
+     * @error DBClusterNotFoundFault   
      */
-    addTagsToResource(params: RDS.AddTagsToResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request<any,RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any>;
+    addTagsToResource(params: RDS.AddTagsToResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterNotFoundFault|any, data: any) => void): Request<any,RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterNotFoundFault|any>;
     /**
      * Applies a pending maintenance action to a resource (for example, to a DB
 instance).
@@ -174,8 +175,11 @@ Amazon RDS User Guide.
      * Copies the specified DB snapshot. The source DB snapshot must be in the
 &quot;available&quot; state.
 
-If you are copying from a shared manual DB snapshot, the 
-SourceDBSnapshotIdentifier must be the ARN of the shared DB snapshot.
+To copy a DB snapshot from a shared manual DB snapshot, 
+SourceDBSnapshotIdentifier must be the Amazon Resource Name (ARN) of the shared
+DB snapshot.
+
+You can not copy an encrypted DB snapshot from another AWS region.
      *
      * @error DBSnapshotAlreadyExistsFault   
      * @error DBSnapshotNotFoundFault   
@@ -211,11 +215,12 @@ Amazon RDS User Guide.
      * @error InvalidDBClusterStateFault   
      * @error InvalidDBSubnetGroupStateFault   
      * @error InvalidSubnet   
+     * @error InvalidDBInstanceStateFault   
      * @error DBClusterParameterGroupNotFoundFault   
      * @error KMSKeyNotAccessibleFault   
      * @error DBClusterNotFoundFault   
      */
-    createDBCluster(params: RDS.CreateDBClusterMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any, data: RDS.CreateDBClusterResult|any) => void): Request<RDS.CreateDBClusterResult|any,RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any>;
+    createDBCluster(params: RDS.CreateDBClusterMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidDBInstanceStateFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any, data: RDS.CreateDBClusterResult|any) => void): Request<RDS.CreateDBClusterResult|any,RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidDBInstanceStateFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any>;
     /**
      * Creates a new DB cluster parameter group.
 
@@ -791,13 +796,12 @@ a Read Replica or copy a DB snapshot from. This API action supports pagination.
     /**
      * Forces a failover for a DB cluster.
 
-A failover for a DB cluster promotes one of the read-only instances in the DB
-cluster to the master DB instance (the cluster writer) and deletes the current
-primary instance.
+A failover for a DB cluster promotes one of the Aurora Replicas (read-only
+instances) in the DB cluster to be the primary instance (the cluster writer).
 
-Amazon Aurora will automatically fail over to a read-only instance, if one
-exists, when the primary instance fails. You can force a failover when you want
-to simulate a failure of a DB instance for testing. Because each instance in a
+Amazon Aurora will automatically fail over to an Aurora Replica, if one exists,
+when the primary instance fails. You can force a failover when you want to
+simulate a failure of a primary instance for testing. Because each instance in a
 DB cluster has its own endpoint address, you will need to clean up and
 re-establish any existing connections that use those endpoint addresses when the
 failover is complete.
@@ -820,8 +824,9 @@ Resources
      *
      * @error DBInstanceNotFoundFault   
      * @error DBSnapshotNotFoundFault   
+     * @error DBClusterNotFoundFault   
      */
-    listTagsForResource(params: RDS.ListTagsForResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: RDS.TagListMessage|any) => void): Request<RDS.TagListMessage|any,RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any>;
+    listTagsForResource(params: RDS.ListTagsForResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterNotFoundFault|any, data: RDS.TagListMessage|any) => void): Request<RDS.TagListMessage|any,RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterNotFoundFault|any>;
     /**
      * Modify a setting for an Amazon Aurora DB cluster. You can change one or more
 database configuration parameters by specifying these parameters and the new
@@ -1079,8 +1084,9 @@ Resources
      *
      * @error DBInstanceNotFoundFault   
      * @error DBSnapshotNotFoundFault   
+     * @error DBClusterNotFoundFault   
      */
-    removeTagsFromResource(params: RDS.RemoveTagsFromResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request<any,RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any>;
+    removeTagsFromResource(params: RDS.RemoveTagsFromResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterNotFoundFault|any, data: any) => void): Request<any,RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterNotFoundFault|any>;
     /**
      * Modifies the parameters of a DB cluster parameter group to the default value. To
 reset specific parameters submit a list of the following: ParameterName and 
@@ -1720,6 +1726,8 @@ Example: my-db-parameter-group **/
 If you are copying from a shared manual DB snapshot, this must be the ARN of the
 shared DB snapshot.
 
+You cannot copy an encrypted, shared DB snapshot from one AWS region to another.
+
 Constraints:
 
  &amp;#42; Must specify a valid system snapshot in the &quot;available&quot; state.
@@ -1739,7 +1747,7 @@ Constraints:
 Example: rds:mydb-2012-04-02-00-01
 
 Example: 
-arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805 **/
+arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805 **/
         SourceDBSnapshotIdentifier: String;
         /** The identifier for the copied snapshot.
 
@@ -1760,9 +1768,9 @@ Constraints:
 
 Example: my-db-snapshot **/
         TargetDBSnapshotIdentifier: String;
-        /** The AWS Key Management Service (AWS KMS) key identifier for an encrypted DB
-snapshot. The KMS key identifier is the Amazon Resource Name (ARN) or the KMS
-key alias for the KMS encryption key.
+        /** The AWS KMS key ID for an encrypted DB snapshot. The KMS key ID is the Amazon
+Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
+encryption key.
 
 If you copy an unencrypted DB snapshot and specify a value for the KmsKeyId 
 parameter, Amazon RDS encrypts the target DB snapshot using the specified KMS
@@ -1770,8 +1778,8 @@ encryption key.
 
 If you copy an encrypted DB snapshot from your AWS account, you can specify a
 value for KmsKeyId to encrypt the copy with a new KMS encryption key. If you
-don&#x27;t specify a value for KmsKeyId then the copy of the DB snapshot is encrypted
-with the same KMS key as the source DB snapshot.
+don&#x27;t specify a value for KmsKeyId , then the copy of the DB snapshot is
+encrypted with the same KMS key as the source DB snapshot.
 
 If you copy an encrypted DB snapshot that is shared from another AWS account,
 then you must specify a value for KmsKeyId . **/
@@ -2448,27 +2456,92 @@ region.
 Amazon Aurora
 
  &amp;#42; Version 5.6 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
-   ap-south-1, ap-southeast-2, eu-west-1, us-east-1, us-west-2): 5.6.10a
+   ap-south-1, ap-southeast-2, eu-west-1, us-east-1, us-east-2, us-west-2): 
+   5.6.10a
    
    
 
 MariaDB
 
+ * Version 10.1 (available in these AWS regions: us-east-2): 10.1.16
+   
+   
  * Version 10.1 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
    ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1,
    sa-east-1, us-east-1, us-west-1, us-west-2): 10.1.14
    
    
- * Version 10.0 (available in all AWS regions): 10.0.17 | 10.0.24
+ * Version 10.0 (available in all AWS regions): 10.0.24
+   
+   
+ * Version 10.0 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
+   ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1,
+   sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2): 10.0.17
+   
+   
+
+Microsoft SQL Server 2016
+
+ * 13.00.2164.0.v1 (supported for all editions, and all AWS regions except
+   sa-east-1)
+   
+   
+
+Microsoft SQL Server 2014
+
+ * 12.00.5000.0.v1 (supported for all editions, and all AWS regions)
+   
+   
+ * 12.00.4422.0.v1 (supported for all editions except Enterprise Edition, and
+   all AWS regions except us-east-2)
+   
+   
+
+Microsoft SQL Server 2012
+
+ * 11.00.6020.0.v1 (supported for all editions, and all AWS regions)
+   
+   
+ * 11.00.5058.0.v1 (supported for all editions, and all AWS regions except
+   us-east-2)
+   
+   
+ * 11.00.2100.60.v1 (supported for all editions, and all AWS regions except
+   us-east-2)
+   
+   
+
+Microsoft SQL Server 2008 R2
+
+ * 10.50.6529.0.v1 (supported for all editions, and all AWS regions except
+   us-east-2)
+   
+   
+ * 10.50.6000.34.v1 (supported for all editions, and all AWS regions except
+   us-east-2)
+   
+   
+ * 10.50.2789.0.v1 (supported for all editions, and all AWS regions except
+   us-east-2)
    
    
 
 MySQL
 
- * Version 5.7 (available in all AWS regions): 5.7.10 | 5.7.11
+ * Version 5.7 (available in all AWS regions): 5.7.11
    
    
- * Version 5.6 (available in all AWS regions): 5.6.27 | 5.6.29
+ * Version 5.7 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
+   ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1,
+   sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2): 5.7.10
+   
+   
+ * Version 5.6 (available in all AWS regions): 5.6.29
+   
+   
+ * Version 5.6 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
+   ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1,
+   sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2): 5.6.27
    
    
  * Version 5.6 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
@@ -2500,114 +2573,82 @@ MySQL
    
    
 
-Oracle Database Enterprise Edition (oracle-ee)
 
- * Version 12.1.0.2 (available in these AWS regions: ap-northeast-1,
-   ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1,
-   eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2): 12.1.0.2.v5
+
+Oracle 12c
+
+ * 12.1.0.2.v5 (supported for EE in all AWS regions, and SE2 in all AWS regions
+   except us-gov-west-1)
    
    
- * Version 12.1.0.2 (available in all AWS regions): 12.1.0.2.v1 | 12.1.0.2.v2 |
-   12.1.0.2.v3 | 12.1.0.2.v4
+ * 12.1.0.2.v4 (supported for EE in all AWS regions, and SE2 in all AWS regions
+   except us-gov-west-1)
    
    
- * Version 12.1.0.1 (available in these AWS regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-west-1, us-west-2): 12.1.0.1.v6
+ * 12.1.0.2.v3 (supported for EE in all AWS regions, and SE2 in all AWS regions
+   except us-gov-west-1)
    
    
- * Version 12.1.0.1 (available in these AWS regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-gov-west-1, us-west-1, us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 |
-   12.1.0.1.v5
+ * 12.1.0.2.v2 (supported for EE in all AWS regions, and SE2 in all AWS regions
+   except us-gov-west-1)
    
    
- * Version 12.1.0.1 (available in these AWS regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-gov-west-1, us-gov-west-1, us-west-1, us-west-2): 12.1.0.1.v1 |
-   12.1.0.1.v2
-   
-   
- * Version 11.2.0.4 (available in these AWS regions: ap-northeast-1,
-   ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1,
-   eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2): 11.2.0.4.v6 |
-   11.2.0.4.v9
-   
-   
- * Version 11.2.0.4 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
-   11.2.0.4.v4 | 11.2.0.4.v5 | 11.2.0.4.v7 | 11.2.0.4.v8
+ * 12.1.0.2.v1 (supported for EE in all AWS regions, and SE2 in all AWS regions
+   except us-gov-west-1)
    
    
 
-Oracle Database Standard Edition Two (oracle-se2)
 
- * Version 12.1.0.2 (available in these AWS regions: ap-northeast-1,
-   ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1,
-   eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2): 12.1.0.2.v5
-   
-   
- * Version 12.1.0.2 (available in all AWS regions): 12.1.0.2.v2 | 12.1.0.2.v3 |
-   12.1.0.2.v4
-   
-   
 
-Oracle Database Standard Edition One (oracle-se1)
-
- * Version 12.1.0.1 (available in these AWS regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-west-1, us-west-2): 12.1.0.1.v6
+ * 12.1.0.1.v6 (supported for EE, SE1, and SE, in all AWS regions except
+   ap-south-1, ap-northeast-2)
    
    
- * Version 12.1.0.1 (available in these AWS regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-gov-west-1, us-west-1, us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 |
-   12.1.0.1.v5
+ * 12.1.0.1.v5 (supported for EE, SE1, and SE, in all AWS regions except
+   ap-south-1, ap-northeast-2)
    
    
- * Version 12.1.0.1 (available in these AWS regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-gov-west-1, us-gov-west-1, us-west-1, us-west-2): 12.1.0.1.v1 |
-   12.1.0.1.v2
+ * 12.1.0.1.v4 (supported for EE, SE1, and SE, in all AWS regions except
+   ap-south-1, ap-northeast-2)
    
    
- * Version 11.2.0.4 (available in these AWS regions: ap-northeast-1,
-   ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1,
-   eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2): 11.2.0.4.v6 |
-   11.2.0.4.v9
+ * 12.1.0.1.v3 (supported for EE, SE1, and SE, in all AWS regions except
+   ap-south-1, ap-northeast-2)
    
    
- * Version 11.2.0.4 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
-   11.2.0.4.v4 | 11.2.0.4.v5 | 11.2.0.4.v7 | 11.2.0.4.v8
+ * 12.1.0.1.v2 (supported for EE, SE1, and SE, in all AWS regions except
+   ap-south-1, ap-northeast-2)
+   
+   
+ * 12.1.0.1.v1 (supported for EE, SE1, and SE, in all AWS regions except
+   ap-south-1, ap-northeast-2)
    
    
 
-Oracle Database Standard Edition (oracle-se)
+Oracle 11g
 
- * Version 12.1.0.1 (available in these AWS regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-west-1, us-west-2): 12.1.0.1.v6
+ * 11.2.0.4.v9 (supported for EE, SE1, and SE, in all AWS regions)
    
    
- * Version 12.1.0.1 (available in these AWS regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-gov-west-1, us-west-1, us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 |
-   12.1.0.1.v5
+ * 11.2.0.4.v8 (supported for EE, SE1, and SE, in all AWS regions)
    
    
- * Version 12.1.0.1 (available in these AWS regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-gov-west-1, us-gov-west-1, us-west-1, us-west-2): 12.1.0.1.v1 |
-   12.1.0.1.v2
+ * 11.2.0.4.v7 (supported for EE, SE1, and SE, in all AWS regions)
    
    
- * Version 11.2.0.4 (available in these AWS regions: ap-northeast-1,
-   ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1,
-   eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2): 11.2.0.4.v6 |
-   11.2.0.4.v9
+ * 11.2.0.4.v6 (supported for EE, SE1, and SE, in all AWS regions)
    
    
- * Version 11.2.0.4 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
-   11.2.0.4.v4 | 11.2.0.4.v5 | 11.2.0.4.v7 | 11.2.0.4.v8
+ * 11.2.0.4.v5 (supported for EE, SE1, and SE, in all AWS regions)
+   
+   
+ * 11.2.0.4.v4 (supported for EE, SE1, and SE, in all AWS regions)
+   
+   
+ * 11.2.0.4.v3 (supported for EE, SE1, and SE, in all AWS regions)
+   
+   
+ * 11.2.0.4.v1 (supported for EE, SE1, and SE, in all AWS regions)
    
    
 
@@ -2615,12 +2656,22 @@ PostgreSQL
 
  * Version 9.5 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
    ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1,
-   sa-east-1, us-east-1, us-west-1, us-west-2): 9.5.2 | 9.5.4
+   sa-east-1, us-east-1, us-west-1, us-west-2): 9.5.4
+   
+   
+ * Version 9.5 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
+   ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1,
+   sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2): 9.5.2
    
    
  * Version 9.4 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
    ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1,
-   sa-east-1, us-east-1, us-west-1, us-west-2): 9.4.7 | 9.4.9
+   sa-east-1, us-east-1, us-west-1, us-west-2): 9.4.9
+   
+   
+ * Version 9.4 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
+   ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1,
+   sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2): 9.4.7
    
    
  * Version 9.4 (available in all AWS regions): 9.4.5
@@ -2628,7 +2679,12 @@ PostgreSQL
    
  * Version 9.4 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
    ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
-   us-east-1, us-gov-west-1, us-west-1, us-west-2): 9.4.1 | 9.4.4
+   us-east-1, us-gov-west-1, us-west-1, us-west-2): 9.4.4
+   
+   
+ * Version 9.4 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
+   ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1,
+   us-east-1, us-east-2, us-gov-west-1, us-west-1, us-west-2): 9.4.1
    
    
  * Version 9.3 (available in these AWS regions: ap-northeast-1, ap-southeast-1,
@@ -2643,60 +2699,7 @@ PostgreSQL
    
  * Version 9.3 (available in these AWS regions: ap-northeast-1, ap-southeast-1,
    ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
-   us-west-2): 9.3.12 | 9.3.14
-   
-   
-
-Microsoft SQL Server Enterprise Edition (sqlserver-ee)
-
- * Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
-   11.00.5058.0.v1 | 11.00.6020.0.v1
-   
-   
- * Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
-   10.50.6000.34.v1 | 10.50.6529.0.v1
-   
-   
-
-Microsoft SQL Server Express Edition (sqlserver-ex)
-
- * Version 12.00 (available in all AWS regions): 12.00.4422.0.v1
-   
-   
- * Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
-   11.00.5058.0.v1 | 11.00.6020.0.v1
-   
-   
- * Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
-   10.50.6000.34.v1 | 10.50.6529.0.v1
-   
-   
-
-Microsoft SQL Server Standard Edition (sqlserver-se)
-
- * Version 12.00 (available in all AWS regions): 12.00.4422.0.v1
-   
-   
- * Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
-   11.00.5058.0.v1 | 11.00.6020.0.v1
-   
-   
- * Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
-   10.50.6000.34.v1 | 10.50.6529.0.v1
-   
-   
-
-Microsoft SQL Server Web Edition (sqlserver-web)
-
- * Version 12.00 (available in all AWS regions): 12.00.4422.0.v1
-   
-   
- * Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
-   11.00.5058.0.v1 | 11.00.6020.0.v1
-   
-   
- * Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
-   10.50.6000.34.v1 | 10.50.6529.0.v1 **/
+   us-west-2): 9.3.12 | 9.3.14 **/
         EngineVersion?: String;
         /** Indicates that minor engine upgrades will be applied automatically to the DB
 instance during the maintenance window.
@@ -3225,6 +3228,8 @@ promoted to be the primary instance, your connection will be dropped. To
 continue sending your read workload to other Aurora Replicas in the cluster, you
 can then recoonect to the reader endpoint. **/
         ReaderEndpoint?: String;
+        /** Specifies whether the DB cluster has instances in multiple Availability Zones. **/
+        MultiAZ?: Boolean;
         /** Provides the name of the database engine to be used for this DB cluster. **/
         Engine?: String;
         /** Indicates the database engine version. **/
@@ -3271,6 +3276,9 @@ accessed. **/
 associated with the DB cluster. IAM roles that are associated with a DB cluster
 grant permission for the DB cluster to access other AWS services on your behalf. **/
         AssociatedRoles?: DBClusterRoles;
+        /** Specifies the time when the DB cluster was created, in Universal Coordinated
+Time (UTC). **/
+        ClusterCreateTime?: TStamp;
     }
     export interface DBClusterAlreadyExistsFault {
     }
@@ -4280,7 +4288,13 @@ Constraints:
    
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterIdentifier?: String;
-        /** This parameter is not currently supported. **/
+        /** A filter that specifies one or more DB clusters to describe.
+
+Supported filters:
+
+ &amp;#42; db-cluster-id - Accepts DB cluster identifiers and DB cluster Amazon Resource
+   Names (ARNs). The results list will only include information about the DB
+   clusters identified by these ARNs. **/
         Filters?: FilterList;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
@@ -4355,7 +4369,13 @@ Constraints:
    
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBInstanceIdentifier?: String;
-        /** This parameter is not currently supported. **/
+        /** A filter that specifies one or more DB instances to describe.
+
+Supported filters:
+
+ &amp;#42; db-instance-id - Accepts DB instance identifiers and DB instance Amazon
+   Resource Names (ARNs). The results list will only include information about
+   the DB instances identified by these ARNs. **/
         Filters?: FilterList;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
@@ -4835,9 +4855,14 @@ actions for.
 
 Supported filters:
 
- &amp;#42; db-instance-id - Accepts DB instance identifiers and DB instance Amazon
-   Resource Names (ARNs). The results list will only include pending maintenance
-   actions for the DB instances identified by these ARNs. **/
+ &amp;#42; db-cluster-id - Accepts DB cluster identifiers and DB cluster Amazon Resource
+   Names (ARNs). The results list will only include pending maintenance actions
+   for the DB clusters identified by these ARNs.
+   
+   
+ * db-instance-id - Accepts DB instance identifiers and DB instance ARNs. The
+   results list will only include pending maintenance actions for the DB
+   instances identified by these ARNs. **/
         Filters?: FilterList;
         /** An optional pagination token provided by a previous 
 DescribePendingMaintenanceActions request. If this parameter is specified, the

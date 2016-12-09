@@ -8,7 +8,7 @@
 declare module "aws-sdk" {
 
  /**
-   * apiVersion: 2016-09-29
+   * apiVersion: 2016-11-25
    * endpointPrefix: cloudfront
    * serviceAbbreviation: CloudFront
    * signatureVersion: v4
@@ -78,8 +78,11 @@ version /distribution / distribution ID resource.
      * @error TooManyOriginCustomHeaders   
      * @error TooManyQueryStringParameters   
      * @error InvalidQueryStringParameters   
+     * @error TooManyDistributionsWithLambdaAssociations   
+     * @error TooManyLambdaFunctionAssociations   
+     * @error InvalidLambdaFunctionAssociation   
      */
-    createDistribution(params: CloudFront.CreateDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|any, data: CloudFront.CreateDistributionResult|any) => void): Request<CloudFront.CreateDistributionResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|any>;
+    createDistribution(params: CloudFront.CreateDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|CloudFront.TooManyDistributionsWithLambdaAssociations|CloudFront.TooManyLambdaFunctionAssociations|CloudFront.InvalidLambdaFunctionAssociation|any, data: CloudFront.CreateDistributionResult|any) => void): Request<CloudFront.CreateDistributionResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|CloudFront.TooManyDistributionsWithLambdaAssociations|CloudFront.TooManyLambdaFunctionAssociations|CloudFront.InvalidLambdaFunctionAssociation|any>;
     /**
      * Create a new distribution with tags.
      *
@@ -119,8 +122,11 @@ version /distribution / distribution ID resource.
      * @error InvalidTagging   
      * @error TooManyQueryStringParameters   
      * @error InvalidQueryStringParameters   
+     * @error TooManyDistributionsWithLambdaAssociations   
+     * @error TooManyLambdaFunctionAssociations   
+     * @error InvalidLambdaFunctionAssociation   
      */
-    createDistributionWithTags(params: CloudFront.CreateDistributionWithTagsRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.InvalidTagging|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|any, data: CloudFront.CreateDistributionWithTagsResult|any) => void): Request<CloudFront.CreateDistributionWithTagsResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.InvalidTagging|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|any>;
+    createDistributionWithTags(params: CloudFront.CreateDistributionWithTagsRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.InvalidTagging|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|CloudFront.TooManyDistributionsWithLambdaAssociations|CloudFront.TooManyLambdaFunctionAssociations|CloudFront.InvalidLambdaFunctionAssociation|any, data: CloudFront.CreateDistributionWithTagsResult|any) => void): Request<CloudFront.CreateDistributionWithTagsResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.InvalidTagging|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|CloudFront.TooManyDistributionsWithLambdaAssociations|CloudFront.TooManyLambdaFunctionAssociations|CloudFront.InvalidLambdaFunctionAssociation|any>;
     /**
      * Create a new invalidation.
      *
@@ -433,8 +439,11 @@ configuration.
      * @error TooManyOriginCustomHeaders   
      * @error TooManyQueryStringParameters   
      * @error InvalidQueryStringParameters   
+     * @error TooManyDistributionsWithLambdaAssociations   
+     * @error TooManyLambdaFunctionAssociations   
+     * @error InvalidLambdaFunctionAssociation   
      */
-    updateDistribution(params: CloudFront.UpdateDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyDistributionCNAMEs|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|any, data: CloudFront.UpdateDistributionResult|any) => void): Request<CloudFront.UpdateDistributionResult|any,CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyDistributionCNAMEs|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|any>;
+    updateDistribution(params: CloudFront.UpdateDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyDistributionCNAMEs|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|CloudFront.TooManyDistributionsWithLambdaAssociations|CloudFront.TooManyLambdaFunctionAssociations|CloudFront.InvalidLambdaFunctionAssociation|any, data: CloudFront.UpdateDistributionResult|any) => void): Request<CloudFront.UpdateDistributionResult|any,CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyDistributionCNAMEs|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.TooManyQueryStringParameters|CloudFront.InvalidQueryStringParameters|CloudFront.TooManyDistributionsWithLambdaAssociations|CloudFront.TooManyLambdaFunctionAssociations|CloudFront.InvalidLambdaFunctionAssociation|any>;
     /**
      * Update a streaming distribution.
      *
@@ -475,6 +484,8 @@ configuration.
     
     export type DistributionSummaryList = DistributionSummary[];
     
+    export type EventType = string;
+    
     export type GeoRestrictionType = string;
     
     export type HeaderList = string[];
@@ -486,6 +497,8 @@ configuration.
     export type ItemSelection = string;
     
     export type KeyPairIdList = string[];
+    
+    export type LambdaFunctionAssociationList = LambdaFunctionAssociation[];
     
     export type LocationList = string[];
     
@@ -696,6 +709,9 @@ information, see Serving Compressed Files
 [http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html] 
 in the Amazon CloudFront Developer Guide . **/
         Compress?: boolean;
+        /** A complex type that contains zero or more Lambda function associations for a
+cache behavior. **/
+        LambdaFunctionAssociations?: LambdaFunctionAssociations;
     }
     export interface CacheBehaviors {
         /** The number of cache behaviors for this distribution. **/
@@ -1086,6 +1102,9 @@ information, see Serving Compressed Files
 [http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html] 
 in the Amazon CloudFront Developer Guide . **/
         Compress?: boolean;
+        /** A complex type that contains zero or more Lambda function associations for a
+cache behavior. **/
+        LambdaFunctionAssociations?: LambdaFunctionAssociations;
     }
     export interface DeleteCloudFrontOriginAccessIdentityRequest {
         /** The origin access identity&#x27;s ID. **/
@@ -1592,6 +1611,9 @@ Quantity is 0 , omit Items . **/
     export interface InvalidIfMatchVersion {
         Message?: string;
     }
+    export interface InvalidLambdaFunctionAssociation {
+        Message?: string;
+    }
     export interface InvalidLocationCode {
         Message?: string;
     }
@@ -1703,6 +1725,31 @@ associated with AwsAccountNumber .
 
 For more information, see ActiveTrustedSigners . **/
         Items?: KeyPairIdList;
+    }
+    export interface LambdaFunctionAssociation {
+        /** The ARN of the Lambda function. **/
+        LambdaFunctionARN?: string;
+        /** Specifies the event type that triggers a Lambda function invocation. Valid
+values are:
+
+ &amp;#42; viewer-request
+   
+   
+ * origin-request
+   
+   
+ * viewer-response
+   
+   
+ * origin-response **/
+        EventType?: EventType;
+    }
+    export interface LambdaFunctionAssociations {
+        /** The number of Lambda function associations for this cache behavior. **/
+        Quantity: integer;
+        /** Optional : A complex type that contains LambdaFunctionAssociation items for this
+cache behavior. If Quantity is 0 , you can omit Items . **/
+        Items?: LambdaFunctionAssociationList;
     }
     export interface ListCloudFrontOriginAccessIdentitiesRequest {
         /** Use this when paginating results to indicate where to begin in your list of
@@ -2214,10 +2261,16 @@ include a-z , A-Z , 0-9 , space, and the special characters _ - . : / = + @ . **
     export interface TooManyDistributions {
         Message?: string;
     }
+    export interface TooManyDistributionsWithLambdaAssociations {
+        Message?: string;
+    }
     export interface TooManyHeadersInForwardedValues {
         Message?: string;
     }
     export interface TooManyInvalidationsInProgress {
+        Message?: string;
+    }
+    export interface TooManyLambdaFunctionAssociations {
         Message?: string;
     }
     export interface TooManyOriginCustomHeaders {
@@ -2303,22 +2356,8 @@ distribution&#x27;s configuration. For example: E2QWRUHAPOMQZL . **/
         ETag?: string;
     }
     export interface ViewerCertificate {
-        /** If you want viewers to use HTTPS to request your objects and you&#x27;re using the
-CloudFront domain name of your distribution in your object URLs (for example, 
-https://d111111abcdef8.cloudfront.net/logo.jpg ), set to true . Omit this value
-if you are setting an ACMCertificateArn or IAMCertificateId . **/
         CloudFrontDefaultCertificate?: boolean;
-        /** If you want viewers to use HTTPS to request your objects and you&#x27;re using an
-alternate domain name in your object URLs (for example, 
-https://example.com/logo.jpg) , specify the IAM certificate identifier of the
-custom viewer certificate for this distribution. Specify either this value, 
-ACMCertificateArn , or CloudFrontDefaultCertificate . **/
         IAMCertificateId?: string;
-        /** If you want viewers to use HTTPS to request your objects and you&#x27;re using an
-alternate domain name in your object URLs (for example, 
-https://example.com/logo.jpg) , specify the ACM certificate ARN of the custom
-viewer certificate for this distribution. Specify either this value, 
-IAMCertificateId , or CloudFrontDefaultCertificate . **/
         ACMCertificateArn?: string;
         /** If you specify a value for ACMCertificateArn or for IAMCertificateId , you must
 also specify how you want CloudFront to serve HTTPS requests: using a method

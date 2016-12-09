@@ -100,6 +100,7 @@
     "output/typings/aws-sts.d.ts",
     "output/typings/aws-support.d.ts",
     "output/typings/aws-swf.d.ts",
+    "output/typings/aws-waf-regional.d.ts",
     "output/typings/aws-waf.d.ts",
     "output/typings/aws-workspaces.d.ts",
     "output/typings/aws-xray.d.ts"
