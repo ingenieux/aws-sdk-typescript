@@ -228,7 +228,7 @@ transactions are throttled.
     describeLogStreams(params: CloudWatchLogs.DescribeLogStreamsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeLogStreamsResponse|any) => void): Request<CloudWatchLogs.DescribeLogStreamsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Lists the specified metric filters. You can list all the metric filters or
-filter the results by log name, prefix, metric name, or metric namespace. The
+filter the results by log name, prefix, metric name, and metric namespace. The
 results are ASCII-sorted by filter name.
      *
      * @error InvalidParameterException   
@@ -276,6 +276,15 @@ of the tokens in a subsequent call.
      * @error ServiceUnavailableException   
      */
     getLogEvents(params: CloudWatchLogs.GetLogEventsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.GetLogEventsResponse|any) => void): Request<CloudWatchLogs.GetLogEventsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
+    /**
+     * Lists the tags for the specified log group.
+
+To add tags, use TagLogGroup . To remove tags, use UntagLogGroup .
+     *
+     * @error ResourceNotFoundException   
+     * @error ServiceUnavailableException   
+     */
+    listTagsLogGroup(params: CloudWatchLogs.ListTagsLogGroupRequest, callback?: (err: CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.ListTagsLogGroupResponse|any) => void): Request<CloudWatchLogs.ListTagsLogGroupResponse|any,CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Creates or updates a destination. A destination encapsulates a physical resource
 (such as a Kinesis stream) and enables you to subscribe to a real-time stream of
@@ -327,14 +336,15 @@ The batch of events must satisfy the following constraints:
    
    
  * The log events in the batch must be in chronological ordered by their
-   timestamp.
+   timestamp (the time the event occurred, expressed as the number of
+   milliseconds since Jan 1, 1970 00:00:00 UTC).
    
    
  * The maximum number of log events in a batch is 10,000.
    
    
- * A batch of log events in a single PutLogEvents request cannot span more than
-   24 hours. Otherwise, the PutLogEvents operation will fail.
+ * A batch of log events in a single request cannot span more than 24 hours.
+   Otherwise, the operation fails.
      *
      * @error InvalidParameterException   
      * @error InvalidSequenceTokenException   
@@ -402,6 +412,20 @@ There can only be one subscription filter associated with a log group.
      */
     putSubscriptionFilter(params: CloudWatchLogs.PutSubscriptionFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
+     * Adds or updates the specified tags for the specified log group.
+
+To list the tags for a log group, use ListTagsLogGroup . To remove tags, use 
+UntagLogGroup .
+
+For more information about tags, see Tag Log Groups in Amazon CloudWatch Logs
+[http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html] 
+in the Amazon CloudWatch Logs User Guide .
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidParameterException   
+     */
+    tagLogGroup(params: CloudWatchLogs.TagLogGroupRequest, callback?: (err: CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.InvalidParameterException|any, data: any) => void): Request<any,CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.InvalidParameterException|any>;
+    /**
      * Tests the filter pattern of a metric filter against a sample of log event
 messages. You can use this operation to validate the correctness of a metric
 filter pattern.
@@ -410,6 +434,15 @@ filter pattern.
      * @error ServiceUnavailableException   
      */
     testMetricFilter(params: CloudWatchLogs.TestMetricFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.TestMetricFilterResponse|any) => void): Request<CloudWatchLogs.TestMetricFilterResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any>;
+    /**
+     * Removes the specified tags from the specified log group.
+
+To list the tags for a log group, use ListTagsLogGroup . To add tags, use 
+UntagLogGroup .
+     *
+     * @error ResourceNotFoundException   
+     */
+    untagLogGroup(params: CloudWatchLogs.UntagLogGroupRequest, callback?: (err: CloudWatchLogs.ResourceNotFoundException|any, data: any) => void): Request<any,CloudWatchLogs.ResourceNotFoundException|any>;
 
   }
 
@@ -432,6 +465,8 @@ filter pattern.
     export type DestinationName = string;
     
     export type Destinations = Destination[];
+    
+    export type Distribution = string;
     
     export type EventId = string;
     
@@ -513,6 +548,14 @@ filter pattern.
     
     export type SubscriptionFilters = SubscriptionFilter[];
     
+    export type TagKey = string;
+    
+    export type TagList = TagKey[];
+    
+    export type TagValue = string;
+    
+    export type Tags = {[key:string]: TagValue};
+    
     export type TargetArn = string;
     
     export type TestEventMessages = EventMessage[];
@@ -557,6 +600,8 @@ specify a value, the default is exportedlogs . **/
     export interface CreateLogGroupRequest {
         /** The name of the log group. **/
         logGroupName: LogGroupName;
+        /** The key-value pairs to use for the tags. **/
+        tags?: Tags;
     }
     export interface CreateLogStreamRequest {
         /** The name of the log group. **/
@@ -736,9 +781,11 @@ filters against this destination. **/
         taskName?: ExportTaskName;
         /** The name of the log group from which logs data was exported. **/
         logGroupName?: LogGroupName;
-        /** The start time. Events with a timestamp prior to this time are not exported. **/
+        /** The start time, expressed as the number of milliseconds since Jan 1, 1970
+00:00:00 UTC. Events with a timestamp prior to this time are not exported. **/
         from?: Timestamp;
-        /** The end time. Events with a timestamp later than this time are not exported. **/
+        /** The end time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+UTC. Events with a timestamp later than this time are not exported. **/
         to?: Timestamp;
         /** The name of Amazon S3 bucket to which the log data was exported. **/
         destination?: ExportDestinationBucket;
@@ -767,10 +814,12 @@ exported. **/
         logGroupName: LogGroupName;
         /** Optional list of log stream names. **/
         logStreamNames?: InputLogStreamNames;
-        /** The start of the time range. Events with a timestamp prior to this time are not
+        /** The start of the time range, expressed as the number of milliseconds since Jan
+1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not
 returned. **/
         startTime?: Timestamp;
-        /** The end of the time range. Events with a timestamp later than this time are not
+        /** The end of the time range, expressed as the number of milliseconds since Jan 1,
+1970 00:00:00 UTC. Events with a timestamp later than this time are not
 returned. **/
         endTime?: Timestamp;
         /** The filter pattern to use. If not provided, all the events are matched. **/
@@ -800,7 +849,8 @@ searched completely. **/
     export interface FilteredLogEvent {
         /** The name of the log stream this event belongs to. **/
         logStreamName?: LogStreamName;
-        /** The time the event occurred. **/
+        /** The time the event occurred, expressed as the number of milliseconds since Jan
+1, 1970 00:00:00 UTC. **/
         timestamp?: Timestamp;
         /** The data contained in the log event. **/
         message?: EventMessage;
@@ -814,10 +864,12 @@ searched completely. **/
         logGroupName: LogGroupName;
         /** The name of the log stream. **/
         logStreamName: LogStreamName;
-        /** The start of the time range. Events with a timestamp earlier than this time are
-not included. **/
+        /** The start of the time range, expressed as the number of milliseconds since Jan
+1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not
+included. **/
         startTime?: Timestamp;
-        /** The end of the time range. Events with a timestamp later than this time are not
+        /** The end of the time range, expressed as the number of milliseconds since Jan 1,
+1970 00:00:00 UTC. Events with a timestamp later than this time are not
 included. **/
         endTime?: Timestamp;
         /** The token for the next set of items to return. (You received this token from a
@@ -842,7 +894,8 @@ after 24 hours. **/
         nextBackwardToken?: NextToken;
     }
     export interface InputLogEvent {
-        /** The time the event occurred. **/
+        /** The time the event occurred, expressed as the number of milliseconds since Jan
+1, 1970 00:00:00 UTC. **/
         timestamp: Timestamp;
         /** The raw event message. **/
         message: EventMessage;
@@ -855,6 +908,14 @@ after 24 hours. **/
         expectedSequenceToken?: SequenceToken;
     }
     export interface LimitExceededException {
+    }
+    export interface ListTagsLogGroupRequest {
+        /** The name of the log group. **/
+        logGroupName: LogGroupName;
+    }
+    export interface ListTagsLogGroupResponse {
+        /** The tags. **/
+        tags?: Tags;
     }
     export interface LogGroup {
         /** The name of the log group. **/
@@ -874,9 +935,11 @@ after 24 hours. **/
         logStreamName?: LogStreamName;
         /** The creation time of the stream. **/
         creationTime?: Timestamp;
-        /** The time of the first event. **/
+        /** The time of the first event, expressed as the number of milliseconds since Jan
+1, 1970 00:00:00 UTC. **/
         firstEventTimestamp?: Timestamp;
-        /** The time of the last event. **/
+        /** The time of the last event, expressed as the number of milliseconds since Jan 1,
+1970 00:00:00 UTC. **/
         lastEventTimestamp?: Timestamp;
         /** The ingestion time. **/
         lastIngestionTime?: Timestamp;
@@ -921,7 +984,8 @@ This value can be null. **/
     export interface OperationAbortedException {
     }
     export interface OutputLogEvent {
-        /** The time the event occurred. **/
+        /** The time the event occurred, expressed as the number of milliseconds since Jan
+1, 1970 00:00:00 UTC. **/
         timestamp?: Timestamp;
         /** The data contained in the log event. **/
         message?: EventMessage;
@@ -1008,6 +1072,10 @@ supported destinations are:
 ingested log events to the destination stream. You don&#x27;t need to provide the ARN
 when you are working with a logical destination for cross-account delivery. **/
         roleArn?: RoleArn;
+        /** The method used to distribute log data to the destination, when the destination
+is an Amazon Kinesis stream. By default, log data is grouped by log stream. For
+a more even distribution, you can group log data randomly. **/
+        distribution?: Distribution;
     }
     export interface RejectedLogEventsInfo {
         /** The log events that are too new. **/
@@ -1039,8 +1107,17 @@ when you are working with a logical destination for cross-account delivery. **/
         destinationArn?: DestinationArn;
         /**  **/
         roleArn?: RoleArn;
+        /** The method used to distribute log data to the destination, when the destination
+is an Amazon Kinesis stream. **/
+        distribution?: Distribution;
         /** The creation time of the subscription filter. **/
         creationTime?: Timestamp;
+    }
+    export interface TagLogGroupRequest {
+        /** The name of the log group. **/
+        logGroupName: LogGroupName;
+        /** The key-value pairs to use for the tags. **/
+        tags: Tags;
     }
     export interface TestMetricFilterRequest {
         filterPattern: FilterPattern;
@@ -1050,6 +1127,12 @@ when you are working with a logical destination for cross-account delivery. **/
     export interface TestMetricFilterResponse {
         /** The matched events. **/
         matches?: MetricFilterMatches;
+    }
+    export interface UntagLogGroupRequest {
+        /** The name of the log group. **/
+        logGroupName: LogGroupName;
+        /** The tag keys. The corresponding tags are removed from the log group. **/
+        tags: TagList;
     }
   }
 }

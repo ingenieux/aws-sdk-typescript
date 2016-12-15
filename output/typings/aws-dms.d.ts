@@ -17,9 +17,10 @@ declare module "aws-sdk" {
    * AWS Database Migration ServiceAWS Database Migration Service (AWS DMS) can
 migrate your data to and from the most widely used commercial and open-source
 databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift,
-MariaDB, Amazon Aurora, and MySQL. The service supports homogeneous migrations
-such as Oracle to Oracle, as well as heterogeneous migrations between different
-database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
+MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The
+service supports homogeneous migrations such as Oracle to Oracle, as well as
+heterogeneous migrations between different database platforms, such as Oracle to
+MySQL or SQL Server to PostgreSQL.
    *
    */
   export class DMS extends Service {
@@ -42,8 +43,9 @@ Condition statement in an IAM policy for DMS.
      * @error ResourceQuotaExceededFault   
      * @error InvalidResourceStateFault   
      * @error ResourceNotFoundFault   
+     * @error AccessDeniedFault   
      */
-    createEndpoint(params: DMS.CreateEndpointMessage, callback?: (err: DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.CreateEndpointResponse|any) => void): Request<DMS.CreateEndpointResponse|any,DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any>;
+    createEndpoint(params: DMS.CreateEndpointMessage, callback?: (err: DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.AccessDeniedFault|any, data: DMS.CreateEndpointResponse|any) => void): Request<DMS.CreateEndpointResponse|any,DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.AccessDeniedFault|any>;
     /**
      * Creates the replication instance using the specified parameters.
      *
@@ -253,6 +255,18 @@ Some settings are applied during the maintenance window.
      */
     modifyReplicationSubnetGroup(params: DMS.ModifyReplicationSubnetGroupMessage, callback?: (err: DMS.AccessDeniedFault|DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.SubnetAlreadyInUse|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any, data: DMS.ModifyReplicationSubnetGroupResponse|any) => void): Request<DMS.ModifyReplicationSubnetGroupResponse|any,DMS.AccessDeniedFault|DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.SubnetAlreadyInUse|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any>;
     /**
+     * Modifies the specified replication task.
+
+You can&#x27;t modify the task endpoints. The task must be stopped before you can
+modify it.
+     *
+     * @error InvalidResourceStateFault   
+     * @error ResourceNotFoundFault   
+     * @error ResourceAlreadyExistsFault   
+     * @error KMSKeyNotAccessibleFault   
+     */
+    modifyReplicationTask(params: DMS.ModifyReplicationTaskMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.ResourceAlreadyExistsFault|DMS.KMSKeyNotAccessibleFault|any, data: DMS.ModifyReplicationTaskResponse|any) => void): Request<DMS.ModifyReplicationTaskResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.ResourceAlreadyExistsFault|DMS.KMSKeyNotAccessibleFault|any>;
+    /**
      * Populates the schema for the specified endpoint. This is an asynchronous
 operation and can take several minutes. You can check the status of this
 operation by calling the DescribeRefreshSchemasStatus operation.
@@ -304,6 +318,8 @@ operation by calling the DescribeRefreshSchemasStatus operation.
     export type BooleanOptional = boolean;
     
     export type CertificateList = Certificate[];
+    
+    export type CertificateWallet = any;
     
     export type ConnectionList = Connection[];
     
@@ -394,19 +410,21 @@ replication task. **/
         Name?: String;
     }
     export interface Certificate {
-        /** The customer-assigned name of the certificate. Valid characters are [A-z_0-9]. **/
+        /** The customer-assigned name of the certificate. Valid characters are A-z and 0-9. **/
         CertificateIdentifier?: String;
-        /** the date the certificate was created. **/
+        /** The date that the certificate was created. **/
         CertificateCreationDate?: TStamp;
-        /** The contents of the .pem X.509 certificate file. **/
+        /** The contents of the .pem X.509 certificate file for the certificate. **/
         CertificatePem?: String;
+        /** The location of the imported Oracle Wallet certificate for use with SSL. **/
+        CertificateWallet?: CertificateWallet;
         /** The Amazon Resource Name (ARN) for the certificate. **/
         CertificateArn?: String;
         /** The owner of the certificate. **/
         CertificateOwner?: String;
-        /** The beginning date the certificate is valid. **/
+        /** The beginning date that the certificate is valid. **/
         ValidFromDate?: TStamp;
-        /** the final date the certificate is valid. **/
+        /** The final date that the certificate is valid. **/
         ValidToDate?: TStamp;
         /** The signing algorithm for the certificate. **/
         SigningAlgorithm?: String;
@@ -438,16 +456,16 @@ or contain two consecutive hyphens. **/
         /** The type of endpoint. **/
         EndpointType: ReplicationEndpointTypeValue;
         /** The type of engine for the endpoint. Valid values include MYSQL, ORACLE,
-POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER. **/
+POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER. **/
         EngineName: String;
         /** The user name to be used to login to the endpoint database. **/
-        Username: String;
+        Username?: String;
         /** The password to be used to login to the endpoint database. **/
-        Password: SecretString;
+        Password?: SecretString;
         /** The name of the server where the endpoint database resides. **/
-        ServerName: String;
+        ServerName?: String;
         /** The port used by the endpoint database. **/
-        Port: IntegerOptional;
+        Port?: IntegerOptional;
         /** The name of the endpoint database. **/
         DatabaseName?: String;
         /** Additional attributes associated with the connection. **/
@@ -596,7 +614,10 @@ with &quot;file://&quot;.
 
 For example, --table-mappings file://mappingfile.json **/
         TableMappings: String;
-        /** Settings for the task, such as target metadata settings. **/
+        /** Settings for the task, such as target metadata settings. For a complete list of
+task settings, see Task Settings for AWS Database Migration Service Tasks
+[http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html] 
+. **/
         ReplicationTaskSettings?: String;
         /** The start time for the Change Data Capture (CDC) operation. **/
         CdcStartTime?: TStamp;
@@ -608,11 +629,11 @@ For example, --table-mappings file://mappingfile.json **/
         ReplicationTask?: ReplicationTask;
     }
     export interface DeleteCertificateMessage {
-        /** the Amazon Resource Name (ARN) of the deleted certificate. **/
+        /** The Amazon Resource Name (ARN) of the deleted certificate. **/
         CertificateArn: String;
     }
     export interface DeleteCertificateResponse {
-        /** The SSL certificate. **/
+        /** The Secure Sockets Layer (SSL) certificate. **/
         Certificate?: Certificate;
     }
     export interface DeleteEndpointMessage {
@@ -668,7 +689,8 @@ value specified by MaxRecords . **/
     export interface DescribeCertificatesResponse {
         /** The pagination token. **/
         Marker?: String;
-        /** The SSL certificates associated with the replication instance. **/
+        /** The Secure Sockets Layer (SSL) certificates associated with the replication
+instance. **/
         Certificates?: CertificateList;
     }
     export interface DescribeConnectionsMessage {
@@ -914,7 +936,8 @@ or contain two consecutive hyphens. **/
         EndpointIdentifier?: String;
         /** The type of endpoint. **/
         EndpointType?: ReplicationEndpointTypeValue;
-        /** The database engine name. **/
+        /** The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB,
+AURORA, REDSHIFT, SYBASE, and SQLSERVER. **/
         EngineName?: String;
         /** The user name used to connect to the endpoint. **/
         Username?: String;
@@ -952,10 +975,12 @@ The default value is none. **/
         Values: FilterValueList;
     }
     export interface ImportCertificateMessage {
-        /** The customer-assigned name of the certificate. Valid characters are [A-z_0-9]. **/
+        /** The customer-assigned name of the certificate. Valid characters are A-z and 0-9. **/
         CertificateIdentifier: String;
-        /** The contents of the .pem X.509 certificate file. **/
+        /** The contents of the .pem X.509 certificate file for the certificate. **/
         CertificatePem?: String;
+        /** The location of the imported Oracle Wallet certificate for use with SSL. **/
+        CertificateWallet?: CertificateWallet;
     }
     export interface ImportCertificateResponse {
         /** The certificate to be uploaded. **/
@@ -999,7 +1024,7 @@ or contain two consecutive hyphens. **/
         /** The type of endpoint. **/
         EndpointType?: ReplicationEndpointTypeValue;
         /** The type of engine for the endpoint. Valid values include MYSQL, ORACLE,
-POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER. **/
+POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER. **/
         EngineName?: String;
         /** The user name to be used to login to the endpoint database. **/
         Username?: String;
@@ -1098,6 +1123,39 @@ string. **/
     export interface ModifyReplicationSubnetGroupResponse {
         /** The modified replication subnet group. **/
         ReplicationSubnetGroup?: ReplicationSubnetGroup;
+    }
+    export interface ModifyReplicationTaskMessage {
+        /** The Amazon Resource Name (ARN) of the replication task. **/
+        ReplicationTaskArn: String;
+        /** The replication task identifier.
+
+Constraints:
+
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
+ * First character must be a letter.
+   
+   
+ * Cannot end with a hyphen or contain two consecutive hyphens. **/
+        ReplicationTaskIdentifier?: String;
+        /** The migration type.
+
+Valid values: full-load | cdc | full-load-and-cdc **/
+        MigrationType?: MigrationTypeValue;
+        /** The path of the JSON file that contains the table mappings. Preceed the path
+with &quot;file://&quot;.
+
+For example, --table-mappings file://mappingfile.json **/
+        TableMappings?: String;
+        /** JSON file that contains settings for the task, such as target metadata settings. **/
+        ReplicationTaskSettings?: String;
+        /** The start time for the Change Data Capture (CDC) operation. **/
+        CdcStartTime?: TStamp;
+    }
+    export interface ModifyReplicationTaskResponse {
+        /** The replication task that was modified. **/
+        ReplicationTask?: ReplicationTask;
     }
     export interface OrderableReplicationInstance {
         /** The version of the replication engine. **/
@@ -1221,6 +1279,9 @@ for each AWS region. **/
 true represents an instance with a public IP address. A value of false 
 represents an instance with a private IP address. The default value is true . **/
         PubliclyAccessible?: Boolean;
+        /** The availability zone of the standby replication instance in a Multi-AZ
+deployment. **/
+        SecondaryAvailabilityZone?: String;
     }
     export interface ReplicationPendingModifiedValues {
         /** The compute and memory capacity of the replication instance.
@@ -1282,6 +1343,8 @@ Constraints:
         Status?: String;
         /** The last error (failure) message generated for the replication instance. **/
         LastFailureMessage?: String;
+        /** The reason the replication task was stopped. **/
+        StopReason?: String;
         /** The date the replication task was created. **/
         ReplicationTaskCreationDate?: TStamp;
         /** The date the replication task is scheduled to start. **/
@@ -1355,7 +1418,8 @@ errors. **/
         message?: ExceptionMessage;
     }
     export interface SupportedEndpointType {
-        /** The database engine name. **/
+        /** The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB,
+AURORA, REDSHIFT, SYBASE, and SQLSERVER. **/
         EngineName?: String;
         /** Indicates if Change Data Capture (CDC) is supported. **/
         SupportsCDC?: Boolean;

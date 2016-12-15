@@ -696,10 +696,9 @@ role principal. This means that subsequent cross-account API requests using the
 temporary security credentials will expose the role session name to the external
 account in their CloudTrail logs.
 
-The format for this parameter, as described by its regex pattern, is a string of
-characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include underscores or any of the following characters:
-=,.@- **/
+The regex used to validate this parameter is a string of characters consisting
+of upper- and lower-case alphanumeric characters with no spaces. You can also
+include underscores or any of the following characters: =,.@- **/
         RoleSessionName: roleSessionNameType;
         /** An IAM policy in JSON format.
 
@@ -750,10 +749,9 @@ Granting Access to Your AWS Resources to a Third Party
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html] 
 in the IAM User Guide .
 
-The format for this parameter, as described by its regex pattern, is a string of
-characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include underscores or any of the following characters:
-=,.@:\/- **/
+The regex used to validated this parameter is a string of characters consisting
+of upper- and lower-case alphanumeric characters with no spaces. You can also
+include underscores or any of the following characters: =,.@:\/- **/
         ExternalId?: externalIdType;
         /** The identification number of the MFA device that is associated with the user who
 is making the AssumeRole call. Specify this value if the trust policy of the
@@ -762,10 +760,9 @@ value is either the serial number for a hardware device (such as GAHT12345678 )
 or an Amazon Resource Name (ARN) for a virtual device (such as 
 arn:aws:iam::123456789012:mfa/user ).
 
-The format for this parameter, as described by its regex pattern, is a string of
-characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include underscores or any of the following characters:
-=,.@- **/
+The regex used to validate this parameter is a string of characters consisting
+of upper- and lower-case alphanumeric characters with no spaces. You can also
+include underscores or any of the following characters: =,.@- **/
         SerialNumber?: serialNumberType;
         /** The value provided by the MFA device, if the trust policy of the role being
 assumed requires MFA (that is, if the policy includes a condition that tests for
@@ -900,10 +897,9 @@ way, the temporary security credentials that your application will use are
 associated with that user. This session name is included as part of the ARN and
 assumed role ID in the AssumedRoleUser response element.
 
-The format for this parameter, as described by its regex pattern, is a string of
-characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include underscores or any of the following characters:
-=,.@- **/
+The regex used to validate this parameter is a string of characters consisting
+of upper- and lower-case alphanumeric characters with no spaces. You can also
+include underscores or any of the following characters: =,.@- **/
         RoleSessionName: roleSessionNameType;
         /** The OAuth 2.0 access token or OpenID Connect ID token that is provided by the
 identity provider. Your application must get this token by authenticating the
@@ -1058,10 +1054,9 @@ temporary security credentials (such as Bob ). For example, you can reference
 the federated user name in a resource-based policy, such as in an Amazon S3
 bucket policy.
 
-The format for this parameter, as described by its regex pattern, is a string of
-characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include underscores or any of the following characters:
-=,.@- **/
+The regex used to validate this parameter is a string of characters consisting
+of upper- and lower-case alphanumeric characters with no spaces. You can also
+include underscores or any of the following characters: =,.@- **/
         Name: userNameType;
         /** An IAM policy in JSON format that is passed with the GetFederationToken call and
 evaluated along with the policy or policies that are attached to the IAM user
@@ -1136,10 +1131,9 @@ for a virtual device (such as arn:aws:iam::123456789012:mfa/user ). You can find
 the device for an IAM user by going to the AWS Management Console and viewing
 the user&#x27;s security credentials.
 
-The format for this parameter, as described by its regex pattern, is a string of
-characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include underscores or any of the following characters:
-=,.@- **/
+The regex used to validate this parameter is a string of characters consisting
+of upper- and lower-case alphanumeric characters with no spaces. You can also
+include underscores or any of the following characters: =,.@- **/
         SerialNumber?: serialNumberType;
         /** The value provided by the MFA device, if MFA is required. If any policy requires
 the IAM user to submit an MFA code, specify this value. If MFA authentication is

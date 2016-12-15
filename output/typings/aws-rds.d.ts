@@ -2577,6 +2577,10 @@ MySQL
 
 Oracle 12c
 
+ * 12.1.0.2.v6 (supported for EE in all AWS regions, and SE2 in all AWS regions
+   except us-gov-west-1)
+   
+   
  * 12.1.0.2.v5 (supported for EE in all AWS regions, and SE2 in all AWS regions
    except us-gov-west-1)
    
@@ -2627,6 +2631,9 @@ Oracle 12c
 
 Oracle 11g
 
+ * 11.2.0.4.v10 (supported for EE, SE1, and SE, in all AWS regions)
+   
+   
  * 11.2.0.4.v9 (supported for EE, SE1, and SE, in all AWS regions)
    
    
