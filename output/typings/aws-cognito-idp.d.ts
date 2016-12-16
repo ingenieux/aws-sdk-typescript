@@ -39,8 +39,23 @@ For more information, see the Amazon Cognito Documentation.
      */
     addCustomAttributes(params: CognitoIdentityServiceProvider.AddCustomAttributesRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserImportInProgressException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AddCustomAttributesResponse|any) => void): Request<CognitoIdentityServiceProvider.AddCustomAttributesResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserImportInProgressException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
+     * Adds the specified user to the specified group.
+
+Requires developer credentials.
+     *
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error TooManyRequestsException   
+     * @error NotAuthorizedException   
+     * @error UserNotFoundException   
+     * @error InternalErrorException   
+     */
+    adminAddUserToGroup(params: CognitoIdentityServiceProvider.AdminAddUserToGroupRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: any) => void): Request<any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    /**
      * Confirms user registration as an admin without using a confirmation code. Works
 on any user.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -84,6 +99,8 @@ Requires developer credentials.
     adminCreateUser(params: CognitoIdentityServiceProvider.AdminCreateUserRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UsernameExistsException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.CodeDeliveryFailureException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.PreconditionNotMetException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UnsupportedUserStateException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminCreateUserResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminCreateUserResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UsernameExistsException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.CodeDeliveryFailureException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.PreconditionNotMetException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UnsupportedUserStateException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Deletes a user as an administrator. Works on any user.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -96,6 +113,8 @@ Requires developer credentials.
     /**
      * Deletes the user attributes in a user pool as an administrator. Works on any
 user.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -107,6 +126,8 @@ user.
     adminDeleteUserAttributes(params: CognitoIdentityServiceProvider.AdminDeleteUserAttributesRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminDeleteUserAttributesResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminDeleteUserAttributesResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Disables the specified user as an administrator. Works on any user.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -118,6 +139,8 @@ user.
     adminDisableUser(params: CognitoIdentityServiceProvider.AdminDisableUserRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminDisableUserResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminDisableUserResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Enables the specified user as an administrator. Works on any user.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -129,6 +152,8 @@ user.
     adminEnableUser(params: CognitoIdentityServiceProvider.AdminEnableUserRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminEnableUserResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminEnableUserResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Forgets the device, as an administrator.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -141,6 +166,8 @@ user.
     adminForgetDevice(params: CognitoIdentityServiceProvider.AdminForgetDeviceRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: any) => void): Request<any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Gets the device, as an administrator.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -153,6 +180,8 @@ user.
     /**
      * Gets the specified user by user name in a user pool as an administrator. Works
 on any user.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -164,6 +193,8 @@ on any user.
     adminGetUser(params: CognitoIdentityServiceProvider.AdminGetUserRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminGetUserResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminGetUserResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Initiates the authentication flow, as an administrator.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -184,6 +215,8 @@ on any user.
     adminInitiateAuth(params: CognitoIdentityServiceProvider.AdminInitiateAuthRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|any, data: CognitoIdentityServiceProvider.AdminInitiateAuthResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminInitiateAuthResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|any>;
     /**
      * Lists devices, as an administrator.
+
+Requires developer credentials.
      *
      * @error InvalidParameterException   
      * @error ResourceNotFoundException   
@@ -193,6 +226,32 @@ on any user.
      * @error NotAuthorizedException   
      */
     adminListDevices(params: CognitoIdentityServiceProvider.AdminListDevicesRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.NotAuthorizedException|any, data: CognitoIdentityServiceProvider.AdminListDevicesResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminListDevicesResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.NotAuthorizedException|any>;
+    /**
+     * Lists the groups that the user belongs to.
+
+Requires developer credentials.
+     *
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error TooManyRequestsException   
+     * @error NotAuthorizedException   
+     * @error UserNotFoundException   
+     * @error InternalErrorException   
+     */
+    adminListGroupsForUser(params: CognitoIdentityServiceProvider.AdminListGroupsForUserRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminListGroupsForUserResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminListGroupsForUserResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    /**
+     * Removes the specified user from the specified group.
+
+Requires developer credentials.
+     *
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error TooManyRequestsException   
+     * @error NotAuthorizedException   
+     * @error UserNotFoundException   
+     * @error InternalErrorException   
+     */
+    adminRemoveUserFromGroup(params: CognitoIdentityServiceProvider.AdminRemoveUserFromGroupRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: any) => void): Request<any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Resets the specified user&#x27;s password in a user pool as an administrator. Works
 on any user.
@@ -205,6 +264,8 @@ In addition, if the user pool has phone verification selected and a verified
 phone number exists for the user, or if email verification is selected and a
 verified email exists for the user, calling this API will also result in sending
 a message to the end user with the code to change their password.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -220,6 +281,8 @@ a message to the end user with the code to change their password.
     adminResetUserPassword(params: CognitoIdentityServiceProvider.AdminResetUserPasswordRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminResetUserPasswordResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminResetUserPasswordResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Responds to an authentication challenge, as an administrator.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -244,6 +307,8 @@ a message to the end user with the code to change their password.
     adminRespondToAuthChallenge(params: CognitoIdentityServiceProvider.AdminRespondToAuthChallengeRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|any, data: CognitoIdentityServiceProvider.AdminRespondToAuthChallengeResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminRespondToAuthChallengeResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|any>;
     /**
      * Sets all the user settings for a specified user name. Works on any user.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -254,6 +319,8 @@ a message to the end user with the code to change their password.
     adminSetUserSettings(params: CognitoIdentityServiceProvider.AdminSetUserSettingsRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminSetUserSettingsResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminSetUserSettingsResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Updates the device status as an administrator.
+
+Requires developer credentials.
      *
      * @error InvalidParameterException   
      * @error ResourceNotFoundException   
@@ -267,6 +334,8 @@ a message to the end user with the code to change their password.
     /**
      * Updates the specified user&#x27;s attributes, including developer attributes, as an
 administrator. Works on any user.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -282,6 +351,8 @@ administrator. Works on any user.
     adminUpdateUserAttributes(params: CognitoIdentityServiceProvider.AdminUpdateUserAttributesRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminUpdateUserAttributesResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminUpdateUserAttributesResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Signs out users from all devices, as an administrator.
+
+Requires developer credentials.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -366,6 +437,20 @@ user.
      */
     confirmSignUp(params: CognitoIdentityServiceProvider.ConfirmSignUpRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyFailedAttemptsException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.ConfirmSignUpResponse|any) => void): Request<CognitoIdentityServiceProvider.ConfirmSignUpResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyFailedAttemptsException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
+     * Creates a new group in the specified user pool.
+
+Requires developer credentials.
+     *
+     * @error InvalidParameterException   
+     * @error GroupExistsException   
+     * @error ResourceNotFoundException   
+     * @error TooManyRequestsException   
+     * @error LimitExceededException   
+     * @error NotAuthorizedException   
+     * @error InternalErrorException   
+     */
+    createGroup(params: CognitoIdentityServiceProvider.CreateGroupRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.GroupExistsException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.CreateGroupResponse|any) => void): Request<CognitoIdentityServiceProvider.CreateGroupResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.GroupExistsException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    /**
      * Creates the user import job.
      *
      * @error ResourceNotFoundException   
@@ -388,9 +473,10 @@ pool.
      * @error InvalidSmsRoleTrustRelationshipException   
      * @error InvalidEmailRoleAccessPolicyException   
      * @error NotAuthorizedException   
+     * @error UserPoolTaggingException   
      * @error InternalErrorException   
      */
-    createUserPool(params: CognitoIdentityServiceProvider.CreateUserPoolRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.InvalidEmailRoleAccessPolicyException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.CreateUserPoolResponse|any) => void): Request<CognitoIdentityServiceProvider.CreateUserPoolResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.InvalidEmailRoleAccessPolicyException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    createUserPool(params: CognitoIdentityServiceProvider.CreateUserPoolRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.InvalidEmailRoleAccessPolicyException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserPoolTaggingException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.CreateUserPoolResponse|any) => void): Request<CognitoIdentityServiceProvider.CreateUserPoolResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.InvalidEmailRoleAccessPolicyException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserPoolTaggingException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Creates the user pool client.
      *
@@ -402,6 +488,18 @@ pool.
      * @error InternalErrorException   
      */
     createUserPoolClient(params: CognitoIdentityServiceProvider.CreateUserPoolClientRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.CreateUserPoolClientResponse|any) => void): Request<CognitoIdentityServiceProvider.CreateUserPoolClientResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    /**
+     * Deletes a group. Currently only groups with no members can be deleted.
+
+Requires developer credentials.
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidParameterException   
+     * @error TooManyRequestsException   
+     * @error NotAuthorizedException   
+     * @error InternalErrorException   
+     */
+    deleteGroup(params: CognitoIdentityServiceProvider.DeleteGroupRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: any) => void): Request<any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Allows a user to delete one&#x27;s self.
      *
@@ -466,9 +564,10 @@ pool.
      * @error InvalidParameterException   
      * @error TooManyRequestsException   
      * @error NotAuthorizedException   
+     * @error UserPoolTaggingException   
      * @error InternalErrorException   
      */
-    describeUserPool(params: CognitoIdentityServiceProvider.DescribeUserPoolRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.DescribeUserPoolResponse|any) => void): Request<CognitoIdentityServiceProvider.DescribeUserPoolResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    describeUserPool(params: CognitoIdentityServiceProvider.DescribeUserPoolRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserPoolTaggingException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.DescribeUserPoolResponse|any) => void): Request<CognitoIdentityServiceProvider.DescribeUserPoolResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserPoolTaggingException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Client method for returning the configuration information and metadata of the
 specified user pool client.
@@ -539,6 +638,18 @@ import job.
      * @error InternalErrorException   
      */
     getDevice(params: CognitoIdentityServiceProvider.GetDeviceRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.GetDeviceResponse|any) => void): Request<CognitoIdentityServiceProvider.GetDeviceResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    /**
+     * Gets a group.
+
+Requires developer credentials.
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidParameterException   
+     * @error TooManyRequestsException   
+     * @error NotAuthorizedException   
+     * @error InternalErrorException   
+     */
+    getGroup(params: CognitoIdentityServiceProvider.GetGroupRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.GetGroupResponse|any) => void): Request<CognitoIdentityServiceProvider.GetGroupResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Gets the user attributes and metadata for a user.
      *
@@ -617,6 +728,18 @@ import job.
      */
     listDevices(params: CognitoIdentityServiceProvider.ListDevicesRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.ListDevicesResponse|any) => void): Request<CognitoIdentityServiceProvider.ListDevicesResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
+     * Lists the groups associated with a user pool.
+
+Requires developer credentials.
+     *
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error TooManyRequestsException   
+     * @error NotAuthorizedException   
+     * @error InternalErrorException   
+     */
+    listGroups(params: CognitoIdentityServiceProvider.ListGroupsRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.ListGroupsResponse|any) => void): Request<CognitoIdentityServiceProvider.ListGroupsResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    /**
      * Lists the user import jobs.
      *
      * @error ResourceNotFoundException   
@@ -655,6 +778,18 @@ import job.
      * @error InternalErrorException   
      */
     listUsers(params: CognitoIdentityServiceProvider.ListUsersRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.ListUsersResponse|any) => void): Request<CognitoIdentityServiceProvider.ListUsersResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    /**
+     * Lists the users in the specified group.
+
+Requires developer credentials.
+     *
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error TooManyRequestsException   
+     * @error NotAuthorizedException   
+     * @error InternalErrorException   
+     */
+    listUsersInGroup(params: CognitoIdentityServiceProvider.ListUsersInGroupRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.ListUsersInGroupResponse|any) => void): Request<CognitoIdentityServiceProvider.ListUsersInGroupResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Resends the confirmation (for confirmation of registration) to a specific user
 in the user pool.
@@ -770,6 +905,18 @@ and user attributes.
      */
     updateDeviceStatus(params: CognitoIdentityServiceProvider.UpdateDeviceStatusRequest, callback?: (err: CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.UpdateDeviceStatusResponse|any) => void): Request<CognitoIdentityServiceProvider.UpdateDeviceStatusResponse|any,CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
+     * Updates the specified group with the specified attributes.
+
+Requires developer credentials.
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidParameterException   
+     * @error TooManyRequestsException   
+     * @error NotAuthorizedException   
+     * @error InternalErrorException   
+     */
+    updateGroup(params: CognitoIdentityServiceProvider.UpdateGroupRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.UpdateGroupResponse|any) => void): Request<CognitoIdentityServiceProvider.UpdateGroupResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    /**
      * Allows a user to update a specific attribute (one at a time).
      *
      * @error ResourceNotFoundException   
@@ -804,9 +951,10 @@ and user attributes.
      * @error InternalErrorException   
      * @error InvalidSmsRoleAccessPolicyException   
      * @error InvalidSmsRoleTrustRelationshipException   
+     * @error UserPoolTaggingException   
      * @error InvalidEmailRoleAccessPolicyException   
      */
-    updateUserPool(params: CognitoIdentityServiceProvider.UpdateUserPoolRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ConcurrentModificationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserImportInProgressException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.InvalidEmailRoleAccessPolicyException|any, data: CognitoIdentityServiceProvider.UpdateUserPoolResponse|any) => void): Request<CognitoIdentityServiceProvider.UpdateUserPoolResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ConcurrentModificationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserImportInProgressException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.InvalidEmailRoleAccessPolicyException|any>;
+    updateUserPool(params: CognitoIdentityServiceProvider.UpdateUserPoolRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ConcurrentModificationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserImportInProgressException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.UserPoolTaggingException|CognitoIdentityServiceProvider.InvalidEmailRoleAccessPolicyException|any, data: CognitoIdentityServiceProvider.UpdateUserPoolResponse|any) => void): Request<CognitoIdentityServiceProvider.UpdateUserPoolResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.ConcurrentModificationException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UserImportInProgressException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.UserPoolTaggingException|CognitoIdentityServiceProvider.InvalidEmailRoleAccessPolicyException|any>;
     /**
      * Allows the developer to update the specified user pool client and password
 policy.
@@ -897,6 +1045,8 @@ policy.
     
     export type DeliveryMediumType = string;
     
+    export type DescriptionType = string;
+    
     export type DeviceKeyType = string;
     
     export type DeviceListType = DeviceType[];
@@ -918,6 +1068,10 @@ policy.
     export type ForceAliasCreation = boolean;
     
     export type GenerateSecret = boolean;
+    
+    export type GroupListType = GroupType[];
+    
+    export type GroupNameType = string;
     
     export type IntegerType = number;
     
@@ -942,6 +1096,8 @@ policy.
     export type PoolQueryLimitType = number;
     
     export type PreSignedUrlType = string;
+    
+    export type PrecedenceType = number;
     
     export type QueryLimit = number;
     
@@ -987,6 +1143,8 @@ policy.
     
     export type UserPoolNameType = string;
     
+    export type UserPoolTagsType = {[key:string]: StringType};
+    
     export type UserStatusType = string;
     
     export type UsernameType = string;
@@ -1005,6 +1163,14 @@ policy.
     }
     export interface AddCustomAttributesResponse {
     }
+    export interface AdminAddUserToGroupRequest {
+        /** The user pool ID for the user pool. **/
+        UserPoolId: UserPoolIdType;
+        /** The username for the user. **/
+        Username: UsernameType;
+        /** The group name. **/
+        GroupName: GroupNameType;
+    }
     export interface AdminConfirmSignUpRequest {
         /** The user pool ID for which you want to confirm user registration. **/
         UserPoolId: UserPoolIdType;
@@ -1019,7 +1185,8 @@ False if users can sign themselves up via an app. **/
         AllowAdminCreateUserOnly?: BooleanType;
         /** The user account expiration limit, in days, after which the account is no longer
 usable. To reset the account after that time limit, you must call
-AdminCreateUser again, specifying &quot;RESEND&quot; for the MessageAction parameter. **/
+AdminCreateUser again, specifying &quot;RESEND&quot; for the MessageAction parameter. The
+default value for this paameter is 7. **/
         UnusedAccountValidityDays?: AdminCreateUserUnusedAccountValidityDaysType;
         /** The message template to be used for the welcome message to new users. **/
         InviteMessageTemplate?: MessageTemplateType;
@@ -1236,6 +1403,32 @@ user. **/
         /** The pagination token. **/
         PaginationToken?: SearchPaginationTokenType;
     }
+    export interface AdminListGroupsForUserRequest {
+        /** The username for the user. **/
+        Username: UsernameType;
+        /** The user pool ID for the user pool. **/
+        UserPoolId: UserPoolIdType;
+        /** The limit of the request to list groups. **/
+        Limit?: QueryLimitType;
+        /** An identifier that was returned from the previous call to this operation, which
+can be used to return the next set of items in the list. **/
+        NextToken?: PaginationKey;
+    }
+    export interface AdminListGroupsForUserResponse {
+        /** The groups that the user belongs to. **/
+        Groups?: GroupListType;
+        /** An identifier that was returned from the previous call to this operation, which
+can be used to return the next set of items in the list. **/
+        NextToken?: PaginationKey;
+    }
+    export interface AdminRemoveUserFromGroupRequest {
+        /** The user pool ID for the user pool. **/
+        UserPoolId: UserPoolIdType;
+        /** The username for the user. **/
+        Username: UsernameType;
+        /** The group name. **/
+        GroupName: GroupNameType;
+    }
     export interface AdminResetUserPasswordRequest {
         /** The user pool ID for the user pool where you want to reset the user&#x27;s password. **/
         UserPoolId: UserPoolIdType;
@@ -1412,6 +1605,36 @@ AliasExistsException error. **/
     }
     export interface ConfirmSignUpResponse {
     }
+    export interface CreateGroupRequest {
+        /** The name of the group. Must be unique. **/
+        GroupName: GroupNameType;
+        /** The user pool ID for the user pool. **/
+        UserPoolId: UserPoolIdType;
+        /** A string containing the description of the group. **/
+        Description?: DescriptionType;
+        /** The role ARN for the group. **/
+        RoleArn?: ArnType;
+        /** A nonnegative integer value that specifies the precedence of this group relative
+to the other groups that a user can belong to in the user pool. Zero is the
+highest precedence value. Groups with lower Precedence values take precedence
+over groups with higher or null Precedence values. If a user belongs to two or
+more groups, it is the group with the lowest precedence value whose role ARN
+will be used in the cognito:roles and cognito:preferred_role claims in the
+user&#x27;s tokens.
+
+Two groups can have the same Precedence value. If this happens, neither group
+takes precedence over the other. If two groups with the same Precedence have the
+same role ARN, that role is used in the cognito:preferred_role claim in tokens
+for users in each group. If the two groups have different role ARNs, the 
+cognito:preferred_role claim is not set in users&#x27; tokens.
+
+The default Precedence value is null. **/
+        Precedence?: PrecedenceType;
+    }
+    export interface CreateGroupResponse {
+        /** The group object for the group. **/
+        Group?: GroupType;
+    }
     export interface CreateUserImportJobRequest {
         /** The job name for the user import job. **/
         JobName: UserImportJobNameType;
@@ -1432,7 +1655,7 @@ AliasExistsException error. **/
         /** Boolean to specify whether you want to generate a secret for the user pool
 client being created. **/
         GenerateSecret?: GenerateSecret;
-        /** Refreshes the token validity. **/
+        /** The validity of the refresh token, in days. **/
         RefreshTokenValidity?: RefreshTokenValidityType;
         /** The read attributes. **/
         ReadAttributes?: ClientPermissionListType;
@@ -1473,6 +1696,10 @@ phone_number , email , or preferred_username . **/
         EmailConfiguration?: EmailConfigurationType;
         /** The SMS configuration. **/
         SmsConfiguration?: SmsConfigurationType;
+        /** The cost allocation tags for the user pool. For more information, see Adding
+Cost Allocation Tags to Your User Pool
+[http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html] **/
+        UserPoolTags?: UserPoolTagsType;
         /** The configuration for AdminCreateUser requests. **/
         AdminCreateUserConfig?: AdminCreateUserConfigType;
         /** An array of schema attributes for the new user pool. These attributes can be
@@ -1482,6 +1709,12 @@ standard or custom attributes. **/
     export interface CreateUserPoolResponse {
         /** A container for the user pool details. **/
         UserPool?: UserPoolType;
+    }
+    export interface DeleteGroupRequest {
+        /** The name of the group. **/
+        GroupName: GroupNameType;
+        /** The user pool ID for the user pool. **/
+        UserPoolId: UserPoolIdType;
     }
     export interface DeleteUserAttributesRequest {
         /** An array of strings representing the user attribute names you wish to delete. **/
@@ -1609,6 +1842,16 @@ reset a password. **/
         /** The device. **/
         Device: DeviceType;
     }
+    export interface GetGroupRequest {
+        /** The name of the group. **/
+        GroupName: GroupNameType;
+        /** The user pool ID for the user pool. **/
+        UserPoolId: UserPoolIdType;
+    }
+    export interface GetGroupResponse {
+        /** The group object for the group. **/
+        Group?: GroupType;
+    }
     export interface GetUserAttributeVerificationCodeRequest {
         /** The access token returned by the server response to get the user attribute
 verification code. **/
@@ -1640,6 +1883,38 @@ user. **/
         AccessToken?: TokenModelType;
     }
     export interface GlobalSignOutResponse {
+    }
+    export interface GroupExistsException {
+        message?: MessageType;
+    }
+    export interface GroupType {
+        /** The name of the group. **/
+        GroupName?: GroupNameType;
+        /** The user pool ID for the user pool. **/
+        UserPoolId?: UserPoolIdType;
+        /** A string containing the description of the group. **/
+        Description?: DescriptionType;
+        /** The role ARN for the group. **/
+        RoleArn?: ArnType;
+        /** A nonnegative integer value that specifies the precedence of this group relative
+to the other groups that a user can belong to in the user pool. If a user
+belongs to two or more groups, it is the group with the highest precedence whose
+role ARN will be used in the cognito:roles and cognito:preferred_role claims in
+the user&#x27;s tokens. Groups with higher Precedence values take precedence over
+groups with lower Precedence values or with null Precedence values.
+
+Two groups can have the same Precedence value. If this happens, neither group
+takes precedence over the other. If two groups with the same Precedence have the
+same role ARN, that role is used in the cognito:preferred_role claim in tokens
+for users in each group. If the two groups have different role ARNs, the 
+cognito:preferred_role claim is not set in users&#x27; tokens.
+
+The default Precedence value is null. **/
+        Precedence?: PrecedenceType;
+        /** The date the group was last modified. **/
+        LastModifiedDate?: DateType;
+        /** The date the group was created. **/
+        CreationDate?: DateType;
     }
     export interface InitiateAuthRequest {
         /** The authentication flow. **/
@@ -1735,6 +2010,22 @@ invalid. **/
         /** The pagination token for the list device response. **/
         PaginationToken?: SearchPaginationTokenType;
     }
+    export interface ListGroupsRequest {
+        /** The user pool ID for the user pool. **/
+        UserPoolId: UserPoolIdType;
+        /** The limit of the request to list groups. **/
+        Limit?: QueryLimitType;
+        /** An identifier that was returned from the previous call to this operation, which
+can be used to return the next set of items in the list. **/
+        NextToken?: PaginationKey;
+    }
+    export interface ListGroupsResponse {
+        /** The group objects for the groups. **/
+        Groups?: GroupListType;
+        /** An identifier that was returned from the previous call to this operation, which
+can be used to return the next set of items in the list. **/
+        NextToken?: PaginationKey;
+    }
     export interface ListUserImportJobsRequest {
         /** The user pool ID for the user pool that the users are being imported into. **/
         UserPoolId: UserPoolIdType;
@@ -1782,6 +2073,24 @@ user pools. **/
         /** An identifier that was returned from the previous call to this operation, which
 can be used to return the next set of items in the list. **/
         NextToken?: PaginationKeyType;
+    }
+    export interface ListUsersInGroupRequest {
+        /** The user pool ID for the user pool. **/
+        UserPoolId: UserPoolIdType;
+        /** The name of the group. **/
+        GroupName: GroupNameType;
+        /** The limit of the request to list users. **/
+        Limit?: QueryLimitType;
+        /** An identifier that was returned from the previous call to this operation, which
+can be used to return the next set of items in the list. **/
+        NextToken?: PaginationKey;
+    }
+    export interface ListUsersInGroupResponse {
+        /** The users returned in the request to list users. **/
+        Users?: UsersListType;
+        /** An identifier that was returned from the previous call to this operation, which
+can be used to return the next set of items in the list. **/
+        NextToken?: PaginationKey;
     }
     export interface ListUsersRequest {
         /** The user pool ID for which you want to list users. **/
@@ -2015,6 +2324,24 @@ Lambda exception. **/
     }
     export interface UpdateDeviceStatusResponse {
     }
+    export interface UpdateGroupRequest {
+        /** The name of the group. **/
+        GroupName: GroupNameType;
+        /** The user pool ID for the user pool. **/
+        UserPoolId: UserPoolIdType;
+        /** A string containing the new description of the group. **/
+        Description?: DescriptionType;
+        /** The new role ARN for the group. This is used for setting the cognito:roles and 
+cognito:preferred_role claims in the token. **/
+        RoleArn?: ArnType;
+        /** The new precedence value for the group. For more information about this
+parameter, see CreateGroupRequest [API_CreateGroupRequeste.html] . **/
+        Precedence?: PrecedenceType;
+    }
+    export interface UpdateGroupResponse {
+        /** The group object for the group. **/
+        Group?: GroupType;
+    }
     export interface UpdateUserAttributesRequest {
         /** An array of name-value pairs representing user attributes. **/
         UserAttributes: AttributeListType;
@@ -2034,7 +2361,7 @@ client. **/
         ClientId: ClientIdType;
         /** The client name from the update user pool client request. **/
         ClientName?: ClientNameType;
-        /** The validity of the refresh token. **/
+        /** The validity of the refresh token, in days. **/
         RefreshTokenValidity?: RefreshTokenValidityType;
         /** The read-only attributes of the user pool. **/
         ReadAttributes?: ClientPermissionListType;
@@ -2085,6 +2412,10 @@ makes a request to update user pools. **/
         EmailConfiguration?: EmailConfigurationType;
         /** SMS configuration. **/
         SmsConfiguration?: SmsConfigurationType;
+        /** The cost allocation tags for the user pool. For more information, see Adding
+Cost Allocation Tags to Your User Pool
+[http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html] **/
+        UserPoolTags?: UserPoolTagsType;
         /** The configuration for AdminCreateUser requests. **/
         AdminCreateUserConfig?: AdminCreateUserConfigType;
     }
@@ -2185,7 +2516,7 @@ client. **/
         LastModifiedDate?: DateType;
         /** The creation date from the user pool request of the client type. **/
         CreationDate?: DateType;
-        /** The validity of the refresh token. **/
+        /** The validity of the refresh token, in days. **/
         RefreshTokenValidity?: RefreshTokenValidityType;
         /** The Read-only attributes. **/
         ReadAttributes?: ClientPermissionListType;
@@ -2211,6 +2542,9 @@ client. **/
     export interface UserPoolPolicyType {
         /** A container with information about the user pool password policy. **/
         PasswordPolicy?: PasswordPolicyType;
+    }
+    export interface UserPoolTaggingException {
+        message?: MessageType;
     }
     export interface UserPoolType {
         /** The ID of the user pool. **/
@@ -2261,6 +2595,10 @@ client. **/
         EmailConfiguration?: EmailConfigurationType;
         /** The SMS configuration. **/
         SmsConfiguration?: SmsConfigurationType;
+        /** The cost allocation tags for the user pool. For more information, see Adding
+Cost Allocation Tags to Your User Pool
+[http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html] **/
+        UserPoolTags?: UserPoolTagsType;
         /** The reason why the SMS configuration cannot send the message(s) to your users. **/
         SmsConfigurationFailure?: StringType;
         /** The reason why the email configuration cannot send the messages to your users. **/

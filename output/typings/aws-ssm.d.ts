@@ -157,6 +157,14 @@ with one or more running instances.
      */
     createMaintenanceWindow(params: SSM.CreateMaintenanceWindowRequest, callback?: (err: SSM.IdempotentParameterMismatch|SSM.ResourceLimitExceededException|SSM.InternalServerError|any, data: SSM.CreateMaintenanceWindowResult|any) => void): Request<SSM.CreateMaintenanceWindowResult|any,SSM.IdempotentParameterMismatch|SSM.ResourceLimitExceededException|SSM.InternalServerError|any>;
     /**
+     * Creates a patch baseline.
+     *
+     * @error IdempotentParameterMismatch   
+     * @error ResourceLimitExceededException   
+     * @error InternalServerError   
+     */
+    createPatchBaseline(params: SSM.CreatePatchBaselineRequest, callback?: (err: SSM.IdempotentParameterMismatch|SSM.ResourceLimitExceededException|SSM.InternalServerError|any, data: SSM.CreatePatchBaselineResult|any) => void): Request<SSM.CreatePatchBaselineResult|any,SSM.IdempotentParameterMismatch|SSM.ResourceLimitExceededException|SSM.InternalServerError|any>;
+    /**
      * Deletes an activation. You are not required to delete an activation. If you
 delete an activation, you can no longer use it to register additional managed
 instances. Deleting an activation does not de-register managed instances. You
@@ -208,6 +216,13 @@ to disassociate all instances that are associated with the document.
      */
     deleteParameter(params: SSM.DeleteParameterRequest, callback?: (err: SSM.InternalServerError|SSM.ParameterNotFound|any, data: SSM.DeleteParameterResult|any) => void): Request<SSM.DeleteParameterResult|any,SSM.InternalServerError|SSM.ParameterNotFound|any>;
     /**
+     * Deletes a patch baseline.
+     *
+     * @error ResourceInUseException   
+     * @error InternalServerError   
+     */
+    deletePatchBaseline(params: SSM.DeletePatchBaselineRequest, callback?: (err: SSM.ResourceInUseException|SSM.InternalServerError|any, data: SSM.DeletePatchBaselineResult|any) => void): Request<SSM.DeletePatchBaselineResult|any,SSM.ResourceInUseException|SSM.InternalServerError|any>;
+    /**
      * Removes the server or virtual machine from the list of registered servers. You
 can reregister the instance again at any time. If you don’t plan to use Run
 Command on the server, we suggest uninstalling the SSM agent first.
@@ -216,6 +231,13 @@ Command on the server, we suggest uninstalling the SSM agent first.
      * @error InternalServerError   
      */
     deregisterManagedInstance(params: SSM.DeregisterManagedInstanceRequest, callback?: (err: SSM.InvalidInstanceId|SSM.InternalServerError|any, data: SSM.DeregisterManagedInstanceResult|any) => void): Request<SSM.DeregisterManagedInstanceResult|any,SSM.InvalidInstanceId|SSM.InternalServerError|any>;
+    /**
+     * Removes a patch group from a patch baseline.
+     *
+     * @error InvalidResourceId   
+     * @error InternalServerError   
+     */
+    deregisterPatchBaselineForPatchGroup(params: SSM.DeregisterPatchBaselineForPatchGroupRequest, callback?: (err: SSM.InvalidResourceId|SSM.InternalServerError|any, data: SSM.DeregisterPatchBaselineForPatchGroupResult|any) => void): Request<SSM.DeregisterPatchBaselineForPatchGroupResult|any,SSM.InvalidResourceId|SSM.InternalServerError|any>;
     /**
      * Removes a target from a Maintenance Window.
      *
@@ -257,6 +279,12 @@ activation, and the number of instances activated by this registration.
      */
     describeAutomationExecutions(params: SSM.DescribeAutomationExecutionsRequest, callback?: (err: SSM.InvalidNextToken|SSM.InternalServerError|any, data: SSM.DescribeAutomationExecutionsResult|any) => void): Request<SSM.DescribeAutomationExecutionsResult|any,SSM.InvalidNextToken|SSM.InternalServerError|any>;
     /**
+     * Lists all patches that could possibly be included in a patch baseline.
+     *
+     * @error InternalServerError   
+     */
+    describeAvailablePatches(params: SSM.DescribeAvailablePatchesRequest, callback?: (err: SSM.InternalServerError|any, data: SSM.DescribeAvailablePatchesResult|any) => void): Request<SSM.DescribeAvailablePatchesResult|any,SSM.InternalServerError|any>;
+    /**
      * Describes the specified SSM document.
      *
      * @error InternalServerError   
@@ -283,6 +311,15 @@ specifying a user’s AWS account ID) or publicly ( All ).
      */
     describeEffectiveInstanceAssociations(params: SSM.DescribeEffectiveInstanceAssociationsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidNextToken|any, data: SSM.DescribeEffectiveInstanceAssociationsResult|any) => void): Request<SSM.DescribeEffectiveInstanceAssociationsResult|any,SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidNextToken|any>;
     /**
+     * Retrieves the current effective patches (the patch and the approval state) for
+the specified patch baseline.
+     *
+     * @error InvalidResourceId   
+     * @error DoesNotExistException   
+     * @error InternalServerError   
+     */
+    describeEffectivePatchesForPatchBaseline(params: SSM.DescribeEffectivePatchesForPatchBaselineRequest, callback?: (err: SSM.InvalidResourceId|SSM.DoesNotExistException|SSM.InternalServerError|any, data: SSM.DescribeEffectivePatchesForPatchBaselineResult|any) => void): Request<SSM.DescribeEffectivePatchesForPatchBaselineResult|any,SSM.InvalidResourceId|SSM.DoesNotExistException|SSM.InternalServerError|any>;
+    /**
      * The status of the associations for the instance(s).
      *
      * @error InternalServerError   
@@ -305,6 +342,32 @@ valid or an instance that you do not own, you receive an error.
      * @error InvalidFilterKey   
      */
     describeInstanceInformation(params: SSM.DescribeInstanceInformationRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidNextToken|SSM.InvalidInstanceInformationFilterValue|SSM.InvalidFilterKey|any, data: SSM.DescribeInstanceInformationResult|any) => void): Request<SSM.DescribeInstanceInformationResult|any,SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidNextToken|SSM.InvalidInstanceInformationFilterValue|SSM.InvalidFilterKey|any>;
+    /**
+     * Retrieves the high-level patch state of one or more instances.
+     *
+     * @error InternalServerError   
+     * @error InvalidNextToken   
+     */
+    describeInstancePatchStates(params: SSM.DescribeInstancePatchStatesRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidNextToken|any, data: SSM.DescribeInstancePatchStatesResult|any) => void): Request<SSM.DescribeInstancePatchStatesResult|any,SSM.InternalServerError|SSM.InvalidNextToken|any>;
+    /**
+     * Retrieves the high-level patch state for the instances in the specified patch
+group.
+     *
+     * @error InternalServerError   
+     * @error InvalidFilter   
+     * @error InvalidNextToken   
+     */
+    describeInstancePatchStatesForPatchGroup(params: SSM.DescribeInstancePatchStatesForPatchGroupRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidFilter|SSM.InvalidNextToken|any, data: SSM.DescribeInstancePatchStatesForPatchGroupResult|any) => void): Request<SSM.DescribeInstancePatchStatesForPatchGroupResult|any,SSM.InternalServerError|SSM.InvalidFilter|SSM.InvalidNextToken|any>;
+    /**
+     * Retrieves information about the patches on the specified instance and their
+state relative to the patch baseline being used for the instance.
+     *
+     * @error InternalServerError   
+     * @error InvalidInstanceId   
+     * @error InvalidFilter   
+     * @error InvalidNextToken   
+     */
+    describeInstancePatches(params: SSM.DescribeInstancePatchesRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidFilter|SSM.InvalidNextToken|any, data: SSM.DescribeInstancePatchesResult|any) => void): Request<SSM.DescribeInstancePatchesResult|any,SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidFilter|SSM.InvalidNextToken|any>;
     /**
      * Retrieves the individual task executions (one per target) for a particular task
 executed as part of a Maintenance Window execution.
@@ -357,6 +420,25 @@ registered and run with the Maintenance Window).
      */
     describeParameters(params: SSM.DescribeParametersRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidFilterValue|SSM.InvalidNextToken|any, data: SSM.DescribeParametersResult|any) => void): Request<SSM.DescribeParametersResult|any,SSM.InternalServerError|SSM.InvalidFilterValue|SSM.InvalidNextToken|any>;
     /**
+     * Lists the patch baselines in your AWS account.
+     *
+     * @error InternalServerError   
+     */
+    describePatchBaselines(params: SSM.DescribePatchBaselinesRequest, callback?: (err: SSM.InternalServerError|any, data: SSM.DescribePatchBaselinesResult|any) => void): Request<SSM.DescribePatchBaselinesResult|any,SSM.InternalServerError|any>;
+    /**
+     * Returns high-level aggregated patch compliance state for a patch group.
+     *
+     * @error InternalServerError   
+     * @error InvalidNextToken   
+     */
+    describePatchGroupState(params: SSM.DescribePatchGroupStateRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidNextToken|any, data: SSM.DescribePatchGroupStateResult|any) => void): Request<SSM.DescribePatchGroupStateResult|any,SSM.InternalServerError|SSM.InvalidNextToken|any>;
+    /**
+     * Lists all patch groups that have been registered with patch baselines.
+     *
+     * @error InternalServerError   
+     */
+    describePatchGroups(params: SSM.DescribePatchGroupsRequest, callback?: (err: SSM.InternalServerError|any, data: SSM.DescribePatchGroupsResult|any) => void): Request<SSM.DescribePatchGroupsResult|any,SSM.InternalServerError|any>;
+    /**
      * Get detailed information about a particular Automation execution.
      *
      * @error AutomationExecutionNotFoundException   
@@ -374,6 +456,19 @@ plugin.
      * @error InvocationDoesNotExist   
      */
     getCommandInvocation(params: SSM.GetCommandInvocationRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidPluginName|SSM.InvocationDoesNotExist|any, data: SSM.GetCommandInvocationResult|any) => void): Request<SSM.GetCommandInvocationResult|any,SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidPluginName|SSM.InvocationDoesNotExist|any>;
+    /**
+     * Retrieves the default patch baseline.
+     *
+     * @error InternalServerError   
+     */
+    getDefaultPatchBaseline(params: SSM.GetDefaultPatchBaselineRequest, callback?: (err: SSM.InternalServerError|any, data: SSM.GetDefaultPatchBaselineResult|any) => void): Request<SSM.GetDefaultPatchBaselineResult|any,SSM.InternalServerError|any>;
+    /**
+     * Retrieves the current snapshot for the patch baseline the instance uses. This
+API is primarily used by the AWS-ApplyPatchBaseline Systems Manager document.
+     *
+     * @error InternalServerError   
+     */
+    getDeployablePatchSnapshotForInstance(params: SSM.GetDeployablePatchSnapshotForInstanceRequest, callback?: (err: SSM.InternalServerError|any, data: SSM.GetDeployablePatchSnapshotForInstanceResult|any) => void): Request<SSM.GetDeployablePatchSnapshotForInstanceResult|any,SSM.InternalServerError|any>;
     /**
      * Gets the contents of the specified SSM document.
      *
@@ -438,6 +533,20 @@ Window execution.
      * @error InternalServerError   
      */
     getParameters(params: SSM.GetParametersRequest, callback?: (err: SSM.InternalServerError|any, data: SSM.GetParametersResult|any) => void): Request<SSM.GetParametersResult|any,SSM.InternalServerError|any>;
+    /**
+     * Retrieves information about a patch baseline.
+     *
+     * @error DoesNotExistException   
+     * @error InvalidResourceId   
+     * @error InternalServerError   
+     */
+    getPatchBaseline(params: SSM.GetPatchBaselineRequest, callback?: (err: SSM.DoesNotExistException|SSM.InvalidResourceId|SSM.InternalServerError|any, data: SSM.GetPatchBaselineResult|any) => void): Request<SSM.GetPatchBaselineResult|any,SSM.DoesNotExistException|SSM.InvalidResourceId|SSM.InternalServerError|any>;
+    /**
+     * Retrieves the patch baseline that should be used for the specified patch group.
+     *
+     * @error InternalServerError   
+     */
+    getPatchBaselineForPatchGroup(params: SSM.GetPatchBaselineForPatchGroupRequest, callback?: (err: SSM.InternalServerError|any, data: SSM.GetPatchBaselineForPatchGroupResult|any) => void): Request<SSM.GetPatchBaselineForPatchGroupResult|any,SSM.InternalServerError|any>;
     /**
      * Lists the associations for the specified SSM document or instance.
      *
@@ -542,6 +651,24 @@ does exist.
      * @error UnsupportedParameterType   
      */
     putParameter(params: SSM.PutParameterRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidKeyId|SSM.ParameterLimitExceeded|SSM.TooManyUpdates|SSM.ParameterAlreadyExists|SSM.UnsupportedParameterType|any, data: SSM.PutParameterResult|any) => void): Request<SSM.PutParameterResult|any,SSM.InternalServerError|SSM.InvalidKeyId|SSM.ParameterLimitExceeded|SSM.TooManyUpdates|SSM.ParameterAlreadyExists|SSM.UnsupportedParameterType|any>;
+    /**
+     * Defines the default patch baseline.
+     *
+     * @error InvalidResourceId   
+     * @error DoesNotExistException   
+     * @error InternalServerError   
+     */
+    registerDefaultPatchBaseline(params: SSM.RegisterDefaultPatchBaselineRequest, callback?: (err: SSM.InvalidResourceId|SSM.DoesNotExistException|SSM.InternalServerError|any, data: SSM.RegisterDefaultPatchBaselineResult|any) => void): Request<SSM.RegisterDefaultPatchBaselineResult|any,SSM.InvalidResourceId|SSM.DoesNotExistException|SSM.InternalServerError|any>;
+    /**
+     * Registers a patch baseline for a patch group.
+     *
+     * @error AlreadyExistsException   
+     * @error DoesNotExistException   
+     * @error InvalidResourceId   
+     * @error ResourceLimitExceededException   
+     * @error InternalServerError   
+     */
+    registerPatchBaselineForPatchGroup(params: SSM.RegisterPatchBaselineForPatchGroupRequest, callback?: (err: SSM.AlreadyExistsException|SSM.DoesNotExistException|SSM.InvalidResourceId|SSM.ResourceLimitExceededException|SSM.InternalServerError|any, data: SSM.RegisterPatchBaselineForPatchGroupResult|any) => void): Request<SSM.RegisterPatchBaselineForPatchGroupResult|any,SSM.AlreadyExistsException|SSM.DoesNotExistException|SSM.InvalidResourceId|SSM.ResourceLimitExceededException|SSM.InternalServerError|any>;
     /**
      * Registers a target with a Maintenance Window.
      *
@@ -662,6 +789,14 @@ managed instance.
      * @error InternalServerError   
      */
     updateManagedInstanceRole(params: SSM.UpdateManagedInstanceRoleRequest, callback?: (err: SSM.InvalidInstanceId|SSM.InternalServerError|any, data: SSM.UpdateManagedInstanceRoleResult|any) => void): Request<SSM.UpdateManagedInstanceRoleResult|any,SSM.InvalidInstanceId|SSM.InternalServerError|any>;
+    /**
+     * Modifies an existing patch baseline. Fields not specified in the request are
+left unchanged.
+     *
+     * @error DoesNotExistException   
+     * @error InternalServerError   
+     */
+    updatePatchBaseline(params: SSM.UpdatePatchBaselineRequest, callback?: (err: SSM.DoesNotExistException|SSM.InternalServerError|any, data: SSM.UpdatePatchBaselineResult|any) => void): Request<SSM.UpdatePatchBaselineResult|any,SSM.DoesNotExistException|SSM.InternalServerError|any>;
 
   }
 
@@ -680,6 +815,8 @@ managed instance.
     export type ActivationList = Activation[];
     
     export type AgentErrorCode = string;
+    
+    export type ApproveAfterDays = number;
     
     export type AssociationDescriptionList = AssociationDescription[];
     
@@ -725,6 +862,12 @@ managed instance.
     
     export type AutomationParameterValueList = AutomationParameterValue[];
     
+    export type BaselineDescription = string;
+    
+    export type BaselineId = string;
+    
+    export type BaselineName = string;
+    
     export type BatchErrorMessage = string;
     
     export type Boolean = boolean;
@@ -768,6 +911,8 @@ managed instance.
     export type CreatedDate = number;
     
     export type DateTime = number;
+    
+    export type DefaultBaseline = boolean;
     
     export type DefaultInstanceName = string;
     
@@ -825,6 +970,8 @@ managed instance.
     
     export type EffectiveInstanceAssociationMaxResults = number;
     
+    export type EffectivePatchList = EffectivePatch[];
+    
     export type ErrorCount = number;
     
     export type ExpirationDate = number;
@@ -867,7 +1014,23 @@ managed instance.
     
     export type InstanceInformationStringFilterList = InstanceInformationStringFilter[];
     
+    export type InstancePatchStateFilterKey = string;
+    
+    export type InstancePatchStateFilterList = InstancePatchStateFilter[];
+    
+    export type InstancePatchStateFilterValue = string;
+    
+    export type InstancePatchStateFilterValues = InstancePatchStateFilterValue[];
+    
+    export type InstancePatchStateList = InstancePatchState[];
+    
+    export type InstancePatchStateOperatorType = string;
+    
+    export type InstancePatchStatesList = InstancePatchState[];
+    
     export type InstanceTagName = string;
+    
+    export type Integer = number;
     
     export type InventoryAttributeDataType = string;
     
@@ -1045,6 +1208,90 @@ managed instance.
     
     export type ParametersFilterValueList = ParametersFilterValue[];
     
+    export type PatchBaselineIdentityList = PatchBaselineIdentity[];
+    
+    export type PatchBaselineMaxResults = number;
+    
+    export type PatchClassification = string;
+    
+    export type PatchComplianceDataList = PatchComplianceData[];
+    
+    export type PatchComplianceDataState = string;
+    
+    export type PatchComplianceMaxResults = number;
+    
+    export type PatchContentUrl = string;
+    
+    export type PatchDeploymentStatus = string;
+    
+    export type PatchDescription = string;
+    
+    export type PatchFailedCount = number;
+    
+    export type PatchFilterKey = string;
+    
+    export type PatchFilterList = PatchFilter[];
+    
+    export type PatchFilterValue = string;
+    
+    export type PatchFilterValueList = PatchFilterValue[];
+    
+    export type PatchGroup = string;
+    
+    export type PatchGroupList = PatchGroup[];
+    
+    export type PatchGroupPatchBaselineMappingList = PatchGroupPatchBaselineMapping[];
+    
+    export type PatchId = string;
+    
+    export type PatchIdList = PatchId[];
+    
+    export type PatchInstalledCount = number;
+    
+    export type PatchInstalledOtherCount = number;
+    
+    export type PatchInstalledTime = number;
+    
+    export type PatchKbNumber = string;
+    
+    export type PatchLanguage = string;
+    
+    export type PatchList = Patch[];
+    
+    export type PatchMissingCount = number;
+    
+    export type PatchMsrcNumber = string;
+    
+    export type PatchMsrcSeverity = string;
+    
+    export type PatchNotApplicableCount = number;
+    
+    export type PatchOperationEndTime = number;
+    
+    export type PatchOperationStartTime = number;
+    
+    export type PatchOperationType = string;
+    
+    export type PatchOrchestratorFilterKey = string;
+    
+    export type PatchOrchestratorFilterList = PatchOrchestratorFilter[];
+    
+    export type PatchOrchestratorFilterValue = string;
+    
+    export type PatchOrchestratorFilterValues = PatchOrchestratorFilterValue[];
+    
+    export type PatchProduct = string;
+    
+    export type PatchProductFamily = string;
+    
+    export type PatchRuleList = PatchRule[];
+    
+    export type PatchSeverity = string;
+    
+    export type PatchTitle = string;
+    
+    export type PatchVendor = string;
+    
     export type PingStatus = string;
     
     export type PlatformType = string;
@@ -1074,6 +1321,10 @@ managed instance.
     export type ScheduleExpression = string;
     
     export type ServiceRole = string;
+    
+    export type SnapshotDownloadUrl = string;
+    
+    export type SnapshotId = string;
     
     export type StandardErrorContent = string;
     
@@ -1153,6 +1404,9 @@ empty string. **/
         Tags: TagList;
     }
     export interface AddTagsToResourceResult {
+    }
+    export interface AlreadyExistsException {
+        Message?: String;
     }
     export interface AssociatedInstances {
     }
@@ -1748,6 +2002,26 @@ be defined for those targets. **/
         /** The ID of the created Maintenance Window. **/
         WindowId?: MaintenanceWindowId;
     }
+    export interface CreatePatchBaselineRequest {
+        /** The name of the patch baseline. **/
+        Name: BaselineName;
+        /** A set of global filters used to exclude patches from the baseline. **/
+        GlobalFilters?: PatchFilterGroup;
+        /** A set of rules used to include patches in the baseline. **/
+        ApprovalRules?: PatchRuleGroup;
+        /** A list of explicitly approved patches for the baseline. **/
+        ApprovedPatches?: PatchIdList;
+        /** A list of explicitly rejected patches for the baseline. **/
+        RejectedPatches?: PatchIdList;
+        /** A description of the patch baseline. **/
+        Description?: BaselineDescription;
+        /** Caller-provided idempotency token. **/
+        ClientToken?: ClientToken;
+    }
+    export interface CreatePatchBaselineResult {
+        /** The ID of the created patch baseline. **/
+        BaselineId?: BaselineId;
+    }
     export interface CustomSchemaCountLimitExceededException {
         Message?: String;
     }
@@ -1787,12 +2061,32 @@ be defined for those targets. **/
     }
     export interface DeleteParameterResult {
     }
+    export interface DeletePatchBaselineRequest {
+        /** The ID of the patch baseline to delete. **/
+        BaselineId: BaselineId;
+    }
+    export interface DeletePatchBaselineResult {
+        /** The ID of the deleted patch baseline. **/
+        BaselineId?: BaselineId;
+    }
     export interface DeregisterManagedInstanceRequest {
         /** The ID assigned to the managed instance when you registered it using the
 activation process. **/
         InstanceId: ManagedInstanceId;
     }
     export interface DeregisterManagedInstanceResult {
+    }
+    export interface DeregisterPatchBaselineForPatchGroupRequest {
+        /** The ID of the patch baseline to deregister the patch group from. **/
+        BaselineId: BaselineId;
+        /** The name of the patch group that should be deregistered from the patch baseline. **/
+        PatchGroup: PatchGroup;
+    }
+    export interface DeregisterPatchBaselineForPatchGroupResult {
+        /** The ID of the patch baseline the patch group was deregistered from. **/
+        BaselineId?: BaselineId;
+        /** The name of the patch group deregistered from the patch baseline. **/
+        PatchGroup?: PatchGroup;
     }
     export interface DeregisterTargetFromMaintenanceWindowRequest {
         /** The ID of the Maintenance Window the target should be removed from. **/
@@ -1870,6 +2164,22 @@ matches the filter specification, if any. **/
 additional items to return, the string is empty. **/
         NextToken?: NextToken;
     }
+    export interface DescribeAvailablePatchesRequest {
+        /** Filters used to scope down the returned patches. **/
+        Filters?: PatchOrchestratorFilterList;
+        /** The maximum number of patches to return (per page). **/
+        MaxResults?: PatchBaselineMaxResults;
+        /** The token for the next set of items to return. (You received this token from a
+previous call.) **/
+        NextToken?: NextToken;
+    }
+    export interface DescribeAvailablePatchesResult {
+        /** An array of patches. Each entry in the array is a patch structure. **/
+        Patches?: PatchList;
+        /** The token to use when requesting the next set of items. If there are no
+additional items to return, the string is empty. **/
+        NextToken?: NextToken;
+    }
     export interface DescribeDocumentPermissionRequest {
         /** The name of the document for which you are the owner. **/
         Name: DocumentName;
@@ -1909,6 +2219,22 @@ previous call.) **/
 additional items to return, the string is empty. **/
         NextToken?: NextToken;
     }
+    export interface DescribeEffectivePatchesForPatchBaselineRequest {
+        /** The ID of the patch baseline to retrieve the effective patches for. **/
+        BaselineId: BaselineId;
+        /** The maximum number of patches to return (per page). **/
+        MaxResults?: PatchBaselineMaxResults;
+        /** The token for the next set of items to return. (You received this token from a
+previous call.) **/
+        NextToken?: NextToken;
+    }
+    export interface DescribeEffectivePatchesForPatchBaselineResult {
+        /** An array of patches and patch status. **/
+        EffectivePatches?: EffectivePatchList;
+        /** The token to use when requesting the next set of items. If there are no
+additional items to return, the string is empty. **/
+        NextToken?: NextToken;
+    }
     export interface DescribeInstanceAssociationsStatusRequest {
         /** The instance IDs for which you want association status information. **/
         InstanceId: InstanceId;
@@ -1941,6 +2267,84 @@ previous call.) **/
     export interface DescribeInstanceInformationResult {
         /** The instance information list. **/
         InstanceInformationList?: InstanceInformationList;
+        /** The token to use when requesting the next set of items. If there are no
+additional items to return, the string is empty. **/
+        NextToken?: NextToken;
+    }
+    export interface DescribeInstancePatchStatesForPatchGroupRequest {
+        /** The name of the patch group for which the patch state information should be
+retrieved. **/
+        PatchGroup: PatchGroup;
+        /** Each entry in the array is a structure containing:
+
+Key (string 1 ≤ length ≤ 200)
+
+Values (array containing a single string)
+
+Type (string “Equal”, “NotEqual”, “LessThan”, “GreaterThan”) **/
+        Filters?: InstancePatchStateFilterList;
+        /** The token for the next set of items to return. (You received this token from a
+previous call.) **/
+        NextToken?: NextToken;
+        /** The maximum number of patches to return (per page). **/
+        MaxResults?: PatchComplianceMaxResults;
+    }
+    export interface DescribeInstancePatchStatesForPatchGroupResult {
+        /** The high-level patch state for the requested instances. **/
+        InstancePatchStates?: InstancePatchStatesList;
+        /** The token to use when requesting the next set of items. If there are no
+additional items to return, the string is empty. **/
+        NextToken?: NextToken;
+    }
+    export interface DescribeInstancePatchStatesRequest {
+        /** The ID of the instance whose patch state information should be retrieved. **/
+        InstanceIds: InstanceIdList;
+        /** The token for the next set of items to return. (You received this token from a
+previous call.) **/
+        NextToken?: NextToken;
+        /** The maximum number of instances to return (per page). **/
+        MaxResults?: PatchComplianceMaxResults;
+    }
+    export interface DescribeInstancePatchStatesResult {
+        /** The high-level patch state for the requested instances. **/
+        InstancePatchStates?: InstancePatchStateList;
+        /** The token to use when requesting the next set of items. If there are no
+additional items to return, the string is empty. **/
+        NextToken?: NextToken;
+    }
+    export interface DescribeInstancePatchesRequest {
+        /** The ID of the instance whose patch state information should be retrieved. **/
+        InstanceId: InstanceId;
+        /** Each entry in the array is a structure containing:
+
+Key (string, 1 ≤ length ≤ 128)
+
+Values (array of strings 1 ≤ length ≤ 256) **/
+        Filters?: PatchOrchestratorFilterList;
+        /** The token for the next set of items to return. (You received this token from a
+previous call.) **/
+        NextToken?: NextToken;
+        /** The maximum number of patches to return (per page). **/
+        MaxResults?: PatchComplianceMaxResults;
+    }
+    export interface DescribeInstancePatchesResult {
+        /** Each entry in the array is a structure containing:
+
+Title (string)
+
+KBId (string)
+
+Classification (string)
+
+Severity (string)
+
+State (string – “INSTALLED”, “INSTALLED_OTHER”, “MISSING”, “NOT_APPLICABLE”,
+“FAILED”)
+
+InstalledTime (DateTime)
+
+InstalledBy (string) **/
+        Patches?: PatchComplianceDataList;
         /** The token to use when requesting the next set of items. If there are no
 additional items to return, the string is empty. **/
         NextToken?: NextToken;
@@ -2093,6 +2497,64 @@ previous call.) **/
 additional items to return, the string is empty. **/
         NextToken?: NextToken;
     }
+    export interface DescribePatchBaselinesRequest {
+        /** Each element in the array is a structure containing:
+
+Key: (string, “NAME_PREFIX” or “OWNER”)
+
+Value: (array of strings, exactly 1 entry, 1 ≤ length ≤ 255) **/
+        Filters?: PatchOrchestratorFilterList;
+        /** The maximum number of patch baselines to return (per page). **/
+        MaxResults?: PatchBaselineMaxResults;
+        /** The token for the next set of items to return. (You received this token from a
+previous call.) **/
+        NextToken?: NextToken;
+    }
+    export interface DescribePatchBaselinesResult {
+        /** An array of PatchBaselineIdentity elements. **/
+        BaselineIdentities?: PatchBaselineIdentityList;
+        /** The token to use when requesting the next set of items. If there are no
+additional items to return, the string is empty. **/
+        NextToken?: NextToken;
+    }
+    export interface DescribePatchGroupStateRequest {
+        /** The name of the patch group whose patch snapshot should be retrieved. **/
+        PatchGroup: PatchGroup;
+    }
+    export interface DescribePatchGroupStateResult {
+        /** The number of instances in the patch group. **/
+        Instances?: Integer;
+        /** The number of instances with installed patches. **/
+        InstancesWithInstalledPatches?: Integer;
+        /** The number of instances with patches installed that aren’t defined in the patch
+baseline. **/
+        InstancesWithInstalledOtherPatches?: Integer;
+        /** The number of instances with missing patches from the patch baseline. **/
+        InstancesWithMissingPatches?: Integer;
+        /** The number of instances with patches from the patch baseline that failed to
+install. **/
+        InstancesWithFailedPatches?: Integer;
+        /** The number of instances with patches that aren’t applicable. **/
+        InstancesWithNotApplicablePatches?: Integer;
+    }
+    export interface DescribePatchGroupsRequest {
+        /** The maximum number of patch groups to return (per page). **/
+        MaxResults?: PatchBaselineMaxResults;
+        /** The token for the next set of items to return. (You received this token from a
+previous call.) **/
+        NextToken?: NextToken;
+    }
+    export interface DescribePatchGroupsResult {
+        /** Each entry in the array contains:
+
+PatchGroup: string (1 ≤ length ≤ 256, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]&amp;#42;)$)
+
+PatchBaselineIdentity: A PatchBaselineIdentity element. **/
+        Mappings?: PatchGroupPatchBaselineMappingList;
+        /** The token to use when requesting the next set of items. If there are no
+additional items to return, the string is empty. **/
+        NextToken?: NextToken;
+    }
     export interface DocumentAlreadyExists {
         Message?: String;
     }
@@ -2196,6 +2658,17 @@ default value are required. Parameters with a default value are optional. **/
         Message?: String;
     }
     export interface DuplicateInstanceId {
+    }
+    export interface EffectivePatch {
+        /** Provides metadata for a patch, including information such as the KB ID,
+severity, classification and a URL for where more information can be obtained
+about the patch. **/
+        Patch?: Patch;
+        /** The status of the patch in a patch baseline. This includes information about
+whether the patch is currently approved, due to be approved by a rule,
+explicitly approved, or explicitly rejected and the date the patch was or will
+be approved. **/
+        PatchStatus?: PatchStatus;
     }
     export interface FailedCreateAssociation {
         /** The association. **/
@@ -2332,6 +2805,27 @@ not finished executing, then this string is empty. **/
         /** The URL for the complete text written by the plugin to stderr. If the command
 has not finished executing, then this string is empty. **/
         StandardErrorUrl?: Url;
+    }
+    export interface GetDefaultPatchBaselineRequest {
+    }
+    export interface GetDefaultPatchBaselineResult {
+        /** The ID of the default patch baseline. **/
+        BaselineId?: BaselineId;
+    }
+    export interface GetDeployablePatchSnapshotForInstanceRequest {
+        /** The ID of the instance for which the appropriate patch snapshot should be
+retrieved. **/
+        InstanceId: InstanceId;
+        /** The user-defined snapshot ID. **/
+        SnapshotId: SnapshotId;
+    }
+    export interface GetDeployablePatchSnapshotForInstanceResult {
+        /** The ID of the instance. **/
+        InstanceId?: InstanceId;
+        /** The user-defined snapshot ID. **/
+        SnapshotId?: SnapshotId;
+        /** A pre-signed Amazon S3 URL that can be used to download the patch snapshot. **/
+        SnapshotDownloadUrl?: SnapshotDownloadUrl;
     }
     export interface GetDocumentRequest {
         /** The name of the SSM document. **/
@@ -2505,6 +2999,42 @@ parameters. This flag is ignored for String and StringList parameter types. **/
 executed. **/
         InvalidParameters?: ParameterNameList;
     }
+    export interface GetPatchBaselineForPatchGroupRequest {
+        /** The name of the patch group whose patch baseline should be retrieved. **/
+        PatchGroup: PatchGroup;
+    }
+    export interface GetPatchBaselineForPatchGroupResult {
+        /** The ID of the patch baseline that should be used for the patch group. **/
+        BaselineId?: BaselineId;
+        /** The name of the patch group. **/
+        PatchGroup?: PatchGroup;
+    }
+    export interface GetPatchBaselineRequest {
+        /** The ID of the patch baseline to retrieve. **/
+        BaselineId: BaselineId;
+    }
+    export interface GetPatchBaselineResult {
+        /** The ID of the retrieved patch baseline. **/
+        BaselineId?: BaselineId;
+        /** The name of the patch baseline. **/
+        Name?: BaselineName;
+        /** A set of global filters used to exclude patches from the baseline. **/
+        GlobalFilters?: PatchFilterGroup;
+        /** A set of rules used to include patches in the baseline. **/
+        ApprovalRules?: PatchRuleGroup;
+        /** A list of explicitly approved patches for the baseline. **/
+        ApprovedPatches?: PatchIdList;
+        /** A list of explicitly rejected patches for the baseline. **/
+        RejectedPatches?: PatchIdList;
+        /** Patch groups included in the patch baseline. **/
+        PatchGroups?: PatchGroupList;
+        /** The date the patch baseline was created. **/
+        CreatedDate?: DateTime;
+        /** The date the patch baseline was last modified. **/
+        ModifiedDate?: DateTime;
+        /** A description of the patch baseline. **/
+        Description?: BaselineDescription;
+    }
     export interface IdempotentParameterMismatch {
         Message?: String;
     }
@@ -2610,6 +3140,53 @@ Key” **/
         Key: InstanceInformationStringFilterKey;
         /** The filter values. **/
         Values: InstanceInformationFilterValueSet;
+    }
+    export interface InstancePatchState {
+        /** The ID of the managed instance the high-level patch compliance information was
+collected for. **/
+        InstanceId: InstanceId;
+        /** The name of the patch group the managed instance belongs to. **/
+        PatchGroup: PatchGroup;
+        /** The ID of the patch baseline used to patch the instance. **/
+        BaselineId: BaselineId;
+        /** The ID of the patch baseline snapshot used during the patching operation when
+this compliance data was collected. **/
+        SnapshotId?: SnapshotId;
+        /** Placeholder information, this field will always be empty in the current release
+of the service. **/
+        OwnerInformation?: OwnerInformation;
+        /** The number of patches from the patch baseline that are installed on the
+instance. **/
+        InstalledCount?: PatchInstalledCount;
+        /** The number of patches not specified in the patch baseline that are installed on
+the instance. **/
+        InstalledOtherCount?: PatchInstalledOtherCount;
+        /** The number of patches from the patch baseline that are applicable for the
+instance but aren’t currently installed. **/
+        MissingCount?: PatchMissingCount;
+        /** The number of patches from the patch baseline that were attempted to be
+installed during the last patching operation, but failed to install. **/
+        FailedCount?: PatchFailedCount;
+        /** The number of patches from the patch baseline that aren’t applicable for the
+instance and hence aren’t installed on the instance. **/
+        NotApplicableCount?: PatchNotApplicableCount;
+        /** The time the most recent patching operation was started on the instance. **/
+        OperationStartTime: PatchOperationStartTime;
+        /** The time the most recent patching operation completed on the instance. **/
+        OperationEndTime: PatchOperationEndTime;
+        /** The type of patching operation that was performed: SCAN (assess patch compliance
+state) or INSTALL (install missing patches). **/
+        Operation: PatchOperationType;
+    }
+    export interface InstancePatchStateFilter {
+        /** The key for the filter. Supported values are FailedCount, InstalledCount,
+InstalledOtherCount, MissingCount and NotApplicableCount. **/
+        Key: InstancePatchStateFilterKey;
+        /** The value for the filter, must be an integer greater than or equal to 0. **/
+        Values: InstancePatchStateFilterValues;
+        /** The type of comparison that should be performed for the value: Equal, NotEqual,
+LessThan or GreaterThan. **/
+        Type: InstancePatchStateOperatorType;
     }
     export interface InternalServerError {
         Message?: String;
@@ -3150,6 +3727,103 @@ String list, Secure string. **/
         /** The filter values. **/
         Values: ParametersFilterValueList;
     }
+    export interface Patch {
+        /** The ID of the patch (this is different than the Microsoft Knowledge Base ID). **/
+        Id?: PatchId;
+        /** The date the patch was released. **/
+        ReleaseDate?: DateTime;
+        /** The title of the patch. **/
+        Title?: PatchTitle;
+        /** The description of the patch. **/
+        Description?: PatchDescription;
+        /** The URL where more information can be obtained about the patch. **/
+        ContentUrl?: PatchContentUrl;
+        /** The name of the vendor providing the patch. **/
+        Vendor?: PatchVendor;
+        /** The product family the patch is applicable for (for example, Windows). **/
+        ProductFamily?: PatchProductFamily;
+        /** The specific product the patch is applicable for (for example,
+WindowsServer2016). **/
+        Product?: PatchProduct;
+        /** The classification of the patch (for example, SecurityUpdates, Updates,
+CriticalUpdates). **/
+        Classification?: PatchClassification;
+        /** The severity of the patch (for example Critical, Important, Moderate). **/
+        MsrcSeverity?: PatchMsrcSeverity;
+        /** The Microsoft Knowledge Base ID of the patch. **/
+        KbNumber?: PatchKbNumber;
+        /** The ID of the MSRC bulletin the patch is related to. **/
+        MsrcNumber?: PatchMsrcNumber;
+        /** The language of the patch if it’s language-specific. **/
+        Language?: PatchLanguage;
+    }
+    export interface PatchBaselineIdentity {
+        /** The ID of the patch baseline. **/
+        BaselineId?: BaselineId;
+        /** The name of the patch baseline. **/
+        BaselineName?: BaselineName;
+        /** The description of the patch baseline. **/
+        BaselineDescription?: BaselineDescription;
+        /** Whether this is the default baseline. **/
+        DefaultBaseline?: DefaultBaseline;
+    }
+    export interface PatchComplianceData {
+        /** The title of the patch. **/
+        Title: PatchTitle;
+        /** The Microsoft Knowledge Base ID of the patch. **/
+        KBId: PatchKbNumber;
+        /** The classification of the patch (for example, SecurityUpdates, Updates,
+CriticalUpdates). **/
+        Classification: PatchClassification;
+        /** The severity of the patch (for example, Critical, Important, Moderate). **/
+        Severity: PatchSeverity;
+        /** The state of the patch on the instance (INSTALLED, INSTALLED_OTHER, MISSING,
+NOT_APPLICABLE or FAILED). **/
+        State: PatchComplianceDataState;
+        /** The date/time the patch was installed on the instance. **/
+        InstalledTime: PatchInstalledTime;
+    }
+    export interface PatchFilter {
+        /** The key for the filter (PRODUCT, CLASSIFICATION, MSRC_SEVERITY, PATCH_ID) **/
+        Key: PatchFilterKey;
+        /** The value for the filter key. **/
+        Values: PatchFilterValueList;
+    }
+    export interface PatchFilterGroup {
+        /** The set of patch filters that make up the group. **/
+        PatchFilters: PatchFilterList;
+    }
+    export interface PatchGroupPatchBaselineMapping {
+        /** The name of the patch group registered with the patch baseline. **/
+        PatchGroup?: PatchGroup;
+        /** The patch baseline the patch group is registered with. **/
+        BaselineIdentity?: PatchBaselineIdentity;
+    }
+    export interface PatchOrchestratorFilter {
+        /** The key for the filter. **/
+        Key?: PatchOrchestratorFilterKey;
+        /** The value for the filter. **/
+        Values?: PatchOrchestratorFilterValues;
+    }
+    export interface PatchRule {
+        /** The patch filter group that defines the criteria for the rule. **/
+        PatchFilterGroup: PatchFilterGroup;
+        /** The number of days after the release date of each patch matched by the rule the
+patch is marked as approved in the patch baseline. **/
+        ApproveAfterDays: ApproveAfterDays;
+    }
+    export interface PatchRuleGroup {
+        /** The rules that make up the rule group. **/
+        PatchRules: PatchRuleList;
+    }
+    export interface PatchStatus {
+        /** The approval status of a patch (APPROVED, PENDING_APPROVAL, EXPLICIT_APPROVED,
+EXPLICIT_REJECTED). **/
+        DeploymentStatus?: PatchDeploymentStatus;
+        /** The date the patch was approved (or will be approved if the status is
+PENDING_APPROVAL). **/
+        ApprovalDate?: DateTime;
+    }
     export interface PutInventoryRequest {
         /** One or more instance IDs where you want to add or update inventory items. **/
         InstanceId: InstanceId;
@@ -3173,6 +3847,26 @@ String list, Secure string. **/
         Overwrite?: Boolean;
     }
     export interface PutParameterResult {
+    }
+    export interface RegisterDefaultPatchBaselineRequest {
+        /** The ID of the patch baseline that should be the default patch baseline. **/
+        BaselineId: BaselineId;
+    }
+    export interface RegisterDefaultPatchBaselineResult {
+        /** The ID of the default patch baseline. **/
+        BaselineId?: BaselineId;
+    }
+    export interface RegisterPatchBaselineForPatchGroupRequest {
+        /** The ID of the patch baseline to register the patch group with. **/
+        BaselineId: BaselineId;
+        /** The name of the patch group that should be registered with the patch baseline. **/
+        PatchGroup: PatchGroup;
+    }
+    export interface RegisterPatchBaselineForPatchGroupResult {
+        /** The ID of the patch baseline the patch group was registered with. **/
+        BaselineId?: BaselineId;
+        /** The name of the patch group registered with the patch baseline. **/
+        PatchGroup?: PatchGroup;
     }
     export interface RegisterTargetWithMaintenanceWindowRequest {
         /** The ID of the Maintenance Window the target should be registered with. **/
@@ -3235,6 +3929,9 @@ instance-level logs to. **/
         TagKeys: KeyList;
     }
     export interface RemoveTagsFromResourceResult {
+    }
+    export interface ResourceInUseException {
+        Message?: String;
     }
     export interface ResourceLimitExceededException {
         Message?: String;
@@ -3330,7 +4027,7 @@ which can be used future references to this request. **/
     }
     export interface StartAutomationExecutionRequest {
         /** The name of the Automation document to use for this execution. **/
-        DocumentName: DocumentName;
+        DocumentName: DocumentARN;
         /** The version of the Automation document to use for this execution. **/
         DocumentVersion?: DocumentVersion;
         /** A key-value map of execution parameters, which match the declared parameters in
@@ -3521,6 +4218,42 @@ be defined for those targets. **/
         IamRole: IamRole;
     }
     export interface UpdateManagedInstanceRoleResult {
+    }
+    export interface UpdatePatchBaselineRequest {
+        /** The ID of the patch baseline to update. **/
+        BaselineId: BaselineId;
+        /** The name of the patch baseline. **/
+        Name?: BaselineName;
+        /** A set of global filters used to exclude patches from the baseline. **/
+        GlobalFilters?: PatchFilterGroup;
+        /** A set of rules used to include patches in the baseline. **/
+        ApprovalRules?: PatchRuleGroup;
+        /** A list of explicitly approved patches for the baseline. **/
+        ApprovedPatches?: PatchIdList;
+        /** A list of explicitly rejected patches for the baseline. **/
+        RejectedPatches?: PatchIdList;
+        /** A description of the patch baseline. **/
+        Description?: BaselineDescription;
+    }
+    export interface UpdatePatchBaselineResult {
+        /** The ID of the deleted patch baseline. **/
+        BaselineId?: BaselineId;
+        /** The name of the patch baseline. **/
+        Name?: BaselineName;
+        /** A set of global filters used to exclude patches from the baseline. **/
+        GlobalFilters?: PatchFilterGroup;
+        /** A set of rules used to include patches in the baseline. **/
+        ApprovalRules?: PatchRuleGroup;
+        /** A list of explicitly approved patches for the baseline. **/
+        ApprovedPatches?: PatchIdList;
+        /** A list of explicitly rejected patches for the baseline. **/
+        RejectedPatches?: PatchIdList;
+        /** The date when the patch baseline was created. **/
+        CreatedDate?: DateTime;
+        /** The date when the patch baseline was last modified. **/
+        ModifiedDate?: DateTime;
+        /** A description of the Patch Baseline. **/
+        Description?: BaselineDescription;
     }
   }
 }
