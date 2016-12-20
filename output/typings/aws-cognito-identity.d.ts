@@ -57,11 +57,23 @@ the AWS Mobile SDK Developer Guide
     /**
      * Creates a new identity pool. The identity pool is a store of user identity
 information that is specific to your AWS account. The limit on identity pools is
-60 per account. The keys for SupportedLoginProviders are as follows: &amp;#42; Facebook: graph.facebook.com
+60 per account. The keys for SupportedLoginProviders are as follows:
+
+ &amp;#42; Facebook: graph.facebook.com
+   
+   
  * Google: accounts.google.com
+   
+   
  * Amazon: www.amazon.com
+   
+   
  * Twitter: api.twitter.com
+   
+   
  * Digits: www.digits.com
+   
+   
 
 You must use AWS Developer credentials to call this API.
      *
@@ -354,6 +366,12 @@ You must use AWS Developer credentials to call this API.
     
     export type AccountId = string;
     
+    export type AmbiguousRoleResolutionType = string;
+    
+    export type ClaimName = string;
+    
+    export type ClaimValue = string;
+    
     export type CognitoIdentityProviderClientId = string;
     
     export type CognitoIdentityProviderList = CognitoIdentityProvider[];
@@ -398,6 +416,10 @@ You must use AWS Developer credentials to call this API.
     
     export type LoginsMap = {[key:string]: IdentityProviderToken};
     
+    export type MappingRuleMatchType = string;
+    
+    export type MappingRulesList = MappingRule[];
+    
     export type OIDCProviderList = ARNString[];
     
     export type OIDCToken = string;
@@ -405,6 +427,10 @@ You must use AWS Developer credentials to call this API.
     export type PaginationKey = string;
     
     export type QueryLimit = number;
+    
+    export type RoleMappingMap = {[key:string]: RoleMapping};
+    
+    export type RoleMappingType = string;
     
     export type RoleType = string;
     
@@ -450,7 +476,7 @@ care in setting this parameter. **/
         DeveloperProviderName?: DeveloperProviderName;
         /** A list of OpendID Connect provider ARNs. **/
         OpenIdConnectProviderARNs?: OIDCProviderList;
-        /** An array of Amazon Cognito Identity user pools. **/
+        /** An array of Amazon Cognito Identity user pools and their client IDs. **/
         CognitoIdentityProviders?: CognitoIdentityProviderList;
         /** An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
 pool. **/
@@ -518,11 +544,24 @@ support role customization. **/
         /** An identity pool ID in the format REGION:GUID. **/
         IdentityPoolId: IdentityPoolId;
         /** A set of optional name-value pairs that map provider names to provider tokens.
+The available provider names for Logins are as follows:
 
-The available provider names for Logins are as follows: &amp;#42; Facebook: graph.facebook.com
+ &amp;#42; Facebook: graph.facebook.com
+   
+   
+ * Amazon Cognito Identity Provider: 
+   cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789
+   
+   
  * Google: accounts.google.com
+   
+   
  * Amazon: www.amazon.com
+   
+   
  * Twitter: api.twitter.com
+   
+   
  * Digits: www.digits.com **/
         Logins?: LoginsMap;
     }
@@ -540,6 +579,11 @@ The available provider names for Logins are as follows: &amp;#42; Facebook: grap
         /** The map of roles associated with this pool. Currently only authenticated and
 unauthenticated roles are supported. **/
         Roles?: RolesMap;
+        /** How users for a specific identity provider are to mapped to roles. This is a
+String-to- RoleMapping object map. The string identifies the identity provider,
+for example, &quot;graph.facebook.com&quot; or
+&quot;cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id&quot;. **/
+        RoleMappings?: RoleMappingMap;
     }
     export interface GetOpenIdTokenForDeveloperIdentityInput {
         /** An identity pool ID in the format REGION:GUID. **/
@@ -577,8 +621,9 @@ resources for the token&#x27;s duration. **/
         IdentityId: IdentityId;
         /** A set of optional name-value pairs that map provider names to provider tokens.
 When using graph.facebook.com and www.amazon.com, supply the access_token
-returned from the provider&#x27;s authflow. For accounts.google.com or any other
-OpenId Connect provider, always include the id_token. **/
+returned from the provider&#x27;s authflow. For accounts.google.com, an Amazon
+Cognito Identity Provider, or any other OpenId Connect provider, always include
+the id_token . **/
         Logins?: LoginsMap;
     }
     export interface GetOpenIdTokenResponse {
@@ -705,6 +750,18 @@ response. This token can be used to call the API again and get results starting
 from the 11th match. **/
         NextToken?: PaginationKey;
     }
+    export interface MappingRule {
+        /** The claim name that must be present in the token, for example, &quot;isAdmin&quot; or
+&quot;paid&quot;. **/
+        Claim: ClaimName;
+        /** The match condition that specifies how closely the claim value in the IdP token
+must match Value . **/
+        MatchType: MappingRuleMatchType;
+        /** A brief string that the claim must match, for example, &quot;paid&quot; or &quot;yes&quot;. **/
+        Value: ClaimValue;
+        /** The role ARN. **/
+        RoleARN: ARNString;
+    }
     export interface MergeDeveloperIdentitiesInput {
         /** User identifier for the source user. The value should be a 
 DeveloperUserIdentifier . **/
@@ -737,12 +794,41 @@ letters as well as period (.), underscore (_), and dash (-). **/
         /** The message returned by a ResourceNotFoundException. **/
         message?: String;
     }
+    export interface RoleMapping {
+        /** The role mapping type. Token will use cognito:roles and cognito:preferred_role 
+claims from the Cognito identity provider token to map groups to roles. Rules
+will attempt to match claims from the token to map to a role. **/
+        Type: RoleMappingType;
+        /** If you specify Token or Rules as the Type , AmbiguousRoleResolution is required.
+
+Specifies the action to be taken if either no rules match the claim value for
+the Rules type, or there is no cognito:preferred_role claim and there are
+multiple cognito:roles matches for the Token type. **/
+        AmbiguousRoleResolution?: AmbiguousRoleResolutionType;
+        /** The rules to be used for mapping users to roles.
+
+If you specify Rules as the role mapping type, RulesConfiguration is required. **/
+        RulesConfiguration?: RulesConfigurationType;
+    }
+    export interface RulesConfigurationType {
+        /** An array of rules. You can specify up to 25 rules per identity provider.
+
+Rules are evaluated in order. The first one to match specifies the role. **/
+        Rules: MappingRulesList;
+    }
     export interface SetIdentityPoolRolesInput {
         /** An identity pool ID in the format REGION:GUID. **/
         IdentityPoolId: IdentityPoolId;
         /** The map of roles associated with this pool. For a given role, the key will be
 either &quot;authenticated&quot; or &quot;unauthenticated&quot; and the value will be the Role ARN. **/
         Roles: RolesMap;
+        /** How users for a specific identity provider are to mapped to roles. This is a
+string to RoleMapping object map. The string identifies the identity provider,
+for example, &quot;graph.facebook.com&quot; or
+&quot;cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id&quot;.
+
+Up to 25 rules can be specified per identity provider. **/
+        RoleMappings?: RoleMappingMap;
     }
     export interface TooManyRequestsException {
         /** Message returned by a TooManyRequestsException **/

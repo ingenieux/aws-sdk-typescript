@@ -30,10 +30,9 @@ the stack together and manages all dependencies between the resources for you.
 For more information about AWS CloudFormation, see the AWS CloudFormation
 Product Page [http://aws.amazon.com/cloudformation/] .
 
-Amazon CloudFormation makes use of other AWS products. If you need additional
-technical information about a specific AWS product, you can find the product&#x27;s
-technical documentation at http://docs.aws.amazon.com/
-[http://docs.aws.amazon.com/http:/docs.aws.amazon.com/] .
+Amazon CloudFormation makes use of other AWS products. For additional technical
+information about a specific AWS product, see its technical documentation
+[http://docs.aws.amazon.com/] .
    *
    */
   export class CloudFormation extends Service {
