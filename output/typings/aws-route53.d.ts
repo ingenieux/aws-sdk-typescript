@@ -1454,25 +1454,35 @@ Use the following methods to get the hosted zone ID:
 
  &amp;#42; AWS Management Console: Go to the Amazon EC2 page, click Load Balancers in
    the navigation pane, select the load balancer, and get the value of the 
-   Hosted Zone ID field on the Description tab. Use the same process to get the
-   value of DNS Name . See HostedZone$Name .
+   Hosted zone field on the Description tab. Use the same process to get the
+   value of DNS name . (You specify the value of DNS name for 
+   AliasTarget$DNSName .)
    
    
- * Elastic Load Balancing API: Use DescribeLoadBalancers to get the value of 
-   CanonicalHostedZoneNameID . Use the same process to get the 
-   CanonicalHostedZoneName . See HostedZone$Name .
+ * Elastic Load Balancing API : Use DescribeLoadBalancers to get the value of 
+   CanonicalHostedZoneNameId and DNSName . (You specify the value of DNSName for 
+   AliasTarget$DNSName .) For more information, see the applicable guide:
+   
+    * Classic Load Balancer: DescribeLoadBalancers
+      [http://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html]
+      
+      
+    * Application Load Balancer: DescribeLoadBalancers
+      [http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html]
+      
+      
    
    
  * AWS CLI: Use describe-load-balancers
    [http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html] 
-   to get the value of CanonicalHostedZoneNameID . Use the same process to get
-   the CanonicalHostedZoneName . See HostedZone$Name .
+   to get the value of CanonicalHostedZoneNameID and DNSName . (You specify the
+   value of DNSName for AliasTarget$DNSName .)
    
    
 
 An Amazon S3 bucket configured as a static websiteSpecify the hosted zone ID for
-the Amazon S3 website endpoint in which you created the bucket. For more
-information about valid values, see the table Amazon S3 (S3) Website Endpoints
+the region that you created the bucket in. For more information about valid
+values, see the table Amazon Simple Storage Service Website Endpoints
 [http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region] in the 
 Amazon Web Services General Reference .
 
@@ -1499,16 +1509,16 @@ want to route queries:
    environment. (The environment must have a regionalized domain name.) You can
    use the following methods to get the value of the CNAME attribute:
    
-    * AWS Managment Console : For information about how to get the value by
+    * AWS Management Console : For information about how to get the value by
       using the console, see Using Custom Domains with AWS Elastic Beanstalk
       [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html] 
       in the AWS Elastic Beanstalk Developer Guide .
       
       
-    * Elastic Load Balancing API : Use the DescribeEnvironments action to get
-      the value of the CNAME attribute. For more information, see 
+    * Elastic Beanstalk API : Use the DescribeEnvironments action to get the
+      value of the CNAME attribute. For more information, see 
       DescribeEnvironments
-      [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/API_DescribeEnvironments.html] 
+      [http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html] 
       in the AWS Elastic Beanstalk API Reference .
       
       
@@ -1520,42 +1530,53 @@ want to route queries:
       
    
    
- * An ELB load balancer: Specify the DNS name associated with the load balancer.
-   Get the DNS name by using the AWS Management Console, the ELB API, or the AWS
-   CLI. Use the same method to get values for HostedZoneId and DNSName . If you
-   get one value from the console and the other value from the API or the CLI,
-   creating the resource record set will fail.
+ * An ELB load balancer: Specify the DNS name that is associated with the load
+   balancer. Get the DNS name by using the AWS Management Console, the ELB API,
+   or the AWS CLI. Use the same method to get values for HostedZoneId and 
+   DNSName . If you get one value from the console and the other value from the
+   API or the CLI, creating the resource record set will fail.
    
     * AWS Management Console : Go to the EC2 page, click Load Balancers in the
       navigation pane, choose the load balancer, choose the Description tab, and
-      get the value of the DNS Name field that begins with dualstack. Use the
-      same process to get the Hosted Zone ID . See HostedZone$Id .
+      get the value of the DNS name field. (If you&#x27;re routing traffic to a
+      Classic Load Balancer, get the value that begins with dualstack .) Use the
+      same process to get the value of the Hosted zone field. See 
+      AliasTarget$HostedZoneId .
       
       
-    * Elastic Load Balancing API : Use DescribeLoadBalancers
-      [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html] 
-      to get the value of CanonicalHostedZoneName . Use the same process to get
-      the CanonicalHostedZoneNameId . See HostedZone$Id .
+    * Elastic Load Balancing API : Use DescribeLoadBalancers to get the value of 
+      DNSName and CanonicalHostedZoneNameId . (You specify the value of 
+      CanonicalHostedZoneNameId for AliasTarget$HostedZoneId .) For more
+      information, see the applicable guide:
+      
+       * Classic Load Balancer: DescribeLoadBalancers
+         [http://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html]
+         
+         
+       * Application Load Balancer: DescribeLoadBalancers
+         [http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html]
+         
+         
       
       
     * AWS CLI : Use describe-load-balancers
-      [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html] 
-      to get the value of CanonicalHostedZoneName . Use the same process to get
-      the CanonicalHostedZoneNameId . See HostedZoneId.
+      [http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html] 
+      to get the value of DNSName and CanonicalHostedZoneNameId . (You specify
+      the value of CanonicalHostedZoneNameId for AliasTarget$HostedZoneId .)
       
       
    
    
  * An Amazon S3 bucket that is configured as a static website: Specify the
    domain name of the Amazon S3 website endpoint in which you created the
-   bucket; for example, s3-website-us-east-1.amazonaws.com . For more
+   bucket, for example, s3-website-us-east-1.amazonaws.com . For more
    information about valid values, see the table Amazon Simple Storage Service
    (S3) Website Endpoints
    [http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region] in the 
    Amazon Web Services General Reference . For more information about using S3
-   buckets for websites, see Hosting a Static Website on Amazon S3
-   [http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html] in the 
-   Amazon S3 Developer Guide.
+   buckets for websites, see Getting Started with Amazon Route 53
+   [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/getting-started.html] 
+   in the Amazon Route 53 Developer Guide.
    
    
  * Another Amazon Route 53 resource record set : Specify the value of the Name 

@@ -24,24 +24,24 @@ Use the following links to get started using the AWS Storage Gateway Service API
 Reference :
 
  &amp;#42; AWS Storage Gateway Required Request Headers
-   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayHTTPRequestsHeaders.html] 
+   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders] 
    : Describes the required headers that you must send with every POST request
    to AWS Storage Gateway.
    
    
  * Signing Requests
-   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewaySigningRequests.html] 
+   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests] 
    : AWS Storage Gateway requires that you authenticate every request you send;
    this topic describes how sign such a request.
    
    
  * Error Responses
-   [http://docs.aws.amazon.com/storagegateway/latest/userguide/APIErrorResponses.html] 
+   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses] 
    : Provides reference information about AWS Storage Gateway errors.
    
    
  * Operations in AWS Storage Gateway
-   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPIOperations.html] 
+   [http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html] 
    : Contains detailed descriptions of all AWS Storage Gateway operations, their
    request parameters, response elements, possible errors, and examples of
    requests and responses.
@@ -198,14 +198,28 @@ volume. Use the AddCache operation to add cache storage to a gateway.
 In the request, you must specify the gateway, size of the volume in bytes, the
 iSCSI target name, an IP address on which to expose the target, and a unique
 client token. In response, AWS Storage Gateway creates the volume and returns
-information about it such as the volume Amazon Resource Name (ARN), its size,
-and the iSCSI target ARN that initiators can use to connect to the volume
-target.
+information about it. This information includes the volume Amazon Resource Name
+(ARN), its size, and the iSCSI target ARN that initiators can use to connect to
+the volume target.
+
+Optionally, you can provide the ARN for an existing volume as the 
+SourceVolumeARN for this cached volume, which creates an exact copy of the
+existing volume’s latest recovery point. The VolumeSizeInBytes value must be
+equal to or larger than the size of the copied volume, in bytes.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
     createCachediSCSIVolume(params: StorageGateway.CreateCachediSCSIVolumeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateCachediSCSIVolumeOutput|any) => void): Request<StorageGateway.CreateCachediSCSIVolumeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
+    /**
+     * Creates a file share on an existing file gateway. In Storage Gateway, a file
+share is a file system mount point backed by Amazon S3 cloud storage. Storage
+Gateway exposes file shares using a Network File System (NFS) interface.
+     *
+     * @error InvalidGatewayRequestException   
+     * @error InternalServerError   
+     */
+    createNFSFileShare(params: StorageGateway.CreateNFSFileShareInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateNFSFileShareOutput|any) => void): Request<StorageGateway.CreateNFSFileShareOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Initiates a snapshot of a volume.
 
@@ -237,8 +251,9 @@ page.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
+     * @error ServiceUnavailableError   
      */
-    createSnapshot(params: StorageGateway.CreateSnapshotInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateSnapshotOutput|any) => void): Request<StorageGateway.CreateSnapshotOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
+    createSnapshot(params: StorageGateway.CreateSnapshotInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|StorageGateway.ServiceUnavailableError|any, data: StorageGateway.CreateSnapshotOutput|any) => void): Request<StorageGateway.CreateSnapshotOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|StorageGateway.ServiceUnavailableError|any>;
     /**
      * Initiates a snapshot of a gateway from a volume recovery point. This operation
 is supported only for the gateway-cached volume architecture.
@@ -260,8 +275,9 @@ information, in Amazon Elastic Compute Cloud API Reference .
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
+     * @error ServiceUnavailableError   
      */
-    createSnapshotFromVolumeRecoveryPoint(params: StorageGateway.CreateSnapshotFromVolumeRecoveryPointInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateSnapshotFromVolumeRecoveryPointOutput|any) => void): Request<StorageGateway.CreateSnapshotFromVolumeRecoveryPointOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
+    createSnapshotFromVolumeRecoveryPoint(params: StorageGateway.CreateSnapshotFromVolumeRecoveryPointInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|StorageGateway.ServiceUnavailableError|any, data: StorageGateway.CreateSnapshotFromVolumeRecoveryPointOutput|any) => void): Request<StorageGateway.CreateSnapshotFromVolumeRecoveryPointOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|StorageGateway.ServiceUnavailableError|any>;
     /**
      * Creates a volume on a specified gateway. This operation is supported only for
 the gateway-stored volume architecture.
@@ -321,6 +337,13 @@ specified iSCSI target and initiator pair.
      * @error InternalServerError   
      */
     deleteChapCredentials(params: StorageGateway.DeleteChapCredentialsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteChapCredentialsOutput|any) => void): Request<StorageGateway.DeleteChapCredentialsOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
+    /**
+     * Deletes a file share from a file gateway.
+     *
+     * @error InvalidGatewayRequestException   
+     * @error InternalServerError   
+     */
+    deleteFileShare(params: StorageGateway.DeleteFileShareInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteFileShareOutput|any) => void): Request<StorageGateway.DeleteFileShareOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Deletes a gateway. To specify which gateway to delete, use the Amazon Resource
 Name (ARN) of the gateway in your request. The operation deletes the gateway;
@@ -460,6 +483,13 @@ of the week. Note that values are in terms of the gateway&#x27;s time zone.
      */
     describeMaintenanceStartTime(params: StorageGateway.DescribeMaintenanceStartTimeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeMaintenanceStartTimeOutput|any) => void): Request<StorageGateway.DescribeMaintenanceStartTimeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
+     * Gets a description for one or more file shares from a file gateway.
+     *
+     * @error InvalidGatewayRequestException   
+     * @error InternalServerError   
+     */
+    describeNFSFileShares(params: StorageGateway.DescribeNFSFileSharesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeNFSFileSharesOutput|any) => void): Request<StorageGateway.DescribeNFSFileSharesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
+    /**
      * Describes the snapshot schedule for the specified gateway volume. The snapshot
 schedule information includes intervals at which snapshots are automatically
 initiated on the volume.
@@ -560,6 +590,14 @@ Once a gateway is disabled it cannot be enabled.
      */
     disableGateway(params: StorageGateway.DisableGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DisableGatewayOutput|any) => void): Request<StorageGateway.DisableGatewayOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
+     * Gets a list of the file shares for a specific file gateway, or the list of file
+shares that belong to the calling user account.
+     *
+     * @error InvalidGatewayRequestException   
+     * @error InternalServerError   
+     */
+    listFileShares(params: StorageGateway.ListFileSharesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListFileSharesOutput|any) => void): Request<StorageGateway.ListFileSharesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
+    /**
      * Lists gateways owned by an AWS account in a region specified in the request. The
 returned list is ordered by gateway Amazon Resource Name (ARN).
 
@@ -638,7 +676,8 @@ CreateSnapshotFromVolumeRecoveryPoint operation.
     /**
      * Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN.
 The response includes only the volume ARNs. If you want additional volume
-information, use the DescribeStorediSCSIVolumes API.
+information, use the DescribeStorediSCSIVolumes or the 
+DescribeCachediSCSIVolumes API.
 
 The operation supports pagination. By default, the operation returns a maximum
 of up to 100 volumes. You can optionally specify the Limit field in the body to
@@ -830,6 +869,16 @@ time of the week. The maintenance time is the time in your gateway&#x27;s time z
      */
     updateMaintenanceStartTime(params: StorageGateway.UpdateMaintenanceStartTimeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateMaintenanceStartTimeOutput|any) => void): Request<StorageGateway.UpdateMaintenanceStartTimeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
+     * Updates a file share.
+
+To leave a file share field unchanged, set the corresponding input field to
+null.
+     *
+     * @error InvalidGatewayRequestException   
+     * @error InternalServerError   
+     */
+    updateNFSFileShare(params: StorageGateway.UpdateNFSFileShareInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateNFSFileShareOutput|any) => void): Request<StorageGateway.UpdateNFSFileShareOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
+    /**
      * Updates a snapshot schedule configured for a gateway volume.
 
 The default snapshot schedule for volume is once every 24 hours, starting at the
@@ -867,6 +916,8 @@ gateway-VTL is activated.
     
     export type BandwidthUploadRateLimit = number;
     
+    export type Boolean = boolean;
+    
     export type CachediSCSIVolumes = CachediSCSIVolume[];
     
     export type ChapCredentials = ChapInfo[];
@@ -874,6 +925,8 @@ gateway-VTL is activated.
     export type ChapSecret = string;
     
     export type ClientToken = string;
+    
+    export type CreatedDate = number;
     
     export type DayOfWeek = number;
     
@@ -892,6 +945,16 @@ gateway-VTL is activated.
     export type DoubleObject = number;
     
     export type ErrorCode = string;
+    
+    export type FileShareARN = string;
+    
+    export type FileShareARNList = FileShareARN[];
+    
+    export type FileShareId = string;
+    
+    export type FileShareInfoList = FileShareInfo[];
+    
+    export type FileShareStatus = string;
     
     export type GatewayARN = string;
     
@@ -919,9 +982,13 @@ gateway-VTL is activated.
     
     export type IqnName = string;
     
+    export type KMSKey = string;
+    
     export type LastSoftwareUpdate = string;
     
     export type LocalConsolePassword = string;
+    
+    export type LocationARN = string;
     
     export type Marker = string;
     
@@ -929,11 +996,19 @@ gateway-VTL is activated.
     
     export type MinuteOfHour = number;
     
+    export type NFSFileShareInfoList = NFSFileShareInfo[];
+    
     export type NetworkInterfaceId = string;
     
     export type NextUpdateAvailabilityDate = string;
     
     export type NumTapesToCreate = number;
+    
+    export type Path = string;
+    
+    export type PermissionId = number;
+    
+    export type PermissionMode = string;
     
     export type PositiveIntObject = number;
     
@@ -943,9 +1018,13 @@ gateway-VTL is activated.
     
     export type ResourceARN = string;
     
+    export type Role = string;
+    
     export type SnapshotDescription = string;
     
     export type SnapshotId = string;
+    
+    export type StorageClass = string;
     
     export type StorediSCSIVolumes = StorediSCSIVolume[];
     
@@ -1107,14 +1186,27 @@ can get the disk IDs from the ListLocalDisks API. **/
         GatewayARN?: GatewayARN;
     }
     export interface CachediSCSIVolume {
+        /** The Amazon Resource Name (ARN) of the storage volume. **/
         VolumeARN?: VolumeARN;
+        /** The unique identifier of the volume, e.g. vol-AE4B946D. **/
         VolumeId?: VolumeId;
+        /** One of the VolumeType enumeration values that describes the type of the volume. **/
         VolumeType?: VolumeType;
+        /** One of the VolumeStatus values that indicates the state of the storage volume. **/
         VolumeStatus?: VolumeStatus;
+        /** The size of the volume in bytes. **/
         VolumeSizeInBytes?: long;
+        /** Represents the percentage complete if the volume is restoring or bootstrapping
+that represents the percent of data transferred. This field does not appear in
+the response if the cached volume is not restoring or bootstrapping. **/
         VolumeProgress?: DoubleObject;
+        /** If the cached volume was created from a snapshot, this field contains the
+snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included. **/
         SourceSnapshotId?: SnapshotId;
+        /** An VolumeiSCSIAttributes object that represents a collection of iSCSI attributes
+for one stored volume. **/
         VolumeiSCSIAttributes?: VolumeiSCSIAttributes;
+        CreatedDate?: CreatedDate;
     }
     export interface CancelArchivalInput {
         GatewayARN: GatewayARN;
@@ -1158,12 +1250,46 @@ the initiator (e.g. Windows client). **/
         VolumeSizeInBytes: long;
         SnapshotId?: SnapshotId;
         TargetName: TargetName;
+        /** The ARN for an existing volume. Specifying this ARN makes the new volume into an
+exact copy of the specified existing volume&#x27;s latest recovery point. The 
+VolumeSizeInBytes value for this new volume must be equal to or larger than the
+size of the existing volume, in bytes. **/
+        SourceVolumeARN?: VolumeARN;
         NetworkInterfaceId: NetworkInterfaceId;
         ClientToken: ClientToken;
     }
     export interface CreateCachediSCSIVolumeOutput {
         VolumeARN?: VolumeARN;
         TargetARN?: TargetARN;
+    }
+    export interface CreateNFSFileShareInput {
+        /** A unique string value that you supply that is used by file gateway to ensure
+idempotent file share creation. **/
+        ClientToken: ClientToken;
+        /** File share default values. Optional. **/
+        NFSFileShareDefaults?: NFSFileShareDefaults;
+        /** The Amazon Resource Name (ARN) of the file gateway on which you want to create a
+file share. **/
+        GatewayARN: GatewayARN;
+        /** True to use Amazon S3 server side encryption with your own AWS KMS key, or false
+to use a key managed by Amazon S3. Optional. **/
+        KMSEncrypted?: Boolean;
+        /** The KMS key used for Amazon S3 server side encryption. This value can only be
+set when KmsEncrypted is true. Optional. **/
+        KMSKey?: KMSKey;
+        /** The ARN of the AWS Identity and Access Management (IAM) role that a file gateway
+assumes when it accesses the underlying storage. **/
+        Role: Role;
+        /** The ARN of the backend storage used for storing file data. **/
+        LocationARN: LocationARN;
+        /** The default storage class for objects put into an Amazon S3 bucket by file
+gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not
+populated, the default value S3_STANDARD is used. Optional. **/
+        DefaultStorageClass?: StorageClass;
+    }
+    export interface CreateNFSFileShareOutput {
+        /** The Amazon Resource Name (ARN) of the newly created file share. **/
+        FileShareARN?: FileShareARN;
     }
     export interface CreateSnapshotFromVolumeRecoveryPointInput {
         VolumeARN: VolumeARN;
@@ -1279,6 +1405,10 @@ that were created. **/
     }
     export interface DeleteBandwidthRateLimitInput {
         GatewayARN: GatewayARN;
+        /** One of the BandwidthType values that indicates the gateway bandwidth rate limit
+to delete.
+
+Valid Values: Upload , Download , All . **/
         BandwidthType: BandwidthType;
     }
     export interface DeleteBandwidthRateLimitOutput {
@@ -1297,6 +1427,14 @@ specified VolumeARN. **/
         TargetARN?: TargetARN;
         /** The iSCSI initiator that connects to the target. **/
         InitiatorName?: IqnName;
+    }
+    export interface DeleteFileShareInput {
+        /** The Amazon Resource Name (ARN) of the file share to be deleted. **/
+        FileShareARN: FileShareARN;
+    }
+    export interface DeleteFileShareOutput {
+        /** The Amazon Resource Name (ARN) of the deleted file share. **/
+        FileShareARN?: FileShareARN;
     }
     export interface DeleteGatewayInput {
         GatewayARN: GatewayARN;
@@ -1434,10 +1572,27 @@ response. **/
     }
     export interface DescribeMaintenanceStartTimeOutput {
         GatewayARN?: GatewayARN;
+        /** The hour component of the maintenance start time represented as hh , where hh is
+the hour (0 to 23). The hour of the day is in the time zone of the gateway. **/
         HourOfDay?: HourOfDay;
+        /** The minute component of the maintenance start time represented as mm , where mm 
+is the minute (0 to 59). The minute of the hour is in the time zone of the
+gateway. **/
         MinuteOfHour?: MinuteOfHour;
+        /** An ordinal number between 0 and 6 that represents the day of the week, where 0
+represents Sunday and 6 represents Saturday. The day of week is in the time zone
+of the gateway. **/
         DayOfWeek?: DayOfWeek;
         Timezone?: GatewayTimezone;
+    }
+    export interface DescribeNFSFileSharesInput {
+        /** An array containing the Amazon Resource Name (ARN) of each file share to be
+described. **/
+        FileShareARNList: FileShareARNList;
+    }
+    export interface DescribeNFSFileSharesOutput {
+        /** An array containing a description for each requested file share. **/
+        NFSFileShareInfoList?: NFSFileShareInfoList;
     }
     export interface DescribeSnapshotScheduleInput {
         /** The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation to
@@ -1614,6 +1769,12 @@ name(iqn) of a tape drive or media changer target. **/
         DiskAllocationType?: DiskAllocationType;
         DiskAllocationResource?: string;
     }
+    export interface FileShareInfo {
+        FileShareARN?: FileShareARN;
+        FileShareId?: FileShareId;
+        FileShareStatus?: FileShareStatus;
+        GatewayARN?: GatewayARN;
+    }
     export interface GatewayInfo {
         /** The unique identifier assigned to your gateway during activation. This ID
 becomes part of the gateway Amazon Resource Name (ARN), which you use as input
@@ -1643,6 +1804,29 @@ error. **/
         message?: string;
         /** A StorageGatewayError that provides more detail about the cause of the error. **/
         error?: StorageGatewayError;
+    }
+    export interface ListFileSharesInput {
+        /** The Amazon resource Name (ARN) of the gateway whose file shares you want to
+list. If this field is not present, all file shares under your account are
+listed. **/
+        GatewayARN?: GatewayARN;
+        /** The maximum number of file shares to return in the response. The value must be
+an integer with a value greater than zero. Optional. **/
+        Limit?: PositiveIntObject;
+        /** Opaque pagination token returned from a previous ListFileShares operation. If
+present, Marker specifies where to continue the list from after a previous call
+to ListFileShares. Optional. **/
+        Marker?: Marker;
+    }
+    export interface ListFileSharesOutput {
+        /** If the request includes Marker , the response returns that value in this field. **/
+        Marker?: Marker;
+        /** If a value is present, there are more file shares to return. In a subsequent
+request, use NextMarker as the value for Marker to retrieve the next set of file
+shares. **/
+        NextMarker?: Marker;
+        /** An array of information about the file gateway&#x27;s file shares. **/
+        FileShareInfoList?: FileShareInfoList;
     }
     export interface ListGatewaysInput {
         /** An opaque string that indicates the position at which to begin the returned list
@@ -1730,6 +1914,39 @@ of items. **/
         Marker?: Marker;
         VolumeInfos?: VolumeInfos;
     }
+    export interface NFSFileShareDefaults {
+        /** The Unix file mode in the form &quot;nnnn&quot;. For example, &quot;0666&quot; represents the
+default file mode inside the file share. The default value is 0666. **/
+        FileMode?: PermissionMode;
+        /** The Unix directory mode in the form &quot;nnnn&quot;. For example, &quot;0666&quot; represents the
+default access mode for all directories inside the file share. The default value
+is 0777. **/
+        DirectoryMode?: PermissionMode;
+        /** The default group ID for the file share (unless the files have another group ID
+specified). The default value is nfsnobody. **/
+        GroupId?: PermissionId;
+        /** The default owner ID for files in the file share (unless the files have another
+owner ID specified). The default value is nfsnobody. **/
+        OwnerId?: PermissionId;
+    }
+    export interface NFSFileShareInfo {
+        NFSFileShareDefaults?: NFSFileShareDefaults;
+        FileShareARN?: FileShareARN;
+        FileShareId?: FileShareId;
+        FileShareStatus?: FileShareStatus;
+        GatewayARN?: GatewayARN;
+        /** True to use Amazon S3 server side encryption with your own KMS key, or false to
+use a key managed by Amazon S3. Optional. **/
+        KMSEncrypted?: boolean;
+        KMSKey?: KMSKey;
+        Path?: Path;
+        Role?: Role;
+        LocationARN?: LocationARN;
+        /** The default storage class for objects put into an Amazon S3 bucket by file
+gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not
+populated, the default value S3_STANDARD is used. Optional. **/
+        DefaultStorageClass?: StorageClass;
+    }
     export interface NetworkInterface {
         /** The Internet Protocol version 4 (IPv4) address of the interface. **/
         Ipv4Address?: string;
@@ -1785,6 +2002,13 @@ retrieve the recovery point. **/
 was retrieved. **/
         TapeARN?: TapeARN;
     }
+    export interface ServiceUnavailableError {
+        /** A human-readable message describing the error that occurred. **/
+        message?: string;
+        /** A StorageGatewayError that provides more information about the cause of the
+error. **/
+        error?: StorageGatewayError;
+    }
     export interface SetLocalConsolePasswordInput {
         GatewayARN: GatewayARN;
         /** The password you want to set for your VM local console. **/
@@ -1812,16 +2036,35 @@ was retrieved. **/
         errorDetails?: errorDetails;
     }
     export interface StorediSCSIVolume {
+        /** The Amazon Resource Name (ARN) of the storage volume. **/
         VolumeARN?: VolumeARN;
+        /** The unique identifier of the volume, e.g. vol-AE4B946D. **/
         VolumeId?: VolumeId;
+        /** One of the VolumeType enumeration values describing the type of the volume. **/
         VolumeType?: VolumeType;
+        /** One of the VolumeStatus values that indicates the state of the storage volume. **/
         VolumeStatus?: VolumeStatus;
+        /** The size of the volume in bytes. **/
         VolumeSizeInBytes?: long;
+        /** Represents the percentage complete if the volume is restoring or bootstrapping
+that represents the percent of data transferred. This field does not appear in
+the response if the stored volume is not restoring or bootstrapping. **/
         VolumeProgress?: DoubleObject;
+        /** The ID of the local disk that was specified in the CreateStorediSCSIVolume 
+operation. **/
         VolumeDiskId?: DiskId;
+        /** If the stored volume was created from a snapshot, this field contains the
+snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included. **/
         SourceSnapshotId?: SnapshotId;
+        /** Indicates if when the stored volume was created, existing data on the underlying
+local disk was preserved.
+
+Valid Values: true, false **/
         PreservedExistingData?: boolean;
+        /** An VolumeiSCSIAttributes object that represents a collection of iSCSI attributes
+for one stored volume. **/
         VolumeiSCSIAttributes?: VolumeiSCSIAttributes;
+        CreatedDate?: CreatedDate;
     }
     export interface Tag {
         Key: TagKey;
@@ -1832,6 +2075,7 @@ was retrieved. **/
         TapeARN?: TapeARN;
         /** The barcode that identifies a specific virtual tape. **/
         TapeBarcode?: TapeBarcode;
+        TapeCreatedDate?: Time;
         /** The size, in bytes, of the virtual tape. **/
         TapeSizeInBytes?: TapeSize;
         /** The current state of the virtual tape. **/
@@ -1849,6 +2093,7 @@ Range: 0 (not started) to 100 (complete). **/
         TapeARN?: TapeARN;
         /** The barcode that identifies the archived virtual tape. **/
         TapeBarcode?: TapeBarcode;
+        TapeCreatedDate?: Time;
         /** The size, in bytes, of the archived virtual tape. **/
         TapeSizeInBytes?: TapeSize;
         /** The time that the archiving of the virtual tape was completed.
@@ -1952,11 +2197,32 @@ the hour (00 to 23). The hour of the day is in the time zone of the gateway. **/
 is the minute (00 to 59). The minute of the hour is in the time zone of the
 gateway. **/
         MinuteOfHour: MinuteOfHour;
-        /** The maintenance start time day of the week. **/
+        /** The maintenance start time day of the week represented as an ordinal number from
+0 to 6, where 0 represents Sunday and 6 Saturday. **/
         DayOfWeek: DayOfWeek;
     }
     export interface UpdateMaintenanceStartTimeOutput {
         GatewayARN?: GatewayARN;
+    }
+    export interface UpdateNFSFileShareInput {
+        /** The Amazon Resource Name (ARN) of the file share to be updated. **/
+        FileShareARN: FileShareARN;
+        /** True to use Amazon S3 server side encryption with your own AWS KMS key, or false
+to use a key managed by Amazon S3. Optional. **/
+        KMSEncrypted?: Boolean;
+        /** The KMS key used for Amazon S3 server side encryption. This value can only be
+set when KmsEncrypted is true. Optional. **/
+        KMSKey?: KMSKey;
+        /** The default values for the file share. Optional. **/
+        NFSFileShareDefaults?: NFSFileShareDefaults;
+        /** The default storage class for objects put into an Amazon S3 bucket by a file
+gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not
+populated, the default value S3_STANDARD is used. Optional. **/
+        DefaultStorageClass?: StorageClass;
+    }
+    export interface UpdateNFSFileShareOutput {
+        /** The Amazon Resource Name (ARN) of the updated file share. **/
+        FileShareARN?: FileShareARN;
     }
     export interface UpdateSnapshotScheduleInput {
         /** The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation to
@@ -2022,7 +2288,7 @@ Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
 (-). **/
         GatewayId?: GatewayId;
         VolumeType?: VolumeType;
-        /** The size, in bytes, of the volume.
+        /** The size of the volume in bytes.
 
 Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
 (-). **/
