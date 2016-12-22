@@ -30,7 +30,8 @@ and images. Developers can use the Docker CLI to author and manage images.
 repository.
 
 This operation is used by the Amazon ECR proxy, and it is not intended for
-general use by customers. Use the docker CLI to pull, tag, and push images.
+general use by customers for pulling and pushing images. In most cases, you
+should use the docker CLI to pull, tag, and push images.
      *
      * @error RepositoryNotFoundException   
      * @error InvalidParameterException   
@@ -40,6 +41,13 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
     /**
      * Deletes a list of specified images within a specified repository. Images are
 specified with either imageTag or imageDigest .
+
+You can remove a tag from an image by specifying the image&#x27;s tag in your
+request. When you remove the last tag from an image, the image is deleted from
+your repository.
+
+You can completely delete an image (and all of its tags) by specifying the
+image&#x27;s digest in your request.
      *
      * @error ServerException   
      * @error InvalidParameterException   
@@ -61,7 +69,8 @@ repository name, and upload ID, has completed. You can optionally provide a
 sha256 digest of the image layer for data validation purposes.
 
 This operation is used by the Amazon ECR proxy, and it is not intended for
-general use by customers. Use the docker CLI to pull, tag, and push images.
+general use by customers for pulling and pushing images. In most cases, you
+should use the docker CLI to pull, tag, and push images.
      *
      * @error ServerException   
      * @error InvalidParameterException   
@@ -102,8 +111,8 @@ use the force option to delete it.
      */
     deleteRepositoryPolicy(params: ECR.DeleteRepositoryPolicyRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any, data: ECR.DeleteRepositoryPolicyResponse|any) => void): Request<ECR.DeleteRepositoryPolicyResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any>;
     /**
-     * Returns metadata about the images in a repository, including image size and
-creation date.
+     * Returns metadata about the images in a repository, including image size, image
+tags, and creation date.
 
 Beginning with Docker version 1.9, the Docker client compresses image layers
 before pushing them to a V2 Docker registry. The output of the docker images 
@@ -143,7 +152,8 @@ login process.
 You can only get URLs for image layers that are referenced in an image.
 
 This operation is used by the Amazon ECR proxy, and it is not intended for
-general use by customers. Use the docker CLI to pull, tag, and push images.
+general use by customers for pulling and pushing images. In most cases, you
+should use the docker CLI to pull, tag, and push images.
      *
      * @error ServerException   
      * @error InvalidParameterException   
@@ -165,7 +175,8 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * Notify Amazon ECR that you intend to upload an image layer.
 
 This operation is used by the Amazon ECR proxy, and it is not intended for
-general use by customers. Use the docker CLI to pull, tag, and push images.
+general use by customers for pulling and pushing images. In most cases, you
+should use the docker CLI to pull, tag, and push images.
      *
      * @error ServerException   
      * @error InvalidParameterException   
@@ -187,10 +198,11 @@ return only TAGGED images to list all of the tags in your repository.
      */
     listImages(params: ECR.ListImagesRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.ListImagesResponse|any) => void): Request<ECR.ListImagesResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any>;
     /**
-     * Creates or updates the image manifest associated with an image.
+     * Creates or updates the image manifest and tags associated with an image.
 
 This operation is used by the Amazon ECR proxy, and it is not intended for
-general use by customers. Use the docker CLI to pull, tag, and push images.
+general use by customers for pulling and pushing images. In most cases, you
+should use the docker CLI to pull, tag, and push images.
      *
      * @error ServerException   
      * @error InvalidParameterException   
@@ -213,7 +225,8 @@ permissions.
      * Uploads an image layer part to Amazon ECR.
 
 This operation is used by the Amazon ECR proxy, and it is not intended for
-general use by customers. Use the docker CLI to pull, tag, and push images.
+general use by customers for pulling and pushing images. In most cases, you
+should use the docker CLI to pull, tag, and push images.
      *
      * @error ServerException   
      * @error InvalidParameterException   
@@ -289,6 +302,10 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
     export type LayerSizeInBytes = number;
     
     export type MaxResults = number;
+    
+    export type MediaType = string;
+    
+    export type MediaTypeList = MediaType[];
     
     export type NextToken = string;
     
@@ -369,6 +386,12 @@ describe. If you do not specify a registry, the default registry is assumed. **/
         /** A list of image ID references that correspond to images to describe. The format
 of the imageIds reference is imageTag=tag or imageDigest=digest . **/
         imageIds: ImageIdentifierList;
+        /** The accepted media types for the request.
+
+Valid values: application/vnd.docker.distribution.manifest.v1+json | 
+application/vnd.docker.distribution.manifest.v2+json | 
+application/vnd.oci.image.manifest.v1+json **/
+        acceptedMediaTypes?: MediaTypeList;
     }
     export interface BatchGetImageResponse {
         /** A list of image objects corresponding to the image references in the request. **/
@@ -445,8 +468,8 @@ results based on whether they are TAGGED or UNTAGGED . **/
     }
     export interface DescribeImagesRequest {
         /** The AWS account ID associated with the registry that contains the repository in
-which to list images. If you do not specify a registry, the default registry is
-assumed. **/
+which to describe images. If you do not specify a registry, the default registry
+is assumed. **/
         registryId?: RegistryId;
         /** A list of repositories to describe. If this parameter is omitted, then all
 repositories in a registry are described. **/
@@ -647,11 +670,14 @@ the exception. **/
     export interface Layer {
         /** The sha256 digest of the image layer. **/
         layerDigest?: LayerDigest;
-        /** The availability status of the image layer. Valid values are AVAILABLE and 
-UNAVAILABLE . **/
+        /** The availability status of the image layer. **/
         layerAvailability?: LayerAvailability;
         /** The size, in bytes, of the image layer. **/
         layerSize?: LayerSizeInBytes;
+        /** The media type of the layer, such as 
+application/vnd.docker.image.rootfs.diff.tar.gzip or 
+application/vnd.oci.image.layer.v1.tar+gzip . **/
+        mediaType?: MediaType;
     }
     export interface LayerAlreadyExistsException {
         /** The error message associated with the exception. **/
@@ -730,6 +756,9 @@ is assumed. **/
         repositoryName: RepositoryName;
         /** The image manifest corresponding to the image to be uploaded. **/
         imageManifest: ImageManifest;
+        /** The tag to associate with the image. This parameter is required for images that
+use the Docker Image Manifest V2 Schema 2 or OCI formats. **/
+        imageTag?: ImageTag;
     }
     export interface PutImageResponse {
         /** Details of the image uploaded. **/
