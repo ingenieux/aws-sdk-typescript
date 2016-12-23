@@ -14,9 +14,21 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Directory ServiceThis is the AWS Directory Service API Reference . This guide provides detailed
-information about AWS Directory Service operations, data types, parameters, and
-errors.
+   * AWS Directory ServiceAWS Directory Service is a web service that makes it easy
+for you to setup and run directories in the AWS cloud, or connect your AWS
+resources with an existing on-premises Microsoft Active Directory. This guide
+provides detailed information about AWS Directory Service operations, data
+types, parameters, and errors. For information about AWS Directory Services
+features, see AWS Directory Service [https://aws.amazon.com/directoryservice/] 
+and the AWS Directory Service Administration Guide
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html] .
+
+AWS provides SDKs that consist of libraries and sample code for various
+programming languages and platforms (Java, Ruby, .Net, iOS, Android, etc.). The
+SDKs provide a convenient way to create programmatic access to AWS Directory
+Service and other AWS services. For more information about the AWS SDKs,
+including how to download and install them, see Tools for Amazon Web Services
+[http://aws.amazon.com/tools/] .
    *
    */
   export class DirectoryService extends Service {
@@ -46,9 +58,9 @@ Permissions: Actions, Resources, and Conditions Reference
      */
     addIpRoutes(params: DirectoryService.AddIpRoutesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.EntityAlreadyExistsException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.IpRouteLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.AddIpRoutesResult|any) => void): Request<DirectoryService.AddIpRoutesResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.EntityAlreadyExistsException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.IpRouteLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
-     * Adds or overwrites one or more tags for the specified Amazon Directory Services
-directory. Each directory can have a maximum of 50 tags. Each tag consists of a
-key and optional value. Tag keys must be unique to each resource.
+     * Adds or overwrites one or more tags for the specified directory. Each directory
+can have a maximum of 50 tags. Each tag consists of a key and optional value.
+Tag keys must be unique to each resource.
      *
      * @error EntityDoesNotExistException   
      * @error InvalidParameterException   
@@ -357,7 +369,7 @@ User Service (RADIUS) server for an AD Connector directory.
      */
     enableRadius(params: DirectoryService.EnableRadiusRequest, callback?: (err: DirectoryService.InvalidParameterException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.EnableRadiusResult|any) => void): Request<DirectoryService.EnableRadiusResult|any,DirectoryService.InvalidParameterException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
-     * Enables single-sign on for a directory.
+     * Enables single sign-on for a directory.
      *
      * @error EntityDoesNotExistException   
      * @error InsufficientPermissionsException   
@@ -402,7 +414,7 @@ User Service (RADIUS) server for an AD Connector directory.
      */
     listSchemaExtensions(params: DirectoryService.ListSchemaExtensionsRequest, callback?: (err: DirectoryService.InvalidNextTokenException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ListSchemaExtensionsResult|any) => void): Request<DirectoryService.ListSchemaExtensionsResult|any,DirectoryService.InvalidNextTokenException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
-     * Lists all tags on an Amazon Directory Services directory.
+     * Lists all tags on a directory.
      *
      * @error EntityDoesNotExistException   
      * @error InvalidNextTokenException   
@@ -435,7 +447,7 @@ also receive a notification when the directory returns to an Active status.
      */
     removeIpRoutes(params: DirectoryService.RemoveIpRoutesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RemoveIpRoutesResult|any) => void): Request<DirectoryService.RemoveIpRoutesResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
-     * Removes tags from an Amazon Directory Services directory.
+     * Removes tags from a directory.
      *
      * @error EntityDoesNotExistException   
      * @error InvalidParameterException   
@@ -790,7 +802,7 @@ publicly. **/
     export interface AddTagsToResourceRequest {
         /** Identifier (ID) for the directory to which to add the tag. **/
         ResourceId: ResourceId;
-        /** The tags to be assigned to the Amazon Directory Services directory. **/
+        /** The tags to be assigned to the directory. **/
         Tags: Tags;
     }
     export interface AddTagsToResourceResult {
@@ -1551,7 +1563,9 @@ to. **/
         /** If true, creates a snapshot of the directory before applying the schema
 extension. **/
         CreateSnapshotBeforeSchemaExtension: CreateSnapshotBeforeSchemaExtension;
-        /** The LDIF file represented as a string. The file size can be no larger than 1MB. **/
+        /** The LDIF file represented as a string. To construct the LdifContent string,
+precede each line as it would be formatted in an ldif file with \n. See the
+example request below for more details. The file size can be no larger than 1MB. **/
         LdifContent: LdifContent;
         /** A description of the schema extension. **/
         Description: Description;

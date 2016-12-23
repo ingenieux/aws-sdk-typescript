@@ -340,6 +340,12 @@ unchanged. To clear these properties, specify an empty string.
      */
     updateApplication(params: ElasticBeanstalk.UpdateApplicationMessage, callback?: (err: any, data: ElasticBeanstalk.ApplicationDescriptionMessage|any) => void): Request<ElasticBeanstalk.ApplicationDescriptionMessage|any,any>;
     /**
+     * Modifies lifecycle settings for an application.
+     *
+     * @error InsufficientPrivilegesException   
+     */
+    updateApplicationResourceLifecycle(params: ElasticBeanstalk.UpdateApplicationResourceLifecycleMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.ApplicationResourceLifecycleDescriptionMessage|any) => void): Request<ElasticBeanstalk.ApplicationResourceLifecycleDescriptionMessage|any,ElasticBeanstalk.InsufficientPrivilegesException|any>;
+    /**
      * Updates the specified application version to have the specified properties.
 
 If a property (for example, description ) is not provided, the value remains
@@ -422,6 +428,8 @@ associated with the selection of option values.
     export type AvailableSolutionStackDetailsList = SolutionStackDescription[];
     
     export type AvailableSolutionStackNamesList = SolutionStackName[];
+    
+    export type BoxedBoolean = boolean;
     
     export type BoxedInt = number;
     
@@ -666,6 +674,8 @@ want to cancel. **/
         Versions?: VersionLabelsList;
         /** The names of the configuration templates associated with this application. **/
         ConfigurationTemplates?: ConfigurationTemplateNamesList;
+        /** The lifecycle settings for the application. **/
+        ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
     }
     export interface ApplicationDescriptionMessage {
         /** The ApplicationDescription of the application. **/
@@ -689,6 +699,18 @@ each type of status code response. **/
         /** Represents the average latency for the slowest X percent of requests over the
 last 10 seconds. Latencies are in seconds with one milisecond resolution. **/
         Latency?: Latency;
+    }
+    export interface ApplicationResourceLifecycleConfig {
+        /** The ARN of an IAM service role that Elastic Beanstalk has permission to assume. **/
+        ServiceRole?: String;
+        /** The application version lifecycle configuration. **/
+        VersionLifecycleConfig?: ApplicationVersionLifecycleConfig;
+    }
+    export interface ApplicationResourceLifecycleDescriptionMessage {
+        /** The name of the application. **/
+        ApplicationName?: ApplicationName;
+        /** The lifecycle configuration. **/
+        ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
     }
     export interface ApplicationVersionDescription {
         /** The name of the application to which the application version belongs. **/
@@ -721,6 +743,14 @@ the source code for the application version. **/
         /** For a paginated request, the token that you can pass in a subsequent request to
 get the next page. **/
         NextToken?: Token;
+    }
+    export interface ApplicationVersionLifecycleConfig {
+        /** Specify a max count rule to restrict the number of application versions that are
+retained for an application. **/
+        MaxCountRule?: MaxCountRule;
+        /** Specify a max age rule to restrict the length of time that application versions
+are retained for an application. **/
+        MaxAgeRule?: MaxAgeRule;
     }
     export interface ApplyEnvironmentManagedActionRequest {
         /** The name of the target environment. **/
@@ -965,6 +995,9 @@ already exists, the action returns an InvalidParameterValue error. **/
         ApplicationName: ApplicationName;
         /** Describes the application. **/
         Description?: Description;
+        /** Specify an application resource lifecycle configuration to prevent your
+application from accumulating too many versions. **/
+        ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
     }
     export interface CreateApplicationVersionMessage {
         /** The name of the application. If no application is found with this name, and 
@@ -1661,6 +1694,24 @@ execute. **/
     }
     export interface ManagedActionInvalidStateException {
     }
+    export interface MaxAgeRule {
+        /** Specify true to apply the rule, or false to disable it. **/
+        Enabled: BoxedBoolean;
+        /** Specify the number of days to retain an application versions. **/
+        MaxAgeInDays?: BoxedInt;
+        /** Set to true to delete a version&#x27;s source bundle from Amazon S3 when Elastic
+Beanstalk deletes the application version. **/
+        DeleteSourceFromS3?: BoxedBoolean;
+    }
+    export interface MaxCountRule {
+        /** Specify true to apply the rule, or false to disable it. **/
+        Enabled: BoxedBoolean;
+        /** Specify the maximum number of application versions to retain. **/
+        MaxCount?: BoxedInt;
+        /** Set to true to delete a version&#x27;s source bundle from Amazon S3 when Elastic
+Beanstalk deletes the application version. **/
+        DeleteSourceFromS3?: BoxedBoolean;
+    }
     export interface OperationInProgressException {
     }
     export interface OptionRestrictionRegex {
@@ -1952,6 +2003,12 @@ UpdateApplication returns an InvalidParameterValue error. **/
 Default: If not specified, AWS Elastic Beanstalk does not update the
 description. **/
         Description?: Description;
+    }
+    export interface UpdateApplicationResourceLifecycleMessage {
+        /** The name of the application. **/
+        ApplicationName: ApplicationName;
+        /** The lifecycle configuration. **/
+        ResourceLifecycleConfig: ApplicationResourceLifecycleConfig;
     }
     export interface UpdateApplicationVersionMessage {
         /** The name of the application associated with this version.

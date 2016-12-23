@@ -628,6 +628,21 @@ the structure of a model.
      */
     getSdk(params: APIGateway.GetSdkRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.SdkResponse|any) => void): Request<APIGateway.SdkResponse|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
     /**
+     * 
+     *
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    getSdkType(params: APIGateway.GetSdkTypeRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.SdkType|any) => void): Request<APIGateway.SdkType|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * 
+     *
+     * @error UnauthorizedException   
+     * @error TooManyRequestsException   
+     */
+    getSdkTypes(params: APIGateway.GetSdkTypesRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any, data: APIGateway.SdkTypes|any) => void): Request<APIGateway.SdkTypes|any,APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any>;
+    /**
      * Gets information about a Stage resource.
      *
      * @error UnauthorizedException   
@@ -1053,6 +1068,10 @@ with a specified API key.
     export type ListOfResource = Resource[];
     
     export type ListOfRestApi = RestApi[];
+    
+    export type ListOfSdkConfigurationProperty = SdkConfigurationProperty[];
+    
+    export type ListOfSdkType = SdkType[];
     
     export type ListOfStage = Stage[];
     
@@ -1960,6 +1979,16 @@ named classPrefix is required. For sdkType of android , parameters named groupId
 , artifactId , artifactVersion , and invokerPackage are required. **/
         parameters?: MapOfStringToString;
     }
+    export interface GetSdkTypeRequest {
+        /** The identifier of the queried SdkType instance. **/
+        id: String;
+    }
+    export interface GetSdkTypesRequest {
+        /** The position of the last fetched element in the SdkTypes collection. **/
+        position?: String;
+        /** The maximum number of SdkType instances to be returned. **/
+        limit?: NullableInteger;
+    }
     export interface GetStageRequest {
         /** The identifier of the RestApi resource for the Stage resource to get information
 about. **/
@@ -2070,7 +2099,8 @@ type. **/
         httpMethod?: String;
         /** Specifies the integration&#x27;s Uniform Resource Identifier (URI). For HTTP
 integrations, the URI must be a fully formed, encoded HTTP(S) URL according to
-the RFC-3986 specification [https://www.ietf.org/rfc/rfc3986.txt] . For AWS
+the RFC-3986 specification
+[https://en.wikipedia.org/wiki/Uniform_Resource_Identifier] . For AWS
 integrations, the URI should be of the form 
 arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api} 
 . Region , subdomain and service are used to determine the right endpoint. For
@@ -2219,6 +2249,10 @@ must be CUSTOM . **/
         /** A boolean flag specifying whether a valid ApiKey is required to invoke this
 method. **/
         apiKeyRequired?: NullableBoolean;
+        /** A human-friendly operation identifier for the method. For example, you can
+assign the operationName of ListPets for the GET /pets method in PetStore
+[http://petstore-demo-endpoint.execute-api.com/petstore/pets] example. **/
+        operationName?: String;
         /** A key-value map defining required or optional method request parameters that can
 be accepted by Amazon API Gateway. A key is a method request parameter name
 matching the pattern of method.request.{location}.{name} , where location is 
@@ -2527,6 +2561,10 @@ CUSTOM. **/
         authorizerId?: String;
         /** Specifies whether the method required a valid ApiKey . **/
         apiKeyRequired?: Boolean;
+        /** A human-friendly operation identifier for the method. For example, you can
+assign the operationName of ListPets for the GET /pets method in PetStore
+[http://petstore-demo-endpoint.execute-api.com/petstore/pets] example. **/
+        operationName?: String;
         /** A key-value map defining required or optional method request parameters that can
 be accepted by Amazon API Gateway. A key defines a method request parameter name
 matching the pattern of method.request.{location}.{name} , where location is 
@@ -2651,6 +2689,19 @@ RestApi supports only UTF-8-encoded text payloads. **/
         /** An array of links to the current page of RestApi resources. **/
         items?: ListOfRestApi;
     }
+    export interface SdkConfigurationProperty {
+        /** The name of a an SdkType configuration property. **/
+        name?: String;
+        /** The user-friendly name of an SdkType configuration property. **/
+        friendlyName?: String;
+        /** The description of an SdkType configuration property. **/
+        description?: String;
+        /** A boolean flag of an SdkType configuration property to indicate if the
+associated SDK configuration property is required ( true ) or not ( false ). **/
+        required?: Boolean;
+        /** The default value of an SdkType configuration property. **/
+        defaultValue?: String;
+    }
     export interface SdkResponse {
         /** The content-type header value in the HTTP response. **/
         contentType?: String;
@@ -2658,6 +2709,21 @@ RestApi supports only UTF-8-encoded text payloads. **/
         contentDisposition?: String;
         /** The binary blob response to GetSdk , which contains the generated SDK. **/
         body?: Blob;
+    }
+    export interface SdkType {
+        /** The identifier of an SdkType instance. **/
+        id?: String;
+        /** The user-friendly name of an SdkType instance. **/
+        friendlyName?: String;
+        /** The description of an SdkType . **/
+        description?: String;
+        /** A list of configuration properties of an SdkType . **/
+        configurationProperties?: ListOfSdkConfigurationProperty;
+    }
+    export interface SdkTypes {
+        position?: String;
+        /** The set of SdkType items that comprise this view of the SdkTypes collection. **/
+        items?: ListOfSdkType;
     }
     export interface ServiceUnavailableException {
         retryAfterSeconds?: String;

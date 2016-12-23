@@ -590,17 +590,19 @@ AWS Key Management Service Developer Guide .
      */
     putKeyPolicy(params: KMS.PutKeyPolicyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.InvalidArnException|KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any>;
     /**
-     * Encrypts data on the server side with a new customer master key without exposing
-the plaintext of the data on the client side. The data is first decrypted and
-then encrypted. This operation can also be used to change the encryption context
-of a ciphertext.
+     * Encrypts data on the server side with a new customer master key (CMK) without
+exposing the plaintext of the data on the client side. The data is first
+decrypted and then reencrypted. You can also use this operation to change the
+encryption context of a ciphertext.
 
-Unlike other actions, ReEncrypt is authorized twice - once as ReEncryptFrom on
-the source key and once as ReEncryptTo on the destination key. We therefore
-recommend that you include the &quot;action&quot;:&quot;kms:ReEncrypt&amp;#42;&quot; statement in your key
-policies to permit re-encryption from or to the key. The statement is included
-automatically when you authorize use of the key through the console but must be
-included manually when you set a policy by using the PutKeyPolicy function.
+Unlike other operations, ReEncrypt is authorized twice, once as ReEncryptFrom on
+the source CMK and once as ReEncryptTo on the destination CMK. We recommend that
+you include the &quot;kms:ReEncrypt&amp;#42;&quot; permission in your key policies
+[http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html] to
+permit reencryption from or to the CMK. This permission is automatically
+included in the key policy when you create a CMK through the console, but you
+must include it manually when you create a CMK programmatically or when you set
+a key policy with the PutKeyPolicy operation.
      *
      * @error NotFoundException   
      * @error DisabledException   
@@ -614,24 +616,25 @@ included manually when you set a policy by using the PutKeyPolicy function.
      */
     reEncrypt(params: KMS.ReEncryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ReEncryptResponse|any) => void): Request<KMS.ReEncryptResponse|any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
-     * Retires a grant. You can retire a grant when you&#x27;re done using it to clean up.
+     * Retires a grant. To clean up, you can retire a grant when you&#x27;re done using it.
 You should revoke a grant when you intend to actively deny operations that
 depend on it. The following are permitted to call this API:
 
- &amp;#42; The account that created the grant
+ &amp;#42; The AWS account (root user) under which the grant was created
    
    
- * The RetiringPrincipal , if present
+ * The RetiringPrincipal , if present in the grant
    
    
- * The GranteePrincipal , if RetireGrant is a grantee operation
+ * The GranteePrincipal , if RetireGrant is an operation specified in the grant
    
    
 
-The grant to retire must be identified by its grant token or by a combination of
-the key ARN and the grant ID. A grant token is a unique variable-length
-base64-encoded string. A grant ID is a 64 character unique identifier of a
-grant. Both are returned by the CreateGrant function.
+You must identify the grant to retire by its grant token or by a combination of
+the grant ID and the Amazon Resource Name (ARN) of the customer master key
+(CMK). A grant token is a unique variable-length base64-encoded string. A grant
+ID is a 64 character unique identifier of a grant. The CreateGrant operation
+returns both.
      *
      * @error InvalidGrantTokenException   
      * @error InvalidGrantIdException   
@@ -660,7 +663,7 @@ waiting period, the default period of 30 days is used. When this operation is
 successful, the state of the CMK changes to PendingDeletion . Before the waiting
 period ends, you can use CancelKeyDeletion to cancel the deletion of the CMK.
 After the waiting period ends, AWS KMS deletes the CMK and all AWS KMS data
-associated with it, including all aliases that point to it.
+associated with it, including all aliases that refer to it.
 
 Deleting a CMK is a destructive and potentially dangerous operation. When a CMK
 is deleted, all data that was encrypted under the CMK is rendered unrecoverable.
@@ -699,7 +702,7 @@ same region.
      */
     updateAlias(params: KMS.UpdateAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
-     * Updates the description of a key.
+     * Updates the description of a customer master key (CMK).
      *
      * @error NotFoundException   
      * @error InvalidArnException   
@@ -792,7 +795,7 @@ same region.
         AliasName?: AliasNameType;
         /** String that contains the key ARN. **/
         AliasArn?: ArnType;
-        /** String that contains the key identifier pointed to by the alias. **/
+        /** String that contains the key identifier referred to by the alias. **/
         TargetKeyId?: KeyIdType;
     }
     export interface AlreadyExistsException {
@@ -809,7 +812,7 @@ of the CMK. Examples:
    
    
  * Key ARN:
-   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
    
    
 
@@ -872,36 +875,7 @@ for specifying a principal, see AWS Identity and Access Management (IAM)
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam] 
 in the Example ARNs section of the AWS General Reference . **/
         RetiringPrincipal?: PrincipalIdType;
-        /** A list of operations that the grant permits. The list can contain any
-combination of one or more of the following values:
-
- &amp;#42; Decrypt
-   
-   
- * Encrypt
-   
-   
- * GenerateDataKey
-   
-   
- * GenerateDataKeyWithoutPlaintext
-   
-   
- * ReEncryptFrom
-   [http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html]
-   
-   
- * ReEncryptTo
-   [http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html]
-   
-   
- * CreateGrant
-   
-   
- * RetireGrant
-   
-   
- * DescribeKey **/
+        /** A list of operations that the grant permits. **/
         Operations?: GrantOperationList;
         /** The conditions under which the operations permitted by the grant are allowed.
 
@@ -1055,7 +1029,7 @@ CMK. Examples:
    
    
  * Key ARN: 
-   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
     }
     export interface DependencyTimeoutException {
@@ -1098,7 +1072,7 @@ Use the CMK&#x27;s unique identifier or its Amazon Resource Name (ARN). For exam
    
    
  * ARN:
-   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
     }
     export interface DisableKeyRotationRequest {
@@ -1184,19 +1158,19 @@ Otherwise, it is not encoded. **/
 encryption key.
 
 A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
-CMK, or the alias name or ARN of an alias that points to the CMK. Examples:
+CMK, or the alias name or ARN of an alias that refers to the CMK. Examples:
 
  &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
    
    
  * CMK ARN: 
-   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
    
    
  * Alias name: alias/ExampleAlias
    
    
- * Alias ARN: arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias **/
+ * Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias **/
         KeyId: KeyIdType;
         /** A set of key-value pairs that represents additional authenticated data.
 
@@ -1234,19 +1208,19 @@ encrypted. **/
 encryption key.
 
 A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
-CMK, or the alias name or ARN of an alias that points to the CMK. Examples:
+CMK, or the alias name or ARN of an alias that refers to the CMK. Examples:
 
  &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
    
    
  * CMK ARN: 
-   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
    
    
  * Alias name: alias/ExampleAlias
    
    
- * Alias ARN: arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias **/
+ * Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias **/
         KeyId: KeyIdType;
         /** A set of key-value pairs that represents additional authenticated data.
 
@@ -1328,7 +1302,7 @@ CMK. Examples:
    
    
  * Key ARN: 
-   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
         /** The algorithm you will use to encrypt the key material before importing it with 
 ImportKeyMaterial . For more information, see Encrypt the Key Material
@@ -1400,7 +1374,7 @@ CMK. Examples:
    
    
  * Key ARN: 
-   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
         /** The import token that you received in the response to a previous 
 GetParametersForImport request. It must be from the same response that contained
@@ -1570,21 +1544,14 @@ request to retrieve more items in the list. **/
         Truncated?: BooleanType;
     }
     export interface ListKeyPoliciesRequest {
-        /** A unique identifier for the customer master key. This value can be a globally
-unique identifier, a fully specified ARN to either an alias or a key, or an
-alias name prefixed by &quot;alias/&quot;.
+        /** A unique identifier for the customer master key (CMK). You can use the unique
+key ID or the Amazon Resource Name (ARN) of the CMK. Examples:
 
- &amp;#42; Key ARN Example -
-   arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
+ &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
    
    
- * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
-   
-   
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
-   
-   
- * Alias Name Example - alias/MyAliasName **/
+ * Key ARN: 
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
         /** When paginating results, specify the maximum number of items to return in the
 response. If additional items exist beyond the number you specify, the Truncated 
@@ -1674,7 +1641,7 @@ Use the CMK&#x27;s unique identifier or its Amazon Resource Name (ARN). For exam
    
    
  * ARN:
-   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
         /** The name of the key policy.
 
@@ -1722,14 +1689,14 @@ The default value is false. **/
         BypassPolicyLockoutSafetyCheck?: BooleanType;
     }
     export interface ReEncryptRequest {
-        /** Ciphertext of the data to re-encrypt. **/
+        /** Ciphertext of the data to reencrypt. **/
         CiphertextBlob: CiphertextType;
         /** Encryption context used to encrypt and decrypt the data specified in the 
 CiphertextBlob parameter. **/
         SourceEncryptionContext?: EncryptionContextType;
-        /** A unique identifier for the customer master key used to re-encrypt the data.
-This value can be a globally unique identifier, a fully specified ARN to either
-an alias or a key, or an alias name prefixed by &quot;alias/&quot;.
+        /** A unique identifier for the CMK to use to reencrypt the data. This value can be
+a globally unique identifier, a fully specified ARN to either an alias or a key,
+or an alias name prefixed by &quot;alias/&quot;.
 
  &amp;#42; Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
@@ -1743,7 +1710,7 @@ an alias or a key, or an alias name prefixed by &quot;alias/&quot;.
    
  * Alias Name Example - alias/MyAliasName **/
         DestinationKeyId: KeyIdType;
-        /** Encryption context to be used when the data is re-encrypted. **/
+        /** Encryption context to use when the data is reencrypted. **/
         DestinationEncryptionContext?: EncryptionContextType;
         /** A list of grant tokens.
 
@@ -1753,28 +1720,22 @@ in the AWS Key Management Service Developer Guide . **/
         GrantTokens?: GrantTokenList;
     }
     export interface ReEncryptResponse {
-        /** The re-encrypted data. If you are using the CLI, the value is Base64 encoded.
-Otherwise, it is not encoded. **/
+        /** The reencrypted data. **/
         CiphertextBlob?: CiphertextType;
-        /** Unique identifier of the key used to originally encrypt the data. **/
+        /** Unique identifier of the CMK used to originally encrypt the data. **/
         SourceKeyId?: KeyIdType;
-        /** Unique identifier of the key used to re-encrypt the data. **/
+        /** Unique identifier of the CMK used to reencrypt the data. **/
         KeyId?: KeyIdType;
     }
     export interface RetireGrantRequest {
         /** Token that identifies the grant to be retired. **/
         GrantToken?: GrantTokenType;
-        /** A unique identifier for the customer master key associated with the grant. This
-value can be a globally unique identifier or a fully specified ARN of the key.
+        /** The Amazon Resource Name of the CMK associated with the grant. Example:
 
- &amp;#42; Key ARN Example -
-   arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
-   
-   
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ &amp;#42; arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId?: KeyIdType;
-        /** Unique identifier of the grant to be retired. The grant ID is returned by the 
-CreateGrant function.
+        /** Unique identifier of the grant to retire. The grant ID is returned in the
+response to a CreateGrant operation.
 
  &amp;#42; Grant ID Example -
    0123456789012345678901234567890123456789012345678901234567890123 **/
@@ -1803,7 +1764,7 @@ of the CMK. Examples:
    
    
  * Key ARN:
-   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
    
    
 
@@ -1848,8 +1809,8 @@ TargetKeyId . **/
         TargetKeyId: KeyIdType;
     }
     export interface UpdateKeyDescriptionRequest {
-        /** A unique identifier for the customer master key. This value can be a globally
-unique identifier or the fully specified ARN to a key.
+        /** A unique identifier for the CMK. This value can be a globally unique identifier
+or the fully specified ARN to a key.
 
  &amp;#42; Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
@@ -1857,7 +1818,7 @@ unique identifier or the fully specified ARN to a key.
    
  * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
-        /** New description for the key. **/
+        /** New description for the CMK. **/
         Description: DescriptionType;
     }
   }
