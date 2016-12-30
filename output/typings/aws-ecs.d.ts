@@ -83,24 +83,28 @@ value of 200%, the scheduler may start four new tasks before stopping the four
 older tasks (provided that the cluster resources required to do this are
 available). The default value for maximumPercent is 200%.
 
-When the service scheduler launches new tasks, it attempts to balance them
-across the Availability Zones in your cluster with the following logic:
+When the service scheduler launches new tasks, it determines task placement in
+your cluster with the following logic:
 
  &amp;#42; Determine which of the container instances in your cluster can support your
    service&#x27;s task definition (for example, they have the required CPU, memory,
    ports, and container instance attributes).
    
    
- * Sort the valid container instances by the fewest number of running tasks for
-   this service in the same Availability Zone as the instance. For example, if
-   zone A has one running service task and zones B and C each have zero, valid
-   container instances in either zone B or C are considered optimal for
-   placement.
+ * By default, the service scheduler attempts to balance tasks across
+   Availability Zones in this manner (although you can choose a different
+   placement strategy with the placementStrategy parameter):
    
-   
- * Place the new service task on a valid container instance in an optimal
-   Availability Zone (based on the previous steps), favoring container instances
-   with the fewest number of running tasks for this service.
+    * Sort the valid container instances by the fewest number of running tasks
+      for this service in the same Availability Zone as the instance. For
+      example, if zone A has one running service task and zones B and C each
+      have zero, valid container instances in either zone B or C are considered
+      optimal for placement.
+      
+      
+    * Place the new service task on a valid container instance in an optimal
+      Availability Zone (based on the previous steps), favoring container
+      instances with the fewest number of running tasks for this service.
      *
      * @error ServerException   
      * @error ClientException   
@@ -108,6 +112,14 @@ across the Availability Zones in your cluster with the following logic:
      * @error ClusterNotFoundException   
      */
     createService(params: ECS.CreateServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.CreateServiceResponse|any) => void): Request<ECS.CreateServiceResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
+    /**
+     * Deletes one or more attributes from an Amazon ECS resource.
+     *
+     * @error ClusterNotFoundException   
+     * @error TargetNotFoundException   
+     * @error InvalidParameterException   
+     */
+    deleteAttributes(params: ECS.DeleteAttributesRequest, callback?: (err: ECS.ClusterNotFoundException|ECS.TargetNotFoundException|ECS.InvalidParameterException|any, data: ECS.DeleteAttributesResponse|any) => void): Request<ECS.DeleteAttributesResponse|any,ECS.ClusterNotFoundException|ECS.TargetNotFoundException|ECS.InvalidParameterException|any>;
     /**
      * Deletes the specified cluster. You must deregister all container instances from
 this cluster before you may delete it. You can list the container instances in a
@@ -247,6 +259,19 @@ updates.
      */
     discoverPollEndpoint(params: ECS.DiscoverPollEndpointRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.DiscoverPollEndpointResponse|any) => void): Request<ECS.DiscoverPollEndpointResponse|any,ECS.ServerException|ECS.ClientException|any>;
     /**
+     * Lists the attributes for Amazon ECS resources within a specified target type and
+cluster. When you specify a target type and cluster, LisAttributes returns a
+list of attribute objects, one for each attribute on each resource. You can
+filter the list of results to a single attribute name to only return results
+that have that name. You can also filter the results by attribute name and
+value, for example, to see which container instances in a cluster are running a
+Linux AMI ( ecs.os-type=linux ).
+     *
+     * @error ClusterNotFoundException   
+     * @error InvalidParameterException   
+     */
+    listAttributes(params: ECS.ListAttributesRequest, callback?: (err: ECS.ClusterNotFoundException|ECS.InvalidParameterException|any, data: ECS.ListAttributesResponse|any) => void): Request<ECS.ListAttributesResponse|any,ECS.ClusterNotFoundException|ECS.InvalidParameterException|any>;
+    /**
      * Returns a list of existing clusters.
      *
      * @error ServerException   
@@ -255,7 +280,12 @@ updates.
      */
     listClusters(params: ECS.ListClustersRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.ListClustersResponse|any) => void): Request<ECS.ListClustersResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
-     * Returns a list of container instances in a specified cluster.
+     * Returns a list of container instances in a specified cluster. You can filter the
+results of a ListContainerInstances operation with cluster query language
+statements inside the filter parameter. For more information, see Cluster Query
+Language
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html] 
+in the Amazon EC2 Container Service Developer Guide .
      *
      * @error ServerException   
      * @error ClientException   
@@ -312,6 +342,17 @@ tasks appear in the returned results for at least one hour.
      */
     listTasks(params: ECS.ListTasksRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any, data: ECS.ListTasksResponse|any) => void): Request<ECS.ListTasksResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any>;
     /**
+     * Create or update an attribute on an Amazon ECS resource. If the attribute does
+not already exist on the given target, it is created; if it does exist, it is
+replaced with the new value.
+     *
+     * @error ClusterNotFoundException   
+     * @error TargetNotFoundException   
+     * @error AttributeLimitExceededException   
+     * @error InvalidParameterException   
+     */
+    putAttributes(params: ECS.PutAttributesRequest, callback?: (err: ECS.ClusterNotFoundException|ECS.TargetNotFoundException|ECS.AttributeLimitExceededException|ECS.InvalidParameterException|any, data: ECS.PutAttributesResponse|any) => void): Request<ECS.PutAttributesResponse|any,ECS.ClusterNotFoundException|ECS.TargetNotFoundException|ECS.AttributeLimitExceededException|ECS.InvalidParameterException|any>;
+    /**
      * This action is only used by the Amazon EC2 Container Service agent, and it is
 not intended for use outside of the agent.
 
@@ -350,11 +391,16 @@ run reference.
      */
     registerTaskDefinition(params: ECS.RegisterTaskDefinitionRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.RegisterTaskDefinitionResponse|any) => void): Request<ECS.RegisterTaskDefinitionResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
-     * Start a task using random placement and the default Amazon ECS scheduler. To use
-your own scheduler or place a task on a specific container instance, use 
-StartTask instead.
+     * Starts a new task using the specified task definition.
 
-The count parameter is limited to 10 tasks per call.
+You can allow Amazon ECS to place tasks for you, or you can customize how Amazon
+ECS places tasks using placement constraints and placement strategies. For more
+information, see Scheduling Tasks
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html] 
+in the Amazon EC2 Container Service Developer Guide .
+
+Alternatively, you can use StartTask to use your own scheduler or place tasks
+manually on specific container instances.
      *
      * @error ServerException   
      * @error ClientException   
@@ -364,10 +410,12 @@ The count parameter is limited to 10 tasks per call.
     runTask(params: ECS.RunTaskRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.RunTaskResponse|any) => void): Request<ECS.RunTaskResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Starts a new task from the specified task definition on the specified container
-instance or instances. To use the default Amazon ECS scheduler to place your
-task, use RunTask instead.
+instance or instances.
 
-The list of container instances to start tasks on is limited to 10.
+Alternatively, you can use RunTask to place tasks for you. For more information,
+see Scheduling Tasks
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html] 
+in the Amazon EC2 Container Service Developer Guide .
      *
      * @error ServerException   
      * @error ClientException   
@@ -471,24 +519,45 @@ and a 30-second timeout, after which SIGKILL is sent and the containers are
 forcibly stopped. If the container handles the SIGTERM gracefully and exits
 within 30 seconds from receiving it, no SIGKILL is sent.
 
-When the service scheduler launches new tasks, it attempts to balance them
-across the Availability Zones in your cluster with the following logic:
+When the service scheduler launches new tasks, it determines task placement in
+your cluster with the following logic:
 
  &amp;#42; Determine which of the container instances in your cluster can support your
    service&#x27;s task definition (for example, they have the required CPU, memory,
    ports, and container instance attributes).
    
    
- * Sort the valid container instances by the fewest number of running tasks for
-   this service in the same Availability Zone as the instance. For example, if
-   zone A has one running service task and zones B and C each have zero, valid
-   container instances in either zone B or C are considered optimal for
-   placement.
+ * By default, the service scheduler attempts to balance tasks across
+   Availability Zones in this manner (although you can choose a different
+   placement strategy with the placementStrategy parameter):
+   
+    * Sort the valid container instances by the fewest number of running tasks
+      for this service in the same Availability Zone as the instance. For
+      example, if zone A has one running service task and zones B and C each
+      have zero, valid container instances in either zone B or C are considered
+      optimal for placement.
+      
+      
+    * Place the new service task on a valid container instance in an optimal
+      Availability Zone (based on the previous steps), favoring container
+      instances with the fewest number of running tasks for this service.
+      
+      
    
    
- * Place the new service task on a valid container instance in an optimal
-   Availability Zone (based on the previous steps), favoring container instances
-   with the fewest number of running tasks for this service.
+
+When the service scheduler stops running tasks, it attempts to maintain balance
+across the Availability Zones in your cluster with the following logic:
+
+ * Sort the container instances by the largest number of running tasks for this
+   service in the same Availability Zone as the instance. For example, if zone A
+   has one running service task and zones B and C each have two, container
+   instances in either zone B or C are considered optimal for termination.
+   
+   
+ * Stop the task on a container instance in an optimal Availability Zone (based
+   on the previous steps), favoring container instances with the largest number
+   of running tasks for this service.
      *
      * @error ServerException   
      * @error ClientException   
@@ -553,6 +622,14 @@ across the Availability Zones in your cluster with the following logic:
     
     export type NetworkMode = string;
     
+    export type PlacementConstraintType = string;
+    
+    export type PlacementConstraints = PlacementConstraint[];
+    
+    export type PlacementStrategies = PlacementStrategy[];
+    
+    export type PlacementStrategyType = string;
+    
     export type PortMappingList = PortMapping[];
     
     export type RequiresAttributes = Attribute[];
@@ -569,7 +646,13 @@ across the Availability Zones in your cluster with the following logic:
     
     export type StringList = String[];
     
+    export type TargetType = string;
+    
     export type TaskDefinitionFamilyStatus = string;
+    
+    export type TaskDefinitionPlacementConstraintType = string;
+    
+    export type TaskDefinitionPlacementConstraints = TaskDefinitionPlacementConstraint[];
     
     export type TaskDefinitionStatus = string;
     
@@ -588,11 +671,22 @@ across the Availability Zones in your cluster with the following logic:
     export type VolumeList = Volume[];
 
     export interface Attribute {
-        /** The name of the container instance attribute. **/
+        /** The name of the attribute. Up to 128 letters (uppercase and lowercase), numbers,
+hyphens, underscores, and periods are allowed. **/
         name: String;
-        /** The value of the container instance attribute (at this time, the value here is 
-Null , but this could change in future revisions for expandability). **/
+        /** The value of the attribute. Up to 128 letters (uppercase and lowercase),
+numbers, hyphens, underscores, periods, at signs (@), forward slashes, colons,
+and spaces are allowed. **/
         value?: String;
+        /** The type of the target with which to attach the attribute. This parameter is
+required if you use the short form ID for a resource instead of the full Amazon
+Resource Name (ARN). **/
+        targetType?: TargetType;
+        /** The ID of the target. You can specify the short form ID for a resource or the
+full Amazon Resource Name (ARN). **/
+        targetId?: String;
+    }
+    export interface AttributeLimitExceededException {
     }
     export interface ClientException {
         message?: String;
@@ -636,7 +730,7 @@ can view these services with ListServices . **/
         lastStatus?: String;
         /** The exit code returned from the container. **/
         exitCode?: BoxedInteger;
-        /** A short (255 max characters) human-readable string to provide additional detail
+        /** A short (255 max characters) human-readable string to provide additional details
 about a running or stopped container. **/
         reason?: String;
         /** The network bindings associated with the container. **/
@@ -664,7 +758,15 @@ section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 IMAGE parameter of docker run [https://docs.docker.com/engine/reference/run/] .
 
- &amp;#42; Images in official repositories on Docker Hub use a single name (for example, 
+Amazon ECS task definitions currently only support tags as image identifiers
+within a specified repository (and not sha256 digests).
+
+ &amp;#42; Images in Amazon ECR repositories use the full registry and repository URI
+   (for example, 
+   012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt; ).
+   
+   
+ * Images in official repositories on Docker Hub use a single name (for example, 
    ubuntu or mongo ).
    
    
@@ -982,9 +1084,8 @@ logging drivers [https://docs.docker.com/engine/admin/logging/overview/] in the
 Docker documentation.
 
 Amazon ECS currently supports a subset of the logging drivers available to the
-Docker daemon (shown in the LogConfiguration data type). Currently unsupported
-log drivers may be available in future releases of the Amazon ECS container
-agent.
+Docker daemon (shown in the LogConfiguration data type). Additional log drivers
+may be available in future releases of the Amazon ECS container agent.
 
 This parameter requires version 1.18 of the Docker Remote API or greater on your
 container instance. To check the Docker Remote API version on your container
@@ -1045,8 +1146,9 @@ Registered instances with an agent that may be unhealthy or stopped return false
         /** The status of the most recent agent update. If an update has never been
 requested, this value is NULL . **/
         agentUpdateStatus?: AgentUpdateStatus;
-        /** The attributes set for the container instance by the Amazon ECS container agent
-at instance registration. **/
+        /** The attributes set for the container instance, either by the Amazon ECS
+container agent at instance registration or manually with the PutAttributes 
+operation. **/
         attributes?: Attributes;
     }
     export interface ContainerOverride {
@@ -1084,9 +1186,10 @@ of the task definition to run in your service. If a revision is not specified,
 the latest ACTIVE revision is used. **/
         taskDefinition: String;
         /** A load balancer object representing the load balancer to use with your service.
-Currently, you are limited to one load balancer per service. After you create a
-service, the load balancer name, container name, and container port specified in
-the service definition are immutable.
+Currently, you are limited to one load balancer or target group per service.
+After you create a service, the load balancer name or target group ARN,
+container name, and container port specified in the service definition are
+immutable.
 
 For Elastic Load Balancing Classic load balancers, this object must contain the
 load balancer name, the container name (as it appears in a container
@@ -1124,10 +1227,32 @@ in the IAM User Guide . **/
         /** Optional deployment parameters that control how many tasks run during the
 deployment and the ordering of stopping and starting tasks. **/
         deploymentConfiguration?: DeploymentConfiguration;
+        /** An array of placement constraint objects to use for tasks in your service. You
+can specify a maximum of 10 constraints per task (this limit includes
+constraints in the task definition and those specified at run time). **/
+        placementConstraints?: PlacementConstraints;
+        /** The placement strategy objects to use for tasks in your service. You can specify
+a maximum of 5 strategy rules per service. **/
+        placementStrategy?: PlacementStrategies;
     }
     export interface CreateServiceResponse {
         /** The full description of your service following the create call. **/
         service?: Service;
+    }
+    export interface DeleteAttributesRequest {
+        /** The short name or full Amazon Resource Name (ARN) of the cluster that contains
+the resource to apply attributes. If you do not specify a cluster, the default
+cluster is assumed. **/
+        cluster?: String;
+        /** The attributes to delete from your resource. You can specify up to 10 attributes
+per request. For custom attributes, specify the attribute name and target ID,
+but do not specify the value. If you specify the target ID using the short form,
+you must also specify the target type. **/
+        attributes: Attributes;
+    }
+    export interface DeleteAttributesResponse {
+        /** A list of attribute objects that were successfully deleted from your resource. **/
+        attributes?: Attributes;
     }
     export interface DeleteClusterRequest {
         /** The short name or full Amazon Resource Name (ARN) of the cluster to delete. **/
@@ -1337,6 +1462,43 @@ the environment variable. **/
 the environment variable. **/
         value?: String;
     }
+    export interface ListAttributesRequest {
+        /** The short name or full Amazon Resource Name (ARN) of the cluster to list
+attributes. If you do not specify a cluster, the default cluster is assumed. **/
+        cluster?: String;
+        /** The type of the target with which to list attributes. **/
+        targetType: TargetType;
+        /** The name of the attribute with which to filter the results. **/
+        attributeName?: String;
+        /** The value of the attribute with which to filter results. You must also specify
+an attribute name to use this parameter. **/
+        attributeValue?: String;
+        /** The nextToken value returned from a previous paginated ListAttributes request
+where maxResults was used and the results exceeded the value of that parameter.
+Pagination continues from the end of the previous results that returned the 
+nextToken value. This value is null when there are no more results to return.
+
+This token should be treated as an opaque identifier that is only used to
+retrieve the next items in a list and not for other programmatic purposes. **/
+        nextToken?: String;
+        /** The maximum number of cluster results returned by ListAttributes in paginated
+output. When this parameter is used, ListAttributes only returns maxResults 
+results in a single page along with a nextToken response element. The remaining
+results of the initial request can be seen by sending another ListAttributes 
+request with the returned nextToken value. This value can be between 1 and 100.
+If this parameter is not used, then ListAttributes returns up to 100 results and
+a nextToken value if applicable. **/
+        maxResults?: BoxedInteger;
+    }
+    export interface ListAttributesResponse {
+        /** A list of attribute objects that meet the criteria of the request. **/
+        attributes?: Attributes;
+        /** The nextToken value to include in a future ListAttributes request. When the
+results of a ListAttributes request exceed maxResults , this value can be used
+to retrieve the next page of results. This value is null when there are no more
+results to return. **/
+        nextToken?: String;
+    }
     export interface ListClustersRequest {
         /** The nextToken value returned from a previous paginated ListClusters request
 where maxResults was used and the results exceeded the value of that parameter.
@@ -1370,6 +1532,11 @@ results to return. **/
 container instances to list. If you do not specify a cluster, the default
 cluster is assumed. **/
         cluster?: String;
+        /** You can filter the results of a ListContainerInstances operation with cluster
+query language statements. For more information, see Cluster Query Language
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html] 
+in the Amazon EC2 Container Service Developer Guide . **/
+        filter?: String;
         /** The nextToken value returned from a previous paginated ListContainerInstances 
 request where maxResults was used and the results exceeded the value of that
 parameter. Pagination continues from the end of the previous results that
@@ -1637,6 +1804,34 @@ value is false . **/
     }
     export interface NoUpdateAvailableException {
     }
+    export interface PlacementConstraint {
+        /** The type of constraint. Use distinctInstance to ensure that each task in a
+particular group is running on a different container instance. Use memberOf to
+restrict selection to a group of valid candidates. **/
+        type?: PlacementConstraintType;
+        /** A cluster query language expression to apply to the constraint. Note you cannot
+specify an expression if the constraint type is distinctInstance . For more
+information, see Cluster Query Language
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html] 
+in the Amazon EC2 Container Service Developer Guide . **/
+        expression?: String;
+    }
+    export interface PlacementStrategy {
+        /** The type of placement strategy. The random placement strategy randomly places
+tasks on available candidates. The spread placement strategy spreads placement
+across available candidates evenly based on the field parameter. The binpack 
+strategy places tasks on available candidates that have the least available
+amount of the resource that is specified with the field parameter. For example,
+if you binpack on memory, a task is placed on the instance with the least amount
+of remaining memory (but still enough to run the task). **/
+        type?: PlacementStrategyType;
+        /** The field to apply the placement strategy against. For the spread placement
+strategy, valid values are instanceId (or host , which has the same effect), or
+any platform or custom attribute that is applied to a container instance, such
+as attribute:ecs.availability-zone . For the binpack placement strategy, valid
+values are CPU and MEMORY . **/
+        field?: String;
+    }
     export interface PortMapping {
         /** The port number on the container that is bound to the user-specified or
 automatically assigned host port. If you specify a container port and not a host
@@ -1672,6 +1867,19 @@ toward the 100 reserved ports limit). **/
         /** The protocol used for the port mapping. Valid values are tcp and udp . The
 default is tcp . **/
         protocol?: TransportProtocol;
+    }
+    export interface PutAttributesRequest {
+        /** The short name or full Amazon Resource Name (ARN) of the cluster that contains
+the resource to apply attributes. If you do not specify a cluster, the default
+cluster is assumed. **/
+        cluster?: String;
+        /** The attributes to apply to your resource. You can specify up to 10 custom
+attributes per resource. You can specify up to 10 attributes in a single call. **/
+        attributes: Attributes;
+    }
+    export interface PutAttributesResponse {
+        /** The attributes applied to your resource. **/
+        attributes?: Attributes;
     }
     export interface RegisterContainerInstanceRequest {
         /** The short name or full Amazon Resource Name (ARN) of the cluster with which to
@@ -1737,6 +1945,10 @@ containers that make up your task. **/
         /** A list of volume definitions in JSON format that containers in your task may
 use. **/
         volumes?: VolumeList;
+        /** An array of placement constraint objects to use for the task. You can specify a
+maximum of 10 constraints per task (this limit includes constraints in the task
+definition and those specified at run time). **/
+        placementConstraints?: TaskDefinitionPlacementConstraints;
     }
     export interface RegisterTaskDefinitionResponse {
         /** The full description of the registered task definition. **/
@@ -1779,9 +1991,8 @@ environment override.
 A total of 8192 characters are allowed for overrides. This limit includes the
 JSON formatting characters of the override structure. **/
         overrides?: TaskOverride;
-        /** The number of instantiations of the specified task to place on your cluster.
-
-The count parameter is limited to 10 tasks per call. **/
+        /** The number of instantiations of the specified task to place on your cluster. You
+can specify up to 10 tasks per call. **/
         count?: BoxedInteger;
         /** An optional tag specified when a task is started. For example if you
 automatically trigger a task to run a batch process job, you could apply a
@@ -1793,6 +2004,16 @@ lowercase), numbers, hyphens, and underscores are allowed.
 If a task is started by an Amazon ECS service, then the startedBy parameter
 contains the deployment ID of the service that starts it. **/
         startedBy?: String;
+        /** The task group to associate with the task. By default, if you do not specify a
+task group, the group family:TASKDEF-FAMILY is applied. **/
+        group?: String;
+        /** An array of placement constraint objects to use for the task. You can specify up
+to 10 constraints per task (including constraints in the task definition and
+those specified at run time). **/
+        placementConstraints?: PlacementConstraints;
+        /** The placement strategy objects to use for the task. You can specify a maximum of
+5 strategy rules per task. **/
+        placementStrategy?: PlacementStrategies;
     }
     export interface RunTaskResponse {
         /** A full description of the tasks that were run. Each task that was successfully
@@ -1850,6 +2071,10 @@ displayed. **/
         events?: ServiceEvents;
         /** The Unix timestamp for when the service was created. **/
         createdAt?: Timestamp;
+        /** The placement constraints for the tasks in the service. **/
+        placementConstraints?: PlacementConstraints;
+        /** The placement strategy that determines how tasks for the service are placed. **/
+        placementStrategy?: PlacementStrategies;
     }
     export interface ServiceEvent {
         /** The ID string of the event. **/
@@ -1884,9 +2109,8 @@ A total of 8192 characters are allowed for overrides. This limit includes the
 JSON formatting characters of the override structure. **/
         overrides?: TaskOverride;
         /** The container instance IDs or full Amazon Resource Name (ARN) entries for the
-container instances on which you would like to place your task.
-
-The list of container instances to start tasks on is limited to 10. **/
+container instances on which you would like to place your task. You can specify
+up to 10 container instances. **/
         containerInstances: StringList;
         /** An optional tag specified when a task is started. For example if you
 automatically trigger a task to run a batch process job, you could apply a
@@ -1898,6 +2122,9 @@ lowercase), numbers, hyphens, and underscores are allowed.
 If a task is started by an Amazon ECS service, then the startedBy parameter
 contains the deployment ID of the service that starts it. **/
         startedBy?: String;
+        /** The task group to associate with the task. By default, if you do not specify a
+task group, the default group is family:TASKDEF-FAMILY . **/
+        group?: String;
     }
     export interface StartTaskResponse {
         /** A full description of the tasks that were started. Each task that was
@@ -1960,6 +2187,8 @@ request. **/
         /** Acknowledgement of the state change. **/
         acknowledgment?: String;
     }
+    export interface TargetNotFoundException {
+    }
     export interface Task {
         /** The Amazon Resource Name (ARN) of the task. **/
         taskArn?: String;
@@ -1999,6 +2228,8 @@ PENDING state to the RUNNING state). **/
         /** The Unix timestamp for when the task was stopped (the task transitioned from the 
 RUNNING state to the STOPPED state). **/
         stoppedAt?: Timestamp;
+        /** The task group associated with the task. **/
+        group?: String;
     }
     export interface TaskDefinition {
         /** The full Amazon Resource Name (ARN) of the task definition. **/
@@ -2042,6 +2273,19 @@ in the Amazon EC2 Container Service Developer Guide . **/
         status?: TaskDefinitionStatus;
         /** The container instance attributes required by your task. **/
         requiresAttributes?: RequiresAttributes;
+        /** An array of placement constraint objects to use for tasks. **/
+        placementConstraints?: TaskDefinitionPlacementConstraints;
+    }
+    export interface TaskDefinitionPlacementConstraint {
+        /** The type of constraint. The DistinctInstance constraint ensures that each task
+in a particular group is running on a different container instance. The MemberOf 
+constraint restricts selection to be from a group of valid candidates. **/
+        type?: TaskDefinitionPlacementConstraintType;
+        /** A cluster query language expression to apply to the constraint. For more
+information, see Cluster Query Language
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html] 
+in the Amazon EC2 Container Service Developer Guide . **/
+        expression?: String;
     }
     export interface TaskOverride {
         /** One or more container overrides sent to a task. **/

@@ -110,7 +110,7 @@ You can use the AWS CodeDeploy APIs to work with the following:
      */
     batchGetApplications(params: CodeDeploy.BatchGetApplicationsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetApplicationsOutput|any) => void): Request<CodeDeploy.BatchGetApplicationsOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.BatchLimitExceededException|any>;
     /**
-     * Get information about one or more deployment groups.
+     * Gets information about one or more deployment groups.
      *
      * @error ApplicationNameRequiredException   
      * @error InvalidApplicationNameException   
@@ -400,15 +400,22 @@ on-premises instance names, use the registration status parameter.
     registerApplicationRevision(params: CodeDeploy.RegisterApplicationRevisionInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.DescriptionTooLongException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|any, data: any) => void): Request<any,CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.DescriptionTooLongException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|any>;
     /**
      * Registers an on-premises instance.
+
+Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the
+request. You cannot use both.
      *
      * @error InstanceNameAlreadyRegisteredException   
+     * @error IamArnRequiredException   
+     * @error IamSessionArnAlreadyRegisteredException   
      * @error IamUserArnAlreadyRegisteredException   
      * @error InstanceNameRequiredException   
      * @error IamUserArnRequiredException   
      * @error InvalidInstanceNameException   
+     * @error InvalidIamSessionArnException   
      * @error InvalidIamUserArnException   
+     * @error MultipleIamArnsProvidedException   
      */
-    registerOnPremisesInstance(params: CodeDeploy.RegisterOnPremisesInstanceInput, callback?: (err: CodeDeploy.InstanceNameAlreadyRegisteredException|CodeDeploy.IamUserArnAlreadyRegisteredException|CodeDeploy.InstanceNameRequiredException|CodeDeploy.IamUserArnRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.InvalidIamUserArnException|any, data: any) => void): Request<any,CodeDeploy.InstanceNameAlreadyRegisteredException|CodeDeploy.IamUserArnAlreadyRegisteredException|CodeDeploy.InstanceNameRequiredException|CodeDeploy.IamUserArnRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.InvalidIamUserArnException|any>;
+    registerOnPremisesInstance(params: CodeDeploy.RegisterOnPremisesInstanceInput, callback?: (err: CodeDeploy.InstanceNameAlreadyRegisteredException|CodeDeploy.IamArnRequiredException|CodeDeploy.IamSessionArnAlreadyRegisteredException|CodeDeploy.IamUserArnAlreadyRegisteredException|CodeDeploy.InstanceNameRequiredException|CodeDeploy.IamUserArnRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.InvalidIamSessionArnException|CodeDeploy.InvalidIamUserArnException|CodeDeploy.MultipleIamArnsProvidedException|any, data: any) => void): Request<any,CodeDeploy.InstanceNameAlreadyRegisteredException|CodeDeploy.IamArnRequiredException|CodeDeploy.IamSessionArnAlreadyRegisteredException|CodeDeploy.IamUserArnAlreadyRegisteredException|CodeDeploy.InstanceNameRequiredException|CodeDeploy.IamUserArnRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.InvalidIamSessionArnException|CodeDeploy.InvalidIamUserArnException|CodeDeploy.MultipleIamArnsProvidedException|any>;
     /**
      * Removes one or more tags from one or more on-premises instances.
      *
@@ -536,6 +543,8 @@ on-premises instance names, use the registration status parameter.
     export type ErrorCode = string;
     
     export type ErrorMessage = string;
+    
+    export type IamSessionArn = string;
     
     export type IamUserArn = string;
     
@@ -817,56 +826,10 @@ operation.
 CodeDeployDefault.OneAtATime is the default deployment configuration. It is used
 if a configuration isn&#x27;t specified for the deployment or the deployment group.
 
-The predefined deployment configurations include the following:
-
- &amp;#42; CodeDeployDefault.AllAtOnce attempts to deploy an application revision to as
-   many instances as possible at once. The status of the overall deployment will
-   be displayed as Succeeded if the application revision is deployed to one or
-   more of the instances. The status of the overall deployment will be displayed
-   as Failed if the application revision is not deployed to any of the
-   instances. Using an example of nine instances, CodeDeployDefault.AllAtOnce
-   will attempt to deploy to all nine instances at once. The overall deployment
-   will succeed if deployment to even a single instance is successful; it will
-   fail only if deployments to all nine instances fail.
-   
-   
- * CodeDeployDefault.HalfAtATime deploys to up to half of the instances at a
-   time (with fractions rounded down). The overall deployment succeeds if the
-   application revision is deployed to at least half of the instances (with
-   fractions rounded up); otherwise, the deployment fails. In the example of
-   nine instances, it will deploy to up to four instances at a time. The overall
-   deployment succeeds if deployment to five or more instances succeed;
-   otherwise, the deployment fails. The deployment may be successfully deployed
-   to some instances even if the overall deployment fails.
-   
-   
- * CodeDeployDefault.OneAtATime deploys the application revision to only one
-   instance at a time.
-   
-   For deployment groups that contain more than one instance:
-   
-    * The overall deployment succeeds if the application revision is deployed to
-      all of the instances. The exception to this rule is if deployment to the
-      last instance fails, the overall deployment still succeeds. This is
-      because AWS CodeDeploy allows only one instance at a time to be taken
-      offline with the CodeDeployDefault.OneAtATime configuration.
-      
-      
-    * The overall deployment fails as soon as the application revision fails to
-      be deployed to any but the last instance. The deployment may be
-      successfully deployed to some instances even if the overall deployment
-      fails.
-      
-      
-    * In an example using nine instances, it will deploy to one instance at a
-      time. The overall deployment succeeds if deployment to the first eight
-      instances is successful; the overall deployment fails if deployment to any
-      of the first eight instances fails.
-      
-      
-   
-   For deployment groups that contain only one instance, the overall deployment
-   is successful only if deployment to the single instance is successful **/
+For more information about the predefined deployment configurations in AWS
+CodeDeploy, see see Working with Deployment Groups in AWS CodeDeploy
+[http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html] 
+in the AWS CodeDeploy User Guide. **/
         deploymentConfigName?: DeploymentConfigName;
         /** The Amazon EC2 tags on which to filter. **/
         ec2TagFilters?: EC2TagFilterList;
@@ -1293,6 +1256,10 @@ Specified as account/repository. **/
 for the application revision. **/
         commitId?: CommitId;
     }
+    export interface IamArnRequiredException {
+    }
+    export interface IamSessionArnAlreadyRegisteredException {
+    }
     export interface IamUserArnAlreadyRegisteredException {
     }
     export interface IamUserArnRequiredException {
@@ -1304,6 +1271,8 @@ for the application revision. **/
     export interface InstanceInfo {
         /** The name of the on-premises instance. **/
         instanceName?: InstanceName;
+        /** The ARN of the IAM session associated with the on-premises instance. **/
+        iamSessionArn?: IamSessionArn;
         /** The IAM user ARN associated with the on-premises instance. **/
         iamUserArn?: IamUserArn;
         /** The ARN of the on-premises instance. **/
@@ -1374,6 +1343,8 @@ instance was deregistered. **/
     export interface InvalidDeploymentStatusException {
     }
     export interface InvalidEC2TagException {
+    }
+    export interface InvalidIamSessionArnException {
     }
     export interface InvalidIamUserArnException {
     }
@@ -1676,6 +1647,8 @@ for a new deployment, it also means that if the deployment to the last instance
 fails, the overall deployment still succeeds. **/
         type?: MinimumHealthyHostsType;
     }
+    export interface MultipleIamArnsProvidedException {
+    }
     export interface RegisterApplicationRevisionInput {
         /** The name of an AWS CodeDeploy application associated with the applicable IAM
 user or AWS account. **/
@@ -1689,8 +1662,10 @@ location. **/
     export interface RegisterOnPremisesInstanceInput {
         /** The name of the on-premises instance to register. **/
         instanceName: InstanceName;
+        /** The ARN of the IAM session to associate with the on-premises instance. **/
+        iamSessionArn?: IamSessionArn;
         /** The ARN of the IAM user to associate with the on-premises instance. **/
-        iamUserArn: IamUserArn;
+        iamUserArn?: IamUserArn;
     }
     export interface RemoveTagsFromOnPremisesInstancesInput {
         /** The tag key-value pairs to remove from the on-premises instances. **/
@@ -1701,7 +1676,10 @@ location. **/
     export interface RevisionDoesNotExistException {
     }
     export interface RevisionInfo {
+        /** Information about the location and type of an application revision. **/
         revisionLocation?: RevisionLocation;
+        /** Information about an application revision, including usage details and currently
+associated deployment groups. **/
         genericRevisionInfo?: GenericRevisionInfo;
     }
     export interface RevisionLocation {
@@ -1712,7 +1690,9 @@ location. **/
    
  * GitHub: An application revision stored in GitHub. **/
         revisionType?: RevisionLocationType;
+        /** Information about the location of application artifacts stored in Amazon S3. **/
         s3Location?: S3Location;
+        /** Information about the location of application artifacts stored in GitHub. **/
         gitHubLocation?: GitHubLocation;
     }
     export interface RevisionRequiredException {
