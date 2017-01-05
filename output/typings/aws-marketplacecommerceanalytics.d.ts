@@ -112,6 +112,8 @@ iam:GetRolePolicy.
    was split into three data sets: disbursed_amount_by_product,
    disbursed_amount_by_age_of_uncollected_funds, and
    disbursed_amount_by_age_of_disbursed_funds.
+ * disbursed_amount_by_instance_hours - Available every 30 days by 5:00 PM
+   Pacific Time since 2012-09-04.
  * disbursed_amount_by_customer_geo - Available every 30 days by 5:00 PM Pacific
    Time since 2012-04-19.
  * disbursed_amount_by_age_of_uncollected_funds - Available every 30 days by

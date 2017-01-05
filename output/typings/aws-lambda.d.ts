@@ -17,9 +17,9 @@ declare module "aws-sdk" {
    * AWS LambdaOverview
 
 This is the AWS Lambda API Reference . The AWS Lambda Developer Guide provides
-additional information. For the service overview, go to What is AWS Lambda
+additional information. For the service overview, see What is AWS Lambda
 [http://docs.aws.amazon.com/lambda/latest/dg/welcome.html] , and for information
-about how the service works, go to AWS Lambda: How it Works
+about how the service works, see AWS Lambda: How it Works
 [http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html] in the 
 AWS Lambda Developer Guide .
    *
@@ -78,7 +78,7 @@ This association between a stream source and a Lambda function is called the
 event source mapping.
 
 This event source mapping is relevant only in the AWS Lambda pull model, where
-AWS Lambda invokes the function. For more information, go to AWS Lambda: How it
+AWS Lambda invokes the function. For more information, see AWS Lambda: How it
 Works [http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html] in
 the AWS Lambda Developer Guide .
 
@@ -176,10 +176,10 @@ This operation requires permission for the lambda:DeleteFunction action.
     /**
      * Returns a customer&#x27;s account settings.
 
-You can use this operation to retrieve Lambda limit information such as code
-size and concurrency limits. For more information on limits, see AWS Lambda
+You can use this operation to retrieve Lambda limits information, such as code
+size and concurrency limits. For more information about limits, see AWS Lambda
 Limits [http://docs.aws.amazon.com/lambda/latest/dg/limits.html] . You can also
-retrieve resource usage statistics such as code storage usage and function
+retrieve resource usage statistics, such as code storage usage and function
 count.
      *
      * @error TooManyRequestsException   
@@ -619,7 +619,7 @@ default size is 75 GB. **/
 (uncompressed zip/jar size) for uploading. The default limit is 250 MB. **/
         CodeSizeUnzipped?: Long;
         /** Size, in bytes, of a single zipped code/dependencies package you can upload for
-your Lambda function(.zip/.jar file). Try using AWS S3 for uploading larger
+your Lambda function(.zip/.jar file). Try using Amazon S3 for uploading larger
 files. Default limit is 50 MB. **/
         CodeSizeZipped?: Long;
         /** Number of simultaneous executions of your function per region. For more
@@ -630,7 +630,7 @@ default limit is 100. **/
         ConcurrentExecutions?: Integer;
     }
     export interface AccountUsage {
-        /** Total size, in megabytes, of the account&#x27;s deployment packages per region. **/
+        /** Total size, in bytes, of the account&#x27;s deployment packages per region. **/
         TotalCodeSize?: Long;
         /** The number of your account&#x27;s existing functions per region. **/
         FunctionCount?: Long;
@@ -765,7 +765,7 @@ source at the time of invoking your function. Your function receives an event
 with all the retrieved records. The default is 100 records. **/
         BatchSize?: BatchSize;
         /** The position in the stream where AWS Lambda should start reading. Valid only for
-Kinesis streams. For more information, go to ShardIteratorType
+Kinesis streams. For more information, see ShardIteratorType
 [http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType] 
 in the Amazon Kinesis API Reference . **/
         StartingPosition: EventSourcePosition;
@@ -781,7 +781,8 @@ record (TRIM_HORIZON). Valid only for Kinesis streams. **/
     export interface CreateFunctionRequest {
         /** The name you want to assign to the function you are uploading. The function
 names appear in the console and are returned in the ListFunctions API. Function
-names are used to specify functions to other AWS Lambda APIs, such as Invoke . **/
+names are used to specify functions to other AWS Lambda API operations, such as 
+Invoke . **/
         FunctionName: FunctionName;
         /** The runtime environment for the Lambda function you are uploading.
 
@@ -789,7 +790,7 @@ To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use 
 runtime (v0.10.42), set the value to &quot;nodejs&quot;.
 
 You can no longer create functions using the v0.10.42 runtime version as of
-November, 2016. Existing functions will be supported until early 2017 but we
+November, 2016. Existing functions will be supported until early 2017, but we
 recommend you migrate them to nodejs4.3 runtime version as soon as possible. **/
         Runtime: Runtime;
         /** The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it
@@ -826,7 +827,7 @@ function and publish a version as an atomic operation. **/
 identifying the list of security group IDs and subnet IDs. These must belong to
 the same VPC. You must provide at least one security group and one subnet ID. **/
         VpcConfig?: VpcConfig;
-        /** The parent object that contains the target ARN (Amazon Resource Name) of an
+        /** The parent object that contains the target Amazon Resource Name (ARN) of an
 Amazon SQS queue or Amazon SNS topic. **/
         DeadLetterConfig?: DeadLetterConfig;
         Environment?: Environment;
@@ -836,7 +837,7 @@ key. **/
         KMSKeyArn?: KMSKeyArn;
     }
     export interface DeadLetterConfig {
-        /** The ARN (Amazon Resource Value) of an Amazon SQS queue or Amazon SNS topic you
+        /** The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you
 specify as your Dead Letter Queue (DLQ). **/
         TargetArn?: ResourceArn;
     }
@@ -939,8 +940,8 @@ user-requested or an AWS Lambda-initiated state transition. **/
         /** The contents of your zip file containing your deployment package. If you are
 using the web API directly, the contents of the zip file must be base64-encoded.
 If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the
-encoding for you. For more information about creating a .zip file, go to 
-Execution Permissions
+encoding for you. For more information about creating a .zip file, see Execution
+Permissions
 [http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html] 
 in the AWS Lambda Developer Guide . **/
         ZipFile?: Blob;
@@ -994,7 +995,7 @@ value based on your expected execution time. The default is 3 seconds. **/
         Version?: Version;
         /** VPC configuration associated with your Lambda function. **/
         VpcConfig?: VpcConfigResponse;
-        /** The parent object that contains the target ARN (Amazon Resource Name) of an
+        /** The parent object that contains the target Amazon Resource Name (ARN) of an
 Amazon SQS queue or Amazon SNS topic. **/
         DeadLetterConfig?: DeadLetterConfig;
         /** The parent object that contains your environment&#x27;s configuration settings. **/
@@ -1414,13 +1415,13 @@ name, it is limited to 64 character in length. **/
         /** The contents of your zip file containing your deployment package. If you are
 using the web API directly, the contents of the zip file must be base64-encoded.
 If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the
-encoding for you. For more information about creating a .zip file, go to 
-Execution Permissions
+encoding for you. For more information about creating a .zip file, see Execution
+Permissions
 [http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html] 
 in the AWS Lambda Developer Guide . **/
         ZipFile?: Blob;
         /** Amazon S3 bucket name where the .zip file containing your deployment package is
-stored. This bucket must reside in the same AWS region where you are creating
+stored. This bucket must reside in the same AWS Region where you are creating
 the Lambda function. **/
         S3Bucket?: S3Bucket;
         /** The Amazon S3 object (the deployment package) key name you want to upload. **/
@@ -1471,7 +1472,7 @@ runtime (v0.10.42), set the value to &quot;nodejs&quot;.
 You can no longer downgrade to the v0.10.42 runtime version. This version will
 no longer be supported as of early 2017. **/
         Runtime?: Runtime;
-        /** The parent object that contains the target ARN (Amazon Resource Name) of an
+        /** The parent object that contains the target Amazon Resource Name (ARN) of an
 Amazon SQS queue or Amazon SNS topic. **/
         DeadLetterConfig?: DeadLetterConfig;
         /** The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&#x27;s

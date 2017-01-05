@@ -164,7 +164,7 @@ If the request satisfies the requirements, Amazon EFS does the following:
       
       
    
-   Each Amazon EFS mount target has one corresponding requestor-managed EC2
+   Each Amazon EFS mount target has one corresponding requester-managed EC2
    network interface. After the network interface is created, Amazon EFS sets
    the NetworkInterfaceId field in the mount target&#x27;s description to the network
    interface ID, and the IpAddress field to its address. If network interface
@@ -173,9 +173,9 @@ If the request satisfies the requirements, Amazon EFS does the following:
    
 
 The CreateMountTarget call returns only after creating the network interface,
-but while the mount target state is still creating . You can check the mount
-target creation status by calling the DescribeFileSystems operation, which among
-other things returns the mount target state.
+but while the mount target state is still creating , you can check the mount
+target creation status by calling the DescribeMountTargets operation, which
+among other things returns the mount target state.
 
 We recommend you create a mount target in each of the Availability Zones. There
 are cost considerations for using a file system in an Availability Zone through

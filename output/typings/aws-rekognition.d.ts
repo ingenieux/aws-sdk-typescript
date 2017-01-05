@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * This is Amazon Rekognition API guide.
+   * This is the Amazon Rekognition API reference.
    *
    */
   export class Rekognition extends Service {
@@ -60,7 +60,7 @@ action.
      */
     compareFaces(params: Rekognition.CompareFacesRequest, callback?: (err: Rekognition.InvalidParameterException|Rekognition.InvalidS3ObjectException|Rekognition.ImageTooLargeException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.InvalidImageFormatException|any, data: Rekognition.CompareFacesResponse|any) => void): Request<Rekognition.CompareFacesResponse|any,Rekognition.InvalidParameterException|Rekognition.InvalidS3ObjectException|Rekognition.ImageTooLargeException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.InvalidImageFormatException|any>;
     /**
-     * Creates a collection in an AWS region. You can add faces to the collection using
+     * Creates a collection in an AWS Region. You can add faces to the collection using
 the operation.
 
 For example, you might create collections, one for each of your application
@@ -218,11 +218,11 @@ This includes, the bounding box of the detected face, confidence value
 (indicating the bounding box contains a face), a face ID assigned by the service
 for each face that is detected and stored, and an image ID assigned by the
 service for the input image If you request all facial attributes (using the 
-detectionAttributes parameter, Rekognition returns detailed facial attributes
-such as facial landmarks (for example, location of eye and mount) and other
-facial attributes such gender. If you provide the same image, specify the same
-collection, and use the same external ID in the IndexFaces operation,
-Rekognition doesn&#x27;t save duplicate face metadata.
+detectionAttributes parameter, Amazon Rekognition returns detailed facial
+attributes such as facial landmarks (for example, location of eye and mount) and
+other facial attributes such gender. If you provide the same image, specify the
+same collection, and use the same external ID in the IndexFaces operation,
+Amazon Rekognition doesn&#x27;t save duplicate face metadata.
 
 For an example, see example2 .
 
@@ -276,10 +276,10 @@ This operation requires permissions to perform the rekognition:ListFaces action.
      */
     listFaces(params: Rekognition.ListFacesRequest, callback?: (err: Rekognition.InvalidParameterException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.InvalidPaginationTokenException|Rekognition.ResourceNotFoundException|any, data: Rekognition.ListFacesResponse|any) => void): Request<Rekognition.ListFacesResponse|any,Rekognition.InvalidParameterException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.InvalidPaginationTokenException|Rekognition.ResourceNotFoundException|any>;
     /**
-     * For a given input face ID, searches the specified collection for matching faces.
-You get a face ID when you add a face to the collection using the IndexFaces 
-operation. The operation compares the features of the input face with faces in
-the specified collection.
+     * For a given input face ID, searches for matching faces in the collection the
+face belongs to. You get a face ID when you add a face to the collection using
+the IndexFaces operation. The operation compares the features of the input face
+with faces in the specified collection.
 
 You can also search faces without indexing faces by using the SearchFacesByImage 
 operation.
@@ -308,19 +308,20 @@ action.
 searches the specified collection for matching faces. The operation compares the
 features of the input face with faces in the specified collection.
 
-To search for all faces in an input image, you might first call the API, and
-then use the face IDs returned in subsequent calls to the API.
+To search for all faces in an input image, you might first call the operation,
+and then use the face IDs returned in subsequent calls to the operation.
 
-You can also call the DetectFaces API and use the bounding boxes in the response
-to make face crops, which then you can pass in to the SearchFacesByImage API.
+You can also call the DetectFaces operation and use the bounding boxes in the
+response to make face crops, which then you can pass in to the 
+SearchFacesByImage operation.
 
 The response returns an array of faces that match, ordered by similarity score
 with the highest similarity first. More specifically, it is an array of metadata
 for each face match found. Along with the metadata, the response also includes a 
 similarity indicating how similar the face is to the input face. In the
-response, the API also returns the bounding box (and a confidence level that the
-bounding box contains a face) of the face that Rekognition used for the input
-image.
+response, the operation also returns the bounding box (and a confidence level
+that the bounding box contains a face) of the face that Amazon Rekognition used
+for the input image.
 
 For an example, see example3 .
 
@@ -435,9 +436,9 @@ actually contains a face). **/
         Face?: ComparedFace;
     }
     export interface CompareFacesRequest {
-        /** Source image either as bytes or an Amazon S3 object **/
+        /** Source image either as bytes or an S3 object **/
         SourceImage: Image;
-        /** Target image either as bytes or an Amazon S3 object **/
+        /** Target image either as bytes or an S3 object **/
         TargetImage: Image;
         /** The minimum level of confidence in the match you want included in the result. **/
         SimilarityThreshold?: Percent;
@@ -458,7 +459,7 @@ image. **/
     }
     export interface ComparedSourceImageFace {
         BoundingBox?: BoundingBox;
-        /** Confidence that the selected bounding box contains a face. **/
+        /** Confidence level that the selected bounding box contains a face. **/
         Confidence?: Percent;
     }
     export interface CreateCollectionRequest {
@@ -500,7 +501,7 @@ returns subset of facial attributes.
 For example, you can specify the value as, [&quot;ALL&quot;] or [&quot;DEFAULT&quot;]. If you
 provide both, [&quot;ALL&quot;, &quot;DEFAULT&quot;], the service uses a logical AND operator to
 determine which attributes to return (in this case, it is all attributes). If
-you specify all attributes, Rekognition performs additional detection. **/
+you specify all attributes, Amazon Rekognition performs additional detection. **/
         Attributes?: Attributes;
     }
     export interface DetectFacesResponse {
@@ -535,9 +536,9 @@ confidence values greater than or equal to 50 percent. **/
         Labels?: Labels;
         /** Amazon Rekognition returns the orientation of the input image that was detected
 (clockwise direction). If your application displays the image, you can use this
-value to correct the orientation. If Rekognition detects that the input image
-was rotated (for example, by 90 degrees), it first corrects the orientation
-before detecting the labels. **/
+value to correct the orientation. If Amazon Rekognition detects that the input
+image was rotated (for example, by 90 degrees), it first corrects the
+orientation before detecting the labels. **/
         OrientationCorrection?: OrientationCorrection;
     }
     export interface Emotion {
@@ -650,10 +651,10 @@ detected in the input images. **/
 operation returns a subset of the facial attributes.
 
 For example, you can specify the value as, [&quot;ALL&quot;] or [&quot;DEFAULT&quot;]. If you
-provide both, [&quot;ALL&quot;, &quot;DEFAULT&quot;], Rekognition uses the logical AND operator to
-determine which attributes to return (in this case, it is all attributes). If
-you specify all attributes, the service performs additional detection, in
-addition to the default. **/
+provide both, [&quot;ALL&quot;, &quot;DEFAULT&quot;], Amazon Rekognition uses the logical AND
+operator to determine which attributes to return (in this case, it is all
+attributes). If you specify all attributes, the service performs additional
+detection, in addition to the default. **/
         DetectionAttributes?: Attributes;
     }
     export interface IndexFacesResponse {
@@ -687,11 +688,11 @@ are returned. **/
         Type?: LandmarkType;
         /** x-coordinate from the top left of the landmark expressed as the ration of the
 width of the image. For example, if the images is 700x200 and the x-coordinate
-of the landmark is at 350 pixels, then this value is 0.5. **/
+of the landmark is at 350 pixels, this value is 0.5. **/
         X?: Float;
         /** y-coordinate from the top left of the landmark expressed as the ration of the
 height of the image. For example, if the images is 700x200 and the y-coordinate
-of the landmark is at 100 pixels, then this value is 0.5. **/
+of the landmark is at 100 pixels, this value is 0.5. **/
         Y?: Float;
     }
     export interface ListCollectionsRequest {
@@ -770,8 +771,8 @@ example, don&#x27;t return any matches where confidence in matches is less than 
         FaceMatchThreshold?: Percent;
     }
     export interface SearchFacesByImageResponse {
-        /** The bounding box around the face in the input image that Rekognition used for
-the search. **/
+        /** The bounding box around the face in the input image that Amazon Rekognition used
+for the search. **/
         SearchedFaceBoundingBox?: BoundingBox;
         /** The level of confidence that the searchedFaceBoundingBox , contains a face. **/
         SearchedFaceConfidence?: Percent;
@@ -780,11 +781,11 @@ match. **/
         FaceMatches?: FaceMatchList;
     }
     export interface SearchFacesRequest {
-        /** ID of the collection to search. **/
+        /** ID of the collection the face belongs to. **/
         CollectionId: CollectionId;
         /** ID of a face to find matches for in the collection. **/
         FaceId: FaceId;
-        /** Maximum number of faces to return. The API will return the maximum number of
+        /** Maximum number of faces to return. The operation returns the maximum number of
 faces with the highest confidence in the match. **/
         MaxFaces?: MaxFaces;
         /** Optional value specifying the minimum confidence in the face match to return.

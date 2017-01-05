@@ -2453,14 +2453,14 @@ the AWS General Reference . **/
         /** The new password. The new password must conform to the AWS account&#x27;s password
 policy, if one exists.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of almost any printable ASCII character from
-the space (\u0020) through the end of the ASCII character range (\u00FF). You
-can also include the tab (\u0009), line feed (\u000A), and carriage return
-(\u000D) characters. Although any of these characters are valid in a password,
-note that many tools, such as the AWS Management Console, might restrict the
-ability to enter certain characters because they have special meaning within
-that tool. **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of almost any printable ASCII
+character from the space (\u0020) through the end of the ASCII character range
+(\u00FF). You can also include the tab (\u0009), line feed (\u000A), and
+carriage return (\u000D) characters. Although any of these characters are valid
+in a password, note that many tools, such as the AWS Management Console, might
+restrict the ability to enter certain characters because they have special
+meaning within that tool. **/
         NewPassword: passwordType;
     }
     export interface ContextEntry {
@@ -2555,14 +2555,14 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
         /** The new password for the user.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of almost any printable ASCII character from
-the space (\u0020) through the end of the ASCII character range (\u00FF). You
-can also include the tab (\u0009), line feed (\u000A), and carriage return
-(\u000D) characters. Although any of these characters are valid in a password,
-note that many tools, such as the AWS Management Console, might restrict the
-ability to enter certain characters because they have special meaning within
-that tool. **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of almost any printable ASCII
+character from the space (\u0020) through the end of the ASCII character range
+(\u00FF). You can also include the tab (\u0009), line feed (\u000A), and
+carriage return (\u000D) characters. Although any of these characters are valid
+in a password, note that many tools, such as the AWS Management Console, might
+restrict the ability to enter certain characters because they have special
+meaning within that tool. **/
         Password: passwordType;
         /** Specifies whether the user is required to set a new password on next sign-in. **/
         PasswordResetRequired?: booleanType;
@@ -2645,11 +2645,12 @@ punctuation characters, digits, and upper and lowercased letters. **/
         Path?: policyPathType;
         /** The JSON policy document that you want to use as the content for the new policy.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyDocument: policyDocumentType;
         /** A friendly description of the policy.
 
@@ -2676,11 +2677,12 @@ the AWS General Reference . **/
         /** The JSON policy document that you want to use as the content for this new
 version of the policy.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyDocument: policyDocumentType;
         /** Specifies whether to set this version as the policy&#x27;s default version.
 
@@ -2722,11 +2724,12 @@ named both &quot;PRODROLE&quot; and &quot;prodrole&quot;. **/
         /** The trust relationship policy document that grants an entity permission to
 assume the role.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         AssumeRolePolicyDocument: policyDocumentType;
     }
     export interface CreateRoleResponse {
@@ -3260,11 +3263,12 @@ quotas. **/
 those policies. Each document is specified as a string containing the complete,
 valid JSON text of an IAM policy.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyInputList: SimulationPolicyListType;
     }
     export interface GetContextKeysForPolicyResponse {
@@ -3288,11 +3292,12 @@ the AWS General Reference . **/
         /** An optional list of additional policies for which you want the list of context
 keys that are referenced.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyInputList?: SimulationPolicyListType;
     }
     export interface GetCredentialReportResponse {
@@ -4794,11 +4799,12 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
         /** The policy document.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyDocument: policyDocumentType;
     }
     export interface PutRolePolicyRequest {
@@ -4816,11 +4822,12 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
         /** The policy document.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyDocument: policyDocumentType;
     }
     export interface PutUserPolicyRequest {
@@ -4838,11 +4845,12 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
         /** The policy document.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyDocument: policyDocumentType;
     }
     export interface RemoveClientIDFromOpenIDConnectProviderRequest {
@@ -5167,11 +5175,12 @@ or one of the AssumeRole
 [http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html] APIs to
 restrict what a user can do while using the temporary credentials.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyInputList: SimulationPolicyListType;
         /** A list of names of API actions to evaluate in the simulation. Each action is
 evaluated against each resource. Each action must include the service
@@ -5199,11 +5208,12 @@ the AWS General Reference . **/
 resource in the simulation is treated as if it had this policy attached. You can
 include only one resource-based policy in a simulation.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         ResourcePolicy?: policyDocumentType;
         /** An AWS account ID that specifies the owner of any simulated resource that does
 not identify its owner in the resource ARN, such as an S3 bucket or object. If 
@@ -5316,11 +5326,12 @@ the AWS General Reference . **/
 Each document is specified as a string containing the complete, valid JSON text
 of an IAM policy.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyInputList?: SimulationPolicyListType;
         /** A list of names of API actions to evaluate in the simulation. Each action is
 evaluated for each resource. Each action must include the service identifier,
@@ -5345,11 +5356,12 @@ the AWS General Reference . **/
 resource in the simulation is treated as if it had this policy attached. You can
 include only one resource-based policy in a simulation.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         ResourcePolicy?: policyDocumentType;
         /** An AWS account ID that specifies the owner of any simulated resource that does
 not identify its owner in the resource ARN, such as an S3 bucket or object. If 
@@ -5534,11 +5546,12 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
         /** The policy that grants an entity permission to assume the role.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyDocument: policyDocumentType;
     }
     export interface UpdateGroupRequest {
@@ -5573,13 +5586,15 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
         /** The new password for the specified IAM user.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). However, the format can be further restricted by the
-account administrator by setting a password policy on the AWS account. For more
-information, see UpdateAccountPasswordPolicy . **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+However, the format can be further restricted by the account administrator by
+setting a password policy on the AWS account. For more information, see 
+UpdateAccountPasswordPolicy . **/
         Password?: passwordType;
         /** Allows this new password to be used only once by requiring the specified IAM
 user to set a new password on next sign-in. **/
@@ -5732,11 +5747,12 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         /** The SSH public key. The public key must be encoded in ssh-rsa format or PEM
 format.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         SSHPublicKeyBody: publicKeyMaterialType;
     }
     export interface UploadSSHPublicKeyResponse {
@@ -5770,28 +5786,31 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         ServerCertificateName: serverCertificateNameType;
         /** The contents of the public key certificate in PEM-encoded format.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         CertificateBody: certificateBodyType;
         /** The contents of the private key in PEM-encoded format.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PrivateKey: privateKeyType;
         /** The contents of the certificate chain. This is typically a concatenation of the
 PEM-encoded public key certificates of the chain.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         CertificateChain?: certificateChainType;
     }
     export interface UploadServerCertificateResponse {
@@ -5808,11 +5827,12 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
         /** The contents of the signing certificate.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
-a string of characters consisting of any printable ASCII character ranging from
-the space character (\u0020) through end of the ASCII character range (\u00FF).
-It also includes the special characters tab (\u0009), line feed (\u000A), and
-carriage return (\u000D). **/
+The regex pattern [http://wikipedia.org/wiki/regex] used to validate this
+parameter is a string of characters consisting of any printable ASCII character
+ranging from the space character (\u0020) through end of the ASCII character
+range as well as the printable characters in the Basic Latin and Latin-1
+Supplement character set (through \u00FF). It also includes the special
+characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         CertificateBody: certificateBodyType;
     }
     export interface UploadSigningCertificateResponse {
@@ -5889,7 +5909,8 @@ Using IAM guide. **/
         /** The serial number associated with VirtualMFADevice . **/
         SerialNumber: serialNumberType;
         /** The Base32 seed defined as specified in RFC3548
-[http://www.ietf.org/rfc/rfc3548.txt] . The Base32StringSeed is Base64-encoded. **/
+[https://tools.ietf.org/html/rfc3548.txt] . The Base32StringSeed is
+Base64-encoded. **/
         Base32StringSeed?: BootstrapDatum;
         /** A QR code PNG image that encodes 
 otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String where 
