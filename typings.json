@@ -36,6 +36,7 @@
     "output/typings/aws-cognito-idp.d.ts",
     "output/typings/aws-cognito-sync.d.ts",
     "output/typings/aws-config.d.ts",
+    "output/typings/aws-cur.d.ts",
     "output/typings/aws-datapipeline.d.ts",
     "output/typings/aws-devicefarm.d.ts",
     "output/typings/aws-directconnect.d.ts",

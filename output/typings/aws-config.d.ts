@@ -144,8 +144,9 @@ INSUFFICIENT_DATA . This result might indicate one of the following conditions:
      *
      * @error InvalidParameterValueException   
      * @error NoSuchConfigRuleException   
+     * @error InvalidNextTokenException   
      */
-    describeComplianceByConfigRule(params: ConfigService.DescribeComplianceByConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeComplianceByConfigRuleResponse|any) => void): Request<ConfigService.DescribeComplianceByConfigRuleResponse|any,ConfigService.InvalidParameterValueException|ConfigService.NoSuchConfigRuleException|any>;
+    describeComplianceByConfigRule(params: ConfigService.DescribeComplianceByConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.NoSuchConfigRuleException|ConfigService.InvalidNextTokenException|any, data: ConfigService.DescribeComplianceByConfigRuleResponse|any) => void): Request<ConfigService.DescribeComplianceByConfigRuleResponse|any,ConfigService.InvalidParameterValueException|ConfigService.NoSuchConfigRuleException|ConfigService.InvalidNextTokenException|any>;
     /**
      * Indicates whether the specified AWS resources are compliant. If a resource is
 noncompliant, this action returns the number of AWS Config rules that the
@@ -187,14 +188,16 @@ failure.
      *
      * @error NoSuchConfigRuleException   
      * @error InvalidParameterValueException   
+     * @error InvalidNextTokenException   
      */
-    describeConfigRuleEvaluationStatus(params: ConfigService.DescribeConfigRuleEvaluationStatusRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.InvalidParameterValueException|any, data: ConfigService.DescribeConfigRuleEvaluationStatusResponse|any) => void): Request<ConfigService.DescribeConfigRuleEvaluationStatusResponse|any,ConfigService.NoSuchConfigRuleException|ConfigService.InvalidParameterValueException|any>;
+    describeConfigRuleEvaluationStatus(params: ConfigService.DescribeConfigRuleEvaluationStatusRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.InvalidParameterValueException|ConfigService.InvalidNextTokenException|any, data: ConfigService.DescribeConfigRuleEvaluationStatusResponse|any) => void): Request<ConfigService.DescribeConfigRuleEvaluationStatusResponse|any,ConfigService.NoSuchConfigRuleException|ConfigService.InvalidParameterValueException|ConfigService.InvalidNextTokenException|any>;
     /**
      * Returns details about your AWS Config rules.
      *
      * @error NoSuchConfigRuleException   
+     * @error InvalidNextTokenException   
      */
-    describeConfigRules(params: ConfigService.DescribeConfigRulesRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeConfigRulesResponse|any) => void): Request<ConfigService.DescribeConfigRulesResponse|any,ConfigService.NoSuchConfigRuleException|any>;
+    describeConfigRules(params: ConfigService.DescribeConfigRulesRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.InvalidNextTokenException|any, data: ConfigService.DescribeConfigRulesResponse|any) => void): Request<ConfigService.DescribeConfigRulesResponse|any,ConfigService.NoSuchConfigRuleException|ConfigService.InvalidNextTokenException|any>;
     /**
      * Returns the current status of the specified configuration recorder. If a
 configuration recorder is not specified, this action returns the status of all
@@ -975,7 +978,7 @@ notification to the specified Amazon SNS topic. **/
 
 The allowed values are COMPLIANT , NON_COMPLIANT , and INSUFFICIENT_DATA . **/
         ComplianceTypes?: ComplianceTypes;
-        /** The nextToken string returned on a previous page that you use to get the next
+        /** The NextToken string returned on a previous page that you use to get the next
 page of results in a paginated response. **/
         NextToken?: String;
     }
@@ -1003,7 +1006,7 @@ The allowed values are COMPLIANT , NON_COMPLIANT , and INSUFFICIENT_DATA . **/
 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config
 uses the default. **/
         Limit?: Limit;
-        /** The nextToken string returned on a previous page that you use to get the next
+        /** The NextToken string returned on a previous page that you use to get the next
 page of results in a paginated response. **/
         NextToken?: NextToken;
     }
@@ -1045,7 +1048,7 @@ in a paginated response. **/
         /** The names of the AWS Config rules for which you want details. If you do not
 specify any names, AWS Config returns details for all your rules. **/
         ConfigRuleNames?: ConfigRuleNames;
-        /** The nextToken string returned on a previous page that you use to get the next
+        /** The NextToken string returned on a previous page that you use to get the next
 page of results in a paginated response. **/
         NextToken?: String;
     }
@@ -1166,7 +1169,7 @@ The allowed values are COMPLIANT , NON_COMPLIANT , and NOT_APPLICABLE . **/
 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config
 uses the default. **/
         Limit?: Limit;
-        /** The nextToken string returned on a previous page that you use to get the next
+        /** The NextToken string returned on a previous page that you use to get the next
 page of results in a paginated response. **/
         NextToken?: NextToken;
     }
@@ -1186,7 +1189,7 @@ in a paginated response. **/
 
 The allowed values are COMPLIANT , NON_COMPLIANT , and NOT_APPLICABLE . **/
         ComplianceTypes?: ComplianceTypes;
-        /** The nextToken string returned on a previous page that you use to get the next
+        /** The NextToken string returned on a previous page that you use to get the next
 page of results in a paginated response. **/
         NextToken?: String;
     }

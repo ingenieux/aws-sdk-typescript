@@ -1390,7 +1390,7 @@ appropriate time range.
 
 Note: This parameter is only valid if the Engine parameter is redis . **/
         SnapshotWindow?: String;
-        /** The password used to access a password protected server.
+        /** Reserved parameter. The password used to access a password protected server.
 
 Password constraints:
 
@@ -1723,7 +1723,7 @@ appropriate time range.
 
 This parameter is only valid if the Engine parameter is redis . **/
         SnapshotWindow?: String;
-        /** The password used to access a password protected server.
+        /** Reserved parameter. The password used to access a password protected server.
 
 Password constraints:
 
