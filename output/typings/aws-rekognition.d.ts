@@ -514,7 +514,11 @@ the image, you can use this value to adjust the orientation.
 For example, if the service detects that the input image was rotated by 90
 degrees, it corrects orientation, performs face detection, and then returns the
 faces. That is, the bounding box coordinates in the response are based on the
-corrected orientation. **/
+corrected orientation.
+
+If the source image Exif metadata populates the orientation field, Amazon
+Rekognition does not perform orientation correction and the value of
+OrientationCorrection will be nil. **/
         OrientationCorrection?: OrientationCorrection;
     }
     export interface DetectLabelsRequest {
@@ -538,7 +542,11 @@ confidence values greater than or equal to 50 percent. **/
 (clockwise direction). If your application displays the image, you can use this
 value to correct the orientation. If Amazon Rekognition detects that the input
 image was rotated (for example, by 90 degrees), it first corrects the
-orientation before detecting the labels. **/
+orientation before detecting the labels.
+
+If the source image Exif metadata populates the orientation field, Amazon
+Rekognition does not perform orientation correction and the value of
+OrientationCorrection will be nil. **/
         OrientationCorrection?: OrientationCorrection;
     }
     export interface Emotion {
@@ -664,7 +672,11 @@ see howitworks-index-faces . **/
         /** The algorithm detects the image orientation. If it detects that the image was
 rotated, it returns the degree of rotation. You can use this value to correct
 the orientation and also appropriately analyze the bounding box coordinates that
-are returned. **/
+are returned.
+
+If the source image Exif metadata populates the orientation field, Amazon
+Rekognition does not perform orientation correction and the value of
+OrientationCorrection will be nil. **/
         OrientationCorrection?: OrientationCorrection;
     }
     export interface InternalServerError {

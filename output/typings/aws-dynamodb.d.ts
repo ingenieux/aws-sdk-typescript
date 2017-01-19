@@ -363,6 +363,18 @@ maximum of 100 table names.
      */
     listTables(params: DynamoDB.ListTablesInput, callback?: (err: DynamoDB.InternalServerError|any, data: DynamoDB.ListTablesOutput|any) => void): Request<DynamoDB.ListTablesOutput|any,DynamoDB.InternalServerError|any>;
     /**
+     * List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up
+to 10 times per second, per account.
+
+For an overview on tagging DynamoDB resources, see Tagging for DynamoDB
+[http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html] 
+in the Amazon DynamoDB Developer Guide .
+     *
+     * @error ResourceNotFoundException   
+     * @error InternalServerError   
+     */
+    listTagsOfResource(params: DynamoDB.ListTagsOfResourceInput, callback?: (err: DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.ListTagsOfResourceOutput|any) => void): Request<DynamoDB.ListTagsOfResourceOutput|any,DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any>;
+    /**
      * Creates a new item, or replaces an old item with a new item. If an item that has
 the same primary key as the new item already exists in the specified table, the
 new item completely replaces the existing item. You can perform a conditional
@@ -457,6 +469,36 @@ parameter to true .
      * @error InternalServerError   
      */
     scan(params: DynamoDB.ScanInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.ScanOutput|any) => void): Request<DynamoDB.ScanOutput|any,DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any>;
+    /**
+     * Associate a set of tags with an Amazon DynamoDB resource. You can then activate
+these user-defined tags so that they appear on the Billing and Cost Management
+console for cost allocation tracking. You can call TagResource up to 5 times per
+second, per account.
+
+For an overview on tagging DynamoDB resources, see Tagging for DynamoDB
+[http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html] 
+in the Amazon DynamoDB Developer Guide .
+     *
+     * @error LimitExceededException   
+     * @error ResourceNotFoundException   
+     * @error InternalServerError   
+     * @error ResourceInUseException   
+     */
+    tagResource(params: DynamoDB.TagResourceInput, callback?: (err: DynamoDB.LimitExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|DynamoDB.ResourceInUseException|any, data: any) => void): Request<any,DynamoDB.LimitExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|DynamoDB.ResourceInUseException|any>;
+    /**
+     * Removes the association of tags from an Amazon DynamoDB resource. You can call
+UntagResource up to 5 times per second, per account.
+
+For an overview on tagging DynamoDB resources, see Tagging for DynamoDB
+[http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html] 
+in the Amazon DynamoDB Developer Guide .
+     *
+     * @error LimitExceededException   
+     * @error ResourceNotFoundException   
+     * @error InternalServerError   
+     * @error ResourceInUseException   
+     */
+    untagResource(params: DynamoDB.UntagResourceInput, callback?: (err: DynamoDB.LimitExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|DynamoDB.ResourceInUseException|any, data: any) => void): Request<any,DynamoDB.LimitExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|DynamoDB.ResourceInUseException|any>;
     /**
      * Edits an existing item&#x27;s attributes, or adds a new item to the table if it does
 not already exist. You can put, delete, or add attribute values. You can also
@@ -618,6 +660,8 @@ UpdateTable operation is complete.
     
     export type MapAttributeValue = {[key:string]: AttributeValue};
     
+    export type NextTokenString = string;
+    
     export type NonKeyAttributeName = string;
     
     export type NonKeyAttributeNameList = NonKeyAttributeName[];
@@ -637,6 +681,8 @@ UpdateTable operation is complete.
     export type ProjectionType = string;
     
     export type PutItemInputAttributeMap = {[key:string]: AttributeValue};
+    
+    export type ResourceArnString = string;
     
     export type ReturnConsumedCapacity = string;
     
@@ -671,6 +717,14 @@ UpdateTable operation is complete.
     export type TableNameList = TableName[];
     
     export type TableStatus = string;
+    
+    export type TagKeyList = TagKeyString[];
+    
+    export type TagKeyString = string;
+    
+    export type TagList = Tag[];
+    
+    export type TagValueString = string;
     
     export type UpdateExpression = string;
     
@@ -2234,6 +2288,22 @@ If you do not receive a LastEvaluatedTableName value in the response, this means
 that there are no more table names to be retrieved. **/
         LastEvaluatedTableName?: TableName;
     }
+    export interface ListTagsOfResourceInput {
+        /** The Amazon DynamoDB resource with tags to be listed. This value is an Amazon
+Resource Name (ARN). **/
+        ResourceArn: ResourceArnString;
+        /** An optional string that, if supplied, must be copied from the output of a
+previous call to ListTagOfResource. When provided in this manner, this API
+fetches the next page of results. **/
+        NextToken?: NextTokenString;
+    }
+    export interface ListTagsOfResourceOutput {
+        /** The tags currently associated with the Amazon DynamoDB resource. **/
+        Tags?: TagList;
+        /** If this value is returned, there are additional results to be displayed. To
+retrieve them, call ListTagsOfResource again, with NextToken set to this value. **/
+        NextToken?: NextTokenString;
+    }
     export interface LocalSecondaryIndex {
         /** The name of the local secondary index. The name must be unique among all other
 indexes on this table. **/
@@ -3414,6 +3484,29 @@ unique:
         /** The Amazon Resource Name (ARN) that uniquely identifies the latest stream for
 this table. **/
         LatestStreamArn?: StreamArn;
+    }
+    export interface Tag {
+        /** The key of the tag.Tag keys are case sensitive. Each DynamoDB table can only
+have up to one tag with the same key. If you try to add an existing tag (same
+key), the existing tag value will be updated to the new value. **/
+        Key: TagKeyString;
+        /** The value of the tag. Tag values are case-sensitive and can be null. **/
+        Value: TagValueString;
+    }
+    export interface TagResourceInput {
+        /** Identifies the Amazon DynamoDB resource to which tags should be added. This
+value is an Amazon Resource Name (ARN). **/
+        ResourceArn: ResourceArnString;
+        /** The tags to be assigned to the Amazon DynamoDB resource. **/
+        Tags: TagList;
+    }
+    export interface UntagResourceInput {
+        /** The Amazon DyanamoDB resource the tags will be removed from. This value is an
+Amazon Resource Name (ARN). **/
+        ResourceArn: ResourceArnString;
+        /** A list of tag keys. Existing tags of the resource whose keys are members of this
+list will be removed from the Amazon DynamoDB resource. **/
+        TagKeys: TagKeyList;
     }
     export interface UpdateGlobalSecondaryIndexAction {
         /** The name of the global secondary index to be updated. **/

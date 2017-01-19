@@ -266,7 +266,7 @@ in the Amazon RDS User Guide.
      * Creates a new Amazon Aurora DB cluster.
 
 You can use the ReplicationSourceIdentifier parameter to create the DB cluster
-as a Read Replica of another DB cluster.
+as a Read Replica of another DB cluster or Amazon RDS MySQL DB instance.
 
 For more information on Amazon Aurora, see Aurora on Amazon RDS
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html] in the 
@@ -1473,6 +1473,8 @@ EC2SecurityGroupName or EC2SecurityGroupId).
     
     export type PendingMaintenanceActions = ResourcePendingMaintenanceActions[];
     
+    export type ReadReplicaDBClusterIdentifierList = String[];
+    
     export type ReadReplicaDBInstanceIdentifierList = String[];
     
     export type ReadReplicaIdentifierList = String[];
@@ -2096,8 +2098,8 @@ Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
 Constraints: Minimum 30-minute window. **/
         PreferredMaintenanceWindow?: String;
-        /** The Amazon Resource Name (ARN) of the source DB cluster if this DB cluster is
-created as a Read Replica. **/
+        /** The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this
+DB cluster is created as a Read Replica. **/
         ReplicationSourceIdentifier?: String;
         Tags?: TagList;
         /** Specifies whether the DB cluster is encrypted. **/
@@ -3701,6 +3703,9 @@ Replica. **/
         /** Contains one or more identifiers of the Read Replicas associated with this DB
 instance. **/
         ReadReplicaDBInstanceIdentifiers?: ReadReplicaDBInstanceIdentifierList;
+        /** Contains one or more identifiers of Aurora DB clusters that are read replicas of
+this DB instance. **/
+        ReadReplicaDBClusterIdentifiers?: ReadReplicaDBClusterIdentifierList;
         /** License model information for this DB instance. **/
         LicenseModel?: String;
         /** Specifies the Provisioned IOPS (I/O operations per second) value. **/

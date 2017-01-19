@@ -318,7 +318,7 @@ in your request.
    
    
  * If you request pcm as the OutputFormat , the ContentType returned is
-   audio/pcm. **/
+   audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. **/
         ContentType?: ContentType;
         /** Number of characters synthesized. **/
         RequestCharacters?: RequestCharacters;
