@@ -626,6 +626,10 @@ Reserved Instance Marketplace. You can submit one Standard Reserved Instance
 listing at a time. To get a list of your Standard Reserved Instances, you can
 use the DescribeReservedInstances operation.
 
+Only Standard Reserved Instances with a capacity reservation can be sold in the
+Reserved Instance Marketplace. Convertible Reserved Instances and Standard
+Reserved Instances with a regional benefit cannot be sold.
+
 The Reserved Instance Marketplace matches sellers who want to resell Standard
 Reserved Instance capacity that they no longer need with buyers who want to
 purchase additional capacity. Reserved Instances bought and sold through the
@@ -849,8 +853,8 @@ the Amazon Virtual Private Cloud User Guide .
 You can specify the instance tenancy value for the VPC when you create it. You
 can&#x27;t change this value for the VPC after you create it. For more information,
 see Dedicated Instances
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html.html] 
-in the Amazon Virtual Private Cloud User Guide .
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html] in
+the Amazon Elastic Compute Cloud User Guide .
      *
      */
     createVpc(params: EC2.CreateVpcRequest, callback?: (err: any, data: EC2.CreateVpcResult|any) => void): Request<EC2.CreateVpcResult|any,any>;
@@ -861,7 +865,7 @@ account. You can specify an endpoint policy to attach to the endpoint that will
 control access to the service from your VPC. You can also specify the VPC route
 tables that use the endpoint.
 
-Currently, only endpoints to Amazon S3 are supported.
+Use DescribeVpcEndpointServices to get a list of supported AWS services.
      *
      */
     createVpcEndpoint(params: EC2.CreateVpcEndpointRequest, callback?: (err: any, data: EC2.CreateVpcEndpointResult|any) => void): Request<EC2.CreateVpcEndpointResult|any,any>;
@@ -5361,7 +5365,9 @@ Default: Describes all your customer gateways. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -5402,7 +5408,9 @@ Default: Describes all your DHCP options sets. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -5506,8 +5514,8 @@ specify 94608000 for three years. **/
  &amp;#42; instance-family - The instance family of the offering (e.g., m4 ).
    
    
- * payment-option - The payment option ( No Upfront | Partial Upfront | All
-   Upfront ). **/
+ * payment-option - The payment option ( NoUpfront | PartialUpfront | AllUpfront 
+   ). **/
         Filter?: FilterList;
         /** The maximum number of results to return for the request in a single page. The
 remaining results can be seen by sending another request with the returned 
@@ -5532,8 +5540,8 @@ there are no more results to return. **/
  &amp;#42; instance-family - The instance family (e.g., m4 ).
    
    
- * payment-option - The payment option ( No Upfront | Partial Upfront | All
-   Upfront ).
+ * payment-option - The payment option ( NoUpfront | PartialUpfront | AllUpfront 
+   ).
    
    
  * state - The state of the reservation ( payment-pending | payment-failed | 
@@ -5737,7 +5745,9 @@ account ID, self (the sender of the request), or all (public AMIs). **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -6201,7 +6211,9 @@ Default: Describes all your instances. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource, where tag : key is the tag&#x27;s key.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -6263,7 +6275,9 @@ Default: Describes all your Internet gateways. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -6428,7 +6442,9 @@ Default: Describes all your network ACLs. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -6609,7 +6625,9 @@ Default: Describes all your network interfaces. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -6954,7 +6972,9 @@ specified. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -7056,7 +7076,9 @@ Default: Describes all your route tables. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -7315,7 +7337,9 @@ specified. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -7586,7 +7610,9 @@ UnauthorizedOperation . **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -7745,7 +7771,9 @@ Default: Describes all your subnets. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -7946,7 +7974,9 @@ UnauthorizedOperation . **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -8046,7 +8076,9 @@ UnauthorizedOperation . **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -8169,7 +8201,9 @@ Default: Describes all your VPC peering connections. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -8231,7 +8265,9 @@ Default: Describes all your VPCs. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -8291,7 +8327,9 @@ Default: Describes your VPN connections. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -8349,7 +8387,9 @@ Default: Describes all your virtual private gateways. **/
    
    
  * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+   resource. Specify the key of the tag in the filter name and the value of the
+   tag in the filter value. For example, for the tag Purpose=X, specify 
+   tag:Purpose for the filter name and X for the filter value.
    
    
  * tag-key - The key of a tag assigned to the resource. This filter is
@@ -10154,7 +10194,11 @@ therefore receives a public IPv4 address). **/
         /** Specify true to indicate that network interfaces created in the specified subnet
 should be assigned an IPv6 address. This includes a network interface that&#x27;s
 created when launching an instance into the subnet (the instance therefore
-receives an IPv6 address). **/
+receives an IPv6 address).
+
+If you enable the IPv6 addressing feature for your subnet, your network
+interface or instance only receives an IPv6 address if it&#x27;s created using
+version 2016-11-15 or later of the Amazon EC2 API. **/
         AssignIpv6AddressOnCreation?: AttributeBooleanValue;
     }
     export interface ModifyVolumeAttributeRequest {
@@ -10528,8 +10572,8 @@ instances). **/
 with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is
 not supported for the ImportInstance command. **/
         Tenancy?: Tenancy;
-        /** The ID of the Dedicted host on which the instance resides. This parameter is not
-support for the ImportInstance command. **/
+        /** The ID of the Dedicated Host on which the instance resides. This parameter is
+not supported for the ImportInstance command. **/
         HostId?: String;
         /** The affinity setting for the instance on the Dedicated Host. This parameter is
 not supported for the ImportInstance command. **/
@@ -12307,6 +12351,10 @@ commas; for example, &quot;us-west-2a, us-west-2b&quot;. **/
         AvailabilityZone?: String;
         /** The name of the placement group (for cluster instances). **/
         GroupName?: String;
+        /** The tenancy of the instance (if the instance is running in a VPC). An instance
+with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is
+not supported for Spot instances. **/
+        Tenancy?: Tenancy;
     }
     export interface SpotPrice {
         /** The instance type. Note that T2 and HS1 instance types are not supported. **/
