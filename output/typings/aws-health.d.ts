@@ -15,8 +15,9 @@ declare module "aws-sdk" {
    * protocol: json
    *
    * AWS HealthThe AWS Health API provides programmatic access to the AWS Health
-information that is presented in the AWS Personal Health Dashboard. You can get
-information about events that affect your AWS resources:
+information that is presented in the AWS Personal Health Dashboard
+[https://phd.aws.amazon.com/phd/home#/] . You can get information about events
+that affect your AWS resources:
 
  &amp;#42; DescribeEvents : Summary information about events.
    
@@ -264,7 +265,8 @@ are IMPAIRED , UNIMPAIRED , and UNKNOWN . **/
     export interface DescribeAffectedEntitiesRequest {
         /** Values to narrow the results returned. At least one event ARN is required. **/
         filter: EntityFilter;
-        /** The locale (language) to return information in. The default is English. **/
+        /** The locale (language) to return information in. English (en) is the default and
+the only supported value at this time. **/
         locale?: locale;
         /** If the results of a search are large, only a portion of the results are
 returned, and a nextToken pagination token is returned in the response. To
@@ -272,7 +274,8 @@ retrieve the next batch of results, reissue the search request and include the
 returned token. When all results have been returned, the response does not
 contain a pagination token value. **/
         nextToken?: nextToken;
-        /** The maximum number of items to return in one batch. **/
+        /** The maximum number of items to return in one batch, between 10 and 100,
+inclusive. **/
         maxResults?: maxResults;
     }
     export interface DescribeAffectedEntitiesResponse {
@@ -300,7 +303,8 @@ contain a pagination token value. **/
         filter?: EventFilter;
         /** The only currently supported value is eventTypeCategory . **/
         aggregateField: eventAggregateField;
-        /** The maximum number of items to return in one batch. **/
+        /** The maximum number of items to return in one batch, between 10 and 100,
+inclusive. **/
         maxResults?: maxResults;
         /** If the results of a search are large, only a portion of the results are
 returned, and a nextToken pagination token is returned in the response. To
@@ -324,7 +328,8 @@ contain a pagination token value. **/
 &quot;arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331&quot;,
 &quot;arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz&quot; **/
         eventArns: eventArnList;
-        /** The locale (language) to return information in. The default is English. **/
+        /** The locale (language) to return information in. English (en) is the default and
+the only supported value at this time. **/
         locale?: locale;
     }
     export interface DescribeEventDetailsResponse {
@@ -336,7 +341,8 @@ contain a pagination token value. **/
     export interface DescribeEventTypesRequest {
         /** Values to narrow the results returned. **/
         filter?: EventTypeFilter;
-        /** The locale (language) to return information in. The default is English. **/
+        /** The locale (language) to return information in. English (en) is the default and
+the only supported value at this time. **/
         locale?: locale;
         /** If the results of a search are large, only a portion of the results are
 returned, and a nextToken pagination token is returned in the response. To
@@ -344,11 +350,15 @@ retrieve the next batch of results, reissue the search request and include the
 returned token. When all results have been returned, the response does not
 contain a pagination token value. **/
         nextToken?: nextToken;
-        /** The maximum number of items to return in one batch. **/
+        /** The maximum number of items to return in one batch, between 10 and 100,
+inclusive. **/
         maxResults?: maxResults;
     }
     export interface DescribeEventTypesResponse {
-        /** List of event types to be matched with. **/
+        /** A list of event types that match the filter criteria. Event types have a
+category ( issue , accountNotification , or scheduledChange ), a service (for
+example, EC2 , RDS , DATAPIPELINE , BILLING ), and a code (in the format AWS_ 
+SERVICE _ DESCRIPTION ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT ). **/
         eventTypes?: EventTypeList;
         /** If the results of a search are large, only a portion of the results are
 returned, and a nextToken pagination token is returned in the response. To
@@ -366,9 +376,11 @@ retrieve the next batch of results, reissue the search request and include the
 returned token. When all results have been returned, the response does not
 contain a pagination token value. **/
         nextToken?: nextToken;
-        /** The maximum number of items to return in one batch. **/
+        /** The maximum number of items to return in one batch, between 10 and 100,
+inclusive. **/
         maxResults?: maxResults;
-        /** The locale (language) to return information in. The default is English. **/
+        /** The locale (language) to return information in. English (en) is the default and
+the only supported value at this time. **/
         locale?: locale;
     }
     export interface DescribeEventsResponse {

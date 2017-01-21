@@ -68,11 +68,7 @@ be removed.
      */
     deleteCertificate(params: ACM.DeleteCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.ResourceInUseException|ACM.InvalidArnException|any, data: any) => void): Request<any,ACM.ResourceNotFoundException|ACM.ResourceInUseException|ACM.InvalidArnException|any>;
     /**
-     * Returns a list of the fields contained in the specified ACM Certificate. For
-example, this action returns the certificate status, a flag that indicates
-whether the certificate is associated with any other AWS service, and the date
-at which the certificate request was created. You specify the ACM Certificate on
-input by its Amazon Resource Name (ARN).
+     * Returns detailed metadata about the specified ACM Certificate.
      *
      * @error ResourceNotFoundException   
      * @error InvalidArnException   
@@ -140,9 +136,9 @@ specified status.
     listCertificates(params: ACM.ListCertificatesRequest, callback?: (err: any, data: ACM.ListCertificatesResponse|any) => void): Request<ACM.ListCertificatesResponse|any,any>;
     /**
      * Lists the tags that have been applied to the ACM Certificate. Use the
-certificate ARN to specify the certificate. To add a tag to an ACM Certificate,
-use the AddTagsToCertificate action. To delete a tag, use the 
-RemoveTagsFromCertificate action.
+certificate&#x27;s Amazon Resource Name (ARN) to specify the certificate. To add a
+tag to an ACM Certificate, use the AddTagsToCertificate action. To delete a tag,
+use the RemoveTagsFromCertificate action.
      *
      * @error ResourceNotFoundException   
      * @error InvalidArnException   
@@ -221,6 +217,8 @@ validation mail, you must request a new certificate.
     
     export type DomainNameString = string;
     
+    export type DomainStatus = string;
+    
     export type DomainValidationList = DomainValidation[];
     
     export type DomainValidationOptionList = DomainValidationOption[];
@@ -238,6 +236,8 @@ validation mail, you must request a new certificate.
     export type NextToken = string;
     
     export type PrivateKeyBlob = any;
+    
+    export type RenewalStatus = string;
     
     export type RevocationReason = string;
     
@@ -281,8 +281,9 @@ key that is contained in the certificate. The subject alternative names include
 the canonical domain name (CN) of the certificate and additional domain names
 that can be used to connect to the website. **/
         SubjectAlternativeNames?: DomainList;
-        /** Contains information about the email address or addresses used for domain
-validation. This field exists only when the certificate type is AMAZON_ISSUED . **/
+        /** Contains information about the initial validation of each domain name that
+occurs as a result of the RequestCertificate request. This field exists only
+when the certificate type is AMAZON_ISSUED . **/
         DomainValidationOptions?: DomainValidationList;
         /** The serial number of the certificate. **/
         Serial?: String;
@@ -335,6 +336,10 @@ that you import and those that ACM provides, see Importing Certificates
 [http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html] in the 
 AWS Certificate Manager User Guide . **/
         Type?: CertificateType;
+        /** Contains information about the status of ACM&#x27;s managed renewal
+[http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html] for the
+certificate. This field exists only when the certificate type is AMAZON_ISSUED . **/
+        RenewalSummary?: RenewalSummary;
     }
     export interface CertificateSummary {
         /** Amazon Resource Name (ARN) of the certificate. This is of the form:
@@ -361,7 +366,8 @@ Service Namespaces
         CertificateArn: Arn;
     }
     export interface DescribeCertificateRequest {
-        /** String that contains an ACM Certificate ARN. The ARN must be of the form:
+        /** The Amazon Resource Name (ARN) of the ACM Certificate. The ARN must have the
+following form:
 
 arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
 
@@ -371,43 +377,43 @@ Service Namespaces
         CertificateArn: Arn;
     }
     export interface DescribeCertificateResponse {
-        /** Contains a CertificateDetail structure that lists the fields of an ACM
-Certificate. **/
+        /** Metadata about an ACM certificate. **/
         Certificate?: CertificateDetail;
     }
     export interface DomainValidation {
-        /** Fully Qualified Domain Name (FQDN) of the form www.example.com or example.com . **/
+        /** A fully qualified domain name (FQDN) in the certificate. For example, 
+www.example.com or example.com . **/
         DomainName: DomainNameString;
-        /** A list of contact address for the domain registrant. **/
+        /** A list of email addresses that ACM used to send domain validation emails. **/
         ValidationEmails?: ValidationEmailList;
-        /** The base validation domain that acts as the suffix of the email addresses that
-are used to send the emails. **/
+        /** The domain name that ACM used to send domain validation emails. **/
         ValidationDomain?: DomainNameString;
+        /** The validation status of the domain name. **/
+        ValidationStatus?: DomainStatus;
     }
     export interface DomainValidationOption {
-        /** Fully Qualified Domain Name (FQDN) of the certificate being requested. **/
+        /** A fully qualified domain name (FQDN) in the certificate request. **/
         DomainName: DomainNameString;
-        /** The domain to which validation email is sent. This is the base validation domain
-that will act as the suffix of the email addresses. This must be the same as the 
-DomainName value or a superdomain of the DomainName value. For example, if you
-requested a certificate for site.subdomain.example.com and specify a 
-ValidationDomain of subdomain.example.com , ACM sends email to the domain
-registrant, technical contact, and administrative contact in WHOIS for the base
-domain and the following five addresses:
+        /** The domain name that you want ACM to use to send you validation emails. This
+domain name is the suffix of the email addresses that you want ACM to use. This
+must be the same as the DomainName value or a superdomain of the DomainName 
+value. For example, if you request a certificate for testing.example.com , you
+can specify example.com for this value. In that case, ACM sends domain
+validation emails to the following five addresses:
 
- &amp;#42; admin@subdomain.example.com
+ &amp;#42; admin@example.com
    
    
- * administrator@subdomain.example.com
+ * administrator@example.com
    
    
- * hostmaster@subdomain.example.com
+ * hostmaster@example.com
    
    
- * postmaster@subdomain.example.com
+ * postmaster@example.com
    
    
- * webmaster@subdomain.example.com **/
+ * webmaster@example.com **/
         ValidationDomain: DomainNameString;
     }
     export interface GetCertificateRequest {
@@ -501,7 +507,7 @@ for the NextToken parameter in a subsequent pagination request. **/
     }
     export interface ListTagsForCertificateRequest {
         /** String that contains the ARN of the ACM Certificate for which you want to list
-the tags. This must be of the form:
+the tags. This has the following form:
 
 arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
 
@@ -527,11 +533,24 @@ Service Namespaces
         /** The key-value pair that defines the tag to remove. **/
         Tags: TagList;
     }
+    export interface RenewalSummary {
+        /** The status of ACM&#x27;s managed renewal
+[http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html] of the
+certificate. **/
+        RenewalStatus: RenewalStatus;
+        /** Contains information about the validation of each domain name in the
+certificate, as it pertains to ACM&#x27;s managed renewal
+[http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html] . This is
+different from the initial validation that occurs as a result of the 
+RequestCertificate request. This field exists only when the certificate type is 
+AMAZON_ISSUED . **/
+        DomainValidationOptions: DomainValidationList;
+    }
     export interface RequestCertificateRequest {
-        /** Fully qualified domain name (FQDN), such as www.example.com, of the site you
-want to secure with an ACM Certificate. Use an asterisk (&amp;#42;) to create a wildcard
-certificate that protects several sites in the same domain. For example,
-*.example.com protects www.example.com, site.example.com, and
+        /** Fully qualified domain name (FQDN), such as www.example.com, of the site that
+you want to secure with an ACM Certificate. Use an asterisk (&amp;#42;) to create a
+wildcard certificate that protects several sites in the same domain. For
+example, *.example.com protects www.example.com, site.example.com, and
 images.example.com. **/
         DomainName: DomainNameString;
         /** Additional FQDNs to be included in the Subject Alternative Name extension of the
@@ -546,26 +565,8 @@ within one hour, ACM recognizes that you are requesting only one certificate and
 will issue only one. If you change the idempotency token for each call, ACM
 recognizes that you are requesting multiple certificates. **/
         IdempotencyToken?: IdempotencyToken;
-        /** The base validation domain that will act as the suffix of the email addresses
-that are used to send the emails. This must be the same as the Domain value or a
-superdomain of the Domain value. For example, if you requested a certificate for 
-test.example.com and specify DomainValidationOptions of example.com , ACM sends
-email to the domain registrant, technical contact, and administrative contact in
-WHOIS and the following five addresses:
-
- &amp;#42; admin@example.com
-   
-   
- * administrator@example.com
-   
-   
- * hostmaster@example.com
-   
-   
- * postmaster@example.com
-   
-   
- * webmaster@example.com **/
+        /** The domain name that you want ACM to use to send you emails to validate your
+ownership of the domain. **/
         DomainValidationOptions?: DomainValidationOptionList;
     }
     export interface RequestCertificateResponse {
@@ -590,7 +591,7 @@ The ARN must be of the form:
 
 arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012 **/
         CertificateArn: Arn;
-        /** The Fully Qualified Domain Name (FQDN) of the certificate that needs to be
+        /** The fully qualified domain name (FQDN) of the certificate that needs to be
 validated. **/
         Domain: DomainNameString;
         /** The base validation domain that will act as the suffix of the email addresses
