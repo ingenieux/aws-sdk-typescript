@@ -14,11 +14,11 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS CodeBuildAWS CodeBuild is a fully-managed build service in the cloud. AWS
+   * AWS CodeBuildAWS CodeBuild is a fully managed build service in the cloud. AWS
 CodeBuild compiles your source code, runs unit tests, and produces artifacts
 that are ready to deploy. AWS CodeBuild eliminates the need to provision,
 manage, and scale your own build servers. It provides prepackaged build
-environments for the most popular programming languages and build tools such as
+environments for the most popular programming languages and build tools, such as
 Apach Maven, Gradle, and more. You can also fully customize build environments
 in AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically
 to meet peak build requests, and you pay only for the build time you consume.
@@ -73,13 +73,13 @@ AWS CodeBuild supports these operations:
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * Gets information about one or more builds.
+     * Gets information about builds.
      *
      * @error InvalidInputException   
      */
     batchGetBuilds(params: CodeBuild.BatchGetBuildsInput, callback?: (err: CodeBuild.InvalidInputException|any, data: CodeBuild.BatchGetBuildsOutput|any) => void): Request<CodeBuild.BatchGetBuildsOutput|any,CodeBuild.InvalidInputException|any>;
     /**
-     * Gets information about one or more build projects.
+     * Gets information about build projects.
      *
      * @error InvalidInputException   
      */
@@ -134,15 +134,13 @@ single build project.
     startBuild(params: CodeBuild.StartBuildInput, callback?: (err: CodeBuild.InvalidInputException|CodeBuild.ResourceNotFoundException|CodeBuild.AccountLimitExceededException|any, data: CodeBuild.StartBuildOutput|any) => void): Request<CodeBuild.StartBuildOutput|any,CodeBuild.InvalidInputException|CodeBuild.ResourceNotFoundException|CodeBuild.AccountLimitExceededException|any>;
     /**
      * Attempts to stop running a build.
-
-Completed builds cannot be stopped.
      *
      * @error InvalidInputException   
      * @error ResourceNotFoundException   
      */
     stopBuild(params: CodeBuild.StopBuildInput, callback?: (err: CodeBuild.InvalidInputException|CodeBuild.ResourceNotFoundException|any, data: CodeBuild.StopBuildOutput|any) => void): Request<CodeBuild.StopBuildOutput|any,CodeBuild.InvalidInputException|CodeBuild.ResourceNotFoundException|any>;
     /**
-     * Changes the settings of an existing build project.
+     * Changes the settings of a build project.
      *
      * @error InvalidInputException   
      * @error ResourceNotFoundException   
@@ -226,7 +224,7 @@ Completed builds cannot be stopped.
     export interface AccountLimitExceededException {
     }
     export interface BatchGetBuildsInput {
-        /** The IDs of the builds to get information about. **/
+        /** The IDs of the builds. **/
         ids: BuildIds;
     }
     export interface BatchGetBuildsOutput {
@@ -236,7 +234,7 @@ Completed builds cannot be stopped.
         buildsNotFound?: BuildIds;
     }
     export interface BatchGetProjectsInput {
-        /** The names of the build projects to get information about. **/
+        /** The names of the build projects. **/
         names: ProjectNames;
     }
     export interface BatchGetProjectsOutput {
@@ -246,17 +244,17 @@ Completed builds cannot be stopped.
         projectsNotFound?: ProjectNames;
     }
     export interface Build {
-        /** The build&#x27;s unique ID. **/
+        /** The unique ID for the build. **/
         id?: NonEmptyString;
-        /** The build&#x27;s Amazon Resource Name (ARN). **/
+        /** The Amazon Resource Name (ARN) of the build. **/
         arn?: NonEmptyString;
         /** When the build process started, expressed in Unix time format. **/
         startTime?: Timestamp;
         /** When the build process ended, expressed in Unix time format. **/
         endTime?: Timestamp;
-        /** The build&#x27;s current build phase. **/
+        /** The current build phase. **/
         currentPhase?: String;
-        /** The build&#x27;s current status. Valid values include:
+        /** The current status of the build. Valid values include:
 
  &amp;#42; FAILED : The build failed.
    
@@ -277,33 +275,32 @@ Completed builds cannot be stopped.
         buildStatus?: StatusType;
         /** Any version identifier for the version of the source code to be built. **/
         sourceVersion?: NonEmptyString;
-        /** The build project&#x27;s name. **/
+        /** The name of the build project. **/
         projectName?: NonEmptyString;
-        /** Information about all previous build phases that have completed, and information
-about any current build phase that has not yet completed. **/
+        /** Information about all previous build phases that are completed and information
+about any current build phase that is not yet complete. **/
         phases?: BuildPhases;
         /** Information about the source code to be built. **/
         source?: ProjectSource;
-        /** Information about the build&#x27;s output artifacts. **/
+        /** Information about the output artifacts for the build. **/
         artifacts?: BuildArtifacts;
         /** Information about the build environment for this build. **/
         environment?: ProjectEnvironment;
         /** Information about the build&#x27;s logs in Amazon CloudWatch Logs. **/
         logs?: LogsLocation;
-        /** How long in minutes for AWS CodeBuild to wait to timeout this build if it does
-not get marked as completed. **/
+        /** How long, in minutes, for AWS CodeBuild to wait before timing out this build if
+it does not get marked as completed. **/
         timeoutInMinutes?: WrapperInt;
-        /** Whether the build has finished. Valid values include true if completed;
-otherwise, false. **/
+        /** Whether the build has finished. True if completed; otherwise, false. **/
         buildComplete?: Boolean;
         /** The entity that started the build. Valid values include:
 
- &amp;#42; If AWS CodePipeline started the build, the pipeline&#x27;s name, for example 
-   codepipeline/my-demo-pipeline .
+ &amp;#42; If AWS CodePipeline started the build, the pipeline&#x27;s name (for example, 
+   codepipeline/my-demo-pipeline ).
    
    
  * If an AWS Identity and Access Management (IAM) user started the build, the
-   user&#x27;s name, for example MyUserName .
+   user&#x27;s name (for example MyUserName ).
    
    
  * If the Jenkins plugin for AWS CodeBuild started the build, the string 
@@ -311,32 +308,32 @@ otherwise, false. **/
         initiator?: String;
     }
     export interface BuildArtifacts {
-        /** Information about the build artifacts&#x27; location. **/
+        /** Information about the location of the build artifacts. **/
         location?: String;
         /** The SHA-256 hash of the build artifact.
 
 You can use this hash along with a checksum tool to confirm both file integrity
 and authenticity.
 
-This value is available only if the related build project&#x27;s packaging value is
-set to ZIP . **/
+This value is available only if the build project&#x27;s packaging value is set to 
+ZIP . **/
         sha256sum?: String;
         /** The MD5 hash of the build artifact.
 
 You can use this hash along with a checksum tool to confirm both file integrity
 and authenticity.
 
-This value is available only if the related build project&#x27;s packaging value is
-set to ZIP . **/
+This value is available only if the build project&#x27;s packaging value is set to 
+ZIP . **/
         md5sum?: String;
     }
     export interface BuildPhase {
-        /** The build phase&#x27;s name. Valid values include:
+        /** The name of the build phase. Valid values include:
 
  &amp;#42; BUILD : Core build activities typically occur in this build phase.
    
    
- * COMPLETED : The build has completed.
+ * COMPLETED : The build has been completed.
    
    
  * DOWNLOAD_SOURCE : Source code is being downloaded in this build phase.
@@ -360,10 +357,10 @@ set to ZIP . **/
  * SUBMITTED : The build has been submitted.
    
    
- * UPLOAD_ARTIFACTS : Build output artifacts are being uploaded to output
+ * UPLOAD_ARTIFACTS : Build output artifacts are being uploaded to the output
    location. **/
         phaseType?: BuildPhaseType;
-        /** The build phase&#x27;s current status. Valid values include:
+        /** The current status of the build phase. Valid values include:
 
  &amp;#42; FAILED : The build phase failed.
    
@@ -386,33 +383,33 @@ set to ZIP . **/
         startTime?: Timestamp;
         /** When the build phase ended, expressed in Unix time format. **/
         endTime?: Timestamp;
-        /** How long, in seconds, between the build&#x27;s phase starting and ending times. **/
+        /** How long, in seconds, between the starting and ending times of the build&#x27;s
+phase. **/
         durationInSeconds?: WrapperLong;
         /** Additional information about a build phase, especially to help troubleshoot a
 failed build. **/
         contexts?: PhaseContexts;
     }
     export interface CreateProjectInput {
-        /** The build project&#x27;s name. **/
+        /** The name of the build project. **/
         name: ProjectName;
-        /** A meaningful description of the build project. **/
+        /** A description that makes the build project easy to identify. **/
         description?: ProjectDescription;
-        /** Information about the build project&#x27;s build input source code. **/
+        /** Information about the build input source code for the build project. **/
         source: ProjectSource;
-        /** Information about the build project&#x27;s build output artifacts. **/
+        /** Information about the build output artifacts for the build project. **/
         artifacts: ProjectArtifacts;
-        /** Information about the build project&#x27;s build environment. **/
+        /** Information about the build environment for the build project. **/
         environment: ProjectEnvironment;
-        /** The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM)
-role that enables AWS CodeBuild to interact with dependent AWS services on
-behalf of the AWS account. **/
+        /** The ARN of the AWS Identity and Access Management (IAM) role that enables AWS
+CodeBuild to interact with dependent AWS services on behalf of the AWS account. **/
         serviceRole?: NonEmptyString;
-        /** How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until
-timing out any related build that does not get marked as completed. The default
-is 60 minutes. **/
+        /** How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until
+timing out any build that has not been marked as completed. The default is 60
+minutes. **/
         timeoutInMinutes?: TimeOut;
         /** The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used
-for encrypting the build project&#x27;s build output artifacts.
+for encrypting the build output artifacts.
 
 You can specify either the CMK&#x27;s Amazon Resource Name (ARN) or, if available,
 the CMK&#x27;s alias (using the format alias/ alias-name ). **/
@@ -428,19 +425,19 @@ build project tags. **/
         project?: Project;
     }
     export interface DeleteProjectInput {
-        /** The name of the build project to delete. **/
+        /** The name of the build project. **/
         name: NonEmptyString;
     }
     export interface DeleteProjectOutput {
     }
     export interface EnvironmentImage {
-        /** The Docker image&#x27;s name. **/
+        /** The name of the Docker image. **/
         name?: String;
-        /** The Docker image&#x27;s description. **/
+        /** The description of the Docker image. **/
         description?: String;
     }
     export interface EnvironmentLanguage {
-        /** The programming language for the related set of Docker images. **/
+        /** The programming language for the Docker images. **/
         language?: LanguageType;
         /** The list of Docker images that are related by the specified programming
 language. **/
@@ -453,15 +450,15 @@ language. **/
         languages?: EnvironmentLanguages;
     }
     export interface EnvironmentVariable {
-        /** The environment variable&#x27;s name or key. **/
+        /** The name or key of the environment variable. **/
         name: NonEmptyString;
-        /** The environment variable&#x27;s value. **/
+        /** The value of the environment variable. **/
         value: String;
     }
     export interface InvalidInputException {
     }
     export interface ListBuildsForProjectInput {
-        /** The name of the build project to get a list of build IDs for. **/
+        /** The name of the build project. **/
         projectName: NonEmptyString;
         /** The order to list build IDs. Valid values include:
 
@@ -568,9 +565,9 @@ single build project. **/
         projects?: ProjectNames;
     }
     export interface LogsLocation {
-        /** The name of the Amazon CloudWatch Logs group for the associated build logs. **/
+        /** The name of the Amazon CloudWatch Logs group for the build logs. **/
         groupName?: String;
-        /** The name of the Amazon CloudWatch Logs stream for the associated build logs. **/
+        /** The name of the Amazon CloudWatch Logs stream for the build logs. **/
         streamName?: String;
         /** The URL to an individual build log in Amazon CloudWatch Logs. **/
         deepLink?: String;
@@ -578,33 +575,32 @@ single build project. **/
     export interface PhaseContext {
         /** The status code for the context of the build phase. **/
         statusCode?: String;
-        /** An explanation of the build phase&#x27;s context. This explanation may include a
+        /** An explanation of the build phase&#x27;s context. This explanation might include a
 command ID and an exit code. **/
         message?: String;
     }
     export interface Project {
-        /** The build project&#x27;s name. **/
+        /** The name of the build project. **/
         name?: ProjectName;
-        /** The build project&#x27;s Amazon Resource Name (ARN). **/
+        /** The Amazon Resource Name (ARN) of the build project. **/
         arn?: String;
-        /** A meaningful description of the build project. **/
+        /** A description that makes the build project easy to identify. **/
         description?: ProjectDescription;
-        /** Information about the build project&#x27;s build input source code. **/
+        /** Information about the build input source code for this build project. **/
         source?: ProjectSource;
-        /** Information about the build project&#x27;s build output artifacts. **/
+        /** Information about the build output artifacts for the build project. **/
         artifacts?: ProjectArtifacts;
         /** Information about the build environment for this build project. **/
         environment?: ProjectEnvironment;
-        /** The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM)
-role that enables AWS CodeBuild to interact with dependent AWS services on
-behalf of the AWS account. **/
+        /** The ARN of the AWS Identity and Access Management (IAM) role that enables AWS
+CodeBuild to interact with dependent AWS services on behalf of the AWS account. **/
         serviceRole?: NonEmptyString;
-        /** How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait to
-timeout any related build that did not get marked as completed. The default is
-60 minutes. **/
+        /** How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before
+timing out any related build that did not get marked as completed. The default
+is 60 minutes. **/
         timeoutInMinutes?: TimeOut;
         /** The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used
-for encrypting the build project&#x27;s build output artifacts.
+for encrypting the build output artifacts.
 
 This is expressed either as the CMK&#x27;s Amazon Resource Name (ARN) or, if
 specified, the CMK&#x27;s alias (using the format alias/ alias-name ). **/
@@ -621,9 +617,9 @@ format. **/
         lastModified?: Timestamp;
     }
     export interface ProjectArtifacts {
-        /** The build output artifact&#x27;s type. Valid values include:
+        /** The type of build output artifact. Valid values include:
 
- &amp;#42; CODEPIPELINE : The build project with have build output generated through AWS
+ &amp;#42; CODEPIPELINE : The build project will have build output generated through AWS
    CodePipeline.
    
    
@@ -644,9 +640,7 @@ format. **/
    specified, because no build output will be produced.
    
    
- * If type is set to S3 , this is the name of the output bucket. If path is not
-   also specified, then location can also specify the path of the output
-   artifact in the output bucket. **/
+ * If type is set to S3 , this is the name of the output bucket. **/
         location?: String;
         /** Along with namespaceType and name , the pattern that AWS CodeBuild will use to
 name and store the output artifact, as follows:
@@ -740,10 +734,7 @@ MyArtifacts/ build-ID /MyArtifact.zip . **/
         packaging?: ArtifactPackaging;
     }
     export interface ProjectEnvironment {
-        /** The type of build environment to use for related builds.
-
-The only valid value is LINUX_CONTAINER , which represents a Linux-based build
-environment. **/
+        /** The type of build environment to use for related builds. **/
         type: EnvironmentType;
         /** The ID of the Docker image to use for this build project. **/
         image: NonEmptyString;
@@ -798,15 +789,16 @@ include:
    bucket-name / path / to / object-name .zip )
    
    
- * For source code in a GitHub repository, the HTTPS clone URL, including the
-   user name and personal access token, to the repository that contains the
-   source code and the build spec (for example, https:// login-user-name : 
-   personal-access-token @github.com/ repo-owner-name / repo-name .git ). For
-   more information, see Creating an Access Token for Command-Line Use
-   [https://help.github.com/articles/creating-an-access-token-for-command-line-use/] 
-   on the GitHub Help website. **/
+ * For source code in a GitHub repository, instead of specifying a value here,
+   you connect your AWS account to your GitHub account. To do this, use the AWS
+   CodeBuild console to begin creating a build project, and follow the on-screen
+   instructions to complete the connection. (After you have connected to your
+   GitHub account, you do not need to finish creating the build project, and you
+   may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then
+   use this connection, in the source object, set the auth object&#x27;s type value
+   to OAUTH . **/
         location?: String;
-        /** The build spec declaration to use for this build project&#x27;s related builds.
+        /** The build spec declaration to use for the builds in this build project.
 
 If this value is not specified, a build spec must be included along with the
 source code to be built. **/
@@ -814,8 +806,9 @@ source code to be built. **/
         /** Information about the authorization settings for AWS CodeBuild to access the
 source code to be built.
 
-This information is only for the AWS CodeBuild console&#x27;s use. Your code should
-not get or set this information directly. **/
+This information is for the AWS CodeBuild console&#x27;s use only. Your code should
+not get or set this information directly (unless the build project&#x27;s source type 
+value is GITHUB ). **/
         auth?: SourceAuth;
     }
     export interface ResourceAlreadyExistsException {
@@ -842,17 +835,16 @@ the latest version will be used. If specified, must be one of:
    representing the build input ZIP file to use. **/
         sourceVersion?: String;
         /** Build output artifact settings that override, for this build only, the latest
-ones already defined in the corresponding build project. **/
+ones already defined in the build project. **/
         artifactsOverride?: ProjectArtifacts;
         /** A set of environment variables that overrides, for this build only, the latest
-ones already defined in the corresponding build project. **/
+ones already defined in the build project. **/
         environmentVariablesOverride?: EnvironmentVariables;
         /** A build spec declaration that overrides, for this build only, the latest one
-already defined in the corresponding build project. **/
+already defined in the build project. **/
         buildspecOverride?: String;
-        /** The number of build timeout minutes, from 5 to 480 (8 hours) that overrides, for
-this build only, the latest setting already defined in the corresponding build
-project. **/
+        /** The number of build timeout minutes, from 5 to 480 (8 hours), that overrides,
+for this build only, the latest setting already defined in the build project. **/
         timeoutInMinutesOverride?: TimeOut;
     }
     export interface StartBuildOutput {
@@ -860,11 +852,11 @@ project. **/
         build?: Build;
     }
     export interface StopBuildInput {
-        /** The ID of the build to attempt to stop running. **/
+        /** The ID of the build. **/
         id: NonEmptyString;
     }
     export interface StopBuildOutput {
-        /** Information about the build that was attempted to be stopped. **/
+        /** Information about the build. **/
         build?: Build;
     }
     export interface Tag {
@@ -874,27 +866,29 @@ project. **/
         value?: ValueInput;
     }
     export interface UpdateProjectInput {
-        /** The name of the existing build project to change settings.
+        /** The name of the build project.
 
-You cannot change an existing build project&#x27;s name. **/
+You cannot change a build project&#x27;s name. **/
         name: NonEmptyString;
         /** A new or replacement description of the build project. **/
         description?: ProjectDescription;
-        /** Information to be changed about the build project&#x27;s build input source code. **/
+        /** Information to be changed about the build input source code for the build
+project. **/
         source?: ProjectSource;
-        /** Information to be changed about the build project&#x27;s build output artifacts. **/
+        /** Information to be changed about the build output artifacts for the build
+project. **/
         artifacts?: ProjectArtifacts;
-        /** Information to be changed about the build project&#x27;s build environment. **/
+        /** Information to be changed about the build environment for the build project. **/
         environment?: ProjectEnvironment;
-        /** The replacement Amazon Resource Name (ARN) of the AWS Identity and Access
-Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS
-services on behalf of the AWS account. **/
+        /** The replacement ARN of the AWS Identity and Access Management (IAM) role that
+enables AWS CodeBuild to interact with dependent AWS services on behalf of the
+AWS account. **/
         serviceRole?: NonEmptyString;
         /** The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to
-wait to timeout any related build that did not get marked as completed. **/
+wait before timing out any related build that did not get marked as completed. **/
         timeoutInMinutes?: TimeOut;
         /** The replacement AWS Key Management Service (AWS KMS) customer master key (CMK)
-to be used for encrypting the build project&#x27;s build output artifacts.
+to be used for encrypting the build output artifacts.
 
 You can specify either the CMK&#x27;s Amazon Resource Name (ARN) or, if available,
 the CMK&#x27;s alias (using the format alias/ alias-name ). **/

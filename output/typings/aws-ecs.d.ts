@@ -65,26 +65,25 @@ The minimumHealthyPercent represents a lower limit on the number of your
 service&#x27;s tasks that must remain in the RUNNING state during a deployment, as a
 percentage of the desiredCount (rounded up to the nearest integer). This
 parameter enables you to deploy without using additional cluster capacity. For
-example, if your service has a desiredCount of four tasks and a 
-minimumHealthyPercent of 50%, the scheduler may stop two existing tasks to free
-up cluster capacity before starting two new tasks. Tasks for services that do
-not use a load balancer are considered healthy if they are in the RUNNING state;
-tasks for services that do use a load balancer are considered healthy if they
-are in the RUNNING state and the container instance it is hosted on is reported
-as healthy by the load balancer. The default value for minimumHealthyPercent is
-50% in the console and 100% for the AWS CLI, the AWS SDKs, and the APIs.
+example, if desiredCount is four tasks and the minimum is 50%, the scheduler can
+stop two existing tasks to free up cluster capacity before starting two new
+tasks. Tasks for services that do not use a load balancer are considered healthy
+if they are in the RUNNING state. Tasks for services that use a load balancer
+are considered healthy if they are in the RUNNING state and the container
+instance they are hosted on is reported as healthy by the load balancer. The
+default value is 50% in the console and 100% for the AWS CLI, the AWS SDKs, and
+the APIs.
 
 The maximumPercent parameter represents an upper limit on the number of your
 service&#x27;s tasks that are allowed in the RUNNING or PENDING state during a
 deployment, as a percentage of the desiredCount (rounded down to the nearest
 integer). This parameter enables you to define the deployment batch size. For
-example, if your service has a desiredCount of four tasks and a maximumPercent 
-value of 200%, the scheduler may start four new tasks before stopping the four
-older tasks (provided that the cluster resources required to do this are
-available). The default value for maximumPercent is 200%.
+example, if desiredCount is four tasks and the maximum is 200%, the scheduler
+can start four new tasks before stopping the four older tasks (provided that the
+cluster resources required to do this are available). The default value is 200%.
 
 When the service scheduler launches new tasks, it determines task placement in
-your cluster with the following logic:
+your cluster using the following logic:
 
  &amp;#42; Determine which of the container instances in your cluster can support your
    service&#x27;s task definition (for example, they have the required CPU, memory,
@@ -93,7 +92,7 @@ your cluster with the following logic:
    
  * By default, the service scheduler attempts to balance tasks across
    Availability Zones in this manner (although you can choose a different
-   placement strategy with the placementStrategy parameter):
+   placement strategy):
    
     * Sort the valid container instances by the fewest number of running tasks
       for this service in the same Availability Zone as the instance. For
@@ -113,7 +112,7 @@ your cluster with the following logic:
      */
     createService(params: ECS.CreateServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.CreateServiceResponse|any) => void): Request<ECS.CreateServiceResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
-     * Deletes one or more attributes from an Amazon ECS resource.
+     * Deletes one or more custom attributes from an Amazon ECS resource.
      *
      * @error ClusterNotFoundException   
      * @error TargetNotFoundException   
@@ -343,8 +342,11 @@ tasks appear in the returned results for at least one hour.
     listTasks(params: ECS.ListTasksRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any, data: ECS.ListTasksResponse|any) => void): Request<ECS.ListTasksResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any>;
     /**
      * Create or update an attribute on an Amazon ECS resource. If the attribute does
-not already exist on the given target, it is created; if it does exist, it is
-replaced with the new value.
+not exist, it is created. If the attribute exists, its value is replaced with
+the specified value. To delete an attribute, use DeleteAttributes . For more
+information, see Attributes
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes] 
+in the Amazon EC2 Container Service Developer Guide .
      *
      * @error ClusterNotFoundException   
      * @error TargetNotFoundException   
@@ -482,6 +484,60 @@ in the Amazon EC2 Container Service Developer Guide .
      */
     updateContainerAgent(params: ECS.UpdateContainerAgentRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.UpdateInProgressException|ECS.NoUpdateAvailableException|ECS.MissingVersionException|any, data: ECS.UpdateContainerAgentResponse|any) => void): Request<ECS.UpdateContainerAgentResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.UpdateInProgressException|ECS.NoUpdateAvailableException|ECS.MissingVersionException|any>;
     /**
+     * Modifies the status of an Amazon ECS container instance.
+
+You can change the status of a container instance to DRAINING to manually remove
+an instance from a cluster, for example to perform system updates, update the
+Docker daemon, or scale down the cluster size.
+
+When you set a container instance to DRAINING , Amazon ECS prevents new tasks
+from being scheduled for placement on the container instance and replacement
+service tasks are started on other container instances in the cluster if the
+resources are available. Service tasks on the container instance that are in the 
+PENDING state are stopped immediately.
+
+Service tasks on the container instance that are in the RUNNING state are
+stopped and replaced according the service&#x27;s deployment configuration
+parameters, minimumHealthyPercent and maximumPercent . Note that you can change
+the deployment configuration of your service using UpdateService .
+
+ &amp;#42; If minimumHealthyPercent is below 100%, the scheduler can ignore desiredCount 
+   temporarily during task replacement. For example, desiredCount is four tasks,
+   a minimum of 50% allows the scheduler to stop two existing tasks before
+   starting two new tasks. If the minimum is 100%, the service scheduler can&#x27;t
+   remove existing tasks until the replacement tasks are considered healthy.
+   Tasks for services that do not use a load balancer are considered healthy if
+   they are in the RUNNING state. Tasks for services that use a load balancer
+   are considered healthy if they are in the RUNNING state and the container
+   instance they are hosted on is reported as healthy by the load balancer.
+   
+   
+ * The maximumPercent parameter represents an upper limit on the number of
+   running tasks during task replacement, which enables you to define the
+   replacement batch size. For example, if desiredCount of four tasks, a maximum
+   of 200% starts four new tasks before stopping the four tasks to be drained
+   (provided that the cluster resources required to do this are available). If
+   the maximum is 100%, then replacement tasks can&#x27;t start until the draining
+   tasks have stopped.
+   
+   
+
+Any PENDING or RUNNING tasks that do not belong to a service are not affected;
+you must wait for them to finish or stop them manually.
+
+A container instance has completed draining when it has no more RUNNING tasks.
+You can verify this using ListTasks .
+
+When you set a container instance to ACTIVE , the Amazon ECS scheduler can begin
+scheduling tasks on the instance again.
+     *
+     * @error ServerException   
+     * @error ClientException   
+     * @error InvalidParameterException   
+     * @error ClusterNotFoundException   
+     */
+    updateContainerInstancesState(params: ECS.UpdateContainerInstancesStateRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.UpdateContainerInstancesStateResponse|any) => void): Request<ECS.UpdateContainerInstancesStateResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
+    /**
      * Modifies the desired count, deployment configuration, or task definition used in
 a service.
 
@@ -497,21 +553,23 @@ is triggered by updating the task definition of a service, the service scheduler
 uses the deployment configuration parameters, minimumHealthyPercent and 
 maximumPercent , to determine the deployment strategy.
 
-If the minimumHealthyPercent is below 100%, the scheduler can ignore the 
-desiredCount temporarily during a deployment. For example, if your service has a 
-desiredCount of four tasks, a minimumHealthyPercent of 50% allows the scheduler
-to stop two existing tasks before starting two new tasks. Tasks for services
-that do not use a load balancer are considered healthy if they are in the 
-RUNNING state; tasks for services that do use a load balancer are considered
-healthy if they are in the RUNNING state and the container instance it is hosted
-on is reported as healthy by the load balancer.
-
-The maximumPercent parameter represents an upper limit on the number of running
-tasks during a deployment, which enables you to define the deployment batch
-size. For example, if your service has a desiredCount of four tasks, a 
-maximumPercent value of 200% starts four new tasks before stopping the four
-older tasks (provided that the cluster resources required to do this are
-available).
+ &amp;#42; If minimumHealthyPercent is below 100%, the scheduler can ignore desiredCount 
+   temporarily during a deployment. For example, if desiredCount is four tasks,
+   a minimum of 50% allows the scheduler to stop two existing tasks before
+   starting two new tasks. Tasks for services that do not use a load balancer
+   are considered healthy if they are in the RUNNING state. Tasks for services
+   that use a load balancer are considered healthy if they are in the RUNNING 
+   state and the container instance they are hosted on is reported as healthy by
+   the load balancer.
+   
+   
+ * The maximumPercent parameter represents an upper limit on the number of
+   running tasks during a deployment, which enables you to define the deployment
+   batch size. For example, if desiredCount is four tasks, a maximum of 200%
+   starts four new tasks before stopping the four older tasks (provided that the
+   cluster resources required to do this are available).
+   
+   
 
 When UpdateService stops a task during a deployment, the equivalent of docker
 stop is issued to the containers running in the task. This results in a SIGTERM 
@@ -522,14 +580,14 @@ within 30 seconds from receiving it, no SIGKILL is sent.
 When the service scheduler launches new tasks, it determines task placement in
 your cluster with the following logic:
 
- &amp;#42; Determine which of the container instances in your cluster can support your
+ * Determine which of the container instances in your cluster can support your
    service&#x27;s task definition (for example, they have the required CPU, memory,
    ports, and container instance attributes).
    
    
  * By default, the service scheduler attempts to balance tasks across
    Availability Zones in this manner (although you can choose a different
-   placement strategy with the placementStrategy parameter):
+   placement strategy):
    
     * Sort the valid container instances by the fewest number of running tasks
       for this service in the same Availability Zone as the instance. For
@@ -547,7 +605,7 @@ your cluster with the following logic:
    
 
 When the service scheduler stops running tasks, it attempts to maintain balance
-across the Availability Zones in your cluster with the following logic:
+across the Availability Zones in your cluster using the following logic:
 
  * Sort the container instances by the largest number of running tasks for this
    service in the same Availability Zone as the instance. For example, if zone A
@@ -585,6 +643,8 @@ across the Availability Zones in your cluster with the following logic:
     export type Clusters = Cluster[];
     
     export type ContainerDefinitions = ContainerDefinition[];
+    
+    export type ContainerInstanceStatus = string;
     
     export type ContainerInstances = ContainerInstance[];
     
@@ -1299,13 +1359,12 @@ deploy or maintain. **/
         /** The upper limit (as a percentage of the service&#x27;s desiredCount ) of the number
 of tasks that are allowed in the RUNNING or PENDING state in a service during a
 deployment. The maximum number of tasks during a deployment is the desiredCount 
-multiplied by the maximumPercent /100, rounded down to the nearest integer
-value. **/
+multiplied by maximumPercent /100, rounded down to the nearest integer value. **/
         maximumPercent?: BoxedInteger;
         /** The lower limit (as a percentage of the service&#x27;s desiredCount ) of the number
 of running tasks that must remain in the RUNNING state in a service during a
 deployment. The minimum healthy tasks during a deployment is the desiredCount 
-multiplied by the minimumHealthyPercent /100, rounded up to the nearest integer
+multiplied by minimumHealthyPercent /100, rounded up to the nearest integer
 value. **/
         minimumHealthyPercent?: BoxedInteger;
     }
@@ -1555,6 +1614,11 @@ nextToken value. This value can be between 1 and 100. If this parameter is not
 used, then ListContainerInstances returns up to 100 results and a nextToken 
 value if applicable. **/
         maxResults?: BoxedInteger;
+        /** The container instance status with which to filter the ListContainerInstances 
+results. Specifying a container instance status of DRAINING limits the results
+to container instances that have been set to drain with the 
+UpdateContainerInstancesState operation. **/
+        status?: ContainerInstanceStatus;
     }
     export interface ListContainerInstancesResponse {
         /** The list of container instances with full Amazon Resource Name (ARN) entries for
@@ -1807,7 +1871,8 @@ value is false . **/
     export interface PlacementConstraint {
         /** The type of constraint. Use distinctInstance to ensure that each task in a
 particular group is running on a different container instance. Use memberOf to
-restrict selection to a group of valid candidates. **/
+restrict selection to a group of valid candidates. Note that distinctInstance is
+not supported in task definitions. **/
         type?: PlacementConstraintType;
         /** A cluster query language expression to apply to the constraint. Note you cannot
 specify an expression if the constraint type is distinctInstance . For more
@@ -1829,7 +1894,8 @@ of remaining memory (but still enough to run the task). **/
 strategy, valid values are instanceId (or host , which has the same effect), or
 any platform or custom attribute that is applied to a container instance, such
 as attribute:ecs.availability-zone . For the binpack placement strategy, valid
-values are CPU and MEMORY . **/
+values are cpu and memory . For the random placement strategy, this field is not
+used. **/
         field?: String;
     }
     export interface PortMapping {
@@ -1955,7 +2021,7 @@ definition and those specified at run time). **/
         taskDefinition?: TaskDefinition;
     }
     export interface Resource {
-        /** The name of the resource, such as CPU , MEMORY , PORTS , or a user-defined
+        /** The name of the resource, such as cpu , memory , ports , or a user-defined
 resource. **/
         name?: String;
         /** The type of the resource, such as INTEGER , DOUBLE , LONG , or STRINGSET . **/
@@ -2004,8 +2070,8 @@ lowercase), numbers, hyphens, and underscores are allowed.
 If a task is started by an Amazon ECS service, then the startedBy parameter
 contains the deployment ID of the service that starts it. **/
         startedBy?: String;
-        /** The task group to associate with the task. By default, if you do not specify a
-task group, the group family:TASKDEF-FAMILY is applied. **/
+        /** The name of the task group to associate with the task. The default value is the
+family name of the task definition (for example, family:my-family-name). **/
         group?: String;
         /** An array of placement constraint objects to use for the task. You can specify up
 to 10 constraints per task (including constraints in the task definition and
@@ -2122,8 +2188,8 @@ lowercase), numbers, hyphens, and underscores are allowed.
 If a task is started by an Amazon ECS service, then the startedBy parameter
 contains the deployment ID of the service that starts it. **/
         startedBy?: String;
-        /** The task group to associate with the task. By default, if you do not specify a
-task group, the default group is family:TASKDEF-FAMILY . **/
+        /** The name of the task group to associate with the task. The default value is the
+family name of the task definition (for example, family:my-family-name). **/
         group?: String;
     }
     export interface StartTaskResponse {
@@ -2228,7 +2294,7 @@ PENDING state to the RUNNING state). **/
         /** The Unix timestamp for when the task was stopped (the task transitioned from the 
 RUNNING state to the STOPPED state). **/
         stoppedAt?: Timestamp;
-        /** The task group associated with the task. **/
+        /** The name of the task group associated with the task. **/
         group?: String;
     }
     export interface TaskDefinition {
@@ -2316,6 +2382,23 @@ agent. **/
     export interface UpdateContainerAgentResponse {
         /** The container instance for which the container agent was updated. **/
         containerInstance?: ContainerInstance;
+    }
+    export interface UpdateContainerInstancesStateRequest {
+        /** The short name or full Amazon Resource Name (ARN) of the cluster that hosts the
+container instance to update. If you do not specify a cluster, the default
+cluster is assumed. **/
+        cluster?: String;
+        /** A space-separated list of container instance IDs or full Amazon Resource Name
+(ARN) entries. **/
+        containerInstances: StringList;
+        /** The container instance state with which to update the container instance. **/
+        status: ContainerInstanceStatus;
+    }
+    export interface UpdateContainerInstancesStateResponse {
+        /** The list of container instances. **/
+        containerInstances?: ContainerInstances;
+        /** Any failures associated with the call. **/
+        failures?: Failures;
     }
     export interface UpdateInProgressException {
     }

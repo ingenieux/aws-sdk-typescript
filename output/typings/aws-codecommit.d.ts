@@ -15,41 +15,83 @@ declare module "aws-sdk" {
    * protocol: json
    *
    * AWS CodeCommitThis is the AWS CodeCommit API Reference . This reference provides descriptions
-of the operations and data types for AWS CodeCommit API.
+of the operations and data types for AWS CodeCommit API along with usage
+examples.
 
 You can use the AWS CodeCommit API to work with the following objects:
 
- &amp;#42; Repositories, by calling the following: * BatchGetRepositories , which returns information about one or more
-      repositories associated with your AWS account
-    * CreateRepository , which creates an AWS CodeCommit repository
-    * DeleteRepository , which deletes an AWS CodeCommit repository
-    * GetRepository , which returns information about a specified repository
-    * ListRepositories , which lists all AWS CodeCommit repositories associated
-      with your AWS account
-    * UpdateRepositoryDescription , which sets or updates the description of the
-      repository
-    * UpdateRepositoryName , which changes the name of the repository. If you
-      change the name of a repository, no other users of that repository will be
-      able to access it until you send them the new HTTPS or SSH URL to use.
+Repositories, by calling the following:
+
+ &amp;#42; BatchGetRepositories , which returns information about one or more
+   repositories associated with your AWS account
    
    
- * Branches, by calling the following: * CreateBranch , which creates a new branch in a specified repository
-    * GetBranch , which returns information about a specified branch
-    * ListBranches , which lists all branches for a specified repository
-    * UpdateDefaultBranch , which changes the default branch for a repository
+ * CreateRepository , which creates an AWS CodeCommit repository
    
    
- * Information about committed code in a repository, by calling the following: * 
-      GetCommit , which returns information about a commit, including commit
-      messages and committer information.
+ * DeleteRepository , which deletes an AWS CodeCommit repository
    
    
- * Triggers, by calling the following: * GetRepositoryTriggers , which returns information about triggers
-      configured for a repository
-    * PutRepositoryTriggers , which replaces all triggers for a repository and
-      can be used to create or delete triggers
-    * TestRepositoryTriggers , which tests the functionality of a repository
-      trigger by sending data to the trigger target
+ * GetRepository , which returns information about a specified repository
+   
+   
+ * ListRepositories , which lists all AWS CodeCommit repositories associated
+   with your AWS account
+   
+   
+ * UpdateRepositoryDescription , which sets or updates the description of the
+   repository
+   
+   
+ * UpdateRepositoryName , which changes the name of the repository. If you
+   change the name of a repository, no other users of that repository will be
+   able to access it until you send them the new HTTPS or SSH URL to use.
+   
+   
+
+Branches, by calling the following:
+
+ * CreateBranch , which creates a new branch in a specified repository
+   
+   
+ * GetBranch , which returns information about a specified branch
+   
+   
+ * ListBranches , which lists all branches for a specified repository
+   
+   
+ * UpdateDefaultBranch , which changes the default branch for a repository
+   
+   
+
+Information about committed code in a repository, by calling the following:
+
+ * GetBlob , which returns the base-64 encoded content of an individual Git blob
+   object within a repository
+   
+   
+ * GetCommit , which returns information about a commit, including commit
+   messages and author and committer information
+   
+   
+ * GetDifferences , which returns information about the differences in a valid
+   commit specifier (such as a branch, tag, HEAD, commit ID or other fully
+   qualified reference)
+   
+   
+
+Triggers, by calling the following:
+
+ * GetRepositoryTriggers , which returns information about triggers configured
+   for a repository
+   
+   
+ * PutRepositoryTriggers , which replaces all triggers for a repository and can
+   be used to create or delete triggers
+   
+   
+ * TestRepositoryTriggers , which tests the functionality of a repository
+   trigger by sending data to the trigger target
    
    
 
@@ -134,6 +176,23 @@ fail.
      */
     deleteRepository(params: CodeCommit.DeleteRepositoryInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: CodeCommit.DeleteRepositoryOutput|any) => void): Request<CodeCommit.DeleteRepositoryOutput|any,CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any>;
     /**
+     * Returns the base-64 encoded content of an individual blob within a repository.
+     *
+     * @error RepositoryNameRequiredException   
+     * @error InvalidRepositoryNameException   
+     * @error RepositoryDoesNotExistException   
+     * @error BlobIdRequiredException   
+     * @error InvalidBlobIdException   
+     * @error BlobIdDoesNotExistException   
+     * @error EncryptionIntegrityChecksFailedException   
+     * @error EncryptionKeyAccessDeniedException   
+     * @error EncryptionKeyDisabledException   
+     * @error EncryptionKeyNotFoundException   
+     * @error EncryptionKeyUnavailableException   
+     * @error FileTooLargeException   
+     */
+    getBlob(params: CodeCommit.GetBlobInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.BlobIdRequiredException|CodeCommit.InvalidBlobIdException|CodeCommit.BlobIdDoesNotExistException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|CodeCommit.FileTooLargeException|any, data: CodeCommit.GetBlobOutput|any) => void): Request<CodeCommit.GetBlobOutput|any,CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.BlobIdRequiredException|CodeCommit.InvalidBlobIdException|CodeCommit.BlobIdDoesNotExistException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|CodeCommit.FileTooLargeException|any>;
+    /**
      * Returns information about a repository branch, including its name and the last
 commit ID.
      *
@@ -167,6 +226,29 @@ information.
      * @error EncryptionKeyUnavailableException   
      */
     getCommit(params: CodeCommit.GetCommitInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.CommitIdRequiredException|CodeCommit.InvalidCommitIdException|CodeCommit.CommitIdDoesNotExistException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: CodeCommit.GetCommitOutput|any) => void): Request<CodeCommit.GetCommitOutput|any,CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.CommitIdRequiredException|CodeCommit.InvalidCommitIdException|CodeCommit.CommitIdDoesNotExistException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any>;
+    /**
+     * Returns information about the differences in a valid commit specifier (such as a
+branch, tag, HEAD, commit ID or other fully qualified reference). Results can be
+limited to a specified path.
+     *
+     * @error RepositoryNameRequiredException   
+     * @error RepositoryDoesNotExistException   
+     * @error InvalidRepositoryNameException   
+     * @error InvalidContinuationTokenException   
+     * @error InvalidMaxResultsException   
+     * @error InvalidCommitIdException   
+     * @error CommitRequiredException   
+     * @error InvalidCommitException   
+     * @error CommitDoesNotExistException   
+     * @error InvalidPathException   
+     * @error PathDoesNotExistException   
+     * @error EncryptionIntegrityChecksFailedException   
+     * @error EncryptionKeyAccessDeniedException   
+     * @error EncryptionKeyDisabledException   
+     * @error EncryptionKeyNotFoundException   
+     * @error EncryptionKeyUnavailableException   
+     */
+    getDifferences(params: CodeCommit.GetDifferencesInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.InvalidRepositoryNameException|CodeCommit.InvalidContinuationTokenException|CodeCommit.InvalidMaxResultsException|CodeCommit.InvalidCommitIdException|CodeCommit.CommitRequiredException|CodeCommit.InvalidCommitException|CodeCommit.CommitDoesNotExistException|CodeCommit.InvalidPathException|CodeCommit.PathDoesNotExistException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: CodeCommit.GetDifferencesOutput|any) => void): Request<CodeCommit.GetDifferencesOutput|any,CodeCommit.RepositoryNameRequiredException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.InvalidRepositoryNameException|CodeCommit.InvalidContinuationTokenException|CodeCommit.InvalidMaxResultsException|CodeCommit.InvalidCommitIdException|CodeCommit.CommitRequiredException|CodeCommit.InvalidCommitException|CodeCommit.CommitDoesNotExistException|CodeCommit.InvalidPathException|CodeCommit.PathDoesNotExistException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any>;
     /**
      * Returns information about a repository.
 
@@ -346,21 +428,31 @@ in the AWS CodeCommit User Guide.
     
     export type BranchNameList = BranchName[];
     
+    export type ChangeTypeEnum = string;
+    
     export type CloneUrlHttp = string;
     
     export type CloneUrlSsh = string;
     
     export type CommitId = string;
     
+    export type CommitName = string;
+    
     export type CreationDate = number;
     
     export type Date = string;
+    
+    export type DifferenceList = Difference[];
     
     export type Email = string;
     
     export type LastModifiedDate = number;
     
+    export type Limit = number;
+    
     export type Message = string;
+    
+    export type Mode = string;
     
     export type Name = string;
     
@@ -371,6 +463,8 @@ in the AWS CodeCommit User Guide.
     export type OrderEnum = string;
     
     export type ParentList = ObjectId[];
+    
+    export type Path = string;
     
     export type RepositoryDescription = string;
     
@@ -405,6 +499,8 @@ in the AWS CodeCommit User Guide.
     export type RepositoryTriggersList = RepositoryTrigger[];
     
     export type SortByEnum = string;
+    
+    export type blob = any;
 
     export interface BatchGetRepositoriesInput {
         /** The names of the repositories to get information about. **/
@@ -415,6 +511,29 @@ in the AWS CodeCommit User Guide.
         repositories?: RepositoryMetadataList;
         /** Returns a list of repository names for which information could not be found. **/
         repositoriesNotFound?: RepositoryNotFoundList;
+    }
+    export interface BlobIdDoesNotExistException {
+    }
+    export interface BlobIdRequiredException {
+    }
+    export interface BlobMetadata {
+        /** The full ID of the blob. **/
+        blobId?: ObjectId;
+        /** The path to the blob and any associated file name, if any. **/
+        path?: Path;
+        /** The file mode permissions of the blob. File mode permission codes include:
+
+ &amp;#42; 100644 indicates read/write
+   
+   
+ * 100755 indicates read/write/execute
+   
+   
+ * 160000 indicates a submodule
+   
+   
+ * 120000 indicates a symlink **/
+        mode?: Mode;
     }
     export interface BranchDoesNotExistException {
     }
@@ -433,14 +552,20 @@ in the AWS CodeCommit User Guide.
         treeId?: ObjectId;
         /** The parent list for the specified commit. **/
         parents?: ParentList;
-        /** The message associated with the specified commit. **/
+        /** The commit message associated with the specified commit. **/
         message?: Message;
-        /** Information about the author of the specified commit. **/
+        /** Information about the author of the specified commit. Information includes the
+date in timestamp format with GMT offset, the name of the author, and the email
+address for the author, as configured in Git. **/
         author?: UserInfo;
         /** Information about the person who committed the specified commit, also known as
-the committer. For more information about the difference between an author and a
-committer in Git, see Viewing the Commit History
-[http://git-scm.com/book/ch2-3.html] in Pro Git by Scott Chacon and Ben Straub. **/
+the committer. Information includes the date in timestamp format with GMT
+offset, the name of the committer, and the email address for the committer, as
+configured in Git.
+
+For more information about the difference between an author and a committer in
+Git, see Viewing the Commit History [http://git-scm.com/book/ch2-3.html] in Pro
+Git by Scott Chacon and Ben Straub. **/
         committer?: UserInfo;
         /** Any additional data associated with the specified commit. **/
         additionalData?: AdditionalData;
@@ -450,6 +575,8 @@ committer in Git, see Viewing the Commit History
     export interface CommitIdDoesNotExistException {
     }
     export interface CommitIdRequiredException {
+    }
+    export interface CommitRequiredException {
     }
     export interface CreateBranchInput {
         /** The name of the repository in which you want to create the new branch. **/
@@ -490,6 +617,17 @@ this API to display the repository description on a web page. **/
         /** The ID of the repository that was deleted. **/
         repositoryId?: RepositoryId;
     }
+    export interface Difference {
+        /** Information about a beforeBlob data type object, including the ID, the file mode
+permission code, and the path. **/
+        beforeBlob?: BlobMetadata;
+        /** Information about an afterBlob data type object, including the ID, the file mode
+permission code, and the path. **/
+        afterBlob?: BlobMetadata;
+        /** Whether the change type of the difference is an addition (A), deletion (D), or
+modification (M). **/
+        changeType?: ChangeTypeEnum;
+    }
     export interface EncryptionIntegrityChecksFailedException {
     }
     export interface EncryptionKeyAccessDeniedException {
@@ -499,6 +637,18 @@ this API to display the repository description on a web page. **/
     export interface EncryptionKeyNotFoundException {
     }
     export interface EncryptionKeyUnavailableException {
+    }
+    export interface FileTooLargeException {
+    }
+    export interface GetBlobInput {
+        /** The name of the repository that contains the blob. **/
+        repositoryName: RepositoryName;
+        /** The ID of the blob, which is its SHA-1 pointer. **/
+        blobId: ObjectId;
+    }
+    export interface GetBlobOutput {
+        /** The content of the blob, usually a file. **/
+        content: blob;
     }
     export interface GetBranchInput {
         /** The name of the repository that contains the branch for which you want to
@@ -518,8 +668,43 @@ retrieve information. **/
         commitId: ObjectId;
     }
     export interface GetCommitOutput {
-        /** Information about the specified commit. **/
+        /** A commit data type object that contains information about the specified commit. **/
         commit: Commit;
+    }
+    export interface GetDifferencesInput {
+        /** The name of the repository where you want to get differences. **/
+        repositoryName: RepositoryName;
+        /** The branch, tag, HEAD, or other fully qualified reference used to identify a
+commit. For example, the full commit ID. Optional. If not specified, all changes
+prior to the afterCommitSpecifier value will be shown. If you do not use 
+beforeCommitSpecifier in your request, consider limiting the results with 
+maxResults . **/
+        beforeCommitSpecifier?: CommitName;
+        /** The branch, tag, HEAD, or other fully qualified reference used to identify a
+commit. **/
+        afterCommitSpecifier: CommitName;
+        /** The file path in which to check for differences. Limits the results to this
+path. Can also be used to specify the previous name of a directory or folder. If 
+beforePath and afterPath are not specified, differences will be shown for all
+paths. **/
+        beforePath?: Path;
+        /** The file path in which to check differences. Limits the results to this path.
+Can also be used to specify the changed name of a directory or folder, if it has
+changed. If not specified, differences will be shown for all paths. **/
+        afterPath?: Path;
+        /** A non-negative integer used to limit the number of returned results. **/
+        MaxResults?: Limit;
+        /** An enumeration token that when provided in a request, returns the next batch of
+the results. **/
+        NextToken?: NextToken;
+    }
+    export interface GetDifferencesOutput {
+        /** A differences data type object that contains information about the differences,
+including whether the difference is added, modified, or deleted (A, D, M). **/
+        differences?: DifferenceList;
+        /** An enumeration token that can be used in a request to return the next batch of
+the results. **/
+        NextToken?: NextToken;
     }
     export interface GetRepositoryInput {
         /** The name of the repository to get information about. **/
@@ -531,7 +716,7 @@ retrieve information. **/
     }
     export interface GetRepositoryTriggersInput {
         /** The name of the repository for which the trigger is configured. **/
-        repositoryName?: RepositoryName;
+        repositoryName: RepositoryName;
     }
     export interface GetRepositoryTriggersOutput {
         /** The system-generated unique ID for the trigger. **/
@@ -539,13 +724,21 @@ retrieve information. **/
         /** The JSON block of configuration information for each trigger. **/
         triggers?: RepositoryTriggersList;
     }
+    export interface InvalidBlobIdException {
+    }
     export interface InvalidBranchNameException {
+    }
+    export interface InvalidCommitException {
     }
     export interface InvalidCommitIdException {
     }
     export interface InvalidContinuationTokenException {
     }
+    export interface InvalidMaxResultsException {
+    }
     export interface InvalidOrderException {
+    }
+    export interface InvalidPathException {
     }
     export interface InvalidRepositoryDescriptionException {
     }
@@ -603,11 +796,13 @@ retrieved. **/
     }
     export interface MaximumRepositoryTriggersExceededException {
     }
+    export interface PathDoesNotExistException {
+    }
     export interface PutRepositoryTriggersInput {
         /** The name of the repository where you want to create or update the trigger. **/
-        repositoryName?: RepositoryName;
+        repositoryName: RepositoryName;
         /** The JSON block of configuration information for each trigger. **/
-        triggers?: RepositoryTriggersList;
+        triggers: RepositoryTriggersList;
     }
     export interface PutRepositoryTriggersOutput {
         /** The system-generated unique ID for the create or update operation. **/
@@ -653,10 +848,10 @@ retrieved. **/
     }
     export interface RepositoryTrigger {
         /** The name of the trigger. **/
-        name?: RepositoryTriggerName;
+        name: RepositoryTriggerName;
         /** The ARN of the resource that is the target for a trigger. For example, the ARN
 of a topic in Amazon Simple Notification Service (SNS). **/
-        destinationArn?: Arn;
+        destinationArn: Arn;
         /** Any custom data associated with the trigger that will be included in the
 information sent to the target of the trigger. **/
         customData?: RepositoryTriggerCustomData;
@@ -665,9 +860,10 @@ are specified, the trigger will apply to all branches. **/
         branches?: BranchNameList;
         /** The repository events that will cause the trigger to run actions in another
 service, such as sending a notification through Amazon Simple Notification
-Service (SNS). If no events are specified, the trigger will run for all
-repository events. **/
-        events?: RepositoryTriggerEventList;
+Service (SNS).
+
+The valid value &quot;all&quot; cannot be used with any other values. **/
+        events: RepositoryTriggerEventList;
     }
     export interface RepositoryTriggerBranchNameListRequiredException {
     }
@@ -687,9 +883,9 @@ repository events. **/
     }
     export interface TestRepositoryTriggersInput {
         /** The name of the repository in which to test the triggers. **/
-        repositoryName?: RepositoryName;
+        repositoryName: RepositoryName;
         /** The list of triggers to test. **/
-        triggers?: RepositoryTriggersList;
+        triggers: RepositoryTriggersList;
     }
     export interface TestRepositoryTriggersOutput {
         /** The list of triggers that were successfully tested. This list provides the names
