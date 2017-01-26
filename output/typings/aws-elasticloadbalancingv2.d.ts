@@ -122,12 +122,13 @@ in the Application Load Balancers Guide .
     /**
      * Creates an Application Load Balancer.
 
-To create listeners for your load balancer, use CreateListener . You can add
-security groups, subnets, and tags when you create your load balancer, or you
-can add them later using SetSecurityGroups , SetSubnets , and AddTags .
+When you create a load balancer, you can specify security groups, subnets, IP
+address type, and tags. Otherwise, you could do so later using SetSecurityGroups 
+, SetSubnets , SetIpAddressType , and AddTags .
 
-To describe your current load balancers, see DescribeLoadBalancers . When you
-are finished with a load balancer, you can delete it using DeleteLoadBalancer .
+To create listeners for your load balancer, use CreateListener . To describe
+your current load balancers, see DescribeLoadBalancers . When you are finished
+with a load balancer, you can delete it using DeleteLoadBalancer .
 
 You can create up to 20 load balancers per region per account. You can request
 an increase for the number of load balancers for your account. For more
@@ -388,8 +389,8 @@ protocol and port number for the target group. Alternatively, you can override
 the port for a target when you register it.
 
 The target must be in the virtual private cloud (VPC) that you specified for the
-target group. If the target is an EC2 instance, it can&#x27;t be in the stopped or 
-running state when you register it.
+target group. If the target is an EC2 instance, it must be in the running state
+when you register it.
 
 To remove a target from a target group, use DeregisterTargets .
      *
@@ -411,6 +412,15 @@ To list the current tags for your resources, use DescribeTags .
      * @error TooManyTagsException   
      */
     removeTags(params: ELBv2.RemoveTagsInput, callback?: (err: ELBv2.LoadBalancerNotFoundException|ELBv2.TargetGroupNotFoundException|ELBv2.ListenerNotFoundException|ELBv2.RuleNotFoundException|ELBv2.TooManyTagsException|any, data: ELBv2.RemoveTagsOutput|any) => void): Request<ELBv2.RemoveTagsOutput|any,ELBv2.LoadBalancerNotFoundException|ELBv2.TargetGroupNotFoundException|ELBv2.ListenerNotFoundException|ELBv2.RuleNotFoundException|ELBv2.TooManyTagsException|any>;
+    /**
+     * Sets the type of IP addresses used by the subnets of the specified Application
+Load Balancer.
+     *
+     * @error LoadBalancerNotFoundException   
+     * @error InvalidConfigurationRequestException   
+     * @error InvalidSubnetException   
+     */
+    setIpAddressType(params: ELBv2.SetIpAddressTypeInput, callback?: (err: ELBv2.LoadBalancerNotFoundException|ELBv2.InvalidConfigurationRequestException|ELBv2.InvalidSubnetException|any, data: ELBv2.SetIpAddressTypeOutput|any) => void): Request<ELBv2.SetIpAddressTypeOutput|any,ELBv2.LoadBalancerNotFoundException|ELBv2.InvalidConfigurationRequestException|ELBv2.InvalidSubnetException|any>;
     /**
      * Sets the priorities of the specified rules.
 
@@ -481,6 +491,8 @@ balancer. The specified subnets replace the previously enabled subnets.
     export type HealthCheckTimeoutSeconds = number;
     
     export type HttpCode = string;
+    
+    export type IpAddressType = string;
     
     export type IsDefault = boolean;
     
@@ -683,6 +695,10 @@ The default is an Internet-facing load balancer. **/
         Scheme?: LoadBalancerSchemeEnum;
         /** One or more tags to assign to the load balancer. **/
         Tags?: TagList;
+        /** The type of IP addresses used by the subnets for your load balancer. The
+possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6
+addresses). Internal load balancers must use ipv4 . **/
+        IpAddressType?: IpAddressType;
     }
     export interface CreateLoadBalancerOutput {
         /** Information about the load balancer. **/
@@ -692,8 +708,9 @@ The default is an Internet-facing load balancer. **/
         /** The Amazon Resource Name (ARN) of the listener. **/
         ListenerArn: ListenerArn;
         /** A condition. Each condition has the field path-pattern and specifies one path
-pattern. A path pattern is case sensitive, can be up to 255 characters in
-length, and can contain any of the following characters:
+pattern. A path pattern is case sensitive, can be up to 128 characters in
+length, and can contain any of the following characters. Note that you can
+include up to three wildcard characters in a path pattern.
 
  &amp;#42; A-Z, a-z, 0-9
    
@@ -981,6 +998,10 @@ requests from clients with access to the VPC for the load balancer. **/
         AvailabilityZones?: AvailabilityZones;
         /** The IDs of the security groups for the load balancer. **/
         SecurityGroups?: SecurityGroups;
+        /** The type of IP addresses used by the subnets for your load balancer. The
+possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6
+addresses). **/
+        IpAddressType?: IpAddressType;
     }
     export interface LoadBalancerAttribute {
         /** The name of the attribute.
@@ -1143,8 +1164,9 @@ it again using a different port. **/
         Field?: ConditionFieldName;
         /** The path pattern. You can specify a single path pattern.
 
-A path pattern is case sensitive, can be up to 255 characters in length, and can
-contain any of the following characters:
+A path pattern is case sensitive, can be up to 128 characters in length, and can
+contain any of the following characters. Note that you can include up to three
+wildcard characters in a path pattern.
 
  &amp;#42; A-Z, a-z, 0-9
    
@@ -1170,6 +1192,17 @@ contain any of the following characters:
         Priority?: RulePriority;
     }
     export interface SSLPolicyNotFoundException {
+    }
+    export interface SetIpAddressTypeInput {
+        /** The Amazon Resource Name (ARN) of the load balancer. **/
+        LoadBalancerArn: LoadBalancerArn;
+        /** The IP address type. The possible values are ipv4 (for IPv4 addresses) and 
+dualstack (for IPv4 and IPv6 addresses). Internal load balancers must use ipv4 . **/
+        IpAddressType: IpAddressType;
+    }
+    export interface SetIpAddressTypeOutput {
+        /** The IP address type. **/
+        IpAddressType?: IpAddressType;
     }
     export interface SetRulePrioritiesInput {
         /** The rule priorities. **/
