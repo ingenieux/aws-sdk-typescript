@@ -22,6 +22,7 @@
     "output/typings/aws-autoscaling.d.ts",
     "output/typings/aws-batch.d.ts",
     "output/typings/aws-budgets.d.ts",
+    "output/typings/aws-clouddirectory.d.ts",
     "output/typings/aws-cloudformation.d.ts",
     "output/typings/aws-cloudfront.d.ts",
     "output/typings/aws-cloudhsm.d.ts",

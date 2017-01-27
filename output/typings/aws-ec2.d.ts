@@ -3057,6 +3057,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type InstanceCountList = InstanceCount[];
     
+    export type InstanceHealthStatus = string;
+    
     export type InstanceIdSet = String[];
     
     export type InstanceIdStringList = String[];
@@ -3516,6 +3518,10 @@ UnauthorizedOperation . **/
         InstanceId?: String;
         /** The ID of the Spot instance request. **/
         SpotInstanceRequestId?: String;
+        /** The health status of the instance. If the status of both the instance status
+check and the system status check is impaired , the health status of the
+instance is unhealthy . Otherwise, the health status is healthy . **/
+        InstanceHealth?: InstanceHealthStatus;
     }
     export interface Address {
         /** The ID of the instance that the address is associated with (if any). **/
@@ -12273,6 +12279,8 @@ certain target capacity, fleet will place the required bids to meet this target
 capacity. It will also automatically replenish any interrupted instances.
 Default: maintain . **/
         Type?: FleetType;
+        /** Indicates whether Spot fleet should replace unhealthy instances. **/
+        ReplaceUnhealthyInstances?: Boolean;
     }
     export interface SpotInstanceRequest {
         /** The ID of the Spot instance request. **/

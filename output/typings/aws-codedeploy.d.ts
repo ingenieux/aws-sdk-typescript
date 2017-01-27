@@ -148,6 +148,21 @@ You can use the AWS CodeDeploy APIs to work with the following:
      */
     batchGetOnPremisesInstances(params: CodeDeploy.BatchGetOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetOnPremisesInstancesOutput|any) => void): Request<CodeDeploy.BatchGetOnPremisesInstancesOutput|any,CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any>;
     /**
+     * Starts the process of rerouting traffic from instances in the original
+environment to instances in thereplacement environment without waiting for a
+specified wait time to elapse. (Traffic rerouting, which is achieved by
+registering instances in the replacement environment with the load balancer, can
+start as soon as all instances have a status of Ready.)
+     *
+     * @error DeploymentIdRequiredException   
+     * @error DeploymentDoesNotExistException   
+     * @error DeploymentAlreadyCompletedException   
+     * @error InvalidDeploymentIdException   
+     * @error DeploymentIsNotInReadyStateException   
+     * @error UnsupportedActionForDeploymentTypeException   
+     */
+    continueDeployment(params: CodeDeploy.ContinueDeploymentInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentAlreadyCompletedException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.DeploymentIsNotInReadyStateException|CodeDeploy.UnsupportedActionForDeploymentTypeException|any, data: any) => void): Request<any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentAlreadyCompletedException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.DeploymentIsNotInReadyStateException|CodeDeploy.UnsupportedActionForDeploymentTypeException|any>;
+    /**
      * Creates an application.
      *
      * @error ApplicationNameRequiredException   
@@ -172,9 +187,11 @@ You can use the AWS CodeDeploy APIs to work with the following:
      * @error DeploymentConfigDoesNotExistException   
      * @error DescriptionTooLongException   
      * @error DeploymentLimitExceededException   
+     * @error InvalidTargetInstancesException   
      * @error InvalidAutoRollbackConfigException   
+     * @error InvalidLoadBalancerInfoException   
      */
-    createDeployment(params: CodeDeploy.CreateDeploymentInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.RevisionDoesNotExistException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any, data: CodeDeploy.CreateDeploymentOutput|any) => void): Request<CodeDeploy.CreateDeploymentOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.RevisionDoesNotExistException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any>;
+    createDeployment(params: CodeDeploy.CreateDeploymentInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.RevisionDoesNotExistException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|CodeDeploy.InvalidTargetInstancesException|CodeDeploy.InvalidAutoRollbackConfigException|CodeDeploy.InvalidLoadBalancerInfoException|any, data: CodeDeploy.CreateDeploymentOutput|any) => void): Request<CodeDeploy.CreateDeploymentOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.RevisionDoesNotExistException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|CodeDeploy.InvalidTargetInstancesException|CodeDeploy.InvalidAutoRollbackConfigException|CodeDeploy.InvalidLoadBalancerInfoException|any>;
     /**
      * Creates a deployment configuration.
      *
@@ -208,8 +225,11 @@ You can use the AWS CodeDeploy APIs to work with the following:
      * @error InvalidAlarmConfigException   
      * @error AlarmsLimitExceededException   
      * @error InvalidAutoRollbackConfigException   
+     * @error InvalidLoadBalancerInfoException   
+     * @error InvalidDeploymentStyleException   
+     * @error InvalidBlueGreenDeploymentConfigurationException   
      */
-    createDeploymentGroup(params: CodeDeploy.CreateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any, data: CodeDeploy.CreateDeploymentGroupOutput|any) => void): Request<CodeDeploy.CreateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any>;
+    createDeploymentGroup(params: CodeDeploy.CreateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|CodeDeploy.InvalidLoadBalancerInfoException|CodeDeploy.InvalidDeploymentStyleException|CodeDeploy.InvalidBlueGreenDeploymentConfigurationException|any, data: CodeDeploy.CreateDeploymentGroupOutput|any) => void): Request<CodeDeploy.CreateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|CodeDeploy.InvalidLoadBalancerInfoException|CodeDeploy.InvalidDeploymentStyleException|CodeDeploy.InvalidBlueGreenDeploymentConfigurationException|any>;
     /**
      * Deletes an application.
      *
@@ -358,8 +378,9 @@ AWS account.
      * @error InvalidNextTokenException   
      * @error InvalidDeploymentIdException   
      * @error InvalidInstanceStatusException   
+     * @error InvalidInstanceTypeException   
      */
-    listDeploymentInstances(params: CodeDeploy.ListDeploymentInstancesInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentNotStartedException|CodeDeploy.InvalidNextTokenException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceStatusException|any, data: CodeDeploy.ListDeploymentInstancesOutput|any) => void): Request<CodeDeploy.ListDeploymentInstancesOutput|any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentNotStartedException|CodeDeploy.InvalidNextTokenException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceStatusException|any>;
+    listDeploymentInstances(params: CodeDeploy.ListDeploymentInstancesInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentNotStartedException|CodeDeploy.InvalidNextTokenException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceStatusException|CodeDeploy.InvalidInstanceTypeException|any, data: CodeDeploy.ListDeploymentInstancesOutput|any) => void): Request<CodeDeploy.ListDeploymentInstancesOutput|any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentNotStartedException|CodeDeploy.InvalidNextTokenException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceStatusException|CodeDeploy.InvalidInstanceTypeException|any>;
     /**
      * Lists the deployments in a deployment group for an application registered with
 the applicable IAM user or AWS account.
@@ -428,6 +449,18 @@ request. You cannot use both.
      */
     removeTagsFromOnPremisesInstances(params: CodeDeploy.RemoveTagsFromOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any, data: any) => void): Request<any,CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any>;
     /**
+     * In a blue/green deployment, overrides any specified wait time and starts
+terminating instances immediately after the traffic routing is completed.
+     *
+     * @error DeploymentIdRequiredException   
+     * @error DeploymentDoesNotExistException   
+     * @error DeploymentAlreadyCompletedException   
+     * @error InvalidDeploymentIdException   
+     * @error DeploymentNotStartedException   
+     * @error UnsupportedActionForDeploymentTypeException   
+     */
+    skipWaitTimeForInstanceTermination(params: CodeDeploy.SkipWaitTimeForInstanceTerminationInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentAlreadyCompletedException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.DeploymentNotStartedException|CodeDeploy.UnsupportedActionForDeploymentTypeException|any, data: any) => void): Request<any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentAlreadyCompletedException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.DeploymentNotStartedException|CodeDeploy.UnsupportedActionForDeploymentTypeException|any>;
+    /**
      * Attempts to stop an ongoing deployment.
      *
      * @error DeploymentIdRequiredException   
@@ -467,12 +500,17 @@ request. You cannot use both.
      * @error InvalidAlarmConfigException   
      * @error AlarmsLimitExceededException   
      * @error InvalidAutoRollbackConfigException   
+     * @error InvalidLoadBalancerInfoException   
+     * @error InvalidDeploymentStyleException   
+     * @error InvalidBlueGreenDeploymentConfigurationException   
      */
-    updateDeploymentGroup(params: CodeDeploy.UpdateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any, data: CodeDeploy.UpdateDeploymentGroupOutput|any) => void): Request<CodeDeploy.UpdateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any>;
+    updateDeploymentGroup(params: CodeDeploy.UpdateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|CodeDeploy.InvalidLoadBalancerInfoException|CodeDeploy.InvalidDeploymentStyleException|CodeDeploy.InvalidBlueGreenDeploymentConfigurationException|any, data: CodeDeploy.UpdateDeploymentGroupOutput|any) => void): Request<CodeDeploy.UpdateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|CodeDeploy.InvalidLoadBalancerInfoException|CodeDeploy.InvalidDeploymentStyleException|CodeDeploy.InvalidBlueGreenDeploymentConfigurationException|any>;
 
   }
 
   export module CodeDeploy {
+    
+    export type AdditionalDeploymentStatusInfo = string;
     
     export type AlarmList = Alarm[];
     
@@ -524,9 +562,15 @@ request. You cannot use both.
     
     export type DeploymentId = string;
     
+    export type DeploymentOption = string;
+    
+    export type DeploymentReadyAction = string;
+    
     export type DeploymentStatus = string;
     
     export type DeploymentStatusList = DeploymentStatus[];
+    
+    export type DeploymentType = string;
     
     export type DeploymentsInfoList = DeploymentInfo[];
     
@@ -534,9 +578,15 @@ request. You cannot use both.
     
     export type Description = string;
     
+    export type Duration = number;
+    
     export type EC2TagFilterList = EC2TagFilter[];
     
     export type EC2TagFilterType = string;
+    
+    export type ELBInfoList = ELBInfo[];
+    
+    export type ELBName = string;
     
     export type ETag = string;
     
@@ -544,9 +594,13 @@ request. You cannot use both.
     
     export type ErrorMessage = string;
     
+    export type GreenFleetProvisioningAction = string;
+    
     export type IamSessionArn = string;
     
     export type IamUserArn = string;
+    
+    export type InstanceAction = string;
     
     export type InstanceArn = string;
     
@@ -565,6 +619,10 @@ request. You cannot use both.
     export type InstanceStatusList = InstanceStatus[];
     
     export type InstanceSummaryList = InstanceSummary[];
+    
+    export type InstanceType = string;
+    
+    export type InstanceTypeList = InstanceType[];
     
     export type InstancesList = InstanceId[];
     
@@ -770,7 +828,37 @@ user or AWS account. **/
     }
     export interface BatchLimitExceededException {
     }
+    export interface BlueGreenDeploymentConfiguration {
+        /** Information about whether to terminate instances in the original fleet during a
+blue/green deployment. **/
+        terminateBlueInstancesOnDeploymentSuccess?: BlueInstanceTerminationOption;
+        /** Information about the action to take when newly provisioned instances are ready
+to receive traffic in a blue/green deployment. **/
+        deploymentReadyOption?: DeploymentReadyOption;
+        /** Information about how instances are provisioned for a replacement environment in
+a blue/green deployment. **/
+        greenFleetProvisioningOption?: GreenFleetProvisioningOption;
+    }
+    export interface BlueInstanceTerminationOption {
+        /** The action to take on instances in the original environment after a successful
+blue/green deployment.
+
+ &amp;#42; TERMINATE: Instances are terminated after a specified wait time.
+   
+   
+ * KEEP_ALIVE: Instances are left running after they are deregistered from the
+   load balancer and removed from the deployment group. **/
+        action?: InstanceAction;
+        /** The number of minutes to wait after a successful blue/green deployment before
+terminating instances from the original environment. **/
+        terminationWaitTimeInMinutes?: Duration;
+    }
     export interface BucketNameFilterRequiredException {
+    }
+    export interface ContinueDeploymentInput {
+        /** The deployment ID of the blue/green deployment for which you want to start
+rerouting traffic to the replacement environment. **/
+        deploymentId?: DeploymentId;
     }
     export interface CreateApplicationInput {
         /** The name of the application. This name must be unique with the applicable IAM
@@ -851,6 +939,13 @@ created. **/
         /** Configuration information for an automatic rollback that is added when a
 deployment group is created. **/
         autoRollbackConfiguration?: AutoRollbackConfiguration;
+        /** Information about the type of deployment, standard or blue/green, that you want
+to run and whether to route deployment traffic behind a load balancer. **/
+        deploymentStyle?: DeploymentStyle;
+        /** Information about blue/green deployment options for a deployment group. **/
+        blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+        /** Information about the load balancer used in a blue/green deployment. **/
+        loadBalancerInfo?: LoadBalancerInfo;
     }
     export interface CreateDeploymentGroupOutput {
         /** A unique deployment group ID. **/
@@ -883,6 +978,9 @@ ApplicationStop deployment lifecycle event to fail to an instance, the
 deployment to that instance will stop, and the deployment to that instance will
 be considered to have failed. **/
         ignoreApplicationStopFailures?: Boolean;
+        /** Information about the instances that will belong to the replacement environment
+in a blue/green deployment. **/
+        targetInstances?: TargetInstances;
         /** Configuration information for an automatic rollback that is added when a
 deployment is created. **/
         autoRollbackConfiguration?: AutoRollbackConfiguration;
@@ -975,6 +1073,13 @@ location. **/
         /** Information about the automatic rollback configuration associated with the
 deployment group. **/
         autoRollbackConfiguration?: AutoRollbackConfiguration;
+        /** Information about the type of deployment, either standard or blue/green, you
+want to run and whether to route deployment traffic behind a load balancer. **/
+        deploymentStyle?: DeploymentStyle;
+        /** Information about blue/green deployment options for a deployment group. **/
+        blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+        /** Information about the load balancer to use in a blue/green deployment. **/
+        loadBalancerInfo?: LoadBalancerInfo;
     }
     export interface DeploymentGroupLimitExceededException {
     }
@@ -1040,6 +1145,26 @@ revision are to be deployed to. **/
         updateOutdatedInstancesOnly?: Boolean;
         /** Information about a deployment rollback. **/
         rollbackInfo?: RollbackInfo;
+        /** Information about the type of deployment, either standard or blue/green, you
+want to run and whether to route deployment traffic behind a load balancer. **/
+        deploymentStyle?: DeploymentStyle;
+        /** Information about the instances that belong to the replacement environment in a
+blue/green deployment. **/
+        targetInstances?: TargetInstances;
+        /** Indicates whether the wait period set for the termination of instances in the
+original environment has started. Status is &#x27;false&#x27; if the KEEP_ALIVE option is
+specified; otherwise, &#x27;true&#x27; as soon as the termination wait period starts. **/
+        instanceTerminationWaitTimeStarted?: Boolean;
+        /** Information about blue/green deployment options for this deployment. **/
+        blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+        /** Information about the load balancer used in this blue/green deployment. **/
+        loadBalancerInfo?: LoadBalancerInfo;
+        /** Provides information about the results of a deployment, such as whether
+instances in the original environment in a blue/green deployment were not
+terminated. **/
+        additionalDeploymentStatusInfo?: AdditionalDeploymentStatusInfo;
+    }
+    export interface DeploymentIsNotInReadyStateException {
     }
     export interface DeploymentLimitExceededException {
     }
@@ -1057,6 +1182,34 @@ successfully deployed. **/
         Failed?: InstanceCount;
         /** The number of instances in the deployment in a skipped state. **/
         Skipped?: InstanceCount;
+        /** The number of instances in a replacement environment ready to receive traffic in
+a blue/green deployment. **/
+        Ready?: InstanceCount;
+    }
+    export interface DeploymentReadyOption {
+        /** Information about when to reroute traffic from an original environment to a
+replacement environment in a blue/green deployment.
+
+ &amp;#42; CONTINUE_DEPLOYMENT: Register new instances with the load balancer
+   immediately after the new application revision is installed on the instances
+   in the replacement environment.
+   
+   
+ * STOP_DEPLOYMENT: Do not register new instances with load balancer unless
+   traffic is rerouted manually. If traffic is not rerouted manually before the
+   end of the specified wait period, the deployment status is changed to
+   Stopped. **/
+        actionOnTimeout?: DeploymentReadyAction;
+        /** The number of minutes to wait before the status of a blue/green deployment
+changed to Stopped if rerouting is not started manually. Applies only to the
+STOP_DEPLOYMENT option for actionOnTimeout **/
+        waitTimeInMinutes?: Duration;
+    }
+    export interface DeploymentStyle {
+        /** Indicates whether to run a standard deployment or a blue/green deployment. **/
+        deploymentType?: DeploymentType;
+        /** Indicates whether to route deployment traffic behind a load balancer. **/
+        deploymentOption?: DeploymentOption;
     }
     export interface DeregisterOnPremisesInstanceInput {
         /** The name of the on-premises instance to deregister. **/
@@ -1111,8 +1264,18 @@ If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log. 
  * KEY_AND_VALUE: Key and value. **/
         Type?: EC2TagFilterType;
     }
+    export interface ELBInfo {
+        /** The name of the load balancer that will be used to route traffic from original
+instances to replacement instances in a blue/green deployment. **/
+        name?: ELBName;
+    }
     export interface ErrorInformation {
-        /** The error code:
+        /** For information about additional error codes, see Error Codes for AWS CodeDeploy
+[http://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html] in the 
+AWS CodeDeploy User Guide
+[http://docs.aws.amazon.com/codedeploy/latest/userguide] .
+
+The error code:
 
  &amp;#42; APPLICATION_MISSING: The application was missing. This error code will most
    likely be raised if the application is deleted after the deployment is
@@ -1256,6 +1419,17 @@ Specified as account/repository. **/
 for the application revision. **/
         commitId?: CommitId;
     }
+    export interface GreenFleetProvisioningOption {
+        /** The method used to add instances to a replacement environment.
+
+ &amp;#42; DISCOVER_EXISTING: Use instances that already exist or will be created
+   manually.
+   
+   
+ * COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to
+   define and create instances in a new Auto Scaling group. **/
+        action?: GreenFleetProvisioningAction;
+    }
     export interface IamArnRequiredException {
     }
     export interface IamSessionArnAlreadyRegisteredException {
@@ -1321,6 +1495,14 @@ instance was deregistered. **/
         lastUpdatedAt?: Timestamp;
         /** A list of lifecycle events for this instance. **/
         lifecycleEvents?: LifecycleEventList;
+        /** Information about which environment an instance belongs to in a blue/green
+deployment.
+
+ &amp;#42; BLUE: The instance is part of the original environment.
+   
+   
+ * GREEN: The instance is part of the replacement environment. **/
+        instanceType?: InstanceType;
     }
     export interface InvalidAlarmConfigException {
     }
@@ -1329,6 +1511,8 @@ instance was deregistered. **/
     export interface InvalidAutoRollbackConfigException {
     }
     export interface InvalidAutoScalingGroupException {
+    }
+    export interface InvalidBlueGreenDeploymentConfigurationException {
     }
     export interface InvalidBucketNameFilterException {
     }
@@ -1342,6 +1526,8 @@ instance was deregistered. **/
     }
     export interface InvalidDeploymentStatusException {
     }
+    export interface InvalidDeploymentStyleException {
+    }
     export interface InvalidEC2TagException {
     }
     export interface InvalidIamSessionArnException {
@@ -1352,7 +1538,11 @@ instance was deregistered. **/
     }
     export interface InvalidInstanceStatusException {
     }
+    export interface InvalidInstanceTypeException {
+    }
     export interface InvalidKeyPrefixFilterException {
+    }
+    export interface InvalidLoadBalancerInfoException {
     }
     export interface InvalidMinimumHealthyHostValueException {
     }
@@ -1373,6 +1563,8 @@ instance was deregistered. **/
     export interface InvalidTagException {
     }
     export interface InvalidTagFilterException {
+    }
+    export interface InvalidTargetInstancesException {
     }
     export interface InvalidTimeRangeException {
     }
@@ -1544,6 +1736,10 @@ be used to return the next set of deployment instances in the list. **/
    
  * Unknown: Include those instance with deployments in an unknown state. **/
         instanceStatusFilter?: InstanceStatusList;
+        /** The set of instances in a blue/green deployment, either those in the original
+environment (&quot;BLUE&quot;) or those in the replacement environment (&quot;GREEN&quot;), for
+which you want to view instance information. **/
+        instanceTypeFilter?: InstanceTypeList;
     }
     export interface ListDeploymentInstancesOutput {
         /** A list of instance IDs. **/
@@ -1616,6 +1812,11 @@ can be used in a subsequent list on-premises instances call to return the next
 set of on-premises instances in the list. **/
         nextToken?: NextToken;
     }
+    export interface LoadBalancerInfo {
+        /** An array containing information about the load balancer in Elastic Load
+Balancing to use in a blue/green deployment. **/
+        elbInfoList?: ELBInfoList;
+    }
     export interface MinimumHealthyHosts {
         /** The minimum healthy instance value. **/
         value?: MinimumHealthyHostsValue;
@@ -1678,7 +1879,7 @@ location. **/
     export interface RevisionInfo {
         /** Information about the location and type of an application revision. **/
         revisionLocation?: RevisionLocation;
-        /** Information about an application revision, including usage details and currently
+        /** Information about an application revision, including usage details and
 associated deployment groups. **/
         genericRevisionInfo?: GenericRevisionInfo;
     }
@@ -1738,6 +1939,11 @@ If the ETag is not specified as an input parameter, ETag validation of the
 object will be skipped. **/
         eTag?: ETag;
     }
+    export interface SkipWaitTimeForInstanceTerminationInput {
+        /** The ID of the blue/green deployment for which you want to skip the instance
+termination wait time. **/
+        deploymentId?: DeploymentId;
+    }
     export interface StopDeploymentInput {
         /** The unique ID of a deployment. **/
         deploymentId: DeploymentId;
@@ -1783,6 +1989,14 @@ revision. **/
     }
     export interface TagRequiredException {
     }
+    export interface TargetInstances {
+        /** The tag filter key, type, and value used to identify Amazon EC2 instances in a
+replacement environment for a blue/green deployment. **/
+        tagFilters?: EC2TagFilterList;
+        /** The names of one or more Auto Scaling groups to identify a replacement
+environment for a blue/green deployment. **/
+        autoScalingGroups?: AutoScalingGroupNameList;
+    }
     export interface TimeRange {
         /** The start time of the time range.
 
@@ -1803,6 +2017,8 @@ notifications about deployment or instance events are sent. **/
         triggerEvents?: TriggerEventTypeList;
     }
     export interface TriggerTargetsLimitExceededException {
+    }
+    export interface UnsupportedActionForDeploymentTypeException {
     }
     export interface UpdateApplicationInput {
         /** The current name of the application you want to change. **/
@@ -1844,6 +2060,13 @@ group is updated. **/
         /** Information for an automatic rollback configuration that is added or changed
 when a deployment group is updated. **/
         autoRollbackConfiguration?: AutoRollbackConfiguration;
+        /** Information about the type of deployment, either standard or blue/green, you
+want to run and whether to route deployment traffic behind a load balancer. **/
+        deploymentStyle?: DeploymentStyle;
+        /** Information about blue/green deployment options for a deployment group. **/
+        blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+        /** Information about the load balancer used in a blue/green deployment. **/
+        loadBalancerInfo?: LoadBalancerInfo;
     }
     export interface UpdateDeploymentGroupOutput {
         /** If the output contains no data, and the corresponding deployment group contained

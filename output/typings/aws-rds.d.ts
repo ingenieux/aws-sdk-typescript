@@ -285,8 +285,10 @@ Amazon RDS User Guide.
      * @error DBClusterParameterGroupNotFoundFault   
      * @error KMSKeyNotAccessibleFault   
      * @error DBClusterNotFoundFault   
+     * @error DBInstanceNotFoundFault   
+     * @error DBSubnetGroupDoesNotCoverEnoughAZs   
      */
-    createDBCluster(params: RDS.CreateDBClusterMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidDBInstanceStateFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any, data: RDS.CreateDBClusterResult|any) => void): Request<RDS.CreateDBClusterResult|any,RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidDBInstanceStateFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any>;
+    createDBCluster(params: RDS.CreateDBClusterMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidDBInstanceStateFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|RDS.DBInstanceNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|any, data: RDS.CreateDBClusterResult|any) => void): Request<RDS.CreateDBClusterResult|any,RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidDBInstanceStateFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|RDS.DBInstanceNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|any>;
     /**
      * Creates a new DB cluster parameter group.
 
@@ -367,6 +369,71 @@ parameter groups) are inherited from the source DB instance, except as specified
 below.
 
 The source DB instance must have backup retention enabled.
+
+You can create an encrypted Read Replica in a different AWS Region than the
+source DB instance. In that case, the region where you call the 
+CreateDBInstanceReadReplica action is the destination region of the encrypted
+Read Replica. The source DB instance must be encrypted.
+
+To create an encrypted Read Replica in another AWS Region, you must provide the
+following values:
+
+ &amp;#42; KmsKeyId - The AWS Key Management System (KMS) key identifier for the key to
+   use to encrypt the Read Replica in the destination region.
+   
+   
+ * PreSignedUrl - A URL that contains a Signature Version 4 signed request for
+   the CreateDBInstanceReadReplica API action in the AWS region that contains
+   the source DB instance. The PreSignedUrl parameter must be used when
+   encrypting a Read Replica from another AWS region.
+   
+   The presigned URL must be a valid request for the CreateDBInstanceReadReplica 
+   API action that can be executed in the source region that contains the
+   encrypted DB instance. The presigned URL request must contain the following
+   parameter values:
+   
+    * DestinationRegion - The AWS Region that the Read Replica is created in.
+      This region is the same one where the CreateDBInstanceReadReplica action
+      is called that contains this presigned URL.
+      
+      For example, if you create an encrypted Read Replica in the us-east-1
+      region, and the source DB instance is in the west-2 region, then you call
+      the CreateDBInstanceReadReplica action in the us-east-1 region and provide
+      a presigned URL that contains a call to the CreateDBInstanceReadReplica 
+      action in the us-west-2 region. For this example, the DestinationRegion in
+      the presigned URL must be set to the us-east-1 region.
+      
+      
+    * KmsKeyId - The KMS key identifier for the key to use to encrypt the Read
+      Replica in the destination region. This is the same identifier for both
+      the CreateDBInstanceReadReplica action that is called in the destination
+      region, and the action contained in the presigned URL.
+      
+      
+    * SourceDBInstanceIdentifier - The DB instance identifier for the encrypted
+      Read Replica to be created. This identifier must be in the Amazon Resource
+      Name (ARN) format for the source region. For example, if you create an
+      encrypted Read Replica from a DB instance in the us-west-2 region, then
+      your SourceDBInstanceIdentifier would look like this example: 
+      arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-instance-20161115 
+      .
+      
+      
+   
+   To learn how to generate a Signature Version 4 signed request, see 
+   Authenticating Requests: Using Query Parameters (AWS Signature Version 4)
+   [http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html] 
+   and Signature Version 4 Signing Process
+   [http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] .
+   
+   
+ * DBInstanceIdentifier - The identifier for the encrypted Read Replica in the
+   destination region.
+   
+   
+ * SourceDBInstanceIdentifier - The DB instance identifier for the encrypted
+   Read Replica. This identifier must be in the ARN format for the source region
+   and is the same value as the SourceDBInstanceIdentifier in the presigned URL.
      *
      * @error DBInstanceAlreadyExistsFault   
      * @error InsufficientDBInstanceCapacityFault   
@@ -1012,6 +1079,16 @@ created or modified.
      * @error InvalidDBParameterGroupStateFault   
      */
     modifyDBParameterGroup(params: RDS.ModifyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request<RDS.DBParameterGroupNameMessage|any,RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any>;
+    /**
+     * Updates a manual DB snapshot, which can be encrypted or not encrypted, with a
+new engine version. You can update the engine version to either a new major or
+minor engine version.
+
+Amazon RDS supports upgrading a MySQL DB snapshot from MySQL 5.1 to MySQL 5.5.
+     *
+     * @error DBSnapshotNotFoundFault   
+     */
+    modifyDBSnapshot(params: RDS.ModifyDBSnapshotMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|any, data: RDS.ModifyDBSnapshotResult|any) => void): Request<RDS.ModifyDBSnapshotResult|any,RDS.DBSnapshotNotFoundFault|any>;
     /**
      * Adds an attribute and values to, or removes an attribute and values from, a
 manual DB snapshot.
@@ -6254,6 +6331,15 @@ restore attribute can still copy or restore the manual DB snapshot. **/
     }
     export interface ModifyDBSnapshotAttributeResult {
         DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
+    }
+    export interface ModifyDBSnapshotMessage {
+        /** The identifier of the DB snapshot to modify. **/
+        DBSnapshotIdentifier: String;
+        /** The engine version to update the DB snapshot to. **/
+        EngineVersion?: String;
+    }
+    export interface ModifyDBSnapshotResult {
+        DBSnapshot?: DBSnapshot;
     }
     export interface ModifyDBSubnetGroupMessage {
         /** The name for the DB subnet group. This value is stored as a lowercase string.
