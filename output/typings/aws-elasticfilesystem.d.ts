@@ -14,12 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: rest-json
    *
-   * Amazon Elastic File SystemAmazon Elastic File System (Amazon EFS) provides
+   * Amazon Elastic File System Amazon Elastic File System (Amazon EFS) provides
 simple, scalable file storage for use with Amazon EC2 instances in the AWS
 Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking
 automatically as you add and remove files, so your applications have the storage
 they need, when they need it. For more information, see the User Guide
-[http://docs.aws.amazon.com/efs/latest/ug/api-reference.html] .
+[http://docs.aws.amazon.com/efs/latest/ug/api-reference.html].
    *
    */
   export class EFS extends Service {
@@ -32,11 +32,11 @@ operation with same creation token has no effect). If a file system does not
 currently exist that is owned by the caller&#x27;s AWS account with the specified
 creation token, this operation does the following:
 
- &amp;#42; Creates a new, empty file system. The file system will have an Amazon EFS
-   assigned ID, and an initial lifecycle state creating .
+ &amp;#42;  Creates a new, empty file system. The file system will have an Amazon EFS
+   assigned ID, and an initial lifecycle state creating.
    
    
- * Returns with the description of the created file system.
+ *  Returns with the description of the created file system.
    
    
 
@@ -46,7 +46,7 @@ the existing file system.
 For basic use cases, you can use a randomly generated UUID for the creation
 token.
 
-The idempotent operation allows you to retry a CreateFileSystem call without
+ The idempotent operation allows you to retry a CreateFileSystem call without
 risk of creating an extra file system. This can happen when an initial call
 fails in a way that leaves it uncertain whether or not a file system was
 actually created. An example might be that a transport level timeout occurred or
@@ -55,7 +55,7 @@ initial call had succeeded in creating a file system, the client can learn of
 its existence from the FileSystemAlreadyExists error.
 
 The CreateFileSystem call returns while the file system&#x27;s lifecycle state is
-still creating . You can check the file system creation status by calling the 
+still creating. You can check the file system creation status by calling the 
 DescribeFileSystems operation, which among other things returns the file system
 state.
 
@@ -66,17 +66,17 @@ levels of aggregate throughput and operations per second with a tradeoff of
 slightly higher latencies for most file operations. The performance mode can&#x27;t
 be changed after the file system has been created. For more information, see 
 Amazon EFS: Performance Modes
-[http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html] 
+[http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html]
 .
 
 After the file system is fully created, Amazon EFS sets its lifecycle state to 
-available , at which point you can create one or more mount targets for the file
-system in your VPC. For more information, see CreateMountTarget . You mount your
+available, at which point you can create one or more mount targets for the file
+system in your VPC. For more information, see CreateMountTarget. You mount your
 Amazon EFS file system on an EC2 instances in your VPC via the mount target. For
 more information, see Amazon EFS: How it Works
-[http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html] .
+[http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html]. 
 
-This operation requires permissions for the elasticfilesystem:CreateFileSystem 
+ This operation requires permissions for the elasticfilesystem:CreateFileSystem 
 action.
      *
      * @error BadRequest   
@@ -95,33 +95,33 @@ for a given file system. If you have multiple subnets in an Availability Zone,
 you create a mount target in one of the subnets. EC2 instances do not need to be
 in the same subnet as the mount target in order to access their file system. For
 more information, see Amazon EFS: How it Works
-[http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html] .
+[http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html]. 
 
 In the request, you also specify a file system ID for which you are creating the
-mount target and the file system&#x27;s lifecycle state must be available . For more
-information, see DescribeFileSystems .
+mount target and the file system&#x27;s lifecycle state must be available. For more
+information, see DescribeFileSystems.
 
 In the request, you also provide a subnet ID, which determines the following:
 
- &amp;#42; VPC in which Amazon EFS creates the mount target
+ &amp;#42;  VPC in which Amazon EFS creates the mount target
    
    
- * Availability Zone in which Amazon EFS creates the mount target
+ *  Availability Zone in which Amazon EFS creates the mount target
    
    
- * IP address range from which Amazon EFS selects the IP address of the mount
+ *  IP address range from which Amazon EFS selects the IP address of the mount
    target (if you don&#x27;t specify an IP address in the request)
    
    
 
 After creating the mount target, Amazon EFS returns a response that includes, a 
-MountTargetId and an IpAddress . You use this IP address when mounting the file
+MountTargetId and an IpAddress. You use this IP address when mounting the file
 system in an EC2 instance. You can also use the mount target&#x27;s DNS name when
 mounting the file system. The EC2 instance on which you mount the file system
 via the mount target can resolve the mount target&#x27;s DNS name to its IP address.
 For more information, see How it Works: Implementation Overview
-[http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation] 
-.
+[http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation]
+. 
 
 Note that you can create mount targets for a file system in only one VPC, and
 there can be only one mount target per Availability Zone. That is, if the file
@@ -129,38 +129,38 @@ system already has one or more mount targets created for it, the subnet
 specified in the request to add another mount target must meet the following
 requirements:
 
- * Must belong to the same VPC as the subnets of the existing mount targets
+ *  Must belong to the same VPC as the subnets of the existing mount targets
    
    
- * Must not be in the same Availability Zone as any of the subnets of the
+ *  Must not be in the same Availability Zone as any of the subnets of the
    existing mount targets
    
    
 
 If the request satisfies the requirements, Amazon EFS does the following:
 
- * Creates a new mount target in the specified subnet.
+ *  Creates a new mount target in the specified subnet.
    
    
- * Also creates a new network interface in the subnet as follows:
+ *  Also creates a new network interface in the subnet as follows:
    
-    * If the request provides an IpAddress , Amazon EFS assigns that IP address
+    *  If the request provides an IpAddress, Amazon EFS assigns that IP address
       to the network interface. Otherwise, Amazon EFS assigns a free address in
       the subnet (in the same way that the Amazon EC2 CreateNetworkInterface 
       call does when a request does not specify a primary private IP address).
       
       
-    * If the request provides SecurityGroups , this network interface is
+    *  If the request provides SecurityGroups, this network interface is
       associated with those security groups. Otherwise, it belongs to the
       default security group for the subnet&#x27;s VPC.
       
       
-    * Assigns the description Mount target fsmt-id for file system fs-id where 
-      fsmt-id is the mount target ID, and fs-id is the FileSystemId .
+    *  Assigns the description Mount target fsmt-id for file system fs-id where 
+      fsmt-id is the mount target ID, and fs-id is the FileSystemId.
       
       
-    * Sets the requesterManaged property of the network interface to true , and
-      the requesterId value to EFS .
+    *  Sets the requesterManaged property of the network interface to true, and
+      the requesterId value to EFS.
       
       
    
@@ -173,34 +173,34 @@ If the request satisfies the requirements, Amazon EFS does the following:
    
 
 The CreateMountTarget call returns only after creating the network interface,
-but while the mount target state is still creating , you can check the mount
+but while the mount target state is still creating, you can check the mount
 target creation status by calling the DescribeMountTargets operation, which
 among other things returns the mount target state.
 
 We recommend you create a mount target in each of the Availability Zones. There
 are cost considerations for using a file system in an Availability Zone through
 a mount target created in another Availability Zone. For more information, see 
-Amazon EFS [http://aws.amazon.com/efs/] . In addition, by always using a mount
+Amazon EFS [http://aws.amazon.com/efs/]. In addition, by always using a mount
 target local to the instance&#x27;s Availability Zone, you eliminate a partial
 failure scenario. If the Availability Zone in which your mount target is created
 goes down, then you won&#x27;t be able to access your file system through that mount
-target.
+target. 
 
 This operation requires permissions for the following action on the file system:
 
- * elasticfilesystem:CreateMountTarget
+ *   elasticfilesystem:CreateMountTarget 
    
    
 
 This operation also requires permissions for the following Amazon EC2 actions:
 
- * ec2:DescribeSubnets
+ *   ec2:DescribeSubnets 
    
    
- * ec2:DescribeNetworkInterfaces
+ *   ec2:DescribeNetworkInterfaces 
    
    
- * ec2:CreateNetworkInterface
+ *   ec2:CreateNetworkInterface
      *
      * @error BadRequest   
      * @error InternalServerError   
@@ -221,7 +221,7 @@ This operation also requires permissions for the following Amazon EC2 actions:
 key-value pair. If a tag key specified in the request already exists on the file
 system, this operation overwrites its value with the value provided in the
 request. If you add the Name tag to your file system, Amazon EFS returns it in
-the response to the DescribeFileSystems operation.
+the response to the DescribeFileSystems operation. 
 
 This operation requires permission for the elasticfilesystem:CreateTags action.
      *
@@ -235,15 +235,15 @@ This operation requires permission for the elasticfilesystem:CreateTags action.
 the file system no longer exists and you can&#x27;t access any contents of the
 deleted file system.
 
-You can&#x27;t delete a file system that is in use. That is, if the file system has
+ You can&#x27;t delete a file system that is in use. That is, if the file system has
 any mount targets, you must first delete them. For more information, see 
-DescribeMountTargets and DeleteMountTarget .
+DescribeMountTargets and DeleteMountTarget. 
 
-The DeleteFileSystem call returns while the file system state is still deleting 
-. You can check the file system deletion status by calling the 
-DescribeFileSystems operation, which returns a list of file systems in your
-account. If you pass file system ID or creation token for the deleted file
-system, the DescribeFileSystems returns a 404 FileSystemNotFound error.
+The DeleteFileSystem call returns while the file system state is still deleting.
+You can check the file system deletion status by calling the DescribeFileSystems 
+operation, which returns a list of file systems in your account. If you pass
+file system ID or creation token for the deleted file system, the 
+DescribeFileSystems returns a 404 FileSystemNotFound error.
 
 This operation requires permissions for the elasticfilesystem:DeleteFileSystem 
 action.
@@ -268,19 +268,19 @@ instance in your VPC via another mount target.
 
 This operation requires permissions for the following action on the file system:
 
- &amp;#42; elasticfilesystem:DeleteMountTarget
+ &amp;#42;   elasticfilesystem:DeleteMountTarget 
    
    
 
 The DeleteMountTarget call returns while the mount target state is still 
-deleting . You can check the mount target deletion by calling the 
+deleting. You can check the mount target deletion by calling the 
 DescribeMountTargets operation, which returns a list of mount target
-descriptions for the given file system.
+descriptions for the given file system. 
 
 The operation also requires permissions for the following Amazon EC2 action on
 the mount target&#x27;s network interface:
 
- * ec2:DeleteNetworkInterface
+ *   ec2:DeleteNetworkInterface
      *
      * @error BadRequest   
      * @error InternalServerError   
@@ -294,7 +294,7 @@ includes a tag key that does not exist, Amazon EFS ignores it and doesn&#x27;t c
 an error. For more information about tags and related restrictions, see Tag
 Restrictions
 [http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html] 
-in the AWS Billing and Cost Management User Guide .
+in the AWS Billing and Cost Management User Guide.
 
 This operation requires permissions for the elasticfilesystem:DeleteTags action.
      *
@@ -309,26 +309,26 @@ system CreationToken or the FileSystemId is provided. Otherwise, it returns
 descriptions of all file systems owned by the caller&#x27;s AWS account in the AWS
 Region of the endpoint that you&#x27;re calling.
 
-When retrieving all file system descriptions, you can optionally specify the 
+ When retrieving all file system descriptions, you can optionally specify the 
 MaxItems parameter to limit the number of descriptions in a response. If more
-file system descriptions remain, Amazon EFS returns a NextMarker , an opaque
+file system descriptions remain, Amazon EFS returns a NextMarker, an opaque
 token, in the response. In this case, you should send a subsequent request with
-the Marker request parameter set to the value of NextMarker .
+the Marker request parameter set to the value of NextMarker. 
 
 To retrieve a list of your file system descriptions, this operation is used in
 an iterative process, where DescribeFileSystems is called first without the 
 Marker and then the operation continues to call it with the Marker parameter set
 to the value of the NextMarker from the previous response until the response has
-no NextMarker .
+no NextMarker. 
 
 The implementation may return fewer than MaxItems file system descriptions while
-still including a NextMarker value.
+still including a NextMarker value. 
 
-The order of file systems returned in the response of one DescribeFileSystems 
+ The order of file systems returned in the response of one DescribeFileSystems 
 call and the order of file systems returned across the responses of a multi-call
-iteration is unspecified.
+iteration is unspecified. 
 
-This operation requires permissions for the 
+ This operation requires permissions for the 
 elasticfilesystem:DescribeFileSystems action.
      *
      * @error BadRequest   
@@ -339,15 +339,15 @@ elasticfilesystem:DescribeFileSystems action.
     /**
      * Returns the security groups currently in effect for a mount target. This
 operation requires that the network interface of the mount target has been
-created and the lifecycle state of the mount target is not deleted .
+created and the lifecycle state of the mount target is not deleted.
 
 This operation requires permissions for the following actions:
 
- &amp;#42; elasticfilesystem:DescribeMountTargetSecurityGroups action on the mount
-   target&#x27;s file system.
+ &amp;#42;   elasticfilesystem:DescribeMountTargetSecurityGroups action on the mount
+   target&#x27;s file system. 
    
    
- * ec2:DescribeNetworkInterfaceAttribute action on the mount target&#x27;s network
+ *   ec2:DescribeNetworkInterfaceAttribute action on the mount target&#x27;s network
    interface.
      *
      * @error BadRequest   
@@ -363,8 +363,8 @@ order of mount targets returned in the response is unspecified.
 
 This operation requires permissions for the 
 elasticfilesystem:DescribeMountTargets action, on either the file system ID that
-you specify in FileSystemId , or on the file system of the mount target that you
-specify in MountTargetId .
+you specify in FileSystemId, or on the file system of the mount target that you
+specify in MountTargetId.
      *
      * @error BadRequest   
      * @error InternalServerError   
@@ -375,9 +375,9 @@ specify in MountTargetId .
     /**
      * Returns the tags associated with a file system. The order of tags returned in
 the response of one DescribeTags call and the order of tags returned across the
-responses of a multi-call iteration (when using pagination) is unspecified.
+responses of a multi-call iteration (when using pagination) is unspecified. 
 
-This operation requires permissions for the elasticfilesystem:DescribeTags 
+ This operation requires permissions for the elasticfilesystem:DescribeTags 
 action.
      *
      * @error BadRequest   
@@ -389,19 +389,19 @@ action.
      * Modifies the set of security groups in effect for a mount target.
 
 When you create a mount target, Amazon EFS also creates a new network interface.
-For more information, see CreateMountTarget . This operation replaces the
+For more information, see CreateMountTarget. This operation replaces the
 security groups in effect for the network interface associated with a mount
 target, with the SecurityGroups provided in the request. This operation requires
 that the network interface of the mount target has been created and the
-lifecycle state of the mount target is not deleted .
+lifecycle state of the mount target is not deleted. 
 
 The operation requires permissions for the following actions:
 
- &amp;#42; elasticfilesystem:ModifyMountTargetSecurityGroups action on the mount
-   target&#x27;s file system.
+ &amp;#42;   elasticfilesystem:ModifyMountTargetSecurityGroups action on the mount
+   target&#x27;s file system. 
    
    
- * ec2:ModifyNetworkInterfaceAttribute action on the mount target&#x27;s network
+ *   ec2:ModifyNetworkInterfaceAttribute action on the mount target&#x27;s network
    interface.
      *
      * @error BadRequest   
@@ -487,7 +487,7 @@ changed after the file system has been created. **/
         SubnetId: SubnetId;
         /** Valid IPv4 address within the address range of the specified subnet. **/
         IpAddress?: IpAddress;
-        /** Up to five VPC security group IDs, of the form sg-xxxxxxxx . These must be for
+        /** Up to five VPC security group IDs, of the form sg-xxxxxxxx. These must be for
 the same VPC as subnet specified. **/
         SecurityGroups?: SecurityGroups;
     }
@@ -567,7 +567,7 @@ must be included in your request if FileSystemId is not included. **/
         MountTargetId?: MountTargetId;
     }
     export interface DescribeMountTargetsResponse {
-        /** If the request included the Marker , the response returns that value in this
+        /** If the request included the Marker, the response returns that value in this
 field. **/
         Marker?: Marker;
         /** Returns the file system&#x27;s mount targets as an array of MountTargetDescription 
@@ -590,8 +590,7 @@ previous call left off. **/
         FileSystemId: FileSystemId;
     }
     export interface DescribeTagsResponse {
-        /** If the request included a Marker , the response returns that value in this
-field. **/
+        /** If the request included a Marker, the response returns that value in this field. **/
         Marker?: Marker;
         /** Returns tags associated with the file system as an array of Tag objects. **/
         Tags: Tags;
@@ -618,11 +617,11 @@ IAM user, the parent account to which the user belongs is the owner. **/
         /** Lifecycle phase of the file system. **/
         LifeCycleState: LifeCycleState;
         /** You can add tags to a file system, including a Name tag. For more information,
-see CreateTags . If the file system has a Name tag, Amazon EFS returns the value
+see CreateTags. If the file system has a Name tag, Amazon EFS returns the value
 in this field. **/
         Name?: TagValue;
         /** Current number of mount targets that the file system has. For more information,
-see CreateMountTarget . **/
+see CreateMountTarget. **/
         NumberOfMountTargets: MountTargetCount;
         /** Latest known metered size (in bytes) of data stored in the file system, in
 bytes, in its Value field, and the time at which that size was determined in its 
@@ -724,7 +723,7 @@ target. **/
         Message?: ErrorMessage;
     }
     export interface Tag {
-        /** Tag key (String). The key can&#x27;t start with aws: . **/
+        /** Tag key (String). The key can&#x27;t start with aws:. **/
         Key: TagKey;
         /** Value of the tag key. **/
         Value: TagValue;

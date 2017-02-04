@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: rest-json
    *
-   * AWS IoTAWS IoT-Data enables secure, bi-directional communication between
+   * AWS IoT AWS IoT-Data enables secure, bi-directional communication between
 Internet-connected things (such as sensors, actuators, embedded devices, or
 smart appliances) and the AWS cloud. It implements a broker for applications and
 things to publish messages over HTTP (Publish) and retrieve, update, and delete
@@ -30,7 +30,7 @@ their state in the AWS cloud.
 
 For more information, see DeleteThingShadow
 [http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html] 
-in the AWS IoT Developer Guide .
+in the AWS IoT Developer Guide.
      *
      * @error ResourceNotFoundException   
      * @error InvalidRequestException   
@@ -47,7 +47,7 @@ in the AWS IoT Developer Guide .
 
 For more information, see GetThingShadow
 [http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html] 
-in the AWS IoT Developer Guide .
+in the AWS IoT Developer Guide.
      *
      * @error InvalidRequestException   
      * @error ResourceNotFoundException   
@@ -64,7 +64,7 @@ in the AWS IoT Developer Guide .
 
 For more information, see HTTP Protocol
 [http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http] in
-the AWS IoT Developer Guide .
+the AWS IoT Developer Guide.
      *
      * @error InternalFailureException   
      * @error InvalidRequestException   
@@ -77,7 +77,7 @@ the AWS IoT Developer Guide .
 
 For more information, see UpdateThingShadow
 [http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html] 
-in the AWS IoT Developer Guide .
+in the AWS IoT Developer Guide.
      *
      * @error ConflictException   
      * @error RequestEntityTooLargeException   

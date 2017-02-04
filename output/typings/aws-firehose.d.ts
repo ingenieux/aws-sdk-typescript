@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon Kinesis Firehose API ReferenceAmazon Kinesis Firehose is a fully-managed
+   * Amazon Kinesis Firehose API Reference Amazon Kinesis Firehose is a fully-managed
 service that delivers real-time streaming data to destinations such as Amazon
 Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES),
 and Amazon Redshift.
@@ -29,42 +29,42 @@ and Amazon Redshift.
 By default, you can create up to 20 delivery streams per region.
 
 This is an asynchronous operation that immediately returns. The initial status
-of the delivery stream is CREATING . After the delivery stream is created, its
+of the delivery stream is CREATING. After the delivery stream is created, its
 status is ACTIVE and it now accepts data. Attempts to send data to a delivery
 stream that is not in the ACTIVE state cause an exception. To check the state of
-a delivery stream, use DescribeDeliveryStream .
+a delivery stream, use DescribeDeliveryStream.
 
 A delivery stream is configured with a single destination: Amazon S3, Amazon
 Elasticsearch Service, or Amazon Redshift. You must specify only one of the
 following destination configuration parameters: 
-ExtendedS3DestinationConfiguration , S3DestinationConfiguration , 
-ElasticsearchDestinationConfiguration , or RedshiftDestinationConfiguration .
+ExtendedS3DestinationConfiguration, S3DestinationConfiguration, 
+ElasticsearchDestinationConfiguration, or RedshiftDestinationConfiguration.
 
-When you specify S3DestinationConfiguration , you can also provide the following
-optional values: BufferingHints , EncryptionConfiguration , and 
-CompressionFormat . By default, if no BufferingHints value is provided, Firehose
-buffers data up to 5 MB or for 5 minutes, whichever condition is satisfied
-first. Note that BufferingHints is a hint, so there are some cases where the
-service cannot adhere to these conditions strictly; for example, record
-boundaries are such that the size is a little over or under the configured
-buffering size. By default, no encryption is performed. We strongly recommend
-that you enable encryption to ensure secure data storage in Amazon S3.
+When you specify S3DestinationConfiguration, you can also provide the following
+optional values: BufferingHints, EncryptionConfiguration, and CompressionFormat.
+By default, if no BufferingHints value is provided, Firehose buffers data up to
+5 MB or for 5 minutes, whichever condition is satisfied first. Note that 
+BufferingHints is a hint, so there are some cases where the service cannot
+adhere to these conditions strictly; for example, record boundaries are such
+that the size is a little over or under the configured buffering size. By
+default, no encryption is performed. We strongly recommend that you enable
+encryption to ensure secure data storage in Amazon S3.
 
 A few notes about Amazon Redshift as a destination:
 
- &amp;#42; An Amazon Redshift destination requires an S3 bucket as intermediate
+ &amp;#42;  An Amazon Redshift destination requires an S3 bucket as intermediate
    location, as Firehose first delivers data to S3 and then uses COPY syntax to
    load data into an Amazon Redshift table. This is specified in the 
    RedshiftDestinationConfiguration.S3Configuration parameter.
    
    
- * The compression formats SNAPPY or ZIP cannot be specified in 
+ *  The compression formats SNAPPY or ZIP cannot be specified in 
    RedshiftDestinationConfiguration.S3Configuration because the Amazon Redshift 
    COPY operation that reads from the S3 bucket doesn&#x27;t support these
    compression formats.
    
    
- * We strongly recommend that you use the user name and password you provide
+ *  We strongly recommend that you use the user name and password you provide
    exclusively with Firehose, and that the permissions for the account are
    restricted for Amazon Redshift INSERT permissions.
    
@@ -75,7 +75,7 @@ role should allow the Firehose principal to assume the role, and the role should
 have permissions that allows the service to deliver the data. For more
 information, see Amazon S3 Bucket Access
 [http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3] 
-in the Amazon Kinesis Firehose Developer Guide .
+in the Amazon Kinesis Firehose Developer Guide.
      *
      * @error InvalidArgumentException   
      * @error LimitExceededException   
@@ -89,7 +89,7 @@ You can delete a delivery stream only if it is in ACTIVE or DELETING state, and
 not in the CREATING state. While the deletion request is in process, the
 delivery stream is in the DELETING state.
 
-To check the state of a delivery stream, use DescribeDeliveryStream .
+To check the state of a delivery stream, use DescribeDeliveryStream.
 
 While the delivery stream is DELETING state, the service may continue to accept
 the records, but the service doesn&#x27;t make any guarantees with respect to
@@ -112,7 +112,7 @@ delivery stream is ACTIVE and therefore ready for data to be sent to it.
      * Lists your delivery streams.
 
 The number of delivery streams might be too large to return using a single call
-to ListDeliveryStreams . You can limit the number of delivery streams returned,
+to ListDeliveryStreams. You can limit the number of delivery streams returned,
 using the Limit parameter. To determine whether there are more delivery streams
 to list, check the value of HasMoreDeliveryStreams in the output. If there are
 more delivery streams to list, you can request them by specifying the name of
@@ -123,34 +123,34 @@ ExclusiveStartDeliveryStreamName parameter of a subsequent call.
     listDeliveryStreams(params: Firehose.ListDeliveryStreamsInput, callback?: (err: any, data: Firehose.ListDeliveryStreamsOutput|any) => void): Request<Firehose.ListDeliveryStreamsOutput|any,any>;
     /**
      * Writes a single data record into an Amazon Kinesis Firehose delivery stream. To
-write multiple data records into a delivery stream, use PutRecordBatch .
+write multiple data records into a delivery stream, use PutRecordBatch.
 Applications using these operations are referred to as producers.
 
 By default, each delivery stream can take in up to 2,000 transactions per
 second, 5,000 records per second, or 5 MB per second. Note that if you use 
-PutRecord and PutRecordBatch , the limits are an aggregate across these two
+PutRecord and PutRecordBatch, the limits are an aggregate across these two
 operations for each delivery stream. For more information about limits and how
 to request an increase, see Amazon Kinesis Firehose Limits
-[http://docs.aws.amazon.com/firehose/latest/dev/limits.html] .
+[http://docs.aws.amazon.com/firehose/latest/dev/limits.html]. 
 
 You must specify the name of the delivery stream and the data record when using 
-PutRecord . The data record consists of a data blob that can be up to 1,000 KB
-in size, and any kind of data, for example, a segment from a log file,
-geographic location data, web site clickstream data, etc.
+PutRecord. The data record consists of a data blob that can be up to 1,000 KB in
+size, and any kind of data, for example, a segment from a log file, geographic
+location data, web site clickstream data, etc.
 
 Firehose buffers records before delivering them to the destination. To
 disambiguate the data blobs at the destination, a common solution is to use
-delimiters in the data, such as a newline ( \n ) or some other character unique
+delimiters in the data, such as a newline (\n) or some other character unique
 within the data. This allows the consumer application(s) to parse individual
 data items when reading the data from the destination.
 
-The PutRecord operation returns a RecordId , which is a unique string assigned
-to each record. Producer applications can use this ID for purposes such as
+The PutRecord operation returns a RecordId, which is a unique string assigned to
+each record. Producer applications can use this ID for purposes such as
 auditability and investigation.
 
-If the PutRecord operation throws a ServiceUnavailableException , back off and
+If the PutRecord operation throws a ServiceUnavailableException, back off and
 retry. If the exception persists, it is possible that the throughput limits have
-been exceeded for the delivery stream.
+been exceeded for the delivery stream. 
 
 Data records sent to Firehose are stored for 24 hours from the time they are
 added to a delivery stream as it attempts to send the records to the
@@ -165,33 +165,33 @@ is no longer available.
     /**
      * Writes multiple data records into a delivery stream in a single call, which can
 achieve higher throughput per producer than when writing single records. To
-write single data records into a delivery stream, use PutRecord . Applications
+write single data records into a delivery stream, use PutRecord. Applications
 using these operations are referred to as producers.
 
 By default, each delivery stream can take in up to 2,000 transactions per
 second, 5,000 records per second, or 5 MB per second. Note that if you use 
-PutRecord and PutRecordBatch , the limits are an aggregate across these two
+PutRecord and PutRecordBatch, the limits are an aggregate across these two
 operations for each delivery stream. For more information about limits, see 
 Amazon Kinesis Firehose Limits
-[http://docs.aws.amazon.com/firehose/latest/dev/limits.html] .
+[http://docs.aws.amazon.com/firehose/latest/dev/limits.html].
 
 Each PutRecordBatch request supports up to 500 records. Each record in the
 request can be as large as 1,000 KB (before 64-bit encoding), up to a limit of 4
 MB for the entire request. These limits cannot be changed.
 
 You must specify the name of the delivery stream and the data record when using 
-PutRecord . The data record consists of a data blob that can be up to 1,000 KB
-in size, and any kind of data, for example, a segment from a log file,
-geographic location data, web site clickstream data, and so on.
+PutRecord. The data record consists of a data blob that can be up to 1,000 KB in
+size, and any kind of data, for example, a segment from a log file, geographic
+location data, web site clickstream data, and so on.
 
 Firehose buffers records before delivering them to the destination. To
 disambiguate the data blobs at the destination, a common solution is to use
-delimiters in the data, such as a newline ( \n ) or some other character unique
+delimiters in the data, such as a newline (\n) or some other character unique
 within the data. This allows the consumer application(s) to parse individual
 data items when reading the data from the destination.
 
-The PutRecordBatch response includes a count of failed records, FailedPutCount ,
-and an array of responses, RequestResponses . Each entry in the RequestResponses 
+The PutRecordBatch response includes a count of failed records, FailedPutCount,
+and an array of responses, RequestResponses. Each entry in the RequestResponses 
 array provides additional information about the processed record, and directly
 correlates with a record in the request array using the same ordering, from the
 top to the bottom. The response array always includes the same number of records
@@ -203,7 +203,7 @@ processing of subsequent records.
 A successfully processed record includes a RecordId value, which is unique for
 the record. An unsuccessfully processed record includes ErrorCode and 
 ErrorMessage values. ErrorCode reflects the type of error, and is one of the
-following values: ServiceUnavailable or InternalFailure . ErrorMessage provides
+following values: ServiceUnavailable or InternalFailure. ErrorMessage provides
 more detailed information about the error.
 
 If there is an internal server error or a timeout, the write might have
@@ -213,9 +213,9 @@ This minimizes the possible duplicate records and also reduces the total bytes
 sent (and corresponding charges). We recommend that you handle any duplicates at
 the destination.
 
-If PutRecordBatch throws ServiceUnavailableException , back off and retry. If
-the exception persists, it is possible that the throughput limits have been
-exceeded for the delivery stream.
+If PutRecordBatch throws ServiceUnavailableException, back off and retry. If the
+exception persists, it is possible that the throughput limits have been exceeded
+for the delivery stream.
 
 Data records sent to Firehose are stored for 24 hours from the time they are
 added to a delivery stream as it attempts to send the records to the
@@ -256,8 +256,8 @@ Firehose uses CurrentDeliveryStreamVersionId to avoid race conditions and
 conflicting merges. This is a required field, and the service updates the
 configuration only if the existing configuration has a version ID that matches.
 After the update is applied successfully, the version ID is updated, and can be
-retrieved using DescribeDeliveryStream . You should use the new version ID to
-set CurrentDeliveryStreamVersionId in the next call.
+retrieved using DescribeDeliveryStream. You should use the new version ID to set 
+CurrentDeliveryStreamVersionId in the next call.
      *
      * @error InvalidArgumentException   
      * @error ResourceInUseException   
@@ -403,25 +403,25 @@ logging is enabled. **/
         DataTableColumns?: DataTableColumns;
         /** Optional parameters to use with the Amazon Redshift COPY command. For more
 information, see the &quot;Optional Parameters&quot; section of Amazon Redshift COPY
-command [http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html] . Some
+command [http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html]. Some
 possible examples that would apply to Firehose are as follows:
 
-delimiter &#x27;\t&#x27; lzop; - fields are delimited with &quot;\t&quot; (TAB character) and
+ delimiter &#x27;\t&#x27; lzop; - fields are delimited with &quot;\t&quot; (TAB character) and
 compressed using lzop.
 
-delimiter &#x27;| - fields are delimited with &quot;|&quot; (this is the default delimiter).
+ delimiter &#x27;| - fields are delimited with &quot;|&quot; (this is the default delimiter).
 
-delimiter &#x27;|&#x27; escape - the delimiter should be escaped.
+ delimiter &#x27;|&#x27; escape - the delimiter should be escaped.
 
-fixedwidth &#x27;venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6&#x27; -
+ fixedwidth &#x27;venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6&#x27; -
 fields are fixed width in the source, with each width specified after every
 column in the table.
 
-JSON &#x27;s3://mybucket/jsonpaths.txt&#x27; - data is in JSON format, and the path
+ JSON &#x27;s3://mybucket/jsonpaths.txt&#x27; - data is in JSON format, and the path
 specified is the format of the data.
 
 For more examples, see Amazon Redshift COPY command examples
-[http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html] . **/
+[http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html]. **/
         CopyOptions?: CopyOptions;
     }
     export interface CreateDeliveryStreamInput {
@@ -511,12 +511,12 @@ typically ingest data at 1 MB/sec, the value should be 10 MB or higher. **/
         /** The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES
 Configuration API and for indexing documents. For more information, see Amazon
 S3 Bucket Access
-[http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3] 
+[http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3]
 . **/
         RoleARN: RoleARN;
-        /** The ARN of the Amazon ES domain. The IAM role must have permissions for 
-DescribeElasticsearchDomain , DescribeElasticsearchDomains , and 
-DescribeElasticsearchDomainConfig after assuming the role specified in RoleARN . **/
+        /** The ARN of the Amazon ES domain. The IAM role must have permissions for
+DescribeElasticsearchDomain, DescribeElasticsearchDomains, and 
+DescribeElasticsearchDomainConfigafter assuming the role specified in RoleARN. **/
         DomainARN: ElasticsearchDomainARN;
         /** The Elasticsearch index name. **/
         IndexName: ElasticsearchIndexName;
@@ -525,8 +525,8 @@ DescribeElasticsearchDomainConfig after assuming the role specified in RoleARN .
         /** The Elasticsearch index rotation period. Index rotation appends a timestamp to
 the IndexName to facilitate expiration of old data. For more information, see 
 Index Rotation for Amazon Elasticsearch Service Destination
-[http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation] 
-. The default value is OneDay . **/
+[http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation]
+. The default value isOneDay. **/
         IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
         /** The buffering options. If no value is specified, the default values for 
 ElasticsearchBufferingHints are used. **/
@@ -541,7 +541,7 @@ key prefix. When set to AllDocuments, Firehose delivers all incoming records to
 Amazon S3, and also writes failed documents with elasticsearch-failed/ appended
 to the prefix. For more information, see Amazon S3 Backup for Amazon
 Elasticsearch Service Destination
-[http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup] 
+[http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup]
 . Default value is FailedDocumentsOnly. **/
         S3BackupMode?: ElasticsearchS3BackupMode;
         /** The configuration for the intermediate Amazon S3 location from which Amazon ES
@@ -580,13 +580,13 @@ obtains data. **/
         /** The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES
 Configuration API and for indexing documents. For more information, see Amazon
 S3 Bucket Access
-[http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3] 
+[http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3]
 . **/
         RoleARN?: RoleARN;
-        /** The ARN of the Amazon ES domain. The IAM role must have permissions for 
-DescribeElasticsearchDomain , DescribeElasticsearchDomains , and 
-DescribeElasticsearchDomainConfig after assuming the IAM role specified in 
-RoleARN . **/
+        /** The ARN of the Amazon ES domain. The IAM role must have permissions for
+DescribeElasticsearchDomain, DescribeElasticsearchDomains, and 
+DescribeElasticsearchDomainConfigafter assuming the IAM role specified in 
+RoleARN. **/
         DomainARN?: ElasticsearchDomainARN;
         /** The Elasticsearch index name. **/
         IndexName?: ElasticsearchIndexName;
@@ -595,8 +595,8 @@ RoleARN . **/
         /** The Elasticsearch index rotation period. Index rotation appends a timestamp to
 IndexName to facilitate the expiration of old data. For more information, see 
 Index Rotation for Amazon Elasticsearch Service Destination
-[http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation] 
-. Default value is OneDay . **/
+[http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation]
+. Default value isOneDay. **/
         IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
         /** The buffering options. If no value is specified, ElasticsearchBufferingHints 
 object default values are used. **/
@@ -635,7 +635,7 @@ files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
-Amazon Kinesis Firehose Developer Guide . **/
+Amazon Kinesis Firehose Developer Guide. **/
         Prefix?: Prefix;
         /** The buffering option. **/
         BufferingHints?: BufferingHints;
@@ -663,11 +663,11 @@ files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
-Amazon Kinesis Firehose Developer Guide . **/
+Amazon Kinesis Firehose Developer Guide. **/
         Prefix?: Prefix;
         /** The buffering option. **/
         BufferingHints: BufferingHints;
-        /** The compression format. If no value is specified, the default is UNCOMPRESSED . **/
+        /** The compression format. If no value is specified, the default is UNCOMPRESSED. **/
         CompressionFormat: CompressionFormat;
         /** The encryption configuration. If no value is specified, the default is no
 encryption. **/
@@ -691,11 +691,11 @@ files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
-Amazon Kinesis Firehose Developer Guide . **/
+Amazon Kinesis Firehose Developer Guide. **/
         Prefix?: Prefix;
         /** The buffering option. **/
         BufferingHints?: BufferingHints;
-        /** The compression format. If no value is specified, the default is UNCOMPRESSED . **/
+        /** The compression format. If no value is specified, the default is UNCOMPRESSED. **/
         CompressionFormat?: CompressionFormat;
         /** The encryption configuration. If no value is specified, the default is no
 encryption. **/
@@ -804,7 +804,7 @@ Amazon Redshift. Default value is 3600 (60 minutes). **/
         RetryOptions?: RedshiftRetryOptions;
         /** The configuration for the intermediate Amazon S3 location from which Amazon
 Redshift obtains data. Restrictions are described in the topic for 
-CreateDeliveryStream .
+CreateDeliveryStream.
 
 The compression formats SNAPPY or ZIP cannot be specified in 
 RedshiftDestinationConfiguration.S3Configuration because the Amazon Redshift 
@@ -898,12 +898,12 @@ files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
-Amazon Kinesis Firehose Developer Guide . **/
+Amazon Kinesis Firehose Developer Guide. **/
         Prefix?: Prefix;
         /** The buffering option. If no value is specified, BufferingHints object default
 values are used. **/
         BufferingHints?: BufferingHints;
-        /** The compression format. If no value is specified, the default is UNCOMPRESSED .
+        /** The compression format. If no value is specified, the default is UNCOMPRESSED.
 
 The compression formats SNAPPY or ZIP cannot be specified for Amazon Redshift
 destinations because they are not supported by the Amazon Redshift COPY 
@@ -925,12 +925,12 @@ files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
-Amazon Kinesis Firehose Developer Guide . **/
+Amazon Kinesis Firehose Developer Guide. **/
         Prefix?: Prefix;
         /** The buffering option. If no value is specified, BufferingHints object default
 values are used. **/
         BufferingHints: BufferingHints;
-        /** The compression format. If no value is specified, the default is UNCOMPRESSED . **/
+        /** The compression format. If no value is specified, the default is UNCOMPRESSED. **/
         CompressionFormat: CompressionFormat;
         /** The encryption configuration. If no value is specified, the default is no
 encryption. **/
@@ -948,12 +948,12 @@ files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
-Amazon Kinesis Firehose Developer Guide . **/
+Amazon Kinesis Firehose Developer Guide. **/
         Prefix?: Prefix;
         /** The buffering option. If no value is specified, BufferingHints object default
 values are used. **/
         BufferingHints?: BufferingHints;
-        /** The compression format. If no value is specified, the default is UNCOMPRESSED .
+        /** The compression format. If no value is specified, the default is UNCOMPRESSED.
 
 The compression formats SNAPPY or ZIP cannot be specified for Amazon Redshift
 destinations because they are not supported by the Amazon Redshift COPY 
@@ -972,7 +972,7 @@ encryption. **/
     export interface UpdateDestinationInput {
         /** The name of the delivery stream. **/
         DeliveryStreamName: DeliveryStreamName;
-        /** Obtain this value from the VersionId result of DeliveryStreamDescription . This
+        /** Obtain this value from the VersionId result of DeliveryStreamDescription. This
 value is required, and helps the service to perform conditional operations. For
 example, if there is a interleaving update and this value is null, then the
 update destination fails. After the update is successful, the VersionId value is

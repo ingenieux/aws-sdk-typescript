@@ -34,14 +34,14 @@ associated with the ML object, AddTags updates the tag&#x27;s value.
     addTags(params: MachineLearning.AddTagsInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InvalidTagException|MachineLearning.TagLimitExceededException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.AddTagsOutput|any) => void): Request<MachineLearning.AddTagsOutput|any,MachineLearning.InvalidInputException|MachineLearning.InvalidTagException|MachineLearning.TagLimitExceededException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Generates predictions for a group of observations. The observations to process
-exist in one or more data files referenced by a DataSource . This operation
-creates a new BatchPrediction , and uses an MLModel and the data files
-referenced by the DataSource as information sources.
+exist in one or more data files referenced by a DataSource. This operation
+creates a new BatchPrediction, and uses an MLModel and the data files referenced
+by the DataSource as information sources. 
 
 CreateBatchPrediction is an asynchronous operation. In response to 
-CreateBatchPrediction , Amazon Machine Learning (Amazon ML) immediately returns
-and sets the BatchPrediction status to PENDING . After the BatchPrediction 
-completes, Amazon ML sets the status to COMPLETED .
+CreateBatchPrediction, Amazon Machine Learning (Amazon ML) immediately returns
+and sets the BatchPrediction status to PENDING. After the BatchPrediction 
+completes, Amazon ML sets the status to COMPLETED. 
 
 You can poll for status updates by using the GetBatchPrediction operation and
 checking the Status parameter of the result. After the COMPLETED status appears,
@@ -57,17 +57,17 @@ request.
     /**
      * Creates a DataSource object from an Amazon Relational Database Service
 [http://aws.amazon.com/rds/] (Amazon RDS). A DataSource references data that can
-be used to perform CreateMLModel , CreateEvaluation , or CreateBatchPrediction 
+be used to perform CreateMLModel, CreateEvaluation, or CreateBatchPrediction 
 operations.
 
 CreateDataSourceFromRDS is an asynchronous operation. In response to 
-CreateDataSourceFromRDS , Amazon Machine Learning (Amazon ML) immediately
-returns and sets the DataSource status to PENDING . After the DataSource is
-created and ready for use, Amazon ML sets the Status parameter to COMPLETED . 
-DataSource in the COMPLETED or PENDING state can be used only to perform 
-&gt;CreateMLModel &gt;, CreateEvaluation , or CreateBatchPrediction operations.
+CreateDataSourceFromRDS, Amazon Machine Learning (Amazon ML) immediately returns
+and sets the DataSource status to PENDING. After the DataSource is created and
+ready for use, Amazon ML sets the Status parameter to COMPLETED. DataSource in
+the COMPLETED or PENDING state can be used only to perform &gt;CreateMLModel&gt;, 
+CreateEvaluation, or CreateBatchPrediction operations. 
 
-If Amazon ML cannot accept the input source, it sets the Status parameter to 
+ If Amazon ML cannot accept the input source, it sets the Status parameter to 
 FAILED and includes an error message in the Message attribute of the 
 GetDataSource operation response.
      *
@@ -80,29 +80,29 @@ request.
     createDataSourceFromRDS(params: MachineLearning.CreateDataSourceFromRDSInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromRDSOutput|any) => void): Request<MachineLearning.CreateDataSourceFromRDSOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
      * Creates a DataSource from a database hosted on an Amazon Redshift cluster. A 
-DataSource references data that can be used to perform either CreateMLModel , 
-CreateEvaluation , or CreateBatchPrediction operations.
+DataSource references data that can be used to perform either CreateMLModel, 
+CreateEvaluation, or CreateBatchPrediction operations.
 
 CreateDataSourceFromRedshift is an asynchronous operation. In response to 
-CreateDataSourceFromRedshift , Amazon Machine Learning (Amazon ML) immediately
-returns and sets the DataSource status to PENDING . After the DataSource is
-created and ready for use, Amazon ML sets the Status parameter to COMPLETED . 
+CreateDataSourceFromRedshift, Amazon Machine Learning (Amazon ML) immediately
+returns and sets the DataSource status to PENDING. After the DataSource is
+created and ready for use, Amazon ML sets the Status parameter to COMPLETED. 
 DataSource in COMPLETED or PENDING states can be used to perform only 
-CreateMLModel , CreateEvaluation , or CreateBatchPrediction operations.
+CreateMLModel, CreateEvaluation, or CreateBatchPrediction operations. 
 
-If Amazon ML can&#x27;t accept the input source, it sets the Status parameter to 
+ If Amazon ML can&#x27;t accept the input source, it sets the Status parameter to 
 FAILED and includes an error message in the Message attribute of the 
-GetDataSource operation response.
+GetDataSource operation response. 
 
 The observations should be contained in the database hosted on an Amazon
 Redshift cluster and should be specified by a SelectSqlQuery query. Amazon ML
 executes an Unload command in Amazon Redshift to transfer the result set of the 
-SelectSqlQuery query to S3StagingLocation .
+SelectSqlQuery query to S3StagingLocation.
 
 After the DataSource has been created, it&#x27;s ready for use in evaluations and
-batch predictions. If you plan to use the DataSource to train an MLModel , the 
+batch predictions. If you plan to use the DataSource to train an MLModel, the 
 DataSource also requires a recipe. A recipe describes how each input variable
-will be used in training an MLModel . Will the variable be included or excluded
+will be used in training an MLModel. Will the variable be included or excluded
 from training? Will the variable be manipulated; for example, will it be
 combined with another variable or will it be split apart into word combinations?
 The recipe provides answers to these questions.
@@ -122,30 +122,30 @@ request.
     createDataSourceFromRedshift(params: MachineLearning.CreateDataSourceFromRedshiftInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromRedshiftOutput|any) => void): Request<MachineLearning.CreateDataSourceFromRedshiftOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
      * Creates a DataSource object. A DataSource references data that can be used to
-perform CreateMLModel , CreateEvaluation , or CreateBatchPrediction operations.
+perform CreateMLModel, CreateEvaluation, or CreateBatchPrediction operations.
 
 CreateDataSourceFromS3 is an asynchronous operation. In response to 
-CreateDataSourceFromS3 , Amazon Machine Learning (Amazon ML) immediately returns
-and sets the DataSource status to PENDING . After the DataSource has been
-created and is ready for use, Amazon ML sets the Status parameter to COMPLETED . 
+CreateDataSourceFromS3, Amazon Machine Learning (Amazon ML) immediately returns
+and sets the DataSource status to PENDING. After the DataSource has been created
+and is ready for use, Amazon ML sets the Status parameter to COMPLETED. 
 DataSource in the COMPLETED or PENDING state can be used to perform only 
-CreateMLModel , CreateEvaluation or CreateBatchPrediction operations.
+CreateMLModel, CreateEvaluation or CreateBatchPrediction operations. 
 
-If Amazon ML can&#x27;t accept the input source, it sets the Status parameter to 
+ If Amazon ML can&#x27;t accept the input source, it sets the Status parameter to 
 FAILED and includes an error message in the Message attribute of the 
-GetDataSource operation response.
+GetDataSource operation response. 
 
 The observation data used in a DataSource should be ready to use; that is, it
 should have a consistent structure, and missing data values should be kept to a
 minimum. The observation data must reside in one or more .csv files in an Amazon
 Simple Storage Service (Amazon S3) location, along with a schema that describes
 the data items by name and type. The same schema must be used for all of the
-data files referenced by the DataSource .
+data files referenced by the DataSource. 
 
 After the DataSource has been created, it&#x27;s ready to use in evaluations and
-batch predictions. If you plan to use the DataSource to train an MLModel , the 
+batch predictions. If you plan to use the DataSource to train an MLModel, the 
 DataSource also needs a recipe. A recipe describes how each input variable will
-be used in training an MLModel . Will the variable be included or excluded from
+be used in training an MLModel. Will the variable be included or excluded from
 training? Will the variable be manipulated; for example, will it be combined
 with another variable or will it be split apart into word combinations? The
 recipe provides answers to these questions.
@@ -158,19 +158,19 @@ request.
      */
     createDataSourceFromS3(params: MachineLearning.CreateDataSourceFromS3Input, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromS3Output|any) => void): Request<MachineLearning.CreateDataSourceFromS3Output|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
-     * Creates a new Evaluation of an MLModel . An MLModel is evaluated on a set of
-observations associated to a DataSource . Like a DataSource for an MLModel , the 
-DataSource for an Evaluation contains values for the Target Variable . The 
+     * Creates a new Evaluation of an MLModel. An MLModel is evaluated on a set of
+observations associated to a DataSource. Like a DataSource for an MLModel, the 
+DataSource for an Evaluation contains values for the Target Variable. The 
 Evaluation compares the predicted result for each observation to the actual
 outcome and provides a summary so that you know how effective the MLModel 
 functions on the test data. Evaluation generates a relevant performance metric,
 such as BinaryAUC, RegressionRMSE or MulticlassAvgFScore based on the
-corresponding MLModelType : BINARY , REGRESSION or MULTICLASS .
+corresponding MLModelType: BINARY, REGRESSION or MULTICLASS. 
 
-CreateEvaluation is an asynchronous operation. In response to CreateEvaluation ,
+CreateEvaluation is an asynchronous operation. In response to CreateEvaluation,
 Amazon Machine Learning (Amazon ML) immediately returns and sets the evaluation
-status to PENDING . After the Evaluation is created and ready for use, Amazon ML
-sets the status to COMPLETED .
+status to PENDING. After the Evaluation is created and ready for use, Amazon ML
+sets the status to COMPLETED. 
 
 You can use the GetEvaluation operation to check progress of the evaluation
 during the creation operation.
@@ -184,22 +184,22 @@ request.
     createEvaluation(params: MachineLearning.CreateEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateEvaluationOutput|any) => void): Request<MachineLearning.CreateEvaluationOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
      * Creates a new MLModel using the DataSource and the recipe as information
-sources.
+sources. 
 
 An MLModel is nearly immutable. Users can update only the MLModelName and the 
-ScoreThreshold in an MLModel without creating a new MLModel .
+ScoreThreshold in an MLModel without creating a new MLModel. 
 
-CreateMLModel is an asynchronous operation. In response to CreateMLModel ,
-Amazon Machine Learning (Amazon ML) immediately returns and sets the MLModel 
-status to PENDING . After the MLModel has been created and ready is for use,
-Amazon ML sets the status to COMPLETED .
+CreateMLModel is an asynchronous operation. In response to CreateMLModel, Amazon
+Machine Learning (Amazon ML) immediately returns and sets the MLModel status to 
+PENDING. After the MLModel has been created and ready is for use, Amazon ML sets
+the status to COMPLETED. 
 
 You can use the GetMLModel operation to check the progress of the MLModel during
 the creation operation.
 
-CreateMLModel requires a DataSource with computed statistics, which can be
-created by setting ComputeStatistics to true in CreateDataSourceFromRDS , 
-CreateDataSourceFromS3 , or CreateDataSourceFromRedshift operations.
+ CreateMLModel requires a DataSource with computed statistics, which can be
+created by setting ComputeStatistics to true in CreateDataSourceFromRDS, 
+CreateDataSourceFromS3, or CreateDataSourceFromRedshift operations.
      *
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
@@ -209,9 +209,9 @@ request.
      */
     createMLModel(params: MachineLearning.CreateMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateMLModelOutput|any) => void): Request<MachineLearning.CreateMLModelOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
-     * Creates a real-time endpoint for the MLModel . The endpoint contains the URI of
-the MLModel ; that is, the location to send real-time prediction requests for
-the specified MLModel .
+     * Creates a real-time endpoint for the MLModel. The endpoint contains the URI of
+the MLModel; that is, the location to send real-time prediction requests for the
+specified MLModel.
      *
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error ResourceNotFoundException A specified resource cannot be located.  
@@ -219,7 +219,7 @@ the specified MLModel .
      */
     createRealtimeEndpoint(params: MachineLearning.CreateRealtimeEndpointInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.CreateRealtimeEndpointOutput|any) => void): Request<MachineLearning.CreateRealtimeEndpointOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
-     * Assigns the DELETED status to a BatchPrediction , rendering it unusable.
+     * Assigns the DELETED status to a BatchPrediction, rendering it unusable.
 
 After using the DeleteBatchPrediction operation, you can use the 
 GetBatchPrediction operation to verify that the status of the BatchPrediction 
@@ -233,7 +233,7 @@ Caution: The result of the DeleteBatchPrediction operation is irreversible.
      */
     deleteBatchPrediction(params: MachineLearning.DeleteBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteBatchPredictionOutput|any) => void): Request<MachineLearning.DeleteBatchPredictionOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
-     * Assigns the DELETED status to a DataSource , rendering it unusable.
+     * Assigns the DELETED status to a DataSource, rendering it unusable.
 
 After using the DeleteDataSource operation, you can use the GetDataSource 
 operation to verify that the status of the DataSource changed to DELETED.
@@ -246,12 +246,12 @@ Caution: The results of the DeleteDataSource operation are irreversible.
      */
     deleteDataSource(params: MachineLearning.DeleteDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteDataSourceOutput|any) => void): Request<MachineLearning.DeleteDataSourceOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
-     * Assigns the DELETED status to an Evaluation , rendering it unusable.
+     * Assigns the DELETED status to an Evaluation, rendering it unusable.
 
 After invoking the DeleteEvaluation operation, you can use the GetEvaluation 
-operation to verify that the status of the Evaluation changed to DELETED .
+operation to verify that the status of the Evaluation changed to DELETED.
 
-CautionThe results of the DeleteEvaluation operation are irreversible.
+Caution The results of the DeleteEvaluation operation are irreversible.
      *
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error ResourceNotFoundException A specified resource cannot be located.  
@@ -259,7 +259,7 @@ CautionThe results of the DeleteEvaluation operation are irreversible.
      */
     deleteEvaluation(params: MachineLearning.DeleteEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteEvaluationOutput|any) => void): Request<MachineLearning.DeleteEvaluationOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
-     * Assigns the DELETED status to an MLModel , rendering it unusable.
+     * Assigns the DELETED status to an MLModel, rendering it unusable.
 
 After using the DeleteMLModel operation, you can use the GetMLModel operation to
 verify that the status of the MLModel changed to DELETED.
@@ -272,7 +272,7 @@ Caution: The result of the DeleteMLModel operation is irreversible.
      */
     deleteMLModel(params: MachineLearning.DeleteMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteMLModelOutput|any) => void): Request<MachineLearning.DeleteMLModelOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
-     * Deletes a real time endpoint of an MLModel .
+     * Deletes a real time endpoint of an MLModel.
      *
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error ResourceNotFoundException A specified resource cannot be located.  
@@ -340,7 +340,7 @@ information for a Batch Prediction request.
     getBatchPrediction(params: MachineLearning.GetBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetBatchPredictionOutput|any) => void): Request<MachineLearning.GetBatchPredictionOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Returns a DataSource that includes metadata and data file information, as well
-as the current status of the DataSource .
+as the current status of the DataSource.
 
 GetDataSource provides results in normal or verbose format. The verbose format
 adds the schema description and the list of files pointed to by the DataSource
@@ -353,7 +353,7 @@ to the normal format.
     getDataSource(params: MachineLearning.GetDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetDataSourceOutput|any) => void): Request<MachineLearning.GetDataSourceOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Returns an Evaluation that includes metadata as well as the current status of
-the Evaluation .
+the Evaluation.
      *
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error ResourceNotFoundException A specified resource cannot be located.  
@@ -362,7 +362,7 @@ the Evaluation .
     getEvaluation(params: MachineLearning.GetEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetEvaluationOutput|any) => void): Request<MachineLearning.GetEvaluationOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Returns an MLModel that includes detailed metadata, data source information, and
-the current status of the MLModel .
+the current status of the MLModel.
 
 GetMLModel provides results in normal or verbose format.
      *
@@ -372,21 +372,21 @@ GetMLModel provides results in normal or verbose format.
      */
     getMLModel(params: MachineLearning.GetMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetMLModelOutput|any) => void): Request<MachineLearning.GetMLModelOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
-     * Generates a prediction for the observation using the specified ML Model .
+     * Generates a prediction for the observation using the specified ML Model.
 
-NoteNot all response parameters will be populated. Whether a response parameter
+Note Not all response parameters will be populated. Whether a response parameter
 is populated depends on the type of model requested.
      *
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error LimitExceededException The subscriber exceeded the maximum number of operations. This exception can
-occur when listing objects such as DataSource .  
+occur when listing objects such as DataSource.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
-     * @error PredictorNotMountedException The exception is thrown when a predict request is made to an unmounted MLModel .  
+     * @error PredictorNotMountedException The exception is thrown when a predict request is made to an unmounted MLModel.  
      */
     predict(params: MachineLearning.PredictInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.LimitExceededException|MachineLearning.InternalServerException|MachineLearning.PredictorNotMountedException|any, data: MachineLearning.PredictOutput|any) => void): Request<MachineLearning.PredictOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.LimitExceededException|MachineLearning.InternalServerException|MachineLearning.PredictorNotMountedException|any>;
     /**
-     * Updates the BatchPredictionName of a BatchPrediction .
+     * Updates the BatchPredictionName of a BatchPrediction.
 
 You can use the GetBatchPrediction operation to view the contents of the updated
 data element.
@@ -397,7 +397,7 @@ data element.
      */
     updateBatchPrediction(params: MachineLearning.UpdateBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateBatchPredictionOutput|any) => void): Request<MachineLearning.UpdateBatchPredictionOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
-     * Updates the DataSourceName of a DataSource .
+     * Updates the DataSourceName of a DataSource.
 
 You can use the GetDataSource operation to view the contents of the updated data
 element.
@@ -408,7 +408,7 @@ element.
      */
     updateDataSource(params: MachineLearning.UpdateDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateDataSourceOutput|any) => void): Request<MachineLearning.UpdateDataSourceOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
-     * Updates the EvaluationName of an Evaluation .
+     * Updates the EvaluationName of an Evaluation.
 
 You can use the GetEvaluation operation to view the contents of the updated data
 element.
@@ -419,7 +419,7 @@ element.
      */
     updateEvaluation(params: MachineLearning.UpdateEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateEvaluationOutput|any) => void): Request<MachineLearning.UpdateEvaluationOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
-     * Updates the MLModelName and the ScoreThreshold of an MLModel .
+     * Updates the MLModelName and the ScoreThreshold of an MLModel.
 
 You can use the GetMLModel operation to view the contents of the updated data
 element.
@@ -581,7 +581,7 @@ element.
 specifying a value, Amazon ML creates a tag with the specified key and a value
 of null. **/
         Tags: TagList;
-        /** The ID of the ML object to tag. For example, exampleModelId . **/
+        /** The ID of the ML object to tag. For example, exampleModelId. **/
         ResourceId: EntityId;
         /** The type of the ML object to tag. **/
         ResourceType: TaggableResourceType;
@@ -604,28 +604,28 @@ request. **/
         /** The location of the data file or directory in Amazon Simple Storage Service
 (Amazon S3). **/
         InputDataLocationS3?: S3Url;
-        /** The AWS user account that invoked the BatchPrediction . The account type can be
+        /** The AWS user account that invoked the BatchPrediction. The account type can be
 either an AWS root account or an AWS Identity and Access Management (IAM) user
 account. **/
         CreatedByIamUser?: AwsUserArn;
         /** The time that the BatchPrediction was created. The time is expressed in epoch
 time. **/
         CreatedAt?: EpochTime;
-        /** The time of the most recent edit to the BatchPrediction . The time is expressed
+        /** The time of the most recent edit to the BatchPrediction. The time is expressed
 in epoch time. **/
         LastUpdatedAt?: EpochTime;
-        /** A user-supplied name or description of the BatchPrediction . **/
+        /** A user-supplied name or description of the BatchPrediction. **/
         Name?: EntityName;
-        /** The status of the BatchPrediction . This element can have one of the following
+        /** The status of the BatchPrediction. This element can have one of the following
 values:
 
- &amp;#42; PENDING - Amazon Machine Learning (Amazon ML) submitted a request to generate
-   predictions for a batch of observations.
- * INPROGRESS - The process is underway.
- * FAILED - The request to perform a batch prediction did not run to completion.
-   It is not usable.
- * COMPLETED - The batch prediction process completed successfully.
- * DELETED - The BatchPrediction is marked as deleted. It is not usable. **/
+ &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
+   generate predictions for a batch of observations.
+ *  INPROGRESS - The process is underway.
+ *  FAILED - The request to perform a batch prediction did not run to
+   completion. It is not usable.
+ *  COMPLETED - The batch prediction process completed successfully.
+ *  DELETED - The BatchPrediction is marked as deleted. It is not usable. **/
         Status?: EntityStatus;
         /** The location of an Amazon S3 bucket or directory to receive the operation
 results. The following substrings are not allowed in the s3 key portion of the 
@@ -641,9 +641,9 @@ request. **/
         InvalidRecordCount?: LongType;
     }
     export interface CreateBatchPredictionInput {
-        /** A user-supplied ID that uniquely identifies the BatchPrediction . **/
+        /** A user-supplied ID that uniquely identifies the BatchPrediction. **/
         BatchPredictionId: EntityId;
-        /** A user-supplied name or description of the BatchPrediction . BatchPredictionName 
+        /** A user-supplied name or description of the BatchPrediction. BatchPredictionName 
 can only use the UTF-8 character set. **/
         BatchPredictionName?: EntityName;
         /** The ID of the MLModel that will generate predictions for the group of
@@ -657,24 +657,24 @@ in the s3 key portion of the outputURI field: &#x27;:&#x27;, &#x27;//&#x27;, &#x
 
 Amazon ML needs permissions to store and retrieve the logs on your behalf. For
 information about how to set permissions, see the Amazon Machine Learning
-Developer Guide [http://docs.aws.amazon.com/machine-learning/latest/dg] . **/
+Developer Guide [http://docs.aws.amazon.com/machine-learning/latest/dg]. **/
         OutputUri: S3Url;
     }
     export interface CreateBatchPredictionOutput {
-        /** A user-supplied ID that uniquely identifies the BatchPrediction . This value is
+        /** A user-supplied ID that uniquely identifies the BatchPrediction. This value is
 identical to the value of the BatchPredictionId in the request. **/
         BatchPredictionId?: EntityId;
     }
     export interface CreateDataSourceFromRDSInput {
-        /** A user-supplied ID that uniquely identifies the DataSource . Typically, an
-Amazon Resource Number (ARN) becomes the ID for a DataSource . **/
+        /** A user-supplied ID that uniquely identifies the DataSource. Typically, an Amazon
+Resource Number (ARN) becomes the ID for a DataSource. **/
         DataSourceId: EntityId;
-        /** A user-supplied name or description of the DataSource . **/
+        /** A user-supplied name or description of the DataSource. **/
         DataSourceName?: EntityName;
-        /** The data specification of an Amazon RDS DataSource :
+        /** The data specification of an Amazon RDS DataSource:
 
- &amp;#42; DatabaseInformation - * DatabaseName - The name of the Amazon RDS database.
-    * InstanceIdentifier - A unique identifier for the Amazon RDS database
+ &amp;#42; DatabaseInformation -  *  DatabaseName - The name of the Amazon RDS database.
+    *  InstanceIdentifier - A unique identifier for the Amazon RDS database
       instance.
    
    
@@ -700,12 +700,12 @@ Amazon Resource Number (ARN) becomes the ID for a DataSource . **/
    
  * SecurityInfo - The security information to use to access an RDS DB instance.
    You need to set up appropriate ingress rules for the security entity IDs
-   provided to allow access to the Amazon RDS instance. Specify a [ SubnetId , 
-   SecurityGroupIds ] pair for a VPC-based RDS DB instance.
+   provided to allow access to the Amazon RDS instance. Specify a [SubnetId, 
+   SecurityGroupIds] pair for a VPC-based RDS DB instance.
    
    
  * SelectSqlQuery - A query that is used to retrieve the observation data for
-   the Datasource .
+   the Datasource.
    
    
  * S3StagingLocation - The Amazon S3 location for staging Amazon RDS data. The
@@ -713,25 +713,25 @@ Amazon Resource Number (ARN) becomes the ID for a DataSource . **/
    location.
    
    
- * DataSchemaUri - The Amazon S3 location of the DataSchema .
+ * DataSchemaUri - The Amazon S3 location of the DataSchema.
    
    
  * DataSchema - A JSON string representing the schema. This is not required if 
-   DataSchemaUri is specified.
+   DataSchemaUri is specified. 
    
    
- * DataRearrangement - A JSON string that represents the splitting and
-   rearrangement requirements for the Datasource .
+ *  DataRearrangement - A JSON string that represents the splitting and
+   rearrangement requirements for the Datasource. 
    
    
-   Sample - &quot;{\&quot;splitting\&quot;:{\&quot;percentBegin\&quot;:10,\&quot;percentEnd\&quot;:60}}&quot; **/
+    Sample - &quot;{\&quot;splitting\&quot;:{\&quot;percentBegin\&quot;:10,\&quot;percentEnd\&quot;:60}}&quot; **/
         RDSData: RDSDataSpec;
         /** The role that Amazon ML assumes on behalf of the user to create and activate a
 data pipeline in the user&#x27;s account and copy data using the SelectSqlQuery query
 from Amazon RDS to Amazon S3. **/
         RoleARN: RoleARN;
-        /** The compute statistics for a DataSource . The statistics are generated from the
-observation data referenced by a DataSource . Amazon ML uses the statistics
+        /** The compute statistics for a DataSource. The statistics are generated from the
+observation data referenced by a DataSource. Amazon ML uses the statistics
 internally during MLModel training. This parameter must be set to true if the 
 DataSource needs to be used for MLModel training. **/
         ComputeStatistics?: ComputeStatistics;
@@ -742,14 +742,14 @@ identical to the value of the DataSourceID in the request. **/
         DataSourceId?: EntityId;
     }
     export interface CreateDataSourceFromRedshiftInput {
-        /** A user-supplied ID that uniquely identifies the DataSource . **/
+        /** A user-supplied ID that uniquely identifies the DataSource. **/
         DataSourceId: EntityId;
-        /** A user-supplied name or description of the DataSource . **/
+        /** A user-supplied name or description of the DataSource. **/
         DataSourceName?: EntityName;
-        /** The data specification of an Amazon Redshift DataSource :
+        /** The data specification of an Amazon Redshift DataSource:
 
- &amp;#42; DatabaseInformation - * DatabaseName - The name of the Amazon Redshift database.
-    * ClusterIdentifier - The unique ID for the Amazon Redshift cluster.
+ &amp;#42; DatabaseInformation -  *  DatabaseName - The name of the Amazon Redshift database. 
+    *  ClusterIdentifier - The unique ID for the Amazon Redshift cluster.
    
    
    
@@ -759,7 +759,7 @@ identical to the value of the DataSourceID in the request. **/
    
    
  * SelectSqlQuery - The query that is used to retrieve the observation data for
-   the Datasource .
+   the Datasource.
    
    
  * S3StagingLocation - The Amazon Simple Storage Service (Amazon S3) location
@@ -767,30 +767,30 @@ identical to the value of the DataSourceID in the request. **/
    using the SelectSqlQuery query is stored in this location.
    
    
- * DataSchemaUri - The Amazon S3 location of the DataSchema .
+ * DataSchemaUri - The Amazon S3 location of the DataSchema.
    
    
  * DataSchema - A JSON string representing the schema. This is not required if 
-   DataSchemaUri is specified.
+   DataSchemaUri is specified. 
    
    
- * DataRearrangement - A JSON string that represents the splitting and
-   rearrangement requirements for the DataSource .
+ *  DataRearrangement - A JSON string that represents the splitting and
+   rearrangement requirements for the DataSource.
    
-   Sample - &quot;{\&quot;splitting\&quot;:{\&quot;percentBegin\&quot;:10,\&quot;percentEnd\&quot;:60}}&quot; **/
+    Sample - &quot;{\&quot;splitting\&quot;:{\&quot;percentBegin\&quot;:10,\&quot;percentEnd\&quot;:60}}&quot; **/
         DataSpec: RedshiftDataSpec;
         /** A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on
-behalf of the user to create the following:
+behalf of the user to create the following: 
 
- &amp;#42; A security group to allow Amazon ML to execute the SelectSqlQuery query on an
+  &amp;#42; A security group to allow Amazon ML to execute the SelectSqlQuery query on an
    Amazon Redshift cluster
    
    
  * An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the 
    S3StagingLocation **/
         RoleARN: RoleARN;
-        /** The compute statistics for a DataSource . The statistics are generated from the
-observation data referenced by a DataSource . Amazon ML uses the statistics
+        /** The compute statistics for a DataSource. The statistics are generated from the
+observation data referenced by a DataSource. Amazon ML uses the statistics
 internally during MLModel training. This parameter must be set to true if the 
 DataSource needs to be used for MLModel training. **/
         ComputeStatistics?: ComputeStatistics;
@@ -801,117 +801,117 @@ identical to the value of the DataSourceID in the request. **/
         DataSourceId?: EntityId;
     }
     export interface CreateDataSourceFromS3Input {
-        /** A user-supplied identifier that uniquely identifies the DataSource . **/
+        /** A user-supplied identifier that uniquely identifies the DataSource. **/
         DataSourceId: EntityId;
-        /** A user-supplied name or description of the DataSource . **/
+        /** A user-supplied name or description of the DataSource. **/
         DataSourceName?: EntityName;
-        /** The data specification of a DataSource :
+        /** The data specification of a DataSource:
 
  &amp;#42; DataLocationS3 - The Amazon S3 location of the observation data.
    
    
- * DataSchemaLocationS3 - The Amazon S3 location of the DataSchema .
+ * DataSchemaLocationS3 - The Amazon S3 location of the DataSchema.
    
    
  * DataSchema - A JSON string representing the schema. This is not required if 
-   DataSchemaUri is specified.
+   DataSchemaUri is specified. 
    
    
- * DataRearrangement - A JSON string that represents the splitting and
-   rearrangement requirements for the Datasource .
+ *  DataRearrangement - A JSON string that represents the splitting and
+   rearrangement requirements for the Datasource. 
    
-   Sample - &quot;{\&quot;splitting\&quot;:{\&quot;percentBegin\&quot;:10,\&quot;percentEnd\&quot;:60}}&quot; **/
+    Sample - &quot;{\&quot;splitting\&quot;:{\&quot;percentBegin\&quot;:10,\&quot;percentEnd\&quot;:60}}&quot; **/
         DataSpec: S3DataSpec;
-        /** The compute statistics for a DataSource . The statistics are generated from the
-observation data referenced by a DataSource . Amazon ML uses the statistics
+        /** The compute statistics for a DataSource. The statistics are generated from the
+observation data referenced by a DataSource. Amazon ML uses the statistics
 internally during MLModel training. This parameter must be set to true if the 
 DataSource needs to be used for MLModel training. **/
         ComputeStatistics?: ComputeStatistics;
     }
     export interface CreateDataSourceFromS3Output {
-        /** A user-supplied ID that uniquely identifies the DataSource . This value should
-be identical to the value of the DataSourceID in the request. **/
+        /** A user-supplied ID that uniquely identifies the DataSource. This value should be
+identical to the value of the DataSourceID in the request. **/
         DataSourceId?: EntityId;
     }
     export interface CreateEvaluationInput {
-        /** A user-supplied ID that uniquely identifies the Evaluation . **/
+        /** A user-supplied ID that uniquely identifies the Evaluation. **/
         EvaluationId: EntityId;
-        /** A user-supplied name or description of the Evaluation . **/
+        /** A user-supplied name or description of the Evaluation. **/
         EvaluationName?: EntityName;
         /** The ID of the MLModel to evaluate.
 
 The schema used in creating the MLModel must match the schema of the DataSource 
-used in the Evaluation . **/
+used in the Evaluation. **/
         MLModelId: EntityId;
         /** The ID of the DataSource for the evaluation. The schema of the DataSource must
-match the schema used to create the MLModel . **/
+match the schema used to create the MLModel. **/
         EvaluationDataSourceId: EntityId;
     }
     export interface CreateEvaluationOutput {
-        /** The user-supplied ID that uniquely identifies the Evaluation . This value should
+        /** The user-supplied ID that uniquely identifies the Evaluation. This value should
 be identical to the value of the EvaluationId in the request. **/
         EvaluationId?: EntityId;
     }
     export interface CreateMLModelInput {
-        /** A user-supplied ID that uniquely identifies the MLModel . **/
+        /** A user-supplied ID that uniquely identifies the MLModel. **/
         MLModelId: EntityId;
-        /** A user-supplied name or description of the MLModel . **/
+        /** A user-supplied name or description of the MLModel. **/
         MLModelName?: EntityName;
         /** The category of supervised learning that this MLModel will address. Choose from
 the following types:
 
  &amp;#42; Choose REGRESSION if the MLModel will be used to predict a numeric value.
  * Choose BINARY if the MLModel result has two possible values.
- * Choose MULTICLASS if the MLModel result has a limited number of values.
+ * Choose MULTICLASS if the MLModel result has a limited number of values. 
 
-For more information, see the Amazon Machine Learning Developer Guide
-[http://docs.aws.amazon.com/machine-learning/latest/dg] . **/
+ For more information, see the Amazon Machine Learning Developer Guide
+[http://docs.aws.amazon.com/machine-learning/latest/dg]. **/
         MLModelType: MLModelType;
-        /** A list of the training parameters in the MLModel . The list is implemented as a
+        /** A list of the training parameters in the MLModel. The list is implemented as a
 map of key-value pairs.
 
-The following is the current set of training parameters:
+The following is the current set of training parameters: 
 
- &amp;#42; sgd.maxMLModelSizeInBytes - The maximum allowed size of the model. Depending
+ &amp;#42;  sgd.maxMLModelSizeInBytes - The maximum allowed size of the model. Depending
    on the input data, the size of the model might affect its performance.
    
-   The value is an integer that ranges from 100000 to 2147483648 . The default
-   value is 33554432 .
+    The value is an integer that ranges from 100000 to 2147483648. The default
+   value is 33554432.
    
    
  * sgd.maxPasses - The number of times that the training process traverses the
-   observations to build the MLModel . The value is an integer that ranges from 
-   1 to 10000 . The default value is 10 .
+   observations to build the MLModel. The value is an integer that ranges from 1 
+   to 10000. The default value is 10.
    
    
- * sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling the
+ *  sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling the
    data improves a model&#x27;s ability to find the optimal solution for a variety of
-   data types. The valid values are auto and none . The default value is none .
-   We strongly recommend that you shuffle your data.
+   data types. The valid values are auto and none. The default value is none. We 
+   strongly recommend that you shuffle your data.
    
    
- * sgd.l1RegularizationAmount - The coefficient regularization L1 norm. It
+ *  sgd.l1RegularizationAmount - The coefficient regularization L1 norm. It
    controls overfitting the data by penalizing large coefficients. This tends to
    drive coefficients to zero, resulting in a sparse feature set. If you use
-   this parameter, start by specifying a small value, such as 1.0E-08 .
+   this parameter, start by specifying a small value, such as 1.0E-08.
    
-   The value is a double that ranges from 0 to MAX_DOUBLE . The default is to
-   not use L1 normalization. This parameter can&#x27;t be used when L2 is specified.
-   Use this parameter sparingly.
+   The value is a double that ranges from 0 to MAX_DOUBLE. The default is to not
+   use L1 normalization. This parameter can&#x27;t be used when L2 is specified. Use
+   this parameter sparingly.
    
    
- * sgd.l2RegularizationAmount - The coefficient regularization L2 norm. It
+ *  sgd.l2RegularizationAmount - The coefficient regularization L2 norm. It
    controls overfitting the data by penalizing large coefficients. This tends to
    drive coefficients to small, nonzero values. If you use this parameter, start
-   by specifying a small value, such as 1.0E-08 .
+   by specifying a small value, such as 1.0E-08.
    
-   The value is a double that ranges from 0 to MAX_DOUBLE . The default is to
-   not use L2 normalization. This parameter can&#x27;t be used when L1 is specified.
-   Use this parameter sparingly. **/
+   The value is a double that ranges from 0 to MAX_DOUBLE. The default is to not
+   use L2 normalization. This parameter can&#x27;t be used when L1 is specified. Use
+   this parameter sparingly. **/
         Parameters?: TrainingParameters;
         /** The DataSource that points to the training data. **/
         TrainingDataSourceId: EntityId;
-        /** The data recipe for creating the MLModel . You must specify either the recipe or
+        /** The data recipe for creating the MLModel. You must specify either the recipe or
 its URI. If you don&#x27;t specify a recipe or its URI, Amazon ML creates a default. **/
         Recipe?: Recipe;
         /** The Amazon Simple Storage Service (Amazon S3) location and file name that
@@ -920,7 +920,7 @@ you don&#x27;t specify a recipe or its URI, Amazon ML creates a default. **/
         RecipeUri?: S3Url;
     }
     export interface CreateMLModelOutput {
-        /** A user-supplied ID that uniquely identifies the MLModel . This value should be
+        /** A user-supplied ID that uniquely identifies the MLModel. This value should be
 identical to the value of the MLModelId in the request. **/
         MLModelId?: EntityId;
     }
@@ -929,7 +929,7 @@ identical to the value of the MLModelId in the request. **/
         MLModelId: EntityId;
     }
     export interface CreateRealtimeEndpointOutput {
-        /** A user-supplied ID that uniquely identifies the MLModel . This value should be
+        /** A user-supplied ID that uniquely identifies the MLModel. This value should be
 identical to the value of the MLModelId in the request. **/
         MLModelId?: EntityId;
         /** The endpoint information of the MLModel **/
@@ -939,7 +939,7 @@ identical to the value of the MLModelId in the request. **/
         /** The ID that is assigned to the DataSource during creation. **/
         DataSourceId?: EntityId;
         /** The location and name of the data in Amazon Simple Storage Service (Amazon S3)
-that is used by a DataSource . **/
+that is used by a DataSource. **/
         DataLocationS3?: S3Url;
         /** A JSON string that represents the splitting and rearrangement requirement used
 when this DataSource was created. **/
@@ -950,28 +950,28 @@ user account. **/
         CreatedByIamUser?: AwsUserArn;
         /** The time that the DataSource was created. The time is expressed in epoch time. **/
         CreatedAt?: EpochTime;
-        /** The time of the most recent edit to the BatchPrediction . The time is expressed
+        /** The time of the most recent edit to the BatchPrediction. The time is expressed
 in epoch time. **/
         LastUpdatedAt?: EpochTime;
         /** The total number of observations contained in the data files that the DataSource 
 references. **/
         DataSizeInBytes?: LongType;
-        /** The number of data files referenced by the DataSource . **/
+        /** The number of data files referenced by the DataSource. **/
         NumberOfFiles?: LongType;
-        /** A user-supplied name or description of the DataSource . **/
+        /** A user-supplied name or description of the DataSource. **/
         Name?: EntityName;
-        /** The current status of the DataSource . This element can have one of the
-following values:
+        /** The current status of the DataSource. This element can have one of the following
+values: 
 
  &amp;#42; PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a 
-   DataSource .
+   DataSource.
  * INPROGRESS - The creation process is underway.
  * FAILED - The request to create a DataSource did not run to completion. It is
    not usable.
  * COMPLETED - The creation process completed successfully.
  * DELETED - The DataSource is marked as deleted. It is not usable. **/
         Status?: EntityStatus;
-        /** A description of the most recent details about creating the DataSource . **/
+        /** A description of the most recent details about creating the DataSource. **/
         Message?: Message;
         RedshiftMetadata?: RedshiftMetadata;
         RDSMetadata?: RDSMetadata;
@@ -984,21 +984,21 @@ data. **/
         StartedAt?: EpochTime;
     }
     export interface DeleteBatchPredictionInput {
-        /** A user-supplied ID that uniquely identifies the BatchPrediction . **/
+        /** A user-supplied ID that uniquely identifies the BatchPrediction. **/
         BatchPredictionId: EntityId;
     }
     export interface DeleteBatchPredictionOutput {
-        /** A user-supplied ID that uniquely identifies the BatchPrediction . This value
+        /** A user-supplied ID that uniquely identifies the BatchPrediction. This value
 should be identical to the value of the BatchPredictionID in the request. **/
         BatchPredictionId?: EntityId;
     }
     export interface DeleteDataSourceInput {
-        /** A user-supplied ID that uniquely identifies the DataSource . **/
+        /** A user-supplied ID that uniquely identifies the DataSource. **/
         DataSourceId: EntityId;
     }
     export interface DeleteDataSourceOutput {
-        /** A user-supplied ID that uniquely identifies the DataSource . This value should
-be identical to the value of the DataSourceID in the request. **/
+        /** A user-supplied ID that uniquely identifies the DataSource. This value should be
+identical to the value of the DataSourceID in the request. **/
         DataSourceId?: EntityId;
     }
     export interface DeleteEvaluationInput {
@@ -1006,16 +1006,16 @@ be identical to the value of the DataSourceID in the request. **/
         EvaluationId: EntityId;
     }
     export interface DeleteEvaluationOutput {
-        /** A user-supplied ID that uniquely identifies the Evaluation . This value should
-be identical to the value of the EvaluationId in the request. **/
+        /** A user-supplied ID that uniquely identifies the Evaluation. This value should be
+identical to the value of the EvaluationId in the request. **/
         EvaluationId?: EntityId;
     }
     export interface DeleteMLModelInput {
-        /** A user-supplied ID that uniquely identifies the MLModel . **/
+        /** A user-supplied ID that uniquely identifies the MLModel. **/
         MLModelId: EntityId;
     }
     export interface DeleteMLModelOutput {
-        /** A user-supplied ID that uniquely identifies the MLModel . This value should be
+        /** A user-supplied ID that uniquely identifies the MLModel. This value should be
 identical to the value of the MLModelID in the request. **/
         MLModelId?: EntityId;
     }
@@ -1024,7 +1024,7 @@ identical to the value of the MLModelID in the request. **/
         MLModelId: EntityId;
     }
     export interface DeleteRealtimeEndpointOutput {
-        /** A user-supplied ID that uniquely identifies the MLModel . This value should be
+        /** A user-supplied ID that uniquely identifies the MLModel. This value should be
 identical to the value of the MLModelId in the request. **/
         MLModelId?: EntityId;
         /** The endpoint information of the MLModel **/
@@ -1033,7 +1033,7 @@ identical to the value of the MLModelId in the request. **/
     export interface DeleteTagsInput {
         /** One or more tags to delete. **/
         TagKeys: TagKeyList;
-        /** The ID of the tagged ML object. For example, exampleModelId . **/
+        /** The ID of the tagged ML object. For example, exampleModelId. **/
         ResourceId: EntityId;
         /** The type of the tagged ML object. **/
         ResourceType: TaggableResourceType;
@@ -1045,46 +1045,46 @@ identical to the value of the MLModelId in the request. **/
         ResourceType?: TaggableResourceType;
     }
     export interface DescribeBatchPredictionsInput {
-        /** Use one of the following variables to filter a list of BatchPrediction :
+        /** Use one of the following variables to filter a list of BatchPrediction:
 
- &amp;#42; CreatedAt - Sets the search criteria to the BatchPrediction creation date.
- * Status - Sets the search criteria to the BatchPrediction status.
- * Name - Sets the search criteria to the contents of the BatchPrediction Name .
- * IAMUser - Sets the search criteria to the user account that invoked the 
+ &amp;#42;  CreatedAt - Sets the search criteria to the BatchPrediction creation date.
+ *  Status - Sets the search criteria to the BatchPrediction status.
+ *  Name - Sets the search criteria to the contents of the BatchPrediction Name.
+ *  IAMUser - Sets the search criteria to the user account that invoked the 
    BatchPrediction creation.
- * MLModelId - Sets the search criteria to the MLModel used in the 
-   BatchPrediction .
- * DataSourceId - Sets the search criteria to the DataSource used in the 
-   BatchPrediction .
- * DataURI - Sets the search criteria to the data file(s) used in the 
-   BatchPrediction . The URL can identify either a file or an Amazon Simple
+ *  MLModelId - Sets the search criteria to the MLModel used in the 
+   BatchPrediction.
+ *  DataSourceId - Sets the search criteria to the DataSource used in the 
+   BatchPrediction.
+ *  DataURI - Sets the search criteria to the data file(s) used in the 
+   BatchPrediction. The URL can identify either a file or an Amazon Simple
    Storage Solution (Amazon S3) bucket or directory. **/
         FilterVariable?: BatchPredictionFilterVariable;
         /** The equal to operator. The BatchPrediction results will have FilterVariable 
-values that exactly match the value specified with EQ . **/
+values that exactly match the value specified with EQ. **/
         EQ?: ComparatorValue;
         /** The greater than operator. The BatchPrediction results will have FilterVariable 
-values that are greater than the value specified with GT . **/
+values that are greater than the value specified with GT. **/
         GT?: ComparatorValue;
         /** The less than operator. The BatchPrediction results will have FilterVariable 
-values that are less than the value specified with LT . **/
+values that are less than the value specified with LT. **/
         LT?: ComparatorValue;
         /** The greater than or equal to operator. The BatchPrediction results will have 
 FilterVariable values that are greater than or equal to the value specified with 
-GE . **/
+GE. **/
         GE?: ComparatorValue;
         /** The less than or equal to operator. The BatchPrediction results will have 
-FilterVariable values that are less than or equal to the value specified with LE 
+FilterVariable values that are less than or equal to the value specified with LE
 . **/
         LE?: ComparatorValue;
         /** The not equal to operator. The BatchPrediction results will have FilterVariable 
-values not equal to the value specified with NE . **/
+values not equal to the value specified with NE. **/
         NE?: ComparatorValue;
-        /** A string that is found at the beginning of a variable, such as Name or Id .
+        /** A string that is found at the beginning of a variable, such as Name or Id.
 
 For example, a Batch Prediction operation could have the Name 
-2014-09-09-HolidayGiftMailer . To search for this BatchPrediction , select Name 
-for the FilterVariable and any of the following strings for the Prefix :
+2014-09-09-HolidayGiftMailer. To search for this BatchPrediction, select Name 
+for the FilterVariable and any of the following strings for the Prefix: 
 
  &amp;#42; 2014-09
    
@@ -1095,17 +1095,17 @@ for the FilterVariable and any of the following strings for the Prefix :
  * 2014-09-09-Holiday **/
         Prefix?: ComparatorValue;
         /** A two-value parameter that determines the sequence of the resulting list of 
-MLModel s.
+MLModels.
 
- &amp;#42; asc - Arranges the list in ascending order (A-Z, 0-9).
- * dsc - Arranges the list in descending order (Z-A, 9-0).
+ &amp;#42;  asc - Arranges the list in ascending order (A-Z, 0-9).
+ *  dsc - Arranges the list in descending order (Z-A, 9-0).
 
-Results are sorted by FilterVariable . **/
+Results are sorted by FilterVariable. **/
         SortOrder?: SortOrder;
         /** An ID of the page in the paginated results. **/
         NextToken?: StringType;
         /** The number of pages of information to include in the result. The range of
-acceptable values is 1 through 100 . The default value is 100 . **/
+acceptable values is 1 through 100. The default value is 100. **/
         Limit?: PageLimit;
     }
     export interface DescribeBatchPredictionsOutput {
@@ -1116,42 +1116,42 @@ more page follows. **/
         NextToken?: StringType;
     }
     export interface DescribeDataSourcesInput {
-        /** Use one of the following variables to filter a list of DataSource :
+        /** Use one of the following variables to filter a list of DataSource:
 
- &amp;#42; CreatedAt - Sets the search criteria to DataSource creation dates.
- * Status - Sets the search criteria to DataSource statuses.
- * Name - Sets the search criteria to the contents of DataSource Name .
- * DataUri - Sets the search criteria to the URI of data files used to create
-   the DataSource . The URI can identify either a file or an Amazon Simple
+ &amp;#42;  CreatedAt - Sets the search criteria to DataSource creation dates.
+ *  Status - Sets the search criteria to DataSource statuses.
+ *  Name - Sets the search criteria to the contents of DataSource Name.
+ *  DataUri - Sets the search criteria to the URI of data files used to create
+   the DataSource. The URI can identify either a file or an Amazon Simple
    Storage Service (Amazon S3) bucket or directory.
- * IAMUser - Sets the search criteria to the user account that invoked the 
+ *  IAMUser - Sets the search criteria to the user account that invoked the 
    DataSource creation. **/
         FilterVariable?: DataSourceFilterVariable;
         /** The equal to operator. The DataSource results will have FilterVariable values
-that exactly match the value specified with EQ . **/
+that exactly match the value specified with EQ. **/
         EQ?: ComparatorValue;
         /** The greater than operator. The DataSource results will have FilterVariable 
-values that are greater than the value specified with GT . **/
+values that are greater than the value specified with GT. **/
         GT?: ComparatorValue;
         /** The less than operator. The DataSource results will have FilterVariable values
-that are less than the value specified with LT . **/
+that are less than the value specified with LT. **/
         LT?: ComparatorValue;
         /** The greater than or equal to operator. The DataSource results will have 
 FilterVariable values that are greater than or equal to the value specified with 
-GE . **/
+GE. **/
         GE?: ComparatorValue;
         /** The less than or equal to operator. The DataSource results will have 
-FilterVariable values that are less than or equal to the value specified with LE 
+FilterVariable values that are less than or equal to the value specified with LE
 . **/
         LE?: ComparatorValue;
         /** The not equal to operator. The DataSource results will have FilterVariable 
-values not equal to the value specified with NE . **/
+values not equal to the value specified with NE. **/
         NE?: ComparatorValue;
-        /** A string that is found at the beginning of a variable, such as Name or Id .
+        /** A string that is found at the beginning of a variable, such as Name or Id.
 
-For example, a DataSource could have the Name 2014-09-09-HolidayGiftMailer . To
-search for this DataSource , select Name for the FilterVariable and any of the
-following strings for the Prefix :
+For example, a DataSource could have the Name 2014-09-09-HolidayGiftMailer. To
+search for this DataSource, select Name for the FilterVariable and any of the
+following strings for the Prefix: 
 
  &amp;#42; 2014-09
    
@@ -1162,12 +1162,12 @@ following strings for the Prefix :
  * 2014-09-09-Holiday **/
         Prefix?: ComparatorValue;
         /** A two-value parameter that determines the sequence of the resulting list of 
-DataSource .
+DataSource.
 
- &amp;#42; asc - Arranges the list in ascending order (A-Z, 0-9).
- * dsc - Arranges the list in descending order (Z-A, 9-0).
+ &amp;#42;  asc - Arranges the list in ascending order (A-Z, 0-9).
+ *  dsc - Arranges the list in descending order (Z-A, 9-0).
 
-Results are sorted by FilterVariable . **/
+Results are sorted by FilterVariable. **/
         SortOrder?: SortOrder;
         /** The ID of the page in the paginated results. **/
         NextToken?: StringType;
@@ -1184,43 +1184,43 @@ page follows. **/
     export interface DescribeEvaluationsInput {
         /** Use one of the following variable to filter a list of Evaluation objects:
 
- &amp;#42; CreatedAt - Sets the search criteria to the Evaluation creation date.
- * Status - Sets the search criteria to the Evaluation status.
- * Name - Sets the search criteria to the contents of Evaluation Name .
- * IAMUser - Sets the search criteria to the user account that invoked an 
-   Evaluation .
- * MLModelId - Sets the search criteria to the MLModel that was evaluated.
- * DataSourceId - Sets the search criteria to the DataSource used in Evaluation 
+ &amp;#42;  CreatedAt - Sets the search criteria to the Evaluation creation date.
+ *  Status - Sets the search criteria to the Evaluation status.
+ *  Name - Sets the search criteria to the contents of Evaluation Name.
+ *  IAMUser - Sets the search criteria to the user account that invoked an 
+   Evaluation.
+ *  MLModelId - Sets the search criteria to the MLModel that was evaluated.
+ *  DataSourceId - Sets the search criteria to the DataSource used in Evaluation
    .
- * DataUri - Sets the search criteria to the data file(s) used in Evaluation .
+ *  DataUri - Sets the search criteria to the data file(s) used in Evaluation.
    The URL can identify either a file or an Amazon Simple Storage Solution
    (Amazon S3) bucket or directory. **/
         FilterVariable?: EvaluationFilterVariable;
         /** The equal to operator. The Evaluation results will have FilterVariable values
-that exactly match the value specified with EQ . **/
+that exactly match the value specified with EQ. **/
         EQ?: ComparatorValue;
         /** The greater than operator. The Evaluation results will have FilterVariable 
-values that are greater than the value specified with GT . **/
+values that are greater than the value specified with GT. **/
         GT?: ComparatorValue;
         /** The less than operator. The Evaluation results will have FilterVariable values
-that are less than the value specified with LT . **/
+that are less than the value specified with LT. **/
         LT?: ComparatorValue;
         /** The greater than or equal to operator. The Evaluation results will have 
 FilterVariable values that are greater than or equal to the value specified with 
-GE . **/
+GE. **/
         GE?: ComparatorValue;
         /** The less than or equal to operator. The Evaluation results will have 
-FilterVariable values that are less than or equal to the value specified with LE 
+FilterVariable values that are less than or equal to the value specified with LE
 . **/
         LE?: ComparatorValue;
         /** The not equal to operator. The Evaluation results will have FilterVariable 
-values not equal to the value specified with NE . **/
+values not equal to the value specified with NE. **/
         NE?: ComparatorValue;
-        /** A string that is found at the beginning of a variable, such as Name or Id .
+        /** A string that is found at the beginning of a variable, such as Name or Id.
 
-For example, an Evaluation could have the Name 2014-09-09-HolidayGiftMailer . To
-search for this Evaluation , select Name for the FilterVariable and any of the
-following strings for the Prefix :
+For example, an Evaluation could have the Name 2014-09-09-HolidayGiftMailer. To
+search for this Evaluation, select Name for the FilterVariable and any of the
+following strings for the Prefix: 
 
  &amp;#42; 2014-09
    
@@ -1231,12 +1231,12 @@ following strings for the Prefix :
  * 2014-09-09-Holiday **/
         Prefix?: ComparatorValue;
         /** A two-value parameter that determines the sequence of the resulting list of 
-Evaluation .
+Evaluation.
 
- &amp;#42; asc - Arranges the list in ascending order (A-Z, 0-9).
- * dsc - Arranges the list in descending order (Z-A, 9-0).
+ &amp;#42;  asc - Arranges the list in ascending order (A-Z, 0-9).
+ *  dsc - Arranges the list in descending order (Z-A, 9-0).
 
-Results are sorted by FilterVariable . **/
+Results are sorted by FilterVariable. **/
         SortOrder?: SortOrder;
         /** The ID of the page in the paginated results. **/
         NextToken?: StringType;
@@ -1251,48 +1251,48 @@ more page follows. **/
         NextToken?: StringType;
     }
     export interface DescribeMLModelsInput {
-        /** Use one of the following variables to filter a list of MLModel :
+        /** Use one of the following variables to filter a list of MLModel:
 
- &amp;#42; CreatedAt - Sets the search criteria to MLModel creation date.
- * Status - Sets the search criteria to MLModel status.
- * Name - Sets the search criteria to the contents of MLModel Name .
- * IAMUser - Sets the search criteria to the user account that invoked the 
+ &amp;#42;  CreatedAt - Sets the search criteria to MLModel creation date.
+ *  Status - Sets the search criteria to MLModel status.
+ *  Name - Sets the search criteria to the contents of MLModel Name.
+ *  IAMUser - Sets the search criteria to the user account that invoked the 
    MLModel creation.
- * TrainingDataSourceId - Sets the search criteria to the DataSource used to
-   train one or more MLModel .
- * RealtimeEndpointStatus - Sets the search criteria to the MLModel real-time
+ *  TrainingDataSourceId - Sets the search criteria to the DataSource used to
+   train one or more MLModel.
+ *  RealtimeEndpointStatus - Sets the search criteria to the MLModel real-time
    endpoint status.
- * MLModelType - Sets the search criteria to MLModel type: binary, regression,
+ *  MLModelType - Sets the search criteria to MLModel type: binary, regression,
    or multi-class.
- * Algorithm - Sets the search criteria to the algorithm that the MLModel uses.
- * TrainingDataURI - Sets the search criteria to the data file(s) used in
-   training a MLModel . The URL can identify either a file or an Amazon Simple
+ *  Algorithm - Sets the search criteria to the algorithm that the MLModel uses.
+ *  TrainingDataURI - Sets the search criteria to the data file(s) used in
+   training a MLModel. The URL can identify either a file or an Amazon Simple
    Storage Service (Amazon S3) bucket or directory. **/
         FilterVariable?: MLModelFilterVariable;
         /** The equal to operator. The MLModel results will have FilterVariable values that
-exactly match the value specified with EQ . **/
+exactly match the value specified with EQ. **/
         EQ?: ComparatorValue;
         /** The greater than operator. The MLModel results will have FilterVariable values
-that are greater than the value specified with GT . **/
+that are greater than the value specified with GT. **/
         GT?: ComparatorValue;
         /** The less than operator. The MLModel results will have FilterVariable values that
-are less than the value specified with LT . **/
+are less than the value specified with LT. **/
         LT?: ComparatorValue;
         /** The greater than or equal to operator. The MLModel results will have 
 FilterVariable values that are greater than or equal to the value specified with 
-GE . **/
+GE. **/
         GE?: ComparatorValue;
         /** The less than or equal to operator. The MLModel results will have FilterVariable 
-values that are less than or equal to the value specified with LE . **/
+values that are less than or equal to the value specified with LE. **/
         LE?: ComparatorValue;
         /** The not equal to operator. The MLModel results will have FilterVariable values
-not equal to the value specified with NE . **/
+not equal to the value specified with NE. **/
         NE?: ComparatorValue;
-        /** A string that is found at the beginning of a variable, such as Name or Id .
+        /** A string that is found at the beginning of a variable, such as Name or Id.
 
-For example, an MLModel could have the Name 2014-09-09-HolidayGiftMailer . To
-search for this MLModel , select Name for the FilterVariable and any of the
-following strings for the Prefix :
+For example, an MLModel could have the Name 2014-09-09-HolidayGiftMailer. To
+search for this MLModel, select Name for the FilterVariable and any of the
+following strings for the Prefix: 
 
  &amp;#42; 2014-09
    
@@ -1303,17 +1303,17 @@ following strings for the Prefix :
  * 2014-09-09-Holiday **/
         Prefix?: ComparatorValue;
         /** A two-value parameter that determines the sequence of the resulting list of 
-MLModel .
+MLModel.
 
- &amp;#42; asc - Arranges the list in ascending order (A-Z, 0-9).
- * dsc - Arranges the list in descending order (Z-A, 9-0).
+ &amp;#42;  asc - Arranges the list in ascending order (A-Z, 0-9).
+ *  dsc - Arranges the list in descending order (Z-A, 9-0).
 
-Results are sorted by FilterVariable . **/
+Results are sorted by FilterVariable. **/
         SortOrder?: SortOrder;
         /** The ID of the page in the paginated results. **/
         NextToken?: StringType;
         /** The number of pages of information to include in the result. The range of
-acceptable values is 1 through 100 . The default value is 100 . **/
+acceptable values is 1 through 100. The default value is 100. **/
         Limit?: PageLimit;
     }
     export interface DescribeMLModelsOutput {
@@ -1324,7 +1324,7 @@ more page follows. **/
         NextToken?: StringType;
     }
     export interface DescribeTagsInput {
-        /** The ID of the ML object. For example, exampleModelId . **/
+        /** The ID of the ML object. For example, exampleModelId. **/
         ResourceId: EntityId;
         /** The type of the ML object. **/
         ResourceType: TaggableResourceType;
@@ -1342,7 +1342,7 @@ more page follows. **/
         EvaluationId?: EntityId;
         /** The ID of the MLModel that is the focus of the evaluation. **/
         MLModelId?: EntityId;
-        /** The ID of the DataSource that is used to evaluate the MLModel . **/
+        /** The ID of the DataSource that is used to evaluate the MLModel. **/
         EvaluationDataSourceId?: EntityId;
         /** The location and name of the data in Amazon Simple Storage Server (Amazon S3)
 that is used in the evaluation. **/
@@ -1352,44 +1352,44 @@ an AWS root account or an AWS Identity and Access Management (IAM) user account.
         CreatedByIamUser?: AwsUserArn;
         /** The time that the Evaluation was created. The time is expressed in epoch time. **/
         CreatedAt?: EpochTime;
-        /** The time of the most recent edit to the Evaluation . The time is expressed in
+        /** The time of the most recent edit to the Evaluation. The time is expressed in
 epoch time. **/
         LastUpdatedAt?: EpochTime;
-        /** A user-supplied name or description of the Evaluation . **/
+        /** A user-supplied name or description of the Evaluation. **/
         Name?: EntityName;
         /** The status of the evaluation. This element can have one of the following values:
 
- &amp;#42; PENDING - Amazon Machine Learning (Amazon ML) submitted a request to evaluate
-   an MLModel .
- * INPROGRESS - The evaluation is underway.
- * FAILED - The request to evaluate an MLModel did not run to completion. It is
+ &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
+   evaluate an MLModel.
+ *  INPROGRESS - The evaluation is underway.
+ *  FAILED - The request to evaluate an MLModel did not run to completion. It is
    not usable.
- * COMPLETED - The evaluation process completed successfully.
- * DELETED - The Evaluation is marked as deleted. It is not usable. **/
+ *  COMPLETED - The evaluation process completed successfully.
+ *  DELETED - The Evaluation is marked as deleted. It is not usable. **/
         Status?: EntityStatus;
         /** Measurements of how well the MLModel performed, using observations referenced by
-the DataSource . One of the following metrics is returned, based on the type of
-the MLModel :
+the DataSource. One of the following metrics is returned, based on the type of
+the MLModel: 
 
- &amp;#42; BinaryAUC: A binary MLModel uses the Area Under the Curve (AUC) technique to
-   measure performance.
+ &amp;#42;  BinaryAUC: A binary MLModel uses the Area Under the Curve (AUC) technique to
+   measure performance. 
    
    
- * RegressionRMSE: A regression MLModel uses the Root Mean Square Error (RMSE)
+ *  RegressionRMSE: A regression MLModel uses the Root Mean Square Error (RMSE)
    technique to measure performance. RMSE measures the difference between
    predicted and actual values for a single variable.
    
    
- * MulticlassAvgFScore: A multiclass MLModel uses the F1 score technique to
-   measure performance.
+ *  MulticlassAvgFScore: A multiclass MLModel uses the F1 score technique to
+   measure performance. 
    
    
 
-For more information about performance metrics, please see the Amazon Machine
-Learning Developer Guide [http://docs.aws.amazon.com/machine-learning/latest/dg] 
+ For more information about performance metrics, please see the Amazon Machine
+Learning Developer Guide [http://docs.aws.amazon.com/machine-learning/latest/dg]
 . **/
         PerformanceMetrics?: PerformanceMetrics;
-        /** A description of the most recent details about evaluating the MLModel . **/
+        /** A description of the most recent details about evaluating the MLModel. **/
         Message?: Message;
         ComputeTime?: LongType;
         FinishedAt?: EpochTime;
@@ -1406,32 +1406,32 @@ identical to the value of the BatchPredictionID in the request. **/
         /** The ID of the MLModel that generated predictions for the BatchPrediction 
 request. **/
         MLModelId?: EntityId;
-        /** The ID of the DataSource that was used to create the BatchPrediction . **/
+        /** The ID of the DataSource that was used to create the BatchPrediction. **/
         BatchPredictionDataSourceId?: EntityId;
         /** The location of the data file or directory in Amazon Simple Storage Service
 (Amazon S3). **/
         InputDataLocationS3?: S3Url;
-        /** The AWS user account that invoked the BatchPrediction . The account type can be
+        /** The AWS user account that invoked the BatchPrediction. The account type can be
 either an AWS root account or an AWS Identity and Access Management (IAM) user
 account. **/
         CreatedByIamUser?: AwsUserArn;
         /** The time when the BatchPrediction was created. The time is expressed in epoch
 time. **/
         CreatedAt?: EpochTime;
-        /** The time of the most recent edit to BatchPrediction . The time is expressed in
+        /** The time of the most recent edit to BatchPrediction. The time is expressed in
 epoch time. **/
         LastUpdatedAt?: EpochTime;
-        /** A user-supplied name or description of the BatchPrediction . **/
+        /** A user-supplied name or description of the BatchPrediction. **/
         Name?: EntityName;
-        /** The status of the BatchPrediction , which can be one of the following values:
+        /** The status of the BatchPrediction, which can be one of the following values:
 
- &amp;#42; PENDING - Amazon Machine Learning (Amazon ML) submitted a request to generate
-   batch predictions.
- * INPROGRESS - The batch predictions are in progress.
- * FAILED - The request to perform a batch prediction did not run to completion.
-   It is not usable.
- * COMPLETED - The batch prediction process completed successfully.
- * DELETED - The BatchPrediction is marked as deleted. It is not usable. **/
+ &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
+   generate batch predictions.
+ *  INPROGRESS - The batch predictions are in progress.
+ *  FAILED - The request to perform a batch prediction did not run to
+   completion. It is not usable.
+ *  COMPLETED - The batch prediction process completed successfully.
+ *  DELETED - The BatchPrediction is marked as deleted. It is not usable. **/
         Status?: EntityStatus;
         /** The location of an Amazon S3 bucket or directory to receive the operation
 results. **/
@@ -1442,28 +1442,28 @@ results. **/
 request. **/
         Message?: Message;
         /** The approximate CPU time in milliseconds that Amazon Machine Learning spent
-processing the BatchPrediction , normalized and scaled on computation resources. 
+processing the BatchPrediction, normalized and scaled on computation resources. 
 ComputeTime is only available if the BatchPrediction is in the COMPLETED state. **/
         ComputeTime?: LongType;
         /** The epoch time when Amazon Machine Learning marked the BatchPrediction as 
-COMPLETED or FAILED . FinishedAt is only available when the BatchPrediction is
-in the COMPLETED or FAILED state. **/
+COMPLETED or FAILED. FinishedAt is only available when the BatchPrediction is in
+the COMPLETED or FAILED state. **/
         FinishedAt?: EpochTime;
         /** The epoch time when Amazon Machine Learning marked the BatchPrediction as 
-INPROGRESS . StartedAt isn&#x27;t available if the BatchPrediction is in the PENDING 
+INPROGRESS. StartedAt isn&#x27;t available if the BatchPrediction is in the PENDING 
 state. **/
         StartedAt?: EpochTime;
         /** The number of total records that Amazon Machine Learning saw while processing
-the BatchPrediction . **/
+the BatchPrediction. **/
         TotalRecordCount?: LongType;
         /** The number of invalid records that Amazon Machine Learning saw while processing
-the BatchPrediction . **/
+the BatchPrediction. **/
         InvalidRecordCount?: LongType;
     }
     export interface GetDataSourceInput {
         /** The ID assigned to the DataSource at creation. **/
         DataSourceId: EntityId;
-        /** Specifies whether the GetDataSource operation should return DataSourceSchema .
+        /** Specifies whether the GetDataSource operation should return DataSourceSchema.
 
 If true, DataSourceSchema is returned.
 
@@ -1486,29 +1486,29 @@ user account. **/
         CreatedByIamUser?: AwsUserArn;
         /** The time that the DataSource was created. The time is expressed in epoch time. **/
         CreatedAt?: EpochTime;
-        /** The time of the most recent edit to the DataSource . The time is expressed in
+        /** The time of the most recent edit to the DataSource. The time is expressed in
 epoch time. **/
         LastUpdatedAt?: EpochTime;
         /** The total size of observations in the data files. **/
         DataSizeInBytes?: LongType;
-        /** The number of data files referenced by the DataSource . **/
+        /** The number of data files referenced by the DataSource. **/
         NumberOfFiles?: LongType;
-        /** A user-supplied name or description of the DataSource . **/
+        /** A user-supplied name or description of the DataSource. **/
         Name?: EntityName;
-        /** The current status of the DataSource . This element can have one of the
-following values:
+        /** The current status of the DataSource. This element can have one of the following
+values:
 
- &amp;#42; PENDING - Amazon ML submitted a request to create a DataSource .
- * INPROGRESS - The creation process is underway.
- * FAILED - The request to create a DataSource did not run to completion. It is
+ &amp;#42;  PENDING - Amazon ML submitted a request to create a DataSource.
+ *  INPROGRESS - The creation process is underway.
+ *  FAILED - The request to create a DataSource did not run to completion. It is
    not usable.
- * COMPLETED - The creation process completed successfully.
- * DELETED - The DataSource is marked as deleted. It is not usable. **/
+ *  COMPLETED - The creation process completed successfully.
+ *  DELETED - The DataSource is marked as deleted. It is not usable. **/
         Status?: EntityStatus;
         /** A link to the file containing logs of CreateDataSourceFrom&amp;#42; operations. **/
         LogUri?: PresignedS3Url;
         /** The user-supplied description of the most recent details about creating the 
-DataSource . **/
+DataSource. **/
         Message?: Message;
         RedshiftMetadata?: RedshiftMetadata;
         RDSMetadata?: RDSMetadata;
@@ -1517,20 +1517,20 @@ DataSource . **/
 data. **/
         ComputeStatistics?: ComputeStatistics;
         /** The approximate CPU time in milliseconds that Amazon Machine Learning spent
-processing the DataSource , normalized and scaled on computation resources. 
+processing the DataSource, normalized and scaled on computation resources. 
 ComputeTime is only available if the DataSource is in the COMPLETED state and
 the ComputeStatistics is set to true. **/
         ComputeTime?: LongType;
         /** The epoch time when Amazon Machine Learning marked the DataSource as COMPLETED 
-or FAILED . FinishedAt is only available when the DataSource is in the COMPLETED 
+or FAILED. FinishedAt is only available when the DataSource is in the COMPLETED 
 or FAILED state. **/
         FinishedAt?: EpochTime;
-        /** The epoch time when Amazon Machine Learning marked the DataSource as INPROGRESS 
-. StartedAt isn&#x27;t available if the DataSource is in the PENDING state. **/
+        /** The epoch time when Amazon Machine Learning marked the DataSource as INPROGRESS. 
+StartedAt isn&#x27;t available if the DataSource is in the PENDING state. **/
         StartedAt?: EpochTime;
-        /** The schema used by all of the data files of this DataSource .
+        /** The schema used by all of the data files of this DataSource.
 
-NoteThis parameter is provided as part of the verbose format. **/
+Note This parameter is provided as part of the verbose format. **/
         DataSourceSchema?: DataSchema;
     }
     export interface GetEvaluationInput {
@@ -1553,63 +1553,63 @@ an AWS root account or an AWS Identity and Access Management (IAM) user account.
         CreatedByIamUser?: AwsUserArn;
         /** The time that the Evaluation was created. The time is expressed in epoch time. **/
         CreatedAt?: EpochTime;
-        /** The time of the most recent edit to the Evaluation . The time is expressed in
+        /** The time of the most recent edit to the Evaluation. The time is expressed in
 epoch time. **/
         LastUpdatedAt?: EpochTime;
-        /** A user-supplied name or description of the Evaluation . **/
+        /** A user-supplied name or description of the Evaluation. **/
         Name?: EntityName;
         /** The status of the evaluation. This element can have one of the following values:
 
- &amp;#42; PENDING - Amazon Machine Language (Amazon ML) submitted a request to evaluate
-   an MLModel .
- * INPROGRESS - The evaluation is underway.
- * FAILED - The request to evaluate an MLModel did not run to completion. It is
+ &amp;#42;  PENDING - Amazon Machine Language (Amazon ML) submitted a request to
+   evaluate an MLModel.
+ *  INPROGRESS - The evaluation is underway.
+ *  FAILED - The request to evaluate an MLModel did not run to completion. It is
    not usable.
- * COMPLETED - The evaluation process completed successfully.
- * DELETED - The Evaluation is marked as deleted. It is not usable. **/
+ *  COMPLETED - The evaluation process completed successfully.
+ *  DELETED - The Evaluation is marked as deleted. It is not usable. **/
         Status?: EntityStatus;
         /** Measurements of how well the MLModel performed using observations referenced by
-the DataSource . One of the following metric is returned based on the type of
-the MLModel :
+the DataSource. One of the following metric is returned based on the type of the 
+MLModel: 
 
- &amp;#42; BinaryAUC: A binary MLModel uses the Area Under the Curve (AUC) technique to
-   measure performance.
+ &amp;#42;  BinaryAUC: A binary MLModel uses the Area Under the Curve (AUC) technique to
+   measure performance. 
    
    
- * RegressionRMSE: A regression MLModel uses the Root Mean Square Error (RMSE)
+ *  RegressionRMSE: A regression MLModel uses the Root Mean Square Error (RMSE)
    technique to measure performance. RMSE measures the difference between
    predicted and actual values for a single variable.
    
    
- * MulticlassAvgFScore: A multiclass MLModel uses the F1 score technique to
-   measure performance.
+ *  MulticlassAvgFScore: A multiclass MLModel uses the F1 score technique to
+   measure performance. 
    
    
 
-For more information about performance metrics, please see the Amazon Machine
-Learning Developer Guide [http://docs.aws.amazon.com/machine-learning/latest/dg] 
+ For more information about performance metrics, please see the Amazon Machine
+Learning Developer Guide [http://docs.aws.amazon.com/machine-learning/latest/dg]
 . **/
         PerformanceMetrics?: PerformanceMetrics;
         /** A link to the file that contains logs of the CreateEvaluation operation. **/
         LogUri?: PresignedS3Url;
-        /** A description of the most recent details about evaluating the MLModel . **/
+        /** A description of the most recent details about evaluating the MLModel. **/
         Message?: Message;
         /** The approximate CPU time in milliseconds that Amazon Machine Learning spent
-processing the Evaluation , normalized and scaled on computation resources. 
+processing the Evaluation, normalized and scaled on computation resources. 
 ComputeTime is only available if the Evaluation is in the COMPLETED state. **/
         ComputeTime?: LongType;
         /** The epoch time when Amazon Machine Learning marked the Evaluation as COMPLETED 
-or FAILED . FinishedAt is only available when the Evaluation is in the COMPLETED 
+or FAILED. FinishedAt is only available when the Evaluation is in the COMPLETED 
 or FAILED state. **/
         FinishedAt?: EpochTime;
-        /** The epoch time when Amazon Machine Learning marked the Evaluation as INPROGRESS 
-. StartedAt isn&#x27;t available if the Evaluation is in the PENDING state. **/
+        /** The epoch time when Amazon Machine Learning marked the Evaluation as INPROGRESS. 
+StartedAt isn&#x27;t available if the Evaluation is in the PENDING state. **/
         StartedAt?: EpochTime;
     }
     export interface GetMLModelInput {
         /** The ID assigned to the MLModel at creation. **/
         MLModelId: EntityId;
-        /** Specifies whether the GetMLModel operation should return Recipe .
+        /** Specifies whether the GetMLModel operation should return Recipe.
 
 If true, Recipe is returned.
 
@@ -1617,9 +1617,9 @@ If false, Recipe is not returned. **/
         Verbose?: Verbose;
     }
     export interface GetMLModelOutput {
-        /** The MLModel ID , which is same as the MLModelId in the request. **/
+        /** The MLModel ID, which is same as the MLModelId in the request. **/
         MLModelId?: EntityId;
-        /** The ID of the training DataSource . **/
+        /** The ID of the training DataSource. **/
         TrainingDataSourceId?: EntityId;
         /** The AWS user account from which the MLModel was created. The account type can be
 either an AWS root account or an AWS Identity and Access Management (IAM) user
@@ -1627,70 +1627,70 @@ account. **/
         CreatedByIamUser?: AwsUserArn;
         /** The time that the MLModel was created. The time is expressed in epoch time. **/
         CreatedAt?: EpochTime;
-        /** The time of the most recent edit to the MLModel . The time is expressed in epoch
+        /** The time of the most recent edit to the MLModel. The time is expressed in epoch
 time. **/
         LastUpdatedAt?: EpochTime;
-        /** A user-supplied name or description of the MLModel . **/
+        /** A user-supplied name or description of the MLModel. **/
         Name?: MLModelName;
-        /** The current status of the MLModel . This element can have one of the following
+        /** The current status of the MLModel. This element can have one of the following
 values:
 
- &amp;#42; PENDING - Amazon Machine Learning (Amazon ML) submitted a request to describe
-   a MLModel .
- * INPROGRESS - The request is processing.
- * FAILED - The request did not run to completion. The ML model isn&#x27;t usable.
- * COMPLETED - The request completed successfully.
- * DELETED - The MLModel is marked as deleted. It isn&#x27;t usable. **/
+ &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
+   describe a MLModel.
+ *  INPROGRESS - The request is processing.
+ *  FAILED - The request did not run to completion. The ML model isn&#x27;t usable.
+ *  COMPLETED - The request completed successfully.
+ *  DELETED - The MLModel is marked as deleted. It isn&#x27;t usable. **/
         Status?: EntityStatus;
         SizeInBytes?: LongType;
         /** The current endpoint of the MLModel **/
         EndpointInfo?: RealtimeEndpointInfo;
-        /** A list of the training parameters in the MLModel . The list is implemented as a
+        /** A list of the training parameters in the MLModel. The list is implemented as a
 map of key-value pairs.
 
-The following is the current set of training parameters:
+The following is the current set of training parameters: 
 
- &amp;#42; sgd.maxMLModelSizeInBytes - The maximum allowed size of the model. Depending
+ &amp;#42;  sgd.maxMLModelSizeInBytes - The maximum allowed size of the model. Depending
    on the input data, the size of the model might affect its performance.
    
-   The value is an integer that ranges from 100000 to 2147483648 . The default
-   value is 33554432 .
+    The value is an integer that ranges from 100000 to 2147483648. The default
+   value is 33554432.
    
    
  * sgd.maxPasses - The number of times that the training process traverses the
-   observations to build the MLModel . The value is an integer that ranges from 
-   1 to 10000 . The default value is 10 .
+   observations to build the MLModel. The value is an integer that ranges from 1 
+   to 10000. The default value is 10.
    
    
  * sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling
    data improves a model&#x27;s ability to find the optimal solution for a variety of
-   data types. The valid values are auto and none . The default value is none .
-   We strongly recommend that you shuffle your data.
+   data types. The valid values are auto and none. The default value is none. We
+   strongly recommend that you shuffle your data.
    
    
- * sgd.l1RegularizationAmount - The coefficient regularization L1 norm. It
+ *  sgd.l1RegularizationAmount - The coefficient regularization L1 norm. It
    controls overfitting the data by penalizing large coefficients. This tends to
    drive coefficients to zero, resulting in a sparse feature set. If you use
-   this parameter, start by specifying a small value, such as 1.0E-08 .
+   this parameter, start by specifying a small value, such as 1.0E-08.
    
-   The value is a double that ranges from 0 to MAX_DOUBLE . The default is to
-   not use L1 normalization. This parameter can&#x27;t be used when L2 is specified.
-   Use this parameter sparingly.
+   The value is a double that ranges from 0 to MAX_DOUBLE. The default is to not
+   use L1 normalization. This parameter can&#x27;t be used when L2 is specified. Use
+   this parameter sparingly.
    
    
- * sgd.l2RegularizationAmount - The coefficient regularization L2 norm. It
+ *  sgd.l2RegularizationAmount - The coefficient regularization L2 norm. It
    controls overfitting the data by penalizing large coefficients. This tends to
    drive coefficients to small, nonzero values. If you use this parameter, start
-   by specifying a small value, such as 1.0E-08 .
+   by specifying a small value, such as 1.0E-08.
    
-   The value is a double that ranges from 0 to MAX_DOUBLE . The default is to
-   not use L2 normalization. This parameter can&#x27;t be used when L1 is specified.
-   Use this parameter sparingly. **/
+   The value is a double that ranges from 0 to MAX_DOUBLE. The default is to not
+   use L2 normalization. This parameter can&#x27;t be used when L1 is specified. Use
+   this parameter sparingly. **/
         TrainingParameters?: TrainingParameters;
         /** The location of the data file or directory in Amazon Simple Storage Service
 (Amazon S3). **/
         InputDataLocationS3?: S3Url;
-        /** Identifies the MLModel category. The following are the available types:
+        /** Identifies the MLModel category. The following are the available types: 
 
  &amp;#42; REGRESSION -- Produces a numeric result. For example, &quot;What price should a
    house be listed at?&quot;
@@ -1703,36 +1703,36 @@ The following is the current set of training parameters:
 the boundary between a positive prediction and a negative prediction.
 
 Output values greater than or equal to the threshold receive a positive result
-from the MLModel, such as true . Output values less than the threshold receive a
-negative response from the MLModel, such as false . **/
+from the MLModel, such as true. Output values less than the threshold receive a
+negative response from the MLModel, such as false. **/
         ScoreThreshold?: ScoreThreshold;
-        /** The time of the most recent edit to the ScoreThreshold . The time is expressed
-in epoch time. **/
+        /** The time of the most recent edit to the ScoreThreshold. The time is expressed in
+epoch time. **/
         ScoreThresholdLastUpdatedAt?: EpochTime;
         /** A link to the file that contains logs of the CreateMLModel operation. **/
         LogUri?: PresignedS3Url;
-        /** A description of the most recent details about accessing the MLModel . **/
+        /** A description of the most recent details about accessing the MLModel. **/
         Message?: Message;
         /** The approximate CPU time in milliseconds that Amazon Machine Learning spent
-processing the MLModel , normalized and scaled on computation resources. 
+processing the MLModel, normalized and scaled on computation resources. 
 ComputeTime is only available if the MLModel is in the COMPLETED state. **/
         ComputeTime?: LongType;
         /** The epoch time when Amazon Machine Learning marked the MLModel as COMPLETED or 
-FAILED . FinishedAt is only available when the MLModel is in the COMPLETED or 
+FAILED. FinishedAt is only available when the MLModel is in the COMPLETED or 
 FAILED state. **/
         FinishedAt?: EpochTime;
-        /** The epoch time when Amazon Machine Learning marked the MLModel as INPROGRESS . 
+        /** The epoch time when Amazon Machine Learning marked the MLModel as INPROGRESS. 
 StartedAt isn&#x27;t available if the MLModel is in the PENDING state. **/
         StartedAt?: EpochTime;
-        /** The recipe to use when training the MLModel . The Recipe provides detailed
+        /** The recipe to use when training the MLModel. The Recipe provides detailed
 information about the observation data to use during training, and manipulations
 to perform on the observation data during training.
 
-NoteThis parameter is provided as part of the verbose format. **/
+Note This parameter is provided as part of the verbose format. **/
         Recipe?: Recipe;
-        /** The schema used by all of the data files referenced by the DataSource .
+        /** The schema used by all of the data files referenced by the DataSource.
 
-NoteThis parameter is provided as part of the verbose format. **/
+Note This parameter is provided as part of the verbose format. **/
         Schema?: DataSchema;
     }
     export interface IdempotentParameterMismatchException {
@@ -1757,8 +1757,8 @@ NoteThis parameter is provided as part of the verbose format. **/
     export interface MLModel {
         /** The ID assigned to the MLModel at creation. **/
         MLModelId?: EntityId;
-        /** The ID of the training DataSource . The CreateMLModel operation uses the 
-TrainingDataSourceId . **/
+        /** The ID of the training DataSource. The CreateMLModel operation uses the 
+TrainingDataSourceId. **/
         TrainingDataSourceId?: EntityId;
         /** The AWS user account from which the MLModel was created. The account type can be
 either an AWS root account or an AWS Identity and Access Management (IAM) user
@@ -1766,89 +1766,89 @@ account. **/
         CreatedByIamUser?: AwsUserArn;
         /** The time that the MLModel was created. The time is expressed in epoch time. **/
         CreatedAt?: EpochTime;
-        /** The time of the most recent edit to the MLModel . The time is expressed in epoch
+        /** The time of the most recent edit to the MLModel. The time is expressed in epoch
 time. **/
         LastUpdatedAt?: EpochTime;
-        /** A user-supplied name or description of the MLModel . **/
+        /** A user-supplied name or description of the MLModel. **/
         Name?: MLModelName;
-        /** The current status of an MLModel . This element can have one of the following
-values:
+        /** The current status of an MLModel. This element can have one of the following
+values: 
 
- &amp;#42; PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create
-   an MLModel .
- * INPROGRESS - The creation process is underway.
- * FAILED - The request to create an MLModel didn&#x27;t run to completion. The model
-   isn&#x27;t usable.
- * COMPLETED - The creation process completed successfully.
- * DELETED - The MLModel is marked as deleted. It isn&#x27;t usable. **/
+ &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create
+   an MLModel.
+ *  INPROGRESS - The creation process is underway.
+ *  FAILED - The request to create an MLModel didn&#x27;t run to completion. The
+   model isn&#x27;t usable.
+ *  COMPLETED - The creation process completed successfully.
+ *  DELETED - The MLModel is marked as deleted. It isn&#x27;t usable. **/
         Status?: EntityStatus;
         SizeInBytes?: LongType;
-        /** The current endpoint of the MLModel . **/
+        /** The current endpoint of the MLModel. **/
         EndpointInfo?: RealtimeEndpointInfo;
-        /** A list of the training parameters in the MLModel . The list is implemented as a
+        /** A list of the training parameters in the MLModel. The list is implemented as a
 map of key-value pairs.
 
-The following is the current set of training parameters:
+The following is the current set of training parameters: 
 
- &amp;#42; sgd.maxMLModelSizeInBytes - The maximum allowed size of the model. Depending
+ &amp;#42;  sgd.maxMLModelSizeInBytes - The maximum allowed size of the model. Depending
    on the input data, the size of the model might affect its performance.
    
-   The value is an integer that ranges from 100000 to 2147483648 . The default
-   value is 33554432 .
+    The value is an integer that ranges from 100000 to 2147483648. The default
+   value is 33554432.
    
    
  * sgd.maxPasses - The number of times that the training process traverses the
-   observations to build the MLModel . The value is an integer that ranges from 
-   1 to 10000 . The default value is 10 .
+   observations to build the MLModel. The value is an integer that ranges from 1 
+   to 10000. The default value is 10.
    
    
  * sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling the
    data improves a model&#x27;s ability to find the optimal solution for a variety of
-   data types. The valid values are auto and none . The default value is none .
+   data types. The valid values are auto and none. The default value is none.
    
    
- * sgd.l1RegularizationAmount - The coefficient regularization L1 norm, which
+ *  sgd.l1RegularizationAmount - The coefficient regularization L1 norm, which
    controls overfitting the data by penalizing large coefficients. This
    parameter tends to drive coefficients to zero, resulting in sparse feature
    set. If you use this parameter, start by specifying a small value, such as 
-   1.0E-08 .
+   1.0E-08.
    
-   The value is a double that ranges from 0 to MAX_DOUBLE . The default is to
-   not use L1 normalization. This parameter can&#x27;t be used when L2 is specified.
-   Use this parameter sparingly.
+   The value is a double that ranges from 0 to MAX_DOUBLE. The default is to not
+   use L1 normalization. This parameter can&#x27;t be used when L2 is specified. Use
+   this parameter sparingly.
    
    
- * sgd.l2RegularizationAmount - The coefficient regularization L2 norm, which
+ *  sgd.l2RegularizationAmount - The coefficient regularization L2 norm, which
    controls overfitting the data by penalizing large coefficients. This tends to
    drive coefficients to small, nonzero values. If you use this parameter, start
-   by specifying a small value, such as 1.0E-08 .
+   by specifying a small value, such as 1.0E-08.
    
-   The value is a double that ranges from 0 to MAX_DOUBLE . The default is to
-   not use L2 normalization. This parameter can&#x27;t be used when L1 is specified.
-   Use this parameter sparingly. **/
+   The value is a double that ranges from 0 to MAX_DOUBLE. The default is to not
+   use L2 normalization. This parameter can&#x27;t be used when L1 is specified. Use
+   this parameter sparingly. **/
         TrainingParameters?: TrainingParameters;
         /** The location of the data file or directory in Amazon Simple Storage Service
 (Amazon S3). **/
         InputDataLocationS3?: S3Url;
-        /** The algorithm used to train the MLModel . The following algorithm is supported:
+        /** The algorithm used to train the MLModel. The following algorithm is supported:
 
- &amp;#42; SGD -- Stochastic gradient descent. The goal of SGD is to minimize the
+ &amp;#42;  SGD -- Stochastic gradient descent. The goal of SGD is to minimize the
    gradient of the loss function. **/
         Algorithm?: Algorithm;
         /** Identifies the MLModel category. The following are the available types:
 
- &amp;#42; REGRESSION - Produces a numeric result. For example, &quot;What price should a
+ &amp;#42;  REGRESSION - Produces a numeric result. For example, &quot;What price should a
    house be listed at?&quot;
- * BINARY - Produces one of two possible results. For example, &quot;Is this a
+ *  BINARY - Produces one of two possible results. For example, &quot;Is this a
    child-friendly web site?&quot;.
- * MULTICLASS - Produces one of several possible results. For example, &quot;Is this
-   a HIGH-, LOW-, or MEDIUM - risk trade?&quot;. **/
+ *  MULTICLASS - Produces one of several possible results. For example, &quot;Is this
+   a HIGH-, LOW-, or MEDIUM-risk trade?&quot;. **/
         MLModelType?: MLModelType;
         ScoreThreshold?: ScoreThreshold;
-        /** The time of the most recent edit to the ScoreThreshold . The time is expressed
-in epoch time. **/
+        /** The time of the most recent edit to the ScoreThreshold. The time is expressed in
+epoch time. **/
         ScoreThresholdLastUpdatedAt?: EpochTime;
-        /** A description of the most recent details about accessing the MLModel . **/
+        /** A description of the most recent details about accessing the MLModel. **/
         Message?: Message;
         ComputeTime?: LongType;
         FinishedAt?: EpochTime;
@@ -1858,7 +1858,7 @@ in epoch time. **/
         Properties?: PerformanceMetricsProperties;
     }
     export interface PredictInput {
-        /** A unique identifier of the MLModel . **/
+        /** A unique identifier of the MLModel. **/
         MLModelId: EntityId;
         Record: Record;
         PredictEndpoint: VipURL;
@@ -1867,9 +1867,9 @@ in epoch time. **/
         Prediction?: Prediction;
     }
     export interface Prediction {
-        /** The prediction label for either a BINARY or MULTICLASS MLModel . **/
+        /** The prediction label for either a BINARY or MULTICLASS MLModel. **/
         predictedLabel?: Label;
-        /** The prediction value for REGRESSION MLModel . **/
+        /** The prediction value for REGRESSION MLModel. **/
         predictedValue?: floatLabel;
         predictedScores?: ScoreValuePerLabelMap;
         details?: DetailsMap;
@@ -1880,7 +1880,7 @@ in epoch time. **/
     export interface RDSDataSpec {
         /** Describes the DatabaseName and InstanceIdentifier of an Amazon RDS database. **/
         DatabaseInformation: RDSDatabase;
-        /** The query that is used to retrieve the observation data for the DataSource . **/
+        /** The query that is used to retrieve the observation data for the DataSource. **/
         SelectSqlQuery: RDSSelectSqlQuery;
         /** The AWS Identity and Access Management (IAM) credentials that are used connect
 to the Amazon RDS database. **/
@@ -1889,8 +1889,8 @@ to the Amazon RDS database. **/
 Amazon RDS using SelectSqlQuery is stored in this location. **/
         S3StagingLocation: S3Url;
         /** A JSON string that represents the splitting and rearrangement processing to be
-applied to a DataSource . If the DataRearrangement parameter is not provided,
-all of the input data is used to create the Datasource .
+applied to a DataSource. If the DataRearrangement parameter is not provided, all
+of the input data is used to create the Datasource.
 
 There are multiple parameters that control what data is used to create a
 datasource:
@@ -1898,14 +1898,14 @@ datasource:
  &amp;#42; percentBegin
    
    Use percentBegin to indicate the beginning of the range of the data used to
-   create the Datasource. If you do not include percentBegin and percentEnd ,
+   create the Datasource. If you do not include percentBegin and percentEnd,
    Amazon ML includes all of the data when creating the datasource.
    
    
  * percentEnd
    
    Use percentEnd to indicate the end of the range of the data used to create
-   the Datasource. If you do not include percentBegin and percentEnd , Amazon ML
+   the Datasource. If you do not include percentBegin and percentEnd, Amazon ML
    includes all of the data when creating the datasource.
    
    
@@ -1915,7 +1915,7 @@ datasource:
    included in the range of percentBegin to percentEnd to create a datasource.
    The complement parameter is useful if you need to create complementary
    datasources for training and evaluation. To create a complementary
-   datasource, use the same values for percentBegin and percentEnd , along with
+   datasource, use the same values for percentBegin and percentEnd, along with
    the complement parameter.
    
    For example, the following two datasources do not share any data, and can be
@@ -1933,7 +1933,7 @@ datasource:
    To change how Amazon ML splits the data for a datasource, use the strategy 
    parameter.
    
-   The default value for the strategy parameter is sequential , meaning that
+   The default value for the strategy parameter is sequential, meaning that
    Amazon ML takes all of the data records between the percentBegin and 
    percentEnd parameters for the datasource, in the order that the records
    appear in the input data.
@@ -1953,7 +1953,7 @@ datasource:
    splitting (for example, you can use the S3 path to your data as the random
    seed string). If you choose the random split strategy, Amazon ML assigns each
    row of data a pseudo-random number between 0 and 100, and then selects the
-   rows that have an assigned number between percentBegin and percentEnd .
+   rows that have an assigned number between percentBegin and percentEnd.
    Pseudo-random numbers are assigned using both the input seed string value and
    the byte offset as a seed, so changing the data results in a different split.
    Any existing ordering is preserved. The random splitting strategy ensures
@@ -1972,40 +1972,40 @@ datasource:
    &quot;strategy&quot;:&quot;random&quot;, &quot;randomSeed&quot;=&quot;s3://my_s3_path/bucket/file.csv&quot;,
    &quot;complement&quot;:&quot;true&quot;}} **/
         DataRearrangement?: DataRearrangement;
-        /** A JSON string that represents the schema for an Amazon RDS DataSource . The 
+        /** A JSON string that represents the schema for an Amazon RDS DataSource. The 
 DataSchema defines the structure of the observation data in the data file(s)
-referenced in the DataSource .
+referenced in the DataSource.
 
 A DataSchema is not required if you specify a DataSchemaUri
 
 Define your DataSchema as a series of key-value pairs. attributes and 
 excludedVariableNames have an array of key-value pairs for their value. Use the
-following format to define your DataSchema .
+following format to define your DataSchema.
 
 { &quot;version&quot;: &quot;1.0&quot;,
 
-&quot;recordAnnotationFieldName&quot;: &quot;F1&quot;,
+ &quot;recordAnnotationFieldName&quot;: &quot;F1&quot;,
 
-&quot;recordWeightFieldName&quot;: &quot;F2&quot;,
+ &quot;recordWeightFieldName&quot;: &quot;F2&quot;,
 
-&quot;targetFieldName&quot;: &quot;F3&quot;,
+ &quot;targetFieldName&quot;: &quot;F3&quot;,
 
-&quot;dataFormat&quot;: &quot;CSV&quot;,
+ &quot;dataFormat&quot;: &quot;CSV&quot;,
 
-&quot;dataFileContainsHeader&quot;: true,
+ &quot;dataFileContainsHeader&quot;: true,
 
-&quot;attributes&quot;: [
+ &quot;attributes&quot;: [
 
-{ &quot;fieldName&quot;: &quot;F1&quot;, &quot;fieldType&quot;: &quot;TEXT&quot; }, { &quot;fieldName&quot;: &quot;F2&quot;, &quot;fieldType&quot;:
+ { &quot;fieldName&quot;: &quot;F1&quot;, &quot;fieldType&quot;: &quot;TEXT&quot; }, { &quot;fieldName&quot;: &quot;F2&quot;, &quot;fieldType&quot;:
 &quot;NUMERIC&quot; }, { &quot;fieldName&quot;: &quot;F3&quot;, &quot;fieldType&quot;: &quot;CATEGORICAL&quot; }, { &quot;fieldName&quot;:
 &quot;F4&quot;, &quot;fieldType&quot;: &quot;NUMERIC&quot; }, { &quot;fieldName&quot;: &quot;F5&quot;, &quot;fieldType&quot;: &quot;CATEGORICAL&quot;
 }, { &quot;fieldName&quot;: &quot;F6&quot;, &quot;fieldType&quot;: &quot;TEXT&quot; }, { &quot;fieldName&quot;: &quot;F7&quot;, &quot;fieldType&quot;:
 &quot;WEIGHTED_INT_SEQUENCE&quot; }, { &quot;fieldName&quot;: &quot;F8&quot;, &quot;fieldType&quot;:
 &quot;WEIGHTED_STRING_SEQUENCE&quot; } ],
 
-&quot;excludedVariableNames&quot;: [ &quot;F6&quot; ] } **/
+ &quot;excludedVariableNames&quot;: [ &quot;F6&quot; ] } **/
         DataSchema?: DataSchema;
-        /** The Amazon S3 location of the DataSchema . **/
+        /** The Amazon S3 location of the DataSchema. **/
         DataSchemaUri?: S3Url;
         /** The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic Compute
 Cloud (Amazon EC2) instance to carry out the copy operation from Amazon RDS to
@@ -2042,8 +2042,8 @@ operation from Amazon RDS to an Amazon S3 task. **/
         /** The database details required to connect to an Amazon RDS. **/
         Database?: RDSDatabase;
         DatabaseUserName?: RDSDatabaseUsername;
-        /** The SQL query that is supplied during CreateDataSourceFromRDS . Returns only if 
-Verbose is true in GetDataSourceInput . **/
+        /** The SQL query that is supplied during CreateDataSourceFromRDS. Returns only if 
+Verbose is true in GetDataSourceInput. **/
         SelectSqlQuery?: RDSSelectSqlQuery;
         /** The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance to
 carry out the copy task from Amazon RDS to Amazon S3. For more information, see 
@@ -2063,32 +2063,32 @@ in the Data Pipeline console. **/
         DataPipelineId?: EDPPipelineId;
     }
     export interface RealtimeEndpointInfo {
-        /** The maximum processing rate for the real-time endpoint for MLModel , measured in
+        /** The maximum processing rate for the real-time endpoint for MLModel, measured in
 incoming requests per second. **/
         PeakRequestsPerSecond?: IntegerType;
         /** The time that the request to create the real-time endpoint for the MLModel was
 received. The time is expressed in epoch time. **/
         CreatedAt?: EpochTime;
         /** The URI that specifies where to send real-time prediction requests for the 
-MLModel .
+MLModel.
 
-NoteThe application must wait until the real-time endpoint is ready before using
-this URI. **/
+Note The application must wait until the real-time endpoint is ready before
+using this URI. **/
         EndpointUrl?: VipURL;
-        /** The current status of the real-time endpoint for the MLModel . This element can
-have one of the following values:
+        /** The current status of the real-time endpoint for the MLModel. This element can
+have one of the following values: 
 
- &amp;#42; NONE - Endpoint does not exist or was previously deleted.
- * READY - Endpoint is ready to be used for real-time predictions.
- * UPDATING - Updating/creating the endpoint. **/
+ &amp;#42;  NONE - Endpoint does not exist or was previously deleted.
+ *  READY - Endpoint is ready to be used for real-time predictions.
+ *  UPDATING - Updating/creating the endpoint. **/
         EndpointStatus?: RealtimeEndpointStatus;
     }
     export interface RedshiftDataSpec {
         /** Describes the DatabaseName and ClusterIdentifier for an Amazon Redshift 
-DataSource . **/
+DataSource. **/
         DatabaseInformation: RedshiftDatabase;
         /** Describes the SQL Query to execute on an Amazon Redshift database for an Amazon
-Redshift DataSource . **/
+Redshift DataSource. **/
         SelectSqlQuery: RedshiftSelectSqlQuery;
         /** Describes AWS Identity and Access Management (IAM) credentials that are used
 connect to the Amazon Redshift database. **/
@@ -2097,8 +2097,8 @@ connect to the Amazon Redshift database. **/
 query. **/
         S3StagingLocation: S3Url;
         /** A JSON string that represents the splitting and rearrangement processing to be
-applied to a DataSource . If the DataRearrangement parameter is not provided,
-all of the input data is used to create the Datasource .
+applied to a DataSource. If the DataRearrangement parameter is not provided, all
+of the input data is used to create the Datasource.
 
 There are multiple parameters that control what data is used to create a
 datasource:
@@ -2106,14 +2106,14 @@ datasource:
  &amp;#42; percentBegin
    
    Use percentBegin to indicate the beginning of the range of the data used to
-   create the Datasource. If you do not include percentBegin and percentEnd ,
+   create the Datasource. If you do not include percentBegin and percentEnd,
    Amazon ML includes all of the data when creating the datasource.
    
    
  * percentEnd
    
    Use percentEnd to indicate the end of the range of the data used to create
-   the Datasource. If you do not include percentBegin and percentEnd , Amazon ML
+   the Datasource. If you do not include percentBegin and percentEnd, Amazon ML
    includes all of the data when creating the datasource.
    
    
@@ -2123,7 +2123,7 @@ datasource:
    included in the range of percentBegin to percentEnd to create a datasource.
    The complement parameter is useful if you need to create complementary
    datasources for training and evaluation. To create a complementary
-   datasource, use the same values for percentBegin and percentEnd , along with
+   datasource, use the same values for percentBegin and percentEnd, along with
    the complement parameter.
    
    For example, the following two datasources do not share any data, and can be
@@ -2141,7 +2141,7 @@ datasource:
    To change how Amazon ML splits the data for a datasource, use the strategy 
    parameter.
    
-   The default value for the strategy parameter is sequential , meaning that
+   The default value for the strategy parameter is sequential, meaning that
    Amazon ML takes all of the data records between the percentBegin and 
    percentEnd parameters for the datasource, in the order that the records
    appear in the input data.
@@ -2161,7 +2161,7 @@ datasource:
    splitting (for example, you can use the S3 path to your data as the random
    seed string). If you choose the random split strategy, Amazon ML assigns each
    row of data a pseudo-random number between 0 and 100, and then selects the
-   rows that have an assigned number between percentBegin and percentEnd .
+   rows that have an assigned number between percentBegin and percentEnd.
    Pseudo-random numbers are assigned using both the input seed string value and
    the byte offset as a seed, so changing the data results in a different split.
    Any existing ordering is preserved. The random splitting strategy ensures
@@ -2180,40 +2180,40 @@ datasource:
    &quot;strategy&quot;:&quot;random&quot;, &quot;randomSeed&quot;=&quot;s3://my_s3_path/bucket/file.csv&quot;,
    &quot;complement&quot;:&quot;true&quot;}} **/
         DataRearrangement?: DataRearrangement;
-        /** A JSON string that represents the schema for an Amazon Redshift DataSource . The 
+        /** A JSON string that represents the schema for an Amazon Redshift DataSource. The 
 DataSchema defines the structure of the observation data in the data file(s)
-referenced in the DataSource .
+referenced in the DataSource.
 
-A DataSchema is not required if you specify a DataSchemaUri .
+A DataSchema is not required if you specify a DataSchemaUri.
 
 Define your DataSchema as a series of key-value pairs. attributes and 
 excludedVariableNames have an array of key-value pairs for their value. Use the
-following format to define your DataSchema .
+following format to define your DataSchema.
 
 { &quot;version&quot;: &quot;1.0&quot;,
 
-&quot;recordAnnotationFieldName&quot;: &quot;F1&quot;,
+ &quot;recordAnnotationFieldName&quot;: &quot;F1&quot;,
 
-&quot;recordWeightFieldName&quot;: &quot;F2&quot;,
+ &quot;recordWeightFieldName&quot;: &quot;F2&quot;,
 
-&quot;targetFieldName&quot;: &quot;F3&quot;,
+ &quot;targetFieldName&quot;: &quot;F3&quot;,
 
-&quot;dataFormat&quot;: &quot;CSV&quot;,
+ &quot;dataFormat&quot;: &quot;CSV&quot;,
 
-&quot;dataFileContainsHeader&quot;: true,
+ &quot;dataFileContainsHeader&quot;: true,
 
-&quot;attributes&quot;: [
+ &quot;attributes&quot;: [
 
-{ &quot;fieldName&quot;: &quot;F1&quot;, &quot;fieldType&quot;: &quot;TEXT&quot; }, { &quot;fieldName&quot;: &quot;F2&quot;, &quot;fieldType&quot;:
+ { &quot;fieldName&quot;: &quot;F1&quot;, &quot;fieldType&quot;: &quot;TEXT&quot; }, { &quot;fieldName&quot;: &quot;F2&quot;, &quot;fieldType&quot;:
 &quot;NUMERIC&quot; }, { &quot;fieldName&quot;: &quot;F3&quot;, &quot;fieldType&quot;: &quot;CATEGORICAL&quot; }, { &quot;fieldName&quot;:
 &quot;F4&quot;, &quot;fieldType&quot;: &quot;NUMERIC&quot; }, { &quot;fieldName&quot;: &quot;F5&quot;, &quot;fieldType&quot;: &quot;CATEGORICAL&quot;
 }, { &quot;fieldName&quot;: &quot;F6&quot;, &quot;fieldType&quot;: &quot;TEXT&quot; }, { &quot;fieldName&quot;: &quot;F7&quot;, &quot;fieldType&quot;:
 &quot;WEIGHTED_INT_SEQUENCE&quot; }, { &quot;fieldName&quot;: &quot;F8&quot;, &quot;fieldType&quot;:
 &quot;WEIGHTED_STRING_SEQUENCE&quot; } ],
 
-&quot;excludedVariableNames&quot;: [ &quot;F6&quot; ] } **/
+ &quot;excludedVariableNames&quot;: [ &quot;F6&quot; ] } **/
         DataSchema?: DataSchema;
-        /** Describes the schema location for an Amazon Redshift DataSource . **/
+        /** Describes the schema location for an Amazon Redshift DataSource. **/
         DataSchemaUri?: S3Url;
     }
     export interface RedshiftDatabase {
@@ -2227,7 +2227,7 @@ following format to define your DataSchema .
     export interface RedshiftMetadata {
         RedshiftDatabase?: RedshiftDatabase;
         DatabaseUserName?: RedshiftDatabaseUsername;
-        /** The SQL query that is specified during CreateDataSourceFromRedshift . Returns
+        /** The SQL query that is specified during CreateDataSourceFromRedshift. Returns
 only if Verbose is true in GetDataSourceInput. **/
         SelectSqlQuery?: RedshiftSelectSqlQuery;
     }
@@ -2236,13 +2236,13 @@ only if Verbose is true in GetDataSourceInput. **/
         code?: ErrorCode;
     }
     export interface S3DataSpec {
-        /** The location of the data file(s) used by a DataSource . The URI specifies a data
+        /** The location of the data file(s) used by a DataSource. The URI specifies a data
 file or an Amazon Simple Storage Service (Amazon S3) directory or bucket
 containing data files. **/
         DataLocationS3: S3Url;
         /** A JSON string that represents the splitting and rearrangement processing to be
-applied to a DataSource . If the DataRearrangement parameter is not provided,
-all of the input data is used to create the Datasource .
+applied to a DataSource. If the DataRearrangement parameter is not provided, all
+of the input data is used to create the Datasource.
 
 There are multiple parameters that control what data is used to create a
 datasource:
@@ -2250,14 +2250,14 @@ datasource:
  &amp;#42; percentBegin
    
    Use percentBegin to indicate the beginning of the range of the data used to
-   create the Datasource. If you do not include percentBegin and percentEnd ,
+   create the Datasource. If you do not include percentBegin and percentEnd,
    Amazon ML includes all of the data when creating the datasource.
    
    
  * percentEnd
    
    Use percentEnd to indicate the end of the range of the data used to create
-   the Datasource. If you do not include percentBegin and percentEnd , Amazon ML
+   the Datasource. If you do not include percentBegin and percentEnd, Amazon ML
    includes all of the data when creating the datasource.
    
    
@@ -2267,7 +2267,7 @@ datasource:
    included in the range of percentBegin to percentEnd to create a datasource.
    The complement parameter is useful if you need to create complementary
    datasources for training and evaluation. To create a complementary
-   datasource, use the same values for percentBegin and percentEnd , along with
+   datasource, use the same values for percentBegin and percentEnd, along with
    the complement parameter.
    
    For example, the following two datasources do not share any data, and can be
@@ -2285,7 +2285,7 @@ datasource:
    To change how Amazon ML splits the data for a datasource, use the strategy 
    parameter.
    
-   The default value for the strategy parameter is sequential , meaning that
+   The default value for the strategy parameter is sequential, meaning that
    Amazon ML takes all of the data records between the percentBegin and 
    percentEnd parameters for the datasource, in the order that the records
    appear in the input data.
@@ -2305,7 +2305,7 @@ datasource:
    splitting (for example, you can use the S3 path to your data as the random
    seed string). If you choose the random split strategy, Amazon ML assigns each
    row of data a pseudo-random number between 0 and 100, and then selects the
-   rows that have an assigned number between percentBegin and percentEnd .
+   rows that have an assigned number between percentBegin and percentEnd.
    Pseudo-random numbers are assigned using both the input seed string value and
    the byte offset as a seed, so changing the data results in a different split.
    Any existing ordering is preserved. The random splitting strategy ensures
@@ -2324,41 +2324,41 @@ datasource:
    &quot;strategy&quot;:&quot;random&quot;, &quot;randomSeed&quot;=&quot;s3://my_s3_path/bucket/file.csv&quot;,
    &quot;complement&quot;:&quot;true&quot;}} **/
         DataRearrangement?: DataRearrangement;
-        /** A JSON string that represents the schema for an Amazon S3 DataSource . The 
+        /** A JSON string that represents the schema for an Amazon S3 DataSource. The 
 DataSchema defines the structure of the observation data in the data file(s)
-referenced in the DataSource .
+referenced in the DataSource.
 
-You must provide either the DataSchema or the DataSchemaLocationS3 .
+You must provide either the DataSchema or the DataSchemaLocationS3.
 
 Define your DataSchema as a series of key-value pairs. attributes and 
 excludedVariableNames have an array of key-value pairs for their value. Use the
-following format to define your DataSchema .
+following format to define your DataSchema.
 
 { &quot;version&quot;: &quot;1.0&quot;,
 
-&quot;recordAnnotationFieldName&quot;: &quot;F1&quot;,
+ &quot;recordAnnotationFieldName&quot;: &quot;F1&quot;,
 
-&quot;recordWeightFieldName&quot;: &quot;F2&quot;,
+ &quot;recordWeightFieldName&quot;: &quot;F2&quot;,
 
-&quot;targetFieldName&quot;: &quot;F3&quot;,
+ &quot;targetFieldName&quot;: &quot;F3&quot;,
 
-&quot;dataFormat&quot;: &quot;CSV&quot;,
+ &quot;dataFormat&quot;: &quot;CSV&quot;,
 
-&quot;dataFileContainsHeader&quot;: true,
+ &quot;dataFileContainsHeader&quot;: true,
 
-&quot;attributes&quot;: [
+ &quot;attributes&quot;: [
 
-{ &quot;fieldName&quot;: &quot;F1&quot;, &quot;fieldType&quot;: &quot;TEXT&quot; }, { &quot;fieldName&quot;: &quot;F2&quot;, &quot;fieldType&quot;:
+ { &quot;fieldName&quot;: &quot;F1&quot;, &quot;fieldType&quot;: &quot;TEXT&quot; }, { &quot;fieldName&quot;: &quot;F2&quot;, &quot;fieldType&quot;:
 &quot;NUMERIC&quot; }, { &quot;fieldName&quot;: &quot;F3&quot;, &quot;fieldType&quot;: &quot;CATEGORICAL&quot; }, { &quot;fieldName&quot;:
 &quot;F4&quot;, &quot;fieldType&quot;: &quot;NUMERIC&quot; }, { &quot;fieldName&quot;: &quot;F5&quot;, &quot;fieldType&quot;: &quot;CATEGORICAL&quot;
 }, { &quot;fieldName&quot;: &quot;F6&quot;, &quot;fieldType&quot;: &quot;TEXT&quot; }, { &quot;fieldName&quot;: &quot;F7&quot;, &quot;fieldType&quot;:
 &quot;WEIGHTED_INT_SEQUENCE&quot; }, { &quot;fieldName&quot;: &quot;F8&quot;, &quot;fieldType&quot;:
 &quot;WEIGHTED_STRING_SEQUENCE&quot; } ],
 
-&quot;excludedVariableNames&quot;: [ &quot;F6&quot; ] } **/
+ &quot;excludedVariableNames&quot;: [ &quot;F6&quot; ] } **/
         DataSchema?: DataSchema;
         /** Describes the schema location in Amazon S3. You must provide either the 
-DataSchema or the DataSchemaLocationS3 . **/
+DataSchema or the DataSchemaLocationS3. **/
         DataSchemaLocationS3?: S3Url;
     }
     export interface Tag {
@@ -2376,7 +2376,7 @@ and @. **/
     export interface UpdateBatchPredictionInput {
         /** The ID assigned to the BatchPrediction during creation. **/
         BatchPredictionId: EntityId;
-        /** A new user-supplied name or description of the BatchPrediction . **/
+        /** A new user-supplied name or description of the BatchPrediction. **/
         BatchPredictionName: EntityName;
     }
     export interface UpdateBatchPredictionOutput {
@@ -2411,14 +2411,14 @@ identical to the value of the Evaluation in the request. **/
     export interface UpdateMLModelInput {
         /** The ID assigned to the MLModel during creation. **/
         MLModelId: EntityId;
-        /** A user-supplied name or description of the MLModel . **/
+        /** A user-supplied name or description of the MLModel. **/
         MLModelName?: EntityName;
         /** The ScoreThreshold used in binary classification MLModel that marks the boundary
 between a positive prediction and a negative prediction.
 
 Output values greater than or equal to the ScoreThreshold receive a positive
-result from the MLModel , such as true . Output values less than the 
-ScoreThreshold receive a negative response from the MLModel , such as false . **/
+result from the MLModel, such as true. Output values less than the 
+ScoreThreshold receive a negative response from the MLModel, such as false. **/
         ScoreThreshold?: ScoreThreshold;
     }
     export interface UpdateMLModelOutput {

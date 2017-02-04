@@ -45,7 +45,7 @@ task runner reports the final success or failure of the task to the web service.
 pipeline does not pass validation, activation fails.
 
 If you need to pause the pipeline to investigate an issue with a component, such
-as a data source or script, call DeactivatePipeline .
+as a data source or script, call DeactivatePipeline.
 
 To activate a finished pipeline, modify the end date for the pipeline and then
 activate it.
@@ -85,9 +85,9 @@ exceeded any of the service limits for your account.
      * Deactivates the specified running pipeline. The pipeline is set to the 
 DEACTIVATING state until the deactivation process completes.
 
-To resume a deactivated pipeline, use ActivatePipeline . By default, the
-pipeline resumes from the last completed execution. Optionally, you can specify
-the date and time to resume the pipeline.
+To resume a deactivated pipeline, use ActivatePipeline. By default, the pipeline
+resumes from the last completed execution. Optionally, you can specify the date
+and time to resume the pipeline.
      *
      * @error PipelineNotFoundException The specified pipeline was not found. Verify that you used the correct user and
 account identifiers.  
@@ -139,7 +139,7 @@ you are using an IAM user account, you can retrieve metadata about only those
 pipelines for which you have read permissions.
 
 To retrieve the full pipeline definition instead of metadata about the pipeline,
-call GetPipelineDefinition .
+call GetPipelineDefinition.
      *
      * @error PipelineNotFoundException The specified pipeline was not found. Verify that you used the correct user and
 account identifiers.  
@@ -168,7 +168,7 @@ account identifiers.
     /**
      * Gets the definition of the specified pipeline. You can call 
 GetPipelineDefinition to retrieve the pipeline definition that you provided
-using PutPipelineDefinition .
+using PutPipelineDefinition.
      *
      * @error InternalServiceError An internal service error occurred.  
      * @error InvalidRequestException The request was not valid. Verify that your request was properly formatted, that
@@ -215,16 +215,16 @@ exceeded any of the service limits for your account.
      * Adds tasks, schedules, and preconditions to the specified pipeline. You can use 
 PutPipelineDefinition to populate a new pipeline.
 
-PutPipelineDefinition also validates the configuration as it adds it to the
+ PutPipelineDefinition also validates the configuration as it adds it to the
 pipeline. Changes to the pipeline are saved unless one of the following three
-validation errors exists in the pipeline.
+validation errors exists in the pipeline. 
 
  1. An object is missing a name or identifier field.
  2. A string or reference field is empty.
  3. The number of objects in the pipeline exceeds the maximum allowed objects.
  4. The pipeline is in a FINISHED state.
 
-Pipeline object definitions are passed to the PutPipelineDefinition action and
+ Pipeline object definitions are passed to the PutPipelineDefinition action and
 returned by the GetPipelineDefinition action.
      *
      * @error InternalServiceError An internal service error occurred.  
@@ -272,7 +272,7 @@ pipeline.
 
 If a task runner does not report its status after 5 minutes, AWS Data Pipeline
 assumes that the task runner is unable to process the task and reassigns the
-task in a subsequent response to PollForTask . Task runners should call 
+task in a subsequent response to PollForTask. Task runners should call 
 ReportTaskProgress every 60 seconds.
      *
      * @error InternalServiceError An internal service error occurred.  
@@ -302,7 +302,7 @@ exceeded any of the service limits for your account.
 be updated in the specified pipeline. This update might not occur immediately,
 but is eventually consistent. The status that can be set depends on the type of
 object (for example, DataNode or Activity). You cannot perform this operation on 
-FINISHED pipelines and attempting to do so returns InvalidRequestException .
+FINISHED pipelines and attempting to do so returns InvalidRequestException.
      *
      * @error PipelineNotFoundException The specified pipeline was not found. Verify that you used the correct user and
 account identifiers.  
@@ -318,7 +318,7 @@ exceeded any of the service limits for your account.
 completed and provide information about the final status. A task runner makes
 this call regardless of whether the task was sucessful. A task runner does not
 need to call SetTaskStatus for tasks that are canceled by the web service during
-a call to ReportTaskProgress .
+a call to ReportTaskProgress.
      *
      * @error InternalServiceError An internal service error occurred.  
      * @error TaskNotFoundException The specified task was not found.  
@@ -437,13 +437,13 @@ pipeline a unique pipeline identifier. **/
         /** A unique identifier. This identifier is not the same as the pipeline identifier
 assigned by AWS Data Pipeline. You are responsible for defining the format and
 ensuring the uniqueness of this identifier. You use this parameter to ensure
-idempotency during repeated calls to CreatePipeline . For example, if the first
+idempotency during repeated calls to CreatePipeline. For example, if the first
 call to CreatePipeline does not succeed, you can pass in the same unique
-identifier and pipeline name combination on a subsequent call to CreatePipeline 
-. CreatePipeline ensures that if a pipeline already exists with the same name
-and unique identifier, a new pipeline is not created. Instead, you&#x27;ll receive
-the pipeline identifier from the previous attempt. The uniqueness of the name
-and unique identifier combination is scoped to the AWS account or IAM user
+identifier and pipeline name combination on a subsequent call to CreatePipeline. 
+CreatePipeline ensures that if a pipeline already exists with the same name and
+unique identifier, a new pipeline is not created. Instead, you&#x27;ll receive the
+pipeline identifier from the previous attempt. The uniqueness of the name and
+unique identifier combination is scoped to the AWS account or IAM user
 credentials. **/
         uniqueId: id;
         /** The description for the pipeline. **/
@@ -452,19 +452,19 @@ credentials. **/
 access to pipelines. For more information, see Controlling User Access to
 Pipelines
 [http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html] 
-in the AWS Data Pipeline Developer Guide . **/
+in the AWS Data Pipeline Developer Guide. **/
         tags?: tagList;
     }
     export interface CreatePipelineOutput {
         /** The ID that AWS Data Pipeline assigns the newly created pipeline. For example, 
-df-06372391ZG65EXAMPLE . **/
+df-06372391ZG65EXAMPLE. **/
         pipelineId: id;
     }
     export interface DeactivatePipelineInput {
         /** The ID of the pipeline. **/
         pipelineId: id;
         /** Indicates whether to cancel any running objects. The default is true, which sets
-the state of any running objects to CANCELED . If this value is false, the
+the state of any running objects to CANCELED. If this value is false, the
 pipeline is deactivated after all running objects finish. **/
         cancelActive?: cancelActive;
     }
@@ -478,7 +478,7 @@ pipeline is deactivated after all running objects finish. **/
         /** The ID of the pipeline that contains the object definitions. **/
         pipelineId: id;
         /** The IDs of the pipeline objects that contain the definitions to be described.
-You can pass as many as 25 identifiers in a single call to DescribeObjects . **/
+You can pass as many as 25 identifiers in a single call to DescribeObjects. **/
         objectIds: idList;
         /** Indicates whether any expressions in the object should be evaluated when the
 object descriptions are returned. **/
@@ -501,7 +501,7 @@ null, there are no more results. **/
     }
     export interface DescribePipelinesInput {
         /** The IDs of the pipelines to describe. You can pass as many as 25 identifiers in
-a single call. To obtain pipeline IDs, call ListPipelines . **/
+a single call. To obtain pipeline IDs, call ListPipelines. **/
         pipelineIds: idList;
     }
     export interface DescribePipelinesOutput {
@@ -571,7 +571,7 @@ set of results. **/
     export interface ListPipelinesOutput {
         /** The pipeline identifiers. If you require additional information about the
 pipelines, you can use these identifiers to call DescribePipelines and 
-GetPipelineDefinition . **/
+GetPipelineDefinition. **/
         pipelineIdList: pipelineList;
         /** The starting point for the next page of results. To view the next page of
 results, call ListPipelinesOutput again with this marker value. If the value is
@@ -582,13 +582,13 @@ call. **/
         hasMoreResults?: boolean;
     }
     export interface Operator {
-        /** The logical operation to be performed: equal ( EQ ), equal reference ( REF_EQ ),
-less than or equal ( LE ), greater than or equal ( GE ), or between ( BETWEEN ).
-Equal reference ( REF_EQ ) can be used only with reference fields. The other
-comparison types can be used only with String fields. The comparison types you
-can use apply only to certain object fields, as detailed below.
+        /** The logical operation to be performed: equal (EQ), equal reference (REF_EQ),
+less than or equal (LE), greater than or equal (GE), or between (BETWEEN). Equal
+reference (REF_EQ) can be used only with reference fields. The other comparison
+types can be used only with String fields. The comparison types you can use
+apply only to certain object fields, as detailed below. 
 
-The comparison operators EQ and REF_EQ act on the following fields:
+ The comparison operators EQ and REF_EQ act on the following fields: 
 
  &amp;#42; name
  * @sphere
@@ -601,7 +601,7 @@ The comparison operators EQ and REF_EQ act on the following fields:
  * @actualStartTime
  * @actualEndTime
 
-The comparison operators GE , LE , and BETWEEN act on the following fields:
+ The comparison operators GE, LE, and BETWEEN act on the following fields: 
 
  * @scheduledStartTime
  * @scheduledEndTime
@@ -641,7 +641,7 @@ string &quot;my&quot;. **/
     }
     export interface PipelineDescription {
         /** The pipeline identifier that was assigned by AWS Data Pipeline. This is a string
-of the form df-297EG78HU43EEXAMPLE . **/
+of the form df-297EG78HU43EEXAMPLE. **/
         pipelineId: id;
         /** The name of the pipeline. **/
         name: id;
@@ -653,12 +653,12 @@ of the form df-297EG78HU43EEXAMPLE . **/
         /** A list of tags to associated with a pipeline. Tags let you control access to
 pipelines. For more information, see Controlling User Access to Pipelines
 [http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html] 
-in the AWS Data Pipeline Developer Guide . **/
+in the AWS Data Pipeline Developer Guide. **/
         tags?: tagList;
     }
     export interface PipelineIdName {
         /** The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string
-of the form df-297EG78HU43EEXAMPLE . **/
+of the form df-297EG78HU43EEXAMPLE. **/
         id?: id;
         /** The name of the pipeline. **/
         name?: id;
@@ -678,15 +678,15 @@ of the form df-297EG78HU43EEXAMPLE . **/
     export interface PollForTaskInput {
         /** The type of task the task runner is configured to accept and process. The worker
 group is set as a field on objects in the pipeline when they are created. You
-can only specify a single value for workerGroup in the call to PollForTask .
-There are no wildcard values permitted in workerGroup ; the string must be an
+can only specify a single value for workerGroup in the call to PollForTask.
+There are no wildcard values permitted in workerGroup; the string must be an
 exact, case-sensitive, match. **/
         workerGroup: string;
         /** The public DNS name of the calling task runner. **/
         hostname?: id;
         /** Identity information for the EC2 instance that is hosting the task runner. You
 can get this value from the instance using 
-http://169.254.169.254/latest/meta-data/instance-id . For more information, see 
+http://169.254.169.254/latest/meta-data/instance-id. For more information, see 
 Instance Metadata
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html] 
 in the Amazon Elastic Compute Cloud User Guide. Passing in this value proves
@@ -696,9 +696,9 @@ Data Pipeline service charges are applied to your pipeline. **/
     }
     export interface PollForTaskOutput {
         /** The information needed to complete the task that is being assigned to the task
-runner. One of the fields returned in this object is taskId , which contains an
+runner. One of the fields returned in this object is taskId, which contains an
 identifier for the task being assigned. The calling task runner uses taskId in
-subsequent calls to ReportTaskProgress and SetTaskStatus . **/
+subsequent calls to ReportTaskProgress and SetTaskStatus. **/
         taskObject?: TaskObject;
     }
     export interface PutPipelineDefinitionInput {
@@ -714,10 +714,10 @@ pipeline definition. **/
     }
     export interface PutPipelineDefinitionOutput {
         /** The validation errors that are associated with the objects defined in 
-pipelineObjects . **/
+pipelineObjects. **/
         validationErrors?: ValidationErrors;
         /** The validation warnings that are associated with the objects defined in 
-pipelineObjects . **/
+pipelineObjects. **/
         validationWarnings?: ValidationWarnings;
         /** Indicates whether there were validation errors, and the pipeline definition is
 stored but cannot be activated until you correct the pipeline and call 
@@ -738,7 +738,7 @@ String fields in the object. These filters can be applied to components,
 instances, and attempts. **/
         query?: Query;
         /** Indicates whether the query applies to components or instances. The possible
-values are: COMPONENT , INSTANCE , and ATTEMPT . **/
+values are: COMPONENT, INSTANCE, and ATTEMPT. **/
         sphere: string;
         /** The starting point for the results to be returned. For the first call, this
 value should be empty. As long as there are more results, continue to call 
@@ -770,7 +770,7 @@ call. **/
     }
     export interface ReportTaskProgressInput {
         /** The ID of the task assigned to the task runner. This value is provided in the
-response for PollForTask . **/
+response for PollForTask. **/
         taskId: taskId;
         /** Key-value pairs that define the properties of the ReportTaskProgressInput
 object. **/
@@ -790,8 +790,8 @@ unique identifier for the task runner. **/
         taskrunnerId: id;
         /** The type of task the task runner is configured to accept and process. The worker
 group is set as a field on objects in the pipeline when they are created. You
-can only specify a single value for workerGroup . There are no wildcard values
-permitted in workerGroup ; the string must be an exact, case-sensitive, match. **/
+can only specify a single value for workerGroup. There are no wildcard values
+permitted in workerGroup; the string must be an exact, case-sensitive, match. **/
         workerGroup?: string;
         /** The public DNS name of the task runner. **/
         hostname?: id;
@@ -814,15 +814,15 @@ condition fails. **/
         /** The IDs of the objects. The corresponding objects can be either physical or
 components, but not a mix of both types. **/
         objectIds: idList;
-        /** The status to be set on all the objects specified in objectIds . For components,
-use PAUSE or RESUME . For instances, use TRY_CANCEL , RERUN , or MARK_FINISHED . **/
+        /** The status to be set on all the objects specified in objectIds. For components,
+use PAUSE or RESUME. For instances, use TRY_CANCEL, RERUN, or MARK_FINISHED. **/
         status: string;
     }
     export interface SetTaskStatusInput {
         /** The ID of the task assigned to the task runner. This value is provided in the
-response for PollForTask . **/
+response for PollForTask. **/
         taskId: taskId;
-        /** If FINISHED , the task successfully completed. If FAILED , the task ended
+        /** If FINISHED, the task successfully completed. If FAILED, the task ended
 unsuccessfully. Preconditions use false. **/
         taskStatus: TaskStatus;
         /** If an error occurred during the task, this value specifies the error code. This
@@ -847,12 +847,12 @@ this value. **/
         /** The key name of a tag defined by a user. For more information, see Controlling
 User Access to Pipelines
 [http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html] 
-in the AWS Data Pipeline Developer Guide . **/
+in the AWS Data Pipeline Developer Guide. **/
         key: tagKey;
         /** The optional value portion of a tag defined by a user. For more information, see 
 Controlling User Access to Pipelines
 [http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html] 
-in the AWS Data Pipeline Developer Guide . **/
+in the AWS Data Pipeline Developer Guide. **/
         value: tagValue;
     }
     export interface TaskNotFoundException {

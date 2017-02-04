@@ -14,12 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS OpsWorks for Chef AutomateA service that runs and manages configuration
-management servers.
+   * AWS OpsWorks for Chef Automate  A service that runs and manages configuration
+management servers. 
 
 Glossary of terms
 
- &amp;#42; Server : A server is a configuration management server, and can be
+ &amp;#42;   Server: A server is a configuration management server, and can be
    highly-available. The configuration manager runs on your instances by using
    various AWS services, such as Amazon Elastic Compute Cloud (EC2), and
    potentially Amazon Relational Database Service (RDS). A server is a generic
@@ -29,11 +29,11 @@ Glossary of terms
    deleted.
    
    
- * Engine : The specific configuration manager that you want to use (such as 
-   Chef ) is the engine.
+ *   Engine: The specific configuration manager that you want to use (such as 
+   Chef) is the engine.
    
    
- * Backup : This is an application-level backup of the data that the
+ *   Backup: This is an application-level backup of the data that the
    configuration manager stores. A backup creates a .tar.gz file that is stored
    in an Amazon Simple Storage Service (S3) bucket in your account. AWS OpsWorks
    for Chef Automate creates the S3 bucket when you launch the first instance. A
@@ -41,14 +41,14 @@ Glossary of terms
    time of the backup.
    
    
- * Events : Events are always related to a server. Events are written during
+ *   Events: Events are always related to a server. Events are written during
    server creation, when health checks run, when backups are created, etc. When
    you delete a server, the server&#x27;s events are also deleted.
    
    
- * AccountAttributes : Every account has attributes that are assigned in the AWS
+ *   AccountAttributes: Every account has attributes that are assigned in the AWS
    OpsWorks for Chef Automate database. These attributes store information about
-   configuration limits (servers, backups, etc.) and your customer account.
+   configuration limits (servers, backups, etc.) and your customer account. 
    
    
 
@@ -70,16 +70,16 @@ per second.
      */
     associateNode(params: OpsWorksCM.AssociateNodeRequest, callback?: (err: OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any, data: OpsWorksCM.AssociateNodeResponse|any) => void): Request<OpsWorksCM.AssociateNodeResponse|any,OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any>;
     /**
-     * Creates an application-level backup of a server. While the server is BACKING_UP 
-, the server can not be modified and no additional backup can be created.
+     * Creates an application-level backup of a server. While the server is BACKING_UP
+, the server can not be modified and no additional backup can be created. 
 
-Backups can be created for RUNNING , HEALTHY and UNHEALTHY servers.
+ Backups can be created for RUNNING, HEALTHY and UNHEALTHY servers. 
 
-This operation is asnychronous.
+ This operation is asnychronous. 
 
-By default 50 manual backups can be created.
+ By default 50 manual backups can be created. 
 
-A LimitExceededException is thrown then the maximum number of manual backup is
+ A LimitExceededException is thrown then the maximum number of manual backup is
 reached. A InvalidStateException is thrown when the server is not in any of
 RUNNING, HEALTHY, UNHEALTHY. A ResourceNotFoundException is thrown when the
 server is not found. A ValidationException is thrown when parameters of the
@@ -93,23 +93,23 @@ request are not valid.
     createBackup(params: OpsWorksCM.CreateBackupRequest, callback?: (err: OpsWorksCM.InvalidStateException|OpsWorksCM.LimitExceededException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any, data: OpsWorksCM.CreateBackupResponse|any) => void): Request<OpsWorksCM.CreateBackupResponse|any,OpsWorksCM.InvalidStateException|OpsWorksCM.LimitExceededException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any>;
     /**
      * Creates and immedately starts a new Server. The server can be used once it has
-reached the HEALTHY state.
+reached the HEALTHY state. 
 
-This operation is asnychronous.
+ This operation is asnychronous. 
 
-A LimitExceededException is thrown then the maximum number of server backup is
+ A LimitExceededException is thrown then the maximum number of server backup is
 reached. A ResourceAlreadyExistsException is raise when a server with the same
 name already exists in the account. A ResourceNotFoundException is thrown when a
 backupId is passed, but the backup does not exist. A ValidationException is
-thrown when parameters of the request are not valid.
+thrown when parameters of the request are not valid. 
 
-By default 10 servers can be created. A LimitExceededException is raised when
-the limit is exceeded.
+ By default 10 servers can be created. A LimitExceededException is raised when
+the limit is exceeded. 
 
-When no security groups are provided by using SecurityGroupIds , AWS OpsWorks
+ When no security groups are provided by using SecurityGroupIds, AWS OpsWorks
 creates a new security group. This security group opens the Chef server to the
 world on TCP port 443. If a KeyName is present, SSH access is enabled. SSH is
-also open to the world on TCP port 22.
+also open to the world on TCP port 22. 
 
 By default, the Chef Server is accessible from any IP address. We recommend that
 you update your security group rules to allow access from known IP addresses and
@@ -123,11 +123,11 @@ navigation pane of the EC2 management console.
      */
     createServer(params: OpsWorksCM.CreateServerRequest, callback?: (err: OpsWorksCM.LimitExceededException|OpsWorksCM.ResourceAlreadyExistsException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any, data: OpsWorksCM.CreateServerResponse|any) => void): Request<OpsWorksCM.CreateServerResponse|any,OpsWorksCM.LimitExceededException|OpsWorksCM.ResourceAlreadyExistsException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any>;
     /**
-     * Deletes a backup. You can delete both manual and automated backups.
+     * Deletes a backup. You can delete both manual and automated backups. 
 
-This operation is asynchronous.
+ This operation is asynchronous. 
 
-A InvalidStateException is thrown then a backup is already deleting. A 
+ A InvalidStateException is thrown then a backup is already deleting. A 
 ResourceNotFoundException is thrown when the backup does not exist. A 
 ValidationException is thrown when parameters of the request are not valid.
      *
@@ -138,14 +138,14 @@ ValidationException is thrown when parameters of the request are not valid.
     deleteBackup(params: OpsWorksCM.DeleteBackupRequest, callback?: (err: OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any, data: OpsWorksCM.DeleteBackupResponse|any) => void): Request<OpsWorksCM.DeleteBackupResponse|any,OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any>;
     /**
      * Deletes the server and the underlying AWS CloudFormation stack (including the
-server&#x27;s EC2 instance). The server status updated to DELETING . Once the server
+server&#x27;s EC2 instance). The server status updated to DELETING. Once the server
 is successfully deleted, it will no longer be returned by DescribeServer 
 requests. If the AWS CloudFormation stack cannot be deleted, the server cannot
-be deleted.
+be deleted. 
 
-This operation is asynchronous.
+ This operation is asynchronous. 
 
-A InvalidStateException is thrown then a server is already deleting. A 
+ A InvalidStateException is thrown then a server is already deleting. A 
 ResourceNotFoundException is thrown when the server does not exist. A 
 ValidationException is raised when parameters of the request are invalid.
      *
@@ -156,19 +156,19 @@ ValidationException is raised when parameters of the request are invalid.
     deleteServer(params: OpsWorksCM.DeleteServerRequest, callback?: (err: OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any, data: OpsWorksCM.DeleteServerResponse|any) => void): Request<OpsWorksCM.DeleteServerResponse|any,OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any>;
     /**
      * Describes your account attributes, and creates requests to increase limits
-before they are reached or exceeded.
+before they are reached or exceeded. 
 
-This operation is synchronous.
+ This operation is synchronous.
      *
      */
     describeAccountAttributes(params: OpsWorksCM.DescribeAccountAttributesRequest, callback?: (err: any, data: OpsWorksCM.DescribeAccountAttributesResponse|any) => void): Request<OpsWorksCM.DescribeAccountAttributesResponse|any,any>;
     /**
      * Describes backups. The results are ordered by time, with newest backups first.
-If you do not specify a BackupId or ServerName, the command returns all backups.
+If you do not specify a BackupId or ServerName, the command returns all backups. 
 
-This operation is synchronous.
+ This operation is synchronous. 
 
-A ResourceNotFoundException is thrown when the backup does not exist. A 
+ A ResourceNotFoundException is thrown when the backup does not exist. A 
 ValidationException is raised when parameters of the request are invalid.
      *
      * @error ValidationException   
@@ -178,11 +178,11 @@ ValidationException is raised when parameters of the request are invalid.
     describeBackups(params: OpsWorksCM.DescribeBackupsRequest, callback?: (err: OpsWorksCM.ValidationException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.InvalidNextTokenException|any, data: OpsWorksCM.DescribeBackupsResponse|any) => void): Request<OpsWorksCM.DescribeBackupsResponse|any,OpsWorksCM.ValidationException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.InvalidNextTokenException|any>;
     /**
      * Describes events for a specified server. Results are ordered by time, with
-newest events first.
+newest events first. 
 
-This operation is synchronous.
+ This operation is synchronous. 
 
-A ResourceNotFoundException is thrown when the server does not exist. A 
+ A ResourceNotFoundException is thrown when the server does not exist. A 
 ValidationException is raised when parameters of the request are invalid.
      *
      * @error ValidationException   
@@ -200,11 +200,11 @@ ValidationException is raised when parameters of the request are invalid.
     /**
      * Lists all configuration management servers that are identified with your
 account. Only the stored results from Amazon DynamoDB are returned. AWS OpsWorks
-for Chef Automate does not query other services.
+for Chef Automate does not query other services. 
 
-This operation is synchronous.
+ This operation is synchronous. 
 
-A ResourceNotFoundException is thrown when the server does not exist. A 
+ A ResourceNotFoundException is thrown when the server does not exist. A 
 ValidationException is raised when parameters of the request are invalid.
      *
      * @error ValidationException   
@@ -221,15 +221,15 @@ ValidationException is raised when parameters of the request are invalid.
      */
     disassociateNode(params: OpsWorksCM.DisassociateNodeRequest, callback?: (err: OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any, data: OpsWorksCM.DisassociateNodeResponse|any) => void): Request<OpsWorksCM.DisassociateNodeResponse|any,OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any>;
     /**
-     * Restores a backup to a server that is in a RUNNING , FAILED , or HEALTHY state.
+     * Restores a backup to a server that is in a RUNNING, FAILED, or HEALTHY state.
 When you run RestoreServer, the server&#x27;s EC2 instance is deleted, and a new EC2
 instance is configured. RestoreServer maintains the existing server endpoint, so
 configuration management of all of the server&#x27;s client devices should continue
-to work.
+to work. 
 
-This operation is asynchronous.
+ This operation is asynchronous. 
 
-A InvalidStateException is thrown when the server is not in a valid state. A 
+ A InvalidStateException is thrown when the server is not in a valid state. A 
 ResourceNotFoundException is thrown when the server does not exist. A 
 ValidationException is raised when parameters of the request are invalid.
      *
@@ -242,9 +242,9 @@ ValidationException is raised when parameters of the request are invalid.
      * Manually starts server maintenance. This command can be useful if an earlier
 maintenance attempt failed, and the underlying cause of maintenance failure has
 been resolved. The server will switch to UNDER_MAINTENANCE state, while
-maintenace is in progress.
+maintenace is in progress. 
 
-Maintenace can only be started for HEALTHY and UNHEALTHY servers. A 
+ Maintenace can only be started for HEALTHY and UNHEALTHY servers. A 
 InvalidStateException is thrown otherwise. A ResourceNotFoundException is thrown
 when the server does not exist. A ValidationException is raised when parameters
 of the request are invalid.
@@ -255,9 +255,9 @@ of the request are invalid.
      */
     startMaintenance(params: OpsWorksCM.StartMaintenanceRequest, callback?: (err: OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any, data: OpsWorksCM.StartMaintenanceResponse|any) => void): Request<OpsWorksCM.StartMaintenanceResponse|any,OpsWorksCM.InvalidStateException|OpsWorksCM.ResourceNotFoundException|OpsWorksCM.ValidationException|any>;
     /**
-     * Updates settings for a server.
+     * Updates settings for a server. 
 
-This operation is synchronous.
+ This operation is synchronous.
      *
      * @error InvalidStateException   
      * @error ResourceNotFoundException   
@@ -267,19 +267,18 @@ This operation is synchronous.
     /**
      * Updates engine specific attributes on a specified server. Server will enter the 
 MODIFYING state when this operation is in progress. Only one update can take
-place at a time.
+place at a time. 
 
-This operation can be use to reset Chef Server main API key ( CHEF_PIVOTAL_KEY 
-).
+ This operation can be use to reset Chef Server main API key (CHEF_PIVOTAL_KEY). 
 
-This operation is asynchronous.
+ This operation is asynchronous. 
 
+ 
 
-
-This operation can only be called for HEALTHY and UNHEALTHY servers. Otherwise a 
-InvalidStateException is raised. A ResourceNotFoundException is thrown when the
-server does not exist. A ValidationException is raised when parameters of the
-request are invalid.
+ This operation can only be called for HEALTHY and UNHEALTHY servers. Otherwise
+a InvalidStateException is raised. A ResourceNotFoundException is thrown when
+the server does not exist. A ValidationException is raised when parameters of
+the request are invalid.
      *
      * @error InvalidStateException   
      * @error ResourceNotFoundException   
@@ -348,13 +347,13 @@ request are invalid.
     export type Timestamp = number;
 
     export interface AccountAttribute {
-        /** The attribute name. The following are supported attribute names.
+        /** The attribute name. The following are supported attribute names. 
 
- &amp;#42; ServerLimit: The number of servers that currently existing / maximal allowed.
-   By default 10 servers can be created.
+ &amp;#42;   ServerLimit: The number of servers that currently existing / maximal
+   allowed. By default 10 servers can be created. 
    
    
- * ManualBackupLimit: The number of manual backups that currently exist / are
+ *   ManualBackupLimit: The number of manual backups that currently exist / are
    maximal allowed. By default 50 manual backups can be created. **/
         Name?: String;
         /** The maximum allowed value. **/
@@ -376,7 +375,7 @@ account. **/
         BackupArn?: String;
         /** The generated ID of the backup. Example: myServerName-yyyyMMddHHmmssSSS **/
         BackupId?: BackupId;
-        /** The backup type. Valid values are automated or manual . **/
+        /** The backup type. Valid values are automated or manual. **/
         BackupType?: BackupType;
         /** The time stamp when the backup was created in the database. Example: 
 2016-07-29T13:38:47.520Z **/
@@ -390,8 +389,8 @@ automated backups. **/
         EngineModel?: String;
         /** The engine version that is obtained from the server when the backup is created. **/
         EngineVersion?: String;
-        /** The EC2 instance profile ARN that is obtained from the server when the backup is
-created. Because this value is stored, you are not required to provide the
+        /** The EC2 instance profile ARN that is obtained from the server when the backup
+is created. Because this value is stored, you are not required to provide the
 InstanceProfileArn again if you restore a backup. **/
         InstanceProfileArn?: String;
         /** The instance type that is obtained from the server when the backup is created. **/
@@ -443,100 +442,101 @@ automated backups. **/
         Backup?: Backup;
     }
     export interface CreateServerRequest {
-        /** Enable or disable scheduled backups. Valid values are true or false . The
-default value is true . **/
+        /** Enable or disable scheduled backups. Valid values are true or false. The
+default value is true. **/
         DisableAutomatedBackup?: Boolean;
-        /** The configuration management engine to use. Valid values include Chef . **/
+        /** The configuration management engine to use. Valid values include Chef. **/
         Engine?: String;
-        /** The engine model, or option. Valid values include Single . **/
+        /** The engine model, or option. Valid values include Single. **/
         EngineModel?: String;
         /** The major release version of the engine that you want to use. Values depend on
 the engine that you choose. **/
         EngineVersion?: String;
-        /** Engine attributes on a specified server.
+        /** Engine attributes on a specified server. 
 
-Attributes accepted in a createServer request:
+ Attributes accepted in a createServer request: 
 
- &amp;#42; CHEF_PIVOTAL_KEY : A base64-encoded RSA private key that is not stored by AWS
+ &amp;#42;   CHEF_PIVOTAL_KEY: A base64-encoded RSA private key that is not stored by AWS
    OpsWorks for Chef Automate. This private key is required to access the Chef
    API. **/
         EngineAttributes?: EngineAttributes;
         /** The number of automated backups that you want to keep. Whenever a new backup is
 created, AWS OpsWorks for Chef Automate deletes the oldest backups if this
-number is exceeded. The default value is 1 . **/
+number is exceeded. The default value is 1. **/
         BackupRetentionCount?: BackupRetentionCountDefinition;
         /** The name of the server. The server name must be unique within your AWS account,
 within each region. Server names must start with a letter; then letters,
 numbers, or hyphens (-) are allowed, up to a maximum of 32 characters. **/
         ServerName: ServerName;
-        /** The ARN of the instance profile that your Amazon EC2 instances use. Although the
-AWS OpsWorks console typically creates the instance profile for you, in this
+        /** The ARN of the instance profile that your Amazon EC2 instances use. Although
+the AWS OpsWorks console typically creates the instance profile for you, in this
 release of AWS OpsWorks for Chef Automate, run the service-role-creation.yaml
 AWS CloudFormation template, located at
 https://s3.amazonaws.com/opsworks-stuff/latest/service-role-creation.yaml. This
 template creates a stack that includes the instance profile you need. **/
         InstanceProfileArn: InstanceProfileArn;
         /** The Amazon EC2 instance type to use. Valid values must be specified in the
-following format: ^([cm][34]|t2).&amp;#42; For example, c3.large . **/
+following format: ^([cm][34]|t2).&amp;#42; For example, c3.large. **/
         InstanceType?: String;
         /** The Amazon EC2 key pair to set for the instance. You may specify this parameter
 to connect to your instances by using SSH. **/
         KeyPair?: KeyPair;
         /** The start time for a one-hour period each week during which AWS OpsWorks for
 Chef Automate performs maintenance on the instance. Valid values must be
-specified in the following format: DDD:HH:MM . The specified time is in
+specified in the following format: DDD:HH:MM. The specified time is in
 coordinated universal time (UTC). The default value is a random one-hour period
-on Tuesday, Wednesday, or Friday. See TimeWindowDefinition for more information.
+on Tuesday, Wednesday, or Friday. See TimeWindowDefinition for more information. 
 
-Example: Mon:08:00 , which represents a start time of every Monday at 08:00 UTC.
+ Example: Mon:08:00, which represents a start time of every Monday at 08:00 UTC.
 (8:00 a.m.) **/
         PreferredMaintenanceWindow?: TimeWindowDefinition;
-        /** The start time for a one-hour period during which AWS OpsWorks for Chef Automate
-backs up application-level data on your server if backups are enabled. Valid
-values must be specified in one of the following formats:
+        /** The start time for a one-hour period during which AWS OpsWorks for Chef
+Automate backs up application-level data on your server if backups are enabled.
+Valid values must be specified in one of the following formats: 
 
- &amp;#42; HH:MM for daily backups
+ &amp;#42;   HH:MM for daily backups
    
    
- * DDD:HH:MM for weekly backups
+ *   DDD:HH:MM for weekly backups
    
    
 
 The specified time is in coordinated universal time (UTC). The default value is
 a random, daily start time.
 
-Example: 08:00 , which represents a daily start time of 08:00 UTC.
+ Example: 08:00, which represents a daily start time of 08:00 UTC.
 
-Example: Mon:08:00 , which represents a start time of every Monday at 08:00 UTC.
+ Example: Mon:08:00, which represents a start time of every Monday at 08:00 UTC.
 (8:00 a.m.) **/
         PreferredBackupWindow?: TimeWindowDefinition;
         /** A list of security group IDs to attach to the Amazon EC2 instance. If you add
 this parameter, the specified security groups must be within the VPC that is
-specified by SubnetIds .
+specified by SubnetIds. 
 
-If you do not specify this parameter, AWS OpsWorks for Chef Automate creates one
-new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone). **/
+ If you do not specify this parameter, AWS OpsWorks for Chef Automate creates
+one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0
+(everyone). **/
         SecurityGroupIds?: Strings;
-        /** The service role that the AWS OpsWorks for Chef Automate service backend uses to
-work with your account. Although the AWS OpsWorks console typically creates the
-service role for you, in this release of AWS OpsWorks for Chef Automate, run the
-service-role-creation.yaml AWS CloudFormation template, located at
+        /** The service role that the AWS OpsWorks for Chef Automate service backend uses
+to work with your account. Although the AWS OpsWorks console typically creates
+the service role for you, in this release of AWS OpsWorks for Chef Automate, run
+the service-role-creation.yaml AWS CloudFormation template, located at
 https://s3.amazonaws.com/opsworks-stuff/latest/service-role-creation.yaml. This
 template creates a stack that includes the service role that you need. **/
         ServiceRoleArn: ServiceRoleArn;
-        /** The IDs of subnets in which to launch the server EC2 instance.
+        /** The IDs of subnets in which to launch the server EC2 instance. 
 
-Amazon EC2-Classic customers: This field is required. All servers must run
-within a VPC. The VPC must have &quot;Auto Assign Public IP&quot; enabled.
+ Amazon EC2-Classic customers: This field is required. All servers must run
+within a VPC. The VPC must have &quot;Auto Assign Public IP&quot; enabled. 
 
-EC2-VPC customers: This field is optional. If you do not specify subnet IDs,
+ EC2-VPC customers: This field is optional. If you do not specify subnet IDs,
 your EC2 instances are created in a default subnet that is selected by Amazon
 EC2. If you specify subnet IDs, the VPC must have &quot;Auto Assign Public IP&quot;
-enabled.
+enabled. 
 
 For more information about supported Amazon EC2 platforms, see Supported
 Platforms
-[http://docs.aws.amazon.com/https:/docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html] 
+[http://docs.aws.amazon.com/https:/docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html]
 . **/
         SubnetIds?: Strings;
         /** If you specify this field, AWS OpsWorks for Chef Automate creates the server by
@@ -549,7 +549,7 @@ using the backup represented by BackupId. **/
     }
     export interface DeleteBackupRequest {
         /** The ID of the backup to delete. Run the DescribeBackups command to get a list of
-backup IDs. Backup IDs are in the format ServerName-yyyyMMddHHmmssSSS . **/
+backup IDs. Backup IDs are in the format ServerName-yyyyMMddHHmmssSSS. **/
         BackupId: BackupId;
     }
     export interface DeleteBackupResponse {
@@ -576,7 +576,7 @@ that not all entries have been returned, and that you must run at least one more
 request to get remaining items. To get remaining results, call DescribeBackups 
 again, and assign the token from the previous results as the value of the 
 nextToken parameter. If there are no more results, the response object&#x27;s 
-nextToken parameter value is null . Setting a nextToken value that was not
+nextToken parameter value is null. Setting a nextToken value that was not
 returned in your previous results causes an InvalidNextTokenException to occur. **/
         NextToken?: NextToken;
         /** To receive a paginated response, use this parameter to specify the maximum
@@ -593,7 +593,7 @@ that not all entries have been returned, and that you must run at least one more
 request to get remaining items. To get remaining results, call DescribeBackups 
 again, and assign the token from the previous results as the value of the 
 nextToken parameter. If there are no more results, the response object&#x27;s 
-nextToken parameter value is null . Setting a nextToken value that was not
+nextToken parameter value is null. Setting a nextToken value that was not
 returned in your previous results causes an InvalidNextTokenException to occur. **/
         NextToken?: String;
     }
@@ -605,7 +605,7 @@ that not all entries have been returned, and that you must run at least one more
 request to get remaining items. To get remaining results, call DescribeEvents 
 again, and assign the token from the previous results as the value of the 
 nextToken parameter. If there are no more results, the response object&#x27;s 
-nextToken parameter value is null . Setting a nextToken value that was not
+nextToken parameter value is null. Setting a nextToken value that was not
 returned in your previous results causes an InvalidNextTokenException to occur. **/
         NextToken?: NextToken;
         /** To receive a paginated response, use this parameter to specify the maximum
@@ -622,7 +622,7 @@ that not all entries have been returned, and that you must run at least one more
 request to get remaining items. To get remaining results, call DescribeEvents 
 again, and assign the token from the previous results as the value of the 
 nextToken parameter. If there are no more results, the response object&#x27;s 
-nextToken parameter value is null . Setting a nextToken value that was not
+nextToken parameter value is null. Setting a nextToken value that was not
 returned in your previous results causes an InvalidNextTokenException to occur. **/
         NextToken?: String;
     }
@@ -641,7 +641,7 @@ that not all entries have been returned, and that you must run at least one more
 request to get remaining items. To get remaining results, call DescribeServers 
 again, and assign the token from the previous results as the value of the 
 nextToken parameter. If there are no more results, the response object&#x27;s 
-nextToken parameter value is null . Setting a nextToken value that was not
+nextToken parameter value is null. Setting a nextToken value that was not
 returned in your previous results causes an InvalidNextTokenException to occur. **/
         NextToken?: NextToken;
         /** To receive a paginated response, use this parameter to specify the maximum
@@ -658,7 +658,7 @@ that not all entries have been returned, and that you must run at least one more
 request to get remaining items. To get remaining results, call DescribeServers 
 again, and assign the token from the previous results as the value of the 
 nextToken parameter. If there are no more results, the response object&#x27;s 
-nextToken parameter value is null . Setting a nextToken value that was not
+nextToken parameter value is null. Setting a nextToken value that was not
 returned in your previous results causes an InvalidNextTokenException to occur. **/
         NextToken?: String;
     }
@@ -707,7 +707,7 @@ locating or accessing a resource. **/
         /** The name of the server that you want to restore. **/
         ServerName: ServerName;
         /** The type of the instance to create. Valid values must be specified in the
-following format: ^([cm][34]|t2).&amp;#42; For example, c3.large . If you do not specify
+following format: ^([cm][34]|t2).&amp;#42; For example, c3.large. If you do not specify
 this parameter, RestoreServer uses the instance type from the specified backup. **/
         InstanceType?: String;
         /** The name of the key pair to set on the new EC2 instance. This can be helpful if
@@ -729,51 +729,52 @@ value of PreferredBackupCount. **/
         /** A DNS name that can be used to access the engine. Example: 
 myserver-asdfghjkl.us-east-1.opsworks.io **/
         Endpoint?: String;
-        /** The engine type of the server. The valid value in this release is Chef . **/
+        /** The engine type of the server. The valid value in this release is Chef. **/
         Engine?: String;
-        /** The engine model of the server. The valid value in this release is Single . **/
+        /** The engine model of the server. The valid value in this release is Single. **/
         EngineModel?: String;
         /** The response of a createServer() request returns the master credential to access
 the server in EngineAttributes. These credentials are not stored by AWS OpsWorks
 for Chef Automate; they are returned only as part of the result of
-createServer().
+createServer(). 
 
-Attributes returned in a createServer response:
+ Attributes returned in a createServer response: 
 
- &amp;#42; CHEF_PIVOTAL_KEY : A base64-encoded RSA private key that is generated by AWS
+ &amp;#42;   CHEF_PIVOTAL_KEY: A base64-encoded RSA private key that is generated by AWS
    OpsWorks for Chef Automate. This private key is required to access the Chef
    API.
    
    
- * CHEF_STARTER_KIT : A base64-encoded ZIP file. The ZIP file contains a Chef
+ *   CHEF_STARTER_KIT: A base64-encoded ZIP file. The ZIP file contains a Chef
    starter kit, which includes a README, a configuration file, and the required
    RSA private key. Save this file, unzip it, and then change to the directory
    where you&#x27;ve unzipped the file contents. From this directory, you can run
    Knife commands. **/
         EngineAttributes?: EngineAttributes;
         /** The engine version of the server. Because Chef is the engine available in this
-release, the valid value for EngineVersion is 12 . **/
+release, the valid value for EngineVersion is 12. **/
         EngineVersion?: String;
         /** The instance profile ARN of the server. **/
         InstanceProfileArn?: String;
-        /** The instance type for the server, as specified in the CloudFormation stack. This
-might not be the same instance type that is shown in the EC2 console. **/
+        /** The instance type for the server, as specified in the CloudFormation stack.
+This might not be the same instance type that is shown in the EC2 console. **/
         InstanceType?: String;
         /** The key pair associated with the server. **/
         KeyPair?: String;
-        /** The status of the most recent server maintenance run. Shows SUCCESS or FAILED . **/
+        /** The status of the most recent server maintenance run. Shows SUCCESS or FAILED. **/
         MaintenanceStatus?: MaintenanceStatus;
         /** The preferred maintenance period specified for the server. **/
         PreferredMaintenanceWindow?: TimeWindowDefinition;
         /** The preferred backup period specified for the server. **/
         PreferredBackupWindow?: TimeWindowDefinition;
-        /** The security group IDs for the server, as specified in the CloudFormation stack.
-These might not be the same security groups that are shown in the EC2 console. **/
+        /** The security group IDs for the server, as specified in the CloudFormation
+stack. These might not be the same security groups that are shown in the EC2
+console. **/
         SecurityGroupIds?: Strings;
         /** The service role ARN used to create the server. **/
         ServiceRoleArn?: String;
-        /** The server&#x27;s status. This field displays the states of actions in progress, such
-as creating, running, or backing up the server, as well as server health. **/
+        /** The server&#x27;s status. This field displays the states of actions in progress,
+such as creating, running, or backing up the server, as well as server health. **/
         Status?: ServerStatus;
         /** Depending on the server status, this field has either a human-readable message
 (such as a create or backup error), or an escaped block of JSON (used for health

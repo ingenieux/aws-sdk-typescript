@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: ec2
    *
-   * Amazon Elastic Compute CloudAmazon Elastic Compute Cloud (Amazon EC2) provides
+   * Amazon Elastic Compute Cloud Amazon Elastic Compute Cloud (Amazon EC2) provides
 resizable computing capacity in the Amazon Web Services (AWS) cloud. Using
 Amazon EC2 eliminates your need to invest in hardware up front, so you can
 develop and deploy applications faster.
@@ -43,7 +43,7 @@ outstanding VPC peering connection requests.
 An Elastic IP address is for use either in the EC2-Classic platform or in a VPC.
 For more information, see Elastic IP Addresses
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     allocateAddress(params: EC2.AllocateAddressRequest, callback?: (err: any, data: EC2.AllocateAddressResult|any) => void): Request<EC2.AllocateAddressResult|any,any>;
@@ -62,7 +62,7 @@ block range. You can assign as many IPv6 addresses to a network interface as you
 can assign private IPv4 addresses, and the limit varies per instance type. For
 information, see IP Addresses Per Network Interface Per Instance Type
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     assignIpv6Addresses(params: EC2.AssignIpv6AddressesRequest, callback?: (err: any, data: EC2.AssignIpv6AddressesResult|any) => void): Request<EC2.AssignIpv6AddressesResult|any,any>;
@@ -74,10 +74,10 @@ within the subnet&#x27;s CIDR block range. The number of secondary IP addresses 
 you can assign to an instance varies by instance type. For information about
 instance types, see Instance Types
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html] in the 
-Amazon Elastic Compute Cloud User Guide . For more information about Elastic IP
+Amazon Elastic Compute Cloud User Guide. For more information about Elastic IP
 addresses, see Elastic IP Addresses
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
 
 AssignPrivateIpAddresses is available only in EC2-VPC.
      *
@@ -89,7 +89,7 @@ AssignPrivateIpAddresses is available only in EC2-VPC.
 An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
 For more information, see Elastic IP Addresses
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
 
 [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is
 already associated with a different instance, it is disassociated from that
@@ -104,7 +104,7 @@ This is an idempotent operation. If you perform the operation more than once,
 Amazon EC2 doesn&#x27;t return an error, and you may be charged for each time the
 Elastic IP address is remapped to the same instance. For more information, see
 the Elastic IP Addresses section of Amazon EC2 Pricing
-[http://aws.amazon.com/ec2/pricing/] .
+[http://aws.amazon.com/ec2/pricing/].
      *
      */
     associateAddress(params: EC2.AssociateAddressRequest, callback?: (err: any, data: EC2.AssociateAddressResult|any) => void): Request<EC2.AssociateAddressResult|any,any>;
@@ -120,7 +120,7 @@ explicitly renew the lease using the operating system on the instance.
 
 For more information, see DHCP Options Sets
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     associateDhcpOptions(params: EC2.AssociateDhcpOptionsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -133,7 +133,7 @@ subnet later. A route table can be associated with multiple subnets.
 
 For more information about route tables, see Route Tables
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     associateRouteTable(params: EC2.AssociateRouteTableRequest, callback?: (err: any, data: EC2.AssociateRouteTableResult|any) => void): Request<EC2.AssociateRouteTableResult|any,any>;
@@ -171,7 +171,7 @@ instance.
      * Attaches an Internet gateway to a VPC, enabling connectivity between the
 Internet and the VPC. For more information about your VPC and Internet gateway,
 see the Amazon Virtual Private Cloud User Guide
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/] .
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/].
      *
      */
     attachInternetGateway(params: EC2.AttachInternetGatewayRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -187,38 +187,38 @@ instance with the specified device name.
 Encrypted EBS volumes may only be attached to instances that support Amazon EBS
 encryption. For more information, see Amazon EBS Encryption
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 For a list of supported device names, see Attaching an EBS Volume to an Instance
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html] .
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html].
 Any device names that aren&#x27;t reserved for instance store volumes can be used for
 EBS volumes. For more information, see Amazon EC2 Instance Store
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 If a volume has an AWS Marketplace product code:
 
- &amp;#42; The volume can be attached only to a stopped instance.
+ &amp;#42;  The volume can be attached only to a stopped instance.
    
    
- * AWS Marketplace product codes are copied from the volume to the instance.
+ *  AWS Marketplace product codes are copied from the volume to the instance.
    
    
- * You must be subscribed to the product.
+ *  You must be subscribed to the product.
    
    
- * The instance type and operating system of the instance must support the
+ *  The instance type and operating system of the instance must support the
    product. For example, you can&#x27;t detach a volume from a Windows instance and
    attach it to a Linux instance.
    
    
 
 For an overview of the AWS Marketplace, see Introducing AWS Marketplace
-[https://aws.amazon.com/marketplace/help/200900000] .
+[https://aws.amazon.com/marketplace/help/200900000].
 
 For more information about EBS volumes, see Attaching Amazon EBS Volumes
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     attachVolume(params: EC2.AttachVolumeRequest, callback?: (err: any, data: EC2.VolumeAttachment|any) => void): Request<EC2.VolumeAttachment|any,any>;
@@ -226,7 +226,7 @@ in the Amazon Elastic Compute Cloud User Guide .
      * Attaches a virtual private gateway to a VPC. For more information, see Adding a
 Hardware Virtual Private Gateway to Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     attachVpnGateway(params: EC2.AttachVpnGatewayRequest, callback?: (err: any, data: EC2.AttachVpnGatewayResult|any) => void): Request<EC2.AttachVpnGatewayResult|any,any>;
@@ -237,9 +237,9 @@ destination IPv4 or IPv6 CIDR address ranges, or to one or more destination
 security groups for the same VPC. This action doesn&#x27;t apply to security groups
 for use in EC2-Classic. For more information, see Security Groups for Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html] 
-in the Amazon Virtual Private Cloud User Guide . For more information about
+in the Amazon Virtual Private Cloud User Guide. For more information about
 security group limits, see Amazon VPC Limits
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html] 
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html]
 .
 
 Each rule consists of the protocol (for example, TCP), plus either a CIDR range
@@ -261,17 +261,17 @@ possible. However, a small delay might occur.
 
 [EC2-Classic] This action gives one or more IPv4 CIDR address ranges permission
 to access a security group in your account, or gives one or more security groups
-(called the source groups ) permission to access a security group for your
+(called the source groups) permission to access a security group for your
 account. A source group can be for your own AWS account, or another. You can
 have up to 100 rules per group.
 
 [EC2-VPC] This action gives one or more IPv4 or IPv6 CIDR address ranges
 permission to access a security group in your VPC, or gives one or more other
-security groups (called the source groups ) permission to access a security
-group for your VPC. The security groups must all be for the same VPC or a peer
-VPC in a VPC peering connection. For more information about VPC security group
-limits, see Amazon VPC Limits
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html] 
+security groups (called the source groups) permission to access a security group
+for your VPC. The security groups must all be for the same VPC or a peer VPC in
+a VPC peering connection. For more information about VPC security group limits,
+see Amazon VPC Limits
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html]
 .
      *
      */
@@ -286,7 +286,7 @@ This action is not applicable for Linux/Unix instances or Windows instances that
 are backed by Amazon EBS.
 
 For more information, see Creating an Instance Store-Backed Windows AMI
-[http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html]
 .
      *
      */
@@ -304,7 +304,7 @@ the process of transferring the final disk image, the command fails and returns
 an exception.
 
 For more information, see Importing a Virtual Machine Using the Amazon EC2 CLI
-[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html]
 .
      *
      */
@@ -328,7 +328,7 @@ Marketplace.
 
 For more information, see Reserved Instance Marketplace
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     cancelReservedInstancesListing(params: EC2.CancelReservedInstancesListingRequest, callback?: (err: any, data: EC2.CancelReservedInstancesListingResult|any) => void): Request<EC2.CancelReservedInstancesListingResult|any,any>;
@@ -351,7 +351,7 @@ current Spot price. Amazon EC2 periodically sets the Spot price based on
 available Spot instance capacity and current Spot instance requests. For more
 information, see Spot Instance Requests
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 Canceling a Spot instance request does not terminate running Spot instances
 associated with the request.
@@ -373,7 +373,7 @@ request.
 
 For more information, see Copying AMIs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     copyImage(params: EC2.CopyImageRequest, callback?: (err: any, data: EC2.CopyImageResult|any) => void): Request<EC2.CopyImageResult|any,any>;
@@ -387,7 +387,7 @@ Copies of encrypted EBS snapshots remain encrypted. Copies of unencrypted
 snapshots remain unencrypted, unless the Encrypted flag is specified during the
 snapshot copy operation. By default, encrypted snapshot copies use the default
 AWS Key Management Service (AWS KMS) customer master key (CMK); however, you can
-specify a non-default CMK with the KmsKeyId parameter.
+specify a non-default CMK with the KmsKeyId parameter. 
 
 To copy an encrypted snapshot that has been shared from another account, you
 must have permissions for the CMK used to encrypt the snapshot.
@@ -397,7 +397,7 @@ should not be used for any purpose.
 
 For more information, see Copying an Amazon EBS Snapshot
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     copySnapshot(params: EC2.CopySnapshotRequest, callback?: (err: any, data: EC2.CopySnapshotResult|any) => void): Request<EC2.CopySnapshotResult|any,any>;
@@ -421,7 +421,7 @@ reserved in the eu-west-1 region.
 For more information about VPN customer gateways, see Adding a Hardware Virtual
 Private Gateway to Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
 
 You cannot create more than one customer gateway with the same VPN type, IP
 address, and BGP ASN parameter values. If you run an identical request more than
@@ -436,21 +436,21 @@ requests do not create new customer gateway resources.
 associate it with the VPC, causing all existing and new instances that you
 launch in the VPC to use this set of DHCP options. The following are the
 individual DHCP options you can specify. For more information about the options,
-see RFC 2132 [http://www.ietf.org/rfc/rfc2132.txt] .
+see RFC 2132 [http://www.ietf.org/rfc/rfc2132.txt].
 
- &amp;#42; domain-name-servers - The IP addresses of up to four domain name servers, or
+ &amp;#42;   domain-name-servers - The IP addresses of up to four domain name servers, or
    AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS.
    If specifying more than one domain name server, specify the IP addresses in a
    single parameter, separated by commas. If you want your instance to receive a
-   custom DNS hostname as specified in domain-name , you must set 
+   custom DNS hostname as specified in domain-name, you must set 
    domain-name-servers to a custom DNS server.
    
    
- * domain-name - If you&#x27;re using AmazonProvidedDNS in &quot;us-east-1&quot;, specify
+ *   domain-name - If you&#x27;re using AmazonProvidedDNS in &quot;us-east-1&quot;, specify
    &quot;ec2.internal&quot;. If you&#x27;re using AmazonProvidedDNS in another region, specify
    &quot;region.compute.internal&quot; (for example, &quot;ap-northeast-1.compute.internal&quot;).
    Otherwise, specify a domain name (for example, &quot;MyCompany.com&quot;). This value
-   is used to complete unqualified DNS hostnames. Important : Some Linux
+   is used to complete unqualified DNS hostnames. Important: Some Linux
    operating systems accept multiple domain names separated by spaces. However,
    Windows and other Linux operating systems treat the value as a single domain,
    which results in unexpected behavior. If your DHCP options set is associated
@@ -458,17 +458,17 @@ see RFC 2132 [http://www.ietf.org/rfc/rfc2132.txt] .
    one domain name.
    
    
- * ntp-servers - The IP addresses of up to four Network Time Protocol (NTP)
+ *   ntp-servers - The IP addresses of up to four Network Time Protocol (NTP)
    servers.
    
    
- * netbios-name-servers - The IP addresses of up to four NetBIOS name servers.
+ *   netbios-name-servers - The IP addresses of up to four NetBIOS name servers.
    
    
- * netbios-node-type - The NetBIOS node type (1, 2, 4, or 8). We recommend that
+ *   netbios-node-type - The NetBIOS node type (1, 2, 4, or 8). We recommend that
    you specify 2 (broadcast and multicast are not currently supported). For more
    information about these node types, see RFC 2132
-   [http://www.ietf.org/rfc/rfc2132.txt] .
+   [http://www.ietf.org/rfc/rfc2132.txt].
    
    
 
@@ -479,7 +479,7 @@ domain-name-servers option either to AmazonProvidedDNS or to a domain name
 server of your choice. For more information about DHCP options, see DHCP Options
 Sets
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     createDhcpOptions(params: EC2.CreateDhcpOptionsRequest, callback?: (err: any, data: EC2.CreateDhcpOptionsResult|any) => void): Request<EC2.CreateDhcpOptionsResult|any,any>;
@@ -516,7 +516,7 @@ the instance automatically launches with those additional volumes.
 
 For more information, see Creating Amazon EBS-Backed Linux AMIs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     createImage(params: EC2.CreateImageRequest, callback?: (err: any, data: EC2.CreateImageResult|any) => void): Request<EC2.CreateImageResult|any,any>;
@@ -527,17 +527,17 @@ For information about the supported operating systems, image formats, and known
 limitations for the types of instances you can export, see Exporting an Instance
 as a VM Using VM Import/Export
 [http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html] in the VM
-Import/Export User Guide .
+Import/Export User Guide.
      *
      */
     createInstanceExportTask(params: EC2.CreateInstanceExportTaskRequest, callback?: (err: any, data: EC2.CreateInstanceExportTaskResult|any) => void): Request<EC2.CreateInstanceExportTaskResult|any,any>;
     /**
      * Creates an Internet gateway for use with a VPC. After creating the Internet
-gateway, you attach it to a VPC using AttachInternetGateway .
+gateway, you attach it to a VPC using AttachInternetGateway.
 
 For more information about your VPC and Internet gateway, see the Amazon Virtual
 Private Cloud User Guide
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/] .
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/].
      *
      */
     createInternetGateway(params: EC2.CreateInternetGatewayRequest, callback?: (err: any, data: EC2.CreateInternetGatewayResult|any) => void): Request<EC2.CreateInternetGatewayResult|any,any>;
@@ -550,11 +550,11 @@ the specified name already exists, Amazon EC2 returns an error.
 You can have up to five thousand key pairs per region.
 
 The key pair returned to you is available only in the region in which you create
-it. To create a key pair that is available in all regions, use ImportKeyPair .
+it. To create a key pair that is available in all regions, use ImportKeyPair.
 
 For more information about key pairs, see Key Pairs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     createKeyPair(params: EC2.CreateKeyPairRequest, callback?: (err: any, data: EC2.KeyPair|any) => void): Request<EC2.KeyPair|any,any>;
@@ -564,7 +564,7 @@ enable instances in a private subnet to connect to the Internet. This action
 creates a network interface in the specified subnet with a private IP address
 from the IP address range of the subnet. For more information, see NAT Gateways
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     createNatGateway(params: EC2.CreateNatGatewayRequest, callback?: (err: any, data: EC2.CreateNatGatewayResult|any) => void): Request<EC2.CreateNatGatewayResult|any,any>;
@@ -574,7 +574,7 @@ security (in addition to security groups) for the instances in your VPC.
 
 For more information about network ACLs, see Network ACLs
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     createNetworkAcl(params: EC2.CreateNetworkAclRequest, callback?: (err: any, data: EC2.CreateNetworkAclResult|any) => void): Request<EC2.CreateNetworkAclResult|any,any>;
@@ -596,7 +596,7 @@ create an entry and delete the old one.
 
 For more information about network ACLs, see Network ACLs
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     createNetworkAclEntry(params: EC2.CreateNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -605,7 +605,7 @@ Amazon Virtual Private Cloud User Guide .
 
 For more information about network interfaces, see Elastic Network Interfaces
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     createNetworkInterface(params: EC2.CreateNetworkInterfaceRequest, callback?: (err: any, data: EC2.CreateNetworkInterfaceResult|any) => void): Request<EC2.CreateNetworkInterfaceResult|any,any>;
@@ -616,7 +616,7 @@ the group a name that&#x27;s unique within the scope of your account.
 For more information about placement groups and cluster instances, see Cluster
 Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     createPlacementGroup(params: EC2.CreatePlacementGroupRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -645,7 +645,7 @@ DescribeReservedInstancesListings operation.
 
 For more information, see Reserved Instance Marketplace
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     createReservedInstancesListing(params: EC2.CreateReservedInstancesListingRequest, callback?: (err: any, data: EC2.CreateReservedInstancesListingResult|any) => void): Request<EC2.CreateReservedInstancesListingResult|any,any>;
@@ -657,23 +657,23 @@ private gateway, NAT instance, NAT gateway, VPC peering connection, network
 interface, or egress-only Internet gateway.
 
 When determining how to route traffic, we use the route with the most specific
-match. For example, traffic is destined for the IPv4 address 192.0.2.3 , and the
+match. For example, traffic is destined for the IPv4 address 192.0.2.3, and the
 route table includes the following two IPv4 routes:
 
- &amp;#42; 192.0.2.0/24 (goes to some target A)
+ &amp;#42;   192.0.2.0/24 (goes to some target A)
    
    
- * 192.0.2.0/28 (goes to some target B)
+ *   192.0.2.0/28 (goes to some target B)
    
    
 
-Both routes apply to the traffic destined for 192.0.2.3 . However, the second
+Both routes apply to the traffic destined for 192.0.2.3. However, the second
 route in the list covers a smaller number of IP addresses and is therefore more
 specific, so we use that route to determine where to target the traffic.
 
 For more information about route tables, see Route Tables
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     createRoute(params: EC2.CreateRouteRequest, callback?: (err: any, data: EC2.CreateRouteResult|any) => void): Request<EC2.CreateRouteResult|any,any>;
@@ -683,7 +683,7 @@ can add routes and associate the table with a subnet.
 
 For more information about route tables, see Route Tables
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     createRouteTable(params: EC2.CreateRouteTableRequest, callback?: (err: any, data: EC2.CreateRouteTableResult|any) => void): Request<EC2.CreateRouteTableResult|any,any>;
@@ -695,7 +695,7 @@ in a specific VPC. For more information, see Amazon EC2 Security Groups
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html] 
 in the Amazon Elastic Compute Cloud User Guide and Security Groups for Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html] 
-in the Amazon Virtual Private Cloud User Guide .
+in the Amazon Virtual Private Cloud User Guide.
 
 EC2-Classic: You can have up to 500 security groups.
 
@@ -714,8 +714,8 @@ group. A default security group includes a default rule that grants instances
 unrestricted network access to each other.
 
 You can add or remove rules from your security groups using 
-AuthorizeSecurityGroupIngress , AuthorizeSecurityGroupEgress , 
-RevokeSecurityGroupIngress , and RevokeSecurityGroupEgress .
+AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress, 
+RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
      *
      */
     createSecurityGroup(params: EC2.CreateSecurityGroupRequest, callback?: (err: any, data: EC2.CreateSecurityGroupResult|any) => void): Request<EC2.CreateSecurityGroupResult|any,any>;
@@ -735,7 +735,7 @@ the volume long enough to take a snapshot, your snapshot should be complete.
 However, if you cannot pause all file writes to the volume, you should unmount
 the volume from within the instance, issue the snapshot command, and then
 remount the volume to ensure a consistent and complete snapshot. You may remount
-and use your volume while the snapshot status is pending .
+and use your volume while the snapshot status is pending.
 
 To create a snapshot for EBS volumes that serve as root devices, you should stop
 the instance before taking the snapshot.
@@ -749,7 +749,7 @@ For more information, see Amazon Elastic Block Store
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html] and Amazon
 EBS Encryption
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     createSnapshot(params: EC2.CreateSnapshotRequest, callback?: (err: any, data: EC2.Snapshot|any) => void): Request<EC2.Snapshot|any,any>;
@@ -758,7 +758,7 @@ Amazon Elastic Compute Cloud User Guide .
 logs. You can create one data feed per AWS account. For more information, see 
 Spot Instance Data Feed
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     createSpotDatafeedSubscription(params: EC2.CreateSpotDatafeedSubscriptionRequest, callback?: (err: any, data: EC2.CreateSpotDatafeedSubscriptionResult|any) => void): Request<EC2.CreateSpotDatafeedSubscriptionResult|any,any>;
@@ -775,7 +775,7 @@ netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4
 addresses).
 
 If you&#x27;ve associated an IPv6 CIDR block with your VPC, you can create a subnet
-with an IPv6 CIDR block that uses a /64 prefix length.
+with an IPv6 CIDR block that uses a /64 prefix length. 
 
 AWS reserves both the first four and the last IP address in each subnet&#x27;s CIDR
 block. They&#x27;re not available for use.
@@ -791,7 +791,7 @@ stopped), but no remaining IP addresses available.
 
 For more information about subnets, see Your VPC and Subnets
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     createSubnet(params: EC2.CreateSubnetRequest, callback?: (err: any, data: EC2.CreateSubnetResult|any) => void): Request<EC2.CreateSubnetResult|any,any>;
@@ -802,11 +802,11 @@ key and optional value. Tag keys must be unique per resource.
 
 For more information about tags, see Tagging Your Resources
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] in the 
-Amazon Elastic Compute Cloud User Guide . For more information about creating
-IAM policies that control users&#x27; access to resources based on tags, see 
-Supported Resource-Level Permissions for Amazon EC2 API Actions
+Amazon Elastic Compute Cloud User Guide. For more information about creating IAM
+policies that control users&#x27; access to resources based on tags, see Supported
+Resource-Level Permissions for Amazon EC2 API Actions
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     createTags(params: EC2.CreateTagsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -814,7 +814,7 @@ in the Amazon Elastic Compute Cloud User Guide .
      * Creates an EBS volume that can be attached to an instance in the same
 Availability Zone. The volume is created in the regional endpoint that you send
 the HTTP request to. For more information see Regions and Endpoints
-[http://docs.aws.amazon.com/general/latest/gr/rande.html] .
+[http://docs.aws.amazon.com/general/latest/gr/rande.html].
 
 You can create a new empty volume or restore a volume from an EBS snapshot. Any
 AWS Marketplace product codes from the snapshot are propagated to the volume.
@@ -824,11 +824,11 @@ may only be attached to instances that support Amazon EBS encryption. Volumes
 that are created from encrypted snapshots are also automatically encrypted. For
 more information, see Amazon EBS Encryption
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 For more information, see Creating or Restoring an Amazon EBS Volume
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     createVolume(params: EC2.CreateVolumeRequest, callback?: (err: any, data: EC2.Volume|any) => void): Request<EC2.Volume|any,any>;
@@ -838,7 +838,7 @@ create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16
 netmask (65,536 IPv4 addresses). To help you decide how big to make your VPC,
 see Your VPC and Subnets
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
 
 You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The
 IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon&#x27;s pool of
@@ -848,13 +848,13 @@ By default, each instance you launch in the VPC has the default DHCP options,
 which includes only a default DNS server that we provide (AmazonProvidedDNS).
 For more information about DHCP options, see DHCP Options Sets
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
 
 You can specify the instance tenancy value for the VPC when you create it. You
 can&#x27;t change this value for the VPC after you create it. For more information,
 see Dedicated Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     createVpc(params: EC2.CreateVpcRequest, callback?: (err: any, data: EC2.CreateVpcResult|any) => void): Request<EC2.CreateVpcResult|any,any>;
@@ -880,13 +880,13 @@ peering connection. The VPC peering connection request expires after 7 days,
 after which it cannot be accepted or rejected.
 
 A CreateVpcPeeringConnection request between VPCs with overlapping CIDR blocks
-results in the VPC peering connection having a status of failed .
+results in the VPC peering connection having a status of failed.
      *
      */
     createVpcPeeringConnection(params: EC2.CreateVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.CreateVpcPeeringConnectionResult|any) => void): Request<EC2.CreateVpcPeeringConnectionResult|any,any>;
     /**
      * Creates a VPN connection between an existing virtual private gateway and a VPN
-customer gateway. The only supported connection type is ipsec.1 .
+customer gateway. The only supported connection type is ipsec.1.
 
 The response includes information that you need to give to your network
 administrator to configure your customer gateway.
@@ -905,7 +905,7 @@ Amazon EC2 doesn&#x27;t return an error.
 For more information about VPN connections, see Adding a Hardware Virtual
 Private Gateway to Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     createVpnConnection(params: EC2.CreateVpnConnectionRequest, callback?: (err: any, data: EC2.CreateVpnConnectionResult|any) => void): Request<EC2.CreateVpnConnectionResult|any,any>;
@@ -918,7 +918,7 @@ gateway.
 For more information about VPN connections, see Adding a Hardware Virtual
 Private Gateway to Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     createVpnConnectionRoute(params: EC2.CreateVpnConnectionRouteRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -930,7 +930,7 @@ before creating the VPC itself.
 For more information about virtual private gateways, see Adding a Hardware
 Virtual Private Gateway to Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     createVpnGateway(params: EC2.CreateVpnGatewayRequest, callback?: (err: any, data: EC2.CreateVpnGatewayResult|any) => void): Request<EC2.CreateVpnGatewayResult|any,any>;
@@ -999,7 +999,7 @@ before you can delete it.
 placement group before you can delete the placement group. For more information
 about placement groups and cluster instances, see Cluster Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     deletePlacementGroup(params: EC2.DeletePlacementGroupRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -1039,7 +1039,7 @@ snapshot.
 
 For more information, see Deleting an Amazon EBS Snapshot
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     deleteSnapshot(params: EC2.DeleteSnapshotRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -1060,7 +1060,7 @@ is designed to follow a DescribeTags request.
 
 For more information about tags, see Tagging Your Resources
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     deleteTags(params: EC2.DeleteTagsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -1072,7 +1072,7 @@ The volume may remain in the deleting state for several minutes.
 
 For more information, see Deleting an Amazon EBS Volume
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     deleteVolume(params: EC2.DeleteVolumeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -1142,25 +1142,25 @@ This command does not delete the AMI.
      * Describes attributes of your AWS account. The following are the supported
 account attributes:
 
- &amp;#42; supported-platforms : Indicates whether your account can launch instances
+ &amp;#42;   supported-platforms: Indicates whether your account can launch instances
    into EC2-Classic and EC2-VPC, or only into EC2-VPC.
    
    
- * default-vpc : The ID of the default VPC for your account, or none .
+ *   default-vpc: The ID of the default VPC for your account, or none.
    
    
- * max-instances : The maximum number of On-Demand instances that you can run.
+ *   max-instances: The maximum number of On-Demand instances that you can run.
    
    
- * vpc-max-security-groups-per-interface : The maximum number of security groups
+ *   vpc-max-security-groups-per-interface: The maximum number of security groups
    that you can assign to a network interface.
    
    
- * max-elastic-ips : The maximum number of Elastic IP addresses that you can
-   allocate for use with EC2-Classic.
+ *   max-elastic-ips: The maximum number of Elastic IP addresses that you can
+   allocate for use with EC2-Classic. 
    
    
- * vpc-max-elastic-ips : The maximum number of Elastic IP addresses that you can
+ *   vpc-max-elastic-ips: The maximum number of Elastic IP addresses that you can
    allocate for use with EC2-VPC.
      *
      */
@@ -1171,7 +1171,7 @@ account attributes:
 An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
 For more information, see Elastic IP Addresses
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeAddresses(params: EC2.DescribeAddressesRequest, callback?: (err: any, data: EC2.DescribeAddressesResult|any) => void): Request<EC2.DescribeAddressesResult|any,any>;
@@ -1183,7 +1183,7 @@ and any provided message for that Availability Zone.
 
 For more information, see Regions and Availability Zones
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeAvailabilityZones(params: EC2.DescribeAvailabilityZonesRequest, callback?: (err: any, data: EC2.DescribeAvailabilityZonesResult|any) => void): Request<EC2.DescribeAvailabilityZonesResult|any,any>;
@@ -1208,11 +1208,11 @@ instances.
     /**
      * Describes one or more of your conversion tasks. For more information, see the VM
 Import/Export User Guide
-[http://docs.aws.amazon.com/vm-import/latest/userguide/] .
+[http://docs.aws.amazon.com/vm-import/latest/userguide/].
 
 For information about the import manifest referenced by this API action, see VM
 Import Manifest
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html] .
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html].
      *
      */
     describeConversionTasks(params: EC2.DescribeConversionTasksRequest, callback?: (err: any, data: EC2.DescribeConversionTasksResult|any) => void): Request<EC2.DescribeConversionTasksResult|any,any>;
@@ -1222,7 +1222,7 @@ Import Manifest
 For more information about VPN customer gateways, see Adding a Hardware Virtual
 Private Gateway to Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     describeCustomerGateways(params: EC2.DescribeCustomerGatewaysRequest, callback?: (err: any, data: EC2.DescribeCustomerGatewaysResult|any) => void): Request<EC2.DescribeCustomerGatewaysResult|any,any>;
@@ -1231,7 +1231,7 @@ Amazon Virtual Private Cloud User Guide .
 
 For more information about DHCP options sets, see DHCP Options Sets
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     describeDhcpOptions(params: EC2.DescribeDhcpOptionsRequest, callback?: (err: any, data: EC2.DescribeDhcpOptionsResult|any) => void): Request<EC2.DescribeDhcpOptionsResult|any,any>;
@@ -1262,7 +1262,7 @@ region of the offering matches that of the Dedicated Host/s it will be
 associated with. For an overview of supported instance types, see Dedicated
 Hosts Overview
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeHostReservationOfferings(params: EC2.DescribeHostReservationOfferingsRequest, callback?: (err: any, data: EC2.DescribeHostReservationOfferingsResult|any) => void): Request<EC2.DescribeHostReservationOfferingsResult|any,any>;
@@ -1277,7 +1277,7 @@ in your account.
 
 The results describe only the Dedicated Hosts in the region you&#x27;re currently
 using. All listed instances consume capacity on your Dedicated Host. Dedicated
-Hosts that have recently been released will be listed with the state released .
+Hosts that have recently been released will be listed with the state released.
      *
      */
     describeHosts(params: EC2.DescribeHostsRequest, callback?: (err: any, data: EC2.DescribeHostsResult|any) => void): Request<EC2.DescribeHostsResult|any,any>;
@@ -1288,7 +1288,7 @@ only returns information about resource types whose ID formats can be modified;
 it does not return information about other resource types.
 
 The following resource types support longer IDs: instance | reservation | 
-snapshot | volume .
+snapshot | volume. 
 
 These settings apply to the IAM user who makes the request; they do not apply to
 the entire AWS account. By default, an IAM user defaults to the same settings as
@@ -1306,10 +1306,10 @@ enabled for longer IDs. This request only returns information about resource
 types whose ID formats can be modified; it does not return information about
 other resource types. For more information, see Resource IDs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide. 
 
 The following resource types support longer IDs: instance | reservation | 
-snapshot | volume .
+snapshot | volume. 
 
 These settings apply to the principal specified in the request. They do not
 apply to the principal that makes the request.
@@ -1359,27 +1359,27 @@ instances are described, unless specified otherwise.
 
 Instance status includes the following components:
 
- &amp;#42; Status checks - Amazon EC2 performs status checks on running EC2 instances to
-   identify hardware and software issues. For more information, see Status
+ &amp;#42;   Status checks - Amazon EC2 performs status checks on running EC2 instances
+   to identify hardware and software issues. For more information, see Status
    Checks for Your Instances
    [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html] 
    and Troubleshooting Instances with Failed Status Checks
    [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html] 
-   in the Amazon Elastic Compute Cloud User Guide .
+   in the Amazon Elastic Compute Cloud User Guide.
    
    
- * Scheduled events - Amazon EC2 can schedule events (such as reboot, stop, or
+ *   Scheduled events - Amazon EC2 can schedule events (such as reboot, stop, or
    terminate) for your instances related to hardware issues, software updates,
    or system maintenance. For more information, see Scheduled Events for Your
    Instances
    [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html] 
-   in the Amazon Elastic Compute Cloud User Guide .
+   in the Amazon Elastic Compute Cloud User Guide.
    
    
- * Instance state - You can manage your instances from the moment you launch
+ *   Instance state - You can manage your instances from the moment you launch
    them through their termination. For more information, see Instance Lifecycle
    [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html] 
-   in the Amazon Elastic Compute Cloud User Guide .
+   in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeInstanceStatus(params: EC2.DescribeInstanceStatusRequest, callback?: (err: any, data: EC2.DescribeInstanceStatusResult|any) => void): Request<EC2.DescribeInstanceStatusResult|any,any>;
@@ -1413,7 +1413,7 @@ the call works normally.
 
 For more information about key pairs, see Key Pairs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeKeyPairs(params: EC2.DescribeKeyPairsRequest, callback?: (err: any, data: EC2.DescribeKeyPairsResult|any) => void): Request<EC2.DescribeKeyPairsResult|any,any>;
@@ -1435,7 +1435,7 @@ account.
 
 For more information about network ACLs, see Network ACLs
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     describeNetworkAcls(params: EC2.DescribeNetworkAclsRequest, callback?: (err: any, data: EC2.DescribeNetworkAclsResult|any) => void): Request<EC2.DescribeNetworkAclsResult|any,any>;
@@ -1454,7 +1454,7 @@ time.
      * Describes one or more of your placement groups. For more information about
 placement groups and cluster instances, see Cluster Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     describePlacementGroups(params: EC2.DescribePlacementGroupsRequest, callback?: (err: any, data: EC2.DescribePlacementGroupsResult|any) => void): Request<EC2.DescribePlacementGroupsResult|any,any>;
@@ -1471,7 +1471,7 @@ endpoint.
      * Describes one or more regions that are currently available to you.
 
 For a list of the regions supported by Amazon EC2, see Regions and Endpoints
-[http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region] .
+[http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region].
      *
      */
     describeRegions(params: EC2.DescribeRegionsRequest, callback?: (err: any, data: EC2.DescribeRegionsResult|any) => void): Request<EC2.DescribeRegionsResult|any,any>;
@@ -1480,7 +1480,7 @@ For a list of the regions supported by Amazon EC2, see Regions and Endpoints
 
 For more information about Reserved Instances, see Reserved Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeReservedInstances(params: EC2.DescribeReservedInstancesRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesResult|any) => void): Request<EC2.DescribeReservedInstancesResult|any,any>;
@@ -1506,7 +1506,7 @@ purchase.
 
 For more information, see Reserved Instance Marketplace
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeReservedInstancesListings(params: EC2.DescribeReservedInstancesListingsRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesListingsResult|any) => void): Request<EC2.DescribeReservedInstancesListingsResult|any,any>;
@@ -1535,7 +1535,7 @@ you do not purchase your own Reserved Instances.
 
 For more information, see Reserved Instance Marketplace
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeReservedInstancesOfferings(params: EC2.DescribeReservedInstancesOfferingsRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesOfferingsResult|any) => void): Request<EC2.DescribeReservedInstancesOfferingsResult|any,any>;
@@ -1549,7 +1549,7 @@ associations.
 
 For more information about route tables, see Route Tables
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     describeRouteTables(params: EC2.DescribeRouteTablesRequest, callback?: (err: any, data: EC2.DescribeRouteTablesResult|any) => void): Request<EC2.DescribeRouteTablesResult|any,any>;
@@ -1585,7 +1585,7 @@ in a specific VPC. For more information, see Amazon EC2 Security Groups
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html] 
 in the Amazon Elastic Compute Cloud User Guide and Security Groups for Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html] 
-in the Amazon Virtual Private Cloud User Guide .
+in the Amazon Virtual Private Cloud User Guide.
      *
      */
     describeSecurityGroups(params: EC2.DescribeSecurityGroupsRequest, callback?: (err: any, data: EC2.DescribeSecurityGroupsResult|any) => void): Request<EC2.DescribeSecurityGroupsResult|any,any>;
@@ -1595,7 +1595,7 @@ only one attribute at a time.
 
 For more information about EBS snapshots, see Amazon EBS Snapshots
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeSnapshotAttribute(params: EC2.DescribeSnapshotAttributeRequest, callback?: (err: any, data: EC2.DescribeSnapshotAttributeResult|any) => void): Request<EC2.DescribeSnapshotAttributeResult|any,any>;
@@ -1607,16 +1607,16 @@ for which you&#x27;ve been given explicit create volume permissions.
 
 The create volume permissions fall into the following categories:
 
- &amp;#42; public : The owner of the snapshot granted create volume permissions for the
+ &amp;#42;   public: The owner of the snapshot granted create volume permissions for the
    snapshot to the all group. All AWS accounts have create volume permissions
    for these snapshots.
    
    
- * explicit : The owner of the snapshot granted create volume permissions to a
+ *   explicit: The owner of the snapshot granted create volume permissions to a
    specific AWS account.
    
    
- * implicit : An AWS account has implicit create volume permissions for all
+ *   implicit: An AWS account has implicit create volume permissions for all
    snapshots it owns.
    
    
@@ -1650,7 +1650,7 @@ the remaining results.
 
 For more information about EBS snapshots, see Amazon EBS Snapshots
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeSnapshots(params: EC2.DescribeSnapshotsRequest, callback?: (err: any, data: EC2.DescribeSnapshotsResult|any) => void): Request<EC2.DescribeSnapshotsResult|any,any>;
@@ -1658,7 +1658,7 @@ Amazon Elastic Compute Cloud User Guide .
      * Describes the data feed for Spot instances. For more information, see Spot
 Instance Data Feed
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeSpotDatafeedSubscription(params: EC2.DescribeSpotDatafeedSubscriptionRequest, callback?: (err: any, data: EC2.DescribeSpotDatafeedSubscriptionResult|any) => void): Request<EC2.DescribeSpotDatafeedSubscriptionResult|any,any>;
@@ -1692,13 +1692,13 @@ exceeds the current Spot price. Amazon EC2 periodically sets the Spot price
 based on available Spot instance capacity and current Spot instance requests.
 For more information, see Spot Instance Requests
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 You can use DescribeSpotInstanceRequests to find a running Spot instance by
-examining the response. If the status of the Spot instance is fulfilled , the
+examining the response. If the status of the Spot instance is fulfilled, the
 instance ID appears in the response and contains the identifier of the instance.
 Alternatively, you can use DescribeInstances with a filter to look for instances
-where the instance lifecycle is spot .
+where the instance lifecycle is spot.
 
 Spot instance requests are deleted 4 hours after they are canceled and their
 instances are terminated.
@@ -1709,7 +1709,7 @@ instances are terminated.
      * Describes the Spot price history. For more information, see Spot Instance
 Pricing History
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
 
 When you specify a start and end time, this operation returns the prices of the
 instance types within the time range that you specified and the time when the
@@ -1731,7 +1731,7 @@ has been deleted.
 
 For more information about subnets, see Your VPC and Subnets
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     describeSubnets(params: EC2.DescribeSubnetsRequest, callback?: (err: any, data: EC2.DescribeSubnetsResult|any) => void): Request<EC2.DescribeSubnetsResult|any,any>;
@@ -1740,7 +1740,7 @@ Amazon Virtual Private Cloud User Guide .
 
 For more information about tags, see Tagging Your Resources
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeTags(params: EC2.DescribeTagsRequest, callback?: (err: any, data: EC2.DescribeTagsResult|any) => void): Request<EC2.DescribeTagsResult|any,any>;
@@ -1750,7 +1750,7 @@ one attribute at a time.
 
 For more information about EBS volumes, see Amazon EBS Volumes
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeVolumeAttribute(params: EC2.DescribeVolumeAttributeRequest, callback?: (err: any, data: EC2.DescribeVolumeAttributeResult|any) => void): Request<EC2.DescribeVolumeAttributeResult|any,any>;
@@ -1767,26 +1767,26 @@ the event.
 The DescribeVolumeStatus operation provides the following information about the
 specified volumes:
 
-Status : Reflects the current status of the volume. The possible values are ok , 
-impaired , warning , or insufficient-data . If all checks pass, the overall
-status of the volume is ok . If the check fails, the overall status is impaired 
-. If the status is insufficient-data , then the checks may still be taking place
-on your volume at the time. We recommend that you retry the request. For more
+ Status: Reflects the current status of the volume. The possible values are ok, 
+impaired , warning, or insufficient-data. If all checks pass, the overall status
+of the volume is ok. If the check fails, the overall status is impaired. If the
+status is insufficient-data, then the checks may still be taking place on your
+volume at the time. We recommend that you retry the request. For more
 information on volume status, see Monitoring the Status of Your Volumes
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html]
 .
 
-Events : Reflect the cause of a volume status and may require you to take
+ Events: Reflect the cause of a volume status and may require you to take
 action. For example, if your volume returns an impaired status, then the volume
-event might be potential-data-inconsistency . This means that your volume has
+event might be potential-data-inconsistency. This means that your volume has
 been affected by an issue with the underlying host, has all I/O operations
 disabled, and may have inconsistent data.
 
-Actions : Reflect the actions you may have to take in response to an event. For
+ Actions: Reflect the actions you may have to take in response to an event. For
 example, if the status of the volume is impaired and the volume event shows 
-potential-data-inconsistency , then the action shows enable-volume-io . This
-means that you may want to enable the I/O operations for the volume by calling
-the EnableVolumeIO action and then check the volume for data consistency.
+potential-data-inconsistency, then the action shows enable-volume-io. This means
+that you may want to enable the I/O operations for the volume by calling the 
+EnableVolumeIO action and then check the volume for data consistency.
 
 Volume status is based on the volume status checks, and does not reflect the
 volume state. Therefore, volume status does not indicate volumes in the error 
@@ -1806,7 +1806,7 @@ remaining results.
 
 For more information about EBS volumes, see Amazon EBS Volumes
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     describeVolumes(params: EC2.DescribeVolumesRequest, callback?: (err: any, data: EC2.DescribeVolumesResult|any) => void): Request<EC2.DescribeVolumesResult|any,any>;
@@ -1860,7 +1860,7 @@ endpoint.
 For more information about VPN connections, see Adding a Hardware Virtual
 Private Gateway to Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     describeVpnConnections(params: EC2.DescribeVpnConnectionsRequest, callback?: (err: any, data: EC2.DescribeVpnConnectionsResult|any) => void): Request<EC2.DescribeVpnConnectionsResult|any,any>;
@@ -1870,7 +1870,7 @@ Amazon Virtual Private Cloud User Guide .
 For more information about virtual private gateways, see Adding an IPsec
 Hardware VPN to Your VPC
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     describeVpnGateways(params: EC2.DescribeVpnGatewaysRequest, callback?: (err: any, data: EC2.DescribeVpnGatewaysResult|any) => void): Request<EC2.DescribeVpnGatewaysResult|any,any>;
@@ -1907,7 +1907,7 @@ the product code is no longer associated with the instance.
 
 For more information, see Detaching an Amazon EBS Volume
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     detachVolume(params: EC2.DetachVolumeRequest, callback?: (err: any, data: EC2.VolumeAttachment|any) => void): Request<EC2.VolumeAttachment|any,any>;
@@ -1952,7 +1952,7 @@ associated with.
 An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
 For more information, see Elastic IP Addresses
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
 
 This is an idempotent operation. If you perform the operation more than once,
 Amazon EC2 doesn&#x27;t return an error.
@@ -1966,7 +1966,7 @@ After you perform this action, the subnet no longer uses the routes in the route
 table. Instead, it uses the routes in the VPC&#x27;s main route table. For more
 information about route tables, see Route Tables
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     disassociateRouteTable(params: EC2.DisassociateRouteTableRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2016,7 +2016,7 @@ Similarly, the DNS hostname of an instance in a VPC resolves to its private IP
 address when addressed from a linked EC2-Classic instance. For more information
 about ClassicLink, see ClassicLink
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     enableVpcClassicLinkDnsSupport(params: EC2.EnableVpcClassicLinkDnsSupportRequest, callback?: (err: any, data: EC2.EnableVpcClassicLinkDnsSupportResult|any) => void): Request<EC2.EnableVpcClassicLinkDnsSupportResult|any,any>;
@@ -2064,7 +2064,7 @@ the offering being purchased.
      * Retrieves the encrypted administrator password for an instance running Windows.
 
 The Windows password is generated at boot if the EC2Config service plugin, 
-Ec2SetPassword , is enabled. This usually only happens the first time an AMI is
+Ec2SetPassword, is enabled. This usually only happens the first time an AMI is
 launched, and then Ec2SetPassword is automatically disabled. The password is not
 generated for rebundled AMIs unless Ec2SetPassword is enabled before bundling.
 
@@ -2089,34 +2089,34 @@ about whether the exchange is valid and can be performed.
 Machine Image (AMI). For more information, see Importing a VM as an Image Using
 VM Import/Export
 [http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html] 
-in the VM Import/Export User Guide .
+in the VM Import/Export User Guide.
      *
      */
     importImage(params: EC2.ImportImageRequest, callback?: (err: any, data: EC2.ImportImageResult|any) => void): Request<EC2.ImportImageResult|any,any>;
     /**
      * Creates an import instance task using metadata from the specified disk image. 
 ImportInstance only supports single-volume VMs. To import multi-volume VMs, use 
-ImportImage . For more information, see Importing a Virtual Machine Using the
+ImportImage. For more information, see Importing a Virtual Machine Using the
 Amazon EC2 CLI
-[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html]
 .
 
 For information about the import manifest referenced by this API action, see VM
 Import Manifest
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html] .
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html].
      *
      */
     importInstance(params: EC2.ImportInstanceRequest, callback?: (err: any, data: EC2.ImportInstanceResult|any) => void): Request<EC2.ImportInstanceResult|any,any>;
     /**
      * Imports the public key from an RSA key pair that you created with a third-party
-tool. Compare this with CreateKeyPair , in which AWS creates the key pair and
+tool. Compare this with CreateKeyPair, in which AWS creates the key pair and
 gives the keys to you (AWS keeps a copy of the public key). With ImportKeyPair,
 you create the key pair and give AWS just the public key. The private key is
 never transferred between you and AWS.
 
 For more information about key pairs, see Key Pairs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     importKeyPair(params: EC2.ImportKeyPairRequest, callback?: (err: any, data: EC2.ImportKeyPairResult|any) => void): Request<EC2.ImportKeyPairResult|any,any>;
@@ -2128,18 +2128,18 @@ Amazon Elastic Compute Cloud User Guide .
     /**
      * Creates an import volume task using metadata from the specified disk image.For
 more information, see Importing Disks to Amazon EBS
-[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html]
 .
 
 For information about the import manifest referenced by this API action, see VM
 Import Manifest
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html] .
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html].
      *
      */
     importVolume(params: EC2.ImportVolumeRequest, callback?: (err: any, data: EC2.ImportVolumeResult|any) => void): Request<EC2.ImportVolumeResult|any,any>;
     /**
      * Modify the auto-placement setting of a Dedicated Host. When auto-placement is
-enabled, AWS will place instances that you launch with a tenancy of host , but
+enabled, AWS will place instances that you launch with a tenancy of host, but
 without targeting a specific host ID, onto any available Dedicated Host in your
 account which has auto-placement enabled. When auto-placement is disabled, you
 need to provide a host ID if you want the instance to launch onto a specific
@@ -2152,7 +2152,7 @@ host which has auto-placement enabled.
      * Modifies the ID format for the specified resource on a per-region basis. You can
 specify that resources should receive longer IDs (17-character IDs) when they
 are created. The following resource types support longer IDs: instance | 
-reservation | snapshot | volume .
+reservation | snapshot | volume.
 
 This setting applies to the IAM user who makes the request; it does not apply to
 the entire AWS account. By default, an IAM user defaults to the same settings as
@@ -2160,7 +2160,7 @@ the root user. If you&#x27;re using this action as the root user, then these set
 apply to the entire account, unless an IAM user explicitly overrides these
 settings for themselves. For more information, see Resource IDs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide. 
 
 Resources created with longer IDs are visible to all IAM roles and users,
 regardless of these settings and provided that they have permission to use the
@@ -2172,15 +2172,15 @@ relevant Describe command for the resource type.
      * Modifies the ID format of a resource for a specified IAM user, IAM role, or the
 root user for an account; or all IAM users, IAM roles, and the root user for an
 account. You can specify that resources should receive longer IDs (17-character
-IDs) when they are created.
+IDs) when they are created. 
 
 The following resource types support longer IDs: instance | reservation | 
-snapshot | volume . For more information, see Resource IDs
+snapshot | volume. For more information, see Resource IDs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide. 
 
 This setting applies to the principal specified in the request; it does not
-apply to the principal that makes the request.
+apply to the principal that makes the request. 
 
 Resources created with longer IDs are visible to all IAM roles and users,
 regardless of these settings and provided that they have permission to use the
@@ -2208,7 +2208,7 @@ one attribute at a time.
 To modify some attributes, the instance must be stopped. For more information,
 see Modifying Attributes of a Stopped Instance
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     modifyInstanceAttribute(params: EC2.ModifyInstanceAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2226,7 +2226,7 @@ instance has a new host ID association, the instance will target that host when
 restarted.
 
 You can modify the tenancy of a stopped instance with a tenancy of host or 
-dedicated .
+dedicated.
 
 Affinity, hostID, and tenancy are not required parameters, but at least one of
 them must be specified in the request. Affinity and tenancy can be modified in
@@ -2265,7 +2265,7 @@ other accounts.
 
 For more information on modifying snapshot permissions, see Sharing Snapshots
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     modifySnapshotAttribute(params: EC2.ModifySnapshotAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2276,17 +2276,17 @@ While the Spot fleet request is being modified, it is in the modifying state.
 
 To scale up your Spot fleet, increase its target capacity. The Spot fleet
 launches the additional Spot instances according to the allocation strategy for
-the Spot fleet request. If the allocation strategy is lowestPrice , the Spot
+the Spot fleet request. If the allocation strategy is lowestPrice, the Spot
 fleet launches instances using the Spot pool with the lowest price. If the
-allocation strategy is diversified , the Spot fleet distributes the instances
+allocation strategy is diversified, the Spot fleet distributes the instances
 across the Spot pools.
 
 To scale down your Spot fleet, decrease its target capacity. First, the Spot
 fleet cancels any open bids that exceed the new target capacity. You can request
 that the Spot fleet terminate Spot instances until the size of the fleet no
 longer exceeds the new target capacity. If the allocation strategy is 
-lowestPrice , the Spot fleet terminates the instances with the highest price per
-unit. If the allocation strategy is diversified , the Spot fleet terminates
+lowestPrice, the Spot fleet terminates the instances with the highest price per
+unit. If the allocation strategy is diversified, the Spot fleet terminates
 instances across the Spot pools. Alternatively, you can request that the Spot
 fleet keep the fleet at its current size, but not replace any Spot instances
 that are interrupted or that you terminate manually.
@@ -2328,16 +2328,16 @@ with the endpoint.
      * Modifies the VPC peering connection options on one side of a VPC peering
 connection. You can do the following:
 
- &amp;#42; Enable/disable communication over the peering connection between an
+ &amp;#42;  Enable/disable communication over the peering connection between an
    EC2-Classic instance that&#x27;s linked to your VPC (using ClassicLink) and
    instances in the peer VPC.
    
    
- * Enable/disable communication over the peering connection between instances in
-   your VPC and an EC2-Classic instance that&#x27;s linked to the peer VPC.
+ *  Enable/disable communication over the peering connection between instances
+   in your VPC and an EC2-Classic instance that&#x27;s linked to the peer VPC.
    
    
- * Enable/disable a local VPC to resolve public DNS hostnames to private IP
+ *  Enable/disable a local VPC to resolve public DNS hostnames to private IP
    addresses when queried from instances in the peer VPC.
    
    
@@ -2355,7 +2355,7 @@ for a VPC peering connection, use the DescribeVpcPeeringConnections command.
      * Enables detailed monitoring for a running instance. Otherwise, basic monitoring
 is enabled. For more information, see Monitoring Your Instances and Volumes
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
 
 To disable detailed monitoring, see .
      *
@@ -2387,13 +2387,13 @@ Instances, you pay a lower hourly rate compared to On-Demand instance pricing.
 Use DescribeReservedInstancesOfferings to get a list of Reserved Instance
 offerings that match your specifications. After you&#x27;ve purchased a Reserved
 Instance, you can check for your new Reserved Instance with 
-DescribeReservedInstances .
+DescribeReservedInstances.
 
 For more information, see Reserved Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html] 
 and Reserved Instance Marketplace
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     purchaseReservedInstancesOffering(params: EC2.PurchaseReservedInstancesOfferingRequest, callback?: (err: any, data: EC2.PurchaseReservedInstancesOfferingResult|any) => void): Request<EC2.PurchaseReservedInstancesOfferingResult|any,any>;
@@ -2423,7 +2423,7 @@ performs a hard reboot.
 For more information about troubleshooting, see Getting Console Output and
 Rebooting Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     rebootInstances(params: EC2.RebootInstancesRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2432,7 +2432,7 @@ the Amazon Elastic Compute Cloud User Guide .
 complete before you can launch an instance from the AMI. For more information
 about creating AMIs, see Creating Your Own AMIs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 For Amazon EBS-backed instances, CreateImage creates and registers the AMI in a
 single request, so you don&#x27;t have to register the AMI yourself.
@@ -2441,7 +2441,7 @@ You can also use RegisterImage to create an Amazon EBS-backed Linux AMI from a
 snapshot of a root device volume. For more information, see Launching an
 Instance from a Snapshot
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
 
 Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux
 Enterprise Server (SLES), use the EC2 billingProduct code associated with an AMI
@@ -2453,7 +2453,7 @@ Similarly, although you can create a Windows AMI from a snapshot, you can&#x27;t
 successfully launch an instance from the AMI.
 
 To create Windows AMIs or to create AMIs for Linux operating systems that must
-retain AMI billing codes to work properly, see CreateImage .
+retain AMI billing codes to work properly, see CreateImage.
 
 If needed, you can deregister an AMI at any time. Any modifications you make to
 an AMI backed by an instance store volume invalidates its registration. If you
@@ -2470,7 +2470,7 @@ Marketplace product codes.
 the pending-acceptance state. Use the DescribeVpcPeeringConnections request to
 view your outstanding VPC peering connection requests. To delete an active VPC
 peering connection, or to delete a VPC peering connection request that you
-initiated, use DeleteVpcPeeringConnection .
+initiated, use DeleteVpcPeeringConnection.
      *
      */
     rejectVpcPeeringConnection(params: EC2.RejectVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.RejectVpcPeeringConnectionResult|any) => void): Request<EC2.RejectVpcPeeringConnectionResult|any,any>;
@@ -2485,11 +2485,11 @@ the address is already allocated to another AWS account.
 
 [EC2-Classic, default VPC] Releasing an Elastic IP address automatically
 disassociates it from any instance that it&#x27;s associated with. To disassociate an
-Elastic IP address without releasing it, use DisassociateAddress .
+Elastic IP address without releasing it, use DisassociateAddress.
 
 [Nondefault VPC] You must use DisassociateAddress to disassociate the Elastic IP
-address before you try to release it. Otherwise, Amazon EC2 returns an error ( 
-InvalidIPAddress.InUse ).
+address before you try to release it. Otherwise, Amazon EC2 returns an error (
+InvalidIPAddress.InUse).
      *
      */
     releaseAddress(params: EC2.ReleaseAddressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2513,7 +2513,7 @@ Released hosts will still appear in a DescribeHosts response.
 create a subnet, it&#x27;s automatically associated with the default network ACL. For
 more information about network ACLs, see Network ACLs
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     replaceNetworkAclAssociation(params: EC2.ReplaceNetworkAclAssociationRequest, callback?: (err: any, data: EC2.ReplaceNetworkAclAssociationResult|any) => void): Request<EC2.ReplaceNetworkAclAssociationResult|any,any>;
@@ -2521,7 +2521,7 @@ Amazon Virtual Private Cloud User Guide .
      * Replaces an entry (rule) in a network ACL. For more information about network
 ACLs, see Network ACLs
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html] in the 
-Amazon Virtual Private Cloud User Guide .
+Amazon Virtual Private Cloud User Guide.
      *
      */
     replaceNetworkAclEntry(params: EC2.ReplaceNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2533,7 +2533,7 @@ gateway.
 
 For more information about route tables, see Route Tables
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     replaceRoute(params: EC2.ReplaceRouteRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2542,7 +2542,7 @@ the Amazon Virtual Private Cloud User Guide .
 operation completes, the subnet uses the routes in the new route table it&#x27;s
 associated with. For more information about route tables, see Route Tables
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
 
 You can also use ReplaceRouteTableAssociation to change which table is the main
 route table in the VPC. You just specify the main route table&#x27;s association ID
@@ -2553,12 +2553,11 @@ and the route table to be the new main route table.
     /**
      * Submits feedback about the status of an instance. The instance must be in the 
 running state. If your experience with the instance differs from the instance
-status returned by DescribeInstanceStatus , use ReportInstanceStatus to report
+status returned by DescribeInstanceStatus, use ReportInstanceStatus to report
 your experience with the instance. Amazon EC2 collects this information to
 improve the accuracy of status checks.
 
-Use of this action does not change the value returned by DescribeInstanceStatus 
-.
+Use of this action does not change the value returned by DescribeInstanceStatus.
      *
      */
     reportInstanceStatus(params: EC2.ReportInstanceStatusRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2580,7 +2579,7 @@ you can improve the availability of your fleet.
 
 For more information, see Spot Fleet Requests
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     requestSpotFleet(params: EC2.RequestSpotFleetRequest, callback?: (err: any, data: EC2.RequestSpotFleetResponse|any) => void): Request<EC2.RequestSpotFleetResponse|any,any>;
@@ -2591,7 +2590,7 @@ Amazon EC2 periodically sets the Spot price based on available Spot Instance
 capacity and current Spot instance requests. For more information, see Spot
 Instance Requests
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     requestSpotInstances(params: EC2.RequestSpotInstancesRequest, callback?: (err: any, data: EC2.RequestSpotInstancesResult|any) => void): Request<EC2.RequestSpotInstancesResult|any,any>;
@@ -2604,15 +2603,15 @@ The productCodes attribute can&#x27;t be reset.
     resetImageAttribute(params: EC2.ResetImageAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Resets an attribute of an instance to its default value. To reset the kernel or 
-ramdisk , the instance must be in a stopped state. To reset the sourceDestCheck 
-, the instance can be either running or stopped.
+ramdisk, the instance must be in a stopped state. To reset the sourceDestCheck,
+the instance can be either running or stopped.
 
 The sourceDestCheck attribute controls whether source/destination checking is
-enabled. The default value is true , which means checking is enabled. This value
+enabled. The default value is true, which means checking is enabled. This value
 must be false for a NAT instance to perform NAT. For more information, see NAT
 Instances
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html] in
-the Amazon Virtual Private Cloud User Guide .
+the Amazon Virtual Private Cloud User Guide.
      *
      */
     resetInstanceAttribute(params: EC2.ResetInstanceAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2627,7 +2626,7 @@ time.
 
 For more information on modifying snapshot permissions, see Sharing Snapshots
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     resetSnapshotAttribute(params: EC2.ResetSnapshotAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2672,42 +2671,42 @@ possible. However, a small delay might occur.
     revokeSecurityGroupIngress(params: EC2.RevokeSecurityGroupIngressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Launches the specified number of instances using an AMI for which you have
-permissions.
+permissions. 
 
 You can specify a number of options, or leave the default options. The following
 rules apply:
 
- &amp;#42; [EC2-VPC] If you don&#x27;t specify a subnet ID, we choose a default subnet from
+ &amp;#42;  [EC2-VPC] If you don&#x27;t specify a subnet ID, we choose a default subnet from
    your default VPC for you. If you don&#x27;t have a default VPC, you must specify a
    subnet ID in the request.
    
    
- * [EC2-Classic] If don&#x27;t specify an Availability Zone, we choose one for you.
+ *  [EC2-Classic] If don&#x27;t specify an Availability Zone, we choose one for you.
    
    
- * Some instance types must be launched into a VPC. If you do not have a default
-   VPC, or if you do not specify a subnet ID, the request fails. For more
-   information, see Instance Types Available Only in a VPC
-   [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types] 
+ *  Some instance types must be launched into a VPC. If you do not have a
+   default VPC, or if you do not specify a subnet ID, the request fails. For
+   more information, see Instance Types Available Only in a VPC
+   [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types]
    .
    
    
- * [EC2-VPC] All instances have a network interface with a primary private IPv4
+ *  [EC2-VPC] All instances have a network interface with a primary private IPv4
    address. If you don&#x27;t specify this address, we choose one from the IPv4 range
    of your subnet.
    
    
- * Not all instance types support IPv6 addresses. For more information, see 
-   Amazon EC2 Instance Types [http://aws.amazon.com/ec2/instance-types/] .
+ *  Not all instance types support IPv6 addresses. For more information, see 
+   Amazon EC2 Instance Types [http://aws.amazon.com/ec2/instance-types/].
    
    
- * If you don&#x27;t specify a security group ID, we use the default security group.
+ *  If you don&#x27;t specify a security group ID, we use the default security group.
    For more information, see Security Groups
-   [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html] 
+   [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html]
    .
    
    
- * If any of the AMIs have a product code attached for which the user has not
+ *  If any of the AMIs have a product code attached for which the user has not
    subscribed, the request fails.
    
    
@@ -2717,23 +2716,23 @@ batches. For example, create 5 separate launch requests for 100 instances each
 instead of 1 launch request for 500 instances.
 
 An instance is ready for you to use when it&#x27;s in the running state. You can
-check the state of your instance using DescribeInstances . After launch, you can
+check the state of your instance using DescribeInstances. After launch, you can
 apply tags to your running instance (requires a resource ID). For more
 information, see CreateTags and Tagging Your Amazon EC2 Resources
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] .
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html].
 
 Linux instances have access to the public key of the key pair at boot. You can
 use this key to provide secure access to the instance. Amazon EC2 public images
 use this feature to provide secure access without passwords. For more
 information, see Key Pairs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 For troubleshooting, see What To Do If An Instance Immediately Terminates
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html]
 , and Troubleshooting Connecting to Your Instance
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     runInstances(params: EC2.RunInstancesRequest, callback?: (err: any, data: EC2.Reservation|any) => void): Request<EC2.Reservation|any,any>;
@@ -2741,7 +2740,7 @@ in the Amazon Elastic Compute Cloud User Guide .
      * Launches the specified Scheduled Instances.
 
 Before you can launch a Scheduled Instance, you must purchase it and obtain an
-identifier using PurchaseScheduledInstances .
+identifier using PurchaseScheduledInstances.
 
 You must launch a Scheduled Instance during its scheduled time period. You can&#x27;t
 stop or reboot a Scheduled Instance, but you can terminate it as needed. If you
@@ -2749,7 +2748,7 @@ terminate a Scheduled Instance before the current scheduled time period ends,
 you can launch it again after a few minutes. For more information, see Scheduled
 Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     runScheduledInstances(params: EC2.RunScheduledInstancesRequest, callback?: (err: any, data: EC2.RunScheduledInstancesResult|any) => void): Request<EC2.RunScheduledInstancesResult|any,any>;
@@ -2773,7 +2772,7 @@ device returns an error.
 
 For more information, see Stopping Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
      *
      */
     startInstances(params: EC2.StartInstancesRequest, callback?: (err: any, data: EC2.StartInstancesResult|any) => void): Request<EC2.StartInstancesResult|any,any>;
@@ -2800,20 +2799,20 @@ devices attached during the instance launch are automatically deleted. For more
 information about the differences between rebooting, stopping, and terminating
 instances, see Instance Lifecycle
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
 
 When you stop an instance, we attempt to shut it down forcibly after a short
 while. If your instance appears stuck in the stopping state after a period of
 time, there may be an issue with the underlying host computer. For more
 information, see Troubleshooting Stopping Your Instance
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     stopInstances(params: EC2.StopInstancesRequest, callback?: (err: any, data: EC2.StopInstancesResult|any) => void): Request<EC2.StopInstancesResult|any,any>;
     /**
      * Shuts down one or more instances. This operation is idempotent; if you terminate
-an instance more than once, each call succeeds.
+an instance more than once, each call succeeds. 
 
 If you specify multiple instances and the request fails (for example, because of
 a single incorrect instance ID), none of the instances are terminated.
@@ -2833,12 +2832,12 @@ mapping parameter set to true are automatically deleted. For more information
 about the differences between stopping and terminating instances, see Instance
 Lifecycle
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
 
 For more information about troubleshooting, see Troubleshooting Terminating Your
 Instance
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+in the Amazon Elastic Compute Cloud User Guide.
      *
      */
     terminateInstances(params: EC2.TerminateInstancesRequest, callback?: (err: any, data: EC2.TerminateInstancesResult|any) => void): Request<EC2.TerminateInstancesResult|any,any>;
@@ -2856,7 +2855,7 @@ in the Amazon Elastic Compute Cloud User Guide .
      * Disables detailed monitoring for a running instance. For more information, see 
 Monitoring Your Instances and Volumes
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html] in
-the Amazon Elastic Compute Cloud User Guide .
+the Amazon Elastic Compute Cloud User Guide.
      *
      */
     unmonitorInstances(params: EC2.UnmonitorInstancesRequest, callback?: (err: any, data: EC2.UnmonitorInstancesResult|any) => void): Request<EC2.UnmonitorInstancesResult|any,any>;
@@ -3474,8 +3473,8 @@ the Amazon Elastic Compute Cloud User Guide .
     export interface AcceptReservedInstancesExchangeQuoteRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The IDs of the Convertible Reserved Instances to exchange for other Convertible
 Reserved Instances of the same or higher value. **/
@@ -3491,8 +3490,8 @@ purchasing in this exchange. **/
     export interface AcceptVpcPeeringConnectionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC peering connection. **/
         VpcPeeringConnectionId?: String;
@@ -3519,8 +3518,8 @@ UnauthorizedOperation . **/
         /** The ID of the Spot instance request. **/
         SpotInstanceRequestId?: String;
         /** The health status of the instance. If the status of both the instance status
-check and the system status check is impaired , the health status of the
-instance is unhealthy . Otherwise, the health status is healthy . **/
+check and the system status check is impaired, the health status of the instance
+is unhealthy. Otherwise, the health status is healthy. **/
         InstanceHealth?: InstanceHealthStatus;
     }
     export interface Address {
@@ -3533,7 +3532,7 @@ instance is unhealthy . Otherwise, the health status is healthy . **/
         /** The ID representing the association of the address with an instance in a VPC. **/
         AssociationId?: String;
         /** Indicates whether this Elastic IP address is for use with instances in
-EC2-Classic ( standard ) or instances in a VPC ( vpc ). **/
+EC2-Classic (standard) or instances in a VPC (vpc). **/
         Domain?: DomainType;
         /** The ID of the network interface. **/
         NetworkInterfaceId?: String;
@@ -3545,8 +3544,8 @@ EC2-Classic ( standard ) or instances in a VPC ( vpc ). **/
     export interface AllocateAddressRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** Set to vpc to allocate the address for use with instances in a VPC.
 
@@ -3557,7 +3556,7 @@ Default: The address is for use with instances in EC2-Classic. **/
         /** The Elastic IP address. **/
         PublicIp?: String;
         /** Indicates whether this Elastic IP address is for use with instances in
-EC2-Classic ( standard ) or instances in a VPC ( vpc ). **/
+EC2-Classic (standard) or instances in a VPC (vpc). **/
         Domain?: DomainType;
         /** [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP
 address for use with instances in a VPC. **/
@@ -3573,7 +3572,7 @@ Default: Enabled **/
         /** Unique, case-sensitive identifier you provide to ensure idempotency of the
 request. For more information, see How to Ensure Idempotency
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
-in the Amazon Elastic Compute Cloud User Guide . **/
+in the Amazon Elastic Compute Cloud User Guide. **/
         ClientToken?: String;
         /** Specify the instance type that you want your Dedicated Hosts to be configured
 for. When you specify the instance type, that is the only instance type that you
@@ -3628,8 +3627,8 @@ interface. **/
     export interface AssociateAddressRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can
 specify either the instance ID or the network interface ID, but not both. The
@@ -3663,8 +3662,8 @@ an instance. **/
     export interface AssociateDhcpOptionsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the DHCP options set, or default to associate no DHCP options with the
 VPC. **/
@@ -3675,8 +3674,8 @@ VPC. **/
     export interface AssociateRouteTableRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the subnet. **/
         SubnetId: String;
@@ -3716,8 +3715,8 @@ block. **/
     export interface AttachClassicLinkVpcRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC. **/
         InstanceId: String;
@@ -3734,8 +3733,8 @@ groups from a different VPC. **/
     export interface AttachInternetGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the Internet gateway. **/
         InternetGatewayId: String;
@@ -3745,8 +3744,8 @@ UnauthorizedOperation . **/
     export interface AttachNetworkInterfaceRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the network interface. **/
         NetworkInterfaceId: String;
@@ -3762,22 +3761,22 @@ UnauthorizedOperation . **/
     export interface AttachVolumeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the EBS volume. The volume and instance must be within the same
 Availability Zone. **/
         VolumeId: String;
         /** The ID of the instance. **/
         InstanceId: String;
-        /** The device name to expose to the instance (for example, /dev/sdh or xvdh ). **/
+        /** The device name to expose to the instance (for example, /dev/sdh or xvdh). **/
         Device: String;
     }
     export interface AttachVpnGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the virtual private gateway. **/
         VpnGatewayId: String;
@@ -3789,7 +3788,7 @@ UnauthorizedOperation . **/
         VpcAttachment?: VpcAttachment;
     }
     export interface AttributeBooleanValue {
-        /** The attribute value. The valid values are true or false . **/
+        /** The attribute value. The valid values are true or false. **/
         Value?: Boolean;
     }
     export interface AttributeValue {
@@ -3799,8 +3798,8 @@ UnauthorizedOperation . **/
     export interface AuthorizeSecurityGroupEgressRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the security group. **/
         GroupId: String;
@@ -3831,8 +3830,8 @@ CIDR IP address range. **/
     export interface AuthorizeSecurityGroupIngressRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** [EC2-Classic, default VPC] The name of the security group. **/
         GroupName?: String;
@@ -3852,13 +3851,13 @@ range, the IP protocol, the start of the port range, and the end of the port
 range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule
 with a specific IP protocol and port range, use a set of IP permissions instead. **/
         SourceSecurityGroupOwnerId?: String;
-        /** The IP protocol name ( tcp , udp , icmp ) or number (see Protocol Numbers
-[http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] ).
-(VPC only) Use -1 to specify all protocols. If you specify -1 , or a protocol
-number other than tcp , udp , icmp , or 58 (ICMPv6), traffic on all ports is
-allowed, regardless of any ports you specify. For tcp , udp , and icmp , you
-must specify a port range. For protocol 58 (ICMPv6), you can optionally specify
-a port range; if you don&#x27;t, traffic for all types and codes is allowed. **/
+        /** The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers
+[http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml]). (VPC
+only) Use -1 to specify all protocols. If you specify -1, or a protocol number
+other than tcp, udp, icmp, or 58 (ICMPv6), traffic on all ports is allowed,
+regardless of any ports you specify. For tcp, udp, and icmp, you must specify a
+port range. For protocol 58 (ICMPv6), you can optionally specify a port range;
+if you don&#x27;t, traffic for all types and codes is allowed. **/
         IpProtocol?: String;
         /** The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type
 number. For the ICMP/ICMPv6 type number, use -1 to specify all types. **/
@@ -3897,9 +3896,9 @@ command. **/
         Value?: Blob;
     }
     export interface BlockDeviceMapping {
-        /** The virtual device name ( ephemeral N). Instance store volumes are numbered
+        /** The virtual device name (ephemeralN). Instance store volumes are numbered
 starting from 0. An instance type with 2 available instance store volumes can
-specify mappings for ephemeral0 and ephemeral1 .The number of available instance
+specify mappings for ephemeral0 and ephemeral1.The number of available instance
 store volumes depends on the instance type. After you connect to the instance,
 you must mount the volume.
 
@@ -3907,7 +3906,7 @@ Constraints: For M3 instances, you must specify instance store volumes in the
 block device mapping for the instance. When you launch an M3 instance, we ignore
 any instance store volumes specified in the block device mapping for the AMI. **/
         VirtualName?: String;
-        /** The device name exposed to the instance (for example, /dev/sdh or xvdh ). **/
+        /** The device name exposed to the instance (for example, /dev/sdh or xvdh). **/
         DeviceName?: String;
         /** Parameters used to automatically set up EBS volumes when the instance is
 launched. **/
@@ -3918,8 +3917,8 @@ launched. **/
     export interface BundleInstanceRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the instance to bundle.
 
@@ -3965,8 +3964,8 @@ bucket that belongs to someone else, Amazon EC2 returns an error. **/
     export interface CancelBundleTaskRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the bundle task. **/
         BundleId: String;
@@ -3978,8 +3977,8 @@ UnauthorizedOperation . **/
     export interface CancelConversionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the conversion task. **/
         ConversionTaskId: String;
@@ -3987,14 +3986,14 @@ UnauthorizedOperation . **/
         ReasonMessage?: String;
     }
     export interface CancelExportTaskRequest {
-        /** The ID of the export task. This is the ID returned by CreateInstanceExportTask . **/
+        /** The ID of the export task. This is the ID returned by CreateInstanceExportTask. **/
         ExportTaskId: String;
     }
     export interface CancelImportTaskRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the import image or import snapshot task to be canceled. **/
         ImportTaskId?: String;
@@ -4032,8 +4031,8 @@ UnauthorizedOperation . **/
     export interface CancelSpotFleetRequestsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The IDs of the Spot fleet requests. **/
         SpotFleetRequestIds: ValueStringList;
@@ -4058,8 +4057,8 @@ canceled successfully. **/
     export interface CancelSpotInstanceRequestsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more Spot instance request IDs. **/
         SpotInstanceRequestIds: SpotInstanceRequestIdList;
@@ -4103,8 +4102,8 @@ UnauthorizedOperation . **/
     export interface ConfirmProductInstanceRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The product code. This must be a product code that you own. **/
         ProductCode: String;
@@ -4141,8 +4140,8 @@ import volume task. **/
     export interface CopyImageRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The name of the region that contains the AMI to copy. **/
         SourceRegion: String;
@@ -4155,24 +4154,24 @@ UnauthorizedOperation . **/
         /** Unique, case-sensitive identifier you provide to ensure idempotency of the
 request. For more information, see How to Ensure Idempotency
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
-in the Amazon Elastic Compute Cloud User Guide . **/
+in the Amazon Elastic Compute Cloud User Guide. **/
         ClientToken?: String;
         /** Specifies whether the destination snapshots of the copied image should be
 encrypted. The default CMK for EBS is used unless a non-default AWS Key
-Management Service (AWS KMS) CMK is specified with KmsKeyId . For more
+Management Service (AWS KMS) CMK is specified with KmsKeyId. For more
 information, see Amazon EBS Encryption
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html] in the 
-Amazon Elastic Compute Cloud User Guide . **/
+Amazon Elastic Compute Cloud User Guide. **/
         Encrypted?: Boolean;
         /** The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when
 encrypting the snapshots of an image during a copy operation. This parameter is
 only required if you want to use a non-default CMK; if this parameter is not
 specified, the default CMK for EBS is used. The ARN contains the arn:aws:kms 
 namespace, followed by the region of the CMK, the AWS account ID of the CMK
-owner, the key namespace, and then the CMK ID. For example, arn:aws:kms: 
-us-east-1 : 012345678910 :key/ abcd1234-a123-456a-a12b-a123b4cd56ef . The
-specified CMK must exist in the region that the snapshot is being copied to. If
-a KmsKeyId is specified, the Encrypted flag must also be set. **/
+owner, the key namespace, and then the CMK ID. For example, arn:aws:kms:
+us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. The specified
+CMK must exist in the region that the snapshot is being copied to. If a KmsKeyId 
+is specified, the Encrypted flag must also be set. **/
         KmsKeyId?: String;
     }
     export interface CopyImageResult {
@@ -4182,8 +4181,8 @@ a KmsKeyId is specified, the Encrypted flag must also be set. **/
     export interface CopySnapshotRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the region that contains the snapshot to be copied. **/
         SourceRegion: String;
@@ -4195,7 +4194,7 @@ UnauthorizedOperation . **/
 operation. This parameter is only valid for specifying the destination region in
 a PresignedUrl parameter, where it is required.
 
-CopySnapshot sends the snapshot copy to the regional endpoint that you send the
+ CopySnapshot sends the snapshot copy to the regional endpoint that you send the
 HTTP request to, such as ec2.us-east-1.amazonaws.com (in the AWS CLI, this is
 specified with the --region parameter or the default region in your AWS
 configuration file). **/
@@ -4204,33 +4203,33 @@ configuration file). **/
 parameter is only required when copying an encrypted snapshot with the Amazon
 EC2 Query API; it is available as an optional parameter in all other cases. The 
 PresignedUrl should use the snapshot source endpoint, the CopySnapshot action,
-and include the SourceRegion , SourceSnapshotId , and DestinationRegion 
+and include the SourceRegion, SourceSnapshotId, and DestinationRegion 
 parameters. The PresignedUrl must be signed using AWS Signature Version 4.
 Because EBS snapshots are stored in Amazon S3, the signing algorithm for this
 parameter uses the same logic that is described in Authenticating Requests by
 Using Query Parameters (AWS Signature Version 4)
 [http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html] in
-the Amazon Simple Storage Service API Reference . An invalid or improperly
-signed PresignedUrl will cause the copy operation to fail asynchronously, and
-the snapshot will move to an error state. **/
+the Amazon Simple Storage Service API Reference. An invalid or improperly signed 
+PresignedUrl will cause the copy operation to fail asynchronously, and the
+snapshot will move to an error state. **/
         PresignedUrl?: String;
         /** Specifies whether the destination snapshot should be encrypted. You can encrypt
 a copy of an unencrypted snapshot using this flag, but you cannot use it to
 create an unencrypted copy from an encrypted snapshot. Your default CMK for EBS
 is used unless a non-default AWS Key Management Service (AWS KMS) CMK is
-specified with KmsKeyId . For more information, see Amazon EBS Encryption
+specified with KmsKeyId. For more information, see Amazon EBS Encryption
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html] in the 
-Amazon Elastic Compute Cloud User Guide . **/
+Amazon Elastic Compute Cloud User Guide. **/
         Encrypted?: Boolean;
         /** The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when
 creating the snapshot copy. This parameter is only required if you want to use a
 non-default CMK; if this parameter is not specified, the default CMK for EBS is
 used. The ARN contains the arn:aws:kms namespace, followed by the region of the
 CMK, the AWS account ID of the CMK owner, the key namespace, and then the CMK
-ID. For example, arn:aws:kms: us-east-1 : 012345678910 :key/ 
-abcd1234-a123-456a-a12b-a123b4cd56ef . The specified CMK must exist in the
-region that the snapshot is being copied to. If a KmsKeyId is specified, the 
-Encrypted flag must also be set. **/
+ID. For example, arn:aws:kms:us-east-1:012345678910:key/
+abcd1234-a123-456a-a12b-a123b4cd56ef. The specified CMK must exist in the region
+that the snapshot is being copied to. If a KmsKeyId is specified, the Encrypted 
+flag must also be set. **/
         KmsKeyId?: String;
     }
     export interface CopySnapshotResult {
@@ -4240,10 +4239,10 @@ Encrypted flag must also be set. **/
     export interface CreateCustomerGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
-        /** The type of VPN connection that this customer gateway supports ( ipsec.1 ). **/
+        /** The type of VPN connection that this customer gateway supports (ipsec.1). **/
         Type: GatewayType;
         /** The Internet-routable IP address for the customer gateway&#x27;s outside interface.
 The address must be static. **/
@@ -4260,8 +4259,8 @@ Default: 65000 **/
     export interface CreateDhcpOptionsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** A DHCP configuration option. **/
         DhcpConfigurations: NewDhcpConfigurationList;
@@ -4273,14 +4272,14 @@ UnauthorizedOperation . **/
     export interface CreateEgressOnlyInternetGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC for which to create the egress-only Internet gateway. **/
         VpcId: String;
         /** Unique, case-sensitive identifier you provide to ensure the idempotency of the
 request. For more information, see How to Ensure Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html]
 . **/
         ClientToken?: String;
     }
@@ -4307,7 +4306,7 @@ group. **/
         DeliverLogsPermissionArn: String;
         /** Unique, case-sensitive identifier you provide to ensure the idempotency of the
 request. For more information, see How to Ensure Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html]
 . **/
         ClientToken?: String;
     }
@@ -4323,8 +4322,8 @@ request. **/
     export interface CreateImageRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the instance. **/
         InstanceId: String;
@@ -4366,8 +4365,8 @@ maximum length is 255 bytes. **/
     export interface CreateInternetGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
     }
     export interface CreateInternetGatewayResult {
@@ -4377,8 +4376,8 @@ UnauthorizedOperation . **/
     export interface CreateKeyPairRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** A unique name for the key pair.
 
@@ -4394,7 +4393,7 @@ disassociate it. **/
         AllocationId: String;
         /** Unique, case-sensitive identifier you provide to ensure the idempotency of the
 request. For more information, see How to Ensure Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 .
 
 Constraint: Maximum 64 ASCII characters. **/
@@ -4410,8 +4409,8 @@ returned if a client token was provided in the request. **/
     export interface CreateNetworkAclEntryRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the network ACL. **/
         NetworkAclId: String;
@@ -4421,8 +4420,8 @@ ascending order by rule number.
 Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is
 reserved for internal use. **/
         RuleNumber: Integer;
-        /** The protocol. A value of -1 or all means all protocols. If you specify all , -1 
-, or a protocol number other than tcp , udp , or icmp , traffic on all ports is
+        /** The protocol. A value of -1 or all means all protocols. If you specify all, -1,
+or a protocol number other than tcp, udp, or icmp, traffic on all ports is
 allowed, regardless of any ports or ICMP types or codes you specify. If you
 specify protocol 58 (ICMPv6) and specify an IPv4 CIDR block, traffic for all
 ICMP types and codes allowed, regardless of any that you specify. If you specify
@@ -4435,10 +4434,10 @@ type and code. **/
 subnet). **/
         Egress: Boolean;
         /** The IPv4 network range to allow or deny, in CIDR notation (for example 
-172.16.0.0/24 ). **/
+172.16.0.0/24). **/
         CidrBlock?: String;
         /** The IPv6 network range to allow or deny, in CIDR notation (for example 
-2001:db8:1234:1a00::/64 ). **/
+2001:db8:1234:1a00::/64). **/
         Ipv6CidrBlock?: String;
         /** ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP
 protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block. **/
@@ -4449,8 +4448,8 @@ protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block. **/
     export interface CreateNetworkAclRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC. **/
         VpcId: String;
@@ -4477,12 +4476,12 @@ designated as primary). **/
         /** The number of secondary private IPv4 addresses to assign to a network interface.
 When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these
 IP addresses within the subnet&#x27;s IPv4 CIDR range. You can&#x27;t specify this option
-and specify more than one private IP address using privateIpAddresses .
+and specify more than one private IP address using privateIpAddresses.
 
 The number of IP addresses you can assign to a network interface varies by
 instance type. For more information, see IP Addresses Per ENI Per Instance Type
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI] 
-in the Amazon Virtual Private Cloud User Guide . **/
+in the Amazon Virtual Private Cloud User Guide. **/
         SecondaryPrivateIpAddressCount?: Integer;
         /** One or more specific IPv6 addresses from the IPv6 CIDR block range of your
 subnet. You can&#x27;t use this option if you&#x27;re specifying a number of IPv6
@@ -4491,13 +4490,13 @@ addresses. **/
         /** The number of IPv6 addresses to assign to a network interface. Amazon EC2
 automatically selects the IPv6 addresses from the subnet range. You can&#x27;t use
 this option if specifying specific IPv6 addresses. If your subnet has the 
-AssignIpv6AddressOnCreation attribute set to true , you can specify 0 to
-override this setting. **/
+AssignIpv6AddressOnCreation attribute set to true, you can specify 0 to override
+this setting. **/
         Ipv6AddressCount?: Integer;
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
     }
     export interface CreateNetworkInterfaceResult {
@@ -4507,8 +4506,8 @@ UnauthorizedOperation . **/
     export interface CreatePlacementGroupRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** A name for the placement group.
 
@@ -4531,7 +4530,7 @@ remaining in the Reserved Instance term. **/
         /** Unique, case-sensitive identifier you provide to ensure idempotency of your
 listings. This helps avoid duplicate listings. For more information, see 
 Ensuring Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 . **/
         ClientToken: String;
     }
@@ -4542,8 +4541,8 @@ Ensuring Idempotency
     export interface CreateRouteRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the route table for the route. **/
         RouteTableId: String;
@@ -4574,8 +4573,8 @@ instance ID unless exactly one network interface is attached. **/
     export interface CreateRouteTableRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC. **/
         VpcId: String;
@@ -4587,8 +4586,8 @@ UnauthorizedOperation . **/
     export interface CreateSecurityGroupRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The name of the security group.
 
@@ -4616,8 +4615,8 @@ Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$&amp
     export interface CreateSnapshotRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the EBS volume. **/
         VolumeId: String;
@@ -4627,8 +4626,8 @@ UnauthorizedOperation . **/
     export interface CreateSpotDatafeedSubscriptionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The Amazon S3 bucket in which to store the Spot instance data feed. **/
         Bucket: String;
@@ -4642,13 +4641,13 @@ UnauthorizedOperation . **/
     export interface CreateSubnetRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC. **/
         VpcId: String;
         /** The IPv4 network range for the subnet, in CIDR notation. For example, 
-10.0.0.0/24 . **/
+10.0.0.0/24. **/
         CidrBlock: String;
         /** The IPv6 network range for the subnet, in CIDR notation. The subnet size must
 use a /64 prefix length. **/
@@ -4666,8 +4665,8 @@ VPC, we may not necessarily select a different zone for each subnet. **/
     export interface CreateTagsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The IDs of one or more resources to tag. For example, ami-1a2b3c4d. **/
         Resources: ResourceIdList;
@@ -4695,14 +4694,14 @@ permissions. **/
     export interface CreateVolumeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The size of the volume, in GiBs.
 
-Constraints: 1-16384 for gp2 , 4-16384 for io1 , 500-16384 for st1 , 500-16384
-for sc1 , and 1-1024 for standard . If you specify a snapshot, the volume size
-must be equal to or larger than the snapshot size.
+Constraints: 1-16384 for gp2, 4-16384 for io1, 500-16384 for st1, 500-16384 for 
+sc1, and 1-1024 for standard. If you specify a snapshot, the volume size must be
+equal to or larger than the snapshot size.
 
 Default: If you&#x27;re creating the volume from a snapshot and don&#x27;t specify a
 volume size, the default is the snapshot size. **/
@@ -4731,28 +4730,28 @@ no way to create an encrypted volume from an unencrypted snapshot or vice versa.
 If your AMI uses encrypted volumes, you can only launch it on supported instance
 types. For more information, see Amazon EBS Encryption
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html] in the 
-Amazon Elastic Compute Cloud User Guide . **/
+Amazon Elastic Compute Cloud User Guide. **/
         Encrypted?: Boolean;
         /** The full ARN of the AWS Key Management Service (AWS KMS) customer master key
 (CMK) to use when creating the encrypted volume. This parameter is only required
 if you want to use a non-default CMK; if this parameter is not specified, the
 default CMK for EBS is used. The ARN contains the arn:aws:kms namespace,
 followed by the region of the CMK, the AWS account ID of the CMK owner, the key 
-namespace, and then the CMK ID. For example, arn:aws:kms: us-east-1 : 
-012345678910 :key/ abcd1234-a123-456a-a12b-a123b4cd56ef . If a KmsKeyId is
-specified, the Encrypted flag must also be set. **/
+namespace, and then the CMK ID. For example, arn:aws:kms:us-east-1:012345678910
+:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If a KmsKeyId is specified, the 
+Encrypted flag must also be set. **/
         KmsKeyId?: String;
     }
     export interface CreateVpcEndpointRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC in which the endpoint will be used. **/
         VpcId: String;
-        /** The AWS service name, in the form com.amazonaws. region . service . To get a
-list of available services, use the DescribeVpcEndpointServices request. **/
+        /** The AWS service name, in the form com.amazonaws.region.service . To get a list
+of available services, use the DescribeVpcEndpointServices request. **/
         ServiceName: String;
         /** A policy to attach to the endpoint that controls access to the service. The
 policy must be in valid JSON format. If this parameter is not specified, we
@@ -4762,7 +4761,7 @@ attach a default policy that allows full access to the service. **/
         RouteTableIds?: ValueStringList;
         /** Unique, case-sensitive identifier you provide to ensure the idempotency of the
 request. For more information, see How to Ensure Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 . **/
         ClientToken?: String;
     }
@@ -4776,8 +4775,8 @@ request. **/
     export interface CreateVpcPeeringConnectionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the requester VPC. **/
         VpcId?: String;
@@ -4795,19 +4794,19 @@ Default: Your AWS account ID **/
     export interface CreateVpcRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
-        /** The IPv4 network range for the VPC, in CIDR notation. For example, 10.0.0.0/16 . **/
+        /** The IPv4 network range for the VPC, in CIDR notation. For example, 10.0.0.0/16. **/
         CidrBlock: String;
-        /** The tenancy options for instances launched into the VPC. For default , instances
+        /** The tenancy options for instances launched into the VPC. For default, instances
 are launched with shared tenancy by default. You can launch instances with any
-tenancy into a shared tenancy VPC. For dedicated , instances are launched as
+tenancy into a shared tenancy VPC. For dedicated, instances are launched as
 dedicated tenancy instances by default. You can only launch instances with a
-tenancy of dedicated or host into a dedicated tenancy VPC.
+tenancy of dedicated or host into a dedicated tenancy VPC. 
 
-Important: The host value cannot be used with this parameter. Use the default or 
-dedicated values only.
+ Important: The host value cannot be used with this parameter. Use the default 
+or dedicated values only.
 
 Default: default **/
         InstanceTenancy?: Tenancy;
@@ -4823,17 +4822,17 @@ block. **/
     export interface CreateVpnConnectionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
-        /** The type of VPN connection ( ipsec.1 ). **/
+        /** The type of VPN connection (ipsec.1). **/
         Type: String;
         /** The ID of the customer gateway. **/
         CustomerGatewayId: String;
         /** The ID of the virtual private gateway. **/
         VpnGatewayId: String;
         /** Indicates whether the VPN connection requires static routes. If you are creating
-a VPN connection for a device that does not support BGP, you must specify true .
+a VPN connection for a device that does not support BGP, you must specify true.
 
 Default: false **/
         Options?: VpnConnectionOptionsSpecification;
@@ -4851,8 +4850,8 @@ Default: false **/
     export interface CreateVpnGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The type of VPN connection this virtual private gateway supports. **/
         Type: GatewayType;
@@ -4866,10 +4865,10 @@ UnauthorizedOperation . **/
     export interface CustomerGateway {
         /** The ID of the customer gateway. **/
         CustomerGatewayId?: String;
-        /** The current state of the customer gateway ( pending | available | deleting |
-deleted ). **/
+        /** The current state of the customer gateway (pending | available | deleting |
+deleted). **/
         State?: String;
-        /** The type of VPN connection the customer gateway supports ( ipsec.1 ). **/
+        /** The type of VPN connection the customer gateway supports (ipsec.1). **/
         Type?: String;
         /** The Internet-routable IP address of the customer gateway&#x27;s outside interface. **/
         IpAddress?: String;
@@ -4882,8 +4881,8 @@ deleted ). **/
     export interface DeleteCustomerGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the customer gateway. **/
         CustomerGatewayId: String;
@@ -4891,8 +4890,8 @@ UnauthorizedOperation . **/
     export interface DeleteDhcpOptionsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the DHCP options set. **/
         DhcpOptionsId: String;
@@ -4900,8 +4899,8 @@ UnauthorizedOperation . **/
     export interface DeleteEgressOnlyInternetGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the egress-only Internet gateway. **/
         EgressOnlyInternetGatewayId: EgressOnlyInternetGatewayId;
@@ -4921,8 +4920,8 @@ UnauthorizedOperation . **/
     export interface DeleteInternetGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the Internet gateway. **/
         InternetGatewayId: String;
@@ -4930,8 +4929,8 @@ UnauthorizedOperation . **/
     export interface DeleteKeyPairRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The name of the key pair. **/
         KeyName: String;
@@ -4947,8 +4946,8 @@ UnauthorizedOperation . **/
     export interface DeleteNetworkAclEntryRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the network ACL. **/
         NetworkAclId: String;
@@ -4960,8 +4959,8 @@ UnauthorizedOperation . **/
     export interface DeleteNetworkAclRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the network ACL. **/
         NetworkAclId: String;
@@ -4969,8 +4968,8 @@ UnauthorizedOperation . **/
     export interface DeleteNetworkInterfaceRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the network interface. **/
         NetworkInterfaceId: String;
@@ -4978,8 +4977,8 @@ UnauthorizedOperation . **/
     export interface DeletePlacementGroupRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The name of the placement group. **/
         GroupName: String;
@@ -4987,8 +4986,8 @@ UnauthorizedOperation . **/
     export interface DeleteRouteRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the route table. **/
         RouteTableId: String;
@@ -5002,8 +5001,8 @@ the route exactly. **/
     export interface DeleteRouteTableRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the route table. **/
         RouteTableId: String;
@@ -5011,8 +5010,8 @@ UnauthorizedOperation . **/
     export interface DeleteSecurityGroupRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** [EC2-Classic, default VPC] The name of the security group. You can specify
 either the security group name or the security group ID. **/
@@ -5023,8 +5022,8 @@ either the security group name or the security group ID. **/
     export interface DeleteSnapshotRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the EBS snapshot. **/
         SnapshotId: String;
@@ -5032,15 +5031,15 @@ UnauthorizedOperation . **/
     export interface DeleteSpotDatafeedSubscriptionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
     }
     export interface DeleteSubnetRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the subnet. **/
         SubnetId: String;
@@ -5048,8 +5047,8 @@ UnauthorizedOperation . **/
     export interface DeleteTagsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the resource. For example, ami-1a2b3c4d. You can specify more than one
 resource ID. **/
@@ -5062,8 +5061,8 @@ the value, we delete the key only if its value is an empty string. **/
     export interface DeleteVolumeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the volume. **/
         VolumeId: String;
@@ -5071,8 +5070,8 @@ UnauthorizedOperation . **/
     export interface DeleteVpcEndpointsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more endpoint IDs. **/
         VpcEndpointIds: ValueStringList;
@@ -5084,8 +5083,8 @@ UnauthorizedOperation . **/
     export interface DeleteVpcPeeringConnectionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC peering connection. **/
         VpcPeeringConnectionId: String;
@@ -5097,8 +5096,8 @@ UnauthorizedOperation . **/
     export interface DeleteVpcRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC. **/
         VpcId: String;
@@ -5106,8 +5105,8 @@ UnauthorizedOperation . **/
     export interface DeleteVpnConnectionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPN connection. **/
         VpnConnectionId: String;
@@ -5121,8 +5120,8 @@ UnauthorizedOperation . **/
     export interface DeleteVpnGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the virtual private gateway. **/
         VpnGatewayId: String;
@@ -5130,8 +5129,8 @@ UnauthorizedOperation . **/
     export interface DeregisterImageRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the AMI. **/
         ImageId: String;
@@ -5139,8 +5138,8 @@ UnauthorizedOperation . **/
     export interface DescribeAccountAttributesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more account attribute names. **/
         AttributeNames?: AccountAttributeNameStringList;
@@ -5152,8 +5151,8 @@ UnauthorizedOperation . **/
     export interface DescribeAddressesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** [EC2-Classic] One or more Elastic IP addresses.
 
@@ -5161,31 +5160,31 @@ Default: Describes all your Elastic IP addresses. **/
         PublicIps?: PublicIpStringList;
         /** One or more filters. Filter names and values are case-sensitive.
 
- &amp;#42; allocation-id - [EC2-VPC] The allocation ID for the address.
+ &amp;#42;   allocation-id - [EC2-VPC] The allocation ID for the address.
    
    
- * association-id - [EC2-VPC] The association ID for the address.
+ *   association-id - [EC2-VPC] The association ID for the address.
    
    
- * domain - Indicates whether the address is for use in EC2-Classic ( standard )
-   or in a VPC ( vpc ).
+ *   domain - Indicates whether the address is for use in EC2-Classic (standard)
+   or in a VPC (vpc).
    
    
- * instance-id - The ID of the instance the address is associated with, if any.
+ *   instance-id - The ID of the instance the address is associated with, if any.
    
    
- * network-interface-id - [EC2-VPC] The ID of the network interface that the
+ *   network-interface-id - [EC2-VPC] The ID of the network interface that the
    address is associated with, if any.
    
    
- * network-interface-owner-id - The AWS account ID of the owner.
+ *   network-interface-owner-id - The AWS account ID of the owner.
    
    
- * private-ip-address - [EC2-VPC] The private IP address associated with the
+ *   private-ip-address - [EC2-VPC] The private IP address associated with the
    Elastic IP address.
    
    
- * public-ip - The Elastic IP address. **/
+ *   public-ip - The Elastic IP address. **/
         Filters?: FilterList;
         /** [EC2-VPC] One or more allocation IDs.
 
@@ -5199,25 +5198,25 @@ Default: Describes all your Elastic IP addresses. **/
     export interface DescribeAvailabilityZonesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The names of one or more Availability Zones. **/
         ZoneNames?: ZoneNameStringList;
         /** One or more filters.
 
- &amp;#42; message - Information about the Availability Zone.
+ &amp;#42;   message - Information about the Availability Zone.
    
    
- * region-name - The name of the region for the Availability Zone (for example, 
-   us-east-1 ).
+ *   region-name - The name of the region for the Availability Zone (for example, 
+   us-east-1).
    
    
- * state - The state of the Availability Zone ( available | information | 
-   impaired | unavailable ).
+ *   state - The state of the Availability Zone (available | information | 
+   impaired | unavailable).
    
    
- * zone-name - The name of the Availability Zone (for example, us-east-1a ). **/
+ *   zone-name - The name of the Availability Zone (for example, us-east-1a). **/
         Filters?: FilterList;
     }
     export interface DescribeAvailabilityZonesResult {
@@ -5227,8 +5226,8 @@ UnauthorizedOperation . **/
     export interface DescribeBundleTasksRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more bundle task IDs.
 
@@ -5236,36 +5235,36 @@ Default: Describes all your bundle tasks. **/
         BundleIds?: BundleIdStringList;
         /** One or more filters.
 
- &amp;#42; bundle-id - The ID of the bundle task.
+ &amp;#42;   bundle-id - The ID of the bundle task.
    
    
- * error-code - If the task failed, the error code returned.
+ *   error-code - If the task failed, the error code returned.
    
    
- * error-message - If the task failed, the error message returned.
+ *   error-message - If the task failed, the error message returned.
    
    
- * instance-id - The ID of the instance.
+ *   instance-id - The ID of the instance.
    
    
- * progress - The level of task completion, as a percentage (for example, 20%).
+ *   progress - The level of task completion, as a percentage (for example, 20%).
    
    
- * s3-bucket - The Amazon S3 bucket to store the AMI.
+ *   s3-bucket - The Amazon S3 bucket to store the AMI.
    
    
- * s3-prefix - The beginning of the AMI name.
+ *   s3-prefix - The beginning of the AMI name.
    
    
- * start-time - The time the task started (for example,
+ *   start-time - The time the task started (for example,
    2013-09-15T17:15:20.000Z).
    
    
- * state - The state of the task ( pending | waiting-for-shutdown | bundling | 
-   storing | cancelling | complete | failed ).
+ *   state - The state of the task (pending | waiting-for-shutdown | bundling | 
+   storing | cancelling | complete | failed).
    
    
- * update-time - The time of the most recent update for the task. **/
+ *   update-time - The time of the most recent update for the task. **/
         Filters?: FilterList;
     }
     export interface DescribeBundleTasksResult {
@@ -5275,37 +5274,36 @@ Default: Describes all your bundle tasks. **/
     export interface DescribeClassicLinkInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more instance IDs. Must be instances linked to a VPC through ClassicLink. **/
         InstanceIds?: InstanceIdStringList;
         /** One or more filters.
 
- &amp;#42; group-id - The ID of a VPC security group that&#x27;s associated with the
+ &amp;#42;   group-id - The ID of a VPC security group that&#x27;s associated with the
    instance.
    
    
- * instance-id - The ID of the instance.
+ *   instance-id - The ID of the instance.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * vpc-id - The ID of the VPC that the instance is linked to. **/
+ *   vpc-id - The ID of the VPC that the instance is linked to. **/
         Filters?: FilterList;
         /** The token to retrieve the next page of results. **/
         NextToken?: String;
@@ -5329,8 +5327,8 @@ there are no more results to return. **/
     export interface DescribeConversionTasksRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more conversion task IDs. **/
         ConversionTaskIds?: ConversionIdStringList;
@@ -5342,8 +5340,8 @@ UnauthorizedOperation . **/
     export interface DescribeCustomerGatewaysRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more customer gateway IDs.
 
@@ -5351,40 +5349,40 @@ Default: Describes all your customer gateways. **/
         CustomerGatewayIds?: CustomerGatewayIdStringList;
         /** One or more filters.
 
- &amp;#42; bgp-asn - The customer gateway&#x27;s Border Gateway Protocol (BGP) Autonomous
+ &amp;#42;   bgp-asn - The customer gateway&#x27;s Border Gateway Protocol (BGP) Autonomous
    System Number (ASN).
    
    
- * customer-gateway-id - The ID of the customer gateway.
+ *   customer-gateway-id - The ID of the customer gateway.
    
    
- * ip-address - The IP address of the customer gateway&#x27;s Internet-routable
+ *   ip-address - The IP address of the customer gateway&#x27;s Internet-routable
    external interface.
    
    
- * state - The state of the customer gateway ( pending | available | deleting | 
-   deleted ).
+ *   state - The state of the customer gateway (pending | available | deleting | 
+   deleted).
    
    
- * type - The type of customer gateway. Currently, the only supported type is 
-   ipsec.1 .
+ *   type - The type of customer gateway. Currently, the only supported type is 
+   ipsec.1.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter. **/
         Filters?: FilterList;
     }
@@ -5395,8 +5393,8 @@ Default: Describes all your customer gateways. **/
     export interface DescribeDhcpOptionsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The IDs of one or more DHCP options sets.
 
@@ -5404,30 +5402,30 @@ Default: Describes all your DHCP options sets. **/
         DhcpOptionsIds?: DhcpOptionsIdStringList;
         /** One or more filters.
 
- &amp;#42; dhcp-options-id - The ID of a set of DHCP options.
+ &amp;#42;   dhcp-options-id - The ID of a set of DHCP options.
    
    
- * key - The key for one of the options (for example, domain-name ).
+ *   key - The key for one of the options (for example, domain-name).
    
    
- * value - The value for one of the options.
+ *   value - The value for one of the options.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter. **/
         Filters?: FilterList;
     }
@@ -5438,8 +5436,8 @@ Default: Describes all your DHCP options sets. **/
     export interface DescribeEgressOnlyInternetGatewaysRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more egress-only Internet gateway IDs. **/
         EgressOnlyInternetGatewayIds?: EgressOnlyInternetGatewayIdList;
@@ -5470,19 +5468,19 @@ value larger than 1000, only 1000 results are returned. **/
         FlowLogIds?: ValueStringList;
         /** One or more filters.
 
- &amp;#42; deliver-log-status - The status of the logs delivery ( SUCCESS | FAILED ).
+ &amp;#42;   deliver-log-status - The status of the logs delivery (SUCCESS | FAILED).
    
    
- * flow-log-id - The ID of the flow log.
+ *   flow-log-id - The ID of the flow log.
    
    
- * log-group-name - The name of the log group.
+ *   log-group-name - The name of the log group.
    
    
- * resource-id - The ID of the VPC, subnet, or network interface.
+ *   resource-id - The ID of the VPC, subnet, or network interface.
    
    
- * traffic-type - The type of traffic ( ACCEPT | REJECT | ALL ) **/
+ *   traffic-type - The type of traffic (ACCEPT | REJECT | ALL) **/
         Filter?: FilterList;
         /** The token to retrieve the next page of results. **/
         NextToken?: String;
@@ -5517,10 +5515,10 @@ specify 94608000 for three years. **/
         MaxDuration?: Integer;
         /** One or more filters.
 
- &amp;#42; instance-family - The instance family of the offering (e.g., m4 ).
+ &amp;#42;   instance-family - The instance family of the offering (e.g., m4).
    
    
- * payment-option - The payment option ( NoUpfront | PartialUpfront | AllUpfront 
+ *   payment-option - The payment option (NoUpfront | PartialUpfront | AllUpfront
    ). **/
         Filter?: FilterList;
         /** The maximum number of results to return for the request in a single page. The
@@ -5543,15 +5541,15 @@ there are no more results to return. **/
         HostReservationIdSet?: HostReservationIdSet;
         /** One or more filters.
 
- &amp;#42; instance-family - The instance family (e.g., m4 ).
+ &amp;#42;   instance-family - The instance family (e.g., m4).
    
    
- * payment-option - The payment option ( NoUpfront | PartialUpfront | AllUpfront 
+ *   payment-option - The payment option (NoUpfront | PartialUpfront | AllUpfront
    ).
    
    
- * state - The state of the reservation ( payment-pending | payment-failed | 
-   active | retired ). **/
+ *   state - The state of the reservation (payment-pending | payment-failed | 
+   active | retired). **/
         Filter?: FilterList;
         /** The maximum number of results to return for the request in a single page. The
 remaining results can be seen by sending another request with the returned 
@@ -5581,26 +5579,26 @@ parameter and the host IDs parameter in the same request. **/
         MaxResults?: Integer;
         /** One or more filters.
 
- &amp;#42; instance-type - The instance type size that the Dedicated Host is configured
+ &amp;#42;   instance-type - The instance type size that the Dedicated Host is configured
    to support.
    
    
- * auto-placement - Whether auto-placement is enabled or disabled ( on | off ).
+ *   auto-placement - Whether auto-placement is enabled or disabled (on | off).
    
    
- * host-reservation-id - The ID of the reservation assigned to this host.
+ *   host-reservation-id - The ID of the reservation assigned to this host.
    
    
- * client-token - The idempotency token you provided when you launched the
+ *   client-token - The idempotency token you provided when you launched the
    instance
    
    
- * state - The allocation state of the Dedicated Host ( available | 
-   under-assessment | permanent-failure | released | released-permanent-failure 
+ *   state- The allocation state of the Dedicated Host (available | 
+   under-assessment | permanent-failure | released | released-permanent-failure
    ).
    
    
- * availability-zone - The Availability Zone of the host. **/
+ *   availability-zone - The Availability Zone of the host. **/
         Filter?: FilterList;
     }
     export interface DescribeHostsResult {
@@ -5631,14 +5629,14 @@ there are no more results to return. **/
     export interface DescribeImageAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the AMI. **/
         ImageId: String;
         /** The AMI attribute.
 
-Note : Depending on your account privileges, the blockDeviceMapping attribute
+ Note: Depending on your account privileges, the blockDeviceMapping attribute
 may return a Client.AuthFailure error. If this happens, use DescribeImages to
 get information about the block device mapping for the AMI. **/
         Attribute: ImageAttributeName;
@@ -5646,8 +5644,8 @@ get information about the block device mapping for the AMI. **/
     export interface DescribeImagesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more image IDs.
 
@@ -5655,7 +5653,7 @@ Default: Describes all images available to you. **/
         ImageIds?: ImageIdStringList;
         /** Filters the images by the owner. Specify an AWS account ID, self (owner is the
 sender of the request), or an AWS owner alias (valid values are amazon | 
-aws-marketplace | microsoft ). Omitting this option returns all images for which
+aws-marketplace | microsoft). Omitting this option returns all images for which
 you have launch permissions, regardless of ownership. **/
         Owners?: OwnerStringList;
         /** Scopes the images by users with explicit launch permissions. Specify an AWS
@@ -5663,112 +5661,113 @@ account ID, self (the sender of the request), or all (public AMIs). **/
         ExecutableUsers?: ExecutableByStringList;
         /** One or more filters.
 
- &amp;#42; architecture - The image architecture ( i386 | x86_64 ).
+ &amp;#42;   architecture - The image architecture (i386 | x86_64).
    
    
- * block-device-mapping.delete-on-termination - A Boolean value that indicates
+ *   block-device-mapping.delete-on-termination - A Boolean value that indicates
    whether the Amazon EBS volume is deleted on instance termination.
    
    
- * block-device-mapping.device-name - The device name for the EBS volume (for
-   example, /dev/sdh ).
+ *   block-device-mapping.device-name - The device name for the EBS volume (for
+   example, /dev/sdh).
    
    
- * block-device-mapping.snapshot-id - The ID of the snapshot used for the EBS
+ *   block-device-mapping.snapshot-id - The ID of the snapshot used for the EBS
    volume.
    
    
- * block-device-mapping.volume-size - The volume size of the EBS volume, in GiB.
+ *   block-device-mapping.volume-size - The volume size of the EBS volume, in
+   GiB.
    
    
- * block-device-mapping.volume-type - The volume type of the EBS volume ( gp2 | 
-   io1 | st1 | sc1 | standard ).
+ *   block-device-mapping.volume-type - The volume type of the EBS volume (gp2 | 
+   io1 | st1 | sc1 | standard).
    
    
- * description - The description of the image (provided during image creation).
+ *   description - The description of the image (provided during image creation).
    
    
- * ena-support - A Boolean that indicates whether enhanced networking with ENA
+ *   ena-support - A Boolean that indicates whether enhanced networking with ENA
    is enabled.
    
    
- * hypervisor - The hypervisor type ( ovm | xen ).
+ *   hypervisor - The hypervisor type (ovm | xen).
    
    
- * image-id - The ID of the image.
+ *   image-id - The ID of the image.
    
    
- * image-type - The image type ( machine | kernel | ramdisk ).
+ *   image-type - The image type (machine | kernel | ramdisk).
    
    
- * is-public - A Boolean that indicates whether the image is public.
+ *   is-public - A Boolean that indicates whether the image is public.
    
    
- * kernel-id - The kernel ID.
+ *   kernel-id - The kernel ID.
    
    
- * manifest-location - The location of the image manifest.
+ *   manifest-location - The location of the image manifest.
    
    
- * name - The name of the AMI (provided during image creation).
+ *   name - The name of the AMI (provided during image creation).
    
    
- * owner-alias - String value from an Amazon-maintained list ( amazon | 
-   aws-marketplace | microsoft ) of snapshot owners. Not to be confused with the
+ *   owner-alias - String value from an Amazon-maintained list (amazon | 
+   aws-marketplace | microsoft) of snapshot owners. Not to be confused with the
    user-configured AWS account alias, which is set from the IAM console.
    
    
- * owner-id - The AWS account ID of the image owner.
+ *   owner-id - The AWS account ID of the image owner.
    
    
- * platform - The platform. To only list Windows-based AMIs, use windows .
+ *   platform - The platform. To only list Windows-based AMIs, use windows.
    
    
- * product-code - The product code.
+ *   product-code - The product code.
    
    
- * product-code.type - The type of the product code ( devpay | marketplace ).
+ *   product-code.type - The type of the product code (devpay | marketplace).
    
    
- * ramdisk-id - The RAM disk ID.
+ *   ramdisk-id - The RAM disk ID.
    
    
- * root-device-name - The name of the root device volume (for example, /dev/sda1 
+ *   root-device-name - The name of the root device volume (for example, 
+   /dev/sda1).
+   
+   
+ *   root-device-type - The type of the root device volume (ebs | instance-store
    ).
    
    
- * root-device-type - The type of the root device volume ( ebs | instance-store 
-   ).
+ *   state - The state of the image (available | pending | failed).
    
    
- * state - The state of the image ( available | pending | failed ).
+ *   state-reason-code - The reason code for the state change.
    
    
- * state-reason-code - The reason code for the state change.
+ *   state-reason-message - The message for the state change.
    
    
- * state-reason-message - The message for the state change.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
-   
-   
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * virtualization-type - The virtualization type ( paravirtual | hvm ). **/
+ *   virtualization-type - The virtualization type (paravirtual | hvm). **/
         Filters?: FilterList;
     }
     export interface DescribeImagesResult {
@@ -5778,8 +5777,8 @@ account ID, self (the sender of the request), or all (public AMIs). **/
     export interface DescribeImportImageTasksRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** A list of import image task IDs. **/
         ImportTaskIds?: ImportTaskIdList;
@@ -5803,8 +5802,8 @@ are no more results to return. **/
     export interface DescribeImportSnapshotTasksRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** A list of import snapshot task IDs. **/
         ImportTaskIds?: ImportTaskIdList;
@@ -5827,8 +5826,8 @@ are no more results to return. **/
     export interface DescribeInstanceAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the instance. **/
         InstanceId: String;
@@ -5840,8 +5839,8 @@ Note: The enaSupport attribute is not supported at this time. **/
     export interface DescribeInstanceStatusRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more instance IDs.
 
@@ -5851,49 +5850,49 @@ Constraints: Maximum 100 explicitly specified instance IDs. **/
         InstanceIds?: InstanceIdStringList;
         /** One or more filters.
 
- &amp;#42; availability-zone - The Availability Zone of the instance.
+ &amp;#42;   availability-zone - The Availability Zone of the instance.
    
    
- * event.code - The code for the scheduled event ( instance-reboot | 
-   system-reboot | system-maintenance | instance-retirement | instance-stop ).
+ *   event.code - The code for the scheduled event (instance-reboot | 
+   system-reboot | system-maintenance | instance-retirement | instance-stop).
    
    
- * event.description - A description of the event.
+ *   event.description - A description of the event.
    
    
- * event.not-after - The latest end time for the scheduled event (for example, 
-   2014-09-15T17:15:20.000Z ).
+ *   event.not-after - The latest end time for the scheduled event (for example, 
+   2014-09-15T17:15:20.000Z).
    
    
- * event.not-before - The earliest start time for the scheduled event (for
-   example, 2014-09-15T17:15:20.000Z ).
+ *   event.not-before - The earliest start time for the scheduled event (for
+   example, 2014-09-15T17:15:20.000Z).
    
    
- * instance-state-code - The code for the instance state, as a 16-bit unsigned
+ *   instance-state-code - The code for the instance state, as a 16-bit unsigned
    integer. The high byte is an opaque internal value and should be ignored. The
    low byte is set based on the state represented. The valid values are 0
    (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping),
    and 80 (stopped).
    
    
- * instance-state-name - The state of the instance ( pending | running | 
-   shutting-down | terminated | stopping | stopped ).
+ *   instance-state-name - The state of the instance (pending | running | 
+   shutting-down | terminated | stopping | stopped).
    
    
- * instance-status.reachability - Filters on instance status where the name is 
-   reachability ( passed | failed | initializing | insufficient-data ).
+ *   instance-status.reachability - Filters on instance status where the name is 
+   reachability (passed | failed | initializing | insufficient-data).
    
    
- * instance-status.status - The status of the instance ( ok | impaired | 
-   initializing | insufficient-data | not-applicable ).
+ *   instance-status.status - The status of the instance (ok | impaired | 
+   initializing | insufficient-data | not-applicable).
    
    
- * system-status.reachability - Filters on system status where the name is 
-   reachability ( passed | failed | initializing | insufficient-data ).
+ *   system-status.reachability - Filters on system status where the name is 
+   reachability (passed | failed | initializing | insufficient-data).
    
    
- * system-status.status - The system status of the instance ( ok | impaired | 
-   initializing | insufficient-data | not-applicable ). **/
+ *   system-status.status - The system status of the instance (ok | impaired | 
+   initializing | insufficient-data | not-applicable). **/
         Filters?: FilterList;
         /** The token to retrieve the next page of results. **/
         NextToken?: String;
@@ -5902,7 +5901,7 @@ remaining results, make another call with the returned NextToken value. This
 value can be between 5 and 1000. You cannot specify this parameter and the
 instance IDs parameter in the same call. **/
         MaxResults?: Integer;
-        /** When true , includes the health status for all instances. When false , includes
+        /** When true, includes the health status for all instances. When false, includes
 the health status for running instances only.
 
 Default: false **/
@@ -5918,8 +5917,8 @@ there are no more results to return. **/
     export interface DescribeInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more instance IDs.
 
@@ -5927,261 +5926,262 @@ Default: Describes all your instances. **/
         InstanceIds?: InstanceIdStringList;
         /** One or more filters.
 
- &amp;#42; affinity - The affinity setting for an instance running on a Dedicated Host ( 
-   default | host ).
+ &amp;#42;   affinity - The affinity setting for an instance running on a Dedicated Host
+   (default | host).
    
    
- * architecture - The instance architecture ( i386 | x86_64 ).
+ *   architecture - The instance architecture (i386 | x86_64).
    
    
- * association.public-ip - The address of the Elastic IP address (IPv4) bound to
-   the network interface.
+ *   association.public-ip - The address of the Elastic IP address (IPv4) bound
+   to the network interface.
    
    
- * association.ip-owner-id - The owner of the Elastic IP address (IPv4)
+ *   association.ip-owner-id - The owner of the Elastic IP address (IPv4)
    associated with the network interface.
    
    
- * association.allocation-id - The allocation ID returned when you allocated the
-   Elastic IP address (IPv4) for your network interface.
+ *   association.allocation-id - The allocation ID returned when you allocated
+   the Elastic IP address (IPv4) for your network interface.
    
    
- * association.association-id - The association ID returned when the network
+ *   association.association-id - The association ID returned when the network
    interface was associated with an IPv4 address.
    
    
- * availability-zone - The Availability Zone of the instance.
+ *   availability-zone - The Availability Zone of the instance.
    
    
- * block-device-mapping.attach-time - The attach time for an EBS volume mapped
-   to the instance, for example, 2010-09-15T17:15:20.000Z .
+ *   block-device-mapping.attach-time - The attach time for an EBS volume mapped
+   to the instance, for example, 2010-09-15T17:15:20.000Z.
    
    
- * block-device-mapping.delete-on-termination - A Boolean that indicates whether
-   the EBS volume is deleted on instance termination.
+ *   block-device-mapping.delete-on-termination - A Boolean that indicates
+   whether the EBS volume is deleted on instance termination.
    
    
- * block-device-mapping.device-name - The device name for the EBS volume (for
-   example, /dev/sdh or xvdh ).
+ *   block-device-mapping.device-name - The device name for the EBS volume (for
+   example, /dev/sdh or xvdh).
    
    
- * block-device-mapping.status - The status for the EBS volume ( attaching | 
-   attached | detaching | detached ).
+ *   block-device-mapping.status - The status for the EBS volume (attaching | 
+   attached | detaching | detached).
    
    
- * block-device-mapping.volume-id - The volume ID of the EBS volume.
+ *   block-device-mapping.volume-id - The volume ID of the EBS volume.
    
    
- * client-token - The idempotency token you provided when you launched the
+ *   client-token - The idempotency token you provided when you launched the
    instance.
    
    
- * dns-name - The public DNS name of the instance.
+ *   dns-name - The public DNS name of the instance.
    
    
- * group-id - The ID of the security group for the instance. EC2-Classic only.
+ *   group-id - The ID of the security group for the instance. EC2-Classic only.
    
    
- * group-name - The name of the security group for the instance. EC2-Classic
+ *   group-name - The name of the security group for the instance. EC2-Classic
    only.
    
    
- * host-id - The ID of the Dedicated Host on which the instance is running, if
+ *   host-id - The ID of the Dedicated Host on which the instance is running, if
    applicable.
    
    
- * hypervisor - The hypervisor type of the instance ( ovm | xen ).
+ *   hypervisor - The hypervisor type of the instance (ovm | xen).
    
    
- * iam-instance-profile.arn - The instance profile associated with the instance.
-   Specified as an ARN.
+ *   iam-instance-profile.arn - The instance profile associated with the
+   instance. Specified as an ARN.
    
    
- * image-id - The ID of the image used to launch the instance.
+ *   image-id - The ID of the image used to launch the instance.
    
    
- * instance-id - The ID of the instance.
+ *   instance-id - The ID of the instance.
    
    
- * instance-lifecycle - Indicates whether this is a Spot Instance or a Scheduled
-   Instance ( spot | scheduled ).
+ *   instance-lifecycle - Indicates whether this is a Spot Instance or a
+   Scheduled Instance (spot | scheduled).
    
    
- * instance-state-code - The state of the instance, as a 16-bit unsigned
+ *   instance-state-code - The state of the instance, as a 16-bit unsigned
    integer. The high byte is an opaque internal value and should be ignored. The
    low byte is set based on the state represented. The valid values are: 0
    (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping),
    and 80 (stopped).
    
    
- * instance-state-name - The state of the instance ( pending | running | 
-   shutting-down | terminated | stopping | stopped ).
+ *   instance-state-name - The state of the instance (pending | running | 
+   shutting-down | terminated | stopping | stopped).
    
    
- * instance-type - The type of instance (for example, t2.micro ).
+ *   instance-type - The type of instance (for example, t2.micro).
    
    
- * instance.group-id - The ID of the security group for the instance.
+ *   instance.group-id - The ID of the security group for the instance. 
    
    
- * instance.group-name - The name of the security group for the instance.
+ *   instance.group-name - The name of the security group for the instance. 
    
    
- * ip-address - The public IPv4 address of the instance.
+ *   ip-address - The public IPv4 address of the instance.
    
    
- * kernel-id - The kernel ID.
+ *   kernel-id - The kernel ID.
    
    
- * key-name - The name of the key pair used when the instance was launched.
+ *   key-name - The name of the key pair used when the instance was launched.
    
    
- * launch-index - When launching multiple instances, this is the index for the
-   instance in the launch group (for example, 0, 1, 2, and so on).
+ *   launch-index - When launching multiple instances, this is the index for the
+   instance in the launch group (for example, 0, 1, 2, and so on). 
    
    
- * launch-time - The time when the instance was launched.
+ *   launch-time - The time when the instance was launched.
    
    
- * monitoring-state - Indicates whether detailed monitoring is enabled ( 
-   disabled | enabled ).
+ *   monitoring-state - Indicates whether detailed monitoring is enabled (
+   disabled | enabled).
    
    
- * network-interface.addresses.private-ip-address - The private IPv4 address
+ *   network-interface.addresses.private-ip-address - The private IPv4 address
    associated with the network interface.
    
    
- * network-interface.addresses.primary - Specifies whether the IPv4 address of
+ *   network-interface.addresses.primary - Specifies whether the IPv4 address of
    the network interface is the primary private IPv4 address.
    
    
- * network-interface.addresses.association.public-ip - The ID of the association
-   of an Elastic IP address (IPv4) with a network interface.
+ *   network-interface.addresses.association.public-ip - The ID of the
+   association of an Elastic IP address (IPv4) with a network interface.
    
    
- * network-interface.addresses.association.ip-owner-id - The owner ID of the
+ *   network-interface.addresses.association.ip-owner-id - The owner ID of the
    private IPv4 address associated with the network interface.
    
    
- * network-interface.attachment.attachment-id - The ID of the interface
+ *   network-interface.attachment.attachment-id - The ID of the interface
    attachment.
    
    
- * network-interface.attachment.instance-id - The ID of the instance to which
+ *   network-interface.attachment.instance-id - The ID of the instance to which
    the network interface is attached.
    
    
- * network-interface.attachment.instance-owner-id - The owner ID of the instance
-   to which the network interface is attached.
+ *   network-interface.attachment.instance-owner-id - The owner ID of the
+   instance to which the network interface is attached.
    
    
- * network-interface.attachment.device-index - The device index to which the
+ *   network-interface.attachment.device-index - The device index to which the
    network interface is attached.
    
    
- * network-interface.attachment.status - The status of the attachment ( 
-   attaching | attached | detaching | detached ).
+ *   network-interface.attachment.status - The status of the attachment (
+   attaching | attached | detaching | detached).
    
    
- * network-interface.attachment.attach-time - The time that the network
+ *   network-interface.attachment.attach-time - The time that the network
    interface was attached to an instance.
    
    
- * network-interface.attachment.delete-on-termination - Specifies whether the
+ *   network-interface.attachment.delete-on-termination - Specifies whether the
    attachment is deleted when an instance is terminated.
    
    
- * network-interface.availability-zone - The Availability Zone for the network
+ *   network-interface.availability-zone - The Availability Zone for the network
    interface.
    
    
- * network-interface.description - The description of the network interface.
+ *   network-interface.description - The description of the network interface.
    
    
- * network-interface.group-id - The ID of a security group associated with the
+ *   network-interface.group-id - The ID of a security group associated with the
    network interface.
    
    
- * network-interface.group-name - The name of a security group associated with
+ *   network-interface.group-name - The name of a security group associated with
    the network interface.
    
    
- * network-interface.ipv6-addresses.ipv6-address - The IPv6 address associated
+ *   network-interface.ipv6-addresses.ipv6-address - The IPv6 address associated
    with the network interface.
    
    
- * network-interface.mac-address - The MAC address of the network interface.
+ *   network-interface.mac-address - The MAC address of the network interface.
    
    
- * network-interface.network-interface-id - The ID of the network interface.
+ *   network-interface.network-interface-id - The ID of the network interface.
    
    
- * network-interface.owner-id - The ID of the owner of the network interface.
+ *   network-interface.owner-id - The ID of the owner of the network interface.
    
    
- * network-interface.private-dns-name - The private DNS name of the network
+ *   network-interface.private-dns-name - The private DNS name of the network
    interface.
    
    
- * network-interface.requester-id - The requester ID for the network interface.
+ *   network-interface.requester-id - The requester ID for the network interface.
    
    
- * network-interface.requester-managed - Indicates whether the network interface
-   is being managed by AWS.
+ *   network-interface.requester-managed - Indicates whether the network
+   interface is being managed by AWS.
    
    
- * network-interface.status - The status of the network interface ( available )
-   | in-use ).
+ *   network-interface.status - The status of the network interface (available) | 
+   in-use).
    
    
- * network-interface.source-dest-check - Whether the network interface performs
+ *   network-interface.source-dest-check - Whether the network interface performs
    source/destination checking. A value of true means checking is enabled, and 
    false means checking is disabled. The value must be false for the network
    interface to perform network address translation (NAT) in your VPC.
    
    
- * network-interface.subnet-id - The ID of the subnet for the network interface.
+ *   network-interface.subnet-id - The ID of the subnet for the network
+   interface.
    
    
- * network-interface.vpc-id - The ID of the VPC for the network interface.
+ *   network-interface.vpc-id - The ID of the VPC for the network interface.
    
    
- * owner-id - The AWS account ID of the instance owner.
+ *   owner-id - The AWS account ID of the instance owner.
    
    
- * placement-group-name - The name of the placement group for the instance.
+ *   placement-group-name - The name of the placement group for the instance.
    
    
- * platform - The platform. Use windows if you have Windows instances;
+ *   platform - The platform. Use windows if you have Windows instances;
    otherwise, leave blank.
    
    
- * private-dns-name - The private IPv4 DNS name of the instance.
+ *   private-dns-name - The private IPv4 DNS name of the instance.
    
    
- * private-ip-address - The private IPv4 address of the instance.
+ *   private-ip-address - The private IPv4 address of the instance.
    
    
- * product-code - The product code associated with the AMI used to launch the
+ *   product-code - The product code associated with the AMI used to launch the
    instance.
    
    
- * product-code.type - The type of product code ( devpay | marketplace ).
+ *   product-code.type - The type of product code (devpay | marketplace).
    
    
- * ramdisk-id - The RAM disk ID.
+ *   ramdisk-id - The RAM disk ID.
    
    
- * reason - The reason for the current state of the instance (for example, shows
-   &quot;User Initiated [date]&quot; when you stop or terminate the instance). Similar to
-   the state-reason-code filter.
+ *   reason - The reason for the current state of the instance (for example,
+   shows &quot;User Initiated [date]&quot; when you stop or terminate the instance).
+   Similar to the state-reason-code filter.
    
    
- * requester-id - The ID of the entity that launched the instance on your behalf
-   (for example, AWS Management Console, Auto Scaling, and so on).
+ *   requester-id - The ID of the entity that launched the instance on your
+   behalf (for example, AWS Management Console, Auto Scaling, and so on).
    
    
- * reservation-id - The ID of the instance&#x27;s reservation. A reservation ID is
+ *   reservation-id - The ID of the instance&#x27;s reservation. A reservation ID is
    created any time you launch an instance. A reservation ID has a one-to-one
    relationship with an instance launch request, but can be associated with more
    than one instance if you launch multiple instances using the same launch
@@ -6190,58 +6190,58 @@ Default: Describes all your instances. **/
    get one reservation ID.
    
    
- * root-device-name - The name of the root device for the instance (for example, 
-   /dev/sda1 or /dev/xvda ).
+ *   root-device-name - The name of the root device for the instance (for
+   example, /dev/sda1 or /dev/xvda).
    
    
- * root-device-type - The type of root device that the instance uses ( ebs | 
-   instance-store ).
+ *   root-device-type - The type of root device that the instance uses (ebs | 
+   instance-store).
    
    
- * source-dest-check - Indicates whether the instance performs
+ *   source-dest-check - Indicates whether the instance performs
    source/destination checking. A value of true means that checking is enabled,
    and false means checking is disabled. The value must be false for the
-   instance to perform network address translation (NAT) in your VPC.
+   instance to perform network address translation (NAT) in your VPC. 
    
    
- * spot-instance-request-id - The ID of the Spot instance request.
+ *   spot-instance-request-id - The ID of the Spot instance request.
    
    
- * state-reason-code - The reason code for the state change.
+ *   state-reason-code - The reason code for the state change.
    
    
- * state-reason-message - A message that describes the state change.
+ *   state-reason-message - A message that describes the state change.
    
    
- * subnet-id - The ID of the subnet for the instance.
+ *   subnet-id - The ID of the subnet for the instance.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * tenancy - The tenancy of an instance ( dedicated | default | host ).
+ *   tenancy - The tenancy of an instance (dedicated | default | host).
    
    
- * virtualization-type - The virtualization type of the instance ( paravirtual | 
-   hvm ).
+ *   virtualization-type - The virtualization type of the instance (paravirtual | 
+   hvm).
    
    
- * vpc-id - The ID of the VPC that the instance is running in. **/
+ *   vpc-id - The ID of the VPC that the instance is running in. **/
         Filters?: FilterList;
         /** The token to request the next page of results. **/
         NextToken?: String;
@@ -6261,8 +6261,8 @@ there are no more results to return. **/
     export interface DescribeInternetGatewaysRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more Internet gateway IDs.
 
@@ -6270,31 +6270,31 @@ Default: Describes all your Internet gateways. **/
         InternetGatewayIds?: ValueStringList;
         /** One or more filters.
 
- &amp;#42; attachment.state - The current state of the attachment between the gateway
-   and the VPC ( available ). Present only if a VPC is attached.
+ &amp;#42;   attachment.state - The current state of the attachment between the gateway
+   and the VPC (available). Present only if a VPC is attached.
    
    
- * attachment.vpc-id - The ID of an attached VPC.
+ *   attachment.vpc-id - The ID of an attached VPC.
    
    
- * internet-gateway-id - The ID of the Internet gateway.
+ *   internet-gateway-id - The ID of the Internet gateway.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter. **/
         Filters?: FilterList;
     }
@@ -6305,8 +6305,8 @@ Default: Describes all your Internet gateways. **/
     export interface DescribeKeyPairsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more key pair names.
 
@@ -6314,10 +6314,10 @@ Default: Describes all your key pairs. **/
         KeyNames?: KeyNameStringList;
         /** One or more filters.
 
- &amp;#42; fingerprint - The fingerprint of the key pair.
+ &amp;#42;   fingerprint - The fingerprint of the key pair.
    
    
- * key-name - The name of the key pair. **/
+ *   key-name - The name of the key pair. **/
         Filters?: FilterList;
     }
     export interface DescribeKeyPairsResult {
@@ -6327,8 +6327,8 @@ Default: Describes all your key pairs. **/
     export interface DescribeMovingAddressesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more Elastic IP addresses. **/
         PublicIps?: ValueStringList;
@@ -6336,8 +6336,8 @@ UnauthorizedOperation . **/
         NextToken?: String;
         /** One or more filters.
 
- &amp;#42; moving-status - The status of the Elastic IP address ( MovingToVpc | 
-   RestoringToClassic ). **/
+ &amp;#42;   moving-status - The status of the Elastic IP address (MovingToVpc | 
+   RestoringToClassic). **/
         Filters?: FilterList;
         /** The maximum number of results to return for the request in a single page. The
 remaining results of the initial request can be seen by sending another request
@@ -6359,17 +6359,17 @@ there are no more results to return. **/
         NatGatewayIds?: ValueStringList;
         /** One or more filters.
 
- &amp;#42; nat-gateway-id - The ID of the NAT gateway.
+ &amp;#42;   nat-gateway-id - The ID of the NAT gateway.
    
    
- * state - The state of the NAT gateway ( pending | failed | available | 
-   deleting | deleted ).
+ *   state - The state of the NAT gateway (pending | failed | available | 
+   deleting | deleted).
    
    
- * subnet-id - The ID of the subnet in which the NAT gateway resides.
+ *   subnet-id - The ID of the subnet in which the NAT gateway resides.
    
    
- * vpc-id - The ID of the VPC in which the NAT gateway resides. **/
+ *   vpc-id - The ID of the VPC in which the NAT gateway resides. **/
         Filter?: FilterList;
         /** The maximum number of items to return for this request. The request returns a
 token that you can specify in a subsequent call to get the next set of results.
@@ -6390,8 +6390,8 @@ there are no more results to return. **/
     export interface DescribeNetworkAclsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more network ACL IDs.
 
@@ -6399,73 +6399,73 @@ Default: Describes all your network ACLs. **/
         NetworkAclIds?: ValueStringList;
         /** One or more filters.
 
- &amp;#42; association.association-id - The ID of an association ID for the ACL.
+ &amp;#42;   association.association-id - The ID of an association ID for the ACL.
    
    
- * association.network-acl-id - The ID of the network ACL involved in the
+ *   association.network-acl-id - The ID of the network ACL involved in the
    association.
    
    
- * association.subnet-id - The ID of the subnet involved in the association.
+ *   association.subnet-id - The ID of the subnet involved in the association.
    
    
- * default - Indicates whether the ACL is the default network ACL for the VPC.
+ *   default - Indicates whether the ACL is the default network ACL for the VPC.
    
    
- * entry.cidr - The IPv4 CIDR range specified in the entry.
+ *   entry.cidr - The IPv4 CIDR range specified in the entry.
    
    
- * entry.egress - Indicates whether the entry applies to egress traffic.
+ *   entry.egress - Indicates whether the entry applies to egress traffic.
    
    
- * entry.icmp.code - The ICMP code specified in the entry, if any.
+ *   entry.icmp.code - The ICMP code specified in the entry, if any.
    
    
- * entry.icmp.type - The ICMP type specified in the entry, if any.
+ *   entry.icmp.type - The ICMP type specified in the entry, if any.
    
    
- * entry.ipv6-cidr - The IPv6 CIDR range specified in the entry.
+ *   entry.ipv6-cidr - The IPv6 CIDR range specified in the entry.
    
    
- * entry.port-range.from - The start of the port range specified in the entry.
+ *   entry.port-range.from - The start of the port range specified in the entry. 
    
    
- * entry.port-range.to - The end of the port range specified in the entry.
+ *   entry.port-range.to - The end of the port range specified in the entry. 
    
    
- * entry.protocol - The protocol specified in the entry ( tcp | udp | icmp or a
+ *   entry.protocol - The protocol specified in the entry (tcp | udp | icmp or a
    protocol number).
    
    
- * entry.rule-action - Allows or denies the matching traffic ( allow | deny ).
+ *   entry.rule-action - Allows or denies the matching traffic (allow | deny).
    
    
- * entry.rule-number - The number of an entry (in other words, rule) in the
+ *   entry.rule-number - The number of an entry (in other words, rule) in the
    ACL&#x27;s set of entries.
    
    
- * network-acl-id - The ID of the network ACL.
+ *   network-acl-id - The ID of the network ACL.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * vpc-id - The ID of the VPC for the network ACL. **/
+ *   vpc-id - The ID of the VPC for the network ACL. **/
         Filters?: FilterList;
     }
     export interface DescribeNetworkAclsResult {
@@ -6475,8 +6475,8 @@ Default: Describes all your network ACLs. **/
     export interface DescribeNetworkInterfaceAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the network interface. **/
         NetworkInterfaceId: String;
@@ -6498,8 +6498,8 @@ UnauthorizedOperation . **/
     export interface DescribeNetworkInterfacesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more network interface IDs.
 
@@ -6507,148 +6507,148 @@ Default: Describes all your network interfaces. **/
         NetworkInterfaceIds?: NetworkInterfaceIdList;
         /** One or more filters.
 
- &amp;#42; addresses.private-ip-address - The private IPv4 addresses associated with the
-   network interface.
-   
-   
- * addresses.primary - Whether the private IPv4 address is the primary IP
-   address associated with the network interface.
-   
-   
- * addresses.association.public-ip - The association ID returned when the
-   network interface was associated with the Elastic IP address (IPv4).
-   
-   
- * addresses.association.owner-id - The owner ID of the addresses associated
-   with the network interface.
-   
-   
- * association.association-id - The association ID returned when the network
-   interface was associated with an IPv4 address.
-   
-   
- * association.allocation-id - The allocation ID returned when you allocated the
-   Elastic IP address (IPv4) for your network interface.
-   
-   
- * association.ip-owner-id - The owner of the Elastic IP address (IPv4)
-   associated with the network interface.
-   
-   
- * association.public-ip - The address of the Elastic IP address (IPv4) bound to
+ &amp;#42;   addresses.private-ip-address - The private IPv4 addresses associated with
    the network interface.
    
    
- * association.public-dns-name - The public DNS name for the network interface
+ *   addresses.primary - Whether the private IPv4 address is the primary IP
+   address associated with the network interface. 
+   
+   
+ *   addresses.association.public-ip - The association ID returned when the
+   network interface was associated with the Elastic IP address (IPv4).
+   
+   
+ *   addresses.association.owner-id - The owner ID of the addresses associated
+   with the network interface.
+   
+   
+ *   association.association-id - The association ID returned when the network
+   interface was associated with an IPv4 address.
+   
+   
+ *   association.allocation-id - The allocation ID returned when you allocated
+   the Elastic IP address (IPv4) for your network interface.
+   
+   
+ *   association.ip-owner-id - The owner of the Elastic IP address (IPv4)
+   associated with the network interface.
+   
+   
+ *   association.public-ip - The address of the Elastic IP address (IPv4) bound
+   to the network interface.
+   
+   
+ *   association.public-dns-name - The public DNS name for the network interface
    (IPv4).
    
    
- * attachment.attachment-id - The ID of the interface attachment.
+ *   attachment.attachment-id - The ID of the interface attachment.
    
    
- * attachment.attach.time - The time that the network interface was attached to
+ *   attachment.attach.time - The time that the network interface was attached to
    an instance.
    
    
- * attachment.delete-on-termination - Indicates whether the attachment is
+ *   attachment.delete-on-termination - Indicates whether the attachment is
    deleted when an instance is terminated.
    
    
- * attachment.device-index - The device index to which the network interface is
+ *   attachment.device-index - The device index to which the network interface is
    attached.
    
    
- * attachment.instance-id - The ID of the instance to which the network
+ *   attachment.instance-id - The ID of the instance to which the network
    interface is attached.
    
    
- * attachment.instance-owner-id - The owner ID of the instance to which the
+ *   attachment.instance-owner-id - The owner ID of the instance to which the
    network interface is attached.
    
    
- * attachment.nat-gateway-id - The ID of the NAT gateway to which the network
+ *   attachment.nat-gateway-id - The ID of the NAT gateway to which the network
    interface is attached.
    
    
- * attachment.status - The status of the attachment ( attaching | attached | 
-   detaching | detached ).
+ *   attachment.status - The status of the attachment (attaching | attached | 
+   detaching | detached).
    
    
- * availability-zone - The Availability Zone of the network interface.
+ *   availability-zone - The Availability Zone of the network interface.
    
    
- * description - The description of the network interface.
+ *   description - The description of the network interface.
    
    
- * group-id - The ID of a security group associated with the network interface.
+ *   group-id - The ID of a security group associated with the network interface.
    
    
- * group-name - The name of a security group associated with the network
+ *   group-name - The name of a security group associated with the network
    interface.
    
    
- * ipv6-addresses.ipv6-address - An IPv6 address associated with the network
+ *   ipv6-addresses.ipv6-address - An IPv6 address associated with the network
    interface.
    
    
- * mac-address - The MAC address of the network interface.
+ *   mac-address - The MAC address of the network interface.
    
    
- * network-interface-id - The ID of the network interface.
+ *   network-interface-id - The ID of the network interface.
    
    
- * owner-id - The AWS account ID of the network interface owner.
+ *   owner-id - The AWS account ID of the network interface owner.
    
    
- * private-ip-address - The private IPv4 address or addresses of the network
+ *   private-ip-address - The private IPv4 address or addresses of the network
    interface.
    
    
- * private-dns-name - The private DNS name of the network interface (IPv4).
+ *   private-dns-name - The private DNS name of the network interface (IPv4).
    
    
- * requester-id - The ID of the entity that launched the instance on your behalf
-   (for example, AWS Management Console, Auto Scaling, and so on).
+ *   requester-id - The ID of the entity that launched the instance on your
+   behalf (for example, AWS Management Console, Auto Scaling, and so on).
    
    
- * requester-managed - Indicates whether the network interface is being managed
+ *   requester-managed - Indicates whether the network interface is being managed
    by an AWS service (for example, AWS Management Console, Auto Scaling, and so
    on).
    
    
- * source-desk-check - Indicates whether the network interface performs
+ *   source-desk-check - Indicates whether the network interface performs
    source/destination checking. A value of true means checking is enabled, and 
    false means checking is disabled. The value must be false for the network
-   interface to perform network address translation (NAT) in your VPC.
+   interface to perform network address translation (NAT) in your VPC. 
    
    
- * status - The status of the network interface. If the network interface is not
-   attached to an instance, the status is available ; if a network interface is
-   attached to an instance the status is in-use .
+ *   status - The status of the network interface. If the network interface is
+   not attached to an instance, the status is available; if a network interface
+   is attached to an instance the status is in-use.
    
    
- * subnet-id - The ID of the subnet for the network interface.
+ *   subnet-id - The ID of the subnet for the network interface.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * vpc-id - The ID of the VPC for the network interface. **/
+ *   vpc-id - The ID of the VPC for the network interface. **/
         Filters?: FilterList;
     }
     export interface DescribeNetworkInterfacesResult {
@@ -6658,8 +6658,8 @@ Default: Describes all your network interfaces. **/
     export interface DescribePlacementGroupsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more placement group names.
 
@@ -6667,14 +6667,14 @@ Default: Describes all your placement groups, or only those otherwise specified.
         GroupNames?: PlacementGroupStringList;
         /** One or more filters.
 
- &amp;#42; group-name - The name of the placement group.
+ &amp;#42;   group-name - The name of the placement group.
    
    
- * state - The state of the placement group ( pending | available | deleting | 
-   deleted ).
+ *   state - The state of the placement group (pending | available | deleting | 
+   deleted).
    
    
- * strategy - The strategy of the placement group ( cluster ). **/
+ *   strategy - The strategy of the placement group (cluster). **/
         Filters?: FilterList;
     }
     export interface DescribePlacementGroupsResult {
@@ -6684,17 +6684,17 @@ Default: Describes all your placement groups, or only those otherwise specified.
     export interface DescribePrefixListsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more prefix list IDs. **/
         PrefixListIds?: ValueStringList;
         /** One or more filters.
 
- &amp;#42; prefix-list-id : The ID of a prefix list.
+ &amp;#42;   prefix-list-id: The ID of a prefix list.
    
    
- * prefix-list-name : The name of a prefix list. **/
+ *   prefix-list-name: The name of a prefix list. **/
         Filters?: FilterList;
         /** The maximum number of items to return for this request. The request returns a
 token that you can specify in a subsequent call to get the next set of results.
@@ -6716,18 +6716,18 @@ additional items to return, the string is empty. **/
     export interface DescribeRegionsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The names of one or more regions. **/
         RegionNames?: RegionNameStringList;
         /** One or more filters.
 
- &amp;#42; endpoint - The endpoint of the region (for example, 
-   ec2.us-east-1.amazonaws.com ).
+ &amp;#42;   endpoint - The endpoint of the region (for example, 
+   ec2.us-east-1.amazonaws.com).
    
    
- * region-name - The name of the region (for example, us-east-1 ). **/
+ *   region-name - The name of the region (for example, us-east-1). **/
         Filters?: FilterList;
     }
     export interface DescribeRegionsResult {
@@ -6741,17 +6741,17 @@ UnauthorizedOperation . **/
         ReservedInstancesListingId?: String;
         /** One or more filters.
 
- &amp;#42; reserved-instances-id - The ID of the Reserved Instances.
+ &amp;#42;   reserved-instances-id - The ID of the Reserved Instances.
    
    
- * reserved-instances-listing-id - The ID of the Reserved Instances listing.
+ *   reserved-instances-listing-id - The ID of the Reserved Instances listing.
    
    
- * status - The status of the Reserved Instance listing ( pending | active | 
-   cancelled | closed ).
+ *   status - The status of the Reserved Instance listing (pending | active | 
+   cancelled | closed).
    
    
- * status-message - The reason for the status. **/
+ *   status-message - The reason for the status. **/
         Filters?: FilterList;
     }
     export interface DescribeReservedInstancesListingsResult {
@@ -6765,50 +6765,50 @@ UnauthorizedOperation . **/
         NextToken?: String;
         /** One or more filters.
 
- &amp;#42; client-token - The idempotency token for the modification request.
+ &amp;#42;   client-token - The idempotency token for the modification request.
    
    
- * create-date - The time when the modification request was created.
+ *   create-date - The time when the modification request was created.
    
    
- * effective-date - The time when the modification becomes effective.
+ *   effective-date - The time when the modification becomes effective.
    
    
- * modification-result.reserved-instances-id - The ID for the Reserved Instances
-   created as part of the modification request. This ID is only available when
-   the status of the modification is fulfilled .
+ *   modification-result.reserved-instances-id - The ID for the Reserved
+   Instances created as part of the modification request. This ID is only
+   available when the status of the modification is fulfilled.
    
    
- * modification-result.target-configuration.availability-zone - The Availability
-   Zone for the new Reserved Instances.
+ *   modification-result.target-configuration.availability-zone - The
+   Availability Zone for the new Reserved Instances.
    
    
- * modification-result.target-configuration.instance-count - The number of new
+ *   modification-result.target-configuration.instance-count - The number of new
    Reserved Instances.
    
    
- * modification-result.target-configuration.instance-type - The instance type of
-   the new Reserved Instances.
+ *   modification-result.target-configuration.instance-type - The instance type
+   of the new Reserved Instances.
    
    
- * modification-result.target-configuration.platform - The network platform of
-   the new Reserved Instances ( EC2-Classic | EC2-VPC ).
+ *   modification-result.target-configuration.platform - The network platform of
+   the new Reserved Instances (EC2-Classic | EC2-VPC).
    
    
- * reserved-instances-id - The ID of the Reserved Instances modified.
+ *   reserved-instances-id - The ID of the Reserved Instances modified.
    
    
- * reserved-instances-modification-id - The ID of the modification request.
+ *   reserved-instances-modification-id - The ID of the modification request.
    
    
- * status - The status of the Reserved Instances modification request ( 
-   processing | fulfilled | failed ).
+ *   status - The status of the Reserved Instances modification request (
+   processing | fulfilled | failed).
    
    
- * status-message - The reason for the status.
+ *   status-message - The reason for the status.
    
    
- * update-date - The time when the modification request was last updated. **/
+ *   update-date - The time when the modification request was last updated. **/
         Filters?: FilterList;
     }
     export interface DescribeReservedInstancesModificationsResult {
@@ -6821,15 +6821,15 @@ there are no more results to return. **/
     export interface DescribeReservedInstancesOfferingsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more Reserved Instances offering IDs. **/
         ReservedInstancesOfferingIds?: ReservedInstancesOfferingIdStringList;
-        /** The instance type that the reservation will cover (for example, m1.small ). For
+        /** The instance type that the reservation will cover (for example, m1.small). For
 more information, see Instance Types
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html] in the 
-Amazon Elastic Compute Cloud User Guide . **/
+Amazon Elastic Compute Cloud User Guide. **/
         InstanceType?: InstanceType;
         /** The Availability Zone in which the Reserved Instance can be used. **/
         AvailabilityZone?: String;
@@ -6838,44 +6838,44 @@ Amazon Elastic Compute Cloud User Guide . **/
         ProductDescription?: RIProductDescription;
         /** One or more filters.
 
- &amp;#42; availability-zone - The Availability Zone where the Reserved Instance can be
+ &amp;#42;   availability-zone - The Availability Zone where the Reserved Instance can be
    used.
    
    
- * duration - The duration of the Reserved Instance (for example, one year or
-   three years), in seconds ( 31536000 | 94608000 ).
+ *   duration - The duration of the Reserved Instance (for example, one year or
+   three years), in seconds (31536000 | 94608000).
    
    
- * fixed-price - The purchase price of the Reserved Instance (for example,
+ *   fixed-price - The purchase price of the Reserved Instance (for example,
    9800.0).
    
    
- * instance-type - The instance type that is covered by the reservation.
+ *   instance-type - The instance type that is covered by the reservation.
    
    
- * marketplace - Set to true to show only Reserved Instance Marketplace
+ *   marketplace - Set to true to show only Reserved Instance Marketplace
    offerings. When this filter is not used, which is the default behavior, all
    offerings from both AWS and the Reserved Instance Marketplace are listed.
    
    
- * product-description - The Reserved Instance product platform description.
+ *   product-description - The Reserved Instance product platform description.
    Instances that include (Amazon VPC) in the product platform description will
    only be displayed to EC2-Classic account holders and are for use with Amazon
-   VPC. ( Linux/UNIX | Linux/UNIX (Amazon VPC) | SUSE Linux | SUSE Linux (Amazon
+   VPC. (Linux/UNIX | Linux/UNIX (Amazon VPC) | SUSE Linux | SUSE Linux (Amazon
    VPC) | Red Hat Enterprise Linux | Red Hat Enterprise Linux (Amazon VPC) | 
    Windows | Windows (Amazon VPC) | Windows with SQL Server Standard | Windows
    with SQL Server Standard (Amazon VPC) | Windows with SQL Server Web | Windows
    with SQL Server Web (Amazon VPC) | Windows with SQL Server Enterprise | 
-   Windows with SQL Server Enterprise (Amazon VPC) )
+   Windows with SQL Server Enterprise (Amazon VPC)) 
    
    
- * reserved-instances-offering-id - The Reserved Instances offering ID.
+ *   reserved-instances-offering-id - The Reserved Instances offering ID.
    
    
- * scope - The scope of the Reserved Instance ( Availability Zone or Region ).
+ *   scope - The scope of the Reserved Instance (Availability Zone or Region).
    
    
- * usage-price - The usage price of the Reserved Instance, per hour (for
+ *   usage-price - The usage price of the Reserved Instance, per hour (for
    example, 0.84). **/
         Filters?: FilterList;
         /** The tenancy of the instances covered by the reservation. A Reserved Instance
@@ -6910,7 +6910,7 @@ Default: 94608000 (3 years) **/
 
 Default: 20 **/
         MaxInstanceCount?: Integer;
-        /** The offering class of the Reserved Instance. Can be standard or convertible . **/
+        /** The offering class of the Reserved Instance. Can be standard or convertible. **/
         OfferingClass?: OfferingClassType;
     }
     export interface DescribeReservedInstancesOfferingsResult {
@@ -6923,8 +6923,8 @@ there are no more results to return. **/
     export interface DescribeReservedInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more Reserved Instance IDs.
 
@@ -6933,69 +6933,69 @@ specified. **/
         ReservedInstancesIds?: ReservedInstancesIdStringList;
         /** One or more filters.
 
- &amp;#42; availability-zone - The Availability Zone where the Reserved Instance can be
+ &amp;#42;   availability-zone - The Availability Zone where the Reserved Instance can be
    used.
    
    
- * duration - The duration of the Reserved Instance (one year or three years),
-   in seconds ( 31536000 | 94608000 ).
+ *   duration - The duration of the Reserved Instance (one year or three years),
+   in seconds (31536000 | 94608000).
    
    
- * end - The time when the Reserved Instance expires (for example,
+ *   end - The time when the Reserved Instance expires (for example,
    2015-08-07T11:54:42.000Z).
    
    
- * fixed-price - The purchase price of the Reserved Instance (for example,
+ *   fixed-price - The purchase price of the Reserved Instance (for example,
    9800.0).
    
    
- * instance-type - The instance type that is covered by the reservation.
+ *   instance-type - The instance type that is covered by the reservation.
    
    
- * scope - The scope of the Reserved Instance ( Region or Availability Zone ).
+ *   scope - The scope of the Reserved Instance (Region or Availability Zone).
    
    
- * product-description - The Reserved Instance product platform description.
+ *   product-description - The Reserved Instance product platform description.
    Instances that include (Amazon VPC) in the product platform description will
    only be displayed to EC2-Classic account holders and are for use with Amazon
-   VPC ( Linux/UNIX | Linux/UNIX (Amazon VPC) | SUSE Linux | SUSE Linux (Amazon
+   VPC (Linux/UNIX | Linux/UNIX (Amazon VPC) | SUSE Linux | SUSE Linux (Amazon
    VPC) | Red Hat Enterprise Linux | Red Hat Enterprise Linux (Amazon VPC) | 
    Windows | Windows (Amazon VPC) | Windows with SQL Server Standard | Windows
    with SQL Server Standard (Amazon VPC) | Windows with SQL Server Web | Windows
    with SQL Server Web (Amazon VPC) | Windows with SQL Server Enterprise | 
-   Windows with SQL Server Enterprise (Amazon VPC) ).
+   Windows with SQL Server Enterprise (Amazon VPC)).
    
    
- * reserved-instances-id - The ID of the Reserved Instance.
+ *   reserved-instances-id - The ID of the Reserved Instance.
    
    
- * start - The time at which the Reserved Instance purchase request was placed
+ *   start - The time at which the Reserved Instance purchase request was placed
    (for example, 2014-08-07T11:54:42.000Z).
    
    
- * state - The state of the Reserved Instance ( payment-pending | active | 
-   payment-failed | retired ).
+ *   state - The state of the Reserved Instance (payment-pending | active | 
+   payment-failed | retired).
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * usage-price - The usage price of the Reserved Instance, per hour (for
+ *   usage-price - The usage price of the Reserved Instance, per hour (for
    example, 0.84). **/
         Filters?: FilterList;
         /** The Reserved Instance offering type. If you are using tools that predate the
@@ -7012,8 +7012,8 @@ Instance offering type. **/
     export interface DescribeRouteTablesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more route table IDs.
 
@@ -7021,85 +7021,85 @@ Default: Describes all your route tables. **/
         RouteTableIds?: ValueStringList;
         /** One or more filters.
 
- &amp;#42; association.route-table-association-id - The ID of an association ID for the
+ &amp;#42;   association.route-table-association-id - The ID of an association ID for the
    route table.
    
    
- * association.route-table-id - The ID of the route table involved in the
+ *   association.route-table-id - The ID of the route table involved in the
    association.
    
    
- * association.subnet-id - The ID of the subnet involved in the association.
+ *   association.subnet-id - The ID of the subnet involved in the association.
    
    
- * association.main - Indicates whether the route table is the main route table
-   for the VPC ( true | false ).
+ *   association.main - Indicates whether the route table is the main route table
+   for the VPC (true | false).
    
    
- * route-table-id - The ID of the route table.
+ *   route-table-id - The ID of the route table.
    
    
- * route.destination-cidr-block - The IPv4 CIDR range specified in a route in
+ *   route.destination-cidr-block - The IPv4 CIDR range specified in a route in
    the table.
    
    
- * route.destination-ipv6-cidr-block - The IPv6 CIDR range specified in a route
+ *   route.destination-ipv6-cidr-block - The IPv6 CIDR range specified in a route
    in the route table.
    
    
- * route.destination-prefix-list-id - The ID (prefix) of the AWS service
+ *   route.destination-prefix-list-id - The ID (prefix) of the AWS service
    specified in a route in the table.
    
    
- * route.egress-only-internet-gateway-id - The ID of an egress-only Internet
+ *   route.egress-only-internet-gateway-id - The ID of an egress-only Internet
    gateway specified in a route in the route table.
    
    
- * route.gateway-id - The ID of a gateway specified in a route in the table.
+ *   route.gateway-id - The ID of a gateway specified in a route in the table.
    
    
- * route.instance-id - The ID of an instance specified in a route in the table.
+ *   route.instance-id - The ID of an instance specified in a route in the table.
    
    
- * route.nat-gateway-id - The ID of a NAT gateway.
+ *   route.nat-gateway-id - The ID of a NAT gateway.
    
    
- * route.origin - Describes how the route was created. CreateRouteTable 
+ *   route.origin - Describes how the route was created. CreateRouteTable 
    indicates that the route was automatically created when the route table was
    created; CreateRoute indicates that the route was manually added to the route
    table; EnableVgwRoutePropagation indicates that the route was propagated by
    route propagation.
    
    
- * route.state - The state of a route in the route table ( active | blackhole ).
+ *   route.state - The state of a route in the route table (active | blackhole).
    The blackhole state indicates that the route&#x27;s target isn&#x27;t available (for
    example, the specified gateway isn&#x27;t attached to the VPC, the specified NAT
    instance has been terminated, and so on).
    
    
- * route.vpc-peering-connection-id - The ID of a VPC peering connection
+ *   route.vpc-peering-connection-id - The ID of a VPC peering connection
    specified in a route in the table.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * vpc-id - The ID of the VPC for the route table. **/
+ *   vpc-id - The ID of the VPC for the route table. **/
         Filters?: FilterList;
     }
     export interface DescribeRouteTablesResult {
@@ -7109,8 +7109,8 @@ Default: Describes all your route tables. **/
     export interface DescribeScheduledInstanceAvailabilityRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The schedule recurrence. **/
         Recurrence: ScheduledInstanceRecurrenceRequest;
@@ -7131,16 +7131,16 @@ make another call with the returned NextToken value. **/
         MaxResults?: Integer;
         /** One or more filters.
 
- &amp;#42; availability-zone - The Availability Zone (for example, us-west-2a ).
+ &amp;#42;   availability-zone - The Availability Zone (for example, us-west-2a).
    
    
- * instance-type - The instance type (for example, c4.large ).
+ *   instance-type - The instance type (for example, c4.large).
    
    
- * network-platform - The network platform ( EC2-Classic or EC2-VPC ).
+ *   network-platform - The network platform (EC2-Classic or EC2-VPC).
    
    
- * platform - The platform ( Linux/UNIX or Windows ). **/
+ *   platform - The platform (Linux/UNIX or Windows). **/
         Filters?: FilterList;
     }
     export interface DescribeScheduledInstanceAvailabilityResult {
@@ -7153,8 +7153,8 @@ there are no more results to return. **/
     export interface DescribeScheduledInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more Scheduled Instance IDs. **/
         ScheduledInstanceIds?: ScheduledInstanceIdRequestSet;
@@ -7168,16 +7168,16 @@ make another call with the returned NextToken value. **/
         MaxResults?: Integer;
         /** One or more filters.
 
- &amp;#42; availability-zone - The Availability Zone (for example, us-west-2a ).
+ &amp;#42;   availability-zone - The Availability Zone (for example, us-west-2a).
    
    
- * instance-type - The instance type (for example, c4.large ).
+ *   instance-type - The instance type (for example, c4.large).
    
    
- * network-platform - The network platform ( EC2-Classic or EC2-VPC ).
+ *   network-platform - The network platform (EC2-Classic or EC2-VPC).
    
    
- * platform - The platform ( Linux/UNIX or Windows ). **/
+ *   platform - The platform (Linux/UNIX or Windows). **/
         Filters?: FilterList;
     }
     export interface DescribeScheduledInstancesResult {
@@ -7203,8 +7203,8 @@ UnauthorizedOperation. **/
     export interface DescribeSecurityGroupsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** [EC2-Classic and default VPC only] One or more security group names. You can
 specify either the security group name or the security group ID. For security
@@ -7222,61 +7222,61 @@ Default: Describes all your security groups. **/
 security groups for which any combination of rules - not necessarily a single
 rule - match all filters.
 
- &amp;#42; description - The description of the security group.
+ &amp;#42;   description - The description of the security group.
    
    
- * egress.ip-permission.prefix-list-id - The ID (prefix) of the AWS service to
+ *   egress.ip-permission.prefix-list-id - The ID (prefix) of the AWS service to
    which the security group allows access.
    
    
- * group-id - The ID of the security group.
+ *   group-id - The ID of the security group. 
    
    
- * group-name - The name of the security group.
+ *   group-name - The name of the security group.
    
    
- * ip-permission.cidr - An IPv4 CIDR range that has been granted permission in a
-   security group rule.
+ *   ip-permission.cidr - An IPv4 CIDR range that has been granted permission in
+   a security group rule.
    
    
- * ip-permission.from-port - The start of port range for the TCP and UDP
+ *   ip-permission.from-port - The start of port range for the TCP and UDP
    protocols, or an ICMP type number.
    
    
- * ip-permission.group-id - The ID of a security group that has been granted
+ *   ip-permission.group-id - The ID of a security group that has been granted
    permission.
    
    
- * ip-permission.group-name - The name of a security group that has been granted
-   permission.
+ *   ip-permission.group-name - The name of a security group that has been
+   granted permission.
    
    
- * ip-permission.ipv6-cidr - An IPv6 CIDR range that has been granted permission
-   in a security group rule.
+ *   ip-permission.ipv6-cidr - An IPv6 CIDR range that has been granted
+   permission in a security group rule.
    
    
- * ip-permission.protocol - The IP protocol for the permission ( tcp | udp | 
+ *   ip-permission.protocol - The IP protocol for the permission (tcp | udp | 
    icmp or a protocol number).
    
    
- * ip-permission.to-port - The end of port range for the TCP and UDP protocols,
+ *   ip-permission.to-port - The end of port range for the TCP and UDP protocols,
    or an ICMP code.
    
    
- * ip-permission.user-id - The ID of an AWS account that has been granted
+ *   ip-permission.user-id - The ID of an AWS account that has been granted
    permission.
    
    
- * owner-id - The AWS account ID of the owner of the security group.
+ *   owner-id - The AWS account ID of the owner of the security group.
    
    
- * tag-key - The key of a tag assigned to the security group.
+ *   tag-key - The key of a tag assigned to the security group.
    
    
- * tag-value - The value of a tag assigned to the security group.
+ *   tag-value - The value of a tag assigned to the security group.
    
    
- * vpc-id - The ID of the VPC specified when the security group was created. **/
+ *   vpc-id - The ID of the VPC specified when the security group was created. **/
         Filters?: FilterList;
     }
     export interface DescribeSecurityGroupsResult {
@@ -7286,8 +7286,8 @@ rule - match all filters.
     export interface DescribeSnapshotAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the EBS snapshot. **/
         SnapshotId: String;
@@ -7305,8 +7305,8 @@ UnauthorizedOperation . **/
     export interface DescribeSnapshotsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more snapshot IDs.
 
@@ -7319,51 +7319,51 @@ specified. **/
         RestorableByUserIds?: RestorableByStringList;
         /** One or more filters.
 
- &amp;#42; description - A description of the snapshot.
+ &amp;#42;   description - A description of the snapshot.
    
    
- * owner-alias - Value from an Amazon-maintained list ( amazon | aws-marketplace 
-   | microsoft ) of snapshot owners. Not to be confused with the user-configured
+ *   owner-alias - Value from an Amazon-maintained list (amazon | aws-marketplace 
+   | microsoft) of snapshot owners. Not to be confused with the user-configured
    AWS account alias, which is set from the IAM consolew.
    
    
- * owner-id - The ID of the AWS account that owns the snapshot.
+ *   owner-id - The ID of the AWS account that owns the snapshot.
    
    
- * progress - The progress of the snapshot, as a percentage (for example, 80%).
+ *   progress - The progress of the snapshot, as a percentage (for example, 80%).
    
    
- * snapshot-id - The snapshot ID.
+ *   snapshot-id - The snapshot ID.
    
    
- * start-time - The time stamp when the snapshot was initiated.
+ *   start-time - The time stamp when the snapshot was initiated.
    
    
- * status - The status of the snapshot ( pending | completed | error ).
+ *   status - The status of the snapshot (pending | completed | error).
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * volume-id - The ID of the volume the snapshot is for.
+ *   volume-id - The ID of the volume the snapshot is for.
    
    
- * volume-size - The size of the volume, in GiB. **/
+ *   volume-size - The size of the volume, in GiB. **/
         Filters?: FilterList;
         /** The NextToken value returned from a previous paginated DescribeSnapshots request
 where MaxResults was used and the results exceeded the value of that parameter.
@@ -7385,16 +7385,16 @@ parameter in the same request. **/
         /** Information about the snapshots. **/
         Snapshots?: SnapshotList;
         /** The NextToken value to include in a future DescribeSnapshots request. When the
-results of a DescribeSnapshots request exceed MaxResults , this value can be
-used to retrieve the next page of results. This value is null when there are no
-more results to return. **/
+results of a DescribeSnapshots request exceed MaxResults, this value can be used
+to retrieve the next page of results. This value is null when there are no more
+results to return. **/
         NextToken?: String;
     }
     export interface DescribeSpotDatafeedSubscriptionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
     }
     export interface DescribeSpotDatafeedSubscriptionResult {
@@ -7404,8 +7404,8 @@ UnauthorizedOperation . **/
     export interface DescribeSpotFleetInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the Spot fleet request. **/
         SpotFleetRequestId: String;
@@ -7429,15 +7429,15 @@ there are no more results to return. **/
     export interface DescribeSpotFleetRequestHistoryRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the Spot fleet request. **/
         SpotFleetRequestId: String;
         /** The type of events to describe. By default, all events are described. **/
         EventType?: EventType;
-        /** The starting date and time for the events, in UTC format (for example, YYYY - MM 
-- DD T HH : MM : SS Z). **/
+        /** The starting date and time for the events, in UTC format (for example, YYYY-MM-
+DDTHH:MM:SSZ). **/
         StartTime: DateTime;
         /** The token for the next set of results. **/
         NextToken?: String;
@@ -7449,11 +7449,11 @@ results, make another call with the returned NextToken value. **/
     export interface DescribeSpotFleetRequestHistoryResponse {
         /** The ID of the Spot fleet request. **/
         SpotFleetRequestId: String;
-        /** The starting date and time for the events, in UTC format (for example, YYYY - MM 
-- DD T HH : MM : SS Z). **/
+        /** The starting date and time for the events, in UTC format (for example, YYYY-MM-
+DDTHH:MM:SSZ). **/
         StartTime: DateTime;
-        /** The last date and time for the events, in UTC format (for example, YYYY - MM - 
-DD T HH : MM : SS Z). All records up to this time were retrieved.
+        /** The last date and time for the events, in UTC format (for example, YYYY-MM-DDTHH
+:MM:SSZ). All records up to this time were retrieved.
 
 If nextToken indicates that there are more results, this value is not present. **/
         LastEvaluatedTime: DateTime;
@@ -7466,8 +7466,8 @@ there are no more results to return. **/
     export interface DescribeSpotFleetRequestsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The IDs of the Spot fleet requests. **/
         SpotFleetRequestIds?: ValueStringList;
@@ -7488,162 +7488,162 @@ there are no more results to return. **/
     export interface DescribeSpotInstanceRequestsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more Spot instance request IDs. **/
         SpotInstanceRequestIds?: SpotInstanceRequestIdList;
         /** One or more filters.
 
- &amp;#42; availability-zone-group - The Availability Zone group.
+ &amp;#42;   availability-zone-group - The Availability Zone group.
    
    
- * create-time - The time stamp when the Spot instance request was created.
+ *   create-time - The time stamp when the Spot instance request was created.
    
    
- * fault-code - The fault code related to the request.
+ *   fault-code - The fault code related to the request.
    
    
- * fault-message - The fault message related to the request.
+ *   fault-message - The fault message related to the request.
    
    
- * instance-id - The ID of the instance that fulfilled the request.
+ *   instance-id - The ID of the instance that fulfilled the request.
    
    
- * launch-group - The Spot instance launch group.
+ *   launch-group - The Spot instance launch group.
    
    
- * launch.block-device-mapping.delete-on-termination - Indicates whether the
+ *   launch.block-device-mapping.delete-on-termination - Indicates whether the
    Amazon EBS volume is deleted on instance termination.
    
    
- * launch.block-device-mapping.device-name - The device name for the Amazon EBS
-   volume (for example, /dev/sdh ).
+ *   launch.block-device-mapping.device-name - The device name for the Amazon EBS
+   volume (for example, /dev/sdh).
    
    
- * launch.block-device-mapping.snapshot-id - The ID of the snapshot used for the
-   Amazon EBS volume.
+ *   launch.block-device-mapping.snapshot-id - The ID of the snapshot used for
+   the Amazon EBS volume.
    
    
- * launch.block-device-mapping.volume-size - The size of the Amazon EBS volume,
+ *   launch.block-device-mapping.volume-size - The size of the Amazon EBS volume,
    in GiB.
    
    
- * launch.block-device-mapping.volume-type - The type of the Amazon EBS volume: 
+ *   launch.block-device-mapping.volume-type - The type of the Amazon EBS volume: 
    gp2 for General Purpose SSD, io1 for Provisioned IOPS SSD, st1 for Throughput
-   Optimized HDD, sc1 for Cold HDD, or standard for Magnetic.
+   Optimized HDD, sc1for Cold HDD, or standard for Magnetic.
    
    
- * launch.group-id - The security group for the instance.
+ *   launch.group-id - The security group for the instance.
    
    
- * launch.image-id - The ID of the AMI.
+ *   launch.image-id - The ID of the AMI.
    
    
- * launch.instance-type - The type of instance (for example, m3.medium ).
+ *   launch.instance-type - The type of instance (for example, m3.medium).
    
    
- * launch.kernel-id - The kernel ID.
+ *   launch.kernel-id - The kernel ID.
    
    
- * launch.key-name - The name of the key pair the instance launched with.
+ *   launch.key-name - The name of the key pair the instance launched with.
    
    
- * launch.monitoring-enabled - Whether monitoring is enabled for the Spot
+ *   launch.monitoring-enabled - Whether monitoring is enabled for the Spot
    instance.
    
    
- * launch.ramdisk-id - The RAM disk ID.
+ *   launch.ramdisk-id - The RAM disk ID.
    
    
- * network-interface.network-interface-id - The ID of the network interface.
+ *   network-interface.network-interface-id - The ID of the network interface.
    
    
- * network-interface.device-index - The index of the device for the network
+ *   network-interface.device-index - The index of the device for the network
    interface attachment on the instance.
    
    
- * network-interface.subnet-id - The ID of the subnet for the instance.
+ *   network-interface.subnet-id - The ID of the subnet for the instance.
    
    
- * network-interface.description - A description of the network interface.
+ *   network-interface.description - A description of the network interface.
    
    
- * network-interface.private-ip-address - The primary private IP address of the
+ *   network-interface.private-ip-address - The primary private IP address of the
    network interface.
    
    
- * network-interface.delete-on-termination - Indicates whether the network
+ *   network-interface.delete-on-termination - Indicates whether the network
    interface is deleted when the instance is terminated.
    
    
- * network-interface.group-id - The ID of the security group associated with the
-   network interface.
-   
-   
- * network-interface.group-name - The name of the security group associated with
+ *   network-interface.group-id - The ID of the security group associated with
    the network interface.
    
    
- * network-interface.addresses.primary - Indicates whether the IP address is the
-   primary private IP address.
+ *   network-interface.group-name - The name of the security group associated
+   with the network interface.
    
    
- * product-description - The product description associated with the instance ( 
-   Linux/UNIX | Windows ).
+ *   network-interface.addresses.primary - Indicates whether the IP address is
+   the primary private IP address.
    
    
- * spot-instance-request-id - The Spot instance request ID.
+ *   product-description - The product description associated with the instance (
+   Linux/UNIX | Windows).
    
    
- * spot-price - The maximum hourly price for any Spot instance launched to
+ *   spot-instance-request-id - The Spot instance request ID.
+   
+   
+ *   spot-price - The maximum hourly price for any Spot instance launched to
    fulfill the request.
    
    
- * state - The state of the Spot instance request ( open | active | closed | 
-   cancelled | failed ). Spot bid status information can help you track your
+ *   state - The state of the Spot instance request (open | active | closed | 
+   cancelled | failed). Spot bid status information can help you track your
    Amazon EC2 Spot instance requests. For more information, see Spot Bid Status
    [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html] in
    the Amazon Elastic Compute Cloud User Guide.
    
    
- * status-code - The short code describing the most recent evaluation of your
+ *   status-code - The short code describing the most recent evaluation of your
    Spot instance request.
    
    
- * status-message - The message explaining the status of the Spot instance
+ *   status-message - The message explaining the status of the Spot instance
    request.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * type - The type of Spot instance request ( one-time | persistent ).
+ *   type - The type of Spot instance request (one-time | persistent).
    
    
- * launched-availability-zone - The Availability Zone in which the bid is
+ *   launched-availability-zone - The Availability Zone in which the bid is
    launched.
    
    
- * valid-from - The start date of the request.
+ *   valid-from - The start date of the request.
    
    
- * valid-until - The end date of the request. **/
+ *   valid-until - The end date of the request. **/
         Filters?: FilterList;
     }
     export interface DescribeSpotInstanceRequestsResult {
@@ -7653,16 +7653,14 @@ UnauthorizedOperation . **/
     export interface DescribeSpotPriceHistoryRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The date and time, up to the past 90 days, from which to start retrieving the
-price history data, in UTC format (for example, YYYY - MM - DD T HH : MM : SS 
-Z). **/
+price history data, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). **/
         StartTime?: DateTime;
         /** The date and time, up to the current date, from which to stop retrieving the
-price history data, in UTC format (for example, YYYY - MM - DD T HH : MM : SS 
-Z). **/
+price history data, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). **/
         EndTime?: DateTime;
         /** Filters the results by the specified instance types. Note that T2 and HS1
 instance types are not supported. **/
@@ -7671,25 +7669,25 @@ instance types are not supported. **/
         ProductDescriptions?: ProductDescriptionList;
         /** One or more filters.
 
- &amp;#42; availability-zone - The Availability Zone for which prices should be
+ &amp;#42;   availability-zone - The Availability Zone for which prices should be
    returned.
    
    
- * instance-type - The type of instance (for example, m3.medium ).
+ *   instance-type - The type of instance (for example, m3.medium).
    
    
- * product-description - The product description for the Spot price ( Linux/UNIX 
+ *   product-description - The product description for the Spot price (Linux/UNIX 
    | SUSE Linux | Windows | Linux/UNIX (Amazon VPC) | SUSE Linux (Amazon VPC) | 
-   Windows (Amazon VPC) ).
+   Windows (Amazon VPC)).
    
    
- * spot-price - The Spot price. The value must match exactly (or use wildcards;
+ *   spot-price - The Spot price. The value must match exactly (or use wildcards;
    greater than or less than comparison is not supported).
    
    
- * timestamp - The timestamp of the Spot price history, in UTC format (for
-   example, YYYY - MM - DD T HH : MM : SS Z). You can use wildcards (* and ?).
-   Greater than or less than comparison is not supported. **/
+ *   timestamp - The timestamp of the Spot price history, in UTC format (for
+   example, YYYY-MM-DDTHH:MM:SSZ). You can use wildcards (* and ?). Greater than
+   or less than comparison is not supported. **/
         Filters?: FilterList;
         /** Filters the results by the specified Availability Zone. **/
         AvailabilityZone?: String;
@@ -7732,8 +7730,8 @@ additional items to return, the string is empty. **/
     export interface DescribeSubnetsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more subnet IDs.
 
@@ -7741,60 +7739,60 @@ Default: Describes all your subnets. **/
         SubnetIds?: SubnetIdStringList;
         /** One or more filters.
 
- &amp;#42; availabilityZone - The Availability Zone for the subnet. You can also use 
+ &amp;#42;   availabilityZone - The Availability Zone for the subnet. You can also use 
    availability-zone as the filter name.
    
    
- * available-ip-address-count - The number of IPv4 addresses in the subnet that
+ *   available-ip-address-count - The number of IPv4 addresses in the subnet that
    are available.
    
    
- * cidrBlock - The IPv4 CIDR block of the subnet. The CIDR block you specify
+ *   cidrBlock - The IPv4 CIDR block of the subnet. The CIDR block you specify
    must exactly match the subnet&#x27;s CIDR block for information to be returned for
    the subnet. You can also use cidr or cidr-block as the filter names.
    
    
- * defaultForAz - Indicates whether this is the default subnet for the
+ *   defaultForAz - Indicates whether this is the default subnet for the
    Availability Zone. You can also use default-for-az as the filter name.
    
    
- * ipv6-cidr-block-association.ipv6-cidr-block - An IPv6 CIDR block associated
+ *   ipv6-cidr-block-association.ipv6-cidr-block - An IPv6 CIDR block associated
    with the subnet.
    
    
- * ipv6-cidr-block-association.association-id - An association ID for an IPv6
+ *   ipv6-cidr-block-association.association-id - An association ID for an IPv6
    CIDR block associated with the subnet.
    
    
- * ipv6-cidr-block-association.state - The state of an IPv6 CIDR block
+ *   ipv6-cidr-block-association.state - The state of an IPv6 CIDR block
    associated with the subnet.
    
    
- * state - The state of the subnet ( pending | available ).
+ *   state - The state of the subnet (pending | available).
    
    
- * subnet-id - The ID of the subnet.
+ *   subnet-id - The ID of the subnet.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * vpc-id - The ID of the VPC for the subnet. **/
+ *   vpc-id - The ID of the VPC for the subnet. **/
         Filters?: FilterList;
     }
     export interface DescribeSubnetsResult {
@@ -7804,25 +7802,25 @@ Default: Describes all your subnets. **/
     export interface DescribeTagsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more filters.
 
- &amp;#42; key - The tag key.
+ &amp;#42;   key - The tag key.
    
    
- * resource-id - The resource ID.
+ *   resource-id - The resource ID.
    
    
- * resource-type - The resource type ( customer-gateway | dhcp-options | image | 
+ *   resource-type - The resource type (customer-gateway | dhcp-options | image | 
    instance | internet-gateway | network-acl | network-interface | 
    reserved-instances | route-table | security-group | snapshot | 
-   spot-instances-request | subnet | volume | vpc | vpn-connection | vpn-gateway 
+   spot-instances-request | subnet | volume | vpc | vpn-connection | vpn-gateway
    ).
    
    
- * value - The tag value. **/
+ *   value - The tag value. **/
         Filters?: FilterList;
         /** The maximum number of results to return in a single call. This value can be
 between 5 and 1000. To retrieve the remaining results, make another call with
@@ -7841,8 +7839,8 @@ there are no more results to return.. **/
     export interface DescribeVolumeAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the volume. **/
         VolumeId: String;
@@ -7860,8 +7858,8 @@ UnauthorizedOperation . **/
     export interface DescribeVolumeStatusRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more volume IDs.
 
@@ -7869,51 +7867,51 @@ Default: Describes all your volumes. **/
         VolumeIds?: VolumeIdStringList;
         /** One or more filters.
 
- &amp;#42; action.code - The action code for the event (for example, enable-volume-io ).
+ &amp;#42;   action.code - The action code for the event (for example, enable-volume-io).
    
    
- * action.description - A description of the action.
+ *   action.description - A description of the action.
    
    
- * action.event-id - The event ID associated with the action.
+ *   action.event-id - The event ID associated with the action.
    
    
- * availability-zone - The Availability Zone of the instance.
+ *   availability-zone - The Availability Zone of the instance.
    
    
- * event.description - A description of the event.
+ *   event.description - A description of the event.
    
    
- * event.event-id - The event ID.
+ *   event.event-id - The event ID.
    
    
- * event.event-type - The event type (for io-enabled : passed | failed ; for 
-   io-performance : io-performance:degraded | io-performance:severely-degraded | 
-   io-performance:stalled ).
+ *   event.event-type - The event type (for io-enabled: passed | failed; for 
+   io-performance: io-performance:degraded | io-performance:severely-degraded | 
+   io-performance:stalled).
    
    
- * event.not-after - The latest end time for the event.
+ *   event.not-after - The latest end time for the event.
    
    
- * event.not-before - The earliest start time for the event.
+ *   event.not-before - The earliest start time for the event.
    
    
- * volume-status.details-name - The cause for volume-status.status ( io-enabled 
-   | io-performance ).
+ *   volume-status.details-name - The cause for volume-status.status (io-enabled 
+   | io-performance).
    
    
- * volume-status.details-status - The status of volume-status.details-name (for 
-   io-enabled : passed | failed ; for io-performance : normal | degraded | 
-   severely-degraded | stalled ).
+ *   volume-status.details-status - The status of volume-status.details-name (for 
+   io-enabled: passed | failed; for io-performance: normal | degraded | 
+   severely-degraded | stalled).
    
    
- * volume-status.status - The status of the volume ( ok | impaired | warning | 
-   insufficient-data ). **/
+ *   volume-status.status - The status of the volume (ok | impaired | warning | 
+   insufficient-data). **/
         Filters?: FilterList;
         /** The NextToken value to include in a future DescribeVolumeStatus request. When
-the results of the request exceed MaxResults , this value can be used to
-retrieve the next page of results. This value is null when there are no more
-results to return. **/
+the results of the request exceed MaxResults, this value can be used to retrieve
+the next page of results. This value is null when there are no more results to
+return. **/
         NextToken?: String;
         /** The maximum number of volume results returned by DescribeVolumeStatus in
 paginated output. When this parameter is used, the request only returns 
@@ -7935,74 +7933,74 @@ there are no more results to return. **/
     export interface DescribeVolumesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more volume IDs. **/
         VolumeIds?: VolumeIdStringList;
         /** One or more filters.
 
- &amp;#42; attachment.attach-time - The time stamp when the attachment initiated.
+ &amp;#42;   attachment.attach-time - The time stamp when the attachment initiated.
    
    
- * attachment.delete-on-termination - Whether the volume is deleted on instance
+ *   attachment.delete-on-termination - Whether the volume is deleted on instance
    termination.
    
    
- * attachment.device - The device name that is exposed to the instance (for
-   example, /dev/sda1 ).
+ *   attachment.device - The device name that is exposed to the instance (for
+   example, /dev/sda1).
    
    
- * attachment.instance-id - The ID of the instance the volume is attached to.
+ *   attachment.instance-id - The ID of the instance the volume is attached to.
    
    
- * attachment.status - The attachment state ( attaching | attached | detaching | 
-   detached ).
+ *   attachment.status - The attachment state (attaching | attached | detaching | 
+   detached).
    
    
- * availability-zone - The Availability Zone in which the volume was created.
+ *   availability-zone - The Availability Zone in which the volume was created.
    
    
- * create-time - The time stamp when the volume was created.
+ *   create-time - The time stamp when the volume was created.
    
    
- * encrypted - The encryption status of the volume.
+ *   encrypted - The encryption status of the volume.
    
    
- * size - The size of the volume, in GiB.
+ *   size - The size of the volume, in GiB.
    
    
- * snapshot-id - The snapshot from which the volume was created.
+ *   snapshot-id - The snapshot from which the volume was created.
    
    
- * status - The status of the volume ( creating | available | in-use | deleting 
-   | deleted | error ).
+ *   status - The status of the volume (creating | available | in-use | deleting 
+   | deleted | error).
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * volume-id - The volume ID.
+ *   volume-id - The volume ID.
    
    
- * volume-type - The Amazon EBS volume type. This can be gp2 for General Purpose
-   SSD, io1 for Provisioned IOPS SSD, st1 for Throughput Optimized HDD, sc1 for
-   Cold HDD, or standard for Magnetic volumes. **/
+ *   volume-type - The Amazon EBS volume type. This can be gp2 for General
+   Purpose SSD, io1 for Provisioned IOPS SSD, st1 for Throughput Optimized HDD, 
+   sc1 for Cold HDD, or standard for Magnetic volumes. **/
         Filters?: FilterList;
         /** The NextToken value returned from a previous paginated DescribeVolumes request
 where MaxResults was used and the results exceeded the value of that parameter.
@@ -8023,7 +8021,7 @@ cannot specify this parameter and the volume IDs parameter in the same request. 
         /** Information about the volumes. **/
         Volumes?: VolumeList;
         /** The NextToken value to include in a future DescribeVolumes request. When the
-results of a DescribeVolumes request exceed MaxResults , this value can be used
+results of a DescribeVolumes request exceed MaxResults, this value can be used
 to retrieve the next page of results. This value is null when there are no more
 results to return. **/
         NextToken?: String;
@@ -8031,8 +8029,8 @@ results to return. **/
     export interface DescribeVpcAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC. **/
         VpcId: String;
@@ -8043,11 +8041,11 @@ UnauthorizedOperation . **/
         /** The ID of the VPC. **/
         VpcId?: String;
         /** Indicates whether DNS resolution is enabled for the VPC. If this attribute is 
-true , the Amazon DNS server resolves DNS hostnames for your instances to their
+true, the Amazon DNS server resolves DNS hostnames for your instances to their
 corresponding IP addresses; otherwise, it does not. **/
         EnableDnsSupport?: AttributeBooleanValue;
         /** Indicates whether the instances launched in the VPC get DNS hostnames. If this
-attribute is true , instances in the VPC get DNS hostnames; otherwise, they do
+attribute is true, instances in the VPC get DNS hostnames; otherwise, they do
 not. **/
         EnableDnsHostnames?: AttributeBooleanValue;
     }
@@ -8070,32 +8068,32 @@ prior call.) **/
     export interface DescribeVpcClassicLinkRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more VPCs for which you want to describe the ClassicLink status. **/
         VpcIds?: VpcClassicLinkIdList;
         /** One or more filters.
 
- &amp;#42; is-classic-link-enabled - Whether the VPC is enabled for ClassicLink ( true | 
-   false ).
+ &amp;#42;   is-classic-link-enabled - Whether the VPC is enabled for ClassicLink (true | 
+   false).
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter. **/
         Filters?: FilterList;
     }
@@ -8106,8 +8104,8 @@ UnauthorizedOperation . **/
     export interface DescribeVpcEndpointServicesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The maximum number of items to return for this request. The request returns a
 token that you can specify in a subsequent call to get the next set of results.
@@ -8128,24 +8126,24 @@ additional items to return, the string is empty. **/
     export interface DescribeVpcEndpointsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more endpoint IDs. **/
         VpcEndpointIds?: ValueStringList;
         /** One or more filters.
 
- &amp;#42; service-name : The name of the AWS service.
+ &amp;#42;   service-name: The name of the AWS service.
    
    
- * vpc-id : The ID of the VPC in which the endpoint resides.
+ *   vpc-id: The ID of the VPC in which the endpoint resides.
    
    
- * vpc-endpoint-id : The ID of the endpoint.
+ *   vpc-endpoint-id: The ID of the endpoint.
    
    
- * vpc-endpoint-state : The state of the endpoint. ( pending | available | 
-   deleting | deleted ) **/
+ *   vpc-endpoint-state: The state of the endpoint. (pending | available | 
+   deleting | deleted) **/
         Filters?: FilterList;
         /** The maximum number of items to return for this request. The request returns a
 token that you can specify in a subsequent call to get the next set of results.
@@ -8166,8 +8164,8 @@ additional items to return, the string is empty. **/
     export interface DescribeVpcPeeringConnectionsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more VPC peering connection IDs.
 
@@ -8175,56 +8173,57 @@ Default: Describes all your VPC peering connections. **/
         VpcPeeringConnectionIds?: ValueStringList;
         /** One or more filters.
 
- &amp;#42; accepter-vpc-info.cidr-block - The IPv4 CIDR block of the peer VPC.
+ &amp;#42;   accepter-vpc-info.cidr-block - The IPv4 CIDR block of the peer VPC.
    
    
- * accepter-vpc-info.owner-id - The AWS account ID of the owner of the peer VPC.
+ *   accepter-vpc-info.owner-id - The AWS account ID of the owner of the peer
+   VPC.
    
    
- * accepter-vpc-info.vpc-id - The ID of the peer VPC.
+ *   accepter-vpc-info.vpc-id - The ID of the peer VPC.
    
    
- * expiration-time - The expiration date and time for the VPC peering
+ *   expiration-time - The expiration date and time for the VPC peering
    connection.
    
    
- * requester-vpc-info.cidr-block - The IPv4 CIDR block of the requester&#x27;s VPC.
+ *   requester-vpc-info.cidr-block - The IPv4 CIDR block of the requester&#x27;s VPC.
    
    
- * requester-vpc-info.owner-id - The AWS account ID of the owner of the
+ *   requester-vpc-info.owner-id - The AWS account ID of the owner of the
    requester VPC.
    
    
- * requester-vpc-info.vpc-id - The ID of the requester VPC.
+ *   requester-vpc-info.vpc-id - The ID of the requester VPC.
    
    
- * status-code - The status of the VPC peering connection ( pending-acceptance | 
-   failed | expired | provisioning | active | deleted | rejected ).
+ *   status-code - The status of the VPC peering connection (pending-acceptance | 
+   failed | expired | provisioning | active | deleted | rejected).
    
    
- * status-message - A message that provides more information about the status of
-   the VPC peering connection, if applicable.
+ *   status-message - A message that provides more information about the status
+   of the VPC peering connection, if applicable.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * vpc-peering-connection-id - The ID of the VPC peering connection. **/
+ *   vpc-peering-connection-id - The ID of the VPC peering connection. **/
         Filters?: FilterList;
     }
     export interface DescribeVpcPeeringConnectionsResult {
@@ -8234,8 +8233,8 @@ Default: Describes all your VPC peering connections. **/
     export interface DescribeVpcsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more VPC IDs.
 
@@ -8243,52 +8242,51 @@ Default: Describes all your VPCs. **/
         VpcIds?: VpcIdStringList;
         /** One or more filters.
 
- &amp;#42; cidr - The IPv4 CIDR block of the VPC. The CIDR block you specify must
+ &amp;#42;   cidr - The IPv4 CIDR block of the VPC. The CIDR block you specify must
    exactly match the VPC&#x27;s CIDR block for information to be returned for the
-   VPC. Must contain the slash followed by one or two digits (for example, /28 
-   ).
+   VPC. Must contain the slash followed by one or two digits (for example, /28).
    
    
- * dhcp-options-id - The ID of a set of DHCP options.
+ *   dhcp-options-id - The ID of a set of DHCP options.
    
    
- * ipv6-cidr-block-association.ipv6-cidr-block - An IPv6 CIDR block associated
+ *   ipv6-cidr-block-association.ipv6-cidr-block - An IPv6 CIDR block associated
    with the VPC.
    
    
- * ipv6-cidr-block-association.association-id - The association ID for an IPv6
+ *   ipv6-cidr-block-association.association-id - The association ID for an IPv6
    CIDR block associated with the VPC.
    
    
- * ipv6-cidr-block-association.state - The state of an IPv6 CIDR block
+ *   ipv6-cidr-block-association.state - The state of an IPv6 CIDR block
    associated with the VPC.
    
    
- * isDefault - Indicates whether the VPC is the default VPC.
+ *   isDefault - Indicates whether the VPC is the default VPC.
    
    
- * state - The state of the VPC ( pending | available ).
+ *   state - The state of the VPC (pending | available).
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * vpc-id - The ID of the VPC. **/
+ *   vpc-id - The ID of the VPC. **/
         Filters?: FilterList;
     }
     export interface DescribeVpcsResult {
@@ -8298,8 +8296,8 @@ Default: Describes all your VPCs. **/
     export interface DescribeVpnConnectionsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more VPN connection IDs.
 
@@ -8307,57 +8305,57 @@ Default: Describes your VPN connections. **/
         VpnConnectionIds?: VpnConnectionIdStringList;
         /** One or more filters.
 
- &amp;#42; customer-gateway-configuration - The configuration information for the
+ &amp;#42;   customer-gateway-configuration - The configuration information for the
    customer gateway.
    
    
- * customer-gateway-id - The ID of a customer gateway associated with the VPN
+ *   customer-gateway-id - The ID of a customer gateway associated with the VPN
    connection.
    
    
- * state - The state of the VPN connection ( pending | available | deleting | 
-   deleted ).
+ *   state - The state of the VPN connection (pending | available | deleting | 
+   deleted).
    
    
- * option.static-routes-only - Indicates whether the connection has static
+ *   option.static-routes-only - Indicates whether the connection has static
    routes only. Used for devices that do not support Border Gateway Protocol
    (BGP).
    
    
- * route.destination-cidr-block - The destination CIDR block. This corresponds
+ *   route.destination-cidr-block - The destination CIDR block. This corresponds
    to the subnet used in a customer data center.
    
    
- * bgp-asn - The BGP Autonomous System Number (ASN) associated with a BGP
+ *   bgp-asn - The BGP Autonomous System Number (ASN) associated with a BGP
    device.
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * type - The type of VPN connection. Currently the only supported type is 
-   ipsec.1 .
+ *   type - The type of VPN connection. Currently the only supported type is 
+   ipsec.1.
    
    
- * vpn-connection-id - The ID of the VPN connection.
+ *   vpn-connection-id - The ID of the VPN connection.
    
    
- * vpn-gateway-id - The ID of a virtual private gateway associated with the VPN
+ *   vpn-gateway-id - The ID of a virtual private gateway associated with the VPN
    connection. **/
         Filters?: FilterList;
     }
@@ -8368,8 +8366,8 @@ Default: Describes your VPN connections. **/
     export interface DescribeVpnGatewaysRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more virtual private gateway IDs.
 
@@ -8377,44 +8375,44 @@ Default: Describes all your virtual private gateways. **/
         VpnGatewayIds?: VpnGatewayIdStringList;
         /** One or more filters.
 
- &amp;#42; attachment.state - The current state of the attachment between the gateway
-   and the VPC ( attaching | attached | detaching | detached ).
+ &amp;#42;   attachment.state - The current state of the attachment between the gateway
+   and the VPC (attaching | attached | detaching | detached).
    
    
- * attachment.vpc-id - The ID of an attached VPC.
+ *   attachment.vpc-id - The ID of an attached VPC.
    
    
- * availability-zone - The Availability Zone for the virtual private gateway (if
-   applicable).
+ *   availability-zone - The Availability Zone for the virtual private gateway
+   (if applicable).
    
    
- * state - The state of the virtual private gateway ( pending | available | 
-   deleting | deleted ).
+ *   state - The state of the virtual private gateway (pending | available | 
+   deleting | deleted).
    
    
- * tag : key = value - The key/value combination of a tag assigned to the
-   resource. Specify the key of the tag in the filter name and the value of the
-   tag in the filter value. For example, for the tag Purpose=X, specify 
-   tag:Purpose for the filter name and X for the filter value.
+ *   tag:key=value - The key/value combination of a tag assigned to the resource.
+   Specify the key of the tag in the filter name and the value of the tag in the
+   filter value. For example, for the tag Purpose=X, specify tag:Purpose for the
+   filter name and X for the filter value.
    
    
- * tag-key - The key of a tag assigned to the resource. This filter is
+ *   tag-key - The key of a tag assigned to the resource. This filter is
    independent of the tag-value filter. For example, if you use both the filter
    &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any resources
    assigned both the tag key Purpose (regardless of what the tag&#x27;s value is),
    and the tag value X (regardless of what the tag&#x27;s key is). If you want to
-   list only resources where Purpose is X, see the tag : key = value filter.
+   list only resources where Purpose is X, see the tag:key=value filter.
    
    
- * tag-value - The value of a tag assigned to the resource. This filter is
+ *   tag-value - The value of a tag assigned to the resource. This filter is
    independent of the tag-key filter.
    
    
- * type - The type of virtual private gateway. Currently the only supported type
-   is ipsec.1 .
+ *   type - The type of virtual private gateway. Currently the only supported
+   type is ipsec.1.
    
    
- * vpn-gateway-id - The ID of the virtual private gateway. **/
+ *   vpn-gateway-id - The ID of the virtual private gateway. **/
         Filters?: FilterList;
     }
     export interface DescribeVpnGatewaysResult {
@@ -8424,8 +8422,8 @@ Default: Describes all your virtual private gateways. **/
     export interface DetachClassicLinkVpcRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the instance to unlink from the VPC. **/
         InstanceId: String;
@@ -8439,8 +8437,8 @@ UnauthorizedOperation . **/
     export interface DetachInternetGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the Internet gateway. **/
         InternetGatewayId: String;
@@ -8450,8 +8448,8 @@ UnauthorizedOperation . **/
     export interface DetachNetworkInterfaceRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the attachment. **/
         AttachmentId: String;
@@ -8461,8 +8459,8 @@ UnauthorizedOperation . **/
     export interface DetachVolumeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the volume. **/
         VolumeId: String;
@@ -8482,8 +8480,8 @@ procedures. **/
     export interface DetachVpnGatewayRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the virtual private gateway. **/
         VpnGatewayId: String;
@@ -8521,8 +8519,8 @@ UnauthorizedOperation . **/
     export interface DisableVpcClassicLinkRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC. **/
         VpcId: String;
@@ -8534,8 +8532,8 @@ UnauthorizedOperation . **/
     export interface DisassociateAddressRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** [EC2-Classic] The Elastic IP address. Required for EC2-Classic. **/
         PublicIp?: String;
@@ -8545,8 +8543,8 @@ UnauthorizedOperation . **/
     export interface DisassociateRouteTableRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The association ID representing the current association between the route table
 and subnet. **/
@@ -8589,11 +8587,11 @@ and subnet. **/
 about creating a presigned URL for an Amazon S3 object, read the &quot;Query String
 Request Authentication Alternative&quot; section of the Authenticating REST Requests
 [http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html] topic
-in the Amazon Simple Storage Service Developer Guide .
+in the Amazon Simple Storage Service Developer Guide.
 
 For information about the import manifest referenced by this API action, see VM
 Import Manifest
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html] . **/
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html]. **/
         ImportManifestUrl: String;
         /** The checksum computed for the disk image. **/
         Checksum?: String;
@@ -8608,11 +8606,11 @@ as an Amazon S3 presigned URL. For information about creating a presigned URL
 for an Amazon S3 object, read the &quot;Query String Request Authentication
 Alternative&quot; section of the Authenticating REST Requests
 [http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html] topic
-in the Amazon Simple Storage Service Developer Guide .
+in the Amazon Simple Storage Service Developer Guide.
 
 For information about the import manifest referenced by this API action, see VM
 Import Manifest
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html] . **/
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html]. **/
         ImportManifestUrl: String;
     }
     export interface DiskImageVolumeDescription {
@@ -8626,34 +8624,34 @@ Import Manifest
         SnapshotId?: String;
         /** The size of the volume, in GiB.
 
-Constraints: 1-16384 for General Purpose SSD ( gp2 ), 4-16384 for Provisioned
-IOPS SSD ( io1 ), 500-16384 for Throughput Optimized HDD ( st1 ), 500-16384 for
-Cold HDD ( sc1 ), and 1-1024 for Magnetic ( standard ) volumes. If you specify a
-snapshot, the volume size must be equal to or larger than the snapshot size.
+Constraints: 1-16384 for General Purpose SSD (gp2), 4-16384 for Provisioned IOPS
+SSD (io1), 500-16384 for Throughput Optimized HDD (st1), 500-16384 for Cold HDD
+(sc1), and 1-1024 for Magnetic (standard) volumes. If you specify a snapshot,
+the volume size must be equal to or larger than the snapshot size.
 
 Default: If you&#x27;re creating the volume from a snapshot and don&#x27;t specify a
 volume size, the default is the snapshot size. **/
         VolumeSize?: Integer;
         /** Indicates whether the EBS volume is deleted on instance termination. **/
         DeleteOnTermination?: Boolean;
-        /** The volume type: gp2 , io1 , st1 , sc1 , or standard .
+        /** The volume type: gp2, io1, st1, sc1, or standard.
 
 Default: standard **/
         VolumeType?: VolumeType;
-        /** The number of I/O operations per second (IOPS) that the volume supports. For io1 
+        /** The number of I/O operations per second (IOPS) that the volume supports. For io1
 , this represents the number of IOPS that are provisioned for the volume. For 
-gp2 , this represents the baseline performance of the volume and the rate at
+gp2, this represents the baseline performance of the volume and the rate at
 which the volume accumulates I/O credits for bursting. For more information
 about General Purpose SSD baseline performance, I/O credits, and bursting, see 
 Amazon EBS Volume Types
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 
 volumes.
 
 Condition: This parameter is required for requests to create io1 volumes; it is
-not used in requests to create gp2 , st1 , sc1 , or standard volumes. **/
+not used in requests to create gp2, st1, sc1, or standard volumes. **/
         Iops?: Integer;
         /** Indicates whether the EBS volume is encrypted. Encrypted Amazon EBS volumes may
 only be attached to instances that support Amazon EBS encryption. **/
@@ -8690,8 +8688,8 @@ only be attached to instances that support Amazon EBS encryption. **/
     export interface EnableVolumeIORequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the volume. **/
         VolumeId: String;
@@ -8707,8 +8705,8 @@ UnauthorizedOperation . **/
     export interface EnableVpcClassicLinkRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC. **/
         VpcId: String;
@@ -8725,70 +8723,70 @@ events. **/
 
 The following are the error events.
 
- &amp;#42; iamFleetRoleInvalid - The Spot fleet did not have the required permissions
+ &amp;#42;   iamFleetRoleInvalid - The Spot fleet did not have the required permissions
    either to launch or terminate an instance.
    
    
- * launchSpecTemporarilyBlacklisted - The configuration is not valid and several
-   attempts to launch instances have failed. For more information, see the
-   description of the event.
+ *   launchSpecTemporarilyBlacklisted - The configuration is not valid and
+   several attempts to launch instances have failed. For more information, see
+   the description of the event.
    
    
- * spotFleetRequestConfigurationInvalid - The configuration is not valid. For
+ *   spotFleetRequestConfigurationInvalid - The configuration is not valid. For
    more information, see the description of the event.
    
    
- * spotInstanceCountLimitExceeded - You&#x27;ve reached the limit on the number of
+ *   spotInstanceCountLimitExceeded - You&#x27;ve reached the limit on the number of
    Spot instances that you can launch.
    
    
 
 The following are the fleetRequestChange events.
 
- * active - The Spot fleet has been validated and Amazon EC2 is attempting to
+ *   active - The Spot fleet has been validated and Amazon EC2 is attempting to
    maintain the target number of running Spot instances.
    
    
- * cancelled - The Spot fleet is canceled and has no running Spot instances. The
-   Spot fleet will be deleted two days after its instances were terminated.
+ *   cancelled - The Spot fleet is canceled and has no running Spot instances.
+   The Spot fleet will be deleted two days after its instances were terminated.
    
    
- * cancelled_running - The Spot fleet is canceled and will not launch additional
-   Spot instances, but its existing Spot instances continue to run until they
-   are interrupted or terminated.
+ *   cancelled_running - The Spot fleet is canceled and will not launch
+   additional Spot instances, but its existing Spot instances continue to run
+   until they are interrupted or terminated.
    
    
- * cancelled_terminating - The Spot fleet is canceled and its Spot instances are
-   terminating.
+ *   cancelled_terminating - The Spot fleet is canceled and its Spot instances
+   are terminating.
    
    
- * expired - The Spot fleet request has expired. A subsequent event indicates
+ *   expired - The Spot fleet request has expired. A subsequent event indicates
    that the instances were terminated, if the request was created with 
    TerminateInstancesWithExpiration set.
    
    
- * modify_in_progress - A request to modify the Spot fleet request was accepted
+ *   modify_in_progress - A request to modify the Spot fleet request was accepted
    and is in progress.
    
    
- * modify_successful - The Spot fleet request was modified.
+ *   modify_successful - The Spot fleet request was modified.
    
    
- * price_update - The bid price for a launch configuration was adjusted because
+ *   price_update - The bid price for a launch configuration was adjusted because
    it was too high. This change is permanent.
    
    
- * submitted - The Spot fleet request is being evaluated and Amazon EC2 is
+ *   submitted - The Spot fleet request is being evaluated and Amazon EC2 is
    preparing to launch the target number of Spot instances.
    
    
 
 The following are the instanceChange events.
 
- * launched - A bid was fulfilled and a new instance was launched.
+ *   launched - A bid was fulfilled and a new instance was launched.
    
    
- * terminated - An instance was terminated by the user. **/
+ *   terminated - An instance was terminated by the user. **/
         EventSubType?: String;
         /** The description of the event. **/
         EventDescription?: String;
@@ -8815,7 +8813,7 @@ absent, only the disk image is exported. **/
         ContainerFormat?: ContainerFormat;
         /** The S3 bucket for the destination image. The destination bucket must exist and
 grant WRITE and READ_ACP permissions to the AWS account 
-vm-import-export@amazon.com . **/
+vm-import-export@amazon.com. **/
         S3Bucket?: String;
         /** The encryption key for your S3 bucket. **/
         S3Key?: String;
@@ -8828,7 +8826,7 @@ absent, only the disk image is exported. **/
         ContainerFormat?: ContainerFormat;
         /** The S3 bucket for the destination image. The destination bucket must exist and
 grant WRITE and READ_ACP permissions to the AWS account 
-vm-import-export@amazon.com . **/
+vm-import-export@amazon.com. **/
         S3Bucket?: String;
         /** The image is written to a single object in the S3 bucket at the S3 key s3prefix
 + exportTaskId + &#x27;.&#x27; + diskImageFormat. **/
@@ -8845,7 +8843,7 @@ vm-import-export@amazon.com . **/
         CreationTime?: DateTime;
         /** The flow log ID. **/
         FlowLogId?: String;
-        /** The status of the flow log ( ACTIVE ). **/
+        /** The status of the flow log (ACTIVE). **/
         FlowLogStatus?: String;
         /** The ID of the resource on which the flow log was created. **/
         ResourceId?: String;
@@ -8853,7 +8851,7 @@ vm-import-export@amazon.com . **/
         TrafficType?: TrafficType;
         /** The name of the flow log group. **/
         LogGroupName?: String;
-        /** The status of the logs delivery ( SUCCESS | FAILED ). **/
+        /** The status of the logs delivery (SUCCESS | FAILED). **/
         DeliverLogsStatus?: String;
         /** Information about the error that occurred. Rate limited indicates that
 CloudWatch logs throttling has been applied for one or more network interfaces,
@@ -8868,8 +8866,8 @@ Unknown error indicates an internal error. **/
     export interface GetConsoleOutputRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the instance. **/
         InstanceId: String;
@@ -8886,12 +8884,12 @@ decodes the output for you. **/
     export interface GetConsoleScreenshotRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the instance. **/
         InstanceId: String;
-        /** When set to true , acts as keystroke input and wakes up an instance that&#x27;s in
+        /** When set to true, acts as keystroke input and wakes up an instance that&#x27;s in
 standby or &quot;sleep&quot; mode. **/
         WakeUp?: Boolean;
     }
@@ -8916,14 +8914,14 @@ Hosts associated with it. **/
         /** The potential total hourly price of the reservation per hour. **/
         TotalHourlyPrice?: String;
         /** The currency in which the totalUpfrontPrice and totalHourlyPrice amounts are
-specified. At this time, the only supported currency is USD . **/
+specified. At this time, the only supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
     }
     export interface GetPasswordDataRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the Windows instance. **/
         InstanceId: String;
@@ -8939,8 +8937,8 @@ UnauthorizedOperation . **/
     export interface GetReservedInstancesExchangeQuoteRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The IDs of the Convertible Reserved Instances to exchange. **/
         ReservedInstanceIds: ReservedInstanceIdSet;
@@ -8961,7 +8959,7 @@ for your current Convertible Reserved Instances. **/
         CurrencyCode?: String;
         /** The new end date of the reservation term. **/
         OutputReservedInstancesWillExpireAt?: DateTime;
-        /** If true , the exchange is valid. If false , the exchange cannot be completed. **/
+        /** If true, the exchange is valid. If false, the exchange cannot be completed. **/
         IsValidExchange?: Boolean;
         /** Describes the reason why the exchange cannot be completed. **/
         ValidationFailureReason?: String;
@@ -8973,19 +8971,19 @@ for your current Convertible Reserved Instances. **/
         GroupId?: String;
     }
     export interface HistoryRecord {
-        /** The date and time of the event, in UTC format (for example, YYYY - MM - DD T HH 
-: MM : SS Z). **/
+        /** The date and time of the event, in UTC format (for example, YYYY-MM-DDTHH:MM:SS
+Z). **/
         Timestamp: DateTime;
         /** The event type.
 
- &amp;#42; error - Indicates an error with the Spot fleet request.
+ &amp;#42;   error - Indicates an error with the Spot fleet request.
    
    
- * fleetRequestChange - Indicates a change in the status or configuration of the
-   Spot fleet request.
+ *   fleetRequestChange - Indicates a change in the status or configuration of
+   the Spot fleet request.
    
    
- * instanceChange - Indicates that an instance was launched or terminated. **/
+ *   instanceChange - Indicates that an instance was launched or terminated. **/
         EventType: EventType;
         /** Information about the event. **/
         EventInformation: EventInformation;
@@ -9001,7 +8999,7 @@ Dedicated Host doesn&#x27;t have an associated reservation. **/
         /** Unique, case-sensitive identifier you provide to ensure idempotency of the
 request. For more information, see How to Ensure Idempotency
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
-in the Amazon Elastic Compute Cloud User Guide . **/
+in the Amazon Elastic Compute Cloud User Guide. **/
         ClientToken?: String;
         /** The hardware specifications of the Dedicated Host. **/
         HostProperties?: HostProperties;
@@ -9017,7 +9015,7 @@ in the Amazon Elastic Compute Cloud User Guide . **/
     export interface HostInstance {
         /** the IDs of instances that are running on the Dedicated Host. **/
         InstanceId?: String;
-        /** The instance type size (for example, m3.medium ) of the running instance. **/
+        /** The instance type size (for example, m3.medium) of the running instance. **/
         InstanceType?: String;
     }
     export interface HostOffering {
@@ -9043,7 +9041,7 @@ in the Amazon Elastic Compute Cloud User Guide . **/
         Cores?: Integer;
         /** The number of vCPUs on the Dedicated Host. **/
         TotalVCpus?: Integer;
-        /** The instance type size that the Dedicated Host supports (for example, m3.medium 
+        /** The instance type size that the Dedicated Host supports (for example, m3.medium
 ). **/
         InstanceType?: String;
     }
@@ -9066,12 +9064,12 @@ reservation. **/
         /** The upfront price of the reservation. **/
         UpfrontPrice?: String;
         /** The currency in which the upfrontPrice and hourlyPrice amounts are specified. At
-this time, the only supported currency is USD . **/
+this time, the only supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
         /** The number of Dedicated Hosts the reservation is associated with. **/
         Count?: Integer;
         /** The length of the reservation&#x27;s term, specified in seconds. Can be 31536000 (1
-year) | 94608000 (3 years) . **/
+year) | 94608000 (3 years). **/
         Duration?: Integer;
         /** The date and time that the reservation ends. **/
         End?: DateTime;
@@ -9113,7 +9111,7 @@ returned. **/
         ImageId?: String;
         /** The location of the AMI. **/
         ImageLocation?: String;
-        /** The current state of the AMI. If the state is available , the image is
+        /** The current state of the AMI. If the state is available, the image is
 successfully registered and can be used to launch an instance. **/
         State?: ImageState;
         /** The AWS account ID of the image owner. **/
@@ -9145,7 +9143,7 @@ interface is enabled. **/
         EnaSupport?: Boolean;
         /** The reason for the state change. **/
         StateReason?: StateReason;
-        /** The AWS account alias (for example, amazon , self ) or the AWS account ID of the
+        /** The AWS account alias (for example, amazon, self) or the AWS account ID of the
 AMI owner. **/
         ImageOwnerAlias?: String;
         /** The name of the AMI that was provided during image creation. **/
@@ -9155,7 +9153,7 @@ AMI owner. **/
         /** The type of root device used by the AMI. The AMI can use an EBS volume or an
 instance store volume. **/
         RootDeviceType?: DeviceType;
-        /** The device name of the root device (for example, /dev/sda1 or /dev/xvda ). **/
+        /** The device name of the root device (for example, /dev/sda1 or /dev/xvda). **/
         RootDeviceName?: String;
         /** Any block device mapping entries. **/
         BlockDeviceMappings?: BlockDeviceMappingList;
@@ -9205,8 +9203,8 @@ a https URL (https://..) or an Amazon S3 URL (s3://..) **/
     export interface ImportImageRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** A description string for the import image task. **/
         Description?: String;
@@ -9214,7 +9212,7 @@ UnauthorizedOperation . **/
         DiskContainers?: ImageDiskContainerList;
         /** The license type to be used for the Amazon Machine Image (AMI) after importing.
 
-Note: You may only use BYOL if you have existing licenses with rights to use
+ Note: You may only use BYOL if you have existing licenses with rights to use
 these licenses in a third party cloud like AWS. For more information, see 
 Prerequisites
 [http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image] 
@@ -9326,8 +9324,8 @@ from the instance (using the operating system command for system shutdown). **/
     export interface ImportInstanceRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** A description for the instance being imported. **/
         Description?: String;
@@ -9371,8 +9369,8 @@ UnauthorizedOperation . **/
     export interface ImportKeyPairRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** A unique name for the key pair. **/
         KeyName: String;
@@ -9389,8 +9387,8 @@ tools, base64 encoding is performed for you. **/
     export interface ImportSnapshotRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The description string for the import snapshot task. **/
         Description?: String;
@@ -9422,8 +9420,8 @@ UnauthorizedOperation . **/
     export interface ImportVolumeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The Availability Zone for the resulting EBS volume. **/
         AvailabilityZone: String;
@@ -9459,7 +9457,7 @@ UnauthorizedOperation . **/
         State?: InstanceState;
         /** (IPv4 only) The private DNS hostname name assigned to the instance. This DNS
 hostname can only be used inside the Amazon EC2 network. This name is not
-available until the instance enters the running state.
+available until the instance enters the running state. 
 
 [EC2-VPC] The Amazon-provided DNS server will resolve Amazon-provided private
 DNS hostnames if you&#x27;ve enabled DNS resolution and DNS hostnames in your VPC. If
@@ -9509,7 +9507,7 @@ group. **/
         /** The root device type used by the AMI. The AMI can use an EBS volume or an
 instance store volume. **/
         RootDeviceType?: DeviceType;
-        /** The root device name (for example, /dev/sda1 or /dev/xvda ). **/
+        /** The root device name (for example, /dev/sda1 or /dev/xvda). **/
         RootDeviceName?: String;
         /** Any block device mapping entries for the instance. **/
         BlockDeviceMappings?: InstanceBlockDeviceMappingList;
@@ -9532,7 +9530,7 @@ of true means checking is enabled, and false means checking is disabled. The
 value must be false for the instance to perform NAT. For more information, see 
 NAT Instances
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html] in
-the Amazon Virtual Private Cloud User Guide . **/
+the Amazon Virtual Private Cloud User Guide. **/
         SourceDestCheck?: Boolean;
         /** The hypervisor type of the instance. **/
         Hypervisor?: HypervisorType;
@@ -9563,13 +9561,13 @@ interface is enabled. **/
         RamdiskId?: AttributeValue;
         /** The user data. **/
         UserData?: AttributeValue;
-        /** If the value is true , you can&#x27;t terminate the instance through the Amazon EC2
+        /** If the value is true, you can&#x27;t terminate the instance through the Amazon EC2
 console, CLI, or API; otherwise, you can. **/
         DisableApiTermination?: AttributeBooleanValue;
         /** Indicates whether an instance stops or terminates when you initiate shutdown
 from the instance (using the operating system command for system shutdown). **/
         InstanceInitiatedShutdownBehavior?: AttributeValue;
-        /** The name of the root device (for example, /dev/sda1 or /dev/xvda ). **/
+        /** The name of the root device (for example, /dev/sda1 or /dev/xvda). **/
         RootDeviceName?: AttributeValue;
         /** The block device mapping of the instance. **/
         BlockDeviceMappings?: InstanceBlockDeviceMappingList;
@@ -9590,14 +9588,14 @@ false for a NAT instance to perform NAT. **/
         Groups?: GroupIdentifierList;
     }
     export interface InstanceBlockDeviceMapping {
-        /** The device name exposed to the instance (for example, /dev/sdh or xvdh ). **/
+        /** The device name exposed to the instance (for example, /dev/sdh or xvdh). **/
         DeviceName?: String;
         /** Parameters used to automatically set up EBS volumes when the instance is
 launched. **/
         Ebs?: EbsInstanceBlockDevice;
     }
     export interface InstanceBlockDeviceMappingSpecification {
-        /** The device name exposed to the instance (for example, /dev/sdh or xvdh ). **/
+        /** The device name exposed to the instance (for example, /dev/sdh or xvdh). **/
         DeviceName?: String;
         /** Parameters used to automatically set up EBS volumes when the instance is
 launched. **/
@@ -9618,7 +9616,7 @@ launched. **/
     export interface InstanceCount {
         /** The states of the listed Reserved Instances. **/
         State?: ListingState;
-        /** The number of listed Reserved Instances in the state specified by the state . **/
+        /** The number of listed Reserved Instances in the state specified by the state. **/
         InstanceCount?: Integer;
     }
     export interface InstanceExportDetails {
@@ -9711,7 +9709,7 @@ you&#x27;re launching more than one instance in a RunInstances request. **/
         /** The IDs of the security groups for the network interface. Applies only if
 creating a network interface when launching an instance. **/
         Groups?: SecurityGroupIdStringList;
-        /** If set to true , the interface is deleted when the instance is terminated. You
+        /** If set to true, the interface is deleted when the instance is terminated. You
 can specify true only if creating a new network interface when launching an
 instance. **/
         DeleteOnTermination?: Boolean;
@@ -9728,7 +9726,7 @@ instance in a RunInstances request. **/
 VPC. The public IP address can only be assigned to a network interface for eth0,
 and can only be assigned to a new network interface, not an existing one. You
 cannot specify more than one network interface in the request. If launching into
-a default subnet, the default value is true . **/
+a default subnet, the default value is true. **/
         AssociatePublicIpAddress?: Boolean;
         /** One or more IPv6 addresses to assign to the network interface. You cannot
 specify this option and the option to assign a number of IPv6 addresses in the
@@ -9757,22 +9755,22 @@ network interface. **/
         /** The low byte represents the state. The high byte is an opaque internal value and
 should be ignored.
 
- &amp;#42; 0 : pending
+ &amp;#42;   0 : pending 
    
    
- * 16 : running
+ *   16 : running 
    
    
- * 32 : shutting-down
+ *   32 : shutting-down 
    
    
- * 48 : terminated
+ *   48 : terminated 
    
    
- * 64 : stopping
+ *   64 : stopping 
    
    
- * 80 : stopped **/
+ *   80 : stopped **/
         Code?: Integer;
         /** The current state of the instance. **/
         Name?: InstanceStateName;
@@ -9847,15 +9845,15 @@ following text: [Completed]. **/
         State?: AttachmentStatus;
     }
     export interface IpPermission {
-        /** The IP protocol name ( tcp , udp , icmp ) or number (see Protocol Numbers
-[http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] ).
+        /** The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers
+[http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml]). 
 
 [EC2-VPC only] Use -1 to specify all protocols. When authorizing security group
-rules, specifying -1 or a protocol number other than tcp , udp , icmp , or 58 
+rules, specifying -1 or a protocol number other than tcp, udp, icmp, or 58 
 (ICMPv6) allows traffic on all ports, regardless of any port range you specify.
-For tcp , udp , and icmp , you must specify a port range. For 58 (ICMPv6), you
-can optionally specify a port range; if you don&#x27;t, traffic for all types and
-codes is allowed when authorizing rules. **/
+For tcp, udp, and icmp, you must specify a port range. For 58 (ICMPv6), you can
+optionally specify a port range; if you don&#x27;t, traffic for all types and codes
+is allowed when authorizing rules. **/
         IpProtocol?: String;
         /** The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type
 number. A value of -1 indicates all ICMP/ICMPv6 types. **/
@@ -9869,7 +9867,7 @@ value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. **/
         IpRanges?: IpRangeList;
         /** [EC2-VPC only] One or more IPv6 ranges. **/
         Ipv6Ranges?: Ipv6RangeList;
-        /** (Valid for AuthorizeSecurityGroupEgress , RevokeSecurityGroupEgress and 
+        /** (Valid for AuthorizeSecurityGroupEgress, RevokeSecurityGroupEgress and 
 DescribeSecurityGroups only) One or more prefix list IDs for an AWS service. In
 an AuthorizeSecurityGroupEgress request, this is the AWS service that you want
 to access through a VPC endpoint from instances associated with the security
@@ -9996,8 +9994,8 @@ user of the account. **/
     export interface ModifyImageAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the AMI. **/
         ImageId: String;
@@ -10025,48 +10023,47 @@ description attribute. **/
     export interface ModifyInstanceAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the instance. **/
         InstanceId: String;
         /** The name of the attribute. **/
         Attribute?: InstanceAttributeName;
-        /** A new value for the attribute. Use only with the kernel , ramdisk , userData , 
-disableApiTermination , or instanceInitiatedShutdownBehavior attribute. **/
+        /** A new value for the attribute. Use only with the kernel, ramdisk, userData, 
+disableApiTermination, or instanceInitiatedShutdownBehavior attribute. **/
         Value?: String;
         /** Modifies the DeleteOnTermination attribute for volumes that are currently
 attached. The volume must be owned by the caller. If no value is specified for 
-DeleteOnTermination , the default is true and the volume is deleted when the
+DeleteOnTermination, the default is true and the volume is deleted when the
 instance is terminated.
 
 To add instance store volumes to an Amazon EBS-backed instance, you must add
 them when you launch the instance. For more information, see Updating the Block
 Device Mapping when Launching an Instance
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM] 
-in the Amazon Elastic Compute Cloud User Guide . **/
+in the Amazon Elastic Compute Cloud User Guide. **/
         BlockDeviceMappings?: InstanceBlockDeviceMappingSpecificationList;
         /** Specifies whether source/destination checking is enabled. A value of true means
 that checking is enabled, and false means checking is disabled. This value must
 be false for a NAT instance to perform NAT. **/
         SourceDestCheck?: AttributeBooleanValue;
-        /** If the value is true , you can&#x27;t terminate the instance using the Amazon EC2
+        /** If the value is true, you can&#x27;t terminate the instance using the Amazon EC2
 console, CLI, or API; otherwise, you can. You cannot use this paramater for Spot
 Instances. **/
         DisableApiTermination?: AttributeBooleanValue;
         /** Changes the instance type to the specified value. For more information, see 
 Instance Types
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html] . If
-the instance type is not valid, the error returned is 
-InvalidInstanceAttributeValue . **/
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html]. If the
+instance type is not valid, the error returned is InvalidInstanceAttributeValue. **/
         InstanceType?: AttributeValue;
         /** Changes the instance&#x27;s kernel to the specified value. We recommend that you use
 PV-GRUB instead of kernels and RAM disks. For more information, see PV-GRUB
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html] . **/
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html]. **/
         Kernel?: AttributeValue;
         /** Changes the instance&#x27;s RAM disk to the specified value. We recommend that you
 use PV-GRUB instead of kernels and RAM disks. For more information, see PV-GRUB
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html] . **/
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html]. **/
         Ramdisk?: AttributeValue;
         /** Changes the instance&#x27;s user data to the specified value. If you are using an AWS
 SDK or command line tool, Base64-encoding is performed for you, and you can load
@@ -10117,8 +10114,8 @@ PV instance can make it unreachable. **/
     export interface ModifyNetworkInterfaceAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the network interface. **/
         NetworkInterfaceId: String;
@@ -10128,7 +10125,7 @@ UnauthorizedOperation . **/
 checking is enabled, and false means checking is disabled. This value must be 
 false for a NAT instance to perform NAT. For more information, see NAT Instances
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html] in
-the Amazon Virtual Private Cloud User Guide . **/
+the Amazon Virtual Private Cloud User Guide. **/
         SourceDestCheck?: AttributeBooleanValue;
         /** Changes the security groups for the network interface. The new set of groups you
 specify replaces the current set. You must specify at least one group, even if
@@ -10142,7 +10139,7 @@ termination&#x27; attribute, you must specify the ID of the interface attachment
     export interface ModifyReservedInstancesRequest {
         /** A unique, case-sensitive token you provide to ensure idempotency of your
 modification request. For more information, see Ensuring Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 . **/
         ClientToken?: String;
         /** The IDs of the Reserved Instances to modify. **/
@@ -10157,8 +10154,8 @@ modification request. For more information, see Ensuring Idempotency
     export interface ModifySnapshotAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the snapshot. **/
         SnapshotId: String;
@@ -10200,7 +10197,7 @@ therefore receives a public IPv4 address). **/
         /** Specify true to indicate that network interfaces created in the specified subnet
 should be assigned an IPv6 address. This includes a network interface that&#x27;s
 created when launching an instance into the subnet (the instance therefore
-receives an IPv6 address).
+receives an IPv6 address). 
 
 If you enable the IPv6 addressing feature for your subnet, your network
 interface or instance only receives an IPv6 address if it&#x27;s created using
@@ -10210,8 +10207,8 @@ version 2016-11-15 or later of the Amazon EC2 API. **/
     export interface ModifyVolumeAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the volume. **/
         VolumeId: String;
@@ -10241,8 +10238,8 @@ hostnames if you&#x27;ve enabled DNS support. **/
     export interface ModifyVpcEndpointRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the endpoint. **/
         VpcEndpointId: String;
@@ -10264,8 +10261,8 @@ format. **/
     export interface ModifyVpcPeeringConnectionOptionsRequest {
         /** Checks whether you have the required permissions for the operation, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC peering connection. **/
         VpcPeeringConnectionId: String;
@@ -10283,8 +10280,8 @@ UnauthorizedOperation . **/
     export interface MonitorInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more instance IDs. **/
         InstanceIds: InstanceIdStringList;
@@ -10301,8 +10298,8 @@ enabled. **/
     export interface MoveAddressToVpcRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The Elastic IP address. **/
         PublicIp: String;
@@ -10336,61 +10333,61 @@ gateway. **/
         NatGatewayAddresses?: NatGatewayAddressList;
         /** The state of the NAT gateway.
 
- &amp;#42; pending : The NAT gateway is being created and is not ready to process
+ &amp;#42;   pending: The NAT gateway is being created and is not ready to process
    traffic.
    
    
- * failed : The NAT gateway could not be created. Check the failureCode and 
+ *   failed: The NAT gateway could not be created. Check the failureCode and 
    failureMessage fields for the reason.
    
    
- * available : The NAT gateway is able to process traffic. This status remains
+ *   available: The NAT gateway is able to process traffic. This status remains
    until you delete the NAT gateway, and does not indicate the health of the NAT
    gateway.
    
    
- * deleting : The NAT gateway is in the process of being terminated and may
+ *   deleting: The NAT gateway is in the process of being terminated and may
    still be processing traffic.
    
    
- * deleted : The NAT gateway has been terminated and is no longer processing
+ *   deleted: The NAT gateway has been terminated and is no longer processing
    traffic. **/
         State?: NatGatewayState;
         /** If the NAT gateway could not be created, specifies the error code for the
-failure. ( InsufficientFreeAddressesInSubnet | Gateway.NotAttached | 
+failure. (InsufficientFreeAddressesInSubnet | Gateway.NotAttached | 
 InvalidAllocationID.NotFound | Resource.AlreadyAssociated | InternalError | 
-InvalidSubnetID.NotFound ) **/
+InvalidSubnetID.NotFound) **/
         FailureCode?: String;
         /** If the NAT gateway could not be created, specifies the error message for the
 failure, that corresponds to the error code.
 
- &amp;#42; For InsufficientFreeAddressesInSubnet: &quot;Subnet has insufficient free
+ &amp;#42;  For InsufficientFreeAddressesInSubnet: &quot;Subnet has insufficient free
    addresses to create this NAT gateway&quot;
    
    
- * For Gateway.NotAttached: &quot;Network vpc-xxxxxxxx has no Internet gateway
+ *  For Gateway.NotAttached: &quot;Network vpc-xxxxxxxx has no Internet gateway
    attached&quot;
    
    
- * For InvalidAllocationID.NotFound: &quot;Elastic IP address eipalloc-xxxxxxxx could
-   not be associated with this NAT gateway&quot;
+ *  For InvalidAllocationID.NotFound: &quot;Elastic IP address eipalloc-xxxxxxxx
+   could not be associated with this NAT gateway&quot;
    
    
- * For Resource.AlreadyAssociated: &quot;Elastic IP address eipalloc-xxxxxxxx is
+ *  For Resource.AlreadyAssociated: &quot;Elastic IP address eipalloc-xxxxxxxx is
    already associated&quot;
    
    
- * For InternalError: &quot;Network interface eni-xxxxxxxx, created and used
+ *  For InternalError: &quot;Network interface eni-xxxxxxxx, created and used
    internally by this NAT gateway is in an invalid state. Please try again.&quot;
    
    
- * For InvalidSubnetID.NotFound: &quot;The specified subnet subnet-xxxxxxxx does not
+ *  For InvalidSubnetID.NotFound: &quot;The specified subnet subnet-xxxxxxxx does not
    exist or could not be found.&quot; **/
         FailureMessage?: String;
         /** Reserved. If you need to sustain traffic greater than the documented limits
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html],
 contact us through the Support Center
-[https://console.aws.amazon.com/support/home?] . **/
+[https://console.aws.amazon.com/support/home?]. **/
         ProvisionedBandwidth?: ProvisionedBandwidth;
     }
     export interface NatGatewayAddress {
@@ -10618,7 +10615,7 @@ to the last month before the capacity reservation expires. **/
         /** The fixed price for the term. **/
         Price?: Double;
         /** The currency for transacting the Reserved Instance resale. At this time, the
-only supported currency is USD . **/
+only supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
         /** The current price schedule, as determined by the term remaining for the Reserved
 Instance in the listing.
@@ -10639,7 +10636,7 @@ to the last month before the capacity reservation expires. **/
         /** The fixed price for the term. **/
         Price?: Double;
         /** The currency for transacting the Reserved Instance resale. At this time, the
-only supported currency is USD . **/
+only supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
     }
     export interface PricingDetail {
@@ -10667,29 +10664,29 @@ Only one IPv4 address can be designated as primary. **/
     }
     export interface ProvisionedBandwidth {
         /** Reserved. If you need to sustain traffic greater than the documented limits
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html],
 contact us through the Support Center
-[https://console.aws.amazon.com/support/home?] . **/
+[https://console.aws.amazon.com/support/home?]. **/
         Provisioned?: String;
         /** Reserved. If you need to sustain traffic greater than the documented limits
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html],
 contact us through the Support Center
-[https://console.aws.amazon.com/support/home?] . **/
+[https://console.aws.amazon.com/support/home?]. **/
         Requested?: String;
         /** Reserved. If you need to sustain traffic greater than the documented limits
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html],
 contact us through the Support Center
-[https://console.aws.amazon.com/support/home?] . **/
+[https://console.aws.amazon.com/support/home?]. **/
         RequestTime?: DateTime;
         /** Reserved. If you need to sustain traffic greater than the documented limits
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html],
 contact us through the Support Center
-[https://console.aws.amazon.com/support/home?] . **/
+[https://console.aws.amazon.com/support/home?]. **/
         ProvisionTime?: DateTime;
         /** Reserved. If you need to sustain traffic greater than the documented limits
-[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html],
 contact us through the Support Center
-[https://console.aws.amazon.com/support/home?] . **/
+[https://console.aws.amazon.com/support/home?]. **/
         Status?: String;
     }
     export interface Purchase {
@@ -10707,7 +10704,7 @@ with. **/
         /** The hourly price of the reservation per hour. **/
         HourlyPrice?: String;
         /** The currency in which the UpfrontPrice and HourlyPrice amounts are specified. At
-this time, the only supported currency is USD . **/
+this time, the only supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
         /** The duration of the reservation&#x27;s term in seconds. **/
         Duration?: Integer;
@@ -10721,16 +10718,16 @@ this time, the only supported currency is USD . **/
 (calculated as the offering&#x27;s upfront cost multiplied by the host count). If the
 total upfront cost is greater than the specified price limit, the request will
 fail. This is used to ensure that the purchase does not exceed the expected
-upfront cost of the purchase. At this time, the only supported currency is USD .
+upfront cost of the purchase. At this time, the only supported currency is USD.
 For example, to indicate a limit price of USD 100, specify 100.00. **/
         LimitPrice?: String;
-        /** The currency in which the totalUpfrontPrice , LimitPrice , and totalHourlyPrice 
-amounts are specified. At this time, the only supported currency is USD . **/
+        /** The currency in which the totalUpfrontPrice, LimitPrice, and totalHourlyPrice 
+amounts are specified. At this time, the only supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
         /** Unique, case-sensitive identifier you provide to ensure idempotency of the
 request. For more information, see How to Ensure Idempotency
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
-in the Amazon Elastic Compute Cloud User Guide . **/
+in the Amazon Elastic Compute Cloud User Guide. **/
         ClientToken?: String;
     }
     export interface PurchaseHostReservationResult {
@@ -10742,7 +10739,7 @@ reservation. **/
         /** The total hourly price of the reservation calculated per hour. **/
         TotalHourlyPrice?: String;
         /** The currency in which the totalUpfrontPrice and totalHourlyPrice amounts are
-specified. At this time, the only supported currency is USD . **/
+specified. At this time, the only supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
         /** Unique, case-sensitive identifier you provide to ensure idempotency of the
 request. For more information, see How to Ensure Idempotency
@@ -10759,8 +10756,8 @@ in the Amazon Elastic Compute Cloud User Guide **/
     export interface PurchaseReservedInstancesOfferingRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the Reserved Instance offering to purchase. **/
         ReservedInstancesOfferingId: String;
@@ -10777,12 +10774,12 @@ and ensure that the Reserved Instances are not purchased at unexpected prices. *
     export interface PurchaseScheduledInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** Unique, case-sensitive identifier that ensures the idempotency of the request.
 For more information, see Ensuring Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 . **/
         ClientToken?: String;
         /** One or more purchase requests. **/
@@ -10795,8 +10792,8 @@ For more information, see Ensuring Idempotency
     export interface RebootInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more instance IDs. **/
         InstanceIds: InstanceIdStringList;
@@ -10816,8 +10813,8 @@ UnauthorizedOperation . **/
     export interface RegisterImageRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The full path to your AMI manifest in Amazon S3 storage. **/
         ImageLocation?: String;
@@ -10831,14 +10828,14 @@ at-signs (@), or underscores(_) **/
         Description?: String;
         /** The architecture of the AMI.
 
-Default: For Amazon EBS-backed AMIs, i386 . For instance store-backed AMIs, the
+Default: For Amazon EBS-backed AMIs, i386. For instance store-backed AMIs, the
 architecture specified in the manifest file. **/
         Architecture?: ArchitectureValues;
         /** The ID of the kernel. **/
         KernelId?: String;
         /** The ID of the RAM disk. **/
         RamdiskId?: String;
-        /** The name of the root device (for example, /dev/sda1 , or /dev/xvda ). **/
+        /** The name of the root device (for example, /dev/sda1, or /dev/xvda). **/
         RootDeviceName?: String;
         /** One or more block device mapping entries. **/
         BlockDeviceMappings?: BlockDeviceMappingRequestList;
@@ -10868,8 +10865,8 @@ can make instances launched from the AMI unreachable. **/
     export interface RejectVpcPeeringConnectionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the VPC peering connection. **/
         VpcPeeringConnectionId: String;
@@ -10881,8 +10878,8 @@ UnauthorizedOperation . **/
     export interface ReleaseAddressRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** [EC2-Classic] The Elastic IP address. Required for EC2-Classic. **/
         PublicIp?: String;
@@ -10903,8 +10900,8 @@ message. **/
     export interface ReplaceNetworkAclAssociationRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the current association between the original network ACL and the
 subnet. **/
@@ -10919,17 +10916,17 @@ subnet. **/
     export interface ReplaceNetworkAclEntryRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the ACL. **/
         NetworkAclId: String;
         /** The rule number of the entry to replace. **/
         RuleNumber: Integer;
         /** The IP protocol. You can specify all or -1 to mean all protocols. If you specify 
-all , -1 , or a protocol number other than tcp , udp , or icmp , traffic on all
-ports is allowed, regardless of any ports or ICMP types or codes you specify. If
-you specify protocol 58 (ICMPv6) and specify an IPv4 CIDR block, traffic for all
+all, -1, or a protocol number other than tcp, udp, or icmp, traffic on all ports
+is allowed, regardless of any ports or ICMP types or codes you specify. If you
+specify protocol 58 (ICMPv6) and specify an IPv4 CIDR block, traffic for all
 ICMP types and codes allowed, regardless of any that you specify. If you specify
 protocol 58 (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP
 type and code. **/
@@ -10941,10 +10938,10 @@ type and code. **/
 Default: If no value is specified, we replace the ingress rule. **/
         Egress: Boolean;
         /** The IPv4 network range to allow or deny, in CIDR notation (for example 
-172.16.0.0/24 ). **/
+172.16.0.0/24). **/
         CidrBlock?: String;
         /** The IPv6 network range to allow or deny, in CIDR notation (for example 
-2001:bd8:1234:1a00::/64 ). **/
+2001:bd8:1234:1a00::/64). **/
         Ipv6CidrBlock?: String;
         /** ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP
 (1) protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block. **/
@@ -10956,8 +10953,8 @@ specifying TCP (6) or UDP (17) for the protocol. **/
     export interface ReplaceRouteRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the route table. **/
         RouteTableId: String;
@@ -10983,8 +10980,8 @@ provide must match the CIDR of an existing route in the table. **/
     export interface ReplaceRouteTableAssociationRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The association ID. **/
         AssociationId: String;
@@ -10998,8 +10995,8 @@ UnauthorizedOperation . **/
     export interface ReportInstanceStatusRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more instances. **/
         Instances: InstanceIdStringList;
@@ -11011,34 +11008,34 @@ UnauthorizedOperation . **/
         EndTime?: DateTime;
         /** One or more reason codes that describes the health state of your instance.
 
- &amp;#42; instance-stuck-in-state : My instance is stuck in a state.
+ &amp;#42;   instance-stuck-in-state: My instance is stuck in a state.
    
    
- * unresponsive : My instance is unresponsive.
+ *   unresponsive: My instance is unresponsive.
    
    
- * not-accepting-credentials : My instance is not accepting my credentials.
+ *   not-accepting-credentials: My instance is not accepting my credentials.
    
    
- * password-not-available : A password is not available for my instance.
+ *   password-not-available: A password is not available for my instance.
    
    
- * performance-network : My instance is experiencing performance problems which
+ *   performance-network: My instance is experiencing performance problems which
    I believe are network related.
    
    
- * performance-instance-store : My instance is experiencing performance problems
+ *   performance-instance-store: My instance is experiencing performance problems
    which I believe are related to the instance stores.
    
    
- * performance-ebs-volume : My instance is experiencing performance problems
+ *   performance-ebs-volume: My instance is experiencing performance problems
    which I believe are related to an EBS volume.
    
    
- * performance-other : My instance is experiencing performance problems.
+ *   performance-other: My instance is experiencing performance problems.
    
    
- * other : [explain using the description parameter] **/
+ *   other: [explain using the description parameter] **/
         ReasonCodes: ReasonCodesList;
         /** Descriptive text about the health state of your instance. **/
         Description?: String;
@@ -11046,8 +11043,8 @@ UnauthorizedOperation . **/
     export interface RequestSpotFleetRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The configuration for the Spot fleet request. **/
         SpotFleetRequestConfig: SpotFleetRequestConfigData;
@@ -11059,8 +11056,8 @@ UnauthorizedOperation . **/
     export interface RequestSpotInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The maximum hourly price (bid) for any Spot instance launched to fulfill the
 request. **/
@@ -11068,7 +11065,7 @@ request. **/
         /** Unique, case-sensitive identifier that you provide to ensure the idempotency of
 the request. For more information, see How to Ensure Idempotency
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
-in the Amazon Elastic Compute Cloud User Guide . **/
+in the Amazon Elastic Compute Cloud User Guide. **/
         ClientToken?: String;
         /** The maximum number of Spot instances to launch.
 
@@ -11204,7 +11201,7 @@ number of hours remaining). **/
 the total order (instanceCount &amp;#42; price). **/
         Amount?: Double;
         /** The currency in which the limitPrice amount is specified. At this time, the only
-supported currency is USD . **/
+supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
     }
     export interface ReservedInstanceReservationValue {
@@ -11241,7 +11238,7 @@ supported currency is USD . **/
         /** The tenancy of the instance. **/
         InstanceTenancy?: Tenancy;
         /** The currency of the Reserved Instance. It&#x27;s specified using ISO 4217 standard
-currency codes. At this time, the only supported currency is USD . **/
+currency codes. At this time, the only supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
         /** The Reserved Instance offering type. **/
         OfferingType?: OfferingTypeValues;
@@ -11292,7 +11289,7 @@ can be blank. **/
         Tags?: TagList;
         /** A unique, case-sensitive key supplied by the client to ensure that the request
 is idempotent. For more information, see Ensuring Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 . **/
         ClientToken?: String;
     }
@@ -11316,7 +11313,7 @@ Instance IDs. **/
         StatusMessage?: String;
         /** A unique, case-sensitive key supplied by the client to ensure that the request
 is idempotent. For more information, see Ensuring Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 . **/
         ClientToken?: String;
     }
@@ -11348,7 +11345,7 @@ GetReservedInstancesExchangeQuote to confirm that an exchange can be made. **/
         InstanceTenancy?: Tenancy;
         /** The currency of the Reserved Instance offering you are purchasing. It&#x27;s
 specified using ISO 4217 standard currency codes. At this time, the only
-supported currency is USD . **/
+supported currency is USD. **/
         CurrencyCode?: CurrencyCodeValues;
         /** The Reserved Instance offering type. **/
         OfferingType?: OfferingTypeValues;
@@ -11356,12 +11353,12 @@ supported currency is USD . **/
         RecurringCharges?: RecurringChargesList;
         /** Indicates whether the offering is available through the Reserved Instance
 Marketplace (resale) or AWS. If it&#x27;s a Reserved Instance Marketplace offering,
-this is true . **/
+this is true. **/
         Marketplace?: Boolean;
         /** The pricing details of the Reserved Instance offering. **/
         PricingDetails?: PricingDetailsList;
         /** If convertible it can be exchanged for Reserved Instances of the same or higher
-monetary value, with different configurations. If standard , it is not possible
+monetary value, with different configurations. If standard, it is not possible
 to perform an exchange. **/
         OfferingClass?: OfferingClassType;
         /** Whether the Reserved Instance is applied to instances in a region or an
@@ -11371,8 +11368,8 @@ Availability Zone. **/
     export interface ResetImageAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the AMI. **/
         ImageId: String;
@@ -11383,33 +11380,33 @@ attribute). **/
     export interface ResetInstanceAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the instance. **/
         InstanceId: String;
         /** The attribute to reset.
 
-You can only reset the following attributes: kernel | ramdisk | sourceDestCheck 
-. To change an instance attribute, use ModifyInstanceAttribute . **/
+You can only reset the following attributes: kernel | ramdisk | sourceDestCheck.
+To change an instance attribute, use ModifyInstanceAttribute. **/
         Attribute: InstanceAttributeName;
     }
     export interface ResetNetworkInterfaceAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the network interface. **/
         NetworkInterfaceId: String;
-        /** The source/destination checking attribute. Resets the value to true . **/
+        /** The source/destination checking attribute. Resets the value to true. **/
         SourceDestCheck?: String;
     }
     export interface ResetSnapshotAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the snapshot. **/
         SnapshotId: String;
@@ -11420,8 +11417,8 @@ volumes can be reset. **/
     export interface RestoreAddressToClassicRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The Elastic IP address. **/
         PublicIp: String;
@@ -11435,8 +11432,8 @@ UnauthorizedOperation . **/
     export interface RevokeSecurityGroupEgressRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** The ID of the security group. **/
         GroupId: String;
@@ -11467,8 +11464,8 @@ CIDR IP address range. **/
     export interface RevokeSecurityGroupIngressRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** [EC2-Classic, default VPC] The name of the security group. **/
         GroupName?: String;
@@ -11488,8 +11485,8 @@ protocol, the start of the port range, and the end of the port range. To revoke
 a specific rule for an IP protocol and port range, use a set of IP permissions
 instead. **/
         SourceSecurityGroupOwnerId?: String;
-        /** The IP protocol name ( tcp , udp , icmp ) or number (see Protocol Numbers
-[http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] ). Use 
+        /** The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers
+[http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml]). Use 
 -1 to specify all. **/
         IpProtocol?: String;
         /** The start of port range for the TCP and UDP protocols, or an ICMP type number.
@@ -11528,14 +11525,14 @@ or the specified NAT instance has been terminated). **/
         State?: RouteState;
         /** Describes how the route was created.
 
- &amp;#42; CreateRouteTable - The route was automatically created when the route table
+ &amp;#42;   CreateRouteTable - The route was automatically created when the route table
    was created.
    
    
- * CreateRoute - The route was manually added to the route table.
+ *   CreateRoute - The route was manually added to the route table.
    
    
- * EnableVgwRoutePropagation - The route was propagated by route propagation. **/
+ *   EnableVgwRoutePropagation - The route was propagated by route propagation. **/
         Origin?: RouteOrigin;
         /** The IPv6 CIDR block used for the destination match. **/
         DestinationIpv6CidrBlock?: String;
@@ -11574,10 +11571,10 @@ enabled. **/
     export interface RunInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
-        /** The ID of the AMI, which you can get by calling DescribeImages . **/
+        /** The ID of the AMI, which you can get by calling DescribeImages. **/
         ImageId: String;
         /** The minimum number of instances to launch. If you specify a minimum that is more
 instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
@@ -11591,7 +11588,7 @@ the Amazon EC2 General FAQ. **/
         MinCount: Integer;
         /** The maximum number of instances to launch. If you specify more instances than
 Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the
-largest possible number of instances above MinCount .
+largest possible number of instances above MinCount.
 
 Constraints: Between 1 and the maximum number you&#x27;re allowed for the specified
 instance type. For more information about the default limits, and how to request
@@ -11600,7 +11597,7 @@ an increase, see How many instances can I run in Amazon EC2
 the Amazon EC2 FAQ. **/
         MaxCount: Integer;
         /** The name of the key pair. You can create a key pair using CreateKeyPair or 
-ImportKeyPair .
+ImportKeyPair.
 
 If you do not specify a key pair, you can&#x27;t connect to the instance unless you
 choose an AMI that is configured to allow users another way to log in. **/
@@ -11611,7 +11608,7 @@ VPC, you must use security group IDs instead.
 Default: Amazon EC2 uses the default security group. **/
         SecurityGroups?: SecurityGroupStringList;
         /** One or more security group IDs. You can create a security group using 
-CreateSecurityGroup .
+CreateSecurityGroup.
 
 Default: Amazon EC2 uses the default security group. **/
         SecurityGroupIds?: SecurityGroupIdStringList;
@@ -11626,7 +11623,7 @@ provide Base64-encoded text. **/
         UserData?: String;
         /** The instance type. For more information, see Instance Types
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 Default: m1.small **/
         InstanceType?: InstanceType;
@@ -11637,14 +11634,14 @@ Default: m1.small **/
 We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
 information, see PV-GRUB
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html] in
-the Amazon Elastic Compute Cloud User Guide . **/
+the Amazon Elastic Compute Cloud User Guide. **/
         KernelId?: String;
         /** The ID of the RAM disk.
 
 We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
 information, see PV-GRUB
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html] in
-the Amazon Elastic Compute Cloud User Guide . **/
+the Amazon Elastic Compute Cloud User Guide. **/
         RamdiskId?: String;
         /** The block device mapping.
 
@@ -11658,10 +11655,10 @@ status cannot be changed using this action. **/
         Monitoring?: RunInstancesMonitoringEnabled;
         /** [EC2-VPC] The ID of the subnet to launch the instance into. **/
         SubnetId?: String;
-        /** If you set this parameter to true , you can&#x27;t terminate the instance using the
+        /** If you set this parameter to true, you can&#x27;t terminate the instance using the
 Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to 
-false after launch, use ModifyInstanceAttribute . Alternatively, if you set 
-InstanceInitiatedShutdownBehavior to terminate , you can terminate the instance
+false after launch, use ModifyInstanceAttribute. Alternatively, if you set 
+InstanceInitiatedShutdownBehavior to terminate, you can terminate the instance
 by running the shutdown command from the instance.
 
 Default: false **/
@@ -11692,7 +11689,7 @@ number of instances to launch. **/
         Ipv6AddressCount?: Integer;
         /** Unique, case-sensitive identifier you provide to ensure the idempotency of the
 request. For more information, see Ensuring Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 .
 
 Constraints: Maximum 64 ASCII characters **/
@@ -11715,12 +11712,12 @@ Default: false **/
     export interface RunScheduledInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** Unique, case-sensitive identifier that ensures the idempotency of the request.
 For more information, see Ensuring Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 . **/
         ClientToken?: String;
         /** The number of instances.
@@ -11747,7 +11744,7 @@ bucket that belongs to someone else, Amazon EC2 returns an error. **/
         /** The access key ID of the owner of the bucket. Before you specify a value for
 your access key ID, review and follow the guidance in Best Practices for
 Managing AWS Access Keys
-[http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html] 
+[http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html]
 . **/
         AWSAccessKeyId?: String;
         /** An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into
@@ -11761,9 +11758,9 @@ Amazon S3 on your behalf. **/
         ScheduledInstanceId?: String;
         /** The instance type. **/
         InstanceType?: String;
-        /** The platform ( Linux/UNIX or Windows ). **/
+        /** The platform (Linux/UNIX or Windows). **/
         Platform?: String;
-        /** The network platform ( EC2-Classic or EC2-VPC ). **/
+        /** The network platform (EC2-Classic or EC2-VPC). **/
         NetworkPlatform?: String;
         /** The Availability Zone. **/
         AvailabilityZone?: String;
@@ -11791,9 +11788,9 @@ Amazon S3 on your behalf. **/
     export interface ScheduledInstanceAvailability {
         /** The instance type. You can specify one of the C3, C4, M4, or R3 instance types. **/
         InstanceType?: String;
-        /** The platform ( Linux/UNIX or Windows ). **/
+        /** The platform (Linux/UNIX or Windows). **/
         Platform?: String;
-        /** The network platform ( EC2-Classic or EC2-VPC ). **/
+        /** The network platform (EC2-Classic or EC2-VPC). **/
         NetworkPlatform?: String;
         /** The Availability Zone. **/
         AvailabilityZone?: String;
@@ -11817,9 +11814,9 @@ Amazon S3 on your behalf. **/
         MaxTermDurationInDays?: Integer;
     }
     export interface ScheduledInstanceRecurrence {
-        /** The frequency ( Daily , Weekly , or Monthly ). **/
+        /** The frequency (Daily, Weekly, or Monthly). **/
         Frequency?: String;
-        /** The interval quantity. The interval unit depends on the value of frequency . For
+        /** The interval quantity. The interval unit depends on the value of frequency. For
 example, every 2 weeks or every 2 months. **/
         Interval?: Integer;
         /** The days. For a monthly schedule, this is one or more days of the month (1-31).
@@ -11829,13 +11826,13 @@ Sunday). **/
         /** Indicates whether the occurrence is relative to the end of the specified week or
 month. **/
         OccurrenceRelativeToEnd?: Boolean;
-        /** The unit for occurrenceDaySet ( DayOfWeek or DayOfMonth ). **/
+        /** The unit for occurrenceDaySet (DayOfWeek or DayOfMonth). **/
         OccurrenceUnit?: String;
     }
     export interface ScheduledInstanceRecurrenceRequest {
-        /** The frequency ( Daily , Weekly , or Monthly ). **/
+        /** The frequency (Daily, Weekly, or Monthly). **/
         Frequency?: String;
-        /** The interval quantity. The interval unit depends on the value of Frequency . For
+        /** The interval quantity. The interval unit depends on the value of Frequency. For
 example, every 2 weeks or every 2 months. **/
         Interval?: Integer;
         /** The days. For a monthly schedule, this is one or more days of the month (1-31).
@@ -11846,19 +11843,19 @@ is relative to the end of the month, you can specify only a single day. **/
         /** Indicates whether the occurrence is relative to the end of the specified week or
 month. You can&#x27;t specify this value with a daily schedule. **/
         OccurrenceRelativeToEnd?: Boolean;
-        /** The unit for OccurrenceDays ( DayOfWeek or DayOfMonth ). This value is required
+        /** The unit for OccurrenceDays (DayOfWeek or DayOfMonth). This value is required
 for a monthly schedule. You can&#x27;t specify DayOfWeek with a weekly schedule. You
 can&#x27;t specify this value with a daily schedule. **/
         OccurrenceUnit?: String;
     }
     export interface ScheduledInstancesBlockDeviceMapping {
-        /** The device name exposed to the instance (for example, /dev/sdh or xvdh ). **/
+        /** The device name exposed to the instance (for example, /dev/sdh or xvdh). **/
         DeviceName?: String;
         /** Suppresses the specified device included in the block device mapping of the AMI. **/
         NoDevice?: String;
-        /** The virtual device name ( ephemeral N). Instance store volumes are numbered
+        /** The virtual device name (ephemeralN). Instance store volumes are numbered
 starting from 0. An instance type with two available instance store volumes can
-specify mappings for ephemeral0 and ephemeral1 .The number of available instance
+specify mappings for ephemeral0 and ephemeral1.The number of available instance
 store volumes depends on the instance type. After you connect to the instance,
 you must mount the volume.
 
@@ -11881,7 +11878,7 @@ volume size, the default is the snapshot size. **/
         /** Indicates whether the volume is deleted on instance termination. **/
         DeleteOnTermination?: Boolean;
         /** The volume type. gp2 for General Purpose SSD, io1 for Provisioned IOPS SSD,
-Throughput Optimized HDD for st1 , Cold HDD for sc1 , or standard for Magnetic.
+Throughput Optimized HDD for st1, Cold HDD for sc1, or standard for Magnetic.
 
 Default: standard **/
         VolumeType?: String;
@@ -11892,13 +11889,13 @@ rate at which the volume accumulates I/O credits for bursting. For more
 information about gp2 baseline performance, I/O credits, and bursting, see 
 Amazon EBS Volume Types
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 
 volumes.
 
-Condition: This parameter is required for requests to create io1 volumes; it is
-not used in requests to create gp2 , st1 , sc1 , or standard volumes. **/
+Condition: This parameter is required for requests to create io1volumes; it is
+not used in requests to create gp2, st1, sc1, or standard volumes. **/
         Iops?: Integer;
         /** Indicates whether the volume is encrypted. You can attached encrypted volumes
 only to instances that support them. **/
@@ -11973,7 +11970,7 @@ Default: false **/
 VPC. The public IPv4 address can only be assigned to a network interface for
 eth0, and can only be assigned to a new network interface, not an existing one.
 You cannot specify more than one network interface in the request. If launching
-into a default subnet, the default value is true . **/
+into a default subnet, the default value is true. **/
         AssociatePublicIpAddress?: Boolean;
         /** The IDs of one or more security groups. **/
         Groups?: ScheduledInstancesSecurityGroupIdSet;
@@ -12064,7 +12061,7 @@ DescribeSnapshots API operation. **/
         Description?: String;
         /** The size of the volume, in GiB. **/
         VolumeSize?: Integer;
-        /** Value from an Amazon-maintained list ( amazon | aws-marketplace | microsoft ) of
+        /** Value from an Amazon-maintained list (amazon | aws-marketplace | microsoft) of
 snapshot owners. Not to be confused with the user-configured AWS account alias,
 which is set from the IAM console. **/
         OwnerAlias?: String;
@@ -12205,7 +12202,7 @@ the default is 1. **/
         /** The bid price per unit hour for the specified instance type. If this value is
 not specified, the default is the Spot bid price specified for the fleet. To
 determine the bid price per unit hour, divide the Spot bid price by the value of 
-WeightedCapacity . **/
+WeightedCapacity. **/
         SpotPrice?: String;
     }
     export interface SpotFleetMonitoring {
@@ -12224,9 +12221,9 @@ Default: false **/
         /** The creation date and time of the request. **/
         CreateTime: DateTime;
         /** The progress of the Spot fleet request. If there is an error, the status is 
-error . After all bids are placed, the status is pending_fulfillment . If the
-size of the fleet is equal to or greater than its target capacity, the status is 
-fulfilled . If the size of the fleet is decreased, the status is 
+error. After all bids are placed, the status is pending_fulfillment. If the size
+of the fleet is equal to or greater than its target capacity, the status is 
+fulfilled. If the size of the fleet is decreased, the status is 
 pending_termination while Spot instances are terminating. **/
         ActivityStatus?: ActivityStatus;
     }
@@ -12234,7 +12231,7 @@ pending_termination while Spot instances are terminating. **/
         /** A unique, case-sensitive identifier you provide to ensure idempotency of your
 listings. This helps avoid duplicate listings. For more information, see 
 Ensuring Idempotency
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html] 
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html]
 . **/
         ClientToken?: String;
         /** The bid price per unit hour. **/
@@ -12243,20 +12240,19 @@ Ensuring Idempotency
 terms of instances or a performance characteristic that is important to your
 application workload, such as vCPUs, memory, or I/O. **/
         TargetCapacity: Integer;
-        /** The start date and time of the request, in UTC format (for example, YYYY - MM - 
-DD T HH : MM : SS Z). The default is to start fulfilling the request
-immediately. **/
+        /** The start date and time of the request, in UTC format (for example, YYYY-MM-DDT
+HH:MM:SSZ). The default is to start fulfilling the request immediately. **/
         ValidFrom?: DateTime;
-        /** The end date and time of the request, in UTC format (for example, YYYY - MM - DD 
-T HH : MM : SS Z). At this point, no new Spot instance requests are placed or
-enabled to fulfill the request. **/
+        /** The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:
+MM:SSZ). At this point, no new Spot instance requests are placed or enabled to
+fulfill the request. **/
         ValidUntil?: DateTime;
         /** Indicates whether running Spot instances should be terminated when the Spot
 fleet request expires. **/
         TerminateInstancesWithExpiration?: Boolean;
         /** Grants the Spot fleet permission to terminate Spot instances on your behalf when
 you cancel its Spot fleet request using CancelSpotFleetRequests or when the Spot
-fleet request expires, if you set terminateInstancesWithExpiration . **/
+fleet request expires, if you set terminateInstancesWithExpiration. **/
         IamFleetRole: String;
         /** Information about the launch specifications for the Spot fleet request. **/
         LaunchSpecifications: LaunchSpecsList;
@@ -12265,7 +12261,7 @@ capacity of the Spot fleet request is decreased below the current size of the
 Spot fleet. **/
         ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy;
         /** Indicates how to allocate the target capacity across the Spot pools specified by
-the Spot fleet request. The default is lowestPrice . **/
+the Spot fleet request. The default is lowestPrice. **/
         AllocationStrategy?: AllocationStrategy;
         /** The number of units fulfilled by this request compared to the set target
 capacity. **/
@@ -12277,7 +12273,7 @@ replenish Spot instances if capacity is diminished, nor will it submit bids in
 alternative Spot pools if capacity is not available. When you want to maintain a
 certain target capacity, fleet will place the required bids to meet this target
 capacity. It will also automatically replenish any interrupted instances.
-Default: maintain . **/
+Default: maintain. **/
         Type?: FleetType;
         /** Indicates whether Spot fleet should replace unhealthy instances. **/
         ReplaceUnhealthyInstances?: Boolean;
@@ -12293,19 +12289,19 @@ request. **/
         /** The state of the Spot instance request. Spot bid status information can help you
 track your Spot instance requests. For more information, see Spot Bid Status
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html] in the 
-Amazon Elastic Compute Cloud User Guide . **/
+Amazon Elastic Compute Cloud User Guide. **/
         State?: SpotInstanceState;
         /** The fault codes for the Spot instance request, if any. **/
         Fault?: SpotInstanceStateFault;
         /** The status code and status message describing the Spot instance request. **/
         Status?: SpotInstanceStatus;
-        /** The start date of the request, in UTC format (for example, YYYY - MM - DD T HH : 
-MM : SS Z). The request becomes active at this date and time. **/
+        /** The start date of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SS
+Z). The request becomes active at this date and time. **/
         ValidFrom?: DateTime;
-        /** The end date of the request, in UTC format (for example, YYYY - MM - DD T HH : 
-MM : SS Z). If this is a one-time request, it remains active until all instances
-launch, the request is canceled, or this date is reached. If the request is
-persistent, it remains active until it is canceled or this date is reached. **/
+        /** The end date of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
+If this is a one-time request, it remains active until all instances launch, the
+request is canceled, or this date is reached. If the request is persistent, it
+remains active until it is canceled or this date is reached. **/
         ValidUntil?: DateTime;
         /** The instance launch group. Launch groups are Spot instances that launch together
 and terminate together. **/
@@ -12320,7 +12316,7 @@ Availability Zone. **/
 request. **/
         InstanceId?: String;
         /** The date and time when the Spot instance request was created, in UTC format (for
-example, YYYY - MM - DD T HH : MM : SS Z). **/
+example, YYYY-MM-DDTHH:MM:SSZ). **/
         CreateTime?: DateTime;
         /** The product description associated with the Spot instance. **/
         ProductDescription?: RIProductDescription;
@@ -12343,10 +12339,10 @@ is the fixed hourly price in effect for the Spot instance while it runs. **/
     export interface SpotInstanceStatus {
         /** The status code. For a list of status codes, see Spot Bid Status Codes
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand] 
-in the Amazon Elastic Compute Cloud User Guide . **/
+in the Amazon Elastic Compute Cloud User Guide. **/
         Code?: String;
         /** The date and time of the most recent status update, in UTC format (for example, 
-YYYY - MM - DD T HH : MM : SS Z). **/
+YYYY-MM-DDTHH:MM:SSZ). **/
         UpdateTime?: DateTime;
         /** The description for the status code. **/
         Message?: String;
@@ -12371,8 +12367,8 @@ not supported for Spot instances. **/
         ProductDescription?: RIProductDescription;
         /** The maximum price (bid) that you are willing to pay for a Spot instance. **/
         SpotPrice?: String;
-        /** The date and time the request was created, in UTC format (for example, YYYY - MM 
-- DD T HH : MM : SS Z). **/
+        /** The date and time the request was created, in UTC format (for example, YYYY-MM-
+DDTHH:MM:SSZ). **/
         Timestamp?: DateTime;
         /** The Availability Zone. **/
         AvailabilityZone?: String;
@@ -12381,9 +12377,8 @@ not supported for Spot instances. **/
         /** The start of the port range for the TCP and UDP protocols, or an ICMP type
 number. A value of -1 indicates all ICMP types. **/
         FromPort?: Integer;
-        /** The IP protocol name (for tcp , udp , and icmp ) or number (see Protocol
-Numbers)
-[http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] . **/
+        /** The IP protocol name (for tcp, udp, and icmp) or number (see Protocol Numbers)
+[http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml]. **/
         IpProtocol?: String;
         /** One or more IP ranges. Not applicable for stale security group rules. **/
         IpRanges?: IpRanges;
@@ -12418,8 +12413,8 @@ group and VPC, and the ID and status of the VPC peering connection. **/
         AdditionalInfo?: String;
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
     }
     export interface StartInstancesResult {
@@ -12431,42 +12426,42 @@ UnauthorizedOperation . **/
         Code?: String;
         /** The message for the state change.
 
- &amp;#42; Server.SpotInstanceTermination : A Spot instance was terminated due to an
+ &amp;#42;   Server.SpotInstanceTermination: A Spot instance was terminated due to an
    increase in the market price.
    
    
- * Server.InternalError : An internal error occurred during instance launch,
+ *   Server.InternalError: An internal error occurred during instance launch,
    resulting in termination.
    
    
- * Server.InsufficientInstanceCapacity : There was insufficient instance
+ *   Server.InsufficientInstanceCapacity: There was insufficient instance
    capacity to satisfy the launch request.
    
    
- * Client.InternalError : A client error caused the instance to terminate on
+ *   Client.InternalError: A client error caused the instance to terminate on
    launch.
    
    
- * Client.InstanceInitiatedShutdown : The instance was shut down using the 
+ *   Client.InstanceInitiatedShutdown: The instance was shut down using the 
    shutdown -h command from the instance.
    
    
- * Client.UserInitiatedShutdown : The instance was shut down using the Amazon
+ *   Client.UserInitiatedShutdown: The instance was shut down using the Amazon
    EC2 API.
    
    
- * Client.VolumeLimitExceeded : The limit on the number of EBS volumes or total
+ *   Client.VolumeLimitExceeded: The limit on the number of EBS volumes or total
    storage was exceeded. Decrease usage or request an increase in your limits.
    
    
- * Client.InvalidSnapshot.NotFound : The specified snapshot was not found. **/
+ *   Client.InvalidSnapshot.NotFound: The specified snapshot was not found. **/
         Message?: String;
     }
     export interface StopInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more instance IDs. **/
         InstanceIds: InstanceIdStringList;
@@ -12498,7 +12493,7 @@ Default: false **/
         /** Information about the IPv6 CIDR blocks associated with the subnet. **/
         Ipv6CidrBlockAssociationSet?: SubnetIpv6CidrBlockAssociationSet;
         /** Indicates whether a network interface created in this subnet (including a
-network interface created by RunInstances ) receives an IPv6 address. **/
+network interface created by RunInstances) receives an IPv6 address. **/
         AssignIpv6AddressOnCreation?: Boolean;
         /** The number of unused private IPv4 addresses in the subnet. Note that the IPv4
 addresses for any stopped instances are considered unavailable. **/
@@ -12540,7 +12535,7 @@ characters. **/
         Value?: String;
     }
     export interface TagDescription {
-        /** The ID of the resource. For example, ami-1a2b3c4d . **/
+        /** The ID of the resource. For example, ami-1a2b3c4d. **/
         ResourceId?: String;
         /** The resource type. **/
         ResourceType?: ResourceType;
@@ -12575,8 +12570,8 @@ upfront cost of the exchange. **/
     export interface TerminateInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more instance IDs.
 
@@ -12610,8 +12605,8 @@ can specify this option multiple times to unassign more than one IP address. **/
     export interface UnmonitorInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
-required permissions, the error response is DryRunOperation . Otherwise, it is 
-UnauthorizedOperation . **/
+required permissions, the error response is DryRunOperation. Otherwise, it is 
+UnauthorizedOperation. **/
         DryRun?: Boolean;
         /** One or more instance IDs. **/
         InstanceIds: InstanceIdStringList;
@@ -12711,13 +12706,13 @@ baseline performance of the volume and the rate at which the volume accumulates
 I/O credits for bursting. For more information on General Purpose SSD baseline
 performance, I/O credits, and bursting, see Amazon EBS Volume Types
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] in the 
-Amazon Elastic Compute Cloud User Guide .
+Amazon Elastic Compute Cloud User Guide.
 
 Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 
 volumes.
 
 Condition: This parameter is required for requests to create io1 volumes; it is
-not used in requests to create gp2 , st1 , sc1 , or standard volumes. **/
+not used in requests to create gp2, st1, sc1, or standard volumes. **/
         Iops?: Integer;
         /** Indicates whether the volume will be encrypted. **/
         Encrypted?: Boolean;
@@ -12744,7 +12739,7 @@ not used in requests to create gp2 , st1 , sc1 , or standard volumes. **/
         Size: Long;
     }
     export interface VolumeStatusAction {
-        /** The code identifying the operation, for example, enable-volume-io . **/
+        /** The code identifying the operation, for example, enable-volume-io. **/
         Code?: String;
         /** A description of the operation. **/
         Description?: String;

@@ -1213,13 +1213,13 @@ In your call to AdminCreateUser, you can set the email_verified attribute to
 True, and you can set the phone_number_verified attribute to True. (You cannot
 do this by calling other operations such as AdminUpdateUserAttributes.)
 
- &amp;#42; email : The email address of the user to whom the message that contains the
+ &amp;#42;   email: The email address of the user to whom the message that contains the
    code and username will be sent. Required if the email_verified attribute is
    set to True, or if &quot;EMAIL&quot; is specified in the DesiredDeliveryMediums
    parameter.
    
    
- * phone_number : The phone number of the user to whom the message that contains
+ *   phone_number: The phone number of the user to whom the message that contains
    the code and username will be sent. Required if the phone_number_verified
    attribute is set to True, or if &quot;SMS&quot; is specified in the
    DesiredDeliveryMediums parameter. **/
@@ -1348,19 +1348,19 @@ user. **/
         Enabled?: BooleanType;
         /** The user status. Can be one of the following:
 
- &amp;#42; UNCONFIRMED - User has been created but not confirmed.
+ &amp;#42;  UNCONFIRMED - User has been created but not confirmed.
    
    
- * CONFIRMED - User has been confirmed.
+ *  CONFIRMED - User has been confirmed.
    
    
- * ARCHIVED - User is no longer active.
+ *  ARCHIVED - User is no longer active.
    
    
- * COMPROMISED - User is disabled due to a potential security threat.
+ *  COMPROMISED - User is disabled due to a potential security threat.
    
    
- * UNKNOWN - User status is not known. **/
+ *  UNKNOWN - User status is not known. **/
         UserStatus?: UserStatusType;
         /** Specifies the options for MFA (e.g., email or phone number). **/
         MFAOptions?: MFAOptionListType;
@@ -1675,10 +1675,10 @@ client being created. **/
         Policies?: UserPoolPolicyType;
         /** The Lambda trigger configuration information for the new user pool. **/
         LambdaConfig?: LambdaConfigType;
-        /** The attributes to be auto-verified. Possible values: email , phone_number . **/
+        /** The attributes to be auto-verified. Possible values: email, phone_number. **/
         AutoVerifiedAttributes?: VerifiedAttributesListType;
         /** Attributes supported as an alias for this user pool. Possible values: 
-phone_number , email , or preferred_username . **/
+phone_number, email, or preferred_username. **/
         AliasAttributes?: AliasAttributesListType;
         /** A string representing the SMS verification message. **/
         SmsVerificationMessage?: SmsVerificationMessageType;
@@ -2335,7 +2335,7 @@ Lambda exception. **/
 cognito:preferred_role claims in the token. **/
         RoleArn?: ArnType;
         /** The new precedence value for the group. For more information about this
-parameter, see CreateGroupRequest [API_CreateGroupRequeste.html] . **/
+parameter, see CreateGroupRequest [API_CreateGroupRequeste.html]. **/
         Precedence?: PrecedenceType;
     }
     export interface UpdateGroupResponse {
@@ -2396,15 +2396,15 @@ makes a request to update user pools. **/
         SmsAuthenticationMessage?: SmsVerificationMessageType;
         /** Can be one of the following values:
 
- &amp;#42; OFF - MFA tokens are not required and cannot be specified during user
+ &amp;#42;   OFF - MFA tokens are not required and cannot be specified during user
    registration.
    
    
- * ON - MFA tokens are required for all user registrations. You can only specify
-   required when you are initially creating a user pool.
+ *   ON - MFA tokens are required for all user registrations. You can only
+   specify required when you are initially creating a user pool.
    
    
- * OPTIONAL - Users have the option when registering to create an MFA token. **/
+ *   OPTIONAL - Users have the option when registering to create an MFA token. **/
         MfaConfiguration?: UserPoolMfaType;
         /** Device configuration. **/
         DeviceConfiguration?: DeviceConfigurationType;
@@ -2442,30 +2442,30 @@ Cost Allocation Tags to Your User Pool
         CompletionDate?: DateType;
         /** The status of the user import job. One of the following:
 
- &amp;#42; Created - The job was created but not started.
+ &amp;#42;  Created - The job was created but not started.
    
    
- * Pending - A transition state. You have started the job, but it has not begun
+ *  Pending - A transition state. You have started the job, but it has not begun
    importing users yet.
    
    
- * InProgress - The job has started, and users are being imported.
+ *  InProgress - The job has started, and users are being imported.
    
    
- * Stopping - You have stopped the job, but the job has not stopped importing
+ *  Stopping - You have stopped the job, but the job has not stopped importing
    users yet.
    
    
- * Stopped - You have stopped the job, and the job has stopped importing users.
+ *  Stopped - You have stopped the job, and the job has stopped importing users.
    
    
- * Succeeded - The job has completed successfully.
+ *  Succeeded - The job has completed successfully.
    
    
- * Failed - The job has stopped due to an error.
+ *  Failed - The job has stopped due to an error.
    
    
- * Expired - You created a job, but did not start the job within 24-48 hours.
+ *  Expired - You created a job, but did not start the job within 24-48 hours.
    All data associated with the job was deleted, and the job cannot be started. **/
         Status?: UserImportJobStatusType;
         /** The role ARN for the Amazon CloudWatch Logging role for the user import job. For
@@ -2577,15 +2577,15 @@ client. **/
         SmsAuthenticationMessage?: SmsVerificationMessageType;
         /** Can be one of the following values:
 
- &amp;#42; OFF - MFA tokens are not required and cannot be specified during user
+ &amp;#42;   OFF - MFA tokens are not required and cannot be specified during user
    registration.
    
    
- * ON - MFA tokens are required for all user registrations. You can only specify
-   required when you are initially creating a user pool.
+ *   ON - MFA tokens are required for all user registrations. You can only
+   specify required when you are initially creating a user pool.
    
    
- * OPTIONAL - Users have the option when registering to create an MFA token. **/
+ *   OPTIONAL - Users have the option when registering to create an MFA token. **/
         MfaConfiguration?: UserPoolMfaType;
         /** The device configuration. **/
         DeviceConfiguration?: DeviceConfigurationType;
@@ -2619,19 +2619,19 @@ Cost Allocation Tags to Your User Pool
         Enabled?: BooleanType;
         /** The user status. Can be one of the following:
 
- &amp;#42; UNCONFIRMED - User has been created but not confirmed.
+ &amp;#42;  UNCONFIRMED - User has been created but not confirmed.
    
    
- * CONFIRMED - User has been confirmed.
+ *  CONFIRMED - User has been confirmed.
    
    
- * ARCHIVED - User is no longer active.
+ *  ARCHIVED - User is no longer active.
    
    
- * COMPROMISED - User is disabled due to a potential security threat.
+ *  COMPROMISED - User is disabled due to a potential security threat.
    
    
- * UNKNOWN - User status is not known. **/
+ *  UNKNOWN - User status is not known. **/
         UserStatus?: UserStatusType;
         /** The MFA options for the user. **/
         MFAOptions?: MFAOptionListType;

@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: rest-json
    *
-   * AWS IoTAWS IoT provides secure, bi-directional communication between
+   * AWS IoT AWS IoT provides secure, bi-directional communication between
 Internet-connected things (such as sensors, actuators, embedded devices, or
 smart appliances) and the AWS cloud. You can discover your custom IoT-Data
 endpoint to communicate with, configure rules for data processing and
@@ -23,7 +23,7 @@ integration with other services, organize resources associated with each thing
 credentials to authenticate things.
 
 For more information about how AWS IoT works, see the Developer Guide
-[http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html] 
+[http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html]
 .
    *
    */
@@ -102,7 +102,7 @@ certificate.
 You can create multiple certificates in a batch by creating a directory, copying
 multiple .csr files into that directory, and then specifying that directory on
 the command line. The following commands show how to create a batch of
-certificates given a batch of CSRs.
+certificates given a batch of CSRs. 
 
 Assuming a set of CSRs are located inside of the directory my-csr-directory:
 
@@ -111,26 +111,26 @@ On Linux and OS X, the command is:
 $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
 --certificate-signing-request file://my-csr-directory/{}
 
-This command lists all of the CSRs in my-csr-directory and pipes each CSR file
+ This command lists all of the CSRs in my-csr-directory and pipes each CSR file
 name to the aws iot create-certificate-from-csr AWS CLI command to create a
-certificate for the corresponding CSR.
+certificate for the corresponding CSR. 
 
-The aws iot create-certificate-from-csr part of the command can also be run in
-parallel to speed up the certificate creation process:
+ The aws iot create-certificate-from-csr part of the command can also be run in
+parallel to speed up the certificate creation process: 
 
-$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
---certificate-signing-request file://my-csr-directory/{}
+ $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
+--certificate-signing-request file://my-csr-directory/{} 
 
-On Windows PowerShell, the command to create certificates for all CSRs in
-my-csr-directory is:
+ On Windows PowerShell, the command to create certificates for all CSRs in
+my-csr-directory is: 
 
-&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
---certificate-signing-request file://my-csr-directory/$_}
+ &gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
+--certificate-signing-request file://my-csr-directory/$_} 
 
-On a Windows command prompt, the command to create certificates for all CSRs in
-my-csr-directory is:
+ On a Windows command prompt, the command to create certificates for all CSRs in
+my-csr-directory is: 
 
-&gt; forfiles /p my-csr-directory /c &quot;cmd /c aws iot create-certificate-from-csr
+ &gt; forfiles /p my-csr-directory /c &quot;cmd /c aws iot create-certificate-from-csr
 --certificate-signing-request file://@path&quot;
      *
      * @error InvalidRequestException The request is not valid.  
@@ -280,8 +280,8 @@ it.
     /**
      * Deletes the specified version of the specified policy. You cannot delete the
 default version of a policy using this API. To delete the default version of a
-policy, use DeletePolicy . To find out which version of a policy is marked as
-the default version, use ListPolicyVersions.
+policy, use DeletePolicy. To find out which version of a policy is marked as the
+default version, use ListPolicyVersions.
      *
      * @error DeleteConflictException You can&#x27;t delete the resource because it is attached to one or more resources.  
      * @error ResourceNotFoundException The specified resource does not exist.  
@@ -318,7 +318,7 @@ than the version specified with the --version parameter.
     /**
      * Deletes the specified thing type . You cannot delete a thing type if it has
 things associated with it. To delete a thing type, first mark it as deprecated
-by calling DeprecateThingType , then remove any associated things by calling 
+by calling DeprecateThingType, then remove any associated things by calling 
 UpdateThing to change the thing type on any associated thing, and finally use 
 DeleteThingType to delete the thing type.
      *
@@ -574,7 +574,7 @@ returned marker to retrieve additional results.
     /**
      * Lists the policies attached to the specified principal. If you use an Cognito
 identity, the ID must be in AmazonCognito Identity format
-[http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax] 
+[http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax]
 .
      *
      * @error ResourceNotFoundException The specified resource does not exist.  
@@ -621,7 +621,7 @@ identity, the ID must be in AmazonCognito Identity format
      * Lists your things. Use the attributeName and attributeValue parameters to filter
 your things. For example, calling ListThings with attributeName=Color and
 attributeValue=Red retrieves all things in the registry that contain an
-attribute Color with the value Red .
+attribute Color with the value Red.
      *
      * @error InvalidRequestException The request is not valid.  
      * @error ThrottlingException The rate exceeds the limit.  
@@ -678,7 +678,7 @@ CA certificate that has the same subject field and public key.
     registerCertificate(params: Iot.RegisterCertificateRequest, callback?: (err: Iot.ResourceAlreadyExistsException|Iot.InvalidRequestException|Iot.CertificateValidationException|Iot.CertificateStateException|Iot.CertificateConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.RegisterCertificateResponse|any) => void): Request<Iot.RegisterCertificateResponse|any,Iot.ResourceAlreadyExistsException|Iot.InvalidRequestException|Iot.CertificateValidationException|Iot.CertificateStateException|Iot.CertificateConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Rejects a pending certificate transfer. After AWS IoT rejects a certificate
-transfer, the certificate status changes from PENDING_TRANSFER to INACTIVE .
+transfer, the certificate status changes from PENDING_TRANSFER to INACTIVE.
 
 To check for pending certificate transfers, call ListCertificates to enumerate
 your certificates.
@@ -1071,7 +1071,7 @@ merged with the attributes stored in the registry, instead of overwriting them.
 
 To remove an attribute, call UpdateThing with an empty attribute value.
 
-The merge attribute is only valid when calling UpdateThing . **/
+The merge attribute is only valid when calling UpdateThing. **/
         merge?: Flag;
     }
     export interface CACertificate {
@@ -1079,7 +1079,7 @@ The merge attribute is only valid when calling UpdateThing . **/
         certificateArn?: CertificateArn;
         /** The ID of the CA certificate. **/
         certificateId?: CertificateId;
-        /** The status of the CA certificate.
+        /** The status of the CA certificate. 
 
 The status value REGISTER_INACTIVE is deprecated and should not be used. **/
         status?: CACertificateStatus;
@@ -1178,7 +1178,7 @@ INSUFFICIENT_DATA. **/
 supported by CloudWatch. **/
         metricUnit: MetricUnit;
         /** An optional Unix timestamp
-[http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp] 
+[http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp]
 . **/
         metricTimestamp?: MetricTimestamp;
     }
@@ -1321,7 +1321,7 @@ attribute names. **/
         thingName: ThingName;
         /** The expected version of the thing record in the registry. If the version of the
 record in the registry does not match the expected version specified in the
-request, the DeleteThing request is rejected with a VersionConflictException . **/
+request, the DeleteThing request is rejected with a VersionConflictException. **/
         expectedVersion?: OptionalVersion;
     }
     export interface DeleteThingResponse {
@@ -1339,8 +1339,8 @@ request, the DeleteThing request is rejected with a VersionConflictException . *
     export interface DeprecateThingTypeRequest {
         /** The name of the thing type to deprecate. **/
         thingTypeName: ThingTypeName;
-        /** Whether to undeprecate a deprecated thing type. If true , the thing type will
-not be deprecated anymore and you can associate it with things. **/
+        /** Whether to undeprecate a deprecated thing type. If true, the thing type will not
+be deprecated anymore and you can associate it with things. **/
         undoDeprecate?: UndoDeprecate;
     }
     export interface DeprecateThingTypeResponse {
@@ -1364,7 +1364,7 @@ not be deprecated anymore and you can associate it with things. **/
     export interface DescribeEndpointRequest {
     }
     export interface DescribeEndpointResponse {
-        /** The endpoint. The format of the endpoint is as follows: identifier .iot. region 
+        /** The endpoint. The format of the endpoint is as follows: identifier.iot.region
 .amazonaws.com. **/
         endpointAddress?: EndpointAddress;
     }
@@ -1429,8 +1429,8 @@ Amazon Cognito identity. **/
         /** The ARN of the IAM role that grants access to the DynamoDB table. **/
         roleArn: AwsArn;
         /** The type of operation to be performed. This follows the substitution template,
-so it can be ${operation} , but the substitution must result in one of the
-following: INSERT , UPDATE , or DELETE . **/
+so it can be ${operation}, but the substitution must result in one of the
+following: INSERT, UPDATE, or DELETE. **/
         operation?: DynamoOperation;
         /** The hash key name. **/
         hashKeyField: HashKeyField;
@@ -1893,7 +1893,7 @@ certificates. **/
         key: Key;
         /** The Amazon S3 canned ACL that controls access to the object identified by the
 object key. For more information, see S3 canned ACLs
-[http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl] . **/
+[http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl]. **/
         cannedAcl?: CannedAccessControlList;
     }
     export interface ServiceUnavailableException {
@@ -1954,8 +1954,8 @@ official documentation. **/
         thingTypeMetadata?: ThingTypeMetadata;
     }
     export interface ThingTypeMetadata {
-        /** Whether the thing type is deprecated. If true , no new things could be
-associated with this type. **/
+        /** Whether the thing type is deprecated. If true, no new things could be associated
+with this type. **/
         deprecated?: Boolean;
         /** The date and time when the thing type was deprecated. **/
         deprecationDate?: DeprecationDate;
@@ -2005,7 +2005,7 @@ lines, be sure to escape the newline characters. **/
         /** The SQL statement used to query the topic. For more information, see AWS IoT SQL
 Reference
 [http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference] 
-in the AWS IoT Developer Guide . **/
+in the AWS IoT Developer Guide. **/
         sql: SQL;
         /** The description of the rule. **/
         description?: Description;
@@ -2089,9 +2089,9 @@ This data is used to add new attributes or update existing attributes. **/
         attributePayload?: AttributePayload;
         /** The expected version of the thing record in the registry. If the version of the
 record in the registry does not match the expected version specified in the
-request, the UpdateThing request is rejected with a VersionConflictException . **/
+request, the UpdateThing request is rejected with a VersionConflictException. **/
         expectedVersion?: OptionalVersion;
-        /** Remove a thing type association. If true , the assocation is removed. **/
+        /** Remove a thing type association. If true, the assocation is removed. **/
         removeThingType?: RemoveThingType;
     }
     export interface UpdateThingResponse {

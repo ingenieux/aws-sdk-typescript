@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS CloudTrailThis is the CloudTrail API Reference. It provides descriptions of
+   * AWS CloudTrail This is the CloudTrail API Reference. It provides descriptions of
 actions, data types, common parameters, and common errors for CloudTrail.
 
 CloudTrail is a web service that records AWS API calls for your AWS account and
@@ -29,7 +29,7 @@ programmatic access to AWSCloudTrail. For example, the SDKs take care of
 cryptographically signing requests, managing errors, and retrying requests
 automatically. For information about the AWS SDKs, including how to download and
 install them, see the Tools for Amazon Web Services page
-[http://aws.amazon.com/tools/] .
+[http://aws.amazon.com/tools/].
 
 See the AWS CloudTrail User Guide
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html] 
@@ -108,19 +108,19 @@ account.
      * Describes the settings for the event selectors that you configured for your
 trail. The information returned for your event selectors includes the following:
 
- &amp;#42; The S3 objects that you are logging for data events.
+ &amp;#42;  The S3 objects that you are logging for data events.
    
    
- * If your event selector includes management events.
+ *  If your event selector includes management events.
    
    
- * If your event selector includes read-only events, write-only events, or all.
+ *  If your event selector includes read-only events, write-only events, or all. 
    
    
 
 For more information, see Configuring Event Selectors for Trails
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html] 
-in the AWS CloudTrail User Guide .
+in the AWS CloudTrail User Guide.
      *
      * @error TrailNotFoundException   
      * @error InvalidTrailNameException   
@@ -173,19 +173,19 @@ delete resources in your account. Events for a region can be looked up for the
 times in which you had CloudTrail turned on in that region during the last seven
 days. Lookup supports the following attributes:
 
- &amp;#42; Event ID
+ &amp;#42;  Event ID
    
    
- * Event name
+ *  Event name
    
    
- * Resource name
+ *  Resource name
    
    
- * Resource type
+ *  Resource type
    
    
- * User name
+ *  User name
    
    
 
@@ -210,27 +210,27 @@ lookup if CloudTrail logging was not enabled when the events occurred.
 type of events that you want your trail to log. When an event occurs in your
 account, CloudTrail evaluates the event selectors in all trails. For each trail,
 if the event matches any event selector, the trail processes and logs the event.
-If the event doesn&#x27;t match any event selector, the trail doesn&#x27;t log the event.
+If the event doesn&#x27;t match any event selector, the trail doesn&#x27;t log the event. 
 
 Example
 
- 1. You create an event selector for a trail and specify that you want
+ 1.  You create an event selector for a trail and specify that you want
     write-only events.
     
     
- 2. The EC2 GetConsoleOutput and RunInstances API operations occur in your
+ 2.  The EC2 GetConsoleOutput and RunInstances API operations occur in your
     account.
     
     
- 3. CloudTrail evaluates whether the events match your event selectors.
+ 3.  CloudTrail evaluates whether the events match your event selectors.
     
     
- 4. The RunInstances is a write-only event and it matches your event selector.
+ 4.  The RunInstances is a write-only event and it matches your event selector.
     The trail logs the event.
     
     
- 5. The GetConsoleOutput is a read-only event but it doesn&#x27;t match your event
-    selector. The trail doesn&#x27;t log the event.
+ 5.  The GetConsoleOutput is a read-only event but it doesn&#x27;t match your event
+    selector. The trail doesn&#x27;t log the event. 
     
     
 
@@ -240,7 +240,7 @@ trail was created; otherwise, an InvalidHomeRegionException is thrown.
 You can configure up to five event selectors for each trail. For more
 information, see Configuring Event Selectors for Trails
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html] 
-in the AWS CloudTrail User Guide .
+in the AWS CloudTrail User Guide.
      *
      * @error TrailNotFoundException   
      * @error InvalidTrailNameException   
@@ -368,7 +368,7 @@ otherwise, an InvalidHomeRegionException is thrown.
         /** Specifies the ARN of the trail to which one or more tags will be added. The
 format of a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         ResourceId: String;
         /** Contains a list of CloudTrail tags, up to a limit of 50 **/
         TagsList?: TagsList;
@@ -382,31 +382,31 @@ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
     export interface CreateTrailRequest {
         /** Specifies the name of the trail. The name must meet the following requirements:
 
- &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+ &amp;#42;  Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-)
    
    
- * Start with a letter or number, and end with a letter or number
+ *  Start with a letter or number, and end with a letter or number
    
    
- * Be between 3 and 128 characters
+ *  Be between 3 and 128 characters
    
    
- * Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
+ *  Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
    my--namespace are invalid.
    
    
- * Not be in IP address format (for example, 192.168.5.4) **/
+ *  Not be in IP address format (for example, 192.168.5.4) **/
         Name: String;
         /** Specifies the name of the Amazon S3 bucket designated for publishing log files.
 See Amazon S3 Bucket Naming Requirements
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html]
 . **/
         S3BucketName: String;
         /** Specifies the Amazon S3 key prefix that comes after the name of the bucket you
 have designated for log file delivery. For more information, see Finding Your
 CloudTrail Log Files
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html]
 . The maximum length is 200 characters. **/
         S3KeyPrefix?: String;
         /** Specifies the name of the Amazon SNS topic defined for notification of log file
@@ -443,16 +443,16 @@ alias, a fully specified ARN to a key, or a globally unique identifier.
 
 Examples:
 
- &amp;#42; alias/MyAliasName
+ &amp;#42;  alias/MyAliasName
    
    
- * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+ *  arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
    
    
- * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
+ *  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * 12345678-1234-1234-1234-123456789012 **/
+ *  12345678-1234-1234-1234-123456789012 **/
         KmsKeyId?: String;
     }
     export interface CreateTrailResponse {
@@ -463,7 +463,7 @@ Examples:
         /** Specifies the Amazon S3 key prefix that comes after the name of the bucket you
 have designated for log file delivery. For more information, see Finding Your
 CloudTrail Log Files
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html]
 . **/
         S3KeyPrefix?: String;
         /** This field is deprecated. Use SnsTopicARN. **/
@@ -471,7 +471,7 @@ CloudTrail Log Files
         /** Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
 notifications when log files are delivered. The format of a topic ARN is:
 
-arn:aws:sns:us-east-1:123456789012:MyTopic **/
+ arn:aws:sns:us-east-1:123456789012:MyTopic **/
         SnsTopicARN?: String;
         /** Specifies whether the trail is publishing events from global services such as
 IAM to the log files. **/
@@ -480,7 +480,7 @@ IAM to the log files. **/
         IsMultiRegionTrail?: Boolean;
         /** Specifies the ARN of the trail that was created. The format of a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         TrailARN?: String;
         /** Specifies whether log file integrity validation is enabled. **/
         LogFileValidationEnabled?: Boolean;
@@ -493,21 +493,21 @@ user&#x27;s log group. **/
         /** Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The
 value is a fully specified ARN to a KMS key in the format:
 
-arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
+ arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
         KmsKeyId?: String;
     }
     export interface DataResource {
         /** The resource type in which you want to log data events. You can specify only the
-following value: AWS::S3::Object . **/
+following value: AWS::S3::Object. **/
         Type?: String;
         /** A list of ARN-like strings for the specified S3 objects.
 
 To log data events for all objects in an S3 bucket, specify the bucket and an
-empty object prefix such as arn:aws:s3:::bucket-1/ . The trail logs data events
+empty object prefix such as arn:aws:s3:::bucket-1/. The trail logs data events
 for all objects in this S3 bucket.
 
 To log data events for specific objects, specify the S3 bucket and object prefix
-such as arn:aws:s3:::bucket-1/example-images . The trail logs data events for
+such as arn:aws:s3:::bucket-1/example-images. The trail logs data events for
 objects in this S3 bucket that match the prefix. **/
         Values?: DataResourceValues;
     }
@@ -522,16 +522,16 @@ of a trail ARN is: arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         /** Specifies a list of trail names, trail ARNs, or both, of the trails to describe.
 The format of a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail 
 
 If an empty list is specified, information for the trail in the current region
 is returned.
 
- &amp;#42; If an empty list is specified and IncludeShadowTrails is false, then
+ &amp;#42;  If an empty list is specified and IncludeShadowTrails is false, then
    information for all trails in the current region is returned.
    
    
- * If an empty list is specified and IncludeShadowTrails is null or true, then
+ *  If an empty list is specified and IncludeShadowTrails is null or true, then
    information for all trails in the current region and any associated shadow
    trails in other regions is returned.
    
@@ -572,50 +572,50 @@ returned. **/
 all. For example, the EC2 GetConsoleOutput is a read-only API operation and 
 RunInstances is a write-only API operation.
 
-By default, the value is All . **/
+ By default, the value is All. **/
         ReadWriteType?: ReadWriteType;
         /** Specify if you want your event selector to include management events for your
 trail.
 
-For more information, see Management Events
+ For more information, see Management Events
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#event-selector-for-management-events] 
-in the AWS CloudTrail User Guide .
+in the AWS CloudTrail User Guide.
 
-By default, the value is true . **/
+By default, the value is true. **/
         IncludeManagementEvents?: Boolean;
         /** CloudTrail supports logging only data events for S3 objects. You can specify up
 to 50 S3 buckets and object prefixes for an event selector.
 
 For more information, see Data Events
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#data-events-resources] 
-in the AWS CloudTrail User Guide . **/
+in the AWS CloudTrail User Guide. **/
         DataResources?: DataResources;
     }
     export interface GetEventSelectorsRequest {
         /** Specifies the name of the trail or trail ARN. If you specify a trail name, the
 string must meet the following requirements:
 
- &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+ &amp;#42;  Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-)
    
    
- * Start with a letter or number, and end with a letter or number
+ *  Start with a letter or number, and end with a letter or number
    
    
- * Be between 3 and 128 characters
+ *  Be between 3 and 128 characters
    
    
- * Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
+ *  Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
    my--namespace are invalid.
    
    
- * Not be in IP address format (for example, 192.168.5.4)
+ *  Not be in IP address format (for example, 192.168.5.4)
    
    
 
 If you specify a trail ARN, it must be in the format:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         TrailName?: String;
     }
     export interface GetEventSelectorsResponse {
@@ -630,7 +630,7 @@ requesting status. To get the status of a shadow trail (a replication of the
 trail in another region), you must specify its ARN. The format of a trail ARN
 is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
     }
     export interface GetTrailStatusResponse {
@@ -640,7 +640,7 @@ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
 deliver log files to the designated bucket. For more information see the topic 
 Error Responses
 [http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html] in the
-Amazon S3 API Reference.
+Amazon S3 API Reference. 
 
 This error occurs only when there is a problem with the destination S3 bucket
 and will not occur for timeouts. To resolve the issue, create a new bucket and
@@ -650,7 +650,7 @@ CloudTrail can again write to the bucket. **/
         /** Displays any Amazon SNS error that CloudTrail encountered when attempting to
 send a notification. For more information about Amazon SNS errors, see the 
 Amazon SNS Developer Guide
-[http://docs.aws.amazon.com/sns/latest/dg/welcome.html] . **/
+[http://docs.aws.amazon.com/sns/latest/dg/welcome.html]. **/
         LatestNotificationError?: String;
         /** Specifies the date and time that CloudTrail last delivered log files to an
 account&#x27;s Amazon S3 bucket. **/
@@ -677,7 +677,7 @@ account&#x27;s Amazon S3 bucket. **/
 deliver a digest file to the designated bucket. For more information see the
 topic Error Responses
 [http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html] in the
-Amazon S3 API Reference.
+Amazon S3 API Reference. 
 
 This error occurs only when there is a problem with the destination S3 bucket
 and will not occur for timeouts. To resolve the issue, create a new bucket and
@@ -764,7 +764,7 @@ The returned public keys may have validity time ranges that overlap. **/
         /** Specifies a list of trail ARNs whose tags will be listed. The list has a limit
 of 20 ARNs. The format of a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         ResourceIdList: ResourceIdList;
         /** Reserved for future use. **/
         NextToken?: String;
@@ -832,27 +832,27 @@ the call with NextToken should include those same parameters. **/
         /** Specifies the name of the trail or trail ARN. If you specify a trail name, the
 string must meet the following requirements:
 
- &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+ &amp;#42;  Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-)
    
    
- * Start with a letter or number, and end with a letter or number
+ *  Start with a letter or number, and end with a letter or number
    
    
- * Be between 3 and 128 characters
+ *  Be between 3 and 128 characters
    
    
- * Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
+ *  Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
    my--namespace are invalid.
    
    
- * Not be in IP address format (for example, 192.168.5.4)
+ *  Not be in IP address format (for example, 192.168.5.4)
    
    
 
 If you specify a trail ARN, it must be in the format:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         TrailName?: String;
         /** Specifies the settings for your event selectors. You can configure up to five
 event selectors for a trail. **/
@@ -862,7 +862,7 @@ event selectors for a trail. **/
         /** Specifies the ARN of the trail that was updated with event selectors. The format
 of a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         TrailARN?: String;
         /** Specifies the event selectors configured for your trail. **/
         EventSelectors?: EventSelectors;
@@ -871,7 +871,7 @@ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         /** Specifies the ARN of the trail from which tags should be removed. The format of
 a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         ResourceId: String;
         /** Specifies a list of tags to be removed. **/
         TagsList?: TagsList;
@@ -884,7 +884,7 @@ cannot be determined, null is returned. Some examples of resource types are:
 Instance for EC2, Trail for CloudTrail, DBInstance for RDS, and AccessKey for
 IAM. For a list of resource types supported for event lookup, see Resource Types
 Supported for Event Lookup
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html]
 . **/
         ResourceType?: String;
         /** The name of the resource referenced by the event returned. These are
@@ -908,7 +908,7 @@ resource name might be &quot;auto-scaling-test-group&quot; for an Auto Scaling G
         /** Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs
 AWS API calls. The format of a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
     }
     export interface StartLoggingResponse {
@@ -917,7 +917,7 @@ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         /** Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will
 stop logging AWS API calls. The format of a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
     }
     export interface StopLoggingResponse {
@@ -933,18 +933,18 @@ Unicode characters. **/
     export interface TagsLimitExceededException {
     }
     export interface Trail {
-        /** Name of the trail set by calling CreateTrail . The maximum length is 128
+        /** Name of the trail set by calling CreateTrail. The maximum length is 128
 characters. **/
         Name?: String;
         /** Name of the Amazon S3 bucket into which CloudTrail delivers your trail files.
 See Amazon S3 Bucket Naming Requirements
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html]
 . **/
         S3BucketName?: String;
         /** Specifies the Amazon S3 key prefix that comes after the name of the bucket you
 have designated for log file delivery. For more information, see Finding Your
 CloudTrail Log Files
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html]
 .The maximum length is 200 characters. **/
         S3KeyPrefix?: String;
         /** This field is deprecated. Use SnsTopicARN. **/
@@ -952,10 +952,10 @@ CloudTrail Log Files
         /** Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
 notifications when log files are delivered. The format of a topic ARN is:
 
-arn:aws:sns:us-east-1:123456789012:MyTopic **/
+ arn:aws:sns:us-east-1:123456789012:MyTopic **/
         SnsTopicARN?: String;
         /** Set to True to include AWS API calls from AWS global services such as IAM.
-Otherwise, False . **/
+Otherwise, False. **/
         IncludeGlobalServiceEvents?: Boolean;
         /** Specifies whether the trail belongs only to one region or exists in all regions. **/
         IsMultiRegionTrail?: Boolean;
@@ -963,7 +963,7 @@ Otherwise, False . **/
         HomeRegion?: String;
         /** Specifies the ARN of the trail. The format of a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         TrailARN?: String;
         /** Specifies whether log file validation is enabled. **/
         LogFileValidationEnabled?: Boolean;
@@ -976,7 +976,7 @@ user&#x27;s log group. **/
         /** Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The
 value is a fully specified ARN to a KMS key in the format:
 
-arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
+ arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
         KmsKeyId?: String;
         /** Specifies if the trail has custom event selectors. **/
         HasCustomEventSelectors?: Boolean;
@@ -993,37 +993,37 @@ arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
         /** Specifies the name of the trail or trail ARN. If Name is a trail name, the
 string must meet the following requirements:
 
- &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+ &amp;#42;  Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-)
    
    
- * Start with a letter or number, and end with a letter or number
+ *  Start with a letter or number, and end with a letter or number
    
    
- * Be between 3 and 128 characters
+ *  Be between 3 and 128 characters
    
    
- * Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
+ *  Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
    my--namespace are invalid.
    
    
- * Not be in IP address format (for example, 192.168.5.4)
+ *  Not be in IP address format (for example, 192.168.5.4)
    
    
 
 If Name is a trail ARN, it must be in the format:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
         /** Specifies the name of the Amazon S3 bucket designated for publishing log files.
 See Amazon S3 Bucket Naming Requirements
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html]
 . **/
         S3BucketName?: String;
         /** Specifies the Amazon S3 key prefix that comes after the name of the bucket you
 have designated for log file delivery. For more information, see Finding Your
 CloudTrail Log Files
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html]
 . The maximum length is 200 characters. **/
         S3KeyPrefix?: String;
         /** Specifies the name of the Amazon SNS topic defined for notification of log file
@@ -1063,16 +1063,16 @@ alias, a fully specified ARN to a key, or a globally unique identifier.
 
 Examples:
 
- &amp;#42; alias/MyAliasName
+ &amp;#42;  alias/MyAliasName
    
    
- * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+ *  arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
    
    
- * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
+ *  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * 12345678-1234-1234-1234-123456789012 **/
+ *  12345678-1234-1234-1234-123456789012 **/
         KmsKeyId?: String;
     }
     export interface UpdateTrailResponse {
@@ -1083,7 +1083,7 @@ Examples:
         /** Specifies the Amazon S3 key prefix that comes after the name of the bucket you
 have designated for log file delivery. For more information, see Finding Your
 CloudTrail Log Files
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html]
 . **/
         S3KeyPrefix?: String;
         /** This field is deprecated. Use SnsTopicARN. **/
@@ -1091,7 +1091,7 @@ CloudTrail Log Files
         /** Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
 notifications when log files are delivered. The format of a topic ARN is:
 
-arn:aws:sns:us-east-1:123456789012:MyTopic **/
+ arn:aws:sns:us-east-1:123456789012:MyTopic **/
         SnsTopicARN?: String;
         /** Specifies whether the trail is publishing events from global services such as
 IAM to the log files. **/
@@ -1100,7 +1100,7 @@ IAM to the log files. **/
         IsMultiRegionTrail?: Boolean;
         /** Specifies the ARN of the trail that was updated. The format of a trail ARN is:
 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
+ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         TrailARN?: String;
         /** Specifies whether log file integrity validation is enabled. **/
         LogFileValidationEnabled?: Boolean;
@@ -1113,7 +1113,7 @@ user&#x27;s log group. **/
         /** Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The
 value is a fully specified ARN to a KMS key in the format:
 
-arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
+ arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
         KmsKeyId?: String;
     }
   }

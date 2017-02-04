@@ -31,7 +31,7 @@ which has been deleted is not available for speech synthesis, nor is it possible
 to retrieve it using either the GetLexicon or ListLexicon APIs.
 
 For more information, see Managing Lexicons
-[http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html] .
+[http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html].
      *
      * @error LexiconNotFoundException   
      * @error ServiceFailureException   
@@ -40,19 +40,19 @@ For more information, see Managing Lexicons
     /**
      * Returns the list of voices that are available for use when requesting speech
 synthesis. Each voice speaks a specified language, is either male or female, and
-is identified by an ID, which is the ASCII version of the voice name.
+is identified by an ID, which is the ASCII version of the voice name. 
 
 When synthesizing speech ( SynthesizeSpeech ), you provide the voice ID for the
-voice you want from the list of voices returned by DescribeVoices .
+voice you want from the list of voices returned by DescribeVoices.
 
 For example, you want your news reader application to read news in a specific
 language, but giving a user the option to choose the voice. Using the 
 DescribeVoices operation you can provide the user with a list of available
 voices to select from.
 
-You can optionally specify a language code to filter the available voices. For
-example, if you specify en-US , the operation returns a list of all available US
-English voices.
+ You can optionally specify a language code to filter the available voices. For
+example, if you specify en-US, the operation returns a list of all available US
+English voices. 
 
 This operation requires permissions to perform the polly:DescribeVoices action.
      *
@@ -63,7 +63,7 @@ This operation requires permissions to perform the polly:DescribeVoices action.
     /**
      * Returns the content of the specified pronunciation lexicon stored in an AWS
 Region. For more information, see Managing Lexicons
-[http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html] .
+[http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html].
      *
      * @error LexiconNotFoundException   
      * @error ServiceFailureException   
@@ -72,7 +72,7 @@ Region. For more information, see Managing Lexicons
     /**
      * Returns a list of pronunciation lexicons stored in an AWS Region. For more
 information, see Managing Lexicons
-[http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html] .
+[http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html].
      *
      * @error InvalidNextTokenException   
      * @error ServiceFailureException   
@@ -85,7 +85,7 @@ operations have eventual consistency, therefore, it might take some time before
 the lexicon is available to the SynthesizeSpeech operation.
 
 For more information, see Managing Lexicons
-[http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html] .
+[http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html].
      *
      * @error InvalidLexiconException   
      * @error UnsupportedPlsAlphabetException   
@@ -101,7 +101,7 @@ For more information, see Managing Lexicons
 must be valid, well-formed SSML. Some alphabets might not be available with all
 the voices (for example, Cyrillic might not be read at all by English voices)
 unless phoneme mapping is used. For more information, see How it Works
-[http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html] .
+[http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html].
      *
      * @error TextLengthExceededException   
      * @error InvalidSampleRateException   
@@ -217,7 +217,7 @@ format. **/
         Name?: LexiconName;
     }
     export interface LexiconAttributes {
-        /** Phonetic alphabet used in the lexicon. Valid values are ipa and x-sampa . **/
+        /** Phonetic alphabet used in the lexicon. Valid values are ipa and x-sampa. **/
         Alphabet?: Alphabet;
         /** Language code that the lexicon applies to. A lexicon with a language code such
 as &quot;en&quot; would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS,
@@ -279,24 +279,23 @@ to 20 characters long. **/
         /** List of one or more pronunciation lexicon names you want the service to apply
 during synthesis. Lexicons are applied only if the language of the lexicon is
 the same as the language of the voice. For information about storing lexicons,
-see PutLexicon [http://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html] 
-. **/
+see PutLexicon [http://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html]. **/
         LexiconNames?: LexiconNameList;
         /** The audio format in which the resulting stream will be encoded. **/
         OutputFormat: OutputFormat;
-        /** The audio frequency specified in Hz.
+        /** The audio frequency specified in Hz. 
 
 The valid values for mp3 and ogg_vorbis are &quot;8000&quot;, &quot;16000&quot;, and &quot;22050&quot;. The
-default value is &quot;22050&quot;.
+default value is &quot;22050&quot;. 
 
-Valid values for pcm are &quot;8000&quot; and &quot;16000&quot; The default value is &quot;16000&quot;. **/
+ Valid values for pcm are &quot;8000&quot; and &quot;16000&quot; The default value is &quot;16000&quot;. **/
         SampleRate?: SampleRate;
-        /** Input text to synthesize. If you specify ssml as the TextType , follow the SSML
+        /** Input text to synthesize. If you specify ssml as the TextType, follow the SSML
 format for the input text. **/
         Text: Text;
         /** Specifies whether the input text is plain text or SSML. The default value is
 plain text. For more information, see Using SSML
-[http://docs.aws.amazon.com/polly/latest/dg/ssml.html] . **/
+[http://docs.aws.amazon.com/polly/latest/dg/ssml.html]. **/
         TextType?: TextType;
         /** Voice ID to use for the synthesis. You can get a list of available voice IDs by
 calling the DescribeVoices
@@ -307,17 +306,17 @@ calling the DescribeVoices
         /** Stream containing the synthesized speech. **/
         AudioStream?: AudioStream;
         /** Specifies the type audio stream. This should reflect the OutputFormat parameter
-in your request.
+in your request. 
 
- &amp;#42; If you request mp3 as the OutputFormat , the ContentType returned is
-   audio/mpeg.
+ &amp;#42;   If you request mp3 as the OutputFormat, the ContentType returned is
+   audio/mpeg. 
    
    
- * If you request ogg_vorbis as the OutputFormat , the ContentType returned is
-   audio/ogg.
+ *   If you request ogg_vorbis as the OutputFormat, the ContentType returned is
+   audio/ogg. 
    
    
- * If you request pcm as the OutputFormat , the ContentType returned is
+ *   If you request pcm as the OutputFormat, the ContentType returned is
    audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. **/
         ContentType?: ContentType;
         /** Number of characters synthesized. **/

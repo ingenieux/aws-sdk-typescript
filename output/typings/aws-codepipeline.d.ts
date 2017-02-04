@@ -14,139 +14,138 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS CodePipelineOverview
+   * AWS CodePipeline  Overview 
 
 This is the AWS CodePipeline API Reference. This guide provides descriptions of
 the actions and data types for AWS CodePipeline. Some functionality for your
 pipeline is only configurable through the API. For additional information, see
 the AWS CodePipeline User Guide
-[http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html] .
+[http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html].
 
 You can use the AWS CodePipeline API to work with pipelines, stages, actions,
 gates, and transitions, as described below.
 
-Pipelines are models of automated release processes. Each pipeline is uniquely
-named, and consists of actions, gates, and stages.
+ Pipelines are models of automated release processes. Each pipeline is uniquely
+named, and consists of actions, gates, and stages. 
 
 You can work with pipelines by calling:
 
- &amp;#42; CreatePipeline , which creates a uniquely-named pipeline.
+ &amp;#42;   CreatePipeline, which creates a uniquely-named pipeline.
    
    
- * DeletePipeline , which deletes the specified pipeline.
+ *   DeletePipeline, which deletes the specified pipeline.
    
    
- * GetPipeline , which returns information about a pipeline structure.
+ *   GetPipeline, which returns information about a pipeline structure.
    
    
- * GetPipelineExecution , which returns information about a specific execution
+ *   GetPipelineExecution, which returns information about a specific execution
    of a pipeline.
    
    
- * GetPipelineState , which returns information about the current state of the
+ *   GetPipelineState, which returns information about the current state of the
    stages and actions of a pipeline.
    
    
- * ListPipelines , which gets a summary of all of the pipelines associated with
+ *   ListPipelines, which gets a summary of all of the pipelines associated with
    your account.
    
    
- * StartPipelineExecution , which runs the the most recent revision of an
+ *   StartPipelineExecution, which runs the the most recent revision of an
    artifact through the pipeline.
    
    
- * UpdatePipeline , which updates a pipeline with edits or changes to the
+ *   UpdatePipeline, which updates a pipeline with edits or changes to the
    structure of the pipeline.
    
    
 
-Pipelines include stages , which are logical groupings of gates and actions.
-Each stage contains one or more actions that must complete before the next stage
+Pipelines include stages, which are logical groupings of gates and actions. Each
+stage contains one or more actions that must complete before the next stage
 begins. A stage will result in success or failure. If a stage fails, then the
 pipeline stops at that stage and will remain stopped until either a new version
 of an artifact appears in the source location, or a user takes action to re-run
-the most recent artifact through the pipeline. You can call GetPipelineState ,
+the most recent artifact through the pipeline. You can call GetPipelineState,
 which displays the status of a pipeline, including the status of stages in the
-pipeline, or GetPipeline , which returns the entire structure of the pipeline,
+pipeline, or GetPipeline, which returns the entire structure of the pipeline,
 including the stages of that pipeline. For more information about the structure
 of stages and actions, also refer to the AWS CodePipeline Pipeline Structure
 Reference
-[http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html] 
+[http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html]
 .
 
-Pipeline stages include actions , which are categorized into categories such as
+Pipeline stages include actions, which are categorized into categories such as
 source or build actions performed within a stage of a pipeline. For example, you
 can use a source action to import artifacts into a pipeline from a source such
 as Amazon S3. Like stages, you do not work with actions directly in most cases,
 but you do define and interact with actions when working with pipeline
-operations such as CreatePipeline and GetPipelineState .
+operations such as CreatePipeline and GetPipelineState. 
 
-Pipelines also include transitions , which allow the transition of artifacts
-from one stage to the next in a pipeline after the actions in one stage
-complete.
+Pipelines also include transitions, which allow the transition of artifacts from
+one stage to the next in a pipeline after the actions in one stage complete.
 
 You can work with transitions by calling:
 
- * DisableStageTransition , which prevents artifacts from transitioning to the
+ *   DisableStageTransition, which prevents artifacts from transitioning to the
    next stage in a pipeline.
    
    
- * EnableStageTransition , which enables transition of artifacts between stages
-   in a pipeline.
+ *   EnableStageTransition, which enables transition of artifacts between stages
+   in a pipeline. 
    
    
 
-Using the API to integrate with AWS CodePipeline
+ Using the API to integrate with AWS CodePipeline 
 
 For third-party integrators or developers who want to create their own
 integrations with AWS CodePipeline, the expected sequence varies from the
 standard API user. In order to integrate with AWS CodePipeline, developers will
 need to work with the following items:
 
-Jobs , which are instances of an action. For example, a job for a source action
-might import a revision of an artifact from a source.
+ Jobs, which are instances of an action. For example, a job for a source action
+might import a revision of an artifact from a source. 
 
 You can work with jobs by calling:
 
- * AcknowledgeJob , which confirms whether a job worker has received the
+ *   AcknowledgeJob, which confirms whether a job worker has received the
    specified job,
    
    
- * GetJobDetails , which returns the details of a job,
+ *   GetJobDetails, which returns the details of a job,
    
    
- * PollForJobs , which determines whether there are any jobs to act upon,
+ *   PollForJobs, which determines whether there are any jobs to act upon, 
    
    
- * PutJobFailureResult , which provides details of a job failure, and
+ *   PutJobFailureResult, which provides details of a job failure, and
    
    
- * PutJobSuccessResult , which provides details of a job success.
+ *   PutJobSuccessResult, which provides details of a job success.
    
    
 
-Third party jobs , which are instances of an action created by a partner action
+ Third party jobs, which are instances of an action created by a partner action
 and integrated into AWS CodePipeline. Partner actions are created by members of
 the AWS Partner Network.
 
 You can work with third party jobs by calling:
 
- * AcknowledgeThirdPartyJob , which confirms whether a job worker has received
+ *   AcknowledgeThirdPartyJob, which confirms whether a job worker has received
    the specified job,
    
    
- * GetThirdPartyJobDetails , which requests the details of a job for a partner
+ *   GetThirdPartyJobDetails, which requests the details of a job for a partner
    action,
    
    
- * PollForThirdPartyJobs , which determines whether there are any jobs to act
-   upon,
+ *   PollForThirdPartyJobs, which determines whether there are any jobs to act
+   upon, 
    
    
- * PutThirdPartyJobFailureResult , which provides details of a job failure, and
+ *   PutThirdPartyJobFailureResult, which provides details of a job failure, and
    
    
- * PutThirdPartyJobSuccessResult , which provides details of a job success.
+ *   PutThirdPartyJobSuccessResult, which provides details of a job success.
    *
    */
   export class CodePipeline extends Service {
@@ -239,7 +238,7 @@ Additionally, this API returns any secret values defined for the action.
     /**
      * Returns the metadata, structure, stages, and actions of a pipeline. Can be used
 to return the entire structure of a pipeline in JSON format, which can then be
-modified and used to update the pipeline structure with UpdatePipeline .
+modified and used to update the pipeline structure with UpdatePipeline.
      *
      * @error ValidationException   
      * @error PipelineNotFoundException   
@@ -855,7 +854,7 @@ You can refer to a name in the configuration properties of the custom action
 within the URL templates by following the format of {Config:name}, as long as
 the configuration property is both required and not secret. For more
 information, see Create a Custom Action for a Pipeline
-[http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html] 
+[http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html]
 . **/
         configurationProperties?: ActionConfigurationPropertyList;
         inputArtifactDetails: ArtifactDetails;
@@ -995,7 +994,7 @@ the most current version. **/
         pipelineName?: PipelineName;
         /** The version number of the pipeline.
 
-A newly-created pipeline is always assigned a version number of 1 . **/
+A newly-created pipeline is always assigned a version number of 1. **/
         pipelineVersion?: PipelineVersion;
         /** A list of the pipeline stage output information, including stage name, state,
 most recent run details, whether the stage is disabled, and other data. **/
@@ -1156,18 +1155,18 @@ of 1. This number is automatically incremented when a pipeline is updated. **/
         pipelineExecutionId?: PipelineExecutionId;
         /** The status of the pipeline execution.
 
- &amp;#42; InProgress: The pipeline execution is currently running.
+ &amp;#42;  InProgress: The pipeline execution is currently running.
    
    
- * Succeeded: The pipeline execution completed successfully.
+ *  Succeeded: The pipeline execution completed successfully. 
    
    
- * Superseded: While this pipeline execution was waiting for the next stage to
+ *  Superseded: While this pipeline execution was waiting for the next stage to
    be completed, a newer pipeline execution caught up and continued through the
-   pipeline instead.
+   pipeline instead. 
    
    
- * Failed: The pipeline did not complete successfully. **/
+ *  Failed: The pipeline did not complete successfully. **/
         status?: PipelineExecutionStatus;
         /** A list of ArtifactRevision objects included in a pipeline execution. **/
         artifactRevisions?: ArtifactRevisionList;

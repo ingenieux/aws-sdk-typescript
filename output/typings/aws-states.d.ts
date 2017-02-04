@@ -14,10 +14,10 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Step FunctionsAWS Step Functions is a web service that enables you to
+   * AWS Step Functions AWS Step Functions is a web service that enables you to
 coordinate the components of distributed applications and microservices using
 visual workflows. You build applications from individual components that each
-perform a discrete function, or task , allowing you to scale and change
+perform a discrete function, or task, allowing you to scale and change
 applications quickly. Step Functions provides a graphical console to visualize
 the components of your application as a series of steps. It automatically
 triggers and tracks each step, and retries when there are errors, so your
@@ -287,7 +287,7 @@ successfully.
     }
     export interface ActivityStartedEventDetails {
         /** The name of the worker that the task was assigned to. These names are provided
-by the workers when calling GetActivityTask . **/
+by the workers when calling GetActivityTask. **/
         workerName?: Identity;
     }
     export interface ActivitySucceededEventDetails {
@@ -456,7 +456,7 @@ history. **/
     }
     export interface GetActivityTaskOutput {
         /** A token that identifies the scheduled task. This token must be copied and
-included in subsequent calls to SendTaskHeartbeat , SendTaskSuccess or 
+included in subsequent calls to SendTaskHeartbeat, SendTaskSuccess or 
 SendTaskFailure in order to report the progress or completion of the task. **/
         taskToken?: TaskToken;
         /** The JSON input data for the task. **/
@@ -472,11 +472,11 @@ allowed page size is 1000.
 This is an upper limit only; the actual number of results returned per call may
 be fewer than the specified maximum. **/
         maxResults?: PageSize;
-        /** Lists events in descending order of their timeStamp . **/
+        /** Lists events in descending order of their timeStamp. **/
         reverseOrder?: ReverseOrder;
         /** If a nextToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextToken . Keep all other arguments unchanged.
+returned token in nextToken. Keep all other arguments unchanged.
 
 The configured maxResults determines how many results can be returned in a
 single call. **/
@@ -486,8 +486,8 @@ single call. **/
         /** The list of events that occurred in the execution. **/
         events: HistoryEventList;
         /** If a nextToken is returned, there are more results available. To retrieve the
-next page of results, make the call again using the returned token in nextToken 
-. Keep all other arguments unchanged.
+next page of results, make the call again using the returned token in nextToken.
+Keep all other arguments unchanged.
 
 The configured maxResults determines how many results can be returned in a
 single call. **/
@@ -586,7 +586,7 @@ be fewer than the specified maximum. **/
         maxResults?: PageSize;
         /** If a nextToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextToken . Keep all other arguments unchanged.
+returned token in nextToken. Keep all other arguments unchanged.
 
 The configured maxResults determines how many results can be returned in a
 single call. **/
@@ -596,8 +596,8 @@ single call. **/
         /** The list of activities. **/
         activities: ActivityList;
         /** If a nextToken is returned, there are more results available. To retrieve the
-next page of results, make the call again using the returned token in nextToken 
-. Keep all other arguments unchanged.
+next page of results, make the call again using the returned token in nextToken.
+Keep all other arguments unchanged.
 
 The configured maxResults determines how many results can be returned in a
 single call. **/
@@ -619,7 +619,7 @@ be fewer than the specified maximum. **/
         maxResults?: PageSize;
         /** If a nextToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextToken . Keep all other arguments unchanged.
+returned token in nextToken. Keep all other arguments unchanged.
 
 The configured maxResults determines how many results can be returned in a
 single call. **/
@@ -629,8 +629,8 @@ single call. **/
         /** The list of matching executions. **/
         executions: ExecutionList;
         /** If a nextToken is returned, there are more results available. To retrieve the
-next page of results, make the call again using the returned token in nextToken 
-. Keep all other arguments unchanged.
+next page of results, make the call again using the returned token in nextToken.
+Keep all other arguments unchanged.
 
 The configured maxResults determines how many results can be returned in a
 single call. **/
@@ -646,7 +646,7 @@ be fewer than the specified maximum. **/
         maxResults?: PageSize;
         /** If a nextToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextToken . Keep all other arguments unchanged.
+returned token in nextToken. Keep all other arguments unchanged.
 
 The configured maxResults determines how many results can be returned in a
 single call. **/
@@ -655,8 +655,8 @@ single call. **/
     export interface ListStateMachinesOutput {
         stateMachines: StateMachineList;
         /** If a nextToken is returned, there are more results available. To retrieve the
-next page of results, make the call again using the returned token in nextToken 
-. Keep all other arguments unchanged.
+next page of results, make the call again using the returned token in nextToken.
+Keep all other arguments unchanged.
 
 The configured maxResults determines how many results can be returned in a
 single call. **/

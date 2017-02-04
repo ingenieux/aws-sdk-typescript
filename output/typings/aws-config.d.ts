@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS ConfigAWS Config provides a way to keep track of the configurations of all
+   * AWS Config AWS Config provides a way to keep track of the configurations of all
 the AWS resources associated with your AWS account. You can use AWS Config to
 get the current and historical configurations of each AWS resource and also to
 get information about the relationship between the resources. An AWS resource
@@ -22,7 +22,7 @@ can be an Amazon Compute Cloud (Amazon EC2) instance, an Elastic Block Store
 (EBS) volume, an Elastic network Interface (ENI), or a security group. For a
 complete list of resources currently supported by AWS Config, see Supported AWS
 Resources
-[http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources] 
+[http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources]
 .
 
 You can access and manage AWS Config through the AWS Management Console, the AWS
@@ -35,13 +35,13 @@ CLI commands that you can use to manage AWS Config.
 The AWS Config API uses the Signature Version 4 protocol for signing requests.
 For more information about how to sign a request with this protocol, see 
 Signature Version 4 Signing Process
-[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] .
+[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html].
 
 For detailed information about AWS Config features and their associated actions
 or commands, as well as how to work with AWS Management Console, see What Is AWS
 Config?
 [http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html] in
-the AWS Config Developer Guide .
+the AWS Config Developer Guide.
    *
    */
   export class ConfigService extends Service {
@@ -53,7 +53,7 @@ the AWS Config Developer Guide .
 AWS Config sets the state of a rule to DELETING until the deletion is complete.
 You cannot update a rule while it is in this state. If you make a PutConfigRule 
 or DeleteConfigRule request for the rule, you will receive a 
-ResourceInUseException .
+ResourceInUseException.
 
 You can check the state of a rule by using the DescribeConfigRules request.
      *
@@ -101,14 +101,14 @@ against the rule.
 specified delivery channel. After the delivery has started, AWS Config sends
 following notifications using an Amazon SNS topic that you have specified.
 
- &amp;#42; Notification of starting the delivery.
+ &amp;#42;  Notification of starting the delivery.
    
    
- * Notification of delivery completed, if the delivery was successfully
+ *  Notification of delivery completed, if the delivery was successfully
    completed.
    
    
- * Notification of delivery failure, if the delivery failed to complete.
+ *  Notification of delivery failure, if the delivery failed to complete.
      *
      * @error NoSuchDeliveryChannelException   
      * @error NoAvailableConfigurationRecorderException   
@@ -124,21 +124,21 @@ A rule is compliant if all of the evaluated resources comply with it, and it is
 noncompliant if any of these resources do not comply.
 
 If AWS Config has no current evaluation results for the rule, it returns 
-INSUFFICIENT_DATA . This result might indicate one of the following conditions:
+INSUFFICIENT_DATA. This result might indicate one of the following conditions:
 
- &amp;#42; AWS Config has never invoked an evaluation for the rule. To check whether it
+ &amp;#42;  AWS Config has never invoked an evaluation for the rule. To check whether it
    has, use the DescribeConfigRuleEvaluationStatus action to get the 
-   LastSuccessfulInvocationTime and LastFailedInvocationTime .
+   LastSuccessfulInvocationTime and LastFailedInvocationTime.
    
    
- * The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
+ *  The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
    Config. Verify that the role that you assigned to your configuration recorder
    includes the config:PutEvaluations permission. If the rule is a custom rule,
    verify that the AWS Lambda execution role includes the config:PutEvaluations 
    permission.
    
    
- * The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
+ *  The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
    results. This can occur if the resources were deleted or removed from the
    rule&#x27;s scope.
      *
@@ -157,22 +157,22 @@ evaluate it. It is noncompliant if it does not comply with one or more of these
 rules.
 
 If AWS Config has no current evaluation results for the resource, it returns 
-INSUFFICIENT_DATA . This result might indicate one of the following conditions
+INSUFFICIENT_DATA. This result might indicate one of the following conditions
 about the rules that evaluate the resource:
 
- &amp;#42; AWS Config has never invoked an evaluation for the rule. To check whether it
+ &amp;#42;  AWS Config has never invoked an evaluation for the rule. To check whether it
    has, use the DescribeConfigRuleEvaluationStatus action to get the 
-   LastSuccessfulInvocationTime and LastFailedInvocationTime .
+   LastSuccessfulInvocationTime and LastFailedInvocationTime.
    
    
- * The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
+ *  The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
    Config. Verify that the role that you assigned to your configuration recorder
    includes the config:PutEvaluations permission. If the rule is a custom rule,
    verify that the AWS Lambda execution role includes the config:PutEvaluations 
    permission.
    
    
- * The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
+ *  The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
    results. This can occur if the resources were deleted or removed from the
    rule&#x27;s scope.
      *
@@ -284,8 +284,8 @@ results, run the request again and enter this string for the nextToken
 parameter.
 
 Each call to the API is limited to span a duration of seven days. It is likely
-that the number of records returned is smaller than the specified limit . In
-such cases, you can make another call, using the nextToken .
+that the number of records returned is smaller than the specified limit. In such
+cases, you can make another call, using the nextToken.
      *
      * @error ValidationException   
      * @error InvalidTimeRangeException   
@@ -331,20 +331,20 @@ function that the rule invokes to evaluate your resources. When you use the
 PutConfigRule action to add the rule to AWS Config, you must specify the Amazon
 Resource Name (ARN) that AWS Lambda assigns to the function. Specify the ARN for
 the SourceIdentifier key. This key is part of the Source object, which is part
-of the ConfigRule object.
+of the ConfigRule object. 
 
 If you are adding a new AWS managed Config rule, specify the rule&#x27;s identifier
 for the SourceIdentifier key. To reference AWS managed Config rule identifiers,
 see Using AWS Managed Config Rules
-[http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html] 
+[http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html]
 .
 
 For any new rule that you add, specify the ConfigRuleName in the ConfigRule 
-object. Do not specify the ConfigRuleArn or the ConfigRuleId . These values are
+object. Do not specify the ConfigRuleArn or the ConfigRuleId. These values are
 generated by AWS Config for new rules.
 
 If you are updating a rule that you added previously, you can specify the rule
-by ConfigRuleName , ConfigRuleId , or ConfigRuleArn in the ConfigRule data type
+by ConfigRuleName, ConfigRuleId, or ConfigRuleArn in the ConfigRule data type
 that you use in this request.
 
 The maximum number of rules that AWS Config supports is 50.
@@ -352,12 +352,12 @@ The maximum number of rules that AWS Config supports is 50.
 For more information about requesting a rule limit increase, see AWS Config
 Limits
 [http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config] 
-in the AWS General Reference Guide .
+in the AWS General Reference Guide.
 
 For more information about developing and using AWS Config rules, see Evaluating
 AWS Resource Configurations with AWS Config
 [http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html] 
-in the AWS Config Developer Guide .
+in the AWS Config Developer Guide.
      *
      * @error InvalidParameterValueException   
      * @error MaxNumberOfConfigRulesExceededException   
@@ -427,9 +427,9 @@ known configuration state of the resources. Use StartConfigRulesEvaluation when
 you want to test a rule that you updated is working as expected. 
 StartConfigRulesEvaluation does not re-record the latest configuration state for
 your resources; it re-runs an evaluation against the last known state of your
-resources.
+resources. 
 
-You can specify up to 25 Config rules per request.
+You can specify up to 25 Config rules per request. 
 
 An existing StartConfigRulesEvaluation call must complete for the specified
 rules before you can call the API again. If you chose to have AWS Config stream
@@ -438,25 +438,25 @@ notification when the evaluation starts.
 
 You don&#x27;t need to call the StartConfigRulesEvaluation API to run an evaluation
 for a new rule. When you create a new rule, AWS Config automatically evaluates
-your resources against the rule.
+your resources against the rule. 
 
 The StartConfigRulesEvaluation API is useful if you want to run on-demand
 evaluations, such as the following example:
 
- 1. You have a custom rule that evaluates your IAM resources every 24 hours.
+ 1.  You have a custom rule that evaluates your IAM resources every 24 hours.
     
     
- 2. You update your Lambda function to add additional conditions to your rule.
+ 2.  You update your Lambda function to add additional conditions to your rule.
     
     
- 3. Instead of waiting for the next periodic evaluation, you call the 
+ 3.  Instead of waiting for the next periodic evaluation, you call the 
     StartConfigRulesEvaluation API.
     
     
- 4. AWS Config invokes your Lambda function and evaluates your IAM resources.
+ 4.  AWS Config invokes your Lambda function and evaluates your IAM resources.
     
     
- 5. Your custom rule will still run periodic evaluations every 24 hours.
+ 5.  Your custom rule will still run periodic evaluations every 24 hours.
      *
      * @error NoSuchConfigRuleException   
      * @error LimitExceededException   
@@ -652,12 +652,12 @@ it, and it is noncompliant if any of these resources do not comply.
 AWS Config returns the INSUFFICIENT_DATA value when no evaluation results are
 available for the AWS resource or Config rule.
 
-For the Compliance data type, AWS Config supports only COMPLIANT , NON_COMPLIANT 
-, and INSUFFICIENT_DATA values. AWS Config does not support the NOT_APPLICABLE 
+For the Compliance data type, AWS Config supports only COMPLIANT, NON_COMPLIANT,
+and INSUFFICIENT_DATA values. AWS Config does not support the NOT_APPLICABLE 
 value for the Compliance data type. **/
         ComplianceType?: ComplianceType;
         /** The number of AWS resources or AWS Config rules that cause a result of 
-NON_COMPLIANT , up to a maximum number. **/
+NON_COMPLIANT, up to a maximum number. **/
         ComplianceContributorCount?: ComplianceContributorCount;
     }
     export interface ComplianceByConfigRule {
@@ -738,15 +738,15 @@ notifications that cause the function to evaluate your AWS resources. **/
         /** The maximum frequency with which AWS Config runs evaluations for a rule. You can
 specify a value for MaximumExecutionFrequency when:
 
- &amp;#42; You are using an AWS managed rule that is triggered at a periodic frequency.
+ &amp;#42;  You are using an AWS managed rule that is triggered at a periodic frequency.
    
    
- * Your custom rule is triggered when AWS Config delivers the configuration
+ *  Your custom rule is triggered when AWS Config delivers the configuration
    snapshot.
    
    
 
-For more information, see ConfigSnapshotDeliveryProperties . **/
+For more information, see ConfigSnapshotDeliveryProperties. **/
         MaximumExecutionFrequency?: MaximumExecutionFrequency;
         /** Indicates whether the AWS Config rule is active or is currently being deleted by
 AWS Config. It can also indicate the evaluation status for the Config rule.
@@ -792,11 +792,11 @@ rule. **/
         /** Indicates whether AWS Config has evaluated your resources against the rule at
 least once.
 
- &amp;#42; true - AWS Config has evaluated your AWS resources against the rule at least
+ &amp;#42;   true - AWS Config has evaluated your AWS resources against the rule at least
    once.
    
    
- * false - AWS Config has not once finished evaluating your AWS resources
+ *   false - AWS Config has not once finished evaluating your AWS resources
    against the rule. **/
         FirstEvaluationStarted?: Boolean;
     }
@@ -807,10 +807,10 @@ least once.
     export interface ConfigStreamDeliveryInfo {
         /** Status of the last attempted delivery.
 
-Note Providing an SNS topic on a DeliveryChannel
+ Note Providing an SNS topic on a DeliveryChannel
 [http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html] 
 for AWS Config is optional. If the SNS delivery is turned off, the last status
-will be Not_Applicable . **/
+will be Not_Applicable. **/
         lastStatus?: DeliveryStatus;
         /** The error code from the last attempted delivery. **/
         lastErrorCode?: String;
@@ -840,7 +840,7 @@ that are associated with the same resource. **/
         arn?: ARN;
         /** The type of AWS resource. **/
         resourceType?: ResourceType;
-        /** The ID of the resource (for example., sg-xxxxxx ). **/
+        /** The ID of the resource (for example., sg-xxxxxx). **/
         resourceId?: ResourceId;
         /** The custom name of the resource, if available. **/
         resourceName?: ResourceName;
@@ -857,7 +857,7 @@ that are associated with the same resource. **/
 A populated field indicates that the current configuration was initiated by the
 events recorded in the CloudTrail log. For more information about CloudTrail,
 see What is AWS CloudTrail?
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html] 
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html]
 .
 
 An empty field indicates that the current configuration was not initiated by any
@@ -976,7 +976,7 @@ notification to the specified Amazon SNS topic. **/
         ConfigRuleNames?: ConfigRuleNames;
         /** Filters the results by compliance.
 
-The allowed values are COMPLIANT , NON_COMPLIANT , and INSUFFICIENT_DATA . **/
+The allowed values are COMPLIANT, NON_COMPLIANT, and INSUFFICIENT_DATA. **/
         ComplianceTypes?: ComplianceTypes;
         /** The NextToken string returned on a previous page that you use to get the next
 page of results in a paginated response. **/
@@ -991,16 +991,16 @@ in a paginated response. **/
     }
     export interface DescribeComplianceByResourceRequest {
         /** The types of AWS resources for which you want compliance information; for
-example, AWS::EC2::Instance . For this action, you can specify that the resource
-type is an AWS account by specifying AWS::::Account . **/
+example, AWS::EC2::Instance. For this action, you can specify that the resource
+type is an AWS account by specifying AWS::::Account. **/
         ResourceType?: StringWithCharLimit256;
         /** The ID of the AWS resource for which you want compliance information. You can
 specify only one resource ID. If you specify a resource ID, you must also
-specify a type for ResourceType . **/
+specify a type for ResourceType. **/
         ResourceId?: StringWithCharLimit256;
         /** Filters the results by compliance.
 
-The allowed values are COMPLIANT , NON_COMPLIANT , and INSUFFICIENT_DATA . **/
+The allowed values are COMPLIANT, NON_COMPLIANT, and INSUFFICIENT_DATA. **/
         ComplianceTypes?: ComplianceTypes;
         /** The maximum number of evaluation results returned on each page. The default is
 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config
@@ -1034,7 +1034,7 @@ default of 50 rules.
 For more information about requesting a rule limit increase, see AWS Config
 Limits
 [http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config] 
-in the AWS General Reference Guide . **/
+in the AWS General Reference Guide. **/
         Limit?: RuleLimit;
     }
     export interface DescribeConfigRuleEvaluationStatusResponse {
@@ -1101,8 +1101,8 @@ with the account. **/
         /** Indicates whether the AWS resource complies with the AWS Config rule that it was
 evaluated against.
 
-For the Evaluation data type, AWS Config supports only the COMPLIANT , 
-NON_COMPLIANT , and NOT_APPLICABLE values. AWS Config does not support the 
+For the Evaluation data type, AWS Config supports only the COMPLIANT, 
+NON_COMPLIANT, and NOT_APPLICABLE values. AWS Config does not support the 
 INSUFFICIENT_DATA value for this data type.
 
 Similarly, AWS Config does not accept INSUFFICIENT_DATA as the value for 
@@ -1125,8 +1125,8 @@ you specified (for example, every 24 hours). **/
         /** Indicates whether the AWS resource complies with the AWS Config rule that
 evaluated it.
 
-For the EvaluationResult data type, AWS Config supports only the COMPLIANT , 
-NON_COMPLIANT , and NOT_APPLICABLE values. AWS Config does not support the 
+For the EvaluationResult data type, AWS Config supports only the COMPLIANT, 
+NON_COMPLIANT, and NOT_APPLICABLE values. AWS Config does not support the 
 INSUFFICIENT_DATA value for the EvaluationResult data type. **/
         ComplianceType?: ComplianceType;
         /** The time when AWS Config recorded the evaluation result. **/
@@ -1163,7 +1163,7 @@ snapshot, depending on which event triggered the evaluation. **/
         ConfigRuleName: StringWithCharLimit64;
         /** Filters the results by compliance.
 
-The allowed values are COMPLIANT , NON_COMPLIANT , and NOT_APPLICABLE . **/
+The allowed values are COMPLIANT, NON_COMPLIANT, and NOT_APPLICABLE. **/
         ComplianceTypes?: ComplianceTypes;
         /** The maximum number of evaluation results returned on each page. The default is
 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config
@@ -1187,7 +1187,7 @@ in a paginated response. **/
         ResourceId: StringWithCharLimit256;
         /** Filters the results by compliance.
 
-The allowed values are COMPLIANT , NON_COMPLIANT , and NOT_APPLICABLE . **/
+The allowed values are COMPLIANT, NON_COMPLIANT, and NOT_APPLICABLE. **/
         ComplianceTypes?: ComplianceTypes;
         /** The NextToken string returned on a previous page that you use to get the next
 page of results in a paginated response. **/
@@ -1210,8 +1210,8 @@ noncompliant, up to a maximum of 25 for each. **/
 compliant and the number that are noncompliant for each resource type.
 
 For this request, you can specify an AWS resource type such as 
-AWS::EC2::Instance , and you can specify that the resource type is an AWS
-account by specifying AWS::::Account . **/
+AWS::EC2::Instance, and you can specify that the resource type is an AWS account
+by specifying AWS::::Account. **/
         ResourceTypes?: ResourceTypes;
     }
     export interface GetComplianceSummaryByResourceTypeResponse {
@@ -1223,7 +1223,7 @@ returned for each resource type. The maximum number returned is 100. **/
     export interface GetResourceConfigHistoryRequest {
         /** The resource type. **/
         resourceType: ResourceType;
-        /** The ID of the resource (for example., sg-xxxxxx ). **/
+        /** The ID of the resource (for example., sg-xxxxxx). **/
         resourceId: ResourceId;
         /** The time stamp that indicates a later time. If not specified, current time is
 taken. **/
@@ -1360,18 +1360,18 @@ Identifies the rule and the event that triggered the evaluation **/
         /** Specifies whether AWS Config records configuration changes for every supported
 type of regional resource.
 
-If you set this option to true , when AWS Config adds support for a new type of
+If you set this option to true, when AWS Config adds support for a new type of
 regional resource, it automatically starts recording resources of that type.
 
-If you set this option to true , you cannot enumerate a list of resourceTypes . **/
+If you set this option to true, you cannot enumerate a list of resourceTypes. **/
         allSupported?: AllSupported;
         /** Specifies whether AWS Config includes all supported types of global resources
 (for example, IAM resources) with the resources that it records.
 
-Before you can set this option to true , you must set the allSupported option to 
-true .
+Before you can set this option to true, you must set the allSupported option to 
+true.
 
-If you set this option to true , when AWS Config adds support for a new type of
+If you set this option to true, when AWS Config adds support for a new type of
 global resource, it automatically starts recording resources of that type.
 
 The configuration details for any global resource are the same in all regions.
@@ -1380,25 +1380,25 @@ Config in only one region to record global resources. **/
         includeGlobalResourceTypes?: IncludeGlobalResourceTypes;
         /** A comma-separated list that specifies the types of AWS resources for which AWS
 Config records configuration changes (for example, AWS::EC2::Instance or 
-AWS::CloudTrail::Trail ).
+AWS::CloudTrail::Trail).
 
-Before you can set this option to true , you must set the allSupported option to 
-false .
+Before you can set this option to true, you must set the allSupported option to 
+false.
 
-If you set this option to true , when AWS Config adds support for a new type of
+If you set this option to true, when AWS Config adds support for a new type of
 resource, it will not record resources of that type unless you manually add that
 type to your recording group.
 
 For a list of valid resourceTypes values, see the resourceType Value column in 
 Supported AWS Resource Types
-[http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources] 
+[http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources]
 . **/
         resourceTypes?: ResourceTypeList;
     }
     export interface Relationship {
         /** The resource type of the related resource. **/
         resourceType?: ResourceType;
-        /** The ID of the related resource (for example, sg-xxxxxx ). **/
+        /** The ID of the related resource (for example, sg-xxxxxx). **/
         resourceId?: ResourceId;
         /** The custom name of the related resource, if available. **/
         resourceName?: ResourceName;
@@ -1408,7 +1408,7 @@ Supported AWS Resource Types
     export interface ResourceIdentifier {
         /** The type of resource. **/
         resourceType?: ResourceType;
-        /** The ID of the resource (for example., sg-xxxxxx ). **/
+        /** The ID of the resource (for example., sg-xxxxxx). **/
         resourceId?: ResourceId;
         /** The custom name of the resource (if available). **/
         resourceName?: ResourceName;
@@ -1422,18 +1422,18 @@ Supported AWS Resource Types
     export interface Scope {
         /** The resource types of only those AWS resources that you want to trigger an
 evaluation for the rule. You can only specify one type if you also specify a
-resource ID for ComplianceResourceId . **/
+resource ID for ComplianceResourceId. **/
         ComplianceResourceTypes?: ComplianceResourceTypes;
         /** The tag key that is applied to only those AWS resources that you want you want
 to trigger an evaluation for the rule. **/
         TagKey?: StringWithCharLimit128;
         /** The tag value applied to only those AWS resources that you want to trigger an
-evaluation for the rule. If you specify a value for TagValue , you must also
-specify a value for TagKey . **/
+evaluation for the rule. If you specify a value for TagValue, you must also
+specify a value for TagKey. **/
         TagValue?: StringWithCharLimit256;
         /** The IDs of the only AWS resource that you want to trigger an evaluation for the
 rule. If you specify a resource ID, you must specify one resource type for 
-ComplianceResourceTypes . **/
+ComplianceResourceTypes. **/
         ComplianceResourceId?: StringWithCharLimit256;
     }
     export interface Source {
@@ -1442,12 +1442,12 @@ ComplianceResourceTypes . **/
         /** For AWS Config managed rules, a predefined identifier from a list. For example, 
 IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using
 AWS Managed Config Rules
-[http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html] 
+[http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html]
 .
 
 For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule&#x27;s
 AWS Lambda function, such as 
-arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name . **/
+arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name. **/
         SourceIdentifier: StringWithCharLimit256;
         /** Provides the source and type of the event that causes AWS Config to evaluate
 your AWS resources. **/
@@ -1460,31 +1460,31 @@ evaluate your AWS resources. **/
         /** The type of notification that triggers AWS Config to run an evaluation for a
 rule. You can specify the following notification types:
 
- &amp;#42; ConfigurationItemChangeNotification - Triggers an evaluation when AWS Config
+ &amp;#42;   ConfigurationItemChangeNotification - Triggers an evaluation when AWS Config
    delivers a configuration item as a result of a resource change.
    
    
- * OversizedConfigurationItemChangeNotification - Triggers an evaluation when
+ *   OversizedConfigurationItemChangeNotification - Triggers an evaluation when
    AWS Config delivers an oversized configuration item. AWS Config may generate
    this notification type when a resource changes and the notification exceeds
    the maximum size allowed by Amazon SNS.
    
    
- * ScheduledNotification - Triggers a periodic evaluation at the frequency
-   specified for MaximumExecutionFrequency .
+ *   ScheduledNotification - Triggers a periodic evaluation at the frequency
+   specified for MaximumExecutionFrequency.
    
    
- * ConfigurationSnapshotDeliveryCompleted - Triggers a periodic evaluation when
+ *   ConfigurationSnapshotDeliveryCompleted - Triggers a periodic evaluation when
    AWS Config delivers a configuration snapshot.
    
    
 
 If you want your custom rule to be triggered by configuration changes, specify
 both ConfigurationItemChangeNotification and 
-OversizedConfigurationItemChangeNotification . **/
+OversizedConfigurationItemChangeNotification. **/
         MessageType?: MessageType;
         /** The frequency that you want AWS Config to run evaluations for a rule that is
-triggered periodically. If you specify a value for MaximumExecutionFrequency ,
+triggered periodically. If you specify a value for MaximumExecutionFrequency,
 then MessageType must use the ScheduledNotification value. **/
         MaximumExecutionFrequency?: MaximumExecutionFrequency;
     }

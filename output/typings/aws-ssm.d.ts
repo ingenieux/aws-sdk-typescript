@@ -20,17 +20,17 @@ operating system (OS) patches, automating the creation of Amazon Machine Images
 (AMIs), and configuring operating systems (OSs) and applications at scale.
 Systems Manager works with managed instances: Amazon EC2 instances and servers
 or virtual machines (VMs) in your on-premises environment that are configured
-for Systems Manager.
+for Systems Manager. 
 
-This references is intended to be used with the EC2 Systems Manager User Guide ( 
-Linux [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/systems-manager.html] 
-) ( Windows
-[http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/systems-manager.html] ).
+This references is intended to be used with the EC2 Systems Manager User Guide (
+Linux [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/systems-manager.html])
+(Windows
+[http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/systems-manager.html]).
 
-To get started, verify prerequisites and configure managed instances ( Linux
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/systems-manager-prereqs.html] 
-) ( Windows
-[http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/systems-manager-prereqs.html] 
+To get started, verify prerequisites and configure managed instances (Linux
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/systems-manager-prereqs.html]
+) (Windows
+[http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/systems-manager-prereqs.html]
 ).
    *
    */
@@ -46,13 +46,13 @@ which you define. For example, you could define a set of tags for your account&#
 managed instances that helps you track each instance&#x27;s owner and stack level.
 For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and
 Value=Production, Pre-Production, or Test. Each resource can have a maximum of
-10 tags.
+10 tags. 
 
 We recommend that you devise a set of tag keys that meets your needs for each
 resource type. Using a consistent set of tag keys makes it easier for you to
 manage your resources. You can search and filter the resources based on the tags
 you add. Tags don&#x27;t have any semantic meaning to Amazon EC2 and are interpreted
-strictly as a string of characters.
+strictly as a string of characters. 
 
 For more information about tags, see Tagging Your Amazon EC2 Resources
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] in the
@@ -295,7 +295,7 @@ activation, and the number of instances activated by this registration.
     /**
      * Describes the permissions for an SSM document. If you created the document, you
 are the owner. If a document is shared, it can either be shared privately (by
-specifying a user’s AWS account ID) or publicly ( All ).
+specifying a user’s AWS account ID) or publicly (All).
      *
      * @error InternalServerError   
      * @error InvalidDocument   
@@ -1398,9 +1398,9 @@ instances. **/
         ResourceType: ResourceTypeForTagging;
         /** The resource ID you want to tag. **/
         ResourceId: ResourceId;
-        /** One or more tags. The value parameter is required, but if you don&#x27;t want the tag
-to have a value, specify the parameter with no value, and we set the value to an
-empty string. **/
+        /** One or more tags. The value parameter is required, but if you don&#x27;t want the
+tag to have a value, specify the parameter with no value, and we set the value
+to an empty string. **/
         Tags: TagList;
     }
     export interface AddTagsToResourceResult {
@@ -1473,7 +1473,7 @@ binding between a document and a set of targets with a schedule. **/
     export interface AssociationLimitExceeded {
     }
     export interface AssociationOverview {
-        /** The status of the association. Status can be: Pending , Success , or Failed . **/
+        /** The status of the association. Status can be: Pending, Success, or Failed. **/
         Status?: StatusName;
         /** A detailed status of the association. **/
         DetailedStatus?: StatusName;
@@ -1516,7 +1516,7 @@ execution. An Automation document contains a list of steps that are executed in
 order. **/
         StepExecutions?: StepExecutionList;
         /** The key-value map of execution parameters, which were supplied when calling 
-StartAutomationExecution . **/
+StartAutomationExecution. **/
         Parameters?: AutomationParameterMap;
         /** The list of execution outputs as defined in the automation document. **/
         Outputs?: AutomationParameterMap;
@@ -1586,9 +1586,9 @@ command. **/
         Parameters?: Parameters;
         /** The instance IDs against which this command was requested. **/
         InstanceIds?: InstanceIdList;
-        /** An array of search criteria that targets instances using a Key ; Value 
-combination that you specify. Targets is required if you don&#x27;t provide one or
-more instance IDs in the call. **/
+        /** An array of search criteria that targets instances using a Key;Value combination
+that you specify. Targets is required if you don&#x27;t provide one or more instance
+IDs in the call. **/
         Targets?: Targets;
         /** The date and time the command was requested. **/
         RequestedDateTime?: DateTime;
@@ -1597,45 +1597,45 @@ more instance IDs in the call. **/
         /** A detailed status of the command execution. StatusDetails includes more
 information than Status because it includes states resulting from error and
 concurrency control parameters. StatusDetails can show different results than 
-Status . For more information about these statuses, see Monitor Commands
+Status. For more information about these statuses, see Monitor Commands
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html] 
 (Linux) or Monitor Commands
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html] 
 (Windows). StatusDetails can be one of the following values:
 
- &amp;#42; Pending – The command has not been sent to any instances.
+ &amp;#42;  Pending – The command has not been sent to any instances.
    
    
- * In Progress – The command has been sent to at least one instance but has not
+ *  In Progress – The command has been sent to at least one instance but has not
    reached a final state on all instances.
    
    
- * Success – The command successfully executed on all invocations. This is a
+ *  Success – The command successfully executed on all invocations. This is a
    terminal state.
    
    
- * Delivery Timed Out – The value of MaxErrors or more command invocations shows
-   a status of Delivery Timed Out . This is a terminal state.
+ *  Delivery Timed Out – The value of MaxErrors or more command invocations shows
+   a status of Delivery Timed Out. This is a terminal state.
    
    
- * Execution Timed Out – The value of MaxErrors or more command invocations
-   shows a status of Execution Timed Out . This is a terminal state.
+ *  Execution Timed Out – The value of MaxErrors or more command invocations
+   shows a status of Execution Timed Out. This is a terminal state.
    
    
- * Failed – The value of MaxErrors or more command invocations shows a status of 
-   Failed . This is a terminal state.
+ *  Failed – The value of MaxErrors or more command invocations shows a status of 
+   Failed. This is a terminal state.
    
    
- * Incomplete – The command was attempted on all instances and one or more
+ *  Incomplete – The command was attempted on all instances and one or more
    invocations does not have a value of Success but not enough invocations
-   failed for the status to be Failed . This is a terminal state.
+   failed for the status to be Failed. This is a terminal state.
    
    
- * Canceled – The command was terminated before it was completed. This is a
+ *  Canceled – The command was terminated before it was completed. This is a
    terminal state.
    
    
- * Rate Exceeded – The number of instances targeted by the command exceeded the
+ *  Rate Exceeded – The number of instances targeted by the command exceeded the
    account limit for pending invocations. The system has canceled the command
    before executing it on any instance. This is a terminal state. **/
         StatusDetails?: StatusDetails;
@@ -1651,7 +1651,7 @@ executions should be stored. This was requested when issuing the command. **/
         /** The maximum number of instances that are allowed to execute the command at the
 same time. You can specify a number of instances, such as 10, or a percentage of
 instances, such as 10%. The default value is 50. For more information about how
-to use MaxConcurrency , see Executing a Command Using Amazon EC2 Run Command
+to use MaxConcurrency, see Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html] (Linux) or 
 Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html] 
@@ -1660,19 +1660,19 @@ Executing a Command Using Amazon EC2 Run Command
         /** The maximum number of errors allowed before the system stops sending the command
 to additional targets. You can specify a number of errors, such as 10, or a
 percentage or errors, such as 10%. The default value is 50. For more information
-about how to use MaxErrors , see Executing a Command Using Amazon EC2 Run
-Command [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html] 
-(Linux) or Executing a Command Using Amazon EC2 Run Command
+about how to use MaxErrors, see Executing a Command Using Amazon EC2 Run Command
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html] (Linux) or 
+Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html] 
 (Windows). **/
         MaxErrors?: VelocityConstraint;
         /** The number of targets for the command. **/
         TargetCount?: TargetCount;
         /** The number of targets for which the command invocation reached a terminal state.
-Terminal states include the following: Success , Failed , Execution Timed Out , 
-Delivery Timed Out , Canceled , Terminated , or Undeliverable . **/
+Terminal states include the following: Success, Failed, Execution Timed Out, 
+Delivery Timed Out, Canceled, Terminated, or Undeliverable. **/
         CompletedCount?: CompletedCount;
-        /** The number of targets for which the status is Failed or Execution Timed Out . **/
+        /** The number of targets for which the status is Failed or Execution Timed Out. **/
         ErrorCount?: ErrorCount;
         /** The IAM service role that Run Command uses to act on your behalf when sending
 notifications about command status changes. **/
@@ -1707,55 +1707,55 @@ what the command should do. **/
         /** A detailed status of the command execution for each invocation (each instance
 targeted by the command). StatusDetails includes more information than Status 
 because it includes states resulting from error and concurrency control
-parameters. StatusDetails can show different results than Status . For more
+parameters. StatusDetails can show different results than Status. For more
 information about these statuses, see Monitor Commands
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html] 
 (Linux) or Monitor Commands
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html] 
-(Windows). StatusDetails can be one of the following values:
+(Windows). StatusDetails can be one of the following values: 
 
- &amp;#42; Pending – The command has not been sent to the instance.
+ &amp;#42;  Pending – The command has not been sent to the instance.
    
    
- * In Progress – The command has been sent to the instance but has not reached a
-   terminal state.
+ *  In Progress – The command has been sent to the instance but has not reached
+   a terminal state.
    
    
- * Success – The execution of the command or plugin was successfully completed.
+ *  Success – The execution of the command or plugin was successfully completed.
    This is a terminal state.
    
    
- * Delivery Timed Out – The command was not delivered to the instance before the
-   delivery timeout expired. Delivery timeouts do not count against the parent
-   command’s MaxErrors limit, but they do contribute to whether the parent
-   command status is Success or Incomplete . This is a terminal state.
+ *  Delivery Timed Out – The command was not delivered to the instance before
+   the delivery timeout expired. Delivery timeouts do not count against the
+   parent command’s MaxErrors limit, but they do contribute to whether the
+   parent command status is Success or Incomplete. This is a terminal state.
    
    
- * Execution Timed Out – Command execution started on the instance, but the
+ *  Execution Timed Out – Command execution started on the instance, but the
    execution was not complete before the execution timeout expired. Execution
    timeouts count against the MaxErrors limit of the parent command. This is a
    terminal state.
    
    
- * Failed – The command was not successful on the instance. For a plugin, this
+ *  Failed – The command was not successful on the instance. For a plugin, this
    indicates that the result code was not zero. For a command invocation, this
    indicates that the result code for one or more plugins was not zero.
    Invocation failures count against the MaxErrors limit of the parent command.
    This is a terminal state.
    
    
- * Canceled – The command was terminated before it was completed. This is a
+ *  Canceled – The command was terminated before it was completed. This is a
    terminal state.
    
    
- * Undeliverable – The command can&#x27;t be delivered to the instance. The instance
+ *  Undeliverable – The command can&#x27;t be delivered to the instance. The instance
    might not exist or might not be responding. Undeliverable invocations don&#x27;t
    count against the parent command’s MaxErrors limit and don&#x27;t contribute to
-   whether the parent command status is Success or Incomplete . This is a
+   whether the parent command status is Success or Incomplete. This is a
    terminal state.
    
    
- * Terminated – The parent command exceeded its MaxErrors limit and subsequent
+ *  Terminated – The parent command exceeded its MaxErrors limit and subsequent
    command invocations were canceled by the system. This is a terminal state. **/
         StatusDetails?: StatusDetails;
         /** Gets the trace output sent by the agent. **/
@@ -1788,54 +1788,54 @@ aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent. **/
         /** A detailed status of the plugin execution. StatusDetails includes more
 information than Status because it includes states resulting from error and
 concurrency control parameters. StatusDetails can show different results than 
-Status . For more information about these statuses, see Monitor Commands
+Status. For more information about these statuses, see Monitor Commands
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html] 
 (Linux) or Monitor Commands
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html] 
 (Windows). StatusDetails can be one of the following values:
 
- &amp;#42; Pending – The command has not been sent to the instance.
+ &amp;#42;  Pending – The command has not been sent to the instance.
    
    
- * In Progress – The command has been sent to the instance but has not reached a
-   terminal state.
+ *  In Progress – The command has been sent to the instance but has not reached
+   a terminal state.
    
    
- * Success – The execution of the command or plugin was successfully completed.
+ *  Success – The execution of the command or plugin was successfully completed.
    This is a terminal state.
    
    
- * Delivery Timed Out – The command was not delivered to the instance before the
-   delivery timeout expired. Delivery timeouts do not count against the parent
-   command’s MaxErrors limit, but they do contribute to whether the parent
-   command status is Success or Incomplete . This is a terminal state.
+ *  Delivery Timed Out – The command was not delivered to the instance before
+   the delivery timeout expired. Delivery timeouts do not count against the
+   parent command’s MaxErrors limit, but they do contribute to whether the
+   parent command status is Success or Incomplete. This is a terminal state.
    
    
- * Execution Timed Out – Command execution started on the instance, but the
+ *  Execution Timed Out – Command execution started on the instance, but the
    execution was not complete before the execution timeout expired. Execution
    timeouts count against the MaxErrors limit of the parent command. This is a
    terminal state.
    
    
- * Failed – The command was not successful on the instance. For a plugin, this
+ *  Failed – The command was not successful on the instance. For a plugin, this
    indicates that the result code was not zero. For a command invocation, this
    indicates that the result code for one or more plugins was not zero.
    Invocation failures count against the MaxErrors limit of the parent command.
    This is a terminal state.
    
    
- * Canceled – The command was terminated before it was completed. This is a
+ *  Canceled – The command was terminated before it was completed. This is a
    terminal state.
    
    
- * Undeliverable – The command can&#x27;t be delivered to the instance. The instance
+ *  Undeliverable – The command can&#x27;t be delivered to the instance. The instance
    might not exist, or it might not be responding. Undeliverable invocations
    don&#x27;t count against the parent command’s MaxErrors limit, and they don&#x27;t
-   contribute to whether the parent command status is Success or Incomplete .
+   contribute to whether the parent command status is Success or Incomplete.
    This is a terminal state.
    
    
- * Terminated – The parent command exceeded its MaxErrors limit and subsequent
+ *  Terminated – The parent command exceeded its MaxErrors limit and subsequent
    command invocations were canceled by the system. This is a terminal state. **/
         StatusDetails?: StatusDetails;
         /** A numeric response code generated after executing the plugin. **/
@@ -1860,31 +1860,31 @@ not yet complete, then this string is empty. **/
 This was requested when issuing the command. For example, in the following
 response:
 
+ 
+test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript 
 
-test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript
+ test_folder is the name of the Amazon S3 bucket;
 
-test_folder is the name of the Amazon S3 bucket;
+ ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
 
-ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+ i-1234567876543 is the instance ID;
 
-i-1234567876543 is the instance ID;
-
-awsrunShellScript is the name of the plugin. **/
+ awsrunShellScript is the name of the plugin. **/
         OutputS3BucketName?: S3BucketName;
         /** The S3 directory path inside the bucket where the responses to the command
 executions should be stored. This was requested when issuing the command. For
 example, in the following response:
 
+ 
+test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript 
 
-test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript
+ test_folder is the name of the Amazon S3 bucket;
 
-test_folder is the name of the Amazon S3 bucket;
+ ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
 
-ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+ i-1234567876543 is the instance ID;
 
-i-1234567876543 is the instance ID;
-
-awsrunShellScript is the name of the plugin. **/
+ awsrunShellScript is the name of the plugin. **/
         OutputS3KeyPrefix?: S3KeyPrefix;
     }
     export interface CreateActivationRequest {
@@ -1961,7 +1961,7 @@ thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10
         /** An Amazon S3 bucket where you want to store the output details of the request.
 For example:
 
-&quot;{ \&quot;S3Location\&quot;: { \&quot;OutputS3Region\&quot;: \&quot;&lt;region&gt;\&quot;, \&quot;OutputS3BucketName\&quot;:
+ &quot;{ \&quot;S3Location\&quot;: { \&quot;OutputS3Region\&quot;: \&quot;&lt;region&gt;\&quot;, \&quot;OutputS3BucketName\&quot;:
 \&quot;bucket name\&quot;, \&quot;OutputS3KeyPrefix\&quot;: \&quot;folder name\&quot; } }&quot; **/
         OutputLocation?: InstanceAssociationOutputLocation;
     }
@@ -2183,12 +2183,12 @@ additional items to return, the string is empty. **/
     export interface DescribeDocumentPermissionRequest {
         /** The name of the document for which you are the owner. **/
         Name: DocumentName;
-        /** The permission type for the document. The permission type can be Share . **/
+        /** The permission type for the document. The permission type can be Share. **/
         PermissionType: DocumentPermissionType;
     }
     export interface DescribeDocumentPermissionResponse {
         /** The account IDs that have permission to use this document. The ID can be either
-an AWS account or All . **/
+an AWS account or All. **/
         AccountIds?: AccountIdList;
     }
     export interface DescribeDocumentRequest {
@@ -2279,9 +2279,9 @@ retrieved. **/
 
 Key (string 1 ≤ length ≤ 200)
 
-Values (array containing a single string)
+ Values (array containing a single string)
 
-Type (string “Equal”, “NotEqual”, “LessThan”, “GreaterThan”) **/
+ Type (string “Equal”, “NotEqual”, “LessThan”, “GreaterThan”) **/
         Filters?: InstancePatchStateFilterList;
         /** The token for the next set of items to return. (You received this token from a
 previous call.) **/
@@ -2425,8 +2425,8 @@ additional items to return, the string is empty. **/
         /** The ID of the Maintenance Window whose targets should be retrieved. **/
         WindowId: MaintenanceWindowId;
         /** Optional filters that can be used to narrow down the scope of the returned
-window targets. The supported filter keys are Type , WindowTargetId and 
-OwnerInformation . **/
+window targets. The supported filter keys are Type, WindowTargetId and 
+OwnerInformation. **/
         Filters?: MaintenanceWindowFilterList;
         /** The maximum number of items to return for this call. The call also returns a
 token that you can specify in a subsequent call to get the next set of results. **/
@@ -2446,7 +2446,7 @@ additional items to return, the string is empty. **/
         /** The ID of the Maintenance Window whose tasks should be retrieved. **/
         WindowId: MaintenanceWindowId;
         /** Optional filters used to narrow down the scope of the returned tasks. The
-supported filter keys are WindowTaskId , TaskArn , Priority , and TaskType . **/
+supported filter keys are WindowTaskId, TaskArn, Priority, and TaskType. **/
         Filters?: MaintenanceWindowFilterList;
         /** The maximum number of items to return for this call. The call also returns a
 token that you can specify in a subsequent call to get the next set of results. **/
@@ -2464,7 +2464,7 @@ additional items to return, the string is empty. **/
     }
     export interface DescribeMaintenanceWindowsRequest {
         /** Optional filters used to narrow down the scope of the returned Maintenance
-Windows. Supported filter keys are Name and Enabled . **/
+Windows. Supported filter keys are Name and Enabled. **/
         Filters?: MaintenanceWindowFilterList;
         /** The maximum number of items to return for this call. The call also returns a
 token that you can specify in a subsequent call to get the next set of results. **/
@@ -2498,7 +2498,7 @@ additional items to return, the string is empty. **/
         NextToken?: NextToken;
     }
     export interface DescribePatchBaselinesRequest {
-        /** Each element in the array is a structure containing:
+        /** Each element in the array is a structure containing: 
 
 Key: (string, “NAME_PREFIX” or “OWNER”)
 
@@ -2567,7 +2567,7 @@ additional items to return, the string is empty. **/
     export interface DocumentDescription {
         /** The SHA1 hash of the document, which you can use for verification purposes. **/
         Sha1?: DocumentSha1;
-        /** The Sha256 or Sha1 hash created by the system when the document was created.
+        /** The Sha256 or Sha1 hash created by the system when the document was created. 
 
 Sha1 hashes have been deprecated. **/
         Hash?: DocumentHash;
@@ -2715,86 +2715,86 @@ is an SSM document. **/
         /** The name of the plugin for which you want detailed results. For example,
 aws:RunShellScript is a plugin. **/
         PluginName?: CommandPluginName;
-        /** The error level response code for the plugin script. If the response code is -1 
-, then the command has not started executing on the instance, or it was not
+        /** The error level response code for the plugin script. If the response code is -1,
+then the command has not started executing on the instance, or it was not
 received by the instance. **/
         ResponseCode?: ResponseCode;
         /** The date and time the plugin started executing. Date and time are written in ISO
 8601 format. For example, August 28, 2016 is represented as 2016-08-28. If the
 plugin has not started to execute, the string is empty. **/
         ExecutionStartDateTime?: StringDateTime;
-        /** Duration since ExecutionStartDateTime . **/
+        /** Duration since ExecutionStartDateTime. **/
         ExecutionElapsedTime?: StringDateTime;
         /** The date and time the plugin was finished executing. Date and time are written
 in ISO 8601 format. For example, August 28, 2016 is represented as 2016-08-28.
 If the plugin has not started to execute, the string is empty. **/
         ExecutionEndDateTime?: StringDateTime;
         /** The status of the parent command for this invocation. This status can be
-different than StatusDetails . **/
+different than StatusDetails. **/
         Status?: CommandInvocationStatus;
         /** A detailed status of the command execution for an invocation. StatusDetails 
 includes more information than Status because it includes states resulting from
 error and concurrency control parameters. StatusDetails can show different
-results than Status . For more information about these statuses, see Monitor
+results than Status. For more information about these statuses, see Monitor
 Commands
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html] 
 (Linux) or Monitor Commands
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/monitor-commands.html] 
-(Windows). StatusDetails can be one of the following values:
+(Windows). StatusDetails can be one of the following values: 
 
- &amp;#42; Pending – The command has not been sent to the instance.
+ &amp;#42;  Pending – The command has not been sent to the instance.
    
    
- * In Progress – The command has been sent to the instance but has not reached a
-   terminal state.
+ *  In Progress – The command has been sent to the instance but has not reached
+   a terminal state.
    
    
- * Delayed – The system attempted to send the command to the target, but the
+ *  Delayed – The system attempted to send the command to the target, but the
    target was not available. The instance might not be available because of
    network issues, the instance was stopped, etc. The system will try to deliver
    the command again.
    
    
- * Success – The command or plugin was executed successfully. This is a terminal
-   state.
+ *  Success – The command or plugin was executed successfully. This is a
+   terminal state.
    
    
- * Delivery Timed Out – The command was not delivered to the instance before the
-   delivery timeout expired. Delivery timeouts do not count against the parent
-   command’s MaxErrors limit, but they do contribute to whether the parent
-   command status is Success or Incomplete . This is a terminal state.
+ *  Delivery Timed Out – The command was not delivered to the instance before
+   the delivery timeout expired. Delivery timeouts do not count against the
+   parent command’s MaxErrors limit, but they do contribute to whether the
+   parent command status is Success or Incomplete. This is a terminal state.
    
    
- * Execution Timed Out – The command started to execute on the instance, but the
-   execution was not complete before the timeout expired. Execution timeouts
+ *  Execution Timed Out – The command started to execute on the instance, but
+   the execution was not complete before the timeout expired. Execution timeouts
    count against the MaxErrors limit of the parent command. This is a terminal
    state.
    
    
- * Failed – The command wasn&#x27;t executed successfully on the instance. For a
+ *  Failed – The command wasn&#x27;t executed successfully on the instance. For a
    plugin, this indicates that the result code was not zero. For a command
    invocation, this indicates that the result code for one or more plugins was
    not zero. Invocation failures count against the MaxErrors limit of the parent
    command. This is a terminal state.
    
    
- * Canceled – The command was terminated before it was completed. This is a
+ *  Canceled – The command was terminated before it was completed. This is a
    terminal state.
    
    
- * Undeliverable – The command can&#x27;t be delivered to the instance. The instance
+ *  Undeliverable – The command can&#x27;t be delivered to the instance. The instance
    might not exist or might not be responding. Undeliverable invocations don&#x27;t
    count against the parent command’s MaxErrors limit and don&#x27;t contribute to
-   whether the parent command status is Success or Incomplete . This is a
+   whether the parent command status is Success or Incomplete. This is a
    terminal state.
    
    
- * Terminated – The parent command exceeded its MaxErrors limit and subsequent
+ *  Terminated – The parent command exceeded its MaxErrors limit and subsequent
    command invocations were canceled by the system. This is a terminal state. **/
         StatusDetails?: StatusDetails;
         /** The first 24,000 characters written by the plugin to stdout. If the command has
-not finished executing, if ExecutionStatus is neither Succeeded nor Failed ,
-then this string is empty. **/
+not finished executing, if ExecutionStatus is neither Succeeded nor Failed, then
+this string is empty. **/
         StandardOutputContent?: StandardOutputContent;
         /** The URL for the complete text written by the plugin to stdout in Amazon S3. If
 an Amazon S3 bucket was not specified, then this string is empty. **/
@@ -3134,7 +3134,6 @@ or managed instances. **/
     export interface InstanceInformationStringFilter {
         /** The filter key name to describe your instances. For example:
 
-
 &quot;InstanceIds&quot;|&quot;AgentVersion&quot;|&quot;PingStatus&quot;|&quot;PlatformTypes&quot;|&quot;ActivationIds&quot;|&quot;IamRole&quot;|&quot;ResourceType&quot;|”AssociationStatus”|”Tag
 Key” **/
         Key: InstanceInformationStringFilterKey;
@@ -3294,10 +3293,10 @@ i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal **/
         Type?: InventoryQueryOperatorType;
     }
     export interface InventoryItem {
-        /** The name of the inventory type. Default inventory item type names start with AWS 
-. Custom inventory type names will start with Custom . Default inventory item
-types include the following: AWS:AWSComponent , AWS:Application , 
-AWS:InstanceInformation , AWS:Network , and AWS:WindowsUpdate . **/
+        /** The name of the inventory type. Default inventory item type names start with AWS
+. Custom inventory type names will start with Custom. Default inventory item
+types include the following: AWS:AWSComponent, AWS:Application, 
+AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate. **/
         TypeName: InventoryItemTypeName;
         /** The schema version for the inventory item. **/
         SchemaVersion: InventoryItemSchemaVersion;
@@ -3318,10 +3317,10 @@ last update. **/
         DataType: InventoryAttributeDataType;
     }
     export interface InventoryItemSchema {
-        /** The name of the inventory type. Default inventory item type names start with AWS 
-. Custom inventory type names will start with Custom . Default inventory item
-types include the following: AWS:AWSComponent , AWS:Application , 
-AWS:InstanceInformation , AWS:Network , and AWS:WindowsUpdate . **/
+        /** The name of the inventory type. Default inventory item type names start with AWS
+. Custom inventory type names will start with Custom. Default inventory item
+types include the following: AWS:AWSComponent, AWS:Application, 
+AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate. **/
         TypeName: InventoryItemTypeName;
         /** The schema version for the inventory item. **/
         Version?: InventoryItemSchemaVersion;
@@ -3644,14 +3643,14 @@ length. **/
     export interface ModifyDocumentPermissionRequest {
         /** The name of the document that you want to share. **/
         Name: DocumentName;
-        /** The permission type for the document. The permission type can be Share . **/
+        /** The permission type for the document. The permission type can be Share. **/
         PermissionType: DocumentPermissionType;
         /** The AWS user accounts that should have access to the document. The account IDs
-can either be a group of account IDs or All . **/
+can either be a group of account IDs or All. **/
         AccountIdsToAdd?: AccountIdList;
         /** The AWS user accounts that should no longer have access to the document. The AWS
-user account can either be a group of account IDs or All . This action has a
-higher priority than AccountIdsToAdd . If you specify an account ID to add and
+user account can either be a group of account IDs or All. This action has a
+higher priority than AccountIdsToAdd. If you specify an account ID to add and
 the same ID to remove, the system removes access to the document. **/
         AccountIdsToRemove?: AccountIdList;
     }
@@ -3958,10 +3957,10 @@ request. **/
         /** Required. The instance IDs where the command should execute. You can specify a
 maximum of 50 IDs. **/
         InstanceIds?: InstanceIdList;
-        /** (Optional) An array of search criteria that targets instances using a Key ; 
-Value combination that you specify. Targets is required if you don&#x27;t provide one
-or more instance IDs in the call. For more information about how to use Targets 
-, see Executing a Command Using Amazon EC2 Run Command
+        /** (Optional) An array of search criteria that targets instances using a Key;Value 
+combination that you specify. Targets is required if you don&#x27;t provide one or
+more instance IDs in the call. For more information about how to use Targets,
+see Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html] (Linux) or 
 Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html] 
@@ -3970,7 +3969,7 @@ Executing a Command Using Amazon EC2 Run Command
         /** Required. The name of the SSM document to execute. This can be an SSM public
 document or a custom document. **/
         DocumentName: DocumentARN;
-        /** The Sha256 or Sha1 hash created by the system when the document was created.
+        /** The Sha256 or Sha1 hash created by the system when the document was created. 
 
 Sha1 hashes have been deprecated. **/
         DocumentHash?: DocumentHash;
@@ -3999,17 +3998,17 @@ stored. **/
         /** (Optional) The maximum number of instances that are allowed to execute the
 command at the same time. You can specify a number such as “10” or a percentage
 such as “10%”. The default value is 50. For more information about how to use 
-MaxConcurrency , see Executing a Command Using Amazon EC2 Run Command
+MaxConcurrency, see Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html] (Linux) or 
 Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html] 
 (Windows). **/
         MaxConcurrency?: VelocityConstraint;
         /** The maximum number of errors allowed without the command failing. When the
-command fails one more time beyond the value of MaxErrors , the systems stops
+command fails one more time beyond the value of MaxErrors, the systems stops
 sending the command to additional targets. You can specify a number like “10” or
 a percentage like “10%”. The default value is 50. For more information about how
-to use MaxErrors , see Executing a Command Using Amazon EC2 Run Command
+to use MaxErrors, see Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html] (Linux) or 
 Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html] 
@@ -4051,8 +4050,8 @@ step is in Pending status, this field is not populated. **/
         /** If a step has finished execution, this contains the time the execution ended. If
 the step has not yet concluded, this field is not populated. **/
         ExecutionEndTime?: DateTime;
-        /** The execution status for this step. Valid values include: Pending , InProgress , 
-Success , Cancelled , Failed , and TimedOut . **/
+        /** The execution status for this step. Valid values include: Pending, InProgress, 
+Success, Cancelled, Failed, and TimedOut. **/
         StepStatus?: AutomationExecutionStatus;
         /** The response code returned by the execution of the step. **/
         ResponseCode?: String;
@@ -4079,19 +4078,19 @@ Success , Cancelled , Failed , and TimedOut . **/
     }
     export interface Target {
         /** User-defined criteria for sending commands that target instances that meet the
-criteria. Key can be tag:&lt;Amazon EC2 tag&gt; or name:&lt;Amazon EC2 instance ID&gt; . For
-example, tag:ServerRole or name:0123456789012345 . For more information about
-how to send commands that target instances using Key ; Value parameters, see 
-Executing a Command Using Amazon EC2 Run Command
+criteria. Key can be tag:&lt;Amazon EC2 tag&gt; or name:&lt;Amazon EC2 instance ID&gt;. For
+example, tag:ServerRole or name:0123456789012345. For more information about how
+to send commands that target instances using Key;Value parameters, see Executing
+a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html] (Linux) or 
 Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html] 
 (Windows). **/
         Key?: TargetKey;
-        /** User-defined criteria that maps to Key . For example, if you specified 
-tag:ServerRole , you could specify value:WebServer to execute a command on
+        /** User-defined criteria that maps to Key. For example, if you specified 
+tag:ServerRole, you could specify value:WebServer to execute a command on
 instances that include Amazon EC2 tags of ServerRole;WebServer. For more
-information about how to send commands that target instances using Key ; Value 
+information about how to send commands that target instances using Key;Value 
 parameters, see Executing a Command Using Amazon EC2 Run Command
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html] (Linux) or 
 Executing a Command Using Amazon EC2 Run Command
@@ -4132,7 +4131,7 @@ thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10
         ScheduleExpression?: ScheduleExpression;
         /** An Amazon S3 bucket where you want to store the results of this request.
 
-&quot;{ \&quot;S3Location\&quot;: { \&quot;OutputS3Region\&quot;: \&quot;&lt;region&gt;\&quot;, \&quot;OutputS3BucketName\&quot;:
+ &quot;{ \&quot;S3Location\&quot;: { \&quot;OutputS3Region\&quot;: \&quot;&lt;region&gt;\&quot;, \&quot;OutputS3BucketName\&quot;:
 \&quot;bucket name\&quot;, \&quot;OutputS3KeyPrefix\&quot;: \&quot;folder name\&quot; } }&quot; **/
         OutputLocation?: InstanceAssociationOutputLocation;
     }

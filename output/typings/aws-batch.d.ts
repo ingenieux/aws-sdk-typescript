@@ -37,8 +37,8 @@ scientists, and engineers to run their batch jobs in the AWS Cloud.
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * Cancels jobs in an AWS Batch job queue. Jobs that are in the SUBMITTED , PENDING 
-, or RUNNABLE state are cancelled. Jobs that have progressed to STARTING or 
+     * Cancels jobs in an AWS Batch job queue. Jobs that are in the SUBMITTED, PENDING,
+or RUNNABLE state are cancelled. Jobs that have progressed to STARTING or 
 RUNNING are not cancelled (but the API operation still succeeds, even if no jobs
 are cancelled); these jobs must be terminated with the TerminateJob operation.
      *
@@ -47,7 +47,7 @@ are cancelled); these jobs must be terminated with the TerminateJob operation.
      */
     cancelJob(params: Batch.CancelJobRequest, callback?: (err: Batch.ClientException|Batch.ServerException|any, data: Batch.CancelJobResponse|any) => void): Request<Batch.CancelJobResponse|any,Batch.ClientException|Batch.ServerException|any>;
     /**
-     * Creates an AWS Batch compute environment. You can create MANAGED or UNMANAGED 
+     * Creates an AWS Batch compute environment. You can create MANAGED or UNMANAGED
 compute environments.
 
 In a managed compute environment, AWS Batch manages the compute resources within
@@ -62,13 +62,13 @@ This provides more compute resource configuration options, such as using a
 custom AMI, but you must ensure that your AMI meets the Amazon ECS container
 instance AMI specification. For more information, see Container Instance AMIs
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html] 
-in the Amazon EC2 Container Service Developer Guide . After you have created
-your unmanaged compute environment, you can use the DescribeComputeEnvironments 
+in the Amazon EC2 Container Service Developer Guide. After you have created your
+unmanaged compute environment, you can use the DescribeComputeEnvironments 
 operation to find the Amazon ECS cluster that is associated with it and then
 manually launch your container instances into that Amazon ECS cluster. For more
 information, see Launching an Amazon ECS Container Instance
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html] 
-in the Amazon EC2 Container Service Developer Guide .
+in the Amazon EC2 Container Service Developer Guide.
      *
      * @error ClientException   
      * @error ServerException   
@@ -103,7 +103,7 @@ queues with the UpdateJobQueue API operation.
     /**
      * Deletes the specified job queue. You must first disable submissions for a queue
 with the UpdateJobQueue operation and terminate any jobs that have not completed
-with the TerminateJob .
+with the TerminateJob.
 
 It is not necessary to disassociate compute environments from a queue before
 submitting a DeleteJobQueue request.
@@ -131,7 +131,7 @@ should launch your Amazon ECS container instances into.
      */
     describeComputeEnvironments(params: Batch.DescribeComputeEnvironmentsRequest, callback?: (err: Batch.ClientException|Batch.ServerException|any, data: Batch.DescribeComputeEnvironmentsResponse|any) => void): Request<Batch.DescribeComputeEnvironmentsResponse|any,Batch.ClientException|Batch.ServerException|any>;
     /**
-     * Describes a list of job definitions. You can specify a status (such as ACTIVE )
+     * Describes a list of job definitions. You can specify a status (such as ACTIVE)
 to only return job definitions that match that status.
      *
      * @error ClientException   
@@ -177,7 +177,7 @@ SubmitJob override parameters defined in the job definition.
     submitJob(params: Batch.SubmitJobRequest, callback?: (err: Batch.ClientException|Batch.ServerException|any, data: Batch.SubmitJobResponse|any) => void): Request<Batch.SubmitJobResponse|any,Batch.ClientException|Batch.ServerException|any>;
     /**
      * Terminates jobs in a job queue. Jobs that are in the STARTING or RUNNING state
-are terminated, which causes them to transition to FAILED . Jobs that have not
+are terminated, which causes them to transition to FAILED. Jobs that have not
 progressed to the STARTING state are cancelled.
      *
      * @error ClientException   
@@ -278,11 +278,11 @@ compute environment. **/
         ecsClusterArn: String;
         /** The type of the compute environment. **/
         type?: CEType;
-        /** The state of the compute environment. The valid values are ENABLED or DISABLED .
+        /** The state of the compute environment. The valid values are ENABLED or DISABLED.
 An ENABLED state indicates that you can register instances with the compute
 environment and that the associated instances can accept jobs. **/
         state?: CEState;
-        /** The current status of the compute environment (for example, CREATING or VALID ). **/
+        /** The current status of the compute environment (for example, CREATING or VALID). **/
         status?: CEStatus;
         /** A short, human-readable string to provide additional details about the current
 status of the compute environment. **/
@@ -394,30 +394,30 @@ existing environment variables from the Docker image or the job definition. **/
     export interface ContainerProperties {
         /** The image used to start a container. This string is passed directly to the
 Docker daemon. Images in the Docker Hub registry are available by default. Other
-repositories are specified with repository-url / image : tag . Up to 255 letters
+repositories are specified with repository-url/image:tag . Up to 255 letters
 (uppercase and lowercase), numbers, hyphens, underscores, colons, periods,
 forward slashes, and number signs are allowed. This parameter maps to Image in
 the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
-IMAGE parameter of docker run [https://docs.docker.com/engine/reference/run/] .
+IMAGE parameter of docker run [https://docs.docker.com/engine/reference/run/].
 
- &amp;#42; Images in Amazon ECR repositories use the full registry and repository URI
+ &amp;#42;  Images in Amazon ECR repositories use the full registry and repository URI
    (for example, 
-   012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt; ).
+   012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;). 
    
    
- * Images in official repositories on Docker Hub use a single name (for example, 
-   ubuntu or mongo ).
+ *  Images in official repositories on Docker Hub use a single name (for
+   example, ubuntu or mongo).
    
    
- * Images in other repositories on Docker Hub are qualified with an organization
-   name (for example, amazon/amazon-ecs-agent ).
+ *  Images in other repositories on Docker Hub are qualified with an
+   organization name (for example, amazon/amazon-ecs-agent).
    
    
- * Images in other online repositories are qualified further by a domain name
-   (for example, quay.io/assemblyline/ubuntu ). **/
+ *  Images in other online repositories are qualified further by a domain name
+   (for example, quay.io/assemblyline/ubuntu). **/
         image: String;
         /** The number of vCPUs reserved for the container. This parameter maps to CpuShares 
 in the Create a container
@@ -425,7 +425,7 @@ in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --cpu-shares option to docker run
-[https://docs.docker.com/engine/reference/run/] . Each vCPU is equivalent to
+[https://docs.docker.com/engine/reference/run/]. Each vCPU is equivalent to
 1,024 CPU shares. **/
         vcpus: Integer;
         /** The hard limit (in MiB) of memory to present to the container. If your container
@@ -434,17 +434,16 @@ parameter maps to Memory in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---memory option to docker run [https://docs.docker.com/engine/reference/run/] . **/
+--memory option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         memory: Integer;
         /** The command that is passed to the container. This parameter maps to Cmd in the 
 Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
-COMMAND parameter to docker run [https://docs.docker.com/engine/reference/run/] 
-. For more information, see 
-https://docs.docker.com/engine/reference/builder/#cmd
-[https://docs.docker.com/engine/reference/builder/#cmd] . **/
+COMMAND parameter to docker run [https://docs.docker.com/engine/reference/run/].
+For more information, see https://docs.docker.com/engine/reference/builder/#cmd
+[https://docs.docker.com/engine/reference/builder/#cmd]. **/
         command?: StringList;
         /** The Amazon Resource Name (ARN) of the IAM role that the container can assume for
 AWS permissions. **/
@@ -456,7 +455,7 @@ the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---env option to docker run [https://docs.docker.com/engine/reference/run/] .
+--env option to docker run [https://docs.docker.com/engine/reference/run/].
 
 We do not recommend using plain text environment variables for sensitive
 information, such as credential data. **/
@@ -466,14 +465,14 @@ Volumes in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---volume option to docker run [https://docs.docker.com/engine/reference/run/] . **/
+--volume option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         mountPoints?: MountPoints;
         /** When this parameter is true, the container is given read-only access to its root
 file system. This parameter maps to ReadonlyRootfs in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---read-only option to docker run . **/
+--read-only option to docker run. **/
         readonlyRootFilesystem?: Boolean;
         /** When this parameter is true, the container is given elevated privileges on the
 host container instance (similar to the root user). This parameter maps to 
@@ -482,21 +481,21 @@ Privileged in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --privileged option to docker run
-[https://docs.docker.com/engine/reference/run/] . **/
+[https://docs.docker.com/engine/reference/run/]. **/
         privileged?: Boolean;
         /** A list of ulimits to set in the container. This parameter maps to Ulimits in the 
 Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---ulimit option to docker run [https://docs.docker.com/engine/reference/run/] . **/
+--ulimit option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         ulimits?: Ulimits;
         /** The user name to use inside the container. This parameter maps to User in the 
 Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---user option to docker run [https://docs.docker.com/engine/reference/run/] . **/
+--user option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         user?: String;
     }
     export interface CreateComputeEnvironmentRequest {
@@ -505,7 +504,7 @@ lowercase), numbers, and underscores are allowed. **/
         computeEnvironmentName: String;
         /** The type of the compute environment. **/
         type: CEType;
-        /** The state of the compute environment. If the state is ENABLED , then the compute
+        /** The state of the compute environment. If the state is ENABLED, then the compute
 environment accepts jobs from a queue and can scale out automatically based on
 queues. **/
         state?: CEState;
@@ -525,14 +524,14 @@ make calls to other AWS services on your behalf. **/
     export interface CreateJobQueueRequest {
         /** The name of the job queue. **/
         jobQueueName: String;
-        /** The state of the job queue. If the job queue state is ENABLED , it is able to
+        /** The state of the job queue. If the job queue state is ENABLED, it is able to
 accept jobs. **/
         state?: JQState;
         /** The priority of the job queue. Job queues with a higher priority (or a lower
 integer value for the priority parameter) are evaluated first when associated
 with same compute environment. Priority is determined in ascending order, for
 example, a job queue with a priority value of 1 is given scheduling preference
-over a job queue with a priority value of 10 . **/
+over a job queue with a priority value of 10. **/
         priority: Integer;
         /** The set of compute environments mapped to a job queue and their order relative
 to each other. The job scheduler uses this parameter to determine which compute
@@ -560,8 +559,8 @@ to 3 compute environments with a job queue. **/
     export interface DeleteJobQueueResponse {
     }
     export interface DeregisterJobDefinitionRequest {
-        /** The name and revision ( name:revision ) or full Amazon Resource Name (ARN) of
-the job definition to deregister. **/
+        /** The name and revision (name:revision) or full Amazon Resource Name (ARN) of the
+job definition to deregister. **/
         jobDefinition: String;
     }
     export interface DeregisterJobDefinitionResponse {
@@ -593,7 +592,7 @@ retrieve the next items in a list and not for other programmatic purposes. **/
         /** The list of compute environments. **/
         computeEnvironments?: ComputeEnvironmentDetailList;
         /** The nextToken value to include in a future DescribeComputeEnvironments request.
-When the results of a DescribeJobDefinitions request exceed maxResults , this
+When the results of a DescribeJobDefinitions request exceed maxResults, this
 value can be used to retrieve the next page of results. This value is null when
 there are no more results to return. **/
         nextToken?: String;
@@ -628,7 +627,7 @@ retrieve the next items in a list and not for other programmatic purposes. **/
         /** The list of job definitions. **/
         jobDefinitions?: JobDefinitionList;
         /** The nextToken value to include in a future DescribeJobDefinitions request. When
-the results of a DescribeJobDefinitions request exceed maxResults , this value
+the results of a DescribeJobDefinitions request exceed maxResults, this value
 can be used to retrieve the next page of results. This value is null when there
 are no more results to return. **/
         nextToken?: String;
@@ -658,9 +657,9 @@ retrieve the next items in a list and not for other programmatic purposes. **/
         /** The list of job queues. **/
         jobQueues?: JobQueueDetailList;
         /** The nextToken value to include in a future DescribeJobQueues request. When the
-results of a DescribeJobQueues request exceed maxResults , this value can be
-used to retrieve the next page of results. This value is null when there are no
-more results to return. **/
+results of a DescribeJobQueues request exceed maxResults, this value can be used
+to retrieve the next page of results. This value is null when there are no more
+results to return. **/
         nextToken?: String;
     }
     export interface DescribeJobsRequest {
@@ -745,7 +744,7 @@ job. **/
         jobQueueArn: String;
         /** Describes the ability of the queue to accept new jobs. **/
         state: JQState;
-        /** The status of the job queue (for example, CREATING or VALID ). **/
+        /** The status of the job queue (for example, CREATING or VALID). **/
         status?: JQStatus;
         /** A short, human-readable string to provide additional details about the current
 status of the job queue. **/
@@ -798,7 +797,7 @@ retrieve the next items in a list and not for other programmatic purposes. **/
         /** A list of job summaries that match the request. **/
         jobSummaryList: JobSummaryList;
         /** The nextToken value to include in a future ListJobs request. When the results of
-a ListJobs request exceed maxResults , this value can be used to retrieve the
+a ListJobs request exceed maxResults, this value can be used to retrieve the
 next page of results. This value is null when there are no more results to
 return. **/
         nextToken?: String;
@@ -806,8 +805,8 @@ return. **/
     export interface MountPoint {
         /** The path on the container at which to mount the host volume. **/
         containerPath?: String;
-        /** If this value is true , the container has read-only access to the volume;
-otherwise, the container can write to the volume. The default value is false . **/
+        /** If this value is true, the container has read-only access to the volume;
+otherwise, the container can write to the volume. The default value is false. **/
         readOnly?: Boolean;
         /** The name of the volume to mount. **/
         sourceVolume?: String;
@@ -822,7 +821,7 @@ Parameters are specified as a key-value pair mapping. Parameters in a SubmitJob
 request override any corresponding parameter defaults from the job definition. **/
         parameters?: ParametersMap;
         /** An object with various properties specific for container-based jobs. This
-parameter is required if the type parameter is container . **/
+parameter is required if the type parameter is container. **/
         containerProperties?: ContainerProperties;
     }
     export interface RegisterJobDefinitionResponse {
@@ -881,7 +880,7 @@ is also recorded in the AWS Batch activity logs. **/
     export interface Ulimit {
         /** The hard limit for the ulimit type. **/
         hardLimit: Integer;
-        /** The type of the ulimit . **/
+        /** The type of the ulimit. **/
         name: String;
         /** The soft limit for the ulimit type. **/
         softLimit: Integer;
@@ -916,7 +915,7 @@ Batch to make calls to ECS, Auto Scaling, and EC2 on your behalf. **/
 integer value for the priority parameter) are evaluated first when associated
 with same compute environment. Priority is determined in ascending order, for
 example, a job queue with a priority value of 1 is given scheduling preference
-over a job queue with a priority value of 10 . **/
+over a job queue with a priority value of 10. **/
         priority?: Integer;
         /** Details the set of compute environments mapped to a job queue and their order
 relative to each other. This is one of the parameters used by the job scheduler
@@ -938,7 +937,7 @@ running. **/
         host?: Host;
         /** The name of the volume. Up to 255 letters (uppercase and lowercase), numbers,
 hyphens, and underscores are allowed. This name is referenced in the 
-sourceVolume parameter of container definition mountPoints . **/
+sourceVolume parameter of container definition mountPoints. **/
         name?: String;
     }
   }

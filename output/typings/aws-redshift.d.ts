@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * Amazon RedshiftOverview
+   * Amazon Redshift  Overview 
 
 This is an interface reference for Amazon Redshift. It contains documentation
 for one of the programming or command line interfaces you can use to manage
@@ -25,7 +25,7 @@ reference, the parameter descriptions indicate whether a change is applied
 immediately, on the next instance reboot, or during the next maintenance window.
 For a summary of the Amazon Redshift cluster management interfaces, go to Using
 the Amazon Redshift Management Interfaces
-[http://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html] .
+[http://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html].
 
 Amazon Redshift manages all the work of setting up, operating, and scaling a
 data warehouse: provisioning capacity, monitoring and backing up the cluster,
@@ -34,7 +34,7 @@ on using your data to acquire new insights for your business and customers.
 
 If you are a first-time user of Amazon Redshift, we recommend that you begin by
 reading the Amazon Redshift Getting Started Guide
-[http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html] .
+[http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html].
 
 If you are a database developer, the Amazon Redshift Database Developer Guide
 [http://docs.aws.amazon.com/redshift/latest/dg/welcome.html] explains how to
@@ -54,19 +54,19 @@ security group. You can add as many as 20 ingress rules to an Amazon Redshift
 security group.
 
 If you authorize access to an Amazon EC2 security group, specify 
-EC2SecurityGroupName and EC2SecurityGroupOwnerId . The Amazon EC2 security group
-and Amazon Redshift cluster must be in the same AWS region.
+EC2SecurityGroupName and EC2SecurityGroupOwnerId. The Amazon EC2 security group
+and Amazon Redshift cluster must be in the same AWS region. 
 
-If you authorize access to a CIDR/IP address range, specify CIDRIP . For an
+If you authorize access to a CIDR/IP address range, specify CIDRIP. For an
 overview of CIDR blocks, see the Wikipedia article on Classless Inter-Domain
-Routing [http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing] .
+Routing [http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing]. 
 
 You must also associate the security group with a cluster so that clients
 running on these IP addresses or the EC2 instance are authorized to connect to
 the cluster. For information about managing security groups, go to Working with
 Security Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterSecurityGroupNotFoundFault   
      * @error InvalidClusterSecurityGroupStateFault   
@@ -77,10 +77,10 @@ in the Amazon Redshift Cluster Management Guide .
     /**
      * Authorizes the specified AWS customer account to restore the specified snapshot.
 
-For more information about working with snapshots, go to Amazon Redshift
+ For more information about working with snapshots, go to Amazon Redshift
 Snapshots
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterSnapshotNotFoundFault   
      * @error AuthorizationAlreadyExistsFault   
@@ -101,10 +101,10 @@ Redshift automatically deletes it. If you want to keep an automated snapshot for
 a longer period, you can make a manual copy of the snapshot. Manual snapshots
 are retained until you delete them.
 
-For more information about working with snapshots, go to Amazon Redshift
+ For more information about working with snapshots, go to Amazon Redshift
 Snapshots
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterSnapshotAlreadyExistsFault   
      * @error ClusterSnapshotNotFoundFault   
@@ -120,7 +120,7 @@ subnet group name. The cluster subnet group identifies the subnets of your VPC
 that Amazon Redshift uses when creating the cluster. For more information about
 managing clusters, go to Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterAlreadyExistsFault   
      * @error InsufficientClusterCapacityFault   
@@ -149,13 +149,13 @@ the Amazon Redshift Cluster Management Guide .
 Creating parameter groups is independent of creating clusters. You can associate
 a cluster with a parameter group when you create the cluster. You can also
 associate an existing cluster with a parameter group after the cluster is
-created by using ModifyCluster .
+created by using ModifyCluster. 
 
 Parameters in the parameter group define specific behavior that applies to the
 databases you create on the cluster. For more information about parameters and
 parameter groups, go to Amazon Redshift Parameter Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterParameterGroupQuotaExceededFault   
      * @error ClusterParameterGroupAlreadyExistsFault   
@@ -167,10 +167,10 @@ in the Amazon Redshift Cluster Management Guide .
      * Creates a new Amazon Redshift security group. You use security groups to control
 access to non-VPC clusters.
 
-For information about managing security groups, go to Amazon Redshift Cluster
+ For information about managing security groups, go to Amazon Redshift Cluster
 Security Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterSecurityGroupAlreadyExistsFault   
      * @error ClusterSecurityGroupQuotaExceededFault   
@@ -180,12 +180,12 @@ in the Amazon Redshift Cluster Management Guide .
     createClusterSecurityGroup(params: Redshift.CreateClusterSecurityGroupMessage, callback?: (err: Redshift.ClusterSecurityGroupAlreadyExistsFault|Redshift.ClusterSecurityGroupQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateClusterSecurityGroupResult|any) => void): Request<Redshift.CreateClusterSecurityGroupResult|any,Redshift.ClusterSecurityGroupAlreadyExistsFault|Redshift.ClusterSecurityGroupQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any>;
     /**
      * Creates a manual snapshot of the specified cluster. The cluster must be in the 
-available state.
+available state. 
 
-For more information about working with snapshots, go to Amazon Redshift
+ For more information about working with snapshots, go to Amazon Redshift
 Snapshots
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterSnapshotAlreadyExistsFault   
      * @error InvalidClusterStateFault   
@@ -200,9 +200,10 @@ the Amazon Redshift Cluster Management Guide .
 more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when
 creating Amazon Redshift subnet group.
 
-For information about subnet groups, go to Amazon Redshift Cluster Subnet Groups
+ For information about subnet groups, go to Amazon Redshift Cluster Subnet
+Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterSubnetGroupAlreadyExistsFault   
      * @error ClusterSubnetGroupQuotaExceededFault   
@@ -292,10 +293,10 @@ Amazon Redshift Cluster Management Guide.
 master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied
 snapshots in a destination region.
 
-For more information about managing snapshot copy grants, go to Amazon Redshift
+ For more information about managing snapshot copy grants, go to Amazon Redshift
 Database Encryption
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error SnapshotCopyGrantAlreadyExistsFault   
      * @error SnapshotCopyGrantQuotaExceededFault   
@@ -326,18 +327,18 @@ to monitor the status of the deletion. The delete operation cannot be canceled
 or reverted once submitted. For more information about managing clusters, go to 
 Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
 
 If you want to shut down the cluster and retain it for future use, set 
 SkipFinalClusterSnapshot to false and specify a name for 
-FinalClusterSnapshotIdentifier . You can later restore this snapshot to resume
+FinalClusterSnapshotIdentifier. You can later restore this snapshot to resume
 using the cluster. If a final cluster snapshot is requested, the status of the
 cluster will be &quot;final-snapshot&quot; while the snapshot is being taken, then it&#x27;s
-&quot;deleting&quot; once Amazon Redshift begins deleting the cluster.
+&quot;deleting&quot; once Amazon Redshift begins deleting the cluster. 
 
-For more information about managing clusters, go to Amazon Redshift Clusters
+ For more information about managing clusters, go to Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterNotFoundFault   
      * @error InvalidClusterStateFault   
@@ -360,10 +361,10 @@ You cannot delete a parameter group if it is associated with a cluster.
 You cannot delete a security group that is associated with any clusters. You
 cannot delete the default security group.
 
-For information about managing security groups, go to Amazon Redshift Cluster
+ For information about managing security groups, go to Amazon Redshift Cluster
 Security Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error InvalidClusterSecurityGroupStateFault   
      * @error ClusterSecurityGroupNotFoundFault   
@@ -371,7 +372,7 @@ in the Amazon Redshift Cluster Management Guide .
     deleteClusterSecurityGroup(params: Redshift.DeleteClusterSecurityGroupMessage, callback?: (err: Redshift.InvalidClusterSecurityGroupStateFault|Redshift.ClusterSecurityGroupNotFoundFault|any, data: any) => void): Request<any,Redshift.InvalidClusterSecurityGroupStateFault|Redshift.ClusterSecurityGroupNotFoundFault|any>;
     /**
      * Deletes the specified manual snapshot. The snapshot must be in the available 
-state, with no other users authorized to access the snapshot.
+state, with no other users authorized to access the snapshot. 
 
 Unlike automated snapshots, manual snapshots are retained even after you delete
 your cluster. Amazon Redshift does not delete your manual snapshots. You must
@@ -434,10 +435,10 @@ response includes the parameter group name, description, and parameter group
 family name. You can optionally specify a name to retrieve the description of a
 specific parameter group.
 
-For more information about parameters and parameter groups, go to Amazon
+ For more information about parameters and parameter groups, go to Amazon
 Redshift Parameter Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
 
 If you specify both tag keys and tag values in the same request, Amazon Redshift
 returns all parameter groups that match any combination of the specified keys
@@ -461,12 +462,12 @@ value is modifiable, and so on.
 
 You can specify source filter to retrieve parameters of only specific type. For
 example, to retrieve parameters that were modified by a user action such as from 
-ModifyClusterParameterGroup , you can specify source equal to user .
+ModifyClusterParameterGroup, you can specify source equal to user.
 
-For more information about parameters and parameter groups, go to Amazon
+ For more information about parameters and parameter groups, go to Amazon
 Redshift Parameter Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterParameterGroupNotFoundFault   
      */
@@ -476,10 +477,10 @@ in the Amazon Redshift Cluster Management Guide .
 security group is specified, the response will contain only information about
 only that security group.
 
-For information about managing security groups, go to Amazon Redshift Cluster
+ For information about managing security groups, go to Amazon Redshift Cluster
 Security Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
 
 If you specify both tag keys and tag values in the same request, Amazon Redshift
 returns all security groups that match any combination of the specified keys and
@@ -540,7 +541,7 @@ call this operation even before creating any clusters to learn more about the
 Amazon Redshift versions. For more information about managing clusters, go to 
 Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      */
     describeClusterVersions(params: Redshift.DescribeClusterVersionsMessage, callback?: (err: any, data: Redshift.ClusterVersionsMessage|any) => void): Request<Redshift.ClusterVersionsMessage|any,any>;
@@ -550,7 +551,7 @@ cluster database properties, maintenance and backup properties, and security and
 access properties. This operation supports pagination. For more information
 about managing clusters, go to Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
 
 If you specify both tag keys and tag values in the same request, Amazon Redshift
 returns all clusters that match any combination of the specified keys and
@@ -568,10 +569,10 @@ regardless of whether they have tag keys or values associated with them.
     /**
      * Returns a list of parameter settings for the specified parameter group family.
 
-For more information about parameters and parameter groups, go to Amazon
+ For more information about parameters and parameter groups, go to Amazon
 Redshift Parameter Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      */
     describeDefaultClusterParameters(params: Redshift.DescribeDefaultClusterParametersMessage, callback?: (err: any, data: Redshift.DescribeDefaultClusterParametersResult|any) => void): Request<Redshift.DescribeDefaultClusterParametersResult|any,any>;
@@ -579,7 +580,7 @@ in the Amazon Redshift Cluster Management Guide .
      * Displays a list of event categories for all event source types, or for a
 specified source type. For a list of the event categories and source types, go
 to Amazon Redshift Event Notifications
-[http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html] 
+[http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html]
 .
      *
      */
@@ -654,7 +655,7 @@ CPU and price. With the cost involved you might want to obtain a list of cluster
 options in the specific region and specify values when creating a cluster. For
 more information about managing clusters, go to Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      */
     describeOrderableClusterOptions(params: Redshift.DescribeOrderableClusterOptionsMessage, callback?: (err: any, data: Redshift.OrderableClusterOptionsMessage|any) => void): Request<Redshift.OrderableClusterOptionsMessage|any,any>;
@@ -665,12 +666,12 @@ reserving the node and duration the node will be reserved for you. These
 descriptions help you determine which reserve node offering you want to
 purchase. You then use the unique offering ID in you call to 
 PurchaseReservedNodeOffering to reserve one or more nodes for your Amazon
-Redshift cluster.
+Redshift cluster. 
 
-For more information about reserved node offerings, go to Purchasing Reserved
+ For more information about reserved node offerings, go to Purchasing Reserved
 Nodes
 [http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error ReservedNodeOfferingNotFoundFault   
      * @error UnsupportedOperationFault   
@@ -686,7 +687,7 @@ in the Amazon Redshift Cluster Management Guide .
      * Returns information about the last resize operation for the specified cluster.
 If no resize operation has ever been initiated for the specified cluster, a HTTP
 404 error is returned. If a resize operation was initiated and completed, the
-status of the resize remains as SUCCEEDED until the next resize.
+status of the resize remains as SUCCEEDED until the next resize. 
 
 A resize operation can be requested using ModifyCluster and specifying a
 different number or type of nodes for the cluster.
@@ -699,10 +700,10 @@ different number or type of nodes for the cluster.
      * Returns a list of snapshot copy grants owned by the AWS account in the
 destination region.
 
-For more information about managing snapshot copy grants, go to Amazon Redshift
+ For more information about managing snapshot copy grants, go to Amazon Redshift
 Database Encryption
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error SnapshotCopyGrantNotFoundFault   
      * @error InvalidTagFault   
@@ -714,7 +715,7 @@ RestoreTableFromClusterSnapshot API action. If you don&#x27;t specify a value fo
 TableRestoreRequestId parameter, then DescribeTableRestoreStatus returns the
 status of all table restore requests ordered by the date and time of the request
 in ascending order. Otherwise DescribeTableRestoreStatus returns the status of
-the table specified by TableRestoreRequestId .
+the table specified by TableRestoreRequestId.
      *
      * @error TableRestoreNotFoundFault   
      * @error ClusterNotFoundFault   
@@ -725,17 +726,17 @@ the table specified by TableRestoreRequestId .
 specifying an ARN, or you can return all tags for a given type of resource, such
 as clusters, snapshots, and so on.
 
-The following are limitations for DescribeTags :
+The following are limitations for DescribeTags: 
 
- &amp;#42; You cannot specify an ARN and a resource-type value together in the same
+ &amp;#42;  You cannot specify an ARN and a resource-type value together in the same
    request.
    
    
- * You cannot use the MaxRecords and Marker parameters together with the ARN
+ *  You cannot use the MaxRecords and Marker parameters together with the ARN
    parameter.
    
    
- * The MaxRecords parameter can be a range from 10 to 50 results to return in a
+ *  The MaxRecords parameter can be a range from 10 to 50 results to return in a
    request.
    
    
@@ -809,7 +810,7 @@ groups associated with a cluster do not need a reboot. However, modifying a
 parameter group requires a reboot for parameters to take effect. For more
 information about managing clusters, go to Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
 
 You can also change node type and the number of nodes to scale up or down the
 cluster. When resizing a cluster, you must specify both the number of nodes and
@@ -845,10 +846,10 @@ A cluster can have up to 10 IAM roles associated at any time.
     /**
      * Modifies the parameters of a parameter group.
 
-For more information about parameters and parameter groups, go to Amazon
+ For more information about parameters and parameter groups, go to Amazon
 Redshift Parameter Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterParameterGroupNotFoundFault   
      * @error InvalidClusterParameterGroupStateFault   
@@ -896,12 +897,12 @@ region after they are copied from the source region.
 of reserved node offerings. You can purchase one or more of the offerings. You
 can call the DescribeReservedNodeOfferings API to obtain the available reserved
 node offerings. You can call this API by providing a specific reserved node
-offering and the number of nodes you want to reserve.
+offering and the number of nodes you want to reserve. 
 
-For more information about reserved node offerings, go to Purchasing Reserved
+ For more information about reserved node offerings, go to Purchasing Reserved
 Nodes
 [http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error ReservedNodeOfferingNotFoundFault   
      * @error ReservedNodeAlreadyExistsFault   
@@ -912,11 +913,11 @@ in the Amazon Redshift Cluster Management Guide .
     /**
      * Reboots a cluster. This action is taken as soon as possible. It results in a
 momentary outage to the cluster, during which the cluster status is set to 
-rebooting . A cluster event is created when the reboot is completed. Any pending
-cluster modifications (see ModifyCluster ) are applied at this reboot. For more
+rebooting. A cluster event is created when the reboot is completed. Any pending
+cluster modifications (see ModifyCluster) are applied at this reboot. For more
 information about managing clusters, go to Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      * @error InvalidClusterStateFault   
      * @error ClusterNotFoundFault   
@@ -945,10 +946,10 @@ same size during restore.
 If you restore a cluster into a VPC, you must provide a cluster subnet group
 where you want the cluster restored.
 
-For more information about working with snapshots, go to Amazon Redshift
+ For more information about working with snapshots, go to Amazon Redshift
 Snapshots
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      * @error AccessToSnapshotDeniedFault   
      * @error ClusterAlreadyExistsFault   
@@ -982,10 +983,10 @@ You cannot use RestoreTableFromClusterSnapshot to restore a table with the same
 name as an existing table in an Amazon Redshift cluster. That is, you cannot
 overwrite an existing table in a cluster with a restored table. If you want to
 replace your original table with a new, restored table, then rename or drop your
-original table before you call RestoreTableFromClusterSnapshot . When you have
+original table before you call RestoreTableFromClusterSnapshot. When you have
 renamed your original table, then you can pass the original name of the table as
-the NewTableName parameter value in the call to RestoreTableFromClusterSnapshot 
-. This way, you can replace the original table with the table created from the
+the NewTableName parameter value in the call to RestoreTableFromClusterSnapshot.
+This way, you can replace the original table with the table created from the
 snapshot.
      *
      * @error ClusterSnapshotNotFoundFault   
@@ -1000,10 +1001,10 @@ snapshot.
     /**
      * Revokes an ingress rule in an Amazon Redshift security group for a previously
 authorized IP range or Amazon EC2 security group. To add an ingress rule, see 
-AuthorizeClusterSecurityGroupIngress . For information about managing security
+AuthorizeClusterSecurityGroupIngress. For information about managing security
 groups, go to Amazon Redshift Cluster Security Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
      *
      * @error ClusterSecurityGroupNotFoundFault   
      * @error AuthorizationNotFoundFault   
@@ -1015,10 +1016,10 @@ in the Amazon Redshift Cluster Management Guide .
 specified snapshot. If the account is currently restoring the snapshot, the
 restore will run to completion.
 
-For more information about working with snapshots, go to Amazon Redshift
+ For more information about working with snapshots, go to Amazon Redshift
 Snapshots
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html] in
-the Amazon Redshift Cluster Management Guide .
+the Amazon Redshift Cluster Management Guide.
      *
      * @error AccessToSnapshotDeniedFault   
      * @error AuthorizationNotFoundFault   
@@ -1173,7 +1174,7 @@ the Amazon Redshift Cluster Management Guide .
         EC2SecurityGroupName?: String;
         /** The AWS account number of the owner of the security group specified by the 
 EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
-value.
+value. 
 
 Example: 111122223333 **/
         EC2SecurityGroupOwnerId?: String;
@@ -1208,52 +1209,52 @@ snapshot. **/
         NodeType?: String;
         /** The current state of the cluster. Possible values are the following:
 
- &amp;#42; available
+ &amp;#42;   available 
    
    
- * creating
+ *   creating 
    
    
- * deleting
+ *   deleting 
    
    
- * final-snapshot
+ *   final-snapshot 
    
    
- * hardware-failure
+ *   hardware-failure 
    
    
- * incompatible-hsm
+ *   incompatible-hsm 
    
    
- * incompatible-network
+ *   incompatible-network 
    
    
- * incompatible-parameters
+ *   incompatible-parameters 
    
    
- * incompatible-restore
+ *   incompatible-restore 
    
    
- * modifying
+ *   modifying 
    
    
- * rebooting
+ *   rebooting 
    
    
- * renaming
+ *   renaming 
    
    
- * resizing
+ *   resizing 
    
    
- * rotating-keys
+ *   rotating-keys 
    
    
- * storage-full
+ *   storage-full 
    
    
- * updating-hsm **/
+ *   updating-hsm **/
         ClusterStatus?: String;
         /** The status of a modify operation, if any, initiated for the cluster. **/
         ModifyStatus?: String;
@@ -1262,7 +1263,7 @@ database that is specified in the DBName parameter. **/
         MasterUsername?: String;
         /** The name of the initial database that was created when the cluster was created.
 This same name is returned for the life of the cluster. If an initial database
-was not specified, a database named dev dev was created by default. **/
+was not specified, a database named devdev was created by default. **/
         DBName?: String;
         /** The connection endpoint. **/
         Endpoint?: Endpoint;
@@ -1272,7 +1273,7 @@ was not specified, a database named dev dev was created by default. **/
         AutomatedSnapshotRetentionPeriod?: Integer;
         /** A list of cluster security group that are associated with the cluster. Each
 security group is represented by an element that contains 
-ClusterSecurityGroup.Name and ClusterSecurityGroup.Status subelements.
+ClusterSecurityGroup.Name and ClusterSecurityGroup.Status subelements. 
 
 Cluster security groups are used when the cluster is not created in an Amazon
 Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security
@@ -1300,15 +1301,15 @@ Specific pending changes are identified by subelements. **/
         PendingModifiedValues?: PendingModifiedValues;
         /** The version ID of the Amazon Redshift engine that is running on the cluster. **/
         ClusterVersion?: String;
-        /** A Boolean value that, if true , indicates that major version upgrades will be
+        /** A Boolean value that, if true, indicates that major version upgrades will be
 applied automatically to the cluster during the maintenance window. **/
         AllowVersionUpgrade?: Boolean;
         /** The number of compute nodes in the cluster. **/
         NumberOfNodes?: Integer;
-        /** A Boolean value that, if true , indicates that the cluster can be accessed from
-a public network. **/
+        /** A Boolean value that, if true, indicates that the cluster can be accessed from a
+public network. **/
         PubliclyAccessible?: Boolean;
-        /** A Boolean value that, if true , indicates that data in the cluster is encrypted
+        /** A Boolean value that, if true, indicates that data in the cluster is encrypted
 at rest. **/
         Encrypted?: Boolean;
         /** A value that describes the status of a cluster restore action. This parameter
@@ -1342,7 +1343,7 @@ in a VPC. For more information, see Enhanced VPC Routing
 [http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
 the Amazon Redshift Cluster Management Guide.
 
-If this option is true , enhanced VPC routing is enabled.
+If this option is true, enhanced VPC routing is enabled. 
 
 Default: false **/
         EnhancedVpcRouting?: Boolean;
@@ -1354,20 +1355,20 @@ cluster to access other AWS services. **/
     }
     export interface ClusterIamRole {
         /** The Amazon Resource Name (ARN) of the IAM role, for example, 
-arn:aws:iam::123456789012:role/RedshiftCopyUnload . **/
+arn:aws:iam::123456789012:role/RedshiftCopyUnload. **/
         IamRoleArn?: String;
         /** A value that describes the status of the IAM role&#x27;s association with an Amazon
 Redshift cluster.
 
 The following are possible statuses and descriptions.
 
- &amp;#42; in-sync : The role is available for use by the cluster.
+ &amp;#42;   in-sync: The role is available for use by the cluster.
    
    
- * adding : The role is in the process of being associated with the cluster.
+ *   adding: The role is in the process of being associated with the cluster.
    
    
- * removing : The role is in the process of being disassociated with the
+ *   removing: The role is in the process of being disassociated with the
    cluster. **/
         ApplyStatus?: String;
     }
@@ -1424,10 +1425,10 @@ associated cluster. **/
         ParameterApplyStatus?: String;
         /** The list of parameter statuses.
 
-For more information about parameters and parameter groups, go to Amazon
+ For more information about parameters and parameter groups, go to Amazon
 Redshift Parameter Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
-in the Amazon Redshift Cluster Management Guide . **/
+in the Amazon Redshift Cluster Management Guide. **/
         ClusterParameterStatusList?: ClusterParameterStatusList;
     }
     export interface ClusterParameterGroupsMessage {
@@ -1450,29 +1451,29 @@ applied.
 
 The following are possible statuses and descriptions.
 
- &amp;#42; in-sync : The parameter value is in sync with the database.
+ &amp;#42;   in-sync: The parameter value is in sync with the database.
    
    
- * pending-reboot : The parameter value will be applied after the cluster
+ *   pending-reboot: The parameter value will be applied after the cluster
    reboots.
    
    
- * applying : The parameter value is being applied to the database.
+ *   applying: The parameter value is being applied to the database.
    
    
- * invalid-parameter : Cannot apply the parameter value because it has an
+ *   invalid-parameter: Cannot apply the parameter value because it has an
    invalid value or syntax.
    
    
- * apply-deferred : The parameter contains static property changes. The changes
+ *   apply-deferred: The parameter contains static property changes. The changes
    are deferred until the cluster reboots.
    
    
- * apply-error : Cannot connect to the cluster. The parameter change will be
+ *   apply-error: Cannot connect to the cluster. The parameter change will be
    applied after the cluster reboots.
    
    
- * unknown-error : Cannot apply the parameter change right now. The change will
+ *   unknown-error: Cannot apply the parameter change right now. The change will
    be applied after the cluster reboots. **/
         ParameterApplyStatus?: String;
         /** The error that prevented the parameter from being applied to the database. **/
@@ -1539,8 +1540,8 @@ region after they are copied from a source region. **/
         Description?: String;
         /** The VPC ID of the cluster subnet group. **/
         VpcId?: String;
-        /** The status of the cluster subnet group. Possible values are Complete , 
-Incomplete and Invalid . **/
+        /** The status of the cluster subnet group. Possible values are Complete, Incomplete 
+and Invalid. **/
         SubnetGroupStatus?: String;
         /** A list of the VPC Subnet elements. **/
         Subnets?: SubnetList;
@@ -1598,8 +1599,8 @@ records have been retrieved for the request. **/
 
 Constraints:
 
- &amp;#42; Must be the identifier for a valid automated snapshot whose state is 
-   available . **/
+ &amp;#42;  Must be the identifier for a valid automated snapshot whose state is 
+   available. **/
         SourceSnapshotIdentifier: String;
         /** The identifier of the cluster the source snapshot was created from. This
 parameter is required if your IAM user has a policy containing a snapshot
@@ -1607,25 +1608,25 @@ resource element that specifies anything other than &amp;#42; for the cluster na
 
 Constraints:
 
- * Must be the identifier for a valid cluster. **/
+ *  Must be the identifier for a valid cluster. **/
         SourceSnapshotClusterIdentifier?: String;
         /** The identifier given to the new manual snapshot.
 
 Constraints:
 
- &amp;#42; Cannot be null, empty, or blank.
+ &amp;#42;  Cannot be null, empty, or blank.
    
    
- * Must contain from 1 to 255 alphanumeric characters or hyphens.
+ *  Must contain from 1 to 255 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens.
+ *  Cannot end with a hyphen or contain two consecutive hyphens.
    
    
- * Must be unique for the AWS account that is making the request. **/
+ *  Must be unique for the AWS account that is making the request. **/
         TargetSnapshotIdentifier: String;
     }
     export interface CopyClusterSnapshotResult {
@@ -1640,19 +1641,19 @@ To create additional databases after the cluster is created, connect to the
 cluster with a SQL client and use SQL commands to create a database. For more
 information, go to Create a Database
 [http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html] in the
-Amazon Redshift Database Developer Guide.
+Amazon Redshift Database Developer Guide. 
 
-Default: dev
+Default: dev 
 
 Constraints:
 
- &amp;#42; Must contain 1 to 64 alphanumeric characters.
+ &amp;#42;  Must contain 1 to 64 alphanumeric characters.
    
    
- * Must contain only lowercase letters.
+ *  Must contain only lowercase letters.
    
    
- * Cannot be a word that is reserved by the service. A list of reserved words
+ *  Cannot be a word that is reserved by the service. A list of reserved words
    can be found in Reserved Words
    [http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html] in the
    Amazon Redshift Database Developer Guide. **/
@@ -1663,19 +1664,19 @@ identifier also appears in the Amazon Redshift console.
 
 Constraints:
 
- &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * Alphabetic characters must be lowercase.
+ *  Alphabetic characters must be lowercase.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens.
+ *  Cannot end with a hyphen or contain two consecutive hyphens.
    
    
- * Must be unique for all clusters within an AWS account.
+ *  Must be unique for all clusters within an AWS account.
    
    
 
@@ -1683,37 +1684,37 @@ Example: myexamplecluster **/
         ClusterIdentifier: String;
         /** The type of the cluster. When cluster type is specified as
 
- &amp;#42; single-node , the NumberOfNodes parameter is not required.
+ &amp;#42;   single-node, the NumberOfNodes parameter is not required.
    
    
- * multi-node , the NumberOfNodes parameter is required.
+ *   multi-node, the NumberOfNodes parameter is required.
    
    
 
-Valid Values: multi-node | single-node
+Valid Values: multi-node | single-node 
 
 Default: multi-node **/
         ClusterType?: String;
         /** The node type to be provisioned for the cluster. For information about node
 types, go to Working with Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide. 
 
 Valid Values: ds1.xlarge | ds1.8xlarge | ds2.xlarge | ds2.8xlarge | dc1.large | 
-dc1.8xlarge . **/
+dc1.8xlarge. **/
         NodeType: String;
         /** The user name associated with the master user account for the cluster that is
 being created.
 
 Constraints:
 
- &amp;#42; Must be 1 - 128 alphanumeric characters.
+ &amp;#42;  Must be 1 - 128 alphanumeric characters.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot be a reserved word. A list of reserved words can be found in Reserved
+ *  Cannot be a reserved word. A list of reserved words can be found in Reserved
    Words [http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html] in
    the Amazon Redshift Database Developer Guide. **/
         MasterUsername: String;
@@ -1722,19 +1723,19 @@ being created.
 
 Constraints:
 
- &amp;#42; Must be between 8 and 64 characters in length.
+ &amp;#42;  Must be between 8 and 64 characters in length.
    
    
- * Must contain at least one uppercase letter.
+ *  Must contain at least one uppercase letter.
    
    
- * Must contain at least one lowercase letter.
+ *  Must contain at least one lowercase letter.
    
    
- * Must contain one number.
+ *  Must contain one number.
    
    
- * Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
+ *  Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
    quote), &quot; (double quote), \, /, @, or space. **/
         MasterUserPassword: String;
         /** A list of security groups to be associated with this cluster.
@@ -1759,7 +1760,7 @@ the same zone in order to decrease network latency.
 Default: A random, system-chosen Availability Zone in the region that is
 specified by the endpoint.
 
-Example: us-east-1d
+Example: us-east-1d 
 
 Constraint: The specified Availability Zone must be in the same region as the
 current endpoint. **/
@@ -1767,9 +1768,9 @@ current endpoint. **/
         /** The weekly time range (in UTC) during which automated cluster maintenance can
 occur.
 
-Format: ddd:hh24:mi-ddd:hh24:mi
+ Format: ddd:hh24:mi-ddd:hh24:mi 
 
-Default: A 30-minute window selected at random from an 8-hour block of time per
+ Default: A 30-minute window selected at random from an 8-hour block of time per
 region, occurring on a random day of the week. For more information about the
 time blocks for each region, see Maintenance Windows
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows] 
@@ -1784,23 +1785,23 @@ Constraints: Minimum 30-minute window. **/
 Default: The default Amazon Redshift cluster parameter group. For information
 about the default parameter group, go to Working with Amazon Redshift Parameter
 Groups
-[http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html]
+[http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
 
 Constraints:
 
- &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens.
+ &amp;#42;  Must be 1 to 255 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens. **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens. **/
         ClusterParameterGroupName?: String;
         /** The number of days that automated snapshots are retained. If the value is 0,
 automated snapshots are disabled. Even if automated snapshots are disabled, you
-can still create manual snapshots when you want with CreateClusterSnapshot .
+can still create manual snapshots when you want with CreateClusterSnapshot. 
 
-Default: 1
+Default: 1 
 
 Constraints: Must be a value from 0 to 35. **/
         AutomatedSnapshotRetentionPeriod?: IntegerOptional;
@@ -1810,7 +1811,7 @@ The cluster is accessible only via the JDBC and ODBC connection strings. Part of
 the connection string requires the port on which the cluster will listen for
 incoming connections.
 
-Default: 5439
+Default: 5439 
 
 Valid Values: 1150-65535 **/
         Port?: IntegerOptional;
@@ -1823,7 +1824,7 @@ Constraints: Only version 1.0 is currently available.
 
 Example: 1.0 **/
         ClusterVersion?: String;
-        /** If true , major version upgrades can be applied during the maintenance window to
+        /** If true, major version upgrades can be applied during the maintenance window to
 the Amazon Redshift engine that is running on the cluster.
 
 When a new major version of the Amazon Redshift engine is released, you can
@@ -1833,24 +1834,24 @@ window to the Amazon Redshift engine that is running on your cluster.
 Default: true **/
         AllowVersionUpgrade?: BooleanOptional;
         /** The number of compute nodes in the cluster. This parameter is required when the 
-ClusterType parameter is specified as multi-node .
+ClusterType parameter is specified as multi-node. 
 
 For information about determining how many nodes you need, go to Working with
 Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide. 
 
 If you don&#x27;t specify this parameter, you get a single-node cluster. When
 requesting a multi-node cluster, you must specify the number of nodes that you
 want in the cluster.
 
-Default: 1
+Default: 1 
 
 Constraints: Value must be at least 1 and no more than 100. **/
         NumberOfNodes?: IntegerOptional;
-        /** If true , the cluster can be accessed from a public network. **/
+        /** If true, the cluster can be accessed from a public network. **/
         PubliclyAccessible?: BooleanOptional;
-        /** If true , the data in the cluster is encrypted at rest.
+        /** If true, the data in the cluster is encrypted at rest. 
 
 Default: false **/
         Encrypted?: BooleanOptional;
@@ -1879,7 +1880,7 @@ in a VPC. For more information, see Enhanced VPC Routing
 [http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
 the Amazon Redshift Cluster Management Guide.
 
-If this option is true , enhanced VPC routing is enabled.
+If this option is true, enhanced VPC routing is enabled. 
 
 Default: false **/
         EnhancedVpcRouting?: BooleanOptional;
@@ -1898,16 +1899,16 @@ A cluster can have up to 10 IAM roles associated with it at any time. **/
 
 Constraints:
 
- &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens
+ &amp;#42;  Must be 1 to 255 alphanumeric characters or hyphens
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens.
+ *  Cannot end with a hyphen or contain two consecutive hyphens.
    
    
- * Must be unique withing your AWS account.
+ *  Must be unique withing your AWS account.
    
    
 
@@ -1917,7 +1918,7 @@ This value is stored as a lower-case string. **/
 The cluster engine version determines the set of parameters.
 
 To get a list of valid parameter group family names, you can call 
-DescribeClusterParameterGroups . By default, Amazon Redshift returns a list of
+DescribeClusterParameterGroups. By default, Amazon Redshift returns a list of
 all the parameter groups that are owned by your AWS account, including the
 default parameter groups for each Amazon Redshift engine version. The parameter
 group family names associated with the default parameter groups provide you the
@@ -1940,13 +1941,13 @@ string.
 
 Constraints:
 
- &amp;#42; Must contain no more than 255 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain no more than 255 alphanumeric characters or hyphens.
    
    
- * Must not be &quot;Default&quot;.
+ *  Must not be &quot;Default&quot;.
    
    
- * Must be unique for all security groups that are created by your AWS account.
+ *  Must be unique for all security groups that are created by your AWS account.
    
    
 
@@ -1966,16 +1967,16 @@ must be unique for all snapshots within the AWS account.
 
 Constraints:
 
- &amp;#42; Cannot be null, empty, or blank
+ &amp;#42;  Cannot be null, empty, or blank
    
    
- * Must contain from 1 to 255 alphanumeric characters or hyphens
+ *  Must contain from 1 to 255 alphanumeric characters or hyphens
    
    
- * First character must be a letter
+ *  First character must be a letter
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens
+ *  Cannot end with a hyphen or contain two consecutive hyphens
    
    
 
@@ -1995,13 +1996,13 @@ string.
 
 Constraints:
 
- &amp;#42; Must contain no more than 255 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain no more than 255 alphanumeric characters or hyphens.
    
    
- * Must not be &quot;Default&quot;.
+ *  Must not be &quot;Default&quot;.
    
    
- * Must be unique for all subnet groups that are created by your AWS account.
+ *  Must be unique for all subnet groups that are created by your AWS account.
    
    
 
@@ -2023,16 +2024,16 @@ request. **/
 
 Constraints:
 
- &amp;#42; Cannot be null, empty, or blank.
+ &amp;#42;  Cannot be null, empty, or blank.
    
    
- * Must contain from 1 to 255 alphanumeric characters or hyphens.
+ *  Must contain from 1 to 255 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens. **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens. **/
         SubscriptionName: String;
         /** The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the
 event notifications. The ARN is created by Amazon SNS when you create a topic
@@ -2113,19 +2114,19 @@ the AWS account.
 
 Constraints:
 
- &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * Alphabetic characters must be lowercase.
+ *  Alphabetic characters must be lowercase.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens.
+ *  Cannot end with a hyphen or contain two consecutive hyphens.
    
    
- * Must be unique for all clusters within an AWS account. **/
+ *  Must be unique for all clusters within an AWS account. **/
         SnapshotCopyGrantName: String;
         /** The unique identifier of the customer master key (CMK) to which to grant Amazon
 Redshift permission. If no key is specified, the default key is used. **/
@@ -2138,14 +2139,14 @@ Redshift permission. If no key is specified, the default key is used. **/
     }
     export interface CreateTagsMessage {
         /** The Amazon Resource Name (ARN) to which you want to add the tag or tags. For
-example, arn:aws:redshift:us-east-1:123456789:cluster:t1 . **/
+example, arn:aws:redshift:us-east-1:123456789:cluster:t1. **/
         ResourceName: String;
         /** One or more name/value pairs to add as tags to the specified resource. Each tag
 name is passed in with the parameter Key and the corresponding value is passed
-in with the parameter Value . The Key and Value parameters are separated by a
+in with the parameter Value. The Key and Value parameters are separated by a
 comma (,). Separate multiple tags with a space. For example, --tags
 &quot;Key&quot;=&quot;owner&quot;,&quot;Value&quot;=&quot;admin&quot; &quot;Key&quot;=&quot;environment&quot;,&quot;Value&quot;=&quot;test&quot;
-&quot;Key&quot;=&quot;version&quot;,&quot;Value&quot;=&quot;1.0&quot; . **/
+&quot;Key&quot;=&quot;version&quot;,&quot;Value&quot;=&quot;1.0&quot;. **/
         Tags: TagList;
     }
     export interface DefaultClusterParameters {
@@ -2166,39 +2167,39 @@ records have been retrieved for the request. **/
 
 Constraints:
 
- &amp;#42; Must contain lowercase characters.
+ &amp;#42;  Must contain lowercase characters.
    
    
- * Must contain from 1 to 63 alphanumeric characters or hyphens.
+ *  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens. **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens. **/
         ClusterIdentifier: String;
         /** Determines whether a final snapshot of the cluster is created before Amazon
-Redshift deletes the cluster. If true , a final cluster snapshot is not created.
-If false , a final cluster snapshot is created before the cluster is deleted.
+Redshift deletes the cluster. If true, a final cluster snapshot is not created.
+If false, a final cluster snapshot is created before the cluster is deleted. 
 
 The FinalClusterSnapshotIdentifier parameter must be specified if 
-SkipFinalClusterSnapshot is false .
+SkipFinalClusterSnapshot is false.
 
 Default: false **/
         SkipFinalClusterSnapshot?: Boolean;
         /** The identifier of the final snapshot that is to be created immediately before
 deleting the cluster. If this parameter is provided, SkipFinalClusterSnapshot 
-must be false .
+must be false. 
 
 Constraints:
 
- &amp;#42; Must be 1 to 255 alphanumeric characters.
+ &amp;#42;  Must be 1 to 255 alphanumeric characters.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens. **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens. **/
         FinalClusterSnapshotIdentifier?: String;
     }
     export interface DeleteClusterParameterGroupMessage {
@@ -2206,10 +2207,10 @@ Constraints:
 
 Constraints:
 
- &amp;#42; Must be the name of an existing cluster parameter group.
+ &amp;#42;  Must be the name of an existing cluster parameter group.
    
    
- * Cannot delete a default cluster parameter group. **/
+ *  Cannot delete a default cluster parameter group. **/
         ParameterGroupName: String;
     }
     export interface DeleteClusterResult {
@@ -2257,7 +2258,7 @@ Constraints: Must be the name of valid cluster. **/
     }
     export interface DeleteTagsMessage {
         /** The Amazon Resource Name (ARN) from which you want to remove the tag or tags.
-For example, arn:aws:redshift:us-east-1:123456789:cluster:t1 . **/
+For example, arn:aws:redshift:us-east-1:123456789:cluster:t1. **/
         ResourceName: String;
         /** The tag key that you want to delete. **/
         TagKeys: TagKeyList;
@@ -2271,15 +2272,15 @@ details about all parameter groups and the default parameter group are returned.
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeClusterParameterGroups request
-exceed the value specified in MaxRecords , AWS returns a value in the Marker 
+exceed the value specified in MaxRecords, AWS returns a value in the Marker 
 field of the response. You can retrieve the next set of response records by
 providing the returned marker value in the Marker parameter and retrying the
 request. **/
@@ -2287,14 +2288,14 @@ request. **/
         /** A tag key or keys for which you want to return all matching cluster parameter
 groups that are associated with the specified key or keys. For example, suppose
 that you have parameter groups that are tagged with keys called owner and 
-environment . If you specify both of these tag keys in the request, Amazon
+environment. If you specify both of these tag keys in the request, Amazon
 Redshift returns a response with the parameter groups that have either or both
 of these tag keys associated with them. **/
         TagKeys?: TagKeyList;
         /** A tag value or values for which you want to return all matching cluster
 parameter groups that are associated with the specified tag value or values. For
 example, suppose that you have parameter groups that are tagged with values
-called admin and test . If you specify both of these tag values in the request,
+called admin and test. If you specify both of these tag values in the request,
 Amazon Redshift returns a response with the parameter groups that have either or
 both of these tag values associated with them. **/
         TagValues?: TagValueList;
@@ -2304,7 +2305,7 @@ both of these tag values associated with them. **/
         ParameterGroupName: String;
         /** The parameter types to return. Specify user to show parameters that are
 different form the default. Similarly, specify engine-default to show parameters
-that are the same as the default parameter group.
+that are the same as the default parameter group. 
 
 Default: All parameter types returned.
 
@@ -2313,15 +2314,15 @@ Valid Values: user | engine-default **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeClusterParameters request exceed
-the value specified in MaxRecords , AWS returns a value in the Marker field of
+the value specified in MaxRecords, AWS returns a value in the Marker field of
 the response. You can retrieve the next set of response records by providing the
 returned marker value in the Marker parameter and retrying the request. **/
         Marker?: String;
@@ -2329,25 +2330,25 @@ returned marker value in the Marker parameter and retrying the request. **/
     export interface DescribeClusterSecurityGroupsMessage {
         /** The name of a cluster security group for which you are requesting details. You
 can specify either the Marker parameter or a ClusterSecurityGroupName parameter,
-but not both.
+but not both. 
 
-Example: securitygroup1 **/
+ Example: securitygroup1 **/
         ClusterSecurityGroupName?: String;
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeClusterSecurityGroups request
-exceed the value specified in MaxRecords , AWS returns a value in the Marker 
+exceed the value specified in MaxRecords, AWS returns a value in the Marker 
 field of the response. You can retrieve the next set of response records by
 providing the returned marker value in the Marker parameter and retrying the
-request.
+request. 
 
 Constraints: You can specify either the ClusterSecurityGroupName parameter or
 the Marker parameter, but not both. **/
@@ -2355,14 +2356,14 @@ the Marker parameter, but not both. **/
         /** A tag key or keys for which you want to return all matching cluster security
 groups that are associated with the specified key or keys. For example, suppose
 that you have security groups that are tagged with keys called owner and 
-environment . If you specify both of these tag keys in the request, Amazon
+environment. If you specify both of these tag keys in the request, Amazon
 Redshift returns a response with the security groups that have either or both of
 these tag keys associated with them. **/
         TagKeys?: TagKeyList;
         /** A tag value or values for which you want to return all matching cluster security
 groups that are associated with the specified tag value or values. For example,
 suppose that you have security groups that are tagged with values called admin 
-and test . If you specify both of these tag values in the request, Amazon
+and test. If you specify both of these tag values in the request, Amazon
 Redshift returns a response with the security groups that have either or both of
 these tag values associated with them. **/
         TagValues?: TagValueList;
@@ -2380,29 +2381,29 @@ Valid Values: automated | manual **/
         SnapshotType?: String;
         /** A value that requests only snapshots created at or after the specified time. The
 time value is specified in ISO 8601 format. For more information about ISO 8601,
-go to the ISO8601 Wikipedia page. [http://en.wikipedia.org/wiki/ISO_8601]
+go to the ISO8601 Wikipedia page. [http://en.wikipedia.org/wiki/ISO_8601] 
 
 Example: 2012-07-16T18:00:00Z **/
         StartTime?: TStamp;
         /** A time value that requests only snapshots created at or before the specified
 time. The time value is specified in ISO 8601 format. For more information about
 ISO 8601, go to the ISO8601 Wikipedia page.
-[http://en.wikipedia.org/wiki/ISO_8601]
+[http://en.wikipedia.org/wiki/ISO_8601] 
 
 Example: 2012-07-16T18:00:00Z **/
         EndTime?: TStamp;
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeClusterSnapshots request exceed
-the value specified in MaxRecords , AWS returns a value in the Marker field of
+the value specified in MaxRecords, AWS returns a value in the Marker field of
 the response. You can retrieve the next set of response records by providing the
 returned marker value in the Marker parameter and retrying the request. **/
         Marker?: String;
@@ -2413,7 +2414,7 @@ the parameter. **/
         OwnerAccount?: String;
         /** A tag key or keys for which you want to return all matching cluster snapshots
 that are associated with the specified key or keys. For example, suppose that
-you have snapshots that are tagged with keys called owner and environment . If
+you have snapshots that are tagged with keys called owner and environment. If
 you specify both of these tag keys in the request, Amazon Redshift returns a
 response with the snapshots that have either or both of these tag keys
 associated with them. **/
@@ -2421,7 +2422,7 @@ associated with them. **/
         /** A tag value or values for which you want to return all matching cluster
 snapshots that are associated with the specified tag value or values. For
 example, suppose that you have snapshots that are tagged with values called 
-admin and test . If you specify both of these tag values in the request, Amazon
+admin and test. If you specify both of these tag values in the request, Amazon
 Redshift returns a response with the snapshots that have either or both of these
 tag values associated with them. **/
         TagValues?: TagValueList;
@@ -2432,15 +2433,15 @@ tag values associated with them. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeClusterSubnetGroups request
-exceed the value specified in MaxRecords , AWS returns a value in the Marker 
+exceed the value specified in MaxRecords, AWS returns a value in the Marker 
 field of the response. You can retrieve the next set of response records by
 providing the returned marker value in the Marker parameter and retrying the
 request. **/
@@ -2448,14 +2449,14 @@ request. **/
         /** A tag key or keys for which you want to return all matching cluster subnet
 groups that are associated with the specified key or keys. For example, suppose
 that you have subnet groups that are tagged with keys called owner and 
-environment . If you specify both of these tag keys in the request, Amazon
+environment. If you specify both of these tag keys in the request, Amazon
 Redshift returns a response with the subnet groups that have either or both of
 these tag keys associated with them. **/
         TagKeys?: TagKeyList;
         /** A tag value or values for which you want to return all matching cluster subnet
 groups that are associated with the specified tag value or values. For example,
 suppose that you have subnet groups that are tagged with values called admin and 
-test . If you specify both of these tag values in the request, Amazon Redshift
+test. If you specify both of these tag values in the request, Amazon Redshift
 returns a response with the subnet groups that have either or both of these tag
 values associated with them. **/
         TagValues?: TagValueList;
@@ -2469,26 +2470,26 @@ Example: 1.0 **/
 
 Constraints:
 
- &amp;#42; Must be 1 to 255 alphanumeric characters
+ &amp;#42;  Must be 1 to 255 alphanumeric characters
    
    
- * First character must be a letter
+ *  First character must be a letter
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens **/
         ClusterParameterGroupFamily?: String;
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeClusterVersions request exceed
-the value specified in MaxRecords , AWS returns a value in the Marker field of
+the value specified in MaxRecords, AWS returns a value in the Marker field of
 the response. You can retrieve the next set of response records by providing the
 returned marker value in the Marker parameter and retrying the request. **/
         Marker?: String;
@@ -2502,30 +2503,30 @@ The default is that all clusters defined for an account are returned. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeClusters request exceed the
-value specified in MaxRecords , AWS returns a value in the Marker field of the
+value specified in MaxRecords, AWS returns a value in the Marker field of the
 response. You can retrieve the next set of response records by providing the
-returned marker value in the Marker parameter and retrying the request.
+returned marker value in the Marker parameter and retrying the request. 
 
 Constraints: You can specify either the ClusterIdentifier parameter or the 
 Marker parameter, but not both. **/
         Marker?: String;
         /** A tag key or keys for which you want to return all matching clusters that are
 associated with the specified key or keys. For example, suppose that you have
-clusters that are tagged with keys called owner and environment . If you specify
+clusters that are tagged with keys called owner and environment. If you specify
 both of these tag keys in the request, Amazon Redshift returns a response with
 the clusters that have either or both of these tag keys associated with them. **/
         TagKeys?: TagKeyList;
         /** A tag value or values for which you want to return all matching clusters that
 are associated with the specified tag value or values. For example, suppose that
-you have clusters that are tagged with values called admin and test . If you
+you have clusters that are tagged with values called admin and test. If you
 specify both of these tag values in the request, Amazon Redshift returns a
 response with the clusters that have either or both of these tag values
 associated with them. **/
@@ -2537,15 +2538,15 @@ associated with them. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeDefaultClusterParameters request
-exceed the value specified in MaxRecords , AWS returns a value in the Marker 
+exceed the value specified in MaxRecords, AWS returns a value in the Marker 
 field of the response. You can retrieve the next set of response records by
 providing the returned marker value in the Marker parameter and retrying the
 request. **/
@@ -2568,15 +2569,15 @@ cluster-security-group. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeEventSubscriptions request
-exceed the value specified in MaxRecords , AWS returns a value in the Marker 
+exceed the value specified in MaxRecords, AWS returns a value in the Marker 
 field of the response. You can retrieve the next set of response records by
 providing the returned marker value in the Marker parameter and retrying the
 request. **/
@@ -2590,18 +2591,18 @@ Constraints:
 
 If SourceIdentifier is supplied, SourceType must also be provided.
 
- &amp;#42; Specify a cluster identifier when SourceType is cluster .
+ &amp;#42;  Specify a cluster identifier when SourceType is cluster.
    
    
- * Specify a cluster security group name when SourceType is 
-   cluster-security-group .
+ *  Specify a cluster security group name when SourceType is 
+   cluster-security-group.
    
    
- * Specify a cluster parameter group name when SourceType is 
-   cluster-parameter-group .
+ *  Specify a cluster parameter group name when SourceType is 
+   cluster-parameter-group.
    
    
- * Specify a cluster snapshot identifier when SourceType is cluster-snapshot . **/
+ *  Specify a cluster snapshot identifier when SourceType is cluster-snapshot. **/
         SourceIdentifier?: String;
         /** The event source to retrieve events for. If no value is specified, all events
 are returned.
@@ -2610,29 +2611,29 @@ Constraints:
 
 If SourceType is supplied, SourceIdentifier must also be provided.
 
- &amp;#42; Specify cluster when SourceIdentifier is a cluster identifier.
+ &amp;#42;  Specify cluster when SourceIdentifier is a cluster identifier.
    
    
- * Specify cluster-security-group when SourceIdentifier is a cluster security
+ *  Specify cluster-security-group when SourceIdentifier is a cluster security
    group name.
    
    
- * Specify cluster-parameter-group when SourceIdentifier is a cluster parameter
+ *  Specify cluster-parameter-group when SourceIdentifier is a cluster parameter
    group name.
    
    
- * Specify cluster-snapshot when SourceIdentifier is a cluster snapshot
+ *  Specify cluster-snapshot when SourceIdentifier is a cluster snapshot
    identifier. **/
         SourceType?: SourceType;
         /** The beginning of the time interval to retrieve events for, specified in ISO 8601
 format. For more information about ISO 8601, go to the ISO8601 Wikipedia page.
-[http://en.wikipedia.org/wiki/ISO_8601]
+[http://en.wikipedia.org/wiki/ISO_8601] 
 
 Example: 2009-07-08T18:00Z **/
         StartTime?: TStamp;
         /** The end of the time interval for which to retrieve events, specified in ISO 8601
 format. For more information about ISO 8601, go to the ISO8601 Wikipedia page.
-[http://en.wikipedia.org/wiki/ISO_8601]
+[http://en.wikipedia.org/wiki/ISO_8601] 
 
 Example: 2009-07-08T18:00Z **/
         EndTime?: TStamp;
@@ -2645,15 +2646,15 @@ Default: 60 **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeEvents request exceed the value
-specified in MaxRecords , AWS returns a value in the Marker field of the
+specified in MaxRecords, AWS returns a value in the Marker field of the
 response. You can retrieve the next set of response records by providing the
 returned marker value in the Marker parameter and retrying the request. **/
         Marker?: String;
@@ -2666,15 +2667,15 @@ client certificates owned by your AWS customer account. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeHsmClientCertificates request
-exceed the value specified in MaxRecords , AWS returns a value in the Marker 
+exceed the value specified in MaxRecords, AWS returns a value in the Marker 
 field of the response. You can retrieve the next set of response records by
 providing the returned marker value in the Marker parameter and retrying the
 request. **/
@@ -2682,14 +2683,14 @@ request. **/
         /** A tag key or keys for which you want to return all matching HSM client
 certificates that are associated with the specified key or keys. For example,
 suppose that you have HSM client certificates that are tagged with keys called 
-owner and environment . If you specify both of these tag keys in the request,
+owner and environment. If you specify both of these tag keys in the request,
 Amazon Redshift returns a response with the HSM client certificates that have
 either or both of these tag keys associated with them. **/
         TagKeys?: TagKeyList;
         /** A tag value or values for which you want to return all matching HSM client
 certificates that are associated with the specified tag value or values. For
 example, suppose that you have HSM client certificates that are tagged with
-values called admin and test . If you specify both of these tag values in the
+values called admin and test. If you specify both of these tag values in the
 request, Amazon Redshift returns a response with the HSM client certificates
 that have either or both of these tag values associated with them. **/
         TagValues?: TagValueList;
@@ -2702,29 +2703,29 @@ configurations owned by your AWS customer account. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeHsmConfigurations request exceed
-the value specified in MaxRecords , AWS returns a value in the Marker field of
+the value specified in MaxRecords, AWS returns a value in the Marker field of
 the response. You can retrieve the next set of response records by providing the
 returned marker value in the Marker parameter and retrying the request. **/
         Marker?: String;
         /** A tag key or keys for which you want to return all matching HSM configurations
 that are associated with the specified key or keys. For example, suppose that
 you have HSM configurations that are tagged with keys called owner and 
-environment . If you specify both of these tag keys in the request, Amazon
+environment. If you specify both of these tag keys in the request, Amazon
 Redshift returns a response with the HSM configurations that have either or both
 of these tag keys associated with them. **/
         TagKeys?: TagKeyList;
         /** A tag value or values for which you want to return all matching HSM
 configurations that are associated with the specified tag value or values. For
 example, suppose that you have HSM configurations that are tagged with values
-called admin and test . If you specify both of these tag values in the request,
+called admin and test. If you specify both of these tag values in the request,
 Amazon Redshift returns a response with the HSM configurations that have either
 or both of these tag values associated with them. **/
         TagValues?: TagValueList;
@@ -2741,7 +2742,7 @@ offerings matching the specified version.
 
 Default: All versions.
 
-Constraints: Must be one of the version returned from DescribeClusterVersions . **/
+Constraints: Must be one of the version returned from DescribeClusterVersions. **/
         ClusterVersion?: String;
         /** The node type filter value. Specify this parameter to show only the available
 offerings matching the specified node type. **/
@@ -2749,15 +2750,15 @@ offerings matching the specified node type. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeOrderableClusterOptions request
-exceed the value specified in MaxRecords , AWS returns a value in the Marker 
+exceed the value specified in MaxRecords, AWS returns a value in the Marker 
 field of the response. You can retrieve the next set of response records by
 providing the returned marker value in the Marker parameter and retrying the
 request. **/
@@ -2769,15 +2770,15 @@ request. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeReservedNodeOfferings request
-exceed the value specified in MaxRecords , AWS returns a value in the Marker 
+exceed the value specified in MaxRecords, AWS returns a value in the Marker 
 field of the response. You can retrieve the next set of response records by
 providing the returned marker value in the Marker parameter and retrying the
 request. **/
@@ -2789,15 +2790,15 @@ request. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeReservedNodes request exceed the
-value specified in MaxRecords , AWS returns a value in the Marker field of the
+value specified in MaxRecords, AWS returns a value in the Marker field of the
 response. You can retrieve the next set of response records by providing the
 returned marker value in the Marker parameter and retrying the request. **/
         Marker?: String;
@@ -2816,30 +2817,30 @@ returned. **/
         /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
 returned in a marker field of the response. You can retrieve the next set of
-records by retrying the command with the returned marker value.
+records by retrying the command with the returned marker value. 
 
-Default: 100
+Default: 100 
 
 Constraints: minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeSnapshotCopyGrant request exceed
-the value specified in MaxRecords , AWS returns a value in the Marker field of
+the value specified in MaxRecords, AWS returns a value in the Marker field of
 the response. You can retrieve the next set of response records by providing the
-returned marker value in the Marker parameter and retrying the request.
+returned marker value in the Marker parameter and retrying the request. 
 
 Constraints: You can specify either the SnapshotCopyGrantName parameter or the 
 Marker parameter, but not both. **/
         Marker?: String;
         /** A tag key or keys for which you want to return all matching resources that are
 associated with the specified key or keys. For example, suppose that you have
-resources tagged with keys called owner and environment . If you specify both of
+resources tagged with keys called owner and environment. If you specify both of
 these tag keys in the request, Amazon Redshift returns a response with all
 resources that have either or both of these tag keys associated with them. **/
         TagKeys?: TagKeyList;
         /** A tag value or values for which you want to return all matching resources that
 are associated with the specified value or values. For example, suppose that you
-have resources tagged with values called admin and test . If you specify both of
+have resources tagged with values called admin and test. If you specify both of
 these tag values in the request, Amazon Redshift returns a response with all
 resources that have either or both of these tag values associated with them. **/
         TagValues?: TagValueList;
@@ -2862,38 +2863,38 @@ beyond the marker, up to the value specified by the MaxRecords parameter. **/
     }
     export interface DescribeTagsMessage {
         /** The Amazon Resource Name (ARN) for which you want to describe the tag or tags.
-For example, arn:aws:redshift:us-east-1:123456789:cluster:t1 . **/
+For example, arn:aws:redshift:us-east-1:123456789:cluster:t1. **/
         ResourceName?: String;
-        /** The type of resource with which you want to view tags. Valid resource types are:
+        /** The type of resource with which you want to view tags. Valid resource types are: 
 
- &amp;#42; Cluster
+ &amp;#42;  Cluster
    
    
- * CIDR/IP
+ *  CIDR/IP
    
    
- * EC2 security group
+ *  EC2 security group
    
    
- * Snapshot
+ *  Snapshot
    
    
- * Cluster security group
+ *  Cluster security group
    
    
- * Subnet group
+ *  Subnet group
    
    
- * HSM connection
+ *  HSM connection
    
    
- * HSM certificate
+ *  HSM certificate
    
    
- * Parameter group
+ *  Parameter group
    
    
- * Snapshot copy grant
+ *  Snapshot copy grant
    
    
 
@@ -2915,13 +2916,13 @@ records have been retrieved for the request. **/
         Marker?: String;
         /** A tag key or keys for which you want to return all matching resources that are
 associated with the specified key or keys. For example, suppose that you have
-resources tagged with keys called owner and environment . If you specify both of
+resources tagged with keys called owner and environment. If you specify both of
 these tag keys in the request, Amazon Redshift returns a response with all
 resources that have either or both of these tag keys associated with them. **/
         TagKeys?: TagKeyList;
         /** A tag value or values for which you want to return all matching resources that
 are associated with the specified value or values. For example, suppose that you
-have resources tagged with values called admin and test . If you specify both of
+have resources tagged with values called admin and test. If you specify both of
 these tag values in the request, Amazon Redshift returns a response with all
 resources that have either or both of these tag values associated with them. **/
         TagValues?: TagValueList;
@@ -2969,34 +2970,34 @@ Example: examplecluster **/
 
 Constraints:
 
- &amp;#42; Must be in the same region as the cluster
+ &amp;#42;  Must be in the same region as the cluster
    
    
- * The cluster must have read bucket and put object permissions **/
+ *  The cluster must have read bucket and put object permissions **/
         BucketName: String;
         /** The prefix applied to the log file names.
 
 Constraints:
 
- &amp;#42; Cannot exceed 512 characters
+ &amp;#42;  Cannot exceed 512 characters
    
    
- * Cannot contain spaces( ), double quotes (&quot;), single quotes (&#x27;), a backslash
-   (\), or control characters. The hexadecimal codes for invalid characters are:
+ *  Cannot contain spaces( ), double quotes (&quot;), single quotes (&#x27;), a backslash
+   (\), or control characters. The hexadecimal codes for invalid characters are: 
    
-    * x00 to x20
+    *  x00 to x20
       
       
-    * x22
+    *  x22
       
       
-    * x27
+    *  x27
       
       
-    * x5c
+    *  x5c
       
       
-    * x7f or larger **/
+    *  x7f or larger **/
         S3KeyPrefix?: String;
     }
     export interface EnableSnapshotCopyMessage {
@@ -3088,10 +3089,10 @@ notification subscription. **/
 
 Constraints:
 
- &amp;#42; Can be one of the following: active | no-permission | topic-not-exist
+ &amp;#42;  Can be one of the following: active | no-permission | topic-not-exist
    
    
- * The status &quot;no-permission&quot; indicates that Amazon Redshift no longer has
+ *  The status &quot;no-permission&quot; indicates that Amazon Redshift no longer has
    permission to post to the Amazon SNS topic. The status &quot;topic-not-exist&quot;
    indicates that the topic was deleted after the subscription was created. **/
         Status?: String;
@@ -3304,7 +3305,7 @@ When you submit your cluster resize request, your existing cluster goes into a
 read-only mode. After Amazon Redshift provisions a new cluster based on your
 resize requirements, there will be outage for a period while the old cluster is
 deleted and your connection is switched to the new cluster. You can use 
-DescribeResize to track the progress of the resize request.
+DescribeResize to track the progress of the resize request. 
 
 Valid Values: multi-node | single-node **/
         ClusterType?: String;
@@ -3317,10 +3318,10 @@ cluster according to your resize requirements, there will be a temporary outage
 while the old cluster is deleted and your connection is switched to the new
 cluster. When the new connection is complete, the original access permissions
 for the cluster are restored. You can use DescribeResize to track the progress
-of the resize request.
+of the resize request. 
 
 Valid Values: ds1.xlarge | ds1.8xlarge | ds2.xlarge | ds2.8xlarge | dc1.large | 
-dc1.8xlarge . **/
+dc1.8xlarge. **/
         NodeType?: String;
         /** The new number of nodes of the cluster. If you specify a new number of nodes,
 you must also specify the node type parameter.
@@ -3331,9 +3332,9 @@ cluster according to your resize requirements, there will be a temporary outage
 while the old cluster is deleted and your connection is switched to the new
 cluster. When the new connection is complete, the original access permissions
 for the cluster are restored. You can use DescribeResize to track the progress
-of the resize request.
+of the resize request. 
 
-Valid Values: Integer greater than 0 . **/
+Valid Values: Integer greater than 0. **/
         NumberOfNodes?: IntegerOptional;
         /** A list of cluster security groups to be authorized on this cluster. This change
 is asynchronously applied as soon as possible.
@@ -3343,13 +3344,13 @@ groups to apply, will be revoked from the cluster.
 
 Constraints:
 
- &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens
+ &amp;#42;  Must be 1 to 255 alphanumeric characters or hyphens
    
    
- * First character must be a letter
+ *  First character must be a letter
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens **/
         ClusterSecurityGroups?: ClusterSecurityGroupNameList;
         /** A list of virtual private cloud (VPC) security groups to be associated with the
 cluster. **/
@@ -3357,7 +3358,7 @@ cluster. **/
         /** The new password for the cluster master user. This change is asynchronously
 applied as soon as possible. Between the time of the request and the completion
 of the request, the MasterUserPassword element exists in the 
-PendingModifiedValues element of the operation response.
+PendingModifiedValues element of the operation response. 
 
 Operations never return the password, so this operation provides a way to regain
 access to the master user account for a cluster if the password is lost.
@@ -3366,24 +3367,24 @@ Default: Uses existing setting.
 
 Constraints:
 
- &amp;#42; Must be between 8 and 64 characters in length.
+ &amp;#42;  Must be between 8 and 64 characters in length.
    
    
- * Must contain at least one uppercase letter.
+ *  Must contain at least one uppercase letter.
    
    
- * Must contain at least one lowercase letter.
+ *  Must contain at least one lowercase letter.
    
    
- * Must contain one number.
+ *  Must contain one number.
    
    
- * Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
+ *  Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
    quote), &quot; (double quote), \, /, @, or space. **/
         MasterUserPassword?: String;
         /** The name of the cluster parameter group to apply to this cluster. This change is
 applied only after the cluster is rebooted. To reboot a cluster use 
-RebootCluster .
+RebootCluster. 
 
 Default: Uses existing setting.
 
@@ -3392,7 +3393,7 @@ family that matches the cluster version. **/
         ClusterParameterGroupName?: String;
         /** The number of days that automated snapshots are retained. If the value is 0,
 automated snapshots are disabled. Even if automated snapshots are disabled, you
-can still create manual snapshots when you want with CreateClusterSnapshot .
+can still create manual snapshots when you want with CreateClusterSnapshot. 
 
 If you decrease the automated snapshot retention period from its current value,
 existing automated snapshots that fall outside of the new retention period will
@@ -3413,7 +3414,7 @@ are applied.
 
 Default: Uses existing setting.
 
-Format: ddd:hh24:mi-ddd:hh24:mi, for example wed:07:30-wed:08:00 .
+Format: ddd:hh24:mi-ddd:hh24:mi, for example wed:07:30-wed:08:00.
 
 Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 
@@ -3427,12 +3428,12 @@ family for the new version must be specified. The new cluster parameter group
 can be the default for that cluster parameter group family. For more information
 about parameters and parameter groups, go to Amazon Redshift Parameter Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
-in the Amazon Redshift Cluster Management Guide .
+in the Amazon Redshift Cluster Management Guide.
 
 Example: 1.0 **/
         ClusterVersion?: String;
-        /** If true , major version upgrades will be applied automatically to the cluster
-during the maintenance window.
+        /** If true, major version upgrades will be applied automatically to the cluster
+during the maintenance window. 
 
 Default: false **/
         AllowVersionUpgrade?: BooleanOptional;
@@ -3446,25 +3447,25 @@ Amazon Redshift cluster can use to retrieve and store keys in an HSM. **/
 
 Constraints:
 
- &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * Alphabetic characters must be lowercase.
+ *  Alphabetic characters must be lowercase.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens.
+ *  Cannot end with a hyphen or contain two consecutive hyphens.
    
    
- * Must be unique for all clusters within an AWS account.
+ *  Must be unique for all clusters within an AWS account.
    
    
 
 Example: examplecluster **/
         NewClusterIdentifier?: String;
-        /** If true , the cluster can be accessed from a public network. Only clusters in
+        /** If true, the cluster can be accessed from a public network. Only clusters in
 VPCs can be set to be publicly available. **/
         PubliclyAccessible?: BooleanOptional;
         /** The Elastic IP (EIP) address for the cluster.
@@ -3481,7 +3482,7 @@ in a VPC. For more information, see Enhanced VPC Routing
 [http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
 the Amazon Redshift Cluster Management Guide.
 
-If this option is true , enhanced VPC routing is enabled.
+If this option is true, enhanced VPC routing is enabled. 
 
 Default: false **/
         EnhancedVpcRouting?: BooleanOptional;
@@ -3584,7 +3585,7 @@ Constraints: Must be at least 1 and no more than 35. **/
     export interface OrderableClusterOption {
         /** The version of the orderable cluster. **/
         ClusterVersion?: String;
-        /** The cluster type, for example multi-node . **/
+        /** The cluster type, for example multi-node. **/
         ClusterType?: String;
         /** The node type for the orderable cluster. **/
         NodeType?: String;
@@ -3620,9 +3621,9 @@ applied dynamically, while other properties require that any associated clusters
 be rebooted for the configuration changes to be applied. For more information
 about parameters and parameter groups, go to Amazon Redshift Parameter Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
-in the Amazon Redshift Cluster Management Guide . **/
+in the Amazon Redshift Cluster Management Guide. **/
         ApplyType?: ParameterApplyType;
-        /** If true , the parameter can be modified. Some parameters have security or
+        /** If true, the parameter can be modified. Some parameters have security or
 operational implications that prevent them from being changed. **/
         IsModifiable?: Boolean;
         /** The earliest engine version to which the parameter can apply. **/
@@ -3652,7 +3653,7 @@ in a VPC. For more information, see Enhanced VPC Routing
 [http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
 the Amazon Redshift Cluster Management Guide.
 
-If this option is true , enhanced VPC routing is enabled.
+If this option is true, enhanced VPC routing is enabled. 
 
 Default: false **/
         EnhancedVpcRouting?: BooleanOptional;
@@ -3706,14 +3707,14 @@ duration. This is the start time of that duration. **/
 
 Possible Values:
 
- &amp;#42; pending-payment-This reserved node has recently been purchased, and the sale
+ &amp;#42;  pending-payment-This reserved node has recently been purchased, and the sale
    has been approved, but payment has not yet been confirmed.
    
    
- * active-This reserved node is owned by the caller and is available for use.
+ *  active-This reserved node is owned by the caller and is available for use.
    
    
- * payment-failed-Payment failed for the purchase attempt. **/
+ *  payment-failed-Payment failed for the purchase attempt. **/
         State?: String;
         /** The anticipated utilization of the reserved node, as defined in the reserved
 node offering. **/
@@ -3775,13 +3776,13 @@ records have been retrieved for the request. **/
     export interface ResetClusterParameterGroupMessage {
         /** The name of the cluster parameter group to be reset. **/
         ParameterGroupName: String;
-        /** If true , all parameters in the specified parameter group will be reset to their
-default values.
+        /** If true, all parameters in the specified parameter group will be reset to their
+default values. 
 
 Default: true **/
         ResetAllParameters?: Boolean;
         /** An array of names of parameters to be reset. If ResetAllParameters option is not
-used, then at least one parameter name must be supplied.
+used, then at least one parameter name must be supplied. 
 
 Constraints: A maximum of 20 parameters can be reset in a single request. **/
         Parameters?: ParametersList;
@@ -3844,19 +3845,19 @@ complete, this value will be 0. **/
 
 Constraints:
 
- &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * Alphabetic characters must be lowercase.
+ *  Alphabetic characters must be lowercase.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens.
+ *  Cannot end with a hyphen or contain two consecutive hyphens.
    
    
- * Must be unique for all clusters within an AWS account. **/
+ *  Must be unique for all clusters within an AWS account. **/
         ClusterIdentifier: String;
         /** The name of the snapshot from which to create the new cluster. This parameter
 isn&#x27;t case sensitive.
@@ -3871,7 +3872,7 @@ that specifies anything other than &amp;#42; for the cluster name. **/
 
 Default: The same port as the original cluster.
 
-Constraints: Must be between 1115 and 65535 . **/
+Constraints: Must be between 1115 and 65535. **/
         Port?: IntegerOptional;
         /** The Amazon EC2 Availability Zone in which to restore the cluster.
 
@@ -3879,8 +3880,8 @@ Default: A random, system-chosen Availability Zone.
 
 Example: us-east-1a **/
         AvailabilityZone?: String;
-        /** If true , major version upgrades can be applied during the maintenance window to
-the Amazon Redshift engine that is running on the cluster.
+        /** If true, major version upgrades can be applied during the maintenance window to
+the Amazon Redshift engine that is running on the cluster. 
 
 Default: true **/
         AllowVersionUpgrade?: BooleanOptional;
@@ -3889,7 +3890,7 @@ Default: true **/
 A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must
 provide subnet group name where you want the cluster restored. **/
         ClusterSubnetGroupName?: String;
-        /** If true , the cluster can be accessed from a public network. **/
+        /** If true, the cluster can be accessed from a public network. **/
         PubliclyAccessible?: BooleanOptional;
         /** The AWS customer account used to create or copy the snapshot. Required if you
 are restoring a snapshot you do not own, optional if you own the snapshot. **/
@@ -3907,18 +3908,18 @@ Amazon Redshift cluster can use to retrieve and store keys in an HSM. **/
 Default: The default Amazon Redshift cluster parameter group. For information
 about the default parameter group, go to Working with Amazon Redshift Parameter
 Groups
-[http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html] 
+[http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html]
 .
 
 Constraints:
 
- &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens.
+ &amp;#42;  Must be 1 to 255 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens. **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens. **/
         ClusterParameterGroupName?: String;
         /** A list of security groups to be associated with this cluster.
 
@@ -3936,13 +3937,13 @@ VPC security groups only apply to clusters in VPCs. **/
         /** The weekly time range (in UTC) during which automated cluster maintenance can
 occur.
 
-Format: ddd:hh24:mi-ddd:hh24:mi
+ Format: ddd:hh24:mi-ddd:hh24:mi 
 
-Default: The value selected for the cluster from which the snapshot was taken.
+ Default: The value selected for the cluster from which the snapshot was taken.
 For more information about the time blocks for each region, see Maintenance
 Windows
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows] 
-in Amazon Redshift Cluster Management Guide.
+in Amazon Redshift Cluster Management Guide. 
 
 Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 
@@ -3950,7 +3951,7 @@ Constraints: Minimum 30-minute window. **/
         PreferredMaintenanceWindow?: String;
         /** The number of days that automated snapshots are retained. If the value is 0,
 automated snapshots are disabled. Even if automated snapshots are disabled, you
-can still create manual snapshots when you want with CreateClusterSnapshot .
+can still create manual snapshots when you want with CreateClusterSnapshot. 
 
 Default: The value selected for the cluster from which the snapshot was taken.
 
@@ -3978,7 +3979,7 @@ in a VPC. For more information, see Enhanced VPC Routing
 [http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
 the Amazon Redshift Cluster Management Guide.
 
-If this option is true , enhanced VPC routing is enabled.
+If this option is true, enhanced VPC routing is enabled. 
 
 Default: false **/
         EnhancedVpcRouting?: BooleanOptional;
@@ -4023,7 +4024,7 @@ ClusterIdentifier parameter. **/
         /** The name of the source database that contains the table to restore from. **/
         SourceDatabaseName: String;
         /** The name of the source schema that contains the table to restore from. If you do
-not specify a SourceSchemaName value, the default is public . **/
+not specify a SourceSchemaName value, the default is public. **/
         SourceSchemaName?: String;
         /** The name of the source table to restore from. **/
         SourceTableName: String;
@@ -4051,7 +4052,7 @@ and CIDRIP cannot be provided. **/
         /** The AWS account number of the owner of the security group specified in the 
 EC2SecurityGroupName parameter. The AWS access key ID is not an acceptable
 value. If EC2SecurityGroupOwnerId is specified, EC2SecurityGroupName must also
-be provided. and CIDRIP cannot be provided.
+be provided. and CIDRIP cannot be provided. 
 
 Example: 111122223333 **/
         EC2SecurityGroupOwnerId?: String;
@@ -4097,16 +4098,16 @@ Constraints: Must be the name of valid cluster that has encryption enabled. **/
         /** The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a
 copy of the cluster data as of this exact time. **/
         SnapshotCreateTime?: TStamp;
-        /** The snapshot status. The value of the status depends on the API operation used.
+        /** The snapshot status. The value of the status depends on the API operation used. 
 
- &amp;#42; CreateClusterSnapshot and CopyClusterSnapshot returns status as &quot;creating&quot;.
+ &amp;#42;   CreateClusterSnapshot and CopyClusterSnapshot returns status as &quot;creating&quot;. 
    
    
- * DescribeClusterSnapshots returns status as &quot;creating&quot;, &quot;available&quot;, &quot;final
+ *   DescribeClusterSnapshots returns status as &quot;creating&quot;, &quot;available&quot;, &quot;final
    snapshot&quot;, or &quot;failed&quot;.
    
    
- * DeleteClusterSnapshot returns status as &quot;deleted&quot;. **/
+ *   DeleteClusterSnapshot returns status as &quot;deleted&quot;. **/
         Status?: String;
         /** The port that the cluster is listening on. **/
         Port?: Integer;
@@ -4130,7 +4131,7 @@ CopyClusterSnapshot will be of type &quot;manual&quot;. **/
         /** The VPC identifier of the cluster if the snapshot is from a cluster in a VPC.
 Otherwise, this field is not in the output. **/
         VpcId?: String;
-        /** If true , the data in the snapshot is encrypted at rest. **/
+        /** If true, the data in the snapshot is encrypted at rest. **/
         Encrypted?: Boolean;
         /** The AWS Key Management Service (KMS) key ID of the encryption key that was used
 to encrypt data in the cluster from which the snapshot was taken. **/
@@ -4174,7 +4175,7 @@ in a VPC. For more information, see Enhanced VPC Routing
 [http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
 the Amazon Redshift Cluster Management Guide.
 
-If this option is true , enhanced VPC routing is enabled.
+If this option is true, enhanced VPC routing is enabled. 
 
 Default: false **/
         EnhancedVpcRouting?: Boolean;
@@ -4199,9 +4200,9 @@ Amazon Redshift is granted permission. **/
     export interface SnapshotCopyGrantMessage {
         /** An optional parameter that specifies the starting point to return a set of
 response records. When the results of a DescribeSnapshotCopyGrant request exceed
-the value specified in MaxRecords , AWS returns a value in the Marker field of
+the value specified in MaxRecords, AWS returns a value in the Marker field of
 the response. You can retrieve the next set of response records by providing the
-returned marker value in the Marker parameter and retrying the request.
+returned marker value in the Marker parameter and retrying the request. 
 
 Constraints: You can specify either the SnapshotCopyGrantName parameter or the 
 Marker parameter, but not both. **/
@@ -4251,10 +4252,10 @@ records have been retrieved for the request. **/
         TableRestoreRequestId?: String;
         /** A value that describes the current state of the table restore request.
 
-Valid Values: SUCCEEDED , FAILED , CANCELED , PENDING , IN_PROGRESS **/
+Valid Values: SUCCEEDED, FAILED, CANCELED, PENDING, IN_PROGRESS **/
         Status?: TableRestoreStatusType;
         /** A description of the status of the table restore request. Status values include 
-SUCCEEDED , FAILED , CANCELED , PENDING , IN_PROGRESS . **/
+SUCCEEDED, FAILED, CANCELED, PENDING, IN_PROGRESS. **/
         Message?: String;
         /** The time that the table restore request was made, in Universal Coordinated Time
 (UTC). **/
@@ -4300,35 +4301,35 @@ request. **/
         /** The tag for the resource. **/
         Tag?: Tag;
         /** The Amazon Resource Name (ARN) with which the tag is associated. For example, 
-arn:aws:redshift:us-east-1:123456789:cluster:t1 . **/
+arn:aws:redshift:us-east-1:123456789:cluster:t1. **/
         ResourceName?: String;
-        /** The type of resource with which the tag is associated. Valid resource types are:
+        /** The type of resource with which the tag is associated. Valid resource types are: 
 
- &amp;#42; Cluster
+ &amp;#42;  Cluster
    
    
- * CIDR/IP
+ *  CIDR/IP
    
    
- * EC2 security group
+ *  EC2 security group
    
    
- * Snapshot
+ *  Snapshot
    
    
- * Cluster security group
+ *  Cluster security group
    
    
- * Subnet group
+ *  Subnet group
    
    
- * HSM connection
+ *  HSM connection
    
    
- * HSM certificate
+ *  HSM certificate
    
    
- * Parameter group
+ *  Parameter group
    
    
 

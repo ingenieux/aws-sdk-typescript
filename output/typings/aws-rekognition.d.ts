@@ -22,17 +22,17 @@ declare module "aws-sdk" {
     endpoint: Endpoint;
     /**
      * Compares a face in the source input image with each face detected in the target 
-input image.
+input image. 
 
-If the source image contains multiple faces, the service detects the largest
-face and uses it to compare with each face detected in the target image.
+ If the source image contains multiple faces, the service detects the largest
+face and uses it to compare with each face detected in the target image. 
 
 In response, the operation returns an array of face matches ordered by
 similarity score with the highest similarity scores first. For each face match,
 the response provides a bounding box of the face and confidence value
 (indicating the level of confidence that the bounding box contains a face). The
 response also provides a similarity score, which indicates how closely the faces
-match.
+match. 
 
 By default, only faces with the similarity score of greater than or equal to 80%
 are returned in the response. You can change this value.
@@ -41,10 +41,10 @@ In addition to the face matches, the response returns information about the face
 in the source image, including the bounding box of the face and confidence
 value.
 
-This is a stateless API operation. That is, the operation does not persist any
+ This is a stateless API operation. That is, the operation does not persist any
 data.
 
-For an example, see get-started-exercise-compare-faces
+For an example, see get-started-exercise-compare-faces 
 
 This operation requires permissions to perform the rekognition:CompareFaces 
 action.
@@ -61,14 +61,14 @@ action.
     compareFaces(params: Rekognition.CompareFacesRequest, callback?: (err: Rekognition.InvalidParameterException|Rekognition.InvalidS3ObjectException|Rekognition.ImageTooLargeException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.InvalidImageFormatException|any, data: Rekognition.CompareFacesResponse|any) => void): Request<Rekognition.CompareFacesResponse|any,Rekognition.InvalidParameterException|Rekognition.InvalidS3ObjectException|Rekognition.ImageTooLargeException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.InvalidImageFormatException|any>;
     /**
      * Creates a collection in an AWS Region. You can add faces to the collection using
-the operation.
+the operation. 
 
 For example, you might create collections, one for each of your application
 users. A user can then index faces using the IndexFaces operation and persist
 results in a specific collection. Then, a user can search the collection for
-faces in the user-specific container.
+faces in the user-specific container. 
 
-For an example, see example1 .
+For an example, see example1. 
 
 This operation requires permissions to perform the rekognition:CreateCollection 
 action.
@@ -83,7 +83,7 @@ action.
     createCollection(params: Rekognition.CreateCollectionRequest, callback?: (err: Rekognition.InvalidParameterException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.ResourceAlreadyExistsException|any, data: Rekognition.CreateCollectionResponse|any) => void): Request<Rekognition.CreateCollectionResponse|any,Rekognition.InvalidParameterException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.ResourceAlreadyExistsException|any>;
     /**
      * Deletes the specified collection. Note that this operation removes all faces in
-the collection. For an example, see example1 .
+the collection. For an example, see example1.
 
 This operation requires permissions to perform the rekognition:DeleteCollection 
 action.
@@ -114,19 +114,19 @@ action.
     /**
      * Detects faces within an image (JPEG or PNG) that is provided as input.
 
-For each face detected, the operation returns face details including a bounding
+ For each face detected, the operation returns face details including a bounding
 box of the face, a confidence value (that the bounding box contains a face), and
 a fixed set of attributes such as facial landmarks (for example, coordinates of
-eye and mouth), gender, presence of beard, sunglasses, etc.
+eye and mouth), gender, presence of beard, sunglasses, etc. 
 
 The face-detection algorithm is most effective on frontal faces. For non-frontal
 or obscured faces, the algorithm may not detect the faces or might detect faces
-with lower confidence.
+with lower confidence. 
 
 This is a stateless API operation. That is, the operation does not persist any
 data.
 
-For an example, see get-started-exercise-detect-faces .
+For an example, see get-started-exercise-detect-faces.
 
 This operation requires permissions to perform the rekognition:DetectFaces 
 action.
@@ -145,30 +145,30 @@ action.
      * Detects instances of real-world labels within an image (JPEG or PNG) provided as
 input. This includes objects like flower, tree, and table; events like wedding,
 graduation, and birthday party; and concepts like landscape, evening, and
-nature. For an example, see get-started-exercise-detect-labels .
+nature. For an example, see get-started-exercise-detect-labels.
 
-For each object, scene, and concept the API returns one or more labels. Each
+ For each object, scene, and concept the API returns one or more labels. Each
 label provides the object name, and the level of confidence that the image
 contains the object. For example, suppose the input image has a lighthouse, the
 sea, and a rock. The response will include all three labels, one for each
-object.
+object. 
 
-{Name: lighthouse, Confidence: 98.4629}
+ {Name: lighthouse, Confidence: 98.4629} 
 
-{Name: rock,Confidence: 79.2097}
+ {Name: rock,Confidence: 79.2097} 
 
-{Name: sea,Confidence: 75.061}
+ {Name: sea,Confidence: 75.061} 
 
-In the preceding example, the operation returns one label for each of the three
+ In the preceding example, the operation returns one label for each of the three
 objects. The operation can also return multiple labels for the same object in
 the image. For example, if the input image shows a flower (for example, a
-tulip), the operation might return the following three labels.
+tulip), the operation might return the following three labels. 
 
-{Name: flower,Confidence: 99.0562}
+ {Name: flower,Confidence: 99.0562} 
 
-{Name: plant,Confidence: 99.0562}
+ {Name: plant,Confidence: 99.0562} 
 
-{Name: tulip,Confidence: 99.0562}
+ {Name: tulip,Confidence: 99.0562} 
 
 In this example, the detection algorithm more precisely identifies the flower as
 a tulip.
@@ -177,7 +177,7 @@ You can provide the input image as an S3 object or as base64-encoded bytes. In
 response, the API returns an array of labels. In addition, the response also
 includes the orientation correction. Optionally, you can specify MinConfidence 
 to control the confidence threshold for the labels returned. The default is 50%.
-You can also add the MaxLabels parameter to limit the number of labels returned.
+You can also add the MaxLabels parameter to limit the number of labels returned. 
 
 If the object detected is a person, the operation doesn&#x27;t provide the same
 facial details that the DetectFaces operation provides.
@@ -199,19 +199,19 @@ action.
      */
     detectLabels(params: Rekognition.DetectLabelsRequest, callback?: (err: Rekognition.InvalidS3ObjectException|Rekognition.InvalidParameterException|Rekognition.ImageTooLargeException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.InvalidImageFormatException|any, data: Rekognition.DetectLabelsResponse|any) => void): Request<Rekognition.DetectLabelsResponse|any,Rekognition.InvalidS3ObjectException|Rekognition.InvalidParameterException|Rekognition.ImageTooLargeException|Rekognition.AccessDeniedException|Rekognition.InternalServerError|Rekognition.ThrottlingException|Rekognition.ProvisionedThroughputExceededException|Rekognition.InvalidImageFormatException|any>;
     /**
-     * Detects faces in the input image and adds them to the specified collection.
+     * Detects faces in the input image and adds them to the specified collection. 
 
-Amazon Rekognition does not save the actual faces detected. Instead, the
+ Amazon Rekognition does not save the actual faces detected. Instead, the
 underlying detection algorithm first detects the faces in the input image, and
 for each face extracts facial features into a feature vector, and stores it in
 the back-end database. Amazon Rekognition uses feature vectors when performing
-face match and search operations using the and operations.
+face match and search operations using the and operations. 
 
 If you provide the optional externalImageID for the input image you provided,
 Amazon Rekognition associates this ID with all faces that it detects. When you
 call the operation, the response returns the external ID. You can use this
 external image ID to create a client-side index to associate the faces with each
-image. You can then use the index to find all faces in an image.
+image. You can then use the index to find all faces in an image. 
 
 In response, the operation returns an array of metadata for all detected faces.
 This includes, the bounding box of the detected face, confidence value
@@ -222,9 +222,9 @@ detectionAttributes parameter, Amazon Rekognition returns detailed facial
 attributes such as facial landmarks (for example, location of eye and mount) and
 other facial attributes such gender. If you provide the same image, specify the
 same collection, and use the same external ID in the IndexFaces operation,
-Amazon Rekognition doesn&#x27;t save duplicate face metadata.
+Amazon Rekognition doesn&#x27;t save duplicate face metadata. 
 
-For an example, see example2 .
+For an example, see example2.
 
 This operation requires permissions to perform the rekognition:IndexFaces 
 action.
@@ -245,7 +245,7 @@ action.
 response also provides a NextToken that you can use in the subsequent request to
 fetch the next set of collection IDs.
 
-For an example, see example1 .
+For an example, see example1.
 
 This operation requires permissions to perform the rekognition:ListCollections 
 action.
@@ -262,7 +262,7 @@ action.
     /**
      * Returns metadata for faces in the specified collection. This metadata includes
 information such as the bounding box coordinates, the confidence (that the
-bounding box contains a face), and face ID. For an example, see example3 .
+bounding box contains a face), and face ID. For an example, see example3. 
 
 This operation requires permissions to perform the rekognition:ListFaces action.
      *
@@ -279,18 +279,18 @@ This operation requires permissions to perform the rekognition:ListFaces action.
      * For a given input face ID, searches for matching faces in the collection the
 face belongs to. You get a face ID when you add a face to the collection using
 the IndexFaces operation. The operation compares the features of the input face
-with faces in the specified collection.
+with faces in the specified collection. 
 
 You can also search faces without indexing faces by using the SearchFacesByImage 
 operation.
 
-The operation response returns an array of faces that match, ordered by
+ The operation response returns an array of faces that match, ordered by
 similarity score with the highest similarity first. More specifically, it is an
 array of metadata for each face match that is found. Along with the metadata,
 the response also includes a confidence value for each face match, indicating
-the confidence that the specific face matches the input face.
+the confidence that the specific face matches the input face. 
 
-For an example, see example3 .
+For an example, see example3.
 
 This operation requires permissions to perform the rekognition:SearchFaces 
 action.
@@ -306,24 +306,24 @@ action.
     /**
      * For a given input image, first detects the largest face in the image, and then
 searches the specified collection for matching faces. The operation compares the
-features of the input face with faces in the specified collection.
+features of the input face with faces in the specified collection. 
 
-To search for all faces in an input image, you might first call the operation,
-and then use the face IDs returned in subsequent calls to the operation.
+ To search for all faces in an input image, you might first call the operation,
+and then use the face IDs returned in subsequent calls to the operation. 
 
-You can also call the DetectFaces operation and use the bounding boxes in the
+ You can also call the DetectFaces operation and use the bounding boxes in the
 response to make face crops, which then you can pass in to the 
-SearchFacesByImage operation.
+SearchFacesByImage operation. 
 
-The response returns an array of faces that match, ordered by similarity score
+ The response returns an array of faces that match, ordered by similarity score
 with the highest similarity first. More specifically, it is an array of metadata
 for each face match found. Along with the metadata, the response also includes a 
 similarity indicating how similar the face is to the input face. In the
 response, the operation also returns the bounding box (and a confidence level
 that the bounding box contains a face) of the face that Amazon Rekognition used
-for the input image.
+for the input image. 
 
-For an example, see example3 .
+For an example, see example3.
 
 This operation requires permissions to perform the 
 rekognition:SearchFacesByImage action.
@@ -496,7 +496,7 @@ permissions on your resources. **/
 object. **/
         Image: Image;
         /** A list of facial attributes you would like to be returned. By default, the API
-returns subset of facial attributes.
+returns subset of facial attributes. 
 
 For example, you can specify the value as, [&quot;ALL&quot;] or [&quot;DEFAULT&quot;]. If you
 provide both, [&quot;ALL&quot;, &quot;DEFAULT&quot;], the service uses a logical AND operator to
@@ -509,12 +509,12 @@ you specify all attributes, Amazon Rekognition performs additional detection. **
         FaceDetails?: FaceDetailList;
         /** The algorithm detects the image orientation. If it detects that the image was
 rotated, it returns the degrees of rotation. If your application is displaying
-the image, you can use this value to adjust the orientation.
+the image, you can use this value to adjust the orientation. 
 
 For example, if the service detects that the input image was rotated by 90
 degrees, it corrects orientation, performs face detection, and then returns the
 faces. That is, the bounding box coordinates in the response are based on the
-corrected orientation.
+corrected orientation. 
 
 If the source image Exif metadata populates the orientation field, Amazon
 Rekognition does not perform orientation correction and the value of
@@ -542,7 +542,7 @@ confidence values greater than or equal to 50 percent. **/
 (clockwise direction). If your application displays the image, you can use this
 value to correct the orientation. If Amazon Rekognition detects that the input
 image was rotated (for example, by 90 degrees), it first corrects the
-orientation before detecting the labels.
+orientation before detecting the labels. 
 
 If the source image Exif metadata populates the orientation field, Amazon
 Rekognition does not perform orientation correction and the value of
@@ -656,7 +656,7 @@ detected in the input images. **/
         /** ID you want to assign to all the faces detected in the image. **/
         ExternalImageId?: ExternalImageId;
         /** (Optional) Returns detailed attributes of indexed faces. By default, the
-operation returns a subset of the facial attributes.
+operation returns a subset of the facial attributes. 
 
 For example, you can specify the value as, [&quot;ALL&quot;] or [&quot;DEFAULT&quot;]. If you
 provide both, [&quot;ALL&quot;, &quot;DEFAULT&quot;], Amazon Rekognition uses the logical AND
@@ -667,12 +667,12 @@ detection, in addition to the default. **/
     }
     export interface IndexFacesResponse {
         /** An array of faces detected and added to the collection. For more information,
-see howitworks-index-faces . **/
+see howitworks-index-faces. **/
         FaceRecords?: FaceRecordList;
         /** The algorithm detects the image orientation. If it detects that the image was
 rotated, it returns the degree of rotation. You can use this value to correct
 the orientation and also appropriately analyze the bounding box coordinates that
-are returned.
+are returned. 
 
 If the source image Exif metadata populates the orientation field, Amazon
 Rekognition does not perform orientation correction and the value of
@@ -786,7 +786,7 @@ example, don&#x27;t return any matches where confidence in matches is less than 
         /** The bounding box around the face in the input image that Amazon Rekognition used
 for the search. **/
         SearchedFaceBoundingBox?: BoundingBox;
-        /** The level of confidence that the searchedFaceBoundingBox , contains a face. **/
+        /** The level of confidence that the searchedFaceBoundingBox, contains a face. **/
         SearchedFaceConfidence?: Percent;
         /** An array of faces that match the input face, along with the confidence in the
 match. **/

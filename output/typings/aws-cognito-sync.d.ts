@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: rest-json
    *
-   * Amazon Cognito SyncAmazon Cognito Sync provides an AWS service and client
+   * Amazon Cognito Sync Amazon Cognito Sync provides an AWS service and client
 library that enable cross-device syncing of application-related user data.
 High-level client libraries are available for both iOS and Android. You can use
 these libraries to persist data locally so that it&#x27;s available even if the
@@ -28,14 +28,14 @@ With Amazon Cognito Sync, the data stored for each identity is accessible only
 to credentials assigned to that identity. In order to use the Cognito Sync
 service, you need to make API calls using credentials retrieved with Amazon
 Cognito Identity service
-[http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html] .
+[http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html].
 
 If you want to use Cognito Sync in an Android or iOS application, you will
 probably want to make API calls via the AWS Mobile SDK. To learn more, see the 
 Developer Guide for Android
 [http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html] 
 and the Developer Guide for iOS
-[http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html] .
+[http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html].
    *
    */
   export class CognitoSync extends Service {
@@ -399,7 +399,7 @@ developers account and in the same region as the identity pool. **/
 This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord
 on your Cognito stream. **/
         RoleArn?: AssumeRoleArn;
-        /** Status of the Cognito streams. Valid values are:ENABLED - Streaming of updates
+        /** Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates
 to identity pool is enabled.
 
 DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will
@@ -505,7 +505,7 @@ created by Amazon Cognito. GUID generation is unique within a region. **/
         /** If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation
 completed. **/
         BulkPublishCompleteTime?: Date;
-        /** Status of the last bulk publish operation, valid values are:NOT_STARTED - No
+        /** Status of the last bulk publish operation, valid values are: NOT_STARTED - No
 bulk publish has been requested for this identity pool
 
 IN_PROGRESS - Data is being published to the configured stream

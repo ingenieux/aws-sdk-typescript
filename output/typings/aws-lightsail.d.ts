@@ -22,12 +22,12 @@ manage those Lightsail servers through the Lightsail console or by using the API
 or command-line interface (CLI).
 
 For more information about Lightsail concepts and tasks, see the Lightsail Dev
-Guide [http://lightsail.aws.amazon.com/ls/docs] .
+Guide [http://lightsail.aws.amazon.com/ls/docs].
 
 To use the Lightsail API or the CLI, you will need to use AWS Identity and
 Access Management (IAM) to generate access keys. For details about how to set
 this up, see the Lightsail Dev Guide
-[http://lightsail.aws.amazon.com/ls/docs/how-to/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli] 
+[http://lightsail.aws.amazon.com/ls/docs/how-to/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli]
 .
    *
    */
@@ -96,7 +96,7 @@ CNAME record, TXT record, or MX record.
      */
     createDomainEntry(params: Lightsail.CreateDomainEntryRequest, callback?: (err: Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any, data: Lightsail.CreateDomainEntryResult|any) => void): Request<Lightsail.CreateDomainEntryResult|any,Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any>;
     /**
-     * Creates a snapshot of a specific virtual private server, or instance . You can
+     * Creates a snapshot of a specific virtual private server, or instance. You can
 use a snapshot to create a new instance that is based on that snapshot.
      *
      * @error ServiceException   
@@ -109,7 +109,7 @@ use a snapshot to create a new instance that is based on that snapshot.
      */
     createInstanceSnapshot(params: Lightsail.CreateInstanceSnapshotRequest, callback?: (err: Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any, data: Lightsail.CreateInstanceSnapshotResult|any) => void): Request<Lightsail.CreateInstanceSnapshotResult|any,Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any>;
     /**
-     * Creates one or more Amazon Lightsail virtual private servers, or instances .
+     * Creates one or more Amazon Lightsail virtual private servers, or instances.
      *
      * @error ServiceException   
      * @error InvalidInputException   
@@ -170,7 +170,7 @@ that are based on that identical configuration.
      */
     deleteDomainEntry(params: Lightsail.DeleteDomainEntryRequest, callback?: (err: Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any, data: Lightsail.DeleteDomainEntryResult|any) => void): Request<Lightsail.DeleteDomainEntryResult|any,Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any>;
     /**
-     * Deletes a specific Amazon Lightsail virtual private server, or instance .
+     * Deletes a specific Amazon Lightsail virtual private server, or instance.
      *
      * @error ServiceException   
      * @error InvalidInputException   
@@ -182,7 +182,7 @@ that are based on that identical configuration.
      */
     deleteInstance(params: Lightsail.DeleteInstanceRequest, callback?: (err: Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any, data: Lightsail.DeleteInstanceResult|any) => void): Request<Lightsail.DeleteInstanceResult|any,Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any>;
     /**
-     * Deletes a specific snapshot of a virtual private server (or instance ).
+     * Deletes a specific snapshot of a virtual private server (or instance).
      *
      * @error ServiceException   
      * @error InvalidInputException   
@@ -242,7 +242,7 @@ that are based on that identical configuration.
      */
     getActiveNames(params: Lightsail.GetActiveNamesRequest, callback?: (err: Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any, data: Lightsail.GetActiveNamesResult|any) => void): Request<Lightsail.GetActiveNamesResult|any,Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any>;
     /**
-     * Returns the list of available instance images, or blueprints . You can use a
+     * Returns the list of available instance images, or blueprints. You can use a
 blueprint to create a new virtual private server already running a specific
 operating system, as well as a preinstalled app or development stack. The
 software each instance is running depends on the blueprint image you choose.
@@ -258,7 +258,7 @@ software each instance is running depends on the blueprint image you choose.
     getBlueprints(params: Lightsail.GetBlueprintsRequest, callback?: (err: Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any, data: Lightsail.GetBlueprintsResult|any) => void): Request<Lightsail.GetBlueprintsResult|any,Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any>;
     /**
      * Returns the list of bundles that are available for purchase. A bundle describes
-the specs for your virtual private server (or instance ).
+the specs for your virtual private server (or instance).
      *
      * @error ServiceException   
      * @error InvalidInputException   
@@ -308,7 +308,7 @@ virtual private server.
     getInstance(params: Lightsail.GetInstanceRequest, callback?: (err: Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any, data: Lightsail.GetInstanceResult|any) => void): Request<Lightsail.GetInstanceResult|any,Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any>;
     /**
      * Returns temporary SSH keys you can use to connect to a specific virtual private
-server, or instance .
+server, or instance.
      *
      * @error ServiceException   
      * @error InvalidInputException   
@@ -333,7 +333,7 @@ given an instance name.
      */
     getInstanceMetricData(params: Lightsail.GetInstanceMetricDataRequest, callback?: (err: Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any, data: Lightsail.GetInstanceMetricDataResult|any) => void): Request<Lightsail.GetInstanceMetricDataResult|any,Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any>;
     /**
-     * Returns the port states for a specific virtual private server, or instance .
+     * Returns the port states for a specific virtual private server, or instance.
      *
      * @error ServiceException   
      * @error InvalidInputException   
@@ -382,7 +382,7 @@ given an instance name.
     getInstanceState(params: Lightsail.GetInstanceStateRequest, callback?: (err: Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any, data: Lightsail.GetInstanceStateResult|any) => void): Request<Lightsail.GetInstanceStateResult|any,Lightsail.ServiceException|Lightsail.InvalidInputException|Lightsail.NotFoundException|Lightsail.OperationFailureException|Lightsail.AccessDeniedException|Lightsail.AccountSetupInProgressException|Lightsail.UnauthenticatedException|any>;
     /**
      * Returns information about all Amazon Lightsail virtual private servers, or 
-instances .
+instances.
      *
      * @error ServiceException   
      * @error InvalidInputException   
@@ -756,13 +756,13 @@ you allocated. **/
     }
     export interface Blueprint {
         /** The ID for the virtual private server image (e.g., app_wordpress_4_4 or 
-app_lamp_7_0 ). **/
+app_lamp_7_0). **/
         blueprintId?: NonEmptyString;
-        /** The friendly name of the blueprint (e.g., Amazon Linux ). **/
+        /** The friendly name of the blueprint (e.g., Amazon Linux). **/
         name?: ResourceName;
-        /** The group name of the blueprint (e.g., amazon-linux ). **/
+        /** The group name of the blueprint (e.g., amazon-linux). **/
         group?: NonEmptyString;
-        /** The type of the blueprint (e.g., os or app ). **/
+        /** The type of the blueprint (e.g., os or app). **/
         type?: BlueprintType;
         /** The description of the blueprint. **/
         description?: string;
@@ -774,7 +774,7 @@ active. **/
 blueprint runs on all instances. **/
         minPower?: integer;
         /** The version number of the operating system, application, or stack (e.g., 
-2016.03.0 ). **/
+2016.03.0). **/
         version?: string;
         /** The version code. **/
         versionCode?: string;
@@ -784,25 +784,25 @@ blueprint runs on all instances. **/
         licenseUrl?: string;
     }
     export interface Bundle {
-        /** The price in US dollars (e.g., 5.0 ). **/
+        /** The price in US dollars (e.g., 5.0). **/
         price?: float;
-        /** The number of vCPUs included in the bundle (e.g., 2 ). **/
+        /** The number of vCPUs included in the bundle (e.g., 2). **/
         cpuCount?: integer;
-        /** The size of the SSD (e.g., 30 ). **/
+        /** The size of the SSD (e.g., 30). **/
         diskSizeInGb?: integer;
-        /** The bundle ID (e.g., micro_1_0 ). **/
+        /** The bundle ID (e.g., micro_1_0). **/
         bundleId?: NonEmptyString;
-        /** The Amazon EC2 instance type (e.g., t2.micro ). **/
+        /** The Amazon EC2 instance type (e.g., t2.micro). **/
         instanceType?: string;
         /** A Boolean value indicating whether the bundle is active. **/
         isActive?: boolean;
-        /** A friendly name for the bundle (e.g., Micro ). **/
+        /** A friendly name for the bundle (e.g., Micro). **/
         name?: string;
-        /** The power of the bundle (e.g., 500 ). **/
+        /** The power of the bundle (e.g., 500). **/
         power?: integer;
-        /** The amount of RAM in GB (e.g., 2.0 ). **/
+        /** The amount of RAM in GB (e.g., 2.0). **/
         ramSizeInGb?: float;
-        /** The data transfer rate per month in GB (e.g., 2000 ). **/
+        /** The data transfer rate per month in GB (e.g., 2000). **/
         transferPerMonthInGb?: integer;
     }
     export interface CloseInstancePublicPortsRequest {
@@ -816,7 +816,7 @@ blueprint runs on all instances. **/
         operation?: Operation;
     }
     export interface CreateDomainEntryRequest {
-        /** The domain name (e.g., example.com ) for which you want to create the domain
+        /** The domain name (e.g., example.com) for which you want to create the domain
 entry. **/
         domainName: DomainName;
         /** An array of key-value pairs containing information about the domain entry
@@ -828,7 +828,7 @@ request. **/
         operation?: Operation;
     }
     export interface CreateDomainRequest {
-        /** The domain name to manage (e.g., example.com ).
+        /** The domain name to manage (e.g., example.com).
 
 You cannot register a new domain name using Lightsail. You must register a
 domain name using Amazon Route 53 or another domain name registrar. If you have
@@ -863,15 +863,15 @@ Use the get instance snapshots operation to return information about your
 existing snapshots. **/
         instanceSnapshotName: ResourceName;
         /** The bundle of specification information for your virtual private server (or 
-instance ), including the pricing plan (e.g., micro_1_0 ). **/
+instance), including the pricing plan (e.g., micro_1_0). **/
         bundleId: NonEmptyString;
         /** You can create a launch script that configures a server with additional user
-data. For example, apt-get –y update .
+data. For example, apt-get –y update.
 
 Depending on the machine image you choose, the command to get software on your
-instance varies. Amazon Linux and CentOS use yum , Debian and Ubuntu use apt-get 
-, and FreeBSD uses pkg . For a complete list, see the Dev Guide
-[http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps] 
+instance varies. Amazon Linux and CentOS use yum, Debian and Ubuntu use apt-get,
+and FreeBSD uses pkg. For a complete list, see the Dev Guide
+[http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps]
 . **/
         userData?: string;
         /** The name for your key pair. **/
@@ -893,19 +893,19 @@ format: us-east-1a (case sensitive). **/
         /** The name for your custom image. **/
         customImageName?: ResourceName;
         /** The ID for a virtual private server image (e.g., app_wordpress_4_4 or 
-app_lamp_7_0 ). Use the get blueprints operation to return a list of available
-images (or blueprints ). **/
+app_lamp_7_0). Use the get blueprints operation to return a list of available
+images (or blueprints). **/
         blueprintId: NonEmptyString;
         /** The bundle of specification information for your virtual private server (or 
-instance ), including the pricing plan (e.g., micro_1_0 ). **/
+instance), including the pricing plan (e.g., micro_1_0). **/
         bundleId: NonEmptyString;
         /** A launch script you can create that configures a server with additional user
-data. For example, you might want to run apt-get –y update .
+data. For example, you might want to run apt-get –y update.
 
 Depending on the machine image you choose, the command to get software on your
-instance varies. Amazon Linux and CentOS use yum , Debian and Ubuntu use apt-get 
-, and FreeBSD uses pkg . For a complete list, see the Dev Guide
-[http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps] 
+instance varies. Amazon Linux and CentOS use yum, Debian and Ubuntu use apt-get,
+and FreeBSD uses pkg. For a complete list, see the Dev Guide
+[http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps]
 . **/
         userData?: string;
         /** The name of your key pair. **/
@@ -1025,7 +1025,7 @@ system loaded on it). **/
         /** The name of the domain. **/
         name?: ResourceName;
         /** The Amazon Resource Name (ARN) of the domain recordset (e.g., 
-arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE 
+arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE
 ). **/
         arn?: NonEmptyString;
         /** The support code. Include this code in your email to support when you have
@@ -1046,9 +1046,9 @@ our support team to look up your Lightsail information more easily. **/
         id?: NonEmptyString;
         /** The name of the domain. **/
         name?: DomainName;
-        /** The target AWS name server (e.g., ns-111.awsdns-22.com. ). **/
+        /** The target AWS name server (e.g., ns-111.awsdns-22.com.). **/
         target?: string;
-        /** The type of domain entry (e.g., SOA or NS ). **/
+        /** The type of domain entry (e.g., SOA or NS). **/
         type?: DomainEntryType;
         /** The options for the domain entry. **/
         options?: DomainEntryOptions;
@@ -1128,7 +1128,7 @@ names request. **/
     export interface GetInstanceAccessDetailsRequest {
         /** The name of the instance to access. **/
         instanceName: ResourceName;
-        /** The protocol to use to connect to your instance. Defaults to ssh . **/
+        /** The protocol to use to connect to your instance. Defaults to ssh. **/
         protocol?: InstanceAccessProtocol;
     }
     export interface GetInstanceAccessDetailsResult {
@@ -1276,7 +1276,7 @@ request. **/
     export interface GetRegionsRequest {
         /** A Boolean value indicating whether to also include Availability Zones in your
 get regions request. Availability Zones are indicated with a letter: e.g., 
-us-east-1a . **/
+us-east-1a. **/
         includeAvailabilityZones?: boolean;
     }
     export interface GetRegionsResult {
@@ -1317,27 +1317,27 @@ request. **/
         operation?: Operation;
     }
     export interface Instance {
-        /** The name the user gave the instance (e.g., Amazon_Linux-1GB-Virginia-1 ). **/
+        /** The name the user gave the instance (e.g., Amazon_Linux-1GB-Virginia-1). **/
         name?: ResourceName;
         /** The Amazon Resource Name (ARN) of the instance (e.g., 
-arn:aws:lightsail:us-east-1:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE 
+arn:aws:lightsail:us-east-1:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE
 ). **/
         arn?: NonEmptyString;
         /** The support code. Include this code in your email to support when you have
 questions about an instance or another resource in Lightsail. This code enables
 our support team to look up your Lightsail information more easily. **/
         supportCode?: string;
-        /** The timestamp when the instance was created (e.g., 1479734909.17 ). **/
+        /** The timestamp when the instance was created (e.g., 1479734909.17). **/
         createdAt?: IsoDate;
         /** The region name and availability zone where the instance is located. **/
         location?: ResourceLocation;
-        /** The type of resource (usually Instance ). **/
+        /** The type of resource (usually Instance). **/
         resourceType?: ResourceType;
-        /** The blueprint ID (e.g., os_amlinux_2016_03 ). **/
+        /** The blueprint ID (e.g., os_amlinux_2016_03). **/
         blueprintId?: NonEmptyString;
-        /** The friendly name of the blueprint (e.g., Amazon Linux ). **/
+        /** The friendly name of the blueprint (e.g., Amazon Linux). **/
         blueprintName?: NonEmptyString;
-        /** The bundle for the instance (e.g., micro_1_0 ). **/
+        /** The bundle for the instance (e.g., micro_1_0). **/
         bundleId?: NonEmptyString;
         /** A Boolean value indicating whether this instance has a static IP assigned to it. **/
         isStaticIp?: boolean;
@@ -1352,17 +1352,17 @@ our support team to look up your Lightsail information more easily. **/
         /** Information about the public ports and monthly data transfer rates for the
 instance. **/
         networking?: InstanceNetworking;
-        /** The status code and the state (e.g., running ) for the instance. **/
+        /** The status code and the state (e.g., running) for the instance. **/
         state?: InstanceState;
-        /** The user name for connecting to the instance (e.g., ec2-user ). **/
+        /** The user name for connecting to the instance (e.g., ec2-user). **/
         username?: NonEmptyString;
         /** The name of the SSH key being used to connect to the instance (e.g., 
-LightsailDefaultKeyPair ). **/
+LightsailDefaultKeyPair). **/
         sshKeyName?: ResourceName;
     }
     export interface InstanceAccessDetails {
         /** For SSH access, the public key to use when accessing your instance For OpenSSH
-clients (e.g., command line SSH), you should save this value to tempkey-cert.pub 
+clients (e.g., command line SSH), you should save this value to tempkey-cert.pub
 . **/
         certKey?: string;
         /** For SSH access, the date on which the temporary keys expire. **/
@@ -1372,7 +1372,7 @@ clients (e.g., command line SSH), you should save this value to tempkey-cert.pub
         /** For RDP access, the temporary password of the Amazon EC2 instance. **/
         password?: string;
         /** For SSH access, the temporary private key. For OpenSSH clients (e.g., command
-line SSH), you should save this value to tempkey ). **/
+line SSH), you should save this value to tempkey). **/
         privateKey?: string;
         /** The protocol for these Amazon Lightsail instance access details. **/
         protocol?: InstanceAccessProtocol;
@@ -1386,7 +1386,7 @@ line SSH), you should save this value to tempkey ). **/
         cpuCount?: integer;
         /** The disks attached to the instance. **/
         disks?: DiskList;
-        /** The amount of RAM in GB on the instance (e.g., 1.0 ). **/
+        /** The amount of RAM in GB on the instance (e.g., 1.0). **/
         ramSizeInGb?: float;
     }
     export interface InstanceNetworking {
@@ -1403,31 +1403,31 @@ instance. **/
         toPort?: Port;
         /** The protocol. **/
         protocol?: NetworkProtocol;
-        /** The location from which access is allowed (e.g., Anywhere (0.0.0.0/0) ). **/
+        /** The location from which access is allowed (e.g., Anywhere (0.0.0.0/0)). **/
         accessFrom?: string;
-        /** The type of access ( Public or Private ). **/
+        /** The type of access (Public or Private). **/
         accessType?: PortAccessType;
         /** The common name. **/
         commonName?: string;
-        /** The access direction ( inbound or outbound ). **/
+        /** The access direction (inbound or outbound). **/
         accessDirection?: AccessDirection;
     }
     export interface InstanceSnapshot {
         /** The name of the snapshot. **/
         name?: ResourceName;
         /** The Amazon Resource Name (ARN) of the snapshot (e.g., 
-arn:aws:lightsail:us-east-1:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE 
+arn:aws:lightsail:us-east-1:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE
 ). **/
         arn?: NonEmptyString;
         /** The support code. Include this code in your email to support when you have
 questions about an instance or another resource in Lightsail. This code enables
 our support team to look up your Lightsail information more easily. **/
         supportCode?: string;
-        /** The timestamp when the snapshot was created (e.g., 1479907467.024 ). **/
+        /** The timestamp when the snapshot was created (e.g., 1479907467.024). **/
         createdAt?: IsoDate;
         /** The region name and availability zone where you created the snapshot. **/
         location?: ResourceLocation;
-        /** The type of resource (usually InstanceSnapshot ). **/
+        /** The type of resource (usually InstanceSnapshot). **/
         resourceType?: ResourceType;
         /** The state the snapshot is in. **/
         state?: InstanceSnapshotState;
@@ -1437,14 +1437,14 @@ our support team to look up your Lightsail information more easily. **/
         fromInstanceName?: ResourceName;
         /** The Amazon Resource Name (ARN) of the instance from which the snapshot was
 created (e.g., 
-arn:aws:lightsail:us-east-1:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE 
+arn:aws:lightsail:us-east-1:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE
 ). **/
         fromInstanceArn?: NonEmptyString;
-        /** The blueprint ID from which you created the snapshot (e.g., os_debian_8_3 ). A
-blueprint is a virtual private server (or instance ) image used to create
+        /** The blueprint ID from which you created the snapshot (e.g., os_debian_8_3). A
+blueprint is a virtual private server (or instance) image used to create
 instances quickly. **/
         fromBlueprintId?: string;
-        /** The bundle ID from which you created the snapshot (e.g., micro_1_0 ). **/
+        /** The bundle ID from which you created the snapshot (e.g., micro_1_0). **/
         fromBundleId?: string;
         /** The size in GB of the SSD. **/
         sizeInGb?: integer;
@@ -1452,7 +1452,7 @@ instances quickly. **/
     export interface InstanceState {
         /** The status code for the instance. **/
         code?: integer;
-        /** The state of the instance (e.g., running or pending ). **/
+        /** The state of the instance (e.g., running or pending). **/
         name?: string;
     }
     export interface InvalidInputException {
@@ -1464,25 +1464,25 @@ instances quickly. **/
     export interface IsVpcPeeredRequest {
     }
     export interface IsVpcPeeredResult {
-        /** Returns true if the Lightsail VPC is peered; otherwise, false . **/
+        /** Returns true if the Lightsail VPC is peered; otherwise, false. **/
         isPeered?: boolean;
     }
     export interface KeyPair {
         /** The friendly name of the SSH key pair. **/
         name?: ResourceName;
         /** The Amazon Resource Name (ARN) of the key pair (e.g., 
-arn:aws:lightsail:us-east-1:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE 
+arn:aws:lightsail:us-east-1:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE
 ). **/
         arn?: NonEmptyString;
         /** The support code. Include this code in your email to support when you have
 questions about an instance or another resource in Lightsail. This code enables
 our support team to look up your Lightsail information more easily. **/
         supportCode?: string;
-        /** The timestamp when the key pair was created (e.g., 1479816991.349 ). **/
+        /** The timestamp when the key pair was created (e.g., 1479816991.349). **/
         createdAt?: IsoDate;
         /** The region name and Availability Zone where the key pair was created. **/
         location?: ResourceLocation;
-        /** The resource type (usually KeyPair ). **/
+        /** The resource type (usually KeyPair). **/
         resourceType?: ResourceType;
         /** The RSA fingerprint of the key pair. **/
         fingerprint?: Base64;
@@ -1498,7 +1498,7 @@ our support team to look up your Lightsail information more easily. **/
         sampleCount?: double;
         /** The sum. **/
         sum?: double;
-        /** The timestamp (e.g., 1479816991.349 ). **/
+        /** The timestamp (e.g., 1479816991.349). **/
         timestamp?: timestamp;
         /** The unit. **/
         unit?: MetricUnit;
@@ -1530,19 +1530,19 @@ our support team to look up your Lightsail information more easily. **/
         resourceName?: ResourceName;
         /** The resource type. **/
         resourceType?: ResourceType;
-        /** The timestamp when the operation was initialized (e.g., 1479816991.349 ). **/
+        /** The timestamp when the operation was initialized (e.g., 1479816991.349). **/
         createdAt?: IsoDate;
         /** The region and Availability Zone. **/
         location?: ResourceLocation;
         /** A Boolean value indicating whether the operation is terminal. **/
         isTerminal?: boolean;
-        /** Details about the operation (e.g., Debian-1GB-Virginia-1 ). **/
+        /** Details about the operation (e.g., Debian-1GB-Virginia-1). **/
         operationDetails?: string;
         /** The type of operation. **/
         operationType?: OperationType;
         /** The status of the operation. **/
         status?: OperationStatus;
-        /** The timestamp when the status was changed (e.g., 1479816991.349 ). **/
+        /** The timestamp when the status was changed (e.g., 1479816991.349). **/
         statusChangedAt?: IsoDate;
         /** The error code. **/
         errorCode?: string;
@@ -1578,14 +1578,14 @@ our support team to look up your Lightsail information more easily. **/
         operations?: OperationList;
     }
     export interface Region {
-        /** The continent code (e.g., NA , meaning North America). **/
+        /** The continent code (e.g., NA, meaning North America). **/
         continentCode?: string;
         /** The description of the AWS Region (e.g., This region is recommended to serve
-users in the eastern United States and eastern Canada ). **/
+users in the eastern United States and eastern Canada). **/
         description?: string;
-        /** The display name (e.g., Virginia ). **/
+        /** The display name (e.g., Virginia). **/
         displayName?: string;
-        /** The region name (e.g., us-east-1 ). **/
+        /** The region name (e.g., us-east-1). **/
         name?: RegionName;
         /** The Availability Zones. **/
         availabilityZones?: AvailabilityZoneList;
@@ -1619,25 +1619,25 @@ users in the eastern United States and eastern Canada ). **/
         operations?: OperationList;
     }
     export interface StaticIp {
-        /** The name of the static IP (e.g., StaticIP-Virginia-EXAMPLE ). **/
+        /** The name of the static IP (e.g., StaticIP-Virginia-EXAMPLE). **/
         name?: ResourceName;
         /** The Amazon Resource Name (ARN) of the static IP (e.g., 
-arn:aws:lightsail:us-east-1:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE 
+arn:aws:lightsail:us-east-1:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE
 ). **/
         arn?: NonEmptyString;
         /** The support code. Include this code in your email to support when you have
 questions about an instance or another resource in Lightsail. This code enables
 our support team to look up your Lightsail information more easily. **/
         supportCode?: string;
-        /** The timestamp when the static IP was created (e.g., 1479735304.222 ). **/
+        /** The timestamp when the static IP was created (e.g., 1479735304.222). **/
         createdAt?: IsoDate;
         /** The region and Availability Zone where the static IP was created. **/
         location?: ResourceLocation;
-        /** The resource type (usually StaticIp ). **/
+        /** The resource type (usually StaticIp). **/
         resourceType?: ResourceType;
         /** The static IP address. **/
         ipAddress?: IpAddress;
-        /** The instance where the static IP is attached (e.g., Amazon_Linux-1GB-Virginia-1 
+        /** The instance where the static IP is attached (e.g., Amazon_Linux-1GB-Virginia-1
 ). **/
         attachedTo?: ResourceName;
         /** A Boolean value indicating whether the static IP is attached. **/

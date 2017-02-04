@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon Simple Workflow ServiceThe Amazon Simple Workflow Service (Amazon SWF)
+   * Amazon Simple Workflow Service The Amazon Simple Workflow Service (Amazon SWF)
 makes it easy to build applications that use Amazon&#x27;s cloud to coordinate work
 across distributed components. In Amazon SWF, a task represents a logical unit
 of work that is performed by a component of your workflow. Coordinating tasks in
@@ -27,7 +27,7 @@ and maintaining their state.
 
 This documentation serves as reference only. For a broader overview of the
 Amazon SWF programming model, see the Amazon SWF Developer Guide
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/].
    *
    */
   export class SWF extends Service {
@@ -38,7 +38,7 @@ Amazon SWF programming model, see the Amazon SWF Developer Guide
 meet the specified filtering criteria.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -47,10 +47,9 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * tagFilter.tag : String constraint. The key is swf:tagFilter.tag .
-    * typeFilter.name : String constraint. The key is swf:typeFilter.name .
-    * typeFilter.version : String constraint. The key is swf:typeFilter.version 
-      .
+   appropriate keys.  * tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
+    * typeFilter.name: String constraint. The key is swf:typeFilter.name.
+    * typeFilter.version: String constraint. The key is swf:typeFilter.version.
    
    
 
@@ -59,7 +58,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -73,7 +72,7 @@ action.
 the specified filtering criteria.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -82,10 +81,9 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * tagFilter.tag : String constraint. The key is swf:tagFilter.tag .
-    * typeFilter.name : String constraint. The key is swf:typeFilter.name .
-    * typeFilter.version : String constraint. The key is swf:typeFilter.version 
-      .
+   appropriate keys.  * tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
+    * typeFilter.name: String constraint. The key is swf:typeFilter.name.
+    * typeFilter.version: String constraint. The key is swf:typeFilter.version.
    
    
 
@@ -94,7 +92,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -125,7 +123,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -156,7 +154,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -166,12 +164,12 @@ action.
      */
     countPendingDecisionTasks(params: SWF.CountPendingDecisionTasksInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.PendingTaskCount|any) => void): Request<SWF.PendingTaskCount|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
-     * Deprecates the specified activity type . After an activity type has been
+     * Deprecates the specified activity type. After an activity type has been
 deprecated, you cannot create new tasks of that activity type. Tasks of this
 type that were scheduled before the type was deprecated will continue to run.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -180,9 +178,9 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * activityType.name : String constraint. The key is swf:activityType.name .
-    * activityType.version : String constraint. The key is 
-      swf:activityType.version .
+   appropriate keys.  * activityType.name: String constraint. The key is swf:activityType.name.
+    * activityType.version: String constraint. The key is 
+      swf:activityType.version.
    
    
 
@@ -191,7 +189,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -209,7 +207,7 @@ deprecates all activity and workflow types registered in the domain. Executions
 that were started before the domain was deprecated will continue to run.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -224,7 +222,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -235,13 +233,13 @@ action.
      */
     deprecateDomain(params: SWF.DeprecateDomainInput, callback?: (err: SWF.UnknownResourceFault|SWF.DomainDeprecatedFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.DomainDeprecatedFault|SWF.OperationNotPermittedFault|any>;
     /**
-     * Deprecates the specified workflow type . After a workflow type has been
+     * Deprecates the specified workflow type. After a workflow type has been
 deprecated, you cannot create new executions of that type. Executions that were
 started before the type was deprecated will continue to run. A deprecated
 workflow type may still be used when calling visibility actions.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -250,9 +248,9 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * workflowType.name : String constraint. The key is swf:workflowType.name .
-    * workflowType.version : String constraint. The key is 
-      swf:workflowType.version .
+   appropriate keys.  * workflowType.name: String constraint. The key is swf:workflowType.name.
+    * workflowType.version: String constraint. The key is 
+      swf:workflowType.version.
    
    
 
@@ -261,7 +259,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -285,9 +283,9 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * activityType.name : String constraint. The key is swf:activityType.name .
-    * activityType.version : String constraint. The key is 
-      swf:activityType.version .
+   appropriate keys.  * activityType.name: String constraint. The key is swf:activityType.name.
+    * activityType.version: String constraint. The key is 
+      swf:activityType.version.
    
    
 
@@ -296,7 +294,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -324,7 +322,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -338,7 +336,7 @@ action.
 and some statistics.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -353,7 +351,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -363,7 +361,7 @@ action.
      */
     describeWorkflowExecution(params: SWF.DescribeWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionDetail|any) => void): Request<SWF.WorkflowExecutionDetail|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
-     * Returns information about the specified workflow type . This includes
+     * Returns information about the specified workflow type. This includes
 configuration settings specified when the type was registered and other
 information such as creation date, current status, and so on.
 
@@ -376,9 +374,9 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * workflowType.name : String constraint. The key is swf:workflowType.name .
-    * workflowType.version : String constraint. The key is 
-      swf:workflowType.version .
+   appropriate keys.  * workflowType.name: String constraint. The key is swf:workflowType.name.
+    * workflowType.version: String constraint. The key is 
+      swf:workflowType.version.
    
    
 
@@ -387,7 +385,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -402,7 +400,7 @@ split into multiple pages. To retrieve subsequent pages, make the call again
 using the nextPageToken returned by the initial call.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -417,7 +415,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -448,7 +446,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
@@ -464,7 +462,7 @@ retrieve subsequent pages, make the call again using the nextPageToken returned
 by the initial call.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -473,10 +471,9 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * tagFilter.tag : String constraint. The key is swf:tagFilter.tag .
-    * typeFilter.name : String constraint. The key is swf:typeFilter.name .
-    * typeFilter.version : String constraint. The key is swf:typeFilter.version 
-      .
+   appropriate keys.  * tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
+    * typeFilter.name: String constraint. The key is swf:typeFilter.name.
+    * typeFilter.version: String constraint. The key is swf:typeFilter.version.
    
    
 
@@ -485,7 +482,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -500,13 +497,13 @@ into multiple pages. To retrieve subsequent pages, make the call again using the
 nextPageToken returned by the initial call.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
-   specified domains. The element must be set to arn:aws:swf::AccountID:domain/* 
+   specified domains. The element must be set to arn:aws:swf::AccountID:domain/*
    , where AccountID is the account ID, with no dashes.
  * Use an Action element to allow or deny permission to call this action.
  * You cannot use an IAM policy to constrain this action&#x27;s parameters.
@@ -516,7 +513,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
@@ -529,7 +526,7 @@ subsequent pages, make the call again using the nextPageToken returned by the
 initial call.
 
 This operation is eventually consistent. The results are best effort and may not
-exactly reflect recent updates and changes.Access Control
+exactly reflect recent updates and changes. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -538,10 +535,9 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * tagFilter.tag : String constraint. The key is swf:tagFilter.tag .
-    * typeFilter.name : String constraint. The key is swf:typeFilter.name .
-    * typeFilter.version : String constraint. The key is swf:typeFilter.version 
-      .
+   appropriate keys.  * tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
+    * typeFilter.name: String constraint. The key is swf:typeFilter.name.
+    * typeFilter.version: String constraint. The key is swf:typeFilter.version.
    
    
 
@@ -550,7 +546,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -579,7 +575,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
@@ -589,7 +585,7 @@ created or is no longer available for this operation.
      */
     listWorkflowTypes(params: SWF.ListWorkflowTypesInput, callback?: (err: SWF.OperationNotPermittedFault|SWF.UnknownResourceFault|any, data: SWF.WorkflowTypeInfos|any) => void): Request<SWF.WorkflowTypeInfos|any,SWF.OperationNotPermittedFault|SWF.UnknownResourceFault|any>;
     /**
-     * Used by workers to get an ActivityTask from the specified activity taskList .
+     * Used by workers to get an ActivityTask from the specified activity taskList.
 This initiates a long poll, where the service holds the HTTP connection open and
 responds as soon as a task becomes available. The maximum time the service holds
 on to the request before responding is 60 seconds. If no task is available
@@ -599,7 +595,7 @@ taskToken is an empty string. If a task is returned, the worker should use its
 type to identify and process it correctly.
 
 Workers should set their client side socket timeout to at least 70 seconds (10
-seconds higher than the maximum time service may hold the poll request).Access
+seconds higher than the maximum time service may hold the poll request). Access
 Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
@@ -616,7 +612,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -629,7 +625,7 @@ limit by contacting AWS.
      */
     pollForActivityTask(params: SWF.PollForActivityTaskInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|SWF.LimitExceededFault|any, data: SWF.ActivityTask|any) => void): Request<SWF.ActivityTask|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|SWF.LimitExceededFault|any>;
     /**
-     * Used by deciders to get a DecisionTask from the specified decision taskList . A
+     * Used by deciders to get a DecisionTask from the specified decision taskList. A
 decision task may be returned for any open workflow execution that is using the
 specified task list. The task includes a paginated view of the history of the
 workflow execution. The decider should use the workflow type and the history to
@@ -647,7 +643,7 @@ for a single workflow execution might be very large, the result returned might
 be split up across a number of pages. To retrieve subsequent pages, make
 additional calls to PollForDecisionTask using the nextPageToken returned by the
 initial call. Note that you do not call GetWorkflowExecutionHistory with this 
-nextPageToken . Instead, call PollForDecisionTask again.Access Control
+nextPageToken. Instead, call PollForDecisionTask again. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -663,7 +659,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -682,10 +678,10 @@ also (optionally) specify details of the progress, for example percent complete,
 using the details parameter. This action can also be used by the worker as a
 mechanism to check if cancellation is being requested for the activity task. If
 a cancellation is being attempted for the specified task, then the boolean 
-cancelRequested flag returned by the service is set to true .
+cancelRequested flag returned by the service is set to true.
 
 This action resets the taskHeartbeatTimeout clock. The taskHeartbeatTimeout is
-specified in RegisterActivityType .
+specified in RegisterActivityType.
 
 This action does not in itself create an event in the workflow execution
 history. However, if the task times out, the workflow execution history will
@@ -694,13 +690,13 @@ heartbeat generated by the activity worker.
 
 The taskStartToCloseTimeout of an activity type is the maximum duration of an
 activity task, regardless of the number of RecordActivityTaskHeartbeat requests
-received. The taskStartToCloseTimeout is also specified in RegisterActivityType 
-. This operation is only useful for long-lived activities to report liveliness
-of the task and to determine if a cancellation is being attempted. If the 
-cancelRequested flag returns true , a cancellation is being attempted. If the
+received. The taskStartToCloseTimeout is also specified in RegisterActivityType. 
+This operation is only useful for long-lived activities to report liveliness of
+the task and to determine if a cancellation is being attempted. If the 
+cancelRequested flag returns true, a cancellation is being attempted. If the
 worker can cancel the activity, it should respond with 
-RespondActivityTaskCanceled . Otherwise, it should ignore the cancellation
-request.Access Control
+RespondActivityTaskCanceled. Otherwise, it should ignore the cancellation
+request. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -715,7 +711,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -730,7 +726,7 @@ specified domain.
 
 A TypeAlreadyExists fault is returned if the type already exists in the domain.
 You cannot change any configuration settings of the type after its registration,
-and it must be registered as a new version.Access Control
+and it must be registered as a new version. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -739,10 +735,10 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * defaultTaskList.name : String constraint. The key is 
-      swf:defaultTaskList.name .
-    * name : String constraint. The key is swf:name .
-    * version : String constraint. The key is swf:version .
+   appropriate keys.  *  defaultTaskList.name: String constraint. The key is 
+      swf:defaultTaskList.name.
+    *  name: String constraint. The key is swf:name.
+    *  version: String constraint. The key is swf:version.
    
    
 
@@ -751,7 +747,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error TypeAlreadyExistsFault Returned if the type already exists in the specified domain. You will get this
 fault even if the existing type is in deprecated status. You can specify another
@@ -785,7 +781,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error DomainAlreadyExistsFault Returned if the specified domain already exists. You will get this fault even if
 the existing domain is in deprecated status.  
@@ -805,7 +801,7 @@ action.
 
 If the type already exists, then a TypeAlreadyExists fault is returned. You
 cannot change the configuration settings of a workflow type once it is
-registered and it must be registered as a new version.Access Control
+registered and it must be registered as a new version. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -814,10 +810,10 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * defaultTaskList.name : String constraint. The key is 
-      swf:defaultTaskList.name .
-    * name : String constraint. The key is swf:name .
-    * version : String constraint. The key is swf:version .
+   appropriate keys.  *  defaultTaskList.name: String constraint. The key is 
+      swf:defaultTaskList.name.
+    *  name: String constraint. The key is swf:name.
+    *  version: String constraint. The key is swf:version.
    
    
 
@@ -826,7 +822,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error TypeAlreadyExistsFault Returned if the type already exists in the specified domain. You will get this
 fault even if the existing type is in deprecated status. You can specify another
@@ -852,7 +848,7 @@ If the runId is not specified, the WorkflowExecutionCancelRequested event is
 recorded in the history of the current open workflow execution with the
 specified workflowId in the domain. Because this action allows the workflow to
 properly clean up and gracefully close, it should be used instead of 
-TerminateWorkflowExecution when possible.Access Control
+TerminateWorkflowExecution when possible. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -867,7 +863,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -885,13 +881,13 @@ These details (if provided) appear in the ActivityTaskCanceled event added to
 the workflow history.
 
 Only use this operation if the canceled flag of a RecordActivityTaskHeartbeat 
-request returns true and if the activity can be safely undone or abandoned.A
+request returns true and if the activity can be safely undone or abandoned. A
 task is considered open from the time that it is scheduled until it is closed.
 Therefore a task is reported as open while a worker is processing it. A task is
-closed after it has been specified in a call to RespondActivityTaskCompleted ,
-RespondActivityTaskCanceled, RespondActivityTaskFailed , or the task has timed
+closed after it has been specified in a call to RespondActivityTaskCompleted,
+RespondActivityTaskCanceled, RespondActivityTaskFailed, or the task has timed
 out
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types] 
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types]
 .
 
 Access Control
@@ -909,7 +905,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -925,14 +921,14 @@ in the ActivityTaskCompleted event in the workflow history.
 
 If the requested task does not complete successfully, use 
 RespondActivityTaskFailed instead. If the worker finds that the task is canceled
-through the canceled flag returned by RecordActivityTaskHeartbeat , it should
-cancel the task, clean up and then call RespondActivityTaskCanceled .A task is
+through the canceled flag returned by RecordActivityTaskHeartbeat, it should
+cancel the task, clean up and then call RespondActivityTaskCanceled. A task is
 considered open from the time that it is scheduled until it is closed. Therefore
 a task is reported as open while a worker is processing it. A task is closed
 after it has been specified in a call to RespondActivityTaskCompleted, 
-RespondActivityTaskCanceled , RespondActivityTaskFailed , or the task has timed
+RespondActivityTaskCanceled, RespondActivityTaskFailed, or the task has timed
 out
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types] 
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types]
 .
 
 Access Control
@@ -950,7 +946,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -966,10 +962,10 @@ in the ActivityTaskFailed event added to the workflow history.
 
 A task is considered open from the time that it is scheduled until it is closed.
 Therefore a task is reported as open while a worker is processing it. A task is
-closed after it has been specified in a call to RespondActivityTaskCompleted , 
-RespondActivityTaskCanceled , RespondActivityTaskFailed, or the task has timed
+closed after it has been specified in a call to RespondActivityTaskCompleted, 
+RespondActivityTaskCanceled, RespondActivityTaskFailed, or the task has timed
 out
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types] 
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types]
 .
 
 Access Control
@@ -987,7 +983,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -1007,14 +1003,14 @@ history.
 
 Access Control
 
-If an IAM policy grants permission to use RespondDecisionTaskCompleted , it can
+If an IAM policy grants permission to use RespondDecisionTaskCompleted, it can
 express permissions for the list of decisions in the decisions parameter. Each
 of the decisions has one or more parameters, much like a regular API call. To
 allow for policies to be as readable as possible, you can express permissions on
 decisions as if they were actual API calls, including applying conditions to
 some parameters. For more information, see Using IAM to Manage Access to Amazon
 SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -1032,7 +1028,7 @@ defined signalName and input (if provided).
 If a runId is not specified, then the WorkflowExecutionSignaled event is
 recorded in the history of the current open workflow with the matching
 workflowId in the domain. If the specified workflow execution is not open, this
-method fails with UnknownResource .Access Control
+method fails with UnknownResource. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -1047,7 +1043,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -1071,15 +1067,15 @@ as follows:
    specified domains.
  * Use an Action element to allow or deny permission to call this action.
  * Constrain the following parameters by using a Condition element with the
-   appropriate keys. * tagList.member.0 : The key is swf:tagList.member.0 .
-    * tagList.member.1 : The key is swf:tagList.member.1 .
-    * tagList.member.2 : The key is swf:tagList.member.2 .
-    * tagList.member.3 : The key is swf:tagList.member.3 .
-    * tagList.member.4 : The key is swf:tagList.member.4 .
-    * taskList : String constraint. The key is swf:taskList.name .
-    * workflowType.name : String constraint. The key is swf:workflowType.name .
-    * workflowType.version : String constraint. The key is 
-      swf:workflowType.version .
+   appropriate keys.  *  tagList.member.0: The key is swf:tagList.member.0.
+    *  tagList.member.1: The key is swf:tagList.member.1.
+    *  tagList.member.2: The key is swf:tagList.member.2.
+    *  tagList.member.3: The key is swf:tagList.member.3.
+    *  tagList.member.4: The key is swf:tagList.member.4.
+    * taskList: String constraint. The key is swf:taskList.name.
+    * workflowType.name: String constraint. The key is swf:workflowType.name.
+    * workflowType.version: String constraint. The key is 
+      swf:workflowType.version.
    
    
 
@@ -1088,7 +1084,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -1116,7 +1112,7 @@ immediately. If a runId is not specified, then the WorkflowExecutionTerminated
 event is recorded in the history of the current open workflow with the matching
 workflowId in the domain. You should consider using 
 RequestCancelWorkflowExecution action instead because it allows the workflow to
-gracefully close while TerminateWorkflowExecution does not.Access Control
+gracefully close while TerminateWorkflowExecution does not. Access Control
 
 You can use IAM policies to control this action&#x27;s access to Amazon SWF resources
 as follows:
@@ -1131,7 +1127,7 @@ parameter values fall outside the specified constraints, the action fails. The
 associated event attribute&#x27;s cause parameter will be set to
 OPERATION_NOT_PERMITTED. For details and example IAM policies, see Using IAM to
 Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] .
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html].
      *
      * @error UnknownResourceFault Returned when the named resource cannot be found with in the scope of this
 operation (region or domain). This could happen if the named resource was never
@@ -1382,7 +1378,7 @@ to Integer.MAX_VALUE (2147483647). Higher numbers indicate higher priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         taskPriority?: TaskPriority;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision that
 resulted in the scheduling of this activity task. This information can be useful
@@ -1390,9 +1386,9 @@ for diagnosing problems by tracing back the chain of events leading up to this
 event. **/
         decisionTaskCompletedEventId: EventId;
         /** The maximum time before which the worker processing this task must report
-progress by calling RecordActivityTaskHeartbeat . If the timeout is exceeded,
-the activity task is automatically timed out. If the worker subsequently
-attempts to record a heartbeat or return a result, it will be ignored. **/
+progress by calling RecordActivityTaskHeartbeat. If the timeout is exceeded, the
+activity task is automatically timed out. If the worker subsequently attempts to
+record a heartbeat or return a result, it will be ignored. **/
         heartbeatTimeout?: DurationInSecondsOptional;
     }
     export interface ActivityTaskStartedEventAttributes {
@@ -1420,7 +1416,7 @@ started. This information can be useful for diagnosing problems by tracing back
 the chain of events leading up to this event. **/
         startedEventId: EventId;
         /** Contains the content of the details parameter for the last call made by the
-activity to RecordActivityTaskHeartbeat . **/
+activity to RecordActivityTaskHeartbeat. **/
         details?: LimitedData;
     }
     export interface ActivityType {
@@ -1444,7 +1440,7 @@ The duration is specified in seconds; an integer greater than or equal to 0. The
 value &quot;NONE&quot; can be used to specify unlimited duration. **/
         defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
         /** Optional. The default maximum time, in seconds, before which a worker processing
-a task must report progress by calling RecordActivityTaskHeartbeat .
+a task must report progress by calling RecordActivityTaskHeartbeat.
 
 You can specify this value only when registering an activity type. The
 registered default value can be overridden when you schedule a task through the 
@@ -1471,7 +1467,7 @@ to Integer.MAX_VALUE (2147483647). Higher numbers indicate higher priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         defaultTaskPriority?: TaskPriority;
         /** Optional. The default maximum duration, specified when registering the activity
 type, that a task of an activity type can wait before being assigned to a
@@ -1495,9 +1491,9 @@ value &quot;NONE&quot; can be used to specify unlimited duration. **/
 The status of activity type (returned in the ActivityTypeInfo structure) can be
 one of the following.
 
- &amp;#42; REGISTERED : The type is registered and available. Workers supporting this
-   type should be running.
- * DEPRECATED : The type was deprecated using DeprecateActivityType , but is
+ &amp;#42;  REGISTERED: The type is registered and available. Workers supporting this
+   type should be running. 
+ *  DEPRECATED: The type was deprecated using DeprecateActivityType, but is
    still in use. You should keep workers supporting this type running. You
    cannot create new tasks of this type. **/
         typeInfo: ActivityTypeInfo;
@@ -1509,9 +1505,9 @@ one of the following.
         activityType: ActivityType;
         /** The current status of the activity type. **/
         status: RegistrationStatus;
-        /** The description of the activity type provided in RegisterActivityType . **/
+        /** The description of the activity type provided in RegisterActivityType. **/
         description?: Description;
-        /** The date and time this activity type was created through RegisterActivityType . **/
+        /** The date and time this activity type was created through RegisterActivityType. **/
         creationDate: Timestamp;
         /** If DEPRECATED, the date and time DeprecateActivityType was called. **/
         deprecationDate?: Timestamp;
@@ -1521,7 +1517,7 @@ one of the following.
         typeInfos: ActivityTypeInfoList;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -1540,7 +1536,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: CancelTimerFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision task
 that resulted in the CancelTimer decision to cancel this timer. This information
@@ -1559,7 +1555,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: CancelWorkflowExecutionFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision task
 that resulted in the CancelWorkflowExecution decision for this cancellation
@@ -1680,7 +1676,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: CompleteWorkflowExecutionFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision task
 that resulted in the CompleteWorkflowExecution decision to complete this
@@ -1712,11 +1708,11 @@ Integer.MAX_VALUE (2147483647). Higher numbers indicate higher priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         taskPriority?: TaskPriority;
         /** Specifies the maximum duration of decision tasks for the new workflow execution.
 This parameter overrides the defaultTaskStartToCloseTimout specified when
-registering the workflow type using RegisterWorkflowType .
+registering the workflow type using RegisterWorkflowType.
 
 The duration is specified in seconds; an integer greater than or equal to 0. The
 value &quot;NONE&quot; can be used to specify unlimited duration.
@@ -1729,7 +1725,7 @@ registration time then a fault will be returned. **/
         /** If set, specifies the policy to use for the child workflow executions of the new
 execution if it is terminated by calling the TerminateWorkflowExecution action
 explicitly or due to an expired timeout. This policy overrides the default child
-policy specified when registering the workflow type using RegisterWorkflowType .
+policy specified when registering the workflow type using RegisterWorkflowType.
 
 The supported child policies are:
 
@@ -1748,7 +1744,7 @@ will be returned. **/
         /** The list of tags to associate with the new workflow execution. A maximum of 5
 tags can be specified. You can list workflow executions with a specific tag by
 calling ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
-specifying a TagFilter . **/
+specifying a TagFilter. **/
         tagList?: TagList;
         workflowTypeVersion?: Version;
         /** The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda
@@ -1766,7 +1762,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: ContinueAsNewWorkflowExecutionFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision task
 that resulted in the ContinueAsNewWorkflowExecution decision that started this
@@ -1792,24 +1788,24 @@ of these in a request but not both. **/
         /** If specified, only workflow executions matching the WorkflowId in the filter are
 counted.
 
-closeStatusFilter , executionFilter , typeFilter and tagFilter are mutually
+closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 exclusive. You can specify at most one of these in a request. **/
         executionFilter?: WorkflowExecutionFilter;
         /** If specified, indicates the type of the workflow executions to be counted.
 
-closeStatusFilter , executionFilter , typeFilter and tagFilter are mutually
+closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 exclusive. You can specify at most one of these in a request. **/
         typeFilter?: WorkflowTypeFilter;
         /** If specified, only executions that have a tag that matches the filter are
 counted.
 
-closeStatusFilter , executionFilter , typeFilter and tagFilter are mutually
+closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 exclusive. You can specify at most one of these in a request. **/
         tagFilter?: TagFilter;
         /** If specified, only workflow executions that match this close status are counted.
-This filter has an affect only if executionStatus is specified as CLOSED .
+This filter has an affect only if executionStatus is specified as CLOSED.
 
-closeStatusFilter , executionFilter , typeFilter and tagFilter are mutually
+closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 exclusive. You can specify at most one of these in a request. **/
         closeStatusFilter?: CloseStatusFilter;
     }
@@ -1821,19 +1817,19 @@ be counted. **/
         startTimeFilter: ExecutionTimeFilter;
         /** Specifies the type of the workflow executions to be counted.
 
-executionFilter , typeFilter and tagFilter are mutually exclusive. You can
+executionFilter, typeFilter and tagFilter are mutually exclusive. You can
 specify at most one of these in a request. **/
         typeFilter?: WorkflowTypeFilter;
         /** If specified, only executions that have a tag that matches the filter are
 counted.
 
-executionFilter , typeFilter and tagFilter are mutually exclusive. You can
+executionFilter, typeFilter and tagFilter are mutually exclusive. You can
 specify at most one of these in a request. **/
         tagFilter?: TagFilter;
         /** If specified, only workflow executions matching the WorkflowId in the filter are
 counted.
 
-executionFilter , typeFilter and tagFilter are mutually exclusive. You can
+executionFilter, typeFilter and tagFilter are mutually exclusive. You can
 specify at most one of these in a request. **/
         executionFilter?: WorkflowExecutionFilter;
     }
@@ -1905,7 +1901,7 @@ this during the processing of the decision task. **/
         events: HistoryEventList;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -1938,7 +1934,7 @@ priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         taskPriority?: TaskPriority;
         /** The maximum duration for this decision task. The task is considered timed out if
 it does not completed within this duration.
@@ -2031,12 +2027,12 @@ name and version that were supplied when the activity was registered. **/
         name: DomainName;
         /** The status of the domain:
 
- &amp;#42; REGISTERED : The domain is properly registered and available. You can use
-   this domain for registering types and creating new workflow executions.
- * DEPRECATED : The domain was deprecated using DeprecateDomain , but is still
-   in use. You should not create new workflow executions in this domain. **/
+ &amp;#42;  REGISTERED: The domain is properly registered and available. You can use
+   this domain for registering types and creating new workflow executions. 
+ *  DEPRECATED: The domain was deprecated using DeprecateDomain, but is still in
+   use. You should not create new workflow executions in this domain. **/
         status: RegistrationStatus;
-        /** The description of the domain provided through RegisterDomain . **/
+        /** The description of the domain provided through RegisterDomain. **/
         description?: Description;
     }
     export interface DomainInfos {
@@ -2044,7 +2040,7 @@ name and version that were supplied when the activity was registered. **/
         domainInfos: DomainInfoList;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -2087,7 +2083,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: FailWorkflowExecutionFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision task
 that resulted in the FailWorkflowExecution decision to fail this execution. This
@@ -2102,7 +2098,7 @@ events leading up to this event. **/
         execution: WorkflowExecution;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -2115,7 +2111,7 @@ the maximum.
 This is an upper limit only; the actual number of results returned per call may
 be fewer than the specified maximum. **/
         maximumPageSize?: PageSize;
-        /** When set to true , returns the events in reverse order. By default the results
+        /** When set to true, returns the events in reverse order. By default the results
 are returned in ascending order of the eventTimeStamp of the events. **/
         reverseOrder?: ReverseOrder;
     }
@@ -2124,7 +2120,7 @@ are returned in ascending order of the eventTimeStamp of the events. **/
         events: HistoryEventList;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -2391,7 +2387,7 @@ problems by tracing back the chain of events leading up to this event. **/
         registrationStatus: RegistrationStatus;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -2404,7 +2400,7 @@ the maximum.
 This is an upper limit only; the actual number of results returned per call may
 be fewer than the specified maximum. **/
         maximumPageSize?: PageSize;
-        /** When set to true , returns the results in reverse order. By default, the results
+        /** When set to true, returns the results in reverse order. By default, the results
 are returned in ascending alphabetical order by name of the activity types. **/
         reverseOrder?: ReverseOrder;
     }
@@ -2430,29 +2426,29 @@ of these in a request but not both. **/
         /** If specified, only workflow executions matching the workflow ID specified in the
 filter are returned.
 
-closeStatusFilter , executionFilter , typeFilter and tagFilter are mutually
+closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 exclusive. You can specify at most one of these in a request. **/
         executionFilter?: WorkflowExecutionFilter;
         /** If specified, only workflow executions that match this close status are listed.
 For example, if TERMINATED is specified, then only TERMINATED workflow
 executions are listed.
 
-closeStatusFilter , executionFilter , typeFilter and tagFilter are mutually
+closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 exclusive. You can specify at most one of these in a request. **/
         closeStatusFilter?: CloseStatusFilter;
         /** If specified, only executions of the type specified in the filter are returned.
 
-closeStatusFilter , executionFilter , typeFilter and tagFilter are mutually
+closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 exclusive. You can specify at most one of these in a request. **/
         typeFilter?: WorkflowTypeFilter;
         /** If specified, only executions that have the matching tag are listed.
 
-closeStatusFilter , executionFilter , typeFilter and tagFilter are mutually
+closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
 exclusive. You can specify at most one of these in a request. **/
         tagFilter?: TagFilter;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -2465,7 +2461,7 @@ the maximum.
 This is an upper limit only; the actual number of results returned per call may
 be fewer than the specified maximum. **/
         maximumPageSize?: PageSize;
-        /** When set to true , returns the results in reverse order. By default the results
+        /** When set to true, returns the results in reverse order. By default the results
 are returned in descending order of the start or the close time of the
 executions. **/
         reverseOrder?: ReverseOrder;
@@ -2473,7 +2469,7 @@ executions. **/
     export interface ListDomainsInput {
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -2488,7 +2484,7 @@ the maximum.
 This is an upper limit only; the actual number of results returned per call may
 be fewer than the specified maximum. **/
         maximumPageSize?: PageSize;
-        /** When set to true , returns the results in reverse order. By default, the results
+        /** When set to true, returns the results in reverse order. By default, the results
 are returned in ascending alphabetical order by name of the domains. **/
         reverseOrder?: ReverseOrder;
     }
@@ -2500,17 +2496,17 @@ start times are within the range specified by this filter. **/
         startTimeFilter: ExecutionTimeFilter;
         /** If specified, only executions of the type specified in the filter are returned.
 
-executionFilter , typeFilter and tagFilter are mutually exclusive. You can
+executionFilter, typeFilter and tagFilter are mutually exclusive. You can
 specify at most one of these in a request. **/
         typeFilter?: WorkflowTypeFilter;
         /** If specified, only executions that have the matching tag are listed.
 
-executionFilter , typeFilter and tagFilter are mutually exclusive. You can
+executionFilter, typeFilter and tagFilter are mutually exclusive. You can
 specify at most one of these in a request. **/
         tagFilter?: TagFilter;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -2523,13 +2519,13 @@ the maximum.
 This is an upper limit only; the actual number of results returned per call may
 be fewer than the specified maximum. **/
         maximumPageSize?: PageSize;
-        /** When set to true , returns the results in reverse order. By default the results
+        /** When set to true, returns the results in reverse order. By default the results
 are returned in descending order of the start time of the executions. **/
         reverseOrder?: ReverseOrder;
         /** If specified, only workflow executions matching the workflow ID specified in the
 filter are returned.
 
-executionFilter , typeFilter and tagFilter are mutually exclusive. You can
+executionFilter, typeFilter and tagFilter are mutually exclusive. You can
 specify at most one of these in a request. **/
         executionFilter?: WorkflowExecutionFilter;
     }
@@ -2542,7 +2538,7 @@ specify at most one of these in a request. **/
         registrationStatus: RegistrationStatus;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -2555,7 +2551,7 @@ the maximum.
 This is an upper limit only; the actual number of results returned per call may
 be fewer than the specified maximum. **/
         maximumPageSize?: PageSize;
-        /** When set to true , returns the results in reverse order. By default the results
+        /** When set to true, returns the results in reverse order. By default the results
 are returned in ascending alphabetical order of the name of the workflow types. **/
         reverseOrder?: ReverseOrder;
     }
@@ -2612,16 +2608,16 @@ tracing when problems arise. The form of this identity is user defined. **/
         identity?: Identity;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call.
 
 The nextPageToken returned by this action cannot be used with 
 GetWorkflowExecutionHistory to get the next page. You must call 
-PollForDecisionTask again (with the nextPageToken ) to retrieve the next page of
+PollForDecisionTask again (with the nextPageToken) to retrieve the next page of
 history records. Calling PollForDecisionTask with a nextPageToken will not
-return a new decision task. . **/
+return a new decision task.. **/
         nextPageToken?: PageToken;
         /** The maximum number of results that will be returned per call. nextPageToken can
 be used to obtain futher pages of results. The default is 1000, which is the
@@ -2631,12 +2627,12 @@ the maximum.
 This is an upper limit only; the actual number of results returned per call may
 be fewer than the specified maximum. **/
         maximumPageSize?: PageSize;
-        /** When set to true , returns the events in reverse order. By default the results
+        /** When set to true, returns the events in reverse order. By default the results
 are returned in ascending order of the eventTimestamp of the events. **/
         reverseOrder?: ReverseOrder;
     }
     export interface RecordActivityTaskHeartbeatInput {
-        /** The taskToken of the ActivityTask .
+        /** The taskToken of the ActivityTask.
 
 taskToken is generated by the service and should be treated as an opaque value.
 If the task is passed to another process, its taskToken must also be passed.
@@ -2660,7 +2656,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: RecordMarkerFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision task
 that resulted in the RecordMarkerFailed decision for this cancellation request.
@@ -2681,10 +2677,10 @@ quotarnquot. **/
         /** The version of the activity type.
 
 The activity type consists of the name and version, the combination of which
-must be unique within the domain.The specified string must not start or end with
-whitespace. It must not contain a : (colon), / (slash), | (vertical bar), or any
-control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain
-the literal string quotarnquot. **/
+must be unique within the domain. The specified string must not start or end
+with whitespace. It must not contain a : (colon), / (slash), | (vertical bar),
+or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it must not
+contain the literal string quotarnquot. **/
         version: Version;
         /** A textual description of the activity type. **/
         description?: Description;
@@ -2696,7 +2692,7 @@ The duration is specified in seconds; an integer greater than or equal to 0. The
 value &quot;NONE&quot; can be used to specify unlimited duration. **/
         defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
         /** If set, specifies the default maximum time before which a worker processing a
-task of this type must report progress by calling RecordActivityTaskHeartbeat .
+task of this type must report progress by calling RecordActivityTaskHeartbeat.
 If the timeout is exceeded, the activity task is automatically timed out. This
 default can be overridden when scheduling an activity task using the 
 ScheduleActivityTask decision. If the activity worker subsequently attempts to
@@ -2718,7 +2714,7 @@ numbers indicate higher priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         defaultTaskPriority?: TaskPriority;
         /** If set, specifies the default maximum duration that a task of this activity type
 can wait before being assigned to a worker. This default can be overridden when
@@ -2757,7 +2753,7 @@ record and its history are deleted.
 The maximum workflow execution retention period is 90 days. For more information
 about Amazon SWF service limits, see: Amazon SWF Service Limits
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html] 
-in the Amazon SWF Developer Guide . **/
+in the Amazon SWF Developer Guide. **/
         workflowExecutionRetentionPeriodInDays: DurationInDays;
     }
     export interface RegisterWorkflowTypeInput {
@@ -2774,7 +2770,7 @@ quotarnquot. **/
 
 The workflow type consists of the name and version, the combination of which
 must be unique within the domain. To get a list of all currently registered
-workflow types, use the ListWorkflowTypes action.The specified string must not
+workflow types, use the ListWorkflowTypes action. The specified string must not
 start or end with whitespace. It must not contain a : (colon), / (slash), | 
 (vertical bar), or any control characters (\u0000-\u001f | \u007f - \u009f).
 Also, it must not contain the literal string quotarnquot. **/
@@ -2795,9 +2791,9 @@ StartWorkflowExecution action or StartChildWorkflowExecution decision.
 
 The duration is specified in seconds; an integer greater than or equal to 0.
 Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a
-value of &quot;NONE&quot; for defaultExecutionStartToCloseTimeout ; there is a one-year
-max limit on the time that a workflow execution can run. Exceeding this limit
-will always cause the workflow execution to time out. **/
+value of &quot;NONE&quot; for defaultExecutionStartToCloseTimeout; there is a one-year max
+limit on the time that a workflow execution can run. Exceeding this limit will
+always cause the workflow execution to time out. **/
         defaultExecutionStartToCloseTimeout?: DurationInSecondsOptional;
         /** If set, specifies the default task list to use for scheduling decision tasks for
 executions of this workflow type. This default is used only if a task list is
@@ -2811,7 +2807,7 @@ numbers indicate higher priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         defaultTaskPriority?: TaskPriority;
         /** If set, specifies the default policy to use for the child workflow executions
 when a workflow execution of this type is terminated, by calling the 
@@ -2849,7 +2845,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: RequestCancelActivityTaskFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision task
 that resulted in the RequestCancelActivityTask decision for this cancellation
@@ -2878,7 +2874,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: RequestCancelExternalWorkflowExecutionFailedCause;
         /** The ID of the RequestCancelExternalWorkflowExecutionInitiated event
 corresponding to the RequestCancelExternalWorkflowExecution decision to cancel
@@ -2915,7 +2911,7 @@ subsequent workflow tasks. **/
         runId?: RunIdOptional;
     }
     export interface RespondActivityTaskCanceledInput {
-        /** The taskToken of the ActivityTask .
+        /** The taskToken of the ActivityTask.
 
 taskToken is generated by the service and should be treated as an opaque value.
 If the task is passed to another process, its taskToken must also be passed.
@@ -2925,7 +2921,7 @@ This enables it to provide its progress and respond with results. **/
         details?: Data;
     }
     export interface RespondActivityTaskCompletedInput {
-        /** The taskToken of the ActivityTask .
+        /** The taskToken of the ActivityTask.
 
 taskToken is generated by the service and should be treated as an opaque value.
 If the task is passed to another process, its taskToken must also be passed.
@@ -2936,7 +2932,7 @@ specific. **/
         result?: Data;
     }
     export interface RespondActivityTaskFailedInput {
-        /** The taskToken of the ActivityTask .
+        /** The taskToken of the ActivityTask.
 
 taskToken is generated by the service and should be treated as an opaque value.
 If the task is passed to another process, its taskToken must also be passed.
@@ -2948,7 +2944,7 @@ This enables it to provide its progress and respond with results. **/
         details?: Data;
     }
     export interface RespondDecisionTaskCompletedInput {
-        /** The taskToken from the DecisionTask .
+        /** The taskToken from the DecisionTask.
 
 taskToken is generated by the service and should be treated as an opaque value.
 If the task is passed to another process, its taskToken must also be passed.
@@ -2996,24 +2992,24 @@ will be used.
 
 A task list for this activity task must be specified either as a default for the
 activity type or through this field. If neither this field is set nor a default
-task list was specified at registration time then a fault will be returned.The
+task list was specified at registration time then a fault will be returned. The
 specified string must not start or end with whitespace. It must not contain a : 
 (colon), / (slash), | (vertical bar), or any control characters (\u0000-\u001f |
 \u007f - \u009f). Also, it must not contain the literal string quotarnquot. **/
         taskList?: TaskList;
         /** Optional. If set, specifies the priority with which the activity task is to be
 assigned to a worker. This overrides the defaultTaskPriority specified when
-registering the activity type using RegisterActivityType . Valid values are
+registering the activity type using RegisterActivityType. Valid values are
 integers that range from Java&#x27;s Integer.MIN_VALUE (-2147483648) to 
 Integer.MAX_VALUE (2147483647). Higher numbers indicate higher priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         taskPriority?: TaskPriority;
         /** Optional. If set, specifies the maximum duration the activity task can wait to
 be assigned to a worker. This overrides the default schedule-to-start timeout
-specified when registering the activity type using RegisterActivityType .
+specified when registering the activity type using RegisterActivityType.
 
 The duration is specified in seconds; an integer greater than or equal to 0. The
 value &quot;NONE&quot; can be used to specify unlimited duration.
@@ -3025,7 +3021,7 @@ then a fault will be returned. **/
         scheduleToStartTimeout?: DurationInSecondsOptional;
         /** If set, specifies the maximum duration a worker may take to process this
 activity task. This overrides the default start-to-close timeout specified when
-registering the activity type using RegisterActivityType .
+registering the activity type using RegisterActivityType.
 
 The duration is specified in seconds; an integer greater than or equal to 0. The
 value &quot;NONE&quot; can be used to specify unlimited duration.
@@ -3036,11 +3032,11 @@ set nor a default start-to-close timeout was specified at registration time then
 a fault will be returned. **/
         startToCloseTimeout?: DurationInSecondsOptional;
         /** If set, specifies the maximum time before which a worker processing a task of
-this type must report progress by calling RecordActivityTaskHeartbeat . If the
+this type must report progress by calling RecordActivityTaskHeartbeat. If the
 timeout is exceeded, the activity task is automatically timed out. If the worker
 subsequently attempts to record a heartbeat or returns a result, it will be
 ignored. This overrides the default heartbeat timeout specified when registering
-the activity type using RegisterActivityType .
+the activity type using RegisterActivityType.
 
 The duration is specified in seconds; an integer greater than or equal to 0. The
 value &quot;NONE&quot; can be used to specify unlimited duration. **/
@@ -3057,7 +3053,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: ScheduleActivityTaskFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision that
 resulted in the scheduling of this activity task. This information can be useful
@@ -3091,7 +3087,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: ScheduleLambdaFunctionFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision that
 resulted in the scheduling of this AWS Lambda function. This information can be
@@ -3127,7 +3123,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: SignalExternalWorkflowExecutionFailedCause;
         /** The ID of the SignalExternalWorkflowExecutionInitiated event corresponding to
 the SignalExternalWorkflowExecution decision to request this signal. This
@@ -3206,7 +3202,7 @@ execution.
 A task list for this workflow execution must be specified either as a default
 for the workflow type or through this parameter. If neither this parameter is
 set nor a default task list was specified at registration time then a fault will
-be returned.The specified string must not start or end with whitespace. It must
+be returned. The specified string must not start or end with whitespace. It must
 not contain a : (colon), / (slash), | (vertical bar), or any control characters
 (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string
 quotarnquot. **/
@@ -3219,11 +3215,11 @@ range from Java&#x27;s Integer.MIN_VALUE (-2147483648) to Integer.MAX_VALUE
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         taskPriority?: TaskPriority;
         /** Specifies the maximum duration of decision tasks for this workflow execution.
 This parameter overrides the defaultTaskStartToCloseTimout specified when
-registering the workflow type using RegisterWorkflowType .
+registering the workflow type using RegisterWorkflowType.
 
 The duration is specified in seconds; an integer greater than or equal to 0. The
 value &quot;NONE&quot; can be used to specify unlimited duration.
@@ -3237,7 +3233,7 @@ registration time then a fault will be returned. **/
 if the workflow execution being started is terminated by calling the 
 TerminateWorkflowExecution action explicitly or due to an expired timeout. This
 policy overrides the default child policy specified when registering the
-workflow type using RegisterWorkflowType .
+workflow type using RegisterWorkflowType.
 
 The supported child policies are:
 
@@ -3256,7 +3252,7 @@ will be returned. **/
         /** The list of tags to associate with the child workflow execution. A maximum of 5
 tags can be specified. You can list workflow executions with a specific tag by
 calling ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
-specifying a TagFilter . **/
+specifying a TagFilter. **/
         tagList?: TagList;
         /** The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda
 functions.
@@ -3276,7 +3272,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: StartChildWorkflowExecutionFailedCause;
         /** The workflowId of the child workflow execution. **/
         workflowId: WorkflowId;
@@ -3318,7 +3314,7 @@ priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         taskPriority?: TaskPriority;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision task
 that resulted in the StartChildWorkflowExecution decision to request this child
@@ -3360,7 +3356,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause?: StartLambdaFunctionFailedCause;
         /** The error message (if any). **/
         message?: CauseMessage;
@@ -3390,7 +3386,7 @@ useful for diagnostic purposes.
 If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
 lacked sufficient permissions. For details and example IAM policies, see Using
 IAM to Manage Access to Amazon SWF Workflows
-[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html] . **/
+[http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html]. **/
         cause: StartTimerFailedCause;
         /** The ID of the DecisionTaskCompleted event corresponding to the decision task
 that resulted in the StartTimer decision for this activity task. This
@@ -3421,7 +3417,7 @@ workflow type.
 A task list for this workflow execution must be specified either as a default
 for the workflow type or through this parameter. If neither this parameter is
 set nor a default task list was specified at registration time then a fault will
-be returned.The specified string must not start or end with whitespace. It must
+be returned. The specified string must not start or end with whitespace. It must
 not contain a : (colon), / (slash), | (vertical bar), or any control characters
 (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal string
 quotarnquot. **/
@@ -3434,7 +3430,7 @@ Integer.MAX_VALUE (2147483647). Higher numbers indicate higher priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         taskPriority?: TaskPriority;
         /** The input for the workflow execution. This is a free form string which should be
 meaningful to the workflow you are starting. This input is made available to the
@@ -3458,11 +3454,11 @@ is returned. **/
         /** The list of tags to associate with the workflow execution. You can specify a
 maximum of 5 tags. You can list workflow executions with a specific tag by
 calling ListOpenWorkflowExecutions or ListClosedWorkflowExecutions and
-specifying a TagFilter . **/
+specifying a TagFilter. **/
         tagList?: TagList;
         /** Specifies the maximum duration of decision tasks for this workflow execution.
 This parameter overrides the defaultTaskStartToCloseTimout specified when
-registering the workflow type using RegisterWorkflowType .
+registering the workflow type using RegisterWorkflowType.
 
 The duration is specified in seconds; an integer greater than or equal to 0. The
 value &quot;NONE&quot; can be used to specify unlimited duration.
@@ -3476,7 +3472,7 @@ registration time then a fault will be returned. **/
 workflow execution if it is terminated, by calling the 
 TerminateWorkflowExecution action explicitly or due to an expired timeout. This
 policy overrides the default child policy specified when registering the
-workflow type using RegisterWorkflowType .
+workflow type using RegisterWorkflowType.
 
 The supported child policies are:
 
@@ -3652,7 +3648,7 @@ Integer.MAX_VALUE (2147483647). Higher numbers indicate higher priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         taskPriority?: TaskPriority;
         /** The policy to use for the child workflow executions if this workflow execution
 is terminated, by calling the TerminateWorkflowExecution action explicitly or
@@ -3734,7 +3730,7 @@ for an unusually long period of time and might require a corrective action. **/
         latestActivityTaskTimestamp?: Timestamp;
         /** The latest executionContext provided by the decider for this workflow execution.
 A decider can provide an executionContext (a free-form string) when closing a
-decision task using RespondDecisionTaskCompleted . **/
+decision task using RespondDecisionTaskCompleted. **/
         latestExecutionContext?: Data;
     }
     export interface WorkflowExecutionFailedEventAttributes {
@@ -3767,14 +3763,14 @@ status is CLOSED. **/
         /** If the execution status is closed then this specifies how the execution was
 closed:
 
- &amp;#42; COMPLETED : the execution was successfully completed.
- * CANCELED : the execution was canceled.Cancellation allows the implementation
+ &amp;#42;  COMPLETED: the execution was successfully completed.
+ *  CANCELED: the execution was canceled.Cancellation allows the implementation
    to gracefully clean up before the execution is closed.
- * TERMINATED : the execution was force terminated.
- * FAILED : the execution failed to complete.
- * TIMED_OUT : the execution did not complete in the alloted time and was
+ *  TERMINATED: the execution was force terminated.
+ *  FAILED: the execution failed to complete.
+ *  TIMED_OUT: the execution did not complete in the alloted time and was
    automatically timed out.
- * CONTINUED_AS_NEW : the execution is logically continued. This means the
+ *  CONTINUED_AS_NEW: the execution is logically continued. This means the
    current execution was completed and a new execution was started to carry on
    the workflow. **/
         closeStatus?: CloseStatus;
@@ -3793,7 +3789,7 @@ workflow execution can have a maximum of 5 tags. **/
         executionInfos: WorkflowExecutionInfoList;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/
@@ -3965,7 +3961,7 @@ to Integer.MAX_VALUE (2147483647). Higher numbers indicate higher priority.
 
 For more information about setting task priority, see Setting Task Priority
 [http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html] 
-in the Amazon Simple Workflow Developer Guide . **/
+in the Amazon Simple Workflow Developer Guide. **/
         defaultTaskPriority?: TaskPriority;
         /** Optional. The default policy to use for the child workflow executions when a
 workflow execution of this type is terminated, by calling the 
@@ -3992,9 +3988,9 @@ function. **/
 The status of the workflow type (returned in the WorkflowTypeInfo structure) can
 be one of the following.
 
- &amp;#42; REGISTERED : The type is registered and available. Workers supporting this
+ &amp;#42;  REGISTERED: The type is registered and available. Workers supporting this
    type should be running.
- * DEPRECATED : The type was deprecated using DeprecateWorkflowType , but is
+ *  DEPRECATED: The type was deprecated using DeprecateWorkflowType, but is
    still in use. You should keep workers supporting this type running. You
    cannot create new workflow executions of this type. **/
         typeInfo: WorkflowTypeInfo;
@@ -4013,7 +4009,7 @@ RegisterWorkflowType **/
         workflowType: WorkflowType;
         /** The current status of the workflow type. **/
         status: RegistrationStatus;
-        /** The description of the type registered through RegisterWorkflowType . **/
+        /** The description of the type registered through RegisterWorkflowType. **/
         description?: Description;
         /** The date when this type was registered. **/
         creationDate: Timestamp;
@@ -4026,7 +4022,7 @@ deprecated. **/
         typeInfos: WorkflowTypeInfoList;
         /** If a NextPageToken was returned by a previous call, there are more results
 available. To retrieve the next page of results, make the call again using the
-returned token in nextPageToken . Keep all other arguments unchanged.
+returned token in nextPageToken. Keep all other arguments unchanged.
 
 The configured maximumPageSize determines how many results can be returned in a
 single call. **/

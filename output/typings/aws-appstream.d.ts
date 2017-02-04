@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon AppStream 2.0API documentation for Amazon AppStream 2.0.
+   * Amazon AppStream 2.0 API documentation for Amazon AppStream 2.0.
    *
    */
   export class AppStream extends Service {

@@ -120,8 +120,8 @@ contact information is also returned as part of the output.
 given a string, which can either be a domain name or simply a word or phrase
 (without spaces).
 
-Parameters: &amp;#42; DomainName (string): The basis for your domain suggestion search,
-   a string with (or without) top-level domain specified.
+ Parameters:  &amp;#42; DomainName (string): The basis for your domain suggestion
+   search, a string with (or without) top-level domain specified.
  * SuggestionCount (int): The number of domain suggestions to be
    returned, maximum 50, minimum 1.
  * OnlyAvailable (bool): If true, availability check will be
@@ -188,7 +188,7 @@ When you register a domain, Amazon Route 53 does the following:
    completed successfully, the domain registrant is notified by email.
  * Charges your AWS account an amount based on the top-level domain. For more
    information, see Amazon Route 53 Pricing
-   [http://aws.amazon.com/route53/pricing/] .
+   [http://aws.amazon.com/route53/pricing/].
      *
      * @error InvalidInput   
      * @error UnsupportedTLD   
@@ -257,7 +257,7 @@ time.
 Caution! If the registrar for your domain is also the DNS service provider for
 the domain and you don&#x27;t transfer DNS service to another provider, your website,
 email, and the web applications associated with the domain might become
-unavailable.If the transfer is successful, this method returns an operation ID
+unavailable. If the transfer is successful, this method returns an operation ID
 that you can use to track the progress and completion of the action. If the
 transfer doesn&#x27;t complete successfully, the domain registrant will be notified
 by email.
@@ -291,7 +291,7 @@ completed successfully, the domain registrant will be notified by email.
 privacy option is enabled, personal information such as postal or email address
 is hidden from the results of a public WHOIS query. The privacy services are
 provided by the AWS registrar, Gandi. For more information, see the Gandi
-privacy features [http://www.gandi.net/domain/whois/?currency=USD&amp;amp;lang=en] .
+privacy features [http://www.gandi.net/domain/whois/?currency=USD&amp;amp;lang=en].
 
 This operation only affects the privacy of the specified contact type
 (registrant, administrator, or tech). Successful acceptance returns an operation
@@ -310,7 +310,7 @@ registrant will be notified by email.
      * This operation replaces the current set of name servers for the domain with the
 specified set of name servers. If you use Amazon Route 53 as your DNS service,
 specify the four name servers in the delegation set for the hosted zone for the
-domain.
+domain. 
 
 If successful, this operation returns an operation ID that you can use to track
 the progress and completion of the action. If the request is not completed
@@ -459,7 +459,7 @@ Type: String **/
 
 Type: String
 
-Valid values: &amp;#42; REGISTER_DOMAIN
+Valid values:  &amp;#42; REGISTER_DOMAIN
  * TRANSFER_IN_DOMAIN
  * RENEW_DOMAIN
  * CHANGE_DOMAIN_OWNER **/
@@ -498,7 +498,7 @@ Required: Yes **/
     export interface CheckDomainAvailabilityResponse {
         /** Whether the domain name is available for registering.
 
-You can only register domains designated as AVAILABLE .
+You can only register domains designated as AVAILABLE.
 
 Type: String
 
@@ -527,7 +527,7 @@ Default: None
 
 Constraints: Maximum 255 characters.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact 
 
 Required: Yes **/
         FirstName?: ContactName;
@@ -539,12 +539,12 @@ Default: None
 
 Constraints: Maximum 255 characters.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: Yes **/
         LastName?: ContactName;
         /** Indicates whether the contact is a person, company, association, or public
-organization. If you choose an option other than PERSON , you must enter an
+organization. If you choose an option other than PERSON, you must enter an
 organization name, and you can&#x27;t enable privacy protection for the contact.
 
 Type: String
@@ -555,19 +555,19 @@ Constraints: Maximum 255 characters.
 
 Valid values: PERSON | COMPANY | ASSOCIATION | PUBLIC_BODY
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact 
 
 Required: Yes **/
         ContactType?: ContactType;
-        /** Name of the organization for contact types other than PERSON .
+        /** Name of the organization for contact types other than PERSON.
 
 Type: String
 
 Default: None
 
-Constraints: Maximum 255 characters. Contact type must not be PERSON .
+Constraints: Maximum 255 characters. Contact type must not be PERSON.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: No **/
         OrganizationName?: ContactName;
@@ -579,7 +579,7 @@ Default: None
 
 Constraints: Maximum 255 characters.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: Yes **/
         AddressLine1?: AddressLine;
@@ -591,7 +591,7 @@ Default: None
 
 Constraints: Maximum 255 characters.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: No **/
         AddressLine2?: AddressLine;
@@ -603,7 +603,7 @@ Default: None
 
 Constraints: Maximum 255 characters.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: Yes **/
         City?: City;
@@ -615,7 +615,7 @@ Default: None
 
 Constraints: Maximum 255 characters.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: No **/
         State?: State;
@@ -627,7 +627,7 @@ Default: None
 
 Constraints: Maximum 255 characters.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: Yes **/
         CountryCode?: CountryCode;
@@ -639,7 +639,7 @@ Default: None
 
 Constraints: Maximum 255 characters.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: No **/
         ZipCode?: ZipCode;
@@ -650,10 +650,10 @@ Type: String
 Default: None
 
 Constraints: Phone number must be specified in the format &quot;+[country dialing
-code].[number including any area code ]&quot;. For example, a US phone number might
-appear as &quot;+1.1234567890&quot; .
+code].[number including any area code]&quot;. For example, a US phone number might
+appear as &quot;+1.1234567890&quot;.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: Yes **/
         PhoneNumber?: ContactNumber;
@@ -665,7 +665,7 @@ Default: None
 
 Constraints: Maximum 254 characters.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact 
 
 Required: Yes **/
         Email?: Email;
@@ -677,9 +677,9 @@ Default: None
 
 Constraints: Phone number must be specified in the format &quot;+[country dialing
 code].[number including any area code]&quot;. For example, a US phone number might
-appear as &quot;+1.1234567890&quot; .
+appear as &quot;+1.1234567890&quot;.
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
 Required: No **/
         Fax?: ContactNumber;
@@ -689,9 +689,9 @@ Type: Complex
 
 Default: None
 
-Parents: RegistrantContact , AdminContact , TechContact
+Parents: RegistrantContact, AdminContact, TechContact
 
-Children: Name , Value
+Children: Name, Value
 
 Required: No **/
         ExtraParams?: ExtraParamList;
@@ -828,7 +828,7 @@ Default: None
 
 Valid values: DUNS_NUMBER | BRAND_NUMBER | BIRTH_DEPARTMENT | 
 BIRTH_DATE_IN_YYYY_MM_DD | BIRTH_COUNTRY | BIRTH_CITY | DOCUMENT_NUMBER | 
-AU_ID_NUMBER | AU_ID_TYPE | CA_LEGAL_TYPE | CA_BUSINESS_ENTITY_TYPE | 
+AU_ID_NUMBER | AU_ID_TYPE | CA_LEGAL_TYPE | CA_BUSINESS_ENTITY_TYPE |
 ES_IDENTIFICATION | ES_IDENTIFICATION_TYPE | ES_LEGAL_FORM | FI_BUSINESS_NUMBER 
 | FI_ID_NUMBER | IT_PIN | RU_PASSPORT_DATA | SE_ID_NUMBER | SG_ID_NUMBER | 
 VAT_NUMBER
@@ -868,11 +868,11 @@ Required: Yes **/
         /** Whether the registrant contact has responded. PENDING indicates that we sent the
 confirmation email and haven&#x27;t received a response yet, DONE indicates that we
 sent the email and got confirmation from the registrant contact, and EXPIRED 
-indicates that the time limit expired before the registrant contact responded.
+indicates that the time limit expired before the registrant contact responded. 
 
 Type: String
 
-Valid values: PENDING , DONE , EXPIRED **/
+Valid values: PENDING, DONE, EXPIRED **/
         status?: ReachabilityStatus;
     }
     export interface GetDomainDetailRequest {
@@ -902,53 +902,53 @@ Type: String **/
 
 Type: Boolean **/
         AutoRenew?: Boolean;
-        /** Provides details about the domain administrative contact.
+        /** Provides details about the domain administrative contact. 
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams **/
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams **/
         AdminContact: ContactDetail;
-        /** Provides details about the domain registrant.
+        /** Provides details about the domain registrant. 
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams **/
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams **/
         RegistrantContact: ContactDetail;
         /** Provides details about the domain technical contact.
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams **/
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams **/
         TechContact: ContactDetail;
         /** Specifies whether contact information for the admin contact is concealed from
-WHOIS queries. If the value is true , WHOIS (&quot;who is&quot;) queries will return
+WHOIS queries. If the value is true, WHOIS (&quot;who is&quot;) queries will return
 contact information for our registrar partner, Gandi, instead of the contact
 information that you enter.
 
 Type: Boolean **/
         AdminPrivacy?: Boolean;
         /** Specifies whether contact information for the registrant contact is concealed
-from WHOIS queries. If the value is true , WHOIS (&quot;who is&quot;) queries will return
+from WHOIS queries. If the value is true, WHOIS (&quot;who is&quot;) queries will return
 contact information for our registrar partner, Gandi, instead of the contact
 information that you enter.
 
 Type: Boolean **/
         RegistrantPrivacy?: Boolean;
         /** Specifies whether contact information for the tech contact is concealed from
-WHOIS queries. If the value is true , WHOIS (&quot;who is&quot;) queries will return
+WHOIS queries. If the value is true, WHOIS (&quot;who is&quot;) queries will return
 contact information for our registrar partner, Gandi, instead of the contact
 information that you enter.
 
 Type: Boolean **/
         TechPrivacy?: Boolean;
         /** Name of the registrar of the domain as identified in the registry. Amazon Route
-53 domains are registered by registrar Gandi. The value is &quot;GANDI SAS&quot; .
+53 domains are registered by registrar Gandi. The value is &quot;GANDI SAS&quot;. 
 
 Type: String **/
         RegistrarName?: RegistrarName;
@@ -963,11 +963,11 @@ Type: String **/
         RegistrarUrl?: RegistrarUrl;
         /** Email address to contact to report incorrect contact information for a domain,
 to report that the domain is being used to send spam, to report that someone is
-cybersquatting on a domain name, or report some other type of abuse.
+cybersquatting on a domain name, or report some other type of abuse. 
 
 Type: String **/
         AbuseContactEmail?: Email;
-        /** Phone number for reporting abuse.
+        /** Phone number for reporting abuse. 
 
 Type: String **/
         AbuseContactPhone?: ContactNumber;
@@ -983,7 +983,7 @@ The date format is Unix time. **/
 is Unix time. **/
         ExpirationDate?: Timestamp;
         /** Reseller of the domain. Domains registered or transferred using Amazon Route 53
-domains will have &quot;Amazon&quot; as the reseller.
+domains will have &quot;Amazon&quot; as the reseller. 
 
 Type: String **/
         Reseller?: Reseller;
@@ -1000,8 +1000,8 @@ domain name, and so on. All registrars use this same set of status codes.
 
 For a current list of domain name status codes and an explanation of what each
 code means, go to the ICANN website [https://www.icann.org/] and search for epp
-status codes . (Search on the ICANN website; web searches sometimes return an
-old version of the document.)
+status codes. (Search on the ICANN website; web searches sometimes return an old
+version of the document.)
 
 Type: Array of String **/
         StatusList?: DomainStatusList;
@@ -1055,7 +1055,7 @@ Type: String **/
     export interface ListDomainsRequest {
         /** For an initial request for a list of domains, omit this element. If the number
 of domains that are associated with the current AWS account is greater than the
-value that you specified for MaxItems , you can use Marker to return additional
+value that you specified for MaxItems, you can use Marker to return additional
 domains. Get the value of NextPageMarker from the previous response, and submit
 another request that includes the value of NextPageMarker in the Marker element.
 
@@ -1063,7 +1063,7 @@ Type: String
 
 Default: None
 
-Constraints: The marker must match the value specified in the previous request.
+Constraints: The marker must match the value specified in the previous request. 
 
 Required: No **/
         Marker?: PageMarker;
@@ -1083,10 +1083,10 @@ Required: No **/
 
 Type: Complex type containing a list of domain summaries.
 
-Children: AutoRenew , DomainName , Expiry , TransferLock **/
+Children: AutoRenew, DomainName, Expiry, TransferLock **/
         Domains: DomainSummaryList;
         /** If there are more domains than you specified for MaxItems in the request, submit
-another request and include the value of NextPageMarker in the value of Marker .
+another request and include the value of NextPageMarker in the value of Marker.
 
 Type: String
 
@@ -1096,7 +1096,7 @@ Parent: Operations **/
     export interface ListOperationsRequest {
         /** For an initial request for a list of operations, omit this element. If the
 number of operations that are not yet complete is greater than the value that
-you specified for MaxItems , you can use Marker to return additional operations.
+you specified for MaxItems, you can use Marker to return additional operations.
 Get the value of NextPageMarker from the previous response, and submit another
 request that includes the value of NextPageMarker in the Marker element.
 
@@ -1122,11 +1122,11 @@ Required: No **/
 
 Type: Complex type containing a list of operation summaries
 
-Children: OperationId , Status , SubmittedDate , Type **/
+Children: OperationId, Status, SubmittedDate, Type **/
         Operations: OperationSummaryList;
         /** If there are more operations than you specified for MaxItems in the request,
 submit another request and include the value of NextPageMarker in the value of 
-Marker .
+Marker.
 
 Type: String
 
@@ -1228,8 +1228,8 @@ Valid values: Integer from 1 to 10
 
 Required: Yes **/
         DurationInYears: DurationInYears;
-        /** Indicates whether the domain will be automatically renewed ( true ) or not ( 
-false ). Autorenewal only takes effect after the account is charged.
+        /** Indicates whether the domain will be automatically renewed (true) or not (false
+). Autorenewal only takes effect after the account is charged.
 
 Type: Boolean
 
@@ -1243,9 +1243,9 @@ Required: No **/
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams
 
 Required: Yes **/
         AdminContact: ContactDetail;
@@ -1253,9 +1253,9 @@ Required: Yes **/
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams
 
 Required: Yes **/
         RegistrantContact: ContactDetail;
@@ -1263,9 +1263,9 @@ Required: Yes **/
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams
 
 Required: Yes **/
         TechContact: ContactDetail;
@@ -1449,7 +1449,7 @@ Required: Yes **/
 
 Type: Complex
 
-Children: GlueIps , Name
+Children: GlueIps, Name
 
 Required: No **/
         Nameservers?: NameserverList;
@@ -1475,9 +1475,9 @@ Required: No **/
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams
 
 Required: Yes **/
         AdminContact: ContactDetail;
@@ -1485,9 +1485,9 @@ Required: Yes **/
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams
 
 Required: Yes **/
         RegistrantContact: ContactDetail;
@@ -1495,9 +1495,9 @@ Required: Yes **/
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams
 
 Required: Yes **/
         TechContact: ContactDetail;
@@ -1630,9 +1630,9 @@ Required: Yes **/
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams
 
 Required: Yes **/
         AdminContact?: ContactDetail;
@@ -1640,9 +1640,9 @@ Required: Yes **/
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams
 
 Required: Yes **/
         RegistrantContact?: ContactDetail;
@@ -1650,9 +1650,9 @@ Required: Yes **/
 
 Type: Complex
 
-Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
-AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
-, Email , Fax , ExtraParams
+Children: FirstName, MiddleName, LastName, ContactType, OrganizationName, 
+AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, 
+Email, Fax, ExtraParams
 
 Required: Yes **/
         TechContact?: ContactDetail;
@@ -1687,7 +1687,7 @@ Required: Yes **/
 
 Type: Complex
 
-Children: Name , GlueIps
+Children: Name, GlueIps
 
 Required: Yes **/
         Nameservers: NameserverList;
@@ -1729,7 +1729,7 @@ Default: None
 
 Required: No
 
-&#x27;Each tag includes the following elements:
+&#x27; Each tag includes the following elements:
 
  &amp;#42; Key
    
@@ -1787,9 +1787,9 @@ Required: Yes **/
         /** For an initial request for a list of billing records, omit this element. If the
 number of billing records that are associated with the current AWS account
 during the specified period is greater than the value that you specified for 
-MaxItems , you can use Marker to return additional billing records. Get the
-value of NextPageMarker from the previous response, and submit another request
-that includes the value of NextPageMarker in the Marker element.
+MaxItems, you can use Marker to return additional billing records. Get the value
+of NextPageMarker from the previous response, and submit another request that
+includes the value of NextPageMarker in the Marker element. 
 
 Type: String
 
@@ -1814,7 +1814,7 @@ Required: No **/
     export interface ViewBillingResponse {
         /** If there are more billing records than you specified for MaxItems in the
 request, submit another request and include the value of NextPageMarker in the
-value of Marker .
+value of Marker.
 
 Type: String
 
@@ -1824,7 +1824,7 @@ Parent: BillingRecords **/
 
 Type: Complex type containing a list of billing record summaries.
 
-Children: DomainName , Operation , InvoiceId , BillDate and Price **/
+Children: DomainName, Operation, InvoiceId, BillDate and Price **/
         BillingRecords?: BillingRecords;
     }
   }

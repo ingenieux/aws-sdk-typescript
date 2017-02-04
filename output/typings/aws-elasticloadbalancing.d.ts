@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * Elastic Load BalancingA load balancer distributes incoming traffic across your
+   * Elastic Load Balancing A load balancer distributes incoming traffic across your
 EC2 instances. This enables you to increase the availability of your
 application. The load balancer also monitors the health of its registered
 instances and ensures that it routes traffic only to healthy instances. You
@@ -36,10 +36,10 @@ This reference covers the 2012-06-01 API, which supports Classic load balancers.
 The 2015-12-01 API supports Application load balancers.
 
 To get started, create a load balancer with one or more listeners using 
-CreateLoadBalancer . Register your instances with the load balancer using 
-RegisterInstancesWithLoadBalancer .
+CreateLoadBalancer. Register your instances with the load balancer using 
+RegisterInstancesWithLoadBalancer.
 
-All Elastic Load Balancing operations are idempotent , which means that they
+All Elastic Load Balancing operations are idempotent, which means that they
 complete at most one time. If you repeat an operation, it succeeds with a 200 OK
 response code.
    *
@@ -56,7 +56,7 @@ already associated with the load balancer, AddTags updates its value.
 
 For more information, see Tag Your Classic Load Balancer
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error TooManyTagsException   
@@ -70,7 +70,7 @@ associated security groups.
 
 For more information, see Security Groups for Load Balancers in a VPC
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error InvalidConfigurationRequestException   
@@ -84,7 +84,7 @@ balancer.
 The load balancer evenly distributes requests across all registered subnets. For
 more information, see Add or Remove Subnets for Your Load Balancer in a VPC
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error InvalidConfigurationRequestException   
@@ -98,7 +98,7 @@ your EC2 instances.
 
 For more information, see Configure Health Checks for Your Load Balancer
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      */
@@ -108,8 +108,8 @@ in the Classic Load Balancers Guide .
 an application-generated cookie. This policy can be associated only with
 HTTP/HTTPS listeners.
 
-This policy is similar to the policy created by CreateLBCookieStickinessPolicy ,
-except that the lifetime of the special Elastic Load Balancing cookie, AWSELB ,
+This policy is similar to the policy created by CreateLBCookieStickinessPolicy,
+except that the lifetime of the special Elastic Load Balancing cookie, AWSELB,
 follows the lifetime of the application-generated cookie specified in the policy
 configuration. The load balancer only inserts a new stickiness cookie when the
 application response includes a new application cookie.
@@ -119,7 +119,7 @@ being sticky until a new application cookie is issued.
 
 For more information, see Application-Controlled Session Stickiness
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error DuplicatePolicyNameException   
@@ -145,7 +145,7 @@ expiration time, which is specified in the policy configuration.
 
 For more information, see Duration-Based Session Stickiness
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error DuplicatePolicyNameException   
@@ -157,17 +157,17 @@ in the Classic Load Balancers Guide .
      * Creates a Classic load balancer.
 
 You can add listeners, security groups, subnets, and tags when you create your
-load balancer, or you can add them later using CreateLoadBalancerListeners , 
-ApplySecurityGroupsToLoadBalancer , AttachLoadBalancerToSubnets , and AddTags .
+load balancer, or you can add them later using CreateLoadBalancerListeners, 
+ApplySecurityGroupsToLoadBalancer, AttachLoadBalancerToSubnets, and AddTags.
 
-To describe your current load balancers, see DescribeLoadBalancers . When you
-are finished with a load balancer, you can delete it using DeleteLoadBalancer .
+To describe your current load balancers, see DescribeLoadBalancers. When you are
+finished with a load balancer, you can delete it using DeleteLoadBalancer.
 
 You can create up to 20 load balancers per region per account. You can request
 an increase for the number of load balancers for your account. For more
 information, see Limits for Your Classic Load Balancer
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error DuplicateAccessPointNameException   
      * @error TooManyAccessPointsException   
@@ -190,7 +190,7 @@ listener.
 
 For more information, see Listeners for Your Classic Load Balancer
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error DuplicateListenerException   
@@ -249,7 +249,7 @@ from the load balancer.
 
 For more information, see Register or De-Register EC2 Instances
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error InvalidEndPointException   
@@ -342,7 +342,7 @@ traffic among its remaining Availability Zones.
 
 For more information, see Add or Remove Availability Zones
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error InvalidConfigurationRequestException   
@@ -357,7 +357,7 @@ Availability Zones that contain instances.
 
 For more information, see Add or Remove Availability Zones
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      */
@@ -365,26 +365,26 @@ in the Classic Load Balancers Guide .
     /**
      * Modifies the attributes of the specified load balancer.
 
-You can modify the load balancer attributes, such as AccessLogs , 
-ConnectionDraining , and CrossZoneLoadBalancing by either enabling or disabling
+You can modify the load balancer attributes, such as AccessLogs, 
+ConnectionDraining, and CrossZoneLoadBalancing by either enabling or disabling
 them. Or, you can modify the load balancer attribute ConnectionSettings by
 specifying an idle connection timeout value for your load balancer.
 
-For more information, see the following in the Classic Load Balancers Guide :
+For more information, see the following in the Classic Load Balancers Guide:
 
- &amp;#42; Cross-Zone Load Balancing
-   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html]
+ &amp;#42;   Cross-Zone Load Balancing
+   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html] 
    
    
- * Connection Draining
-   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html]
+ *   Connection Draining
+   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html] 
    
    
- * Access Logs
-   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html]
+ *   Access Logs
+   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html] 
    
    
- * Idle Connection Timeout
+ *   Idle Connection Timeout
    [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html]
      *
      * @error AccessPointNotFoundException   
@@ -404,7 +404,7 @@ the load balancer in the VPC.
 Note that RegisterInstanceWithLoadBalancer completes when the request has been
 registered. Instance registration takes a little time to complete. To check the
 state of the registered instances, use DescribeLoadBalancers or 
-DescribeInstanceHealth .
+DescribeInstanceHealth.
 
 After the instance is registered, it starts receiving traffic and requests from
 the load balancer. Any instance that is not in one of the Availability Zones
@@ -413,11 +413,11 @@ Availability Zone is added to the load balancer later, any instances registered
 with the load balancer move to the InService state.
 
 To deregister instances from a load balancer, use 
-DeregisterInstancesFromLoadBalancer .
+DeregisterInstancesFromLoadBalancer.
 
 For more information, see Register or De-Register EC2 Instances
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error InvalidEndPointException   
@@ -437,7 +437,7 @@ same load balancer and port.
 For more information about updating your SSL certificate, see Replace the SSL
 Certificate for Your Load Balancer
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error CertificateNotFoundException   
      * @error AccessPointNotFoundException   
@@ -462,10 +462,10 @@ the policy is associated with the EC2 instance.
 For more information about enabling back-end instance authentication, see 
 Configure Back-end Instance Authentication
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt] 
-in the Classic Load Balancers Guide . For more information about Proxy Protocol,
+in the Classic Load Balancers Guide. For more information about Proxy Protocol,
 see Configure Proxy Protocol Support
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error PolicyNotFoundException   
@@ -477,16 +477,16 @@ in the Classic Load Balancers Guide .
 the specified set of policies.
 
 To enable back-end server authentication, use 
-SetLoadBalancerPoliciesForBackendServer .
+SetLoadBalancerPoliciesForBackendServer.
 
 For more information about setting policies, see Update the SSL Negotiation
 Configuration
-[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html] 
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html]
 , Duration-Based Session Stickiness
-[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration] 
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration]
 , and Application-Controlled Session Stickiness
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application] 
-in the Classic Load Balancers Guide .
+in the Classic Load Balancers Guide.
      *
      * @error AccessPointNotFoundException   
      * @error PolicyNotFoundException   
@@ -654,7 +654,7 @@ either 5 minutes or 60 minutes.
 Default: 60 minutes **/
         EmitInterval?: AccessLogInterval;
         /** The logical hierarchy you created for your Amazon S3 bucket, for example 
-my-bucket-prefix/prod . If the prefix is not provided, the log is placed at the
+my-bucket-prefix/prod. If the prefix is not provided, the log is placed at the
 root level of the bucket. **/
         S3BucketPrefix?: AccessLogPrefix;
     }
@@ -754,17 +754,17 @@ hyphens, and cannot begin or end with a hyphen. **/
 
 For more information, see Listeners for Your Classic Load Balancer
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html] 
-in the Classic Load Balancers Guide . **/
+in the Classic Load Balancers Guide. **/
         Listeners: Listeners;
         /** One or more Availability Zones from the same region as the load balancer.
 
 You must specify at least one Availability Zone.
 
 You can add more Availability Zones after you create the load balancer using 
-EnableAvailabilityZonesForLoadBalancer . **/
+EnableAvailabilityZonesForLoadBalancer. **/
         AvailabilityZones?: AvailabilityZones;
         /** The IDs of the subnets in your VPC to attach to the load balancer. Specify one
-subnet per Availability Zone specified in AvailabilityZones . **/
+subnet per Availability Zone specified in AvailabilityZones. **/
         Subnets?: Subnets;
         /** The IDs of the security groups to assign to the load balancer. **/
         SecurityGroups?: SecurityGroups;
@@ -774,7 +774,7 @@ By default, Elastic Load Balancing creates an Internet-facing load balancer with
 a DNS name that resolves to public IP addresses. For more information about
 Internet-facing and Internal load balancers, see Load Balancer Scheme
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme] 
-in the Elastic Load Balancing User Guide .
+in the Elastic Load Balancing User Guide.
 
 Specify internal to create a load balancer with a DNS name that resolves to
 private IP addresses. **/
@@ -784,7 +784,7 @@ private IP addresses. **/
 For more information about tagging your load balancer, see Tag Your Classic Load
 Balancer
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html] 
-in the Classic Load Balancers Guide . **/
+in the Classic Load Balancers Guide. **/
         Tags?: TagList;
     }
     export interface CreateAccessPointOutput {
@@ -832,7 +832,7 @@ that the sticky session should last for the duration of the browser session. **/
 within the set of policies for this load balancer. **/
         PolicyName: PolicyName;
         /** The name of the base policy type. To get the list of policy types, use 
-DescribeLoadBalancerPolicyTypes . **/
+DescribeLoadBalancerPolicyTypes. **/
         PolicyTypeName: PolicyTypeName;
         /** The policy attributes. **/
         PolicyAttributes?: PolicyAttributes;
@@ -1011,43 +1011,43 @@ Valid values: ELB | Instance | N/A **/
         /** A description of the instance state. This string can contain one or more of the
 following messages.
 
- &amp;#42; N/A
+ &amp;#42;   N/A 
    
    
- * A transient error occurred. Please try again later.
+ *   A transient error occurred. Please try again later. 
    
    
- * Instance has failed at least the UnhealthyThreshold number of health checks
-   consecutively.
+ *   Instance has failed at least the UnhealthyThreshold number of health checks
+   consecutively. 
    
    
- * Instance has not passed the configured HealthyThreshold number of health
-   checks consecutively.
+ *   Instance has not passed the configured HealthyThreshold number of health
+   checks consecutively. 
    
    
- * Instance registration is still in progress.
+ *   Instance registration is still in progress. 
    
    
- * Instance is in the EC2 Availability Zone for which LoadBalancer is not
-   configured to route traffic to.
+ *   Instance is in the EC2 Availability Zone for which LoadBalancer is not
+   configured to route traffic to. 
    
    
- * Instance is not currently registered with the LoadBalancer.
+ *   Instance is not currently registered with the LoadBalancer. 
    
    
- * Instance deregistration currently in progress.
+ *   Instance deregistration currently in progress. 
    
    
- * Disable Availability Zone is currently in progress.
+ *   Disable Availability Zone is currently in progress. 
    
    
- * Instance is in pending state.
+ *   Instance is in pending state. 
    
    
- * Instance is in stopped state.
+ *   Instance is in stopped state. 
    
    
- * Instance is in terminated state. **/
+ *   Instance is in terminated state. **/
         Description?: Description;
     }
     export interface InvalidConfigurationRequestException {
@@ -1108,21 +1108,21 @@ instances regardless of the Availability Zones.
 
 For more information, see Configure Cross-Zone Load Balancing
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html] 
-in the Classic Load Balancers Guide . **/
+in the Classic Load Balancers Guide. **/
         CrossZoneLoadBalancing?: CrossZoneLoadBalancing;
         /** If enabled, the load balancer captures detailed information of all requests and
 delivers the information to the Amazon S3 bucket that you specify.
 
 For more information, see Enable Access Logs
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html] 
-in the Classic Load Balancers Guide . **/
+in the Classic Load Balancers Guide. **/
         AccessLog?: AccessLog;
         /** If enabled, the load balancer allows existing requests to complete before the
 load balancer shifts traffic away from a deregistered or unhealthy instance.
 
 For more information, see Configure Connection Draining
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html] 
-in the Classic Load Balancers Guide . **/
+in the Classic Load Balancers Guide. **/
         ConnectionDraining?: ConnectionDraining;
         /** If enabled, the load balancer allows the connections to remain idle (no data is
 sent over the connection) for the specified duration.
@@ -1131,7 +1131,7 @@ By default, Elastic Load Balancing maintains a 60-second idle connection timeout
 for both front-end and back-end connections of your load balancer. For more
 information, see Configure Idle Connection Timeout
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html] 
-in the Classic Load Balancers Guide . **/
+in the Classic Load Balancers Guide. **/
         ConnectionSettings?: ConnectionSettings;
         /** This parameter is reserved. **/
         AdditionalAttributes?: AdditionalAttributes;
@@ -1145,7 +1145,7 @@ in the Classic Load Balancers Guide . **/
 
 For more information, see Configure a Custom Domain Name
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html] 
-in the Classic Load Balancers Guide . **/
+in the Classic Load Balancers Guide. **/
         CanonicalHostedZoneName?: DNSName;
         /** The ID of the Amazon Route 53 hosted zone for the load balancer. **/
         CanonicalHostedZoneNameID?: DNSName;
@@ -1177,10 +1177,10 @@ VPC. **/
         CreatedTime?: CreatedTime;
         /** The type of load balancer. Valid only for load balancers in a VPC.
 
-If Scheme is internet-facing , the load balancer has a public DNS name that
+If Scheme is internet-facing, the load balancer has a public DNS name that
 resolves to a public IP address.
 
-If Scheme is internal , the load balancer has a public DNS name that resolves to
+If Scheme is internal, the load balancer has a public DNS name that resolves to
 a private IP address. **/
         Scheme?: LoadBalancerScheme;
     }
@@ -1196,9 +1196,9 @@ a private IP address. **/
         LoadBalancerAttributes?: LoadBalancerAttributes;
     }
     export interface Policies {
-        /** The stickiness policies created using CreateAppCookieStickinessPolicy . **/
+        /** The stickiness policies created using CreateAppCookieStickinessPolicy. **/
         AppCookieStickinessPolicies?: AppCookieStickinessPolicies;
-        /** The stickiness policies created using CreateLBCookieStickinessPolicy . **/
+        /** The stickiness policies created using CreateLBCookieStickinessPolicy. **/
         LBCookieStickinessPolicies?: LBCookieStickinessPolicies;
         /** The policies other than the stickiness policies. **/
         OtherPolicies?: PolicyNames;
@@ -1218,7 +1218,7 @@ a private IP address. **/
     export interface PolicyAttributeTypeDescription {
         /** The name of the attribute. **/
         AttributeName?: AttributeName;
-        /** The type of the attribute. For example, Boolean or Integer . **/
+        /** The type of the attribute. For example, Boolean or Integer. **/
         AttributeType?: AttributeType;
         /** A description of the attribute. **/
         Description?: Description;
@@ -1228,16 +1228,16 @@ a private IP address. **/
 
 Valid values:
 
- &amp;#42; ONE(1) : Single value required
+ &amp;#42;  ONE(1) : Single value required
    
    
- * ZERO_OR_ONE(0..1) : Up to one value is allowed
+ *  ZERO_OR_ONE(0..1) : Up to one value is allowed
    
    
- * ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
+ *  ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
    
    
- * ONE_OR_MORE(1..*0) : Required. Multiple values are allowed **/
+ *  ONE_OR_MORE(1..*0) : Required. Multiple values are allowed **/
         Cardinality?: Cardinality;
     }
     export interface PolicyDescription {

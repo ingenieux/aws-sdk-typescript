@@ -14,13 +14,13 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: rest-json
    *
-   * Amazon Elasticsearch Configuration ServiceUse the Amazon Elasticsearch
+   * Amazon Elasticsearch Configuration Service Use the Amazon Elasticsearch
 configuration API to create, configure, and manage Elasticsearch domains.
 
-The endpoint for configuration service requests is region-specific: es. region 
+The endpoint for configuration service requests is region-specific: es.region
 .amazonaws.com. For example, es.us-east-1.amazonaws.com. For a current list of
 supported regions and endpoints, see Regions and Endpoints
-[http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions] 
+[http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions]
 .
    *
    */
@@ -43,7 +43,7 @@ See Tagging Amazon Elasticsearch Service Domains for more information.
      * Creates a new Elasticsearch domain. For more information, see Creating
 Elasticsearch Domains
 [http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains] 
-in the Amazon Elasticsearch Service Developer Guide .
+in the Amazon Elasticsearch Service Developer Guide.
      *
      * @error BaseException   
      * @error DisabledOperationException   
@@ -185,7 +185,7 @@ setting as setting the instance type and the number of instances.
     export interface AccessPoliciesStatus {
         /** The access policy configured for the Elasticsearch domain. Access policies may
 be resource-based, IP-based, or IAM-based. See Configuring Access Policies
-[http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies] 
+[http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies]
 for more information. **/
         Options: PolicyDocument;
         /** The status of the access policy for the Elasticsearch domain. See OptionStatus 
@@ -199,7 +199,8 @@ for the status information that&#x27;s included. **/
         TagList: TagList;
     }
     export interface AdvancedOptionsStatus {
-        /** Specifies the status of advanced options for the specified Elasticsearch domain. **/
+        /** Specifies the status of advanced options for the specified Elasticsearch
+domain. **/
         Options: AdvancedOptions;
         /** Specifies the status of OptionStatus for advanced options for the specified
 Elasticsearch domain. **/
@@ -218,7 +219,7 @@ must start with a letter or number and can contain the following characters: a-z
         /** String of format X.Y to specify version for the Elasticsearch domain eg. &quot;1.5&quot;
 or &quot;2.3&quot;. For more information, see Creating Elasticsearch Domains
 [http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains] 
-in the Amazon Elasticsearch Service Developer Guide . **/
+in the Amazon Elasticsearch Service Developer Guide. **/
         ElasticsearchVersion?: ElasticsearchVersionString;
         /** Configuration options for an Elasticsearch domain. Specifies the instance type
 and number of instances in the domain cluster. **/
@@ -232,7 +233,7 @@ value is 0 hours. **/
         SnapshotOptions?: SnapshotOptions;
         /** Option to allow references to indices in an HTTP request body. Must be false 
 when configuring access to individual sub-resources. By default, the value is 
-true . See Configuration Advanced Options
+true. See Configuration Advanced Options
 [http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options] 
 for more information. **/
         AdvancedOptions?: AdvancedOptions;
@@ -277,7 +278,7 @@ DescribeElasticsearchDomainConfig request. **/
     export interface DisabledOperationException {
     }
     export interface DomainInfo {
-        /** Specifies the DomainName . **/
+        /** Specifies the DomainName. **/
         DomainName?: DomainName;
     }
     export interface EBSOptions {
@@ -399,8 +400,8 @@ Elasticsearch domain. **/
         DomainNames?: DomainInfoList;
     }
     export interface ListTagsRequest {
-        /** Specify the ARN for the Elasticsearch domain to which the tags are attached that
-you want to view. **/
+        /** Specify the ARN for the Elasticsearch domain to which the tags are attached
+that you want to view. **/
         ARN: ARN;
     }
     export interface ListTagsResponse {
@@ -443,10 +444,10 @@ snapshot of the specified Elasticsearch domain. Default value is 0 hours. **/
         Status: OptionStatus;
     }
     export interface Tag {
-        /** Specifies the TagKey , the name of the tag. Tag keys must be unique for the
+        /** Specifies the TagKey, the name of the tag. Tag keys must be unique for the
 Elasticsearch domain to which they are attached. **/
         Key: TagKey;
-        /** Specifies the TagValue , the value assigned to the corresponding tag key. Tag
+        /** Specifies the TagValue, the value assigned to the corresponding tag key. Tag
 values can be null and do not have to be unique in a tag set. For example, you
 can have a key value pair in a tag set of project : Trinity and cost-center :
 Trinity **/
@@ -464,7 +465,7 @@ value is 0 hours. **/
         SnapshotOptions?: SnapshotOptions;
         /** Modifies the advanced option to allow references to indices in an HTTP request
 body. Must be false when configuring access to individual sub-resources. By
-default, the value is true . See Configuration Advanced Options
+default, the value is true. See Configuration Advanced Options
 [http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options] 
 for more information. **/
         AdvancedOptions?: AdvancedOptions;

@@ -23,16 +23,16 @@ declare module "aws-sdk" {
     /**
      * Adds a streaming source to your Amazon Kinesis application. For conceptual
 information, see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
-.
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
+. 
 
 You can add a streaming source either when you create an application or you can
 use this operation to add a streaming source after you create an application.
-For more information, see CreateApplication .
+For more information, see CreateApplication.
 
 Any configuration update, including adding a streaming source using this
 operation, results in a new version of the application. You can use the 
-DescribeApplication operation to find the current application version.
+DescribeApplication operation to find the current application version. 
 
 This operation requires permissions to perform the 
 kinesisanalytics:AddApplicationInput action.
@@ -53,20 +53,20 @@ configuration to your application using this operation. You can configure one or
 more outputs for your application. Each output configuration maps an
 in-application stream and an external destination.
 
-You can use one of the output configurations to deliver data from your
+ You can use one of the output configurations to deliver data from your
 in-application error stream to an external destination so that you can analyze
 the errors. For conceptual information, see Understanding Application Output
 (Destination)
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html] 
-.
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html]
+. 
 
-Note that any configuration update, including adding a streaming source using
+ Note that any configuration update, including adding a streaming source using
 this operation, results in a new version of the application. You can use the 
 DescribeApplication operation to find the current application version.
 
 For the limits on the number of application inputs and outputs you can
 configure, see Limits
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html] .
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html].
 
 This operation requires permissions to perform the 
 kinesisanalytics:AddApplicationOutput action.
@@ -87,12 +87,12 @@ in-application table to create, and the necessary mapping information that
 describes how data in Amazon S3 object maps to columns in the resulting
 in-application table.
 
-For conceptual information, see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+ For conceptual information, see Configuring Application Input
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . For the limits on data sources you can add to your application, see Limits
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html] .
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html]. 
 
-This operation requires permissions to perform the 
+ This operation requires permissions to perform the 
 kinesisanalytics:AddApplicationOutput action.
      *
      * @error ResourceNotFoundException   
@@ -107,7 +107,7 @@ application with one streaming source as input, application code to process the
 input, and up to five streaming destinations where you want Amazon Kinesis
 Analytics to write the output data from your application. For an overview, see 
 How it Works
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html] .
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html]. 
 
 In the input configuration, you map the streaming source to an in-application
 stream, which you can think of as a constantly updating table. In the mapping,
@@ -123,14 +123,14 @@ In the output configuration, you can configure the application to write data
 from in-application streams created in your applications to up to five streaming
 destinations.
 
-To read data from your source stream or write data to destination streams,
+ To read data from your source stream or write data to destination streams,
 Amazon Kinesis Analytics needs your permissions. You grant these permissions by
 creating IAM roles. This operation requires permissions to perform the 
-kinesisanalytics:CreateApplication action.
+kinesisanalytics:CreateApplication action. 
 
-For introductory exercises to create an Amazon Kinesis Analytics application,
+ For introductory exercises to create an Amazon Kinesis Analytics application,
 see Getting Started
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html] .
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html].
      *
      * @error CodeValidationException   
      * @error ResourceInUseException   
@@ -170,7 +170,7 @@ configuration.
 
 If the application is running, Amazon Kinesis Analytics immediately removes the
 in-application table that you created using the 
-AddApplicationReferenceDataSource operation.
+AddApplicationReferenceDataSource operation. 
 
 This operation requires permissions to perform the 
 kinesisanalytics.DeleteApplicationReferenceDataSource action.
@@ -190,7 +190,7 @@ ListApplications operation.
 This operation requires permissions to perform the 
 kinesisanalytics:DescribeApplication action. You can use DescribeApplication to
 get the current application versionId, which you need to call other operations
-such as Update .
+such as Update.
      *
      * @error ResourceNotFoundException   
      */
@@ -201,14 +201,14 @@ such as Update .
 response, the operation returns the inferred schema and also the sample records
 that the operation used to infer the schema.
 
-You can use the inferred schema when configuring a streaming source for your
+ You can use the inferred schema when configuring a streaming source for your
 application. For conceptual information, see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . Note that when you create an application using the Amazon Kinesis Analytics
 console, the console uses this operation to infer a schema and show it in the
-console user interface.
+console user interface. 
 
-This operation requires permissions to perform the 
+ This operation requires permissions to perform the 
 kinesisanalytics:DiscoverInputSchema action.
      *
      * @error InvalidArgumentException   
@@ -222,10 +222,10 @@ each application, the response includes the application name, Amazon Resource
 Name (ARN), and status. If the response returns the HasMoreApplications value as
 true, you can send another request by adding the ExclusiveStartApplicationName 
 in the request body, and set the value of this to the last application name from
-the previous response.
+the previous response. 
 
 If you want detailed information about a specific application, use 
-DescribeApplication .
+DescribeApplication.
 
 This operation requires permissions to perform the 
 kinesisanalytics:ListApplications action.
@@ -239,7 +239,7 @@ application, you must exclusively call this operation to start your application.
 After the application starts, it begins consuming the input data, processes it,
 and writes the output to the configured destination.
 
-The application status must be READY for you to start an application. You can
+ The application status must be READY for you to start an application. You can
 get the application status in the console or using the DescribeApplication 
 operation.
 
@@ -260,7 +260,7 @@ kinesisanalytics:StartApplication action.
 only if it is in the running state. You can use the DescribeApplication 
 operation to find the application state. After the application is stopped,
 Amazon Kinesis Analytics stops reading data from the input, the application
-stops processing data, and there is no output written to the destination.
+stops processing data, and there is no output written to the destination. 
 
 This operation requires permissions to perform the 
 kinesisanalytics:StopApplication action.
@@ -271,10 +271,10 @@ kinesisanalytics:StopApplication action.
     stopApplication(params: KinesisAnalytics.StopApplicationRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|any, data: KinesisAnalytics.StopApplicationResponse|any) => void): Request<KinesisAnalytics.StopApplicationResponse|any,KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|any>;
     /**
      * Updates an existing Kinesis Analytics application. Using this API, you can
-update application code, input configuration, and output configuration.
+update application code, input configuration, and output configuration. 
 
 Note that Kinesis Analytics updates the CurrentApplicationVersionId each time
-you update your application.
+you update your application. 
 
 This opeation requires permission for the kinesisanalytics:UpdateApplication 
 action.
@@ -437,17 +437,17 @@ read the object from your S3 bucket on your behalf. **/
         LastUpdateTimestamp?: Timestamp;
         /** Describes the application input configuration. For more information, see 
 Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . **/
         InputDescriptions?: InputDescriptions;
         /** Describes the application output configuration. For more information, see 
 Configuring Application Output
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html] 
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html]
 . **/
         OutputDescriptions?: OutputDescriptions;
         /** Describes reference data sources configured for the application. For more
 information, see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . **/
         ReferenceDataSourceDescriptions?: ReferenceDataSourceDescriptions;
         /** Returns the application code that you provided to perform data analysis on any
@@ -490,7 +490,7 @@ column delimiter. **/
         message?: ErrorMessage;
     }
     export interface CreateApplicationRequest {
-        /** Name of your Amazon Kinesis Analytics application (for example, sample-app ). **/
+        /** Name of your Amazon Kinesis Analytics application (for example, sample-app). **/
         ApplicationName: ApplicationName;
         /** Summary description of the application. **/
         ApplicationDescription?: ApplicationDescription;
@@ -536,8 +536,8 @@ You can also provide a series of SQL statements, where output of one statement
 can be used as the input for the next statement.
 
 Note that the application code must create the streams with names specified in
-the Outputs . For example, if your Outputs defines output streams named 
-ExampleOutputStream1 and ExampleOutputStream2 , then your application code must
+the Outputs. For example, if your Outputs defines output streams named 
+ExampleOutputStream1 and ExampleOutputStream2, then your application code must
 create these streams. **/
         ApplicationCode?: ApplicationCode;
     }
@@ -560,7 +560,7 @@ to the application, either when the application is created or later using the
 AddApplicationOutput operation, has a unique ID. You need to provide the ID to
 uniquely identify the output configuration that you want to delete from the
 application configuration. You can use the DescribeApplication operation to get
-the specific OutputId . **/
+the specific OutputId. **/
         OutputId: Id;
     }
     export interface DeleteApplicationOutputResponse {
@@ -573,7 +573,7 @@ the current application version. If the version specified is not the current
 version, the ConcurrentModificationException is returned. **/
         CurrentApplicationVersionId: ApplicationVersionId;
         /** ID of the reference data source. When you add a reference data source to your
-application using the AddApplicationReferenceDataSource , Amazon Kinesis
+application using the AddApplicationReferenceDataSource, Amazon Kinesis
 Analytics assigns an ID. You can use the DescribeApplication operation to get
 the reference ID. **/
         ReferenceId: Id;
@@ -637,12 +637,12 @@ to access the stream on your behalf. **/
 identifies the Firehose delivery stream&#x27;s ARN and an IAM role that enables
 Amazon Kinesis Analytics to access the stream on your behalf. **/
         KinesisFirehoseInput?: KinesisFirehoseInput;
-        /** Describes the number of in-application streams to create.
+        /** Describes the number of in-application streams to create. 
 
 Data from your source will be routed to these in-application input streams.
 
-(see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+ (see Configuring Application Input
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . **/
         InputParallelism?: InputParallelism;
         /** Describes the format of the data in the streaming source, and how each data
@@ -687,7 +687,7 @@ the streaming source). **/
     }
     export interface InputParallelism {
         /** Number of in-application streams to create. For more information, see Limits
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html] . **/
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html]. **/
         Count?: InputParallelismCount;
     }
     export interface InputParallelismUpdate {
@@ -708,15 +708,15 @@ stream. **/
     export interface InputStartingPositionConfiguration {
         /** The starting position on the stream.
 
- &amp;#42; LATEST - Start reading just after the most recent record in the stream.
+ &amp;#42;   LATEST - Start reading just after the most recent record in the stream.
    
    
- * TRIM_HORIZON - Start reading at the last untrimmed record in the stream,
+ *   TRIM_HORIZON - Start reading at the last untrimmed record in the stream,
    which is the oldest record available in the stream. This option is not
    available for an Amazon Kinesis Firehose delivery stream.
    
    
- * LAST_STOPPED_POINT - Resume reading from where the application last stopped
+ *   LAST_STOPPED_POINT - Resume reading from where the application last stopped
    reading. **/
         InputStartingPosition?: InputStartingPosition;
     }
@@ -753,7 +753,7 @@ Analytics creates for the specific streaming source). **/
 
 For example, consider the following JSON record:
 
-In the RecordRowPath , &quot;$&quot; refers to the root and path &quot;$.vehicle.Model&quot; refers
+In the RecordRowPath, &quot;$&quot; refers to the root and path &quot;$.vehicle.Model&quot; refers
 to the specific &quot;Model&quot; key in the JSON. **/
         RecordRowPath: RecordRowPath;
     }

@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: rest-json
    *
-   * Amazon API GatewayAmazon API Gateway helps developers deliver robust, secure,
+   * Amazon API Gateway Amazon API Gateway helps developers deliver robust, secure,
 and scalable mobile and web application back ends. Amazon API Gateway allows
 developers to securely connect mobile and web applications to APIs that run on
 AWS Lambda, Amazon EC2, or other publicly addressable web services that are
@@ -25,7 +25,7 @@ hosted outside of AWS.
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * Create an ApiKey resource.
+     * Create an ApiKey resource. 
 
 AWS CLI
 [http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html]
@@ -619,7 +619,7 @@ the structure of a model.
      */
     getRestApis(params: APIGateway.GetRestApisRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApis|any) => void): Request<APIGateway.RestApis|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any>;
     /**
-     * Generates a client SDK for a RestApi and Stage .
+     * Generates a client SDK for a RestApi and Stage.
      *
      * @error UnauthorizedException   
      * @error NotFoundException   
@@ -1130,12 +1130,12 @@ with a specified API key.
     export type UnauthorizedCacheControlHeaderStrategy = string;
 
     export interface Account {
-        /** The ARN of an Amazon CloudWatch role for the current Account . **/
+        /** The ARN of an Amazon CloudWatch role for the current Account. **/
         cloudwatchRoleArn?: String;
-        /** Specifies the API request limits configured for the current Account . **/
+        /** Specifies the API request limits configured for the current Account. **/
         throttleSettings?: ThrottleSettings;
         /** A list of features supported for the account. When usage plans are enabled, the
-features list will include an entry of &quot;UsagePlans&quot; . **/
+features list will include an entry of &quot;UsagePlans&quot;. **/
         features?: ListOfString;
         /** The version of the API keys used for the account. **/
         apiKeyVersion?: String;
@@ -1155,7 +1155,7 @@ Marketplace. **/
         /** Specifies whether the API Key can be used by callers. **/
         enabled?: Boolean;
         /** The date when the API Key was created, in ISO 8601 format
-[http://www.iso.org/iso/home/standards/iso8601.htm] . **/
+[http://www.iso.org/iso/home/standards/iso8601.htm]. **/
         createdDate?: Timestamp;
         /** When the API Key was last updated, in ISO 8601 format. **/
         lastUpdatedDate?: Timestamp;
@@ -1193,19 +1193,19 @@ Lambda function or COGNITO_USER_POOLS for an Amazon Cognito user pool. **/
         /** A list of the provider ARNs of the authorizer. For an TOKEN authorizer, this is
 not defined. For authorizers of the COGNITO_USER_POOLS type, each element
 corresponds to a user pool ARN of this format: 
-arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id} . **/
+arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}. **/
         providerARNs?: ListOfARNs;
         /** Optional customer-defined field, used in Swagger imports/exports. Has no
 functional impact. **/
         authType?: String;
         /** [Required] Specifies the authorizer&#x27;s Uniform Resource Identifier (URI). For 
 TOKEN authorizers, this must be a well-formed Lambda function URI, for example, 
-arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations 
+arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations
 . In general, the URI has this form 
-arn:aws:apigateway:{region}:lambda:path/{service_api} , where {region} is the
+arn:aws:apigateway:{region}:lambda:path/{service_api}, where {region} is the
 same as the region hosting the Lambda function, path indicates that the
 remaining substring in the URI should be treated as the path to the resource,
-including the initial / . For Lambda functions, this is usually of the form
+including the initial /. For Lambda functions, this is usually of the form
 /2015-03-31/functions/[FunctionARN]/invocations. **/
         authorizerUri?: String;
         /** Specifies the credentials required for the authorizer, if any. Two options are
@@ -1262,10 +1262,10 @@ mapping resources. **/
 configure certificate authentication in the integration endpoint . **/
         pemEncodedCertificate?: String;
         /** The date when the client certificate was created, in ISO 8601 format
-[http://www.iso.org/iso/home/standards/iso8601.htm] . **/
+[http://www.iso.org/iso/home/standards/iso8601.htm]. **/
         createdDate?: Timestamp;
         /** The date when the client certificate will expire, in ISO 8601 format
-[http://www.iso.org/iso/home/standards/iso8601.htm] . **/
+[http://www.iso.org/iso/home/standards/iso8601.htm]. **/
         expirationDate?: Timestamp;
     }
     export interface ClientCertificates {
@@ -1278,14 +1278,14 @@ ClientCertificate resources. **/
         message?: String;
     }
     export interface CreateApiKeyRequest {
-        /** The name of the ApiKey . **/
+        /** The name of the ApiKey. **/
         name?: String;
-        /** The description of the ApiKey . **/
+        /** The description of the ApiKey. **/
         description?: String;
         /** Specifies whether the ApiKey can be used by callers. **/
         enabled?: Boolean;
-        /** Specifies whether ( true ) or not ( false ) the key identifier is distinct from
-the created API key value. **/
+        /** Specifies whether (true) or not (false) the key identifier is distinct from the
+created API key value. **/
         generateDistinctId?: Boolean;
         /** Specifies a value of the API key. **/
         value?: String;
@@ -1349,7 +1349,7 @@ if a cache cluster is enabled. **/
         cacheClusterSize?: CacheClusterSize;
         /** A map that defines the stage variables for the Stage resource that is associated
 with the new deployment. Variable names can have alphanumeric and underscore
-characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+ . **/
+characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+. **/
         variables?: MapOfStringToString;
     }
     export interface CreateDocumentationPartRequest {
@@ -1413,16 +1413,16 @@ JSON-schema draft v4 [http://json-schema.org/documentation.html] model. **/
         pathPart: String;
     }
     export interface CreateRestApiRequest {
-        /** The name of the RestApi . **/
+        /** The name of the RestApi. **/
         name: String;
-        /** The description of the RestApi . **/
+        /** The description of the RestApi. **/
         description?: String;
         /** A version identifier for the API. **/
         version?: String;
         /** The ID of the RestApi that you want to clone from. **/
         cloneFrom?: String;
-        /** The list of binary media types supported by the RestApi . By default, the 
-RestApi supports only UTF-8-encoded text payloads. **/
+        /** The list of binary media types supported by the RestApi. By default, the RestApi 
+supports only UTF-8-encoded text payloads. **/
         binaryMediaTypes?: ListOfString;
     }
     export interface CreateStageRequest {
@@ -1440,7 +1440,7 @@ RestApi supports only UTF-8-encoded text payloads. **/
         cacheClusterSize?: CacheClusterSize;
         /** A map that defines the stage variables for the new Stage resource. Variable
 names can have alphanumeric and underscore characters, and the values must match 
-[A-Za-z0-9-._~:/?#&amp;=,]+ . **/
+[A-Za-z0-9-._~:/?#&amp;=,]+. **/
         variables?: MapOfStringToString;
         /** The version of the associated API documentation. **/
         documentationVersion?: String;
@@ -1607,10 +1607,10 @@ entities, unless overridden. **/
         location?: DocumentationPartLocation;
         /** A content map of API-specific key-value pairs describing the targeted API
 entity. The map must be encoded as a JSON string, e.g., &quot;{ \&quot;description\&quot;:
-\&quot;The API does ...\&quot; }&quot; . Only Swagger-compliant documentation-related fields
+\&quot;The API does ...\&quot; }&quot;. Only Swagger-compliant documentation-related fields
 from the properties map are exported and, hence, published as part of the API
 entity definitions, while the original documentation parts are exported in a
-Swagger extension of x-amazon-apigateway-documentation . **/
+Swagger extension of x-amazon-apigateway-documentation. **/
         properties?: String;
     }
     export interface DocumentationPartIds {
@@ -1621,37 +1621,37 @@ Swagger extension of x-amazon-apigateway-documentation . **/
     }
     export interface DocumentationPartLocation {
         /** The type of API entity to which the documentation content applies. It is a valid
-and required field for API entity types of API , AUTHORIZER , MODEL , RESOURCE , 
-METHOD , PATH_PARAMETER , QUERY_PARAMETER , REQUEST_HEADER , REQUEST_BODY , 
-RESPONSE , RESPONSE_HEADER , and RESPONSE_BODY . Content inheritance does not
-apply to any entity of the API , AUTHROZER , MODEL , or RESOURCE type. **/
+and required field for API entity types of API, AUTHORIZER, MODEL, RESOURCE, 
+METHOD, PATH_PARAMETER, QUERY_PARAMETER, REQUEST_HEADER, REQUEST_BODY, RESPONSE, 
+RESPONSE_HEADER, and RESPONSE_BODY. Content inheritance does not apply to any
+entity of the API, AUTHROZER, MODEL, or RESOURCE type. **/
         type: DocumentationPartType;
         /** The URL path of the target. It is a valid field for the API entity types of 
-RESOURCE , METHOD , PATH_PARAMETER , QUERY_PARAMETER , REQUEST_HEADER , 
-REQUEST_BODY , RESPONSE , RESPONSE_HEADER , and RESPONSE_BODY . The default
-value is / for the root resource. When an applicable child entity inherits the
-content of another entity of the same type with more general specifications of
-the other location attributes, the child entity&#x27;s path attribute must match that
-of the parent entity as a prefix. **/
+RESOURCE, METHOD, PATH_PARAMETER, QUERY_PARAMETER, REQUEST_HEADER, REQUEST_BODY, 
+RESPONSE, RESPONSE_HEADER, and RESPONSE_BODY. The default value is / for the
+root resource. When an applicable child entity inherits the content of another
+entity of the same type with more general specifications of the other location 
+attributes, the child entity&#x27;s path attribute must match that of the parent
+entity as a prefix. **/
         path?: String;
         /** The HTTP verb of a method. It is a valid field for the API entity types of 
-METHOD , PATH_PARAMETER , QUERY_PARAMETER , REQUEST_HEADER , REQUEST_BODY , 
-RESPONSE , RESPONSE_HEADER , and RESPONSE_BODY . The default value is &amp;#42; for any
-method. When an applicable child entity inherits the content of an entity of the
-same type with more general specifications of the other location attributes, the
-child entity&#x27;s method attribute must match that of the parent entity exactly. **/
+METHOD, PATH_PARAMETER, QUERY_PARAMETER, REQUEST_HEADER, REQUEST_BODY, RESPONSE, 
+RESPONSE_HEADER, and RESPONSE_BODY. The default value is &amp;#42; for any method. When
+an applicable child entity inherits the content of an entity of the same type
+with more general specifications of the other location attributes, the child
+entity&#x27;s method attribute must match that of the parent entity exactly. **/
         method?: String;
         /** The HTTP status code of a response. It is a valid field for the API entity types
-of RESPONSE , RESPONSE_HEADER , and RESPONSE_BODY . The default value is &amp;#42; for
-any status code. When an applicable child entity inherits the content of an
-entity of the same type with more general specifications of the other location 
+of RESPONSE, RESPONSE_HEADER, and RESPONSE_BODY. The default value is &amp;#42; for any
+status code. When an applicable child entity inherits the content of an entity
+of the same type with more general specifications of the other location 
 attributes, the child entity&#x27;s statusCode attribute must match that of the
 parent entity exactly. **/
         statusCode?: DocumentationPartLocationStatusCode;
         /** The name of the targeted API entity. It is a valid and required field for the
-API entity types of AUTHORIZER , MODEL , PATH_PARAMETER , QUERY_PARAMETER , 
-REQUEST_HEADER , REQUEST_BODY and RESPONSE_HEADER . It is an invalid field for
-any other entity type. **/
+API entity types of AUTHORIZER, MODEL, PATH_PARAMETER, QUERY_PARAMETER, 
+REQUEST_HEADER, REQUEST_BODY and RESPONSE_HEADER. It is an invalid field for any
+other entity type. **/
         name?: String;
     }
     export interface DocumentationParts {
@@ -1680,11 +1680,11 @@ collection of an API. **/
         /** The name of the certificate. **/
         certificateName?: String;
         /** The date when the certificate was uploaded, in ISO 8601 format
-[http://www.iso.org/iso/home/standards/iso8601.htm] . **/
+[http://www.iso.org/iso/home/standards/iso8601.htm]. **/
         certificateUploadDate?: Timestamp;
         /** The domain name of the Amazon CloudFront distribution. For more information, see
 the Amazon CloudFront documentation
-[http://aws.amazon.com/documentation/cloudfront/] . **/
+[http://aws.amazon.com/documentation/cloudfront/]. **/
         distributionDomainName?: String;
     }
     export interface DomainNames {
@@ -1699,7 +1699,7 @@ valid &#x27;accept&#x27; type in the request. **/
         contentType?: String;
         /** The content-disposition header value in the HTTP response. **/
         contentDisposition?: String;
-        /** The binary blob response to GetExport , which contains the export. **/
+        /** The binary blob response to GetExport, which contains the export. **/
         body?: Blob;
     }
     export interface FlushStageAuthorizersCacheRequest {
@@ -1715,7 +1715,7 @@ valid &#x27;accept&#x27; type in the request. **/
         stageName: String;
     }
     export interface GenerateClientCertificateRequest {
-        /** The description of the ClientCertificate . **/
+        /** The description of the ClientCertificate. **/
         description?: String;
     }
     export interface GetAccountRequest {
@@ -1723,8 +1723,8 @@ valid &#x27;accept&#x27; type in the request. **/
     export interface GetApiKeyRequest {
         /** The identifier of the ApiKey resource. **/
         apiKey: String;
-        /** A boolean flag to specify whether ( true ) or not ( false ) the result contains
-the key value. **/
+        /** A boolean flag to specify whether (true) or not (false) the result contains the
+key value. **/
         includeValue?: NullableBoolean;
     }
     export interface GetApiKeysRequest {
@@ -1737,8 +1737,8 @@ the key value. **/
         /** The identifier of a customer in AWS Marketplace or an external system, such as a
 developer portal. **/
         customerId?: String;
-        /** A boolean flag to specify whether ( true ) or not ( false ) the result contains
-key values. **/
+        /** A boolean flag to specify whether (true) or not (false) the result contains key
+values. **/
         includeValues?: NullableBoolean;
     }
     export interface GetAuthorizerRequest {
@@ -1864,14 +1864,14 @@ about. The default limit is 25. It should be an integer between 1 - 500. **/
         /** The type of export. Currently only &#x27;swagger&#x27; is supported. **/
         exportType: String;
         /** A key-value map of query string parameters that specify properties of the
-export, depending on the requested exportType . For exportType swagger , any
+export, depending on the requested exportType. For exportType swagger, any
 combination of the following parameters are supported: integrations will export
 the API with x-amazon-apigateway-integration extensions. authorizers will export
 the API with x-amazon-apigateway-authorizer extensions. postman will export the
 API with Postman extensions, allowing for import to the Postman tool **/
         parameters?: MapOfStringToString;
-        /** The content-type of the export, for example application/json . Currently 
-application/json and application/yaml are supported for exportType of swagger .
+        /** The content-type of the export, for example application/json. Currently 
+application/json and application/yaml are supported for exportType of swagger.
 This should be specified in the Accept header for direct API requests. **/
         accepts?: String;
     }
@@ -1916,9 +1916,9 @@ This should be specified in the Accept header for direct API requests. **/
         restApiId: String;
         /** The name of the model as an identifier. **/
         modelName: String;
-        /** A query parameter of a Boolean value to resolve ( true ) all external model
-references and returns a flattened model schema or not ( false ) The default is 
-false . **/
+        /** A query parameter of a Boolean value to resolve (true) all external model
+references and returns a flattened model schema or not (false) The default is 
+false. **/
         flatten?: Boolean;
     }
     export interface GetModelTemplateRequest {
@@ -1970,13 +1970,13 @@ about. The default limit is 25. It should be an integer between 1 - 500. **/
         restApiId: String;
         /** The name of the Stage that the SDK will use. **/
         stageName: String;
-        /** The language for the generated SDK. Currently javascript , android , and 
+        /** The language for the generated SDK. Currently javascript, android, and 
 objectivec (for iOS) are supported. **/
         sdkType: String;
         /** A key-value map of query string parameters that specify properties of the SDK,
-depending on the requested sdkType . For sdkType of objectivec , a parameter
-named classPrefix is required. For sdkType of android , parameters named groupId 
-, artifactId , artifactVersion , and invokerPackage are required. **/
+depending on the requested sdkType. For sdkType of objectivec, a parameter named 
+classPrefix is required. For sdkType of android, parameters named groupId, 
+artifactId, artifactVersion, and invokerPackage are required. **/
         parameters?: MapOfStringToString;
     }
     export interface GetSdkTypeRequest {
@@ -2053,34 +2053,33 @@ UsagePlan resource. **/
     export interface ImportApiKeysRequest {
         /** The payload of the POST request to import API keys. For the payload format, see 
 API Key File Format
-[http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html] 
+[http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html]
 . **/
         body: Blob;
         /** A query parameter to specify the input format to imported API keys. Currently,
 only the csv format is supported. **/
         format: ApiKeysFormat;
-        /** A query parameter to indicate whether to rollback ApiKey importation ( true ) or
-not ( false ) when error is encountered. **/
+        /** A query parameter to indicate whether to rollback ApiKey importation (true) or
+not (false) when error is encountered. **/
         failOnWarnings?: Boolean;
     }
     export interface ImportDocumentationPartsRequest {
         /** [Required] The identifier of an API of the to-be-imported documentation parts. **/
         restApiId: String;
-        /** A query parameter to indicate whether to overwrite ( OVERWRITE ) any existing 
-DocumentationParts definition or to merge ( MERGE ) the new definition into the
-existing one. The default value is MERGE . **/
+        /** A query parameter to indicate whether to overwrite (OVERWRITE) any existing 
+DocumentationParts definition or to merge (MERGE) the new definition into the
+existing one. The default value is MERGE. **/
         mode?: PutMode;
-        /** A query parameter to specify whether to rollback the documentation importation ( 
-true ) or not ( false ) when a warning is encountered. The default value is 
-false . **/
+        /** A query parameter to specify whether to rollback the documentation importation (
+true) or not (false) when a warning is encountered. The default value is false. **/
         failOnWarnings?: Boolean;
         /** [Required] Raw byte array representing the to-be-imported documentation parts.
 To import from a Swagger file, this is a JSON object. **/
         body: Blob;
     }
     export interface ImportRestApiRequest {
-        /** A query parameter to indicate whether to rollback the API creation ( true ) or
-not ( false ) when a warning is encountered. The default value is false . **/
+        /** A query parameter to indicate whether to rollback the API creation (true) or not
+(false) when a warning is encountered. The default value is false. **/
         failOnWarnings?: Boolean;
         /** Custom header parameters as part of the request. **/
         parameters?: MapOfStringToString;
@@ -2100,20 +2099,20 @@ type. **/
         /** Specifies the integration&#x27;s Uniform Resource Identifier (URI). For HTTP
 integrations, the URI must be a fully formed, encoded HTTP(S) URL according to
 the RFC-3986 specification
-[https://en.wikipedia.org/wiki/Uniform_Resource_Identifier] . For AWS
+[https://en.wikipedia.org/wiki/Uniform_Resource_Identifier]. For AWS
 integrations, the URI should be of the form 
-arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api} 
-. Region , subdomain and service are used to determine the right endpoint. For
+arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}
+. Region, subdomain and service are used to determine the right endpoint. For
 AWS services that use the Action= query string parameter, service_api should be
 a valid action for the desired service. For RESTful AWS service APIs, path is
 used to indicate that the remaining substring in the URI should be treated as
-the path to the resource, including the initial / . **/
+the path to the resource, including the initial /. **/
         uri?: String;
         /** Specifies the credentials required for the integration, if any. For AWS
 integrations, three options are available. To specify an IAM Role for Amazon API
 Gateway to assume, use the role&#x27;s Amazon Resource Name (ARN). To require that
 the caller&#x27;s identity be passed through from the request, specify the string 
-arn:aws:iam::\&amp;#42;:user/\* . To use resource-based permissions on supported AWS
+arn:aws:iam::\&amp;#42;:user/\*. To use resource-based permissions on supported AWS
 services, specify null. **/
         credentials?: String;
         /** A key-value map specifying request parameters that are passed from the method
@@ -2121,42 +2120,42 @@ request to the back end. The key is an integration request parameter name and
 the associated value is a method request parameter value or static value that
 must be enclosed within single quotes and pre-encoded as required by the back
 end. The method request parameter value must match the pattern of 
-method.request.{location}.{name} , where location is querystring , path , or 
-header and name must be a valid and unique method request parameter name. **/
+method.request.{location}.{name}, where location is querystring, path, or header 
+and name must be a valid and unique method request parameter name. **/
         requestParameters?: MapOfStringToString;
         /** Represents a map of Velocity templates that are applied on the request payload
 based on the value of the Content-Type header sent by the client. The content
 type value is the key in this map, and the template (as a String) is the value. **/
         requestTemplates?: MapOfStringToString;
-        /** Specifies how the method request body of an unmapped content type will be passed
-through the integration request to the back end without transformation. A
+        /** Specifies how the method request body of an unmapped content type will be
+passed through the integration request to the back end without transformation. A
 content type is unmapped if no mapping template is defined in the integration or
 the content type does not match any of the mapped content types, as specified in 
-requestTemplates . There are three valid values: WHEN_NO_MATCH , 
-WHEN_NO_TEMPLATES , and NEVER .
+requestTemplates. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES
+, and NEVER. 
 
- &amp;#42; WHEN_NO_MATCH passes the method request body through the integration request
+ &amp;#42;  WHEN_NO_MATCH passes the method request body through the integration request
    to the back end without transformation when the method request content type
    does not match any content type associated with the mapping templates defined
-   in the integration request.
- * WHEN_NO_TEMPLATES passes the method request body through the integration
+   in the integration request. 
+ *  WHEN_NO_TEMPLATES passes the method request body through the integration
    request to the back end without transformation when no mapping template is
    defined in the integration request. If a template is defined when this option
    is selected, the method request of an unmapped content-type will be rejected
-   with an HTTP 415 Unsupported Media Type response.
- * NEVER rejects the method request with an HTTP 415 Unsupported Media Type 
+   with an HTTP 415 Unsupported Media Type response. 
+ *  NEVER rejects the method request with an HTTP 415 Unsupported Media Type 
    response when either the method request content type does not match any
    content type associated with the mapping templates defined in the integration
    request or no mapping template is defined in the integration request. **/
         passthroughBehavior?: String;
         /** Specifies how to handle request payload content type conversions. Supported
-values are CONVERT_TO_BINARY and CONVERT_TO_TEXT , with the following behaviors:
+values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
 
- &amp;#42; CONVERT_TO_BINARY : Converts a request payload from a Base64-encoded string
-   to the corresponding binary blob.
+ &amp;#42; CONVERT_TO_BINARY: Converts a request payload from a Base64-encoded string to
+   the corresponding binary blob.
    
    
- * CONVERT_TO_TEXT : Converts a request payload from a binary blob to a
+ * CONVERT_TO_TEXT: Converts a request payload from a binary blob to a
    Base64-encoded string.
    
    
@@ -2192,25 +2191,25 @@ Creating an API
     }
     export interface IntegrationResponse {
         /** Specifies the status code that is used to map the integration response to an
-existing MethodResponse . **/
+existing MethodResponse. **/
         statusCode?: StatusCode;
         /** Specifies the regular expression (regex) pattern used to choose an integration
 response based on the response from the back end. For example, if the success
 response returns nothing and the error response returns some string, you could
 use the .+ regex to match error response. However, make sure that the error
-response does not contain any newline ( \n ) character in such cases. If the
-back end is an AWS Lambda function, the AWS Lambda function error header is
-matched. For all other HTTP and AWS back ends, the HTTP status code is matched. **/
+response does not contain any newline (\n) character in such cases. If the back
+end is an AWS Lambda function, the AWS Lambda function error header is matched.
+For all other HTTP and AWS back ends, the HTTP status code is matched. **/
         selectionPattern?: String;
         /** A key-value map specifying response parameters that are passed to the method
 response from the back end. The key is a method response header parameter name
 and the mapped value is an integration response header value, a static value
 enclosed within a pair of single quotes, or a JSON expression from the
 integration response body. The mapping key must match the pattern of 
-method.response.header.{name} , where name is a valid and unique header name.
-The mapped non-static value must match the pattern of 
+method.response.header.{name}, where name is a valid and unique header name. The
+mapped non-static value must match the pattern of 
 integration.response.header.{name} or 
-integration.response.body.{JSON-expression} , where name is a valid and unique
+integration.response.body.{JSON-expression}, where name is a valid and unique
 response header name and JSON-expression is a valid JSON expression without the 
 $ prefix. **/
         responseParameters?: MapOfStringToString;
@@ -2219,13 +2218,13 @@ Response templates are represented as a key/value map, with a content-type as
 the key and a template as the value. **/
         responseTemplates?: MapOfStringToString;
         /** Specifies how to handle response payload content type conversions. Supported
-values are CONVERT_TO_BINARY and CONVERT_TO_TEXT , with the following behaviors:
+values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
 
- &amp;#42; CONVERT_TO_BINARY : Converts a response payload from a Base64-encoded string
+ &amp;#42; CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string
    to the corresponding binary blob.
    
    
- * CONVERT_TO_TEXT : Converts a response payload from a binary blob to a
+ * CONVERT_TO_TEXT: Converts a response payload from a binary blob to a
    Base64-encoded string.
    
    
@@ -2244,7 +2243,7 @@ from the integration response to the method response without modification. **/
         /** The method&#x27;s authorization type. **/
         authorizationType?: String;
         /** The identifier of an Authorizer to use on this method. The authorizationType 
-must be CUSTOM . **/
+must be CUSTOM. **/
         authorizerId?: String;
         /** A boolean flag specifying whether a valid ApiKey is required to invoke this
 method. **/
@@ -2255,18 +2254,18 @@ assign the operationName of ListPets for the GET /pets method in PetStore
         operationName?: String;
         /** A key-value map defining required or optional method request parameters that can
 be accepted by Amazon API Gateway. A key is a method request parameter name
-matching the pattern of method.request.{location}.{name} , where location is 
-querystring , path , or header and name is a valid and unique parameter name.
-The value associated with the key is a Boolean flag indicating whether the
-parameter is required ( true ) or optional ( false ). The method request
-parameter names defined here are available in Integration to be mapped to
-integration request parameters or templates. **/
+matching the pattern of method.request.{location}.{name}, where location is 
+querystring, path, or header and name is a valid and unique parameter name. The
+value associated with the key is a Boolean flag indicating whether the parameter
+is required (true) or optional (false). The method request parameter names
+defined here are available in Integration to be mapped to integration request
+parameters or templates. **/
         requestParameters?: MapOfStringToBoolean;
         /** A key-value map specifying data schemas, represented by Model resources, (as the
 mapped value) of the request payloads of given content types (as the mapping
 key). **/
         requestModels?: MapOfStringToString;
-        /** Gets a method response associated with a given HTTP status code.
+        /** Gets a method response associated with a given HTTP status code. 
 
 The collection of method responses are encapsulated in a key-value map, where
 the key is a response&#x27;s HTTP status code and the value is a MethodResponse 
@@ -2296,7 +2295,7 @@ request compliant with the back end.
 
 
 
-EXAMPLE:
+EXAMPLE: 
 REQUEST
 
 
@@ -2321,16 +2320,15 @@ AWS CLI
 API Gateway can send back to the caller. A key defines a method response header
 and the value specifies whether the associated method response header is
 required or not. The expression of the key must match the pattern 
-method.response.header.{name} , where name is a valid and unique header name.
+method.response.header.{name}, where name is a valid and unique header name.
 Amazon API Gateway passes certain integration response data to the method
 response headers specified here according to the mapping you prescribe in the
-API&#x27;s IntegrationResponse . The integration response data that can be mapped
+API&#x27;s IntegrationResponse. The integration response data that can be mapped
 include an integration response header expressed in 
-integration.response.header.{name} , a static value enclosed within a pair of
-single quotes (e.g., &#x27;application/json&#x27; ), or a JSON expression from the
-back-end response payload in the form of 
-integration.response.body.{JSON-expression} , where JSON-expression is a valid
-JSON expression without the $ prefix.) **/
+integration.response.header.{name}, a static value enclosed within a pair of
+single quotes (e.g., &#x27;application/json&#x27;), or a JSON expression from the back-end
+response payload in the form of integration.response.body.{JSON-expression},
+where JSON-expression is a valid JSON expression without the $ prefix.) **/
         responseParameters?: MapOfStringToBoolean;
         /** Specifies the Model resources used for the response&#x27;s content-type. Response
 models are represented as a key/value map, with a content-type as the key and a 
@@ -2339,53 +2337,53 @@ Model name as the value. **/
     }
     export interface MethodSetting {
         /** Specifies whether Amazon CloudWatch metrics are enabled for this method. The
-PATCH path for this setting is /{method_setting_key}/metrics/enabled , and the
+PATCH path for this setting is /{method_setting_key}/metrics/enabled, and the
 value is a Boolean. **/
         metricsEnabled?: Boolean;
         /** Specifies the logging level for this method, which effects the log entries
 pushed to Amazon CloudWatch Logs. The PATCH path for this setting is 
-/{method_setting_key}/logging/loglevel , and the available levels are OFF , 
-ERROR , and INFO . **/
+/{method_setting_key}/logging/loglevel, and the available levels are OFF, ERROR,
+and INFO. **/
         loggingLevel?: String;
         /** Specifies whether data trace logging is enabled for this method, which effects
 the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this
-setting is /{method_setting_key}/logging/dataTrace , and the value is a Boolean. **/
+setting is /{method_setting_key}/logging/dataTrace, and the value is a Boolean. **/
         dataTraceEnabled?: Boolean;
         /** Specifies the throttling burst limit. The PATCH path for this setting is 
-/{method_setting_key}/throttling/burstLimit , and the value is an integer. **/
+/{method_setting_key}/throttling/burstLimit, and the value is an integer. **/
         throttlingBurstLimit?: Integer;
         /** Specifies the throttling rate limit. The PATCH path for this setting is 
-/{method_setting_key}/throttling/rateLimit , and the value is a double. **/
+/{method_setting_key}/throttling/rateLimit, and the value is a double. **/
         throttlingRateLimit?: Double;
         /** Specifies whether responses should be cached and returned for requests. A cache
 cluster must be enabled on the stage for responses to be cached. The PATCH path
-for this setting is /{method_setting_key}/caching/enabled , and the value is a
+for this setting is /{method_setting_key}/caching/enabled, and the value is a
 Boolean. **/
         cachingEnabled?: Boolean;
         /** Specifies the time to live (TTL), in seconds, for cached responses. The higher
 the TTL, the longer the response will be cached. The PATCH path for this setting
-is /{method_setting_key}/caching/ttlInSeconds , and the value is an integer. **/
+is /{method_setting_key}/caching/ttlInSeconds, and the value is an integer. **/
         cacheTtlInSeconds?: Integer;
         /** Specifies whether the cached responses are encrypted. The PATCH path for this
-setting is /{method_setting_key}/caching/dataEncrypted , and the value is a
+setting is /{method_setting_key}/caching/dataEncrypted, and the value is a
 Boolean. **/
         cacheDataEncrypted?: Boolean;
         /** Specifies whether authorization is required for a cache invalidation request.
 The PATCH path for this setting is 
-/{method_setting_key}/caching/requireAuthorizationForCacheControl , and the
-value is a Boolean. **/
+/{method_setting_key}/caching/requireAuthorizationForCacheControl, and the value
+is a Boolean. **/
         requireAuthorizationForCacheControl?: Boolean;
         /** Specifies how to handle unauthorized requests for cache invalidation. The PATCH
 path for this setting is 
-/{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy , and the
-available values are FAIL_WITH_403 , SUCCEED_WITH_RESPONSE_HEADER , 
-SUCCEED_WITHOUT_RESPONSE_HEADER . **/
+/{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy, and the
+available values are FAIL_WITH_403, SUCCEED_WITH_RESPONSE_HEADER, 
+SUCCEED_WITHOUT_RESPONSE_HEADER. **/
         unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy;
     }
     export interface MethodSnapshot {
         /** Specifies the type of authorization used for the method. **/
         authorizationType?: String;
-        /** Specifies whether the method requires a valid ApiKey . **/
+        /** Specifies whether the method requires a valid ApiKey. **/
         apiKeyRequired?: Boolean;
     }
     export interface Model {
@@ -2423,10 +2421,10 @@ an error message. **/
         /** The op operation&#x27;s target, as identified by a JSON Pointer
 [https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08] value that
 references a location within the targeted resource. For example, if the target
-resource has an updateable property of {&quot;name&quot;:&quot;value&quot;} , the path for this
-property is /name . If the name property value is a JSON object (e.g., {&quot;name&quot;:
-{&quot;child/name&quot;: &quot;child-value&quot;}} ), the path for the child/name property will be 
-/name/child~1name . Any slash (&quot;/&quot;) character appearing in path names must be
+resource has an updateable property of {&quot;name&quot;:&quot;value&quot;}, the path for this
+property is /name. If the name property value is a JSON object (e.g., {&quot;name&quot;:
+{&quot;child/name&quot;: &quot;child-value&quot;}}), the path for the child/name property will be 
+/name/child~1name. Any slash (&quot;/&quot;) character appearing in path names must be
 escaped with &quot;~1&quot;, as shown in the example above. Each op operation can have
 only one path associated with it. **/
         path?: String;
@@ -2460,8 +2458,8 @@ request to the back end. The key is an integration request parameter name and
 the associated value is a method request parameter value or static value that
 must be enclosed within single quotes and pre-encoded as required by the back
 end. The method request parameter value must match the pattern of 
-method.request.{location}.{name} , where location is querystring , path , or 
-header and name must be a valid and unique method request parameter name. **/
+method.request.{location}.{name}, where location is querystring, path, or header 
+and name must be a valid and unique method request parameter name. **/
         requestParameters?: MapOfStringToString;
         /** Represents a map of Velocity templates that are applied on the request payload
 based on the value of the Content-Type header sent by the client. The content
@@ -2470,7 +2468,7 @@ type value is the key in this map, and the template (as a String) is the value. 
         /** Specifies the pass-through behavior for incoming requests based on the
 Content-Type header in the request, and the available mapping templates
 specified as the requestTemplates property on the Integration resource. There
-are three valid values: WHEN_NO_MATCH , WHEN_NO_TEMPLATES , and NEVER .
+are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. 
 
  &amp;#42; WHEN_NO_MATCH passes the request body for unmapped content types through to
    the integration back end without transformation.
@@ -2489,13 +2487,13 @@ are three valid values: WHEN_NO_MATCH , WHEN_NO_TEMPLATES , and NEVER .
         /** Specifies a put integration input&#x27;s cache key parameters. **/
         cacheKeyParameters?: ListOfString;
         /** Specifies how to handle request payload content type conversions. Supported
-values are CONVERT_TO_BINARY and CONVERT_TO_TEXT , with the following behaviors:
+values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
 
- &amp;#42; CONVERT_TO_BINARY : Converts a request payload from a Base64-encoded string
-   to the corresponding binary blob.
+ &amp;#42; CONVERT_TO_BINARY: Converts a request payload from a Base64-encoded string to
+   the corresponding binary blob.
    
    
- * CONVERT_TO_TEXT : Converts a request payload from a binary blob to a
+ * CONVERT_TO_TEXT: Converts a request payload from a binary blob to a
    Base64-encoded string.
    
    
@@ -2513,7 +2511,7 @@ the passthroughBehaviors is configured to support payload pass-through. **/
         /** Specifies a put integration response request&#x27;s HTTP method. **/
         httpMethod: String;
         /** Specifies the status code that is used to map the integration response to an
-existing MethodResponse . **/
+existing MethodResponse. **/
         statusCode: StatusCode;
         /** Specifies the selection pattern of a put integration response. **/
         selectionPattern?: String;
@@ -2522,23 +2520,23 @@ response from the back end. The key is a method response header parameter name
 and the mapped value is an integration response header value, a static value
 enclosed within a pair of single quotes, or a JSON expression from the
 integration response body. The mapping key must match the pattern of 
-method.response.header.{name} , where name is a valid and unique header name.
-The mapped non-static value must match the pattern of 
+method.response.header.{name}, where name is a valid and unique header name. The
+mapped non-static value must match the pattern of 
 integration.response.header.{name} or 
-integration.response.body.{JSON-expression} , where name must be a valid and
+integration.response.body.{JSON-expression}, where name must be a valid and
 unique response header name and JSON-expression a valid JSON expression without
 the $ prefix. **/
         responseParameters?: MapOfStringToString;
         /** Specifies a put integration response&#x27;s templates. **/
         responseTemplates?: MapOfStringToString;
         /** Specifies how to handle response payload content type conversions. Supported
-values are CONVERT_TO_BINARY and CONVERT_TO_TEXT , with the following behaviors:
+values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
 
- &amp;#42; CONVERT_TO_BINARY : Converts a response payload from a Base64-encoded string
+ &amp;#42; CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string
    to the corresponding binary blob.
    
    
- * CONVERT_TO_TEXT : Converts a response payload from a binary blob to a
+ * CONVERT_TO_TEXT: Converts a response payload from a binary blob to a
    Base64-encoded string.
    
    
@@ -2559,7 +2557,7 @@ from the integration response to the method response without modification. **/
         /** Specifies the identifier of an Authorizer to use on this Method, if the type is
 CUSTOM. **/
         authorizerId?: String;
-        /** Specifies whether the method required a valid ApiKey . **/
+        /** Specifies whether the method required a valid ApiKey. **/
         apiKeyRequired?: Boolean;
         /** A human-friendly operation identifier for the method. For example, you can
 assign the operationName of ListPets for the GET /pets method in PetStore
@@ -2567,12 +2565,12 @@ assign the operationName of ListPets for the GET /pets method in PetStore
         operationName?: String;
         /** A key-value map defining required or optional method request parameters that can
 be accepted by Amazon API Gateway. A key defines a method request parameter name
-matching the pattern of method.request.{location}.{name} , where location is 
-querystring , path , or header and name is a valid and unique parameter name.
-The value associated with the key is a Boolean flag indicating whether the
-parameter is required ( true ) or optional ( false ). The method request
-parameter names defined here are available in Integration to be mapped to
-integration request parameters or body-mapping templates. **/
+matching the pattern of method.request.{location}.{name}, where location is 
+querystring, path, or header and name is a valid and unique parameter name. The
+value associated with the key is a Boolean flag indicating whether the parameter
+is required (true) or optional (false). The method request parameter names
+defined here are available in Integration to be mapped to integration request
+parameters or body-mapping templates. **/
         requestParameters?: MapOfStringToBoolean;
         /** Specifies the Model resources used for the request&#x27;s content type. Request
 models are represented as a key/value map, with a content type as the key and a 
@@ -2592,13 +2590,13 @@ Model name as the value. **/
 API Gateway can send back to the caller. A key defines a method response header
 name and the associated value is a Boolean flag indicating whether the method
 response parameter is required or not. The method response header names must
-match the pattern of method.response.header.{name} , where name is a valid and
+match the pattern of method.response.header.{name}, where name is a valid and
 unique header name. The response parameter names defined here are available in
 the integration response to be mapped from an integration response header
-expressed in integration.response.header.{name} , a static value enclosed within
-a pair of single quotes (e.g., &#x27;application/json&#x27; ), or a JSON expression from
+expressed in integration.response.header.{name}, a static value enclosed within
+a pair of single quotes (e.g., &#x27;application/json&#x27;), or a JSON expression from
 the back-end response payload in the form of 
-integration.response.body.{JSON-expression} , where JSON-expression is a valid
+integration.response.body.{JSON-expression}, where JSON-expression is a valid
 JSON expression without the $ prefix.) **/
         responseParameters?: MapOfStringToBoolean;
         /** Specifies the Model resources used for the response&#x27;s content type. Response
@@ -2612,8 +2610,8 @@ Model name as the value. **/
         /** The mode query parameter to specify the update mode. Valid values are &quot;merge&quot;
 and &quot;overwrite&quot;. By default, the update mode is &quot;merge&quot;. **/
         mode?: PutMode;
-        /** A query parameter to indicate whether to rollback the API update ( true ) or not
-( false ) when a warning is encountered. The default value is false . **/
+        /** A query parameter to indicate whether to rollback the API update (true) or not (
+false) when a warning is encountered. The default value is false. **/
         failOnWarnings?: Boolean;
         /** Custom headers supplied as part of the request. **/
         parameters?: MapOfStringToString;
@@ -2656,7 +2654,7 @@ RESPONSE
 
 If the OPTIONS is enabled on the resource, you can follow the example here to
 get that method. Just replace the GET of the last path segment in the request
-URL with OPTIONS . **/
+URL with OPTIONS. **/
         resourceMethods?: MapOfMethod;
     }
     export interface Resources {
@@ -2673,15 +2671,15 @@ Amazon API Gateway. **/
         /** The API&#x27;s description. **/
         description?: String;
         /** The date when the API was created, in ISO 8601 format
-[http://www.iso.org/iso/home/standards/iso8601.htm] . **/
+[http://www.iso.org/iso/home/standards/iso8601.htm]. **/
         createdDate?: Timestamp;
         /** A version identifier for the API. **/
         version?: String;
         /** The warning messages reported when failonwarnings is turned on during API
 import. **/
         warnings?: ListOfString;
-        /** The list of binary media types supported by the RestApi . By default, the 
-RestApi supports only UTF-8-encoded text payloads. **/
+        /** The list of binary media types supported by the RestApi. By default, the RestApi 
+supports only UTF-8-encoded text payloads. **/
         binaryMediaTypes?: ListOfString;
     }
     export interface RestApis {
@@ -2697,7 +2695,7 @@ RestApi supports only UTF-8-encoded text payloads. **/
         /** The description of an SdkType configuration property. **/
         description?: String;
         /** A boolean flag of an SdkType configuration property to indicate if the
-associated SDK configuration property is required ( true ) or not ( false ). **/
+associated SDK configuration property is required (true) or not (false). **/
         required?: Boolean;
         /** The default value of an SdkType configuration property. **/
         defaultValue?: String;
@@ -2707,7 +2705,7 @@ associated SDK configuration property is required ( true ) or not ( false ). **/
         contentType?: String;
         /** The content-disposition header value in the HTTP response. **/
         contentDisposition?: String;
-        /** The binary blob response to GetSdk , which contains the generated SDK. **/
+        /** The binary blob response to GetSdk, which contains the generated SDK. **/
         body?: Blob;
     }
     export interface SdkType {
@@ -2715,9 +2713,9 @@ associated SDK configuration property is required ( true ) or not ( false ). **/
         id?: String;
         /** The user-friendly name of an SdkType instance. **/
         friendlyName?: String;
-        /** The description of an SdkType . **/
+        /** The description of an SdkType. **/
         description?: String;
-        /** A list of configuration properties of an SdkType . **/
+        /** A list of configuration properties of an SdkType. **/
         configurationProperties?: ListOfSdkConfigurationProperty;
     }
     export interface SdkTypes {
@@ -2752,15 +2750,15 @@ overriding all methods in the stage. **/
         methodSettings?: MapOfMethodSettings;
         /** A map that defines the stage variables for a Stage resource. Variable names can
 have alphanumeric and underscore characters, and the values must match 
-[A-Za-z0-9-._~:/?#&amp;=,]+ . **/
+[A-Za-z0-9-._~:/?#&amp;=,]+. **/
         variables?: MapOfStringToString;
         /** The version of the associated API documentation. **/
         documentationVersion?: String;
         /** The date and time that the stage was created, in ISO 8601 format
-[http://www.iso.org/iso/home/standards/iso8601.htm] . **/
+[http://www.iso.org/iso/home/standards/iso8601.htm]. **/
         createdDate?: Timestamp;
         /** The date and time that information about the stage was last updated, in ISO 8601
-format [http://www.iso.org/iso/home/standards/iso8601.htm] . **/
+format [http://www.iso.org/iso/home/standards/iso8601.htm]. **/
         lastUpdatedDate?: Timestamp;
     }
     export interface StageKey {
@@ -2793,7 +2791,7 @@ request. Use this to specify path parameters and query string parameters. **/
         pathWithQueryString?: String;
         /** [Optional] The simulated request body of an incoming invocation request. **/
         body?: String;
-        /** A key-value map of stage variables to simulate an invocation on a deployed Stage 
+        /** A key-value map of stage variables to simulate an invocation on a deployed Stage
 . **/
         stageVariables?: MapOfStringToString;
         /** [Optional] A key-value map of additional context variables. **/
@@ -2813,7 +2811,7 @@ authorizer succeeded. **/
         policy?: String;
         authorization?: MapOfStringToList;
         /** The open identity claims
-[http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims] , with any
+[http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims], with any
 supported custom attributes, returned from the Cognito Your User Pool configured
 for the API. **/
         claims?: MapOfStringToString;
@@ -2836,7 +2834,7 @@ this to specify path parameters and query string parameters. **/
 use the certificate when making the HTTPS request to the defined back-end
 endpoint. **/
         clientCertificateId?: String;
-        /** A key-value map of stage variables to simulate an invocation on a deployed Stage 
+        /** A key-value map of stage variables to simulate an invocation on a deployed Stage
 . **/
         stageVariables?: MapOfStringToString;
     }
@@ -3050,9 +3048,9 @@ order specified in this list. **/
         position?: String;
         /** The usage data, as daily logs of used and remaining quotas, over the specified
 time interval indexed over the API keys in a usage plan. For example, {...,
-&quot;values&quot; : { &quot;{api_key}&quot; : [ [0, 100], [10, 90], [100, 10]]} , where {api_key} 
+&quot;values&quot; : { &quot;{api_key}&quot; : [ [0, 100], [10, 90], [100, 10]]}, where {api_key} 
 stands for an API key value and the daily log entry is of the format [used
-quota, remaining quota] . **/
+quota, remaining quota]. **/
         items?: MapOfKeyUsages;
     }
     export interface UsagePlan {
@@ -3075,7 +3073,7 @@ product on AWS Marketplace. **/
     export interface UsagePlanKey {
         /** The Id of a usage plan key. **/
         id?: String;
-        /** The type of a usage plan key. Currently, the valid key type is API_KEY . **/
+        /** The type of a usage plan key. Currently, the valid key type is API_KEY. **/
         type?: String;
         /** The value of a usage plan key. **/
         value?: String;
@@ -3089,7 +3087,7 @@ product on AWS Marketplace. **/
     }
     export interface UsagePlans {
         position?: String;
-        /** Gets the current item when enumerating the collection of UsagePlan . **/
+        /** Gets the current item when enumerating the collection of UsagePlan. **/
         items?: ListOfUsagePlan;
     }
   }

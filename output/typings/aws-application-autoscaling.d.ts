@@ -16,42 +16,42 @@ declare module "aws-sdk" {
    *
    * With Application Auto Scaling, you can automatically scale your AWS resources.
 The experience similar to that of Auto Scaling
-[https://aws.amazon.com/autoscaling/] . You can use Application Auto Scaling to
+[https://aws.amazon.com/autoscaling/]. You can use Application Auto Scaling to
 accomplish the following tasks:
 
- &amp;#42; Define scaling policies to automatically scale your AWS resources
+ &amp;#42;  Define scaling policies to automatically scale your AWS resources
    
    
- * Scale your resources in response to CloudWatch alarms
+ *  Scale your resources in response to CloudWatch alarms
    
    
- * View the history of your scaling events
+ *  View the history of your scaling events
    
    
 
 Application Auto Scaling can scale the following AWS resources:
 
- * Amazon ECS services. For more information, see Service Auto Scaling
+ *  Amazon ECS services. For more information, see Service Auto Scaling
    [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html] 
-   in the Amazon EC2 Container Service Developer Guide .
+   in the Amazon EC2 Container Service Developer Guide.
    
    
- * Amazon EC2 Spot fleets. For more information, see Automatic Scaling for Spot
+ *  Amazon EC2 Spot fleets. For more information, see Automatic Scaling for Spot
    Fleet
    [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-auto-scaling.html] 
-   in the Amazon EC2 User Guide .
+   in the Amazon EC2 User Guide.
    
    
- * Amazon EMR clusters. For more information, see Using Automatic Scaling in
+ *  Amazon EMR clusters. For more information, see Using Automatic Scaling in
    Amazon EMR
    [http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-automatic-scaling.html] 
-   in the Amazon EMR Management Guide .
+   in the Amazon EMR Management Guide.
    
    
 
 For a list of supported regions, see AWS Regions and Endpoints: Application Auto
 Scaling [http://docs.aws.amazon.com/general/latest/gr/rande.html#as-app_region] 
-in the AWS General Reference .
+in the AWS General Reference.
    *
    */
   export class ApplicationAutoScaling extends Service {
@@ -64,7 +64,7 @@ Deleting a policy deletes the underlying alarm action, but does not delete the
 CloudWatch alarm associated with the scaling policy, even if it no longer has an
 associated action.
 
-To create a scaling policy or update an existing one, see PutScalingPolicy .
+To create a scaling policy or update an existing one, see PutScalingPolicy.
      *
      * @error ValidationException   
      * @error ObjectNotFoundException   
@@ -79,7 +79,7 @@ Deregistering a scalable target deletes the scaling policies that are associated
 with it.
 
 To create a scalable target or update an existing one, see 
-RegisterScalableTarget .
+RegisterScalableTarget.
      *
      * @error ValidationException   
      * @error ObjectNotFoundException   
@@ -95,8 +95,8 @@ You can filter the results using the ResourceIds and ScalableDimension
 parameters.
 
 To create a scalable target or update an existing one, see 
-RegisterScalableTarget . If you are no longer using a scalable target, you can
-deregister it using DeregisterScalableTarget .
+RegisterScalableTarget. If you are no longer using a scalable target, you can
+deregister it using DeregisterScalableTarget.
      *
      * @error ValidationException   
      * @error InvalidNextTokenException   
@@ -113,8 +113,8 @@ parameters.
 
 Scaling activities are triggered by CloudWatch alarms that are associated with
 scaling policies. To view the scaling policies for a service namespace, see 
-DescribeScalingPolicies . To create a scaling policy or update an existing one,
-see PutScalingPolicy .
+DescribeScalingPolicies. To create a scaling policy or update an existing one,
+see PutScalingPolicy.
      *
      * @error ValidationException   
      * @error InvalidNextTokenException   
@@ -126,12 +126,12 @@ see PutScalingPolicy .
      * Provides descriptive information about the scaling policies in the specified
 namespace.
 
-You can filter the results using the ResourceId , ScalableDimension , and 
+You can filter the results using the ResourceId, ScalableDimension, and 
 PolicyNames parameters.
 
-To create a scaling policy or update an existing one, see PutScalingPolicy . If
+To create a scaling policy or update an existing one, see PutScalingPolicy. If
 you are no longer using a scaling policy, you can delete it using 
-DeleteScalingPolicy .
+DeleteScalingPolicy.
      *
      * @error ValidationException   
      * @error FailedResourceAccessException   
@@ -146,15 +146,15 @@ DeleteScalingPolicy .
 Each scalable target is identified by a service namespace, resource ID, and
 scalable dimension. A scaling policy applies to the scalable target identified
 by those three attributes. You cannot create a scaling policy without first
-registering a scalable target using RegisterScalableTarget .
+registering a scalable target using RegisterScalableTarget.
 
 To update a policy, specify its policy name and the parameters that you want to
 change. Any parameters that you don&#x27;t specify are not changed by this update
 request.
 
 You can view the scaling policies for a service namespace using 
-DescribeScalingPolicies . If you are no longer using a scaling policy, you can
-delete it using DeleteScalingPolicy .
+DescribeScalingPolicies. If you are no longer using a scaling policy, you can
+delete it using DeleteScalingPolicy.
      *
      * @error ValidationException   
      * @error LimitExceededException   
@@ -170,9 +170,9 @@ scalable target, you can use this operation to update the minimum and maximum
 values for your scalable dimension.
 
 After you register a scalable target, you can create and apply scaling policies
-using PutScalingPolicy . You can view the scaling policies for a service
-namespace using DescribeScalableTargets . If you are no longer using a scalable
-target, you can deregister it using DeregisterScalableTarget .
+using PutScalingPolicy. You can view the scaling policies for a service
+namespace using DescribeScalableTargets. If you are no longer using a scalable
+target, you can deregister it using DeregisterScalableTarget.
      *
      * @error ValidationException   
      * @error LimitExceededException   
@@ -248,35 +248,35 @@ target, you can deregister it using DeregisterScalableTarget .
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scalable target. This string
 consists of the resource type and unique identifier.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceId: ResourceIdMaxLen1600;
         /** The scalable dimension. This string consists of the service namespace, resource
 type, and scaling property.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension: ScalableDimension;
     }
@@ -286,35 +286,35 @@ type, and scaling property.
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scalable target. This string
 consists of the resource type and unique identifier.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceId: ResourceIdMaxLen1600;
         /** The scalable dimension associated with the scalable target. This string consists
 of the service namespace, resource type, and scaling property.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension: ScalableDimension;
     }
@@ -324,37 +324,37 @@ of the service namespace, resource type, and scaling property.
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scalable target. This string
 consists of the resource type and unique identifier. If you specify a scalable
 dimension, you must also specify a resource ID.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceIds?: ResourceIdsMaxLen1600;
         /** The scalable dimension associated with the scalable target. This string consists
 of the service namespace, resource type, and scaling property. If you specify a
 scalable dimension, you must also specify a resource ID.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension?: ScalableDimension;
         /** The maximum number of scalable target results. This value can be between 1 and
@@ -379,37 +379,37 @@ are no more results to return. **/
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scaling activity. This string
 consists of the resource type and unique identifier. If you specify a scalable
 dimension, you must also specify a resource ID.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceId?: ResourceIdMaxLen1600;
         /** The scalable dimension. This string consists of the service namespace, resource
 type, and scaling property. If you specify a scalable dimension, you must also
 specify a resource ID.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension?: ScalableDimension;
         /** The maximum number of scalable target results. This value can be between 1 and
@@ -436,37 +436,37 @@ are no more results to return. **/
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scaling policy. This string
 consists of the resource type and unique identifier. If you specify a scalable
 dimension, you must also specify a resource ID.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceId?: ResourceIdMaxLen1600;
         /** The scalable dimension. This string consists of the service namespace, resource
 type, and scaling property. If you specify a scalable dimension, you must also
 specify a resource ID.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension?: ScalableDimension;
         /** The maximum number of scalable target results. This value can be between 1 and
@@ -508,35 +508,35 @@ are no more results to return. **/
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scaling policy. This string
 consists of the resource type and unique identifier.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceId: ResourceIdMaxLen1600;
         /** The scalable dimension. This string consists of the service namespace, resource
 type, and scaling property.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension: ScalableDimension;
         /** The policy type. If you are creating a new policy, this parameter is required.
@@ -545,7 +545,7 @@ If you are updating a policy, this parameter is not required. **/
         /** The configuration for the step scaling policy. If you are creating a new policy,
 this parameter is required. If you are updating a policy, this parameter is not
 required. For more information, see StepScalingPolicyConfiguration and 
-StepAdjustment . **/
+StepAdjustment. **/
         StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration;
     }
     export interface PutScalingPolicyResponse {
@@ -556,35 +556,35 @@ StepAdjustment . **/
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scalable target. This string
 consists of the resource type and unique identifier.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceId: ResourceIdMaxLen1600;
         /** The scalable dimension associated with the scalable target. This string consists
 of the service namespace, resource type, and scaling property.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension: ScalableDimension;
         /** The minimum value to scale to in response to a scale in event. This parameter is
@@ -606,35 +606,35 @@ scalable target and optional when you update one. **/
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scalable target. This string
 consists of the resource type and unique identifier.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceId: ResourceIdMaxLen1600;
         /** The scalable dimension associated with the scalable target. This string consists
 of the service namespace, resource type, and scaling property.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension: ScalableDimension;
         /** The minimum value to scale to in response to a scale in event. **/
@@ -653,35 +653,35 @@ scalable target on your behalf. **/
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scaling activity. This string
 consists of the resource type and unique identifier.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceId: ResourceIdMaxLen1600;
         /** The scalable dimension. This string consists of the service namespace, resource
 type, and scaling property.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension: ScalableDimension;
         /** A simple description of what action the scaling activity intends to accomplish. **/
@@ -707,35 +707,35 @@ type, and scaling property.
         /** The namespace of the AWS service. For more information, see AWS Service
 Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces] 
-in the Amazon Web Services General Reference . **/
+in the Amazon Web Services General Reference. **/
         ServiceNamespace: ServiceNamespace;
         /** The identifier of the resource associated with the scaling policy. This string
 consists of the resource type and unique identifier.
 
- &amp;#42; ECS service - The resource type is service and the unique identifier is the
-   cluster name and service name. Example: service/default/sample-webapp .
+ &amp;#42;  ECS service - The resource type is service and the unique identifier is the
+   cluster name and service name. Example: service/default/sample-webapp.
    
    
- * Spot fleet request - The resource type is spot-fleet-request and the unique
+ *  Spot fleet request - The resource type is spot-fleet-request and the unique
    identifier is the Spot fleet request ID. Example: 
-   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE .
+   spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE.
    
    
- * EMR cluster - The resource type is instancegroup and the unique identifier is
+ *  EMR cluster - The resource type is instancegroup and the unique identifier is
    the cluster ID and instance group ID. Example: 
-   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0 . **/
+   instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0. **/
         ResourceId: ResourceIdMaxLen1600;
         /** The scalable dimension. This string consists of the service namespace, resource
 type, and scaling property.
 
- &amp;#42; ecs:service:DesiredCount - The desired task count of an ECS service.
+ &amp;#42;   ecs:service:DesiredCount - The desired task count of an ECS service.
    
    
- * ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
+ *   ec2:spot-fleet-request:TargetCapacity - The target capacity of a Spot fleet
    request.
    
    
- * elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
+ *   elasticmapreduce:instancegroup:InstanceCount - The instance count of an EMR
    Instance Group. **/
         ScalableDimension: ScalableDimension;
         /** The scaling policy type. **/
@@ -776,7 +776,7 @@ StepAdjustment is interpreted. **/
 breach. **/
         StepAdjustments?: StepAdjustments;
         /** The minimum number to adjust your scalable dimension as a result of a scaling
-activity. If the adjustment type is PercentChangeInCapacity , the scaling policy
+activity. If the adjustment type is PercentChangeInCapacity, the scaling policy
 changes the scalable dimension of the scalable target by this amount. **/
         MinAdjustmentMagnitude?: MinAdjustmentMagnitude;
         /** The amount of time, in seconds, after a scaling activity completes where
@@ -799,8 +799,8 @@ protect your application&#x27;s availability. However, if another alarm triggers
 scale out policy during the Cooldown period after a scale-in, Application Auto
 Scaling scales out your scalable target immediately. **/
         Cooldown?: Cooldown;
-        /** The aggregation type for the CloudWatch metrics. Valid values are Minimum , 
-Maximum , and Average . **/
+        /** The aggregation type for the CloudWatch metrics. Valid values are Minimum, 
+Maximum, and Average. **/
         MetricAggregationType?: MetricAggregationType;
     }
     export interface ValidationException {

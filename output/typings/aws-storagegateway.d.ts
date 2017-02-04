@@ -14,41 +14,41 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Storage Gateway ServiceAWS Storage Gateway is the service that connects an
+   * AWS Storage Gateway Service AWS Storage Gateway is the service that connects an
 on-premises software appliance with cloud-based storage to provide seamless and
 secure integration between an organization&#x27;s on-premises IT environment and
 AWS&#x27;s storage infrastructure. The service enables you to securely upload data to
 the AWS cloud for cost effective backup and rapid disaster recovery.
 
 Use the following links to get started using the AWS Storage Gateway Service API
-Reference :
+Reference:
 
- &amp;#42; AWS Storage Gateway Required Request Headers
-   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders] 
+ &amp;#42;   AWS Storage Gateway Required Request Headers
+   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders]
    : Describes the required headers that you must send with every POST request
    to AWS Storage Gateway.
    
    
- * Signing Requests
-   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests] 
+ *   Signing Requests
+   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests]
    : AWS Storage Gateway requires that you authenticate every request you send;
    this topic describes how sign such a request.
    
    
- * Error Responses
-   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses] 
+ *   Error Responses
+   [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses]
    : Provides reference information about AWS Storage Gateway errors.
    
    
- * Operations in AWS Storage Gateway
-   [http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html] 
+ *   Operations in AWS Storage Gateway
+   [http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html]
    : Contains detailed descriptions of all AWS Storage Gateway operations, their
    request parameters, response elements, possible errors, and examples of
    requests and responses.
    
    
- * AWS Storage Gateway Regions and Endpoints
-   [http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html] :
+ *   AWS Storage Gateway Regions and Endpoints
+   [http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html]:
    Provides a list of each of the s and endpoints available for use with AWS
    Storage Gateway.
    
@@ -57,8 +57,8 @@ Reference :
 AWS Storage Gateway resource IDs are in uppercase. When you use these resource
 IDs with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must
 change your resource ID to lowercase to use it with the EC2 API. For example, in
-Storage Gateway the ID for a volume might be vol-1122AABB . When you use this ID
-with the EC2 API, you must change it to vol-1122aabb . Otherwise, the EC2 API
+Storage Gateway the ID for a volume might be vol-1122AABB. When you use this ID
+with the EC2 API, you must change it to vol-1122aabb. Otherwise, the EC2 API
 might not behave as expected.
 
 IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway
@@ -66,20 +66,20 @@ volumes are changing to a longer format. Starting in December 2016, all new
 volumes and snapshots will be created with a 17-character string. Starting in
 April 2016, you will be able to use these longer IDs so you can test your
 systems with the new format. For more information, see Longer EC2 and EBS
-Resource IDs [https://aws.amazon.com/ec2/faqs/#longer-ids] .
+Resource IDs [https://aws.amazon.com/ec2/faqs/#longer-ids].
 
-For example, a volume ARN with the longer volume ID format will look like this:
+ For example, a volume ARN with the longer volume ID format will look like this:
 
-
-arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG 
+ 
+arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG
 .
 
 A snapshot ID with the longer ID format will look like this: 
-snap-78e226633445566ee .
+snap-78e226633445566ee.
 
 For more information, see Announcement: Heads-up – Longer AWS Storage Gateway
 volume and snapshot IDs coming in 2016
-[https://forums.aws.amazon.com/ann.jspa?annID=3557] .
+[https://forums.aws.amazon.com/ann.jspa?annID=3557].
    *
    */
   export class StorageGateway extends Service {
@@ -88,12 +88,12 @@ volume and snapshot IDs coming in 2016
     /**
      * Activates the gateway you previously deployed on your host. For more
 information, see Activate the AWS Storage Gateway
-[http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html] 
+[http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html]
 . In the activation process, you specify information such as the you want to use
 for storing snapshots, the time zone for scheduled snapshots the gateway
 snapshot schedule window, an activation key, and a name for your gateway. The
 activation process also associates your gateway with your account; for more
-information, see UpdateGatewayInformation .
+information, see UpdateGatewayInformation.
 
 You must turn on the gateway VM before you can activate your gateway.
      *
@@ -105,7 +105,7 @@ You must turn on the gateway VM before you can activate your gateway.
      * Configures one or more gateway local disks as cache for a cached-volume gateway.
 This operation is supported only for the gateway-cached volume architecture (see 
 Storage Gateway Concepts
-[http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html] 
+[http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html]
 ).
 
 In the request, you specify the gateway Amazon Resource Name (ARN) to which you
@@ -122,15 +122,15 @@ categorize resources by purpose, owner, environment, or team. Each tag consists
 of a key and a value, which you define. You can add tags to the following AWS
 Storage Gateway resources:
 
- &amp;#42; Storage gateways of all types
+ &amp;#42;  Storage gateways of all types
    
    
 
- * Storage Volumes
+ *  Storage Volumes
    
    
 
- * Virtual Tapes
+ *  Virtual Tapes
    
    
 
@@ -193,7 +193,7 @@ to the VTS.
 supported only for the gateway-cached volume architecture.
 
 Cache storage must be allocated to the gateway before you can create a cached
-volume. Use the AddCache operation to add cache storage to a gateway.
+volume. Use the AddCache operation to add cache storage to a gateway. 
 
 In the request, you must specify the gateway, size of the volume in bytes, the
 iSCSI target name, an IP address on which to expose the target, and a unique
@@ -229,7 +229,7 @@ as import the data to an Amazon Elastic Block Store (EBS) volume in Amazon
 Elastic Compute Cloud (EC2). You can take snapshots of your gateway volume on a
 scheduled or ad-hoc basis. This API enables you to take ad-hoc snapshot. For
 more information, see Working With Snapshots in the AWS Storage Gateway Console
-[http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html] 
+[http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html]
 .
 
 In the CreateSnapshot request you identify the volume by providing its Amazon
@@ -242,7 +242,7 @@ snapshot.
 
 To list or delete a snapshot, you must use the Amazon EC2 API. For more
 information, see DescribeSnapshots or DeleteSnapshot in the EC2 API reference
-[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html] .
+[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html].
 
 Volume and snapshot IDs are changing to a longer length ID format. For more
 information, see the important note on the Welcome
@@ -260,7 +260,7 @@ is supported only for the gateway-cached volume architecture.
 
 A volume recovery point is a point in time at which all data of the volume is
 consistent and from which you can create a snapshot. To get a list of volume
-recovery point for gateway-cached volumes, use ListVolumeRecoveryPoints .
+recovery point for gateway-cached volumes, use ListVolumeRecoveryPoints.
 
 In the CreateSnapshotFromVolumeRecoveryPoint request, you identify the volume by
 providing its Amazon Resource Name (ARN). You must also provide a description
@@ -271,7 +271,7 @@ this snapshot ID to check the snapshot progress or later use it when you want to
 create a volume from a snapshot.
 
 To list or delete a snapshot, you must use the Amazon EC2 API. For more
-information, in Amazon Elastic Compute Cloud API Reference .
+information, in Amazon Elastic Compute Cloud API Reference.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
@@ -361,7 +361,7 @@ these snapshots. You can choose to remove all remaining Amazon EBS snapshots by
 canceling your Amazon EC2 subscription. If you prefer not to cancel your Amazon
 EC2 subscription, you can delete your snapshots using the Amazon EC2 console.
 For more information, see the AWS Storage Gateway Detail Page
-[http://aws.amazon.com/storagegateway] .
+[http://aws.amazon.com/storagegateway].
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
@@ -373,12 +373,12 @@ For more information, see the AWS Storage Gateway Detail Page
 You can take snapshots of your gateway volumes on a scheduled or ad hoc basis.
 This API action enables you to delete a snapshot schedule for a volume. For more
 information, see Working with Snapshots
-[http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html] 
+[http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html]
 . In the DeleteSnapshotSchedule request, you identify the volume by providing
-its Amazon Resource Name (ARN).
+its Amazon Resource Name (ARN). 
 
 To list or delete a snapshot, you must use the Amazon EC2 API. in Amazon Elastic
-Compute Cloud API Reference .
+Compute Cloud API Reference.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
@@ -402,7 +402,7 @@ Compute Cloud API Reference .
      * Deletes the specified gateway volume that you previously created using the 
 CreateCachediSCSIVolume or CreateStorediSCSIVolume API. For gateway-stored
 volumes, the local disk that was configured as the storage volume is not
-deleted. You can reuse the local disk to create another storage volume.
+deleted. You can reuse the local disk to create another storage volume. 
 
 Before you delete a gateway volume, make sure there are no iSCSI connections to
 the volume you are deleting. You should also make sure there is no snapshot in
@@ -410,7 +410,7 @@ progress. You can use the Amazon Elastic Compute Cloud (Amazon EC2) API to query
 snapshots on the volume you are deleting and check the snapshot status. For more
 information, go to DescribeSnapshots
 [http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html] 
-in the Amazon Elastic Compute Cloud API Reference .
+in the Amazon Elastic Compute Cloud API Reference.
 
 In the request, you must provide the Amazon Resource Name (ARN) of the storage
 volume you want to delete.
@@ -763,25 +763,25 @@ gateway&#x27;s virtual machine (VM) and not the VM.
 If you want to shut down the VM, it is recommended that you first shut down the
 gateway component in the VM to avoid unpredictable conditions.
 
-After the gateway is shutdown, you cannot call any other API except StartGateway 
-, DescribeGatewayInformation , and ListGateways . For more information, see 
-ActivateGateway . Your applications cannot read from or write to the gateway&#x27;s
+After the gateway is shutdown, you cannot call any other API except StartGateway
+, DescribeGatewayInformation, and ListGateways. For more information, see 
+ActivateGateway. Your applications cannot read from or write to the gateway&#x27;s
 storage volumes, and there are no snapshots taken.
 
 When you make a shutdown request, you will get a 200 OK success response
 immediately. However, it might take some time for the gateway to shut down. You
 can call the DescribeGatewayInformation API to check the status. For more
-information, see ActivateGateway .
+information, see ActivateGateway.
 
 If do not intend to use the gateway again, you must delete the gateway (using 
-DeleteGateway ) to no longer pay software charges associated with the gateway.
+DeleteGateway) to no longer pay software charges associated with the gateway.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
     shutdownGateway(params: StorageGateway.ShutdownGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ShutdownGatewayOutput|any) => void): Request<StorageGateway.ShutdownGatewayOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
-     * Starts a gateway that you previously shut down (see ShutdownGateway ). After the
+     * Starts a gateway that you previously shut down (see ShutdownGateway). After the
 gateway starts, you can then make other API calls, your applications can read
 from or write to the gateway&#x27;s storage volumes and you will be able to take
 snapshot backups.
@@ -789,7 +789,7 @@ snapshot backups.
 When you make a request, you will get a 200 OK success response immediately.
 However, it might take some time for the gateway to be ready. You should call 
 DescribeGatewayInformation and check the status before making any additional API
-calls. For more information, see ActivateGateway .
+calls. For more information, see ActivateGateway.
 
 To specify which gateway to start, use the Amazon Resource Name (ARN) of the
 gateway in your request.
@@ -853,7 +853,7 @@ Initiators&#x27; timeouts. For more information about increasing iSCSI Initiator
 timeouts for Windows and Linux, see Customizing Your Windows iSCSI Settings
 [http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings] 
 and Customizing Your Linux iSCSI Settings
-[http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings] 
+[http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings]
 , respectively.
      *
      * @error InvalidGatewayRequestException   
@@ -869,7 +869,7 @@ time of the week. The maintenance time is the time in your gateway&#x27;s time z
      */
     updateMaintenanceStartTime(params: StorageGateway.UpdateMaintenanceStartTimeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateMaintenanceStartTimeOutput|any) => void): Request<StorageGateway.UpdateMaintenanceStartTimeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
-     * Updates a file share.
+     * Updates a file share. 
 
 To leave a file share field unchanged, set the corresponding input field to
 null.
@@ -1106,7 +1106,7 @@ gateway-VTL is activated.
         /** Your gateway activation key. You can obtain the activation key by sending an
 HTTP GET request with redirects enabled to the gateway IP address (port 80). The
 redirect URL returned in the response provides you the activation key for your
-gateway in the query string parameter activationKey . It may also include other
+gateway in the query string parameter activationKey. It may also include other
 activation-related parameters, however, these are merely defaults -- the
 arguments you pass to the ActivateGateway API call determine the actual
 configuration of your gateway. **/
@@ -1122,25 +1122,25 @@ The gateway region specified must be the same region as the region in your Host
 header in the request. For more information about available regions and
 endpoints for AWS Storage Gateway, see Regions and Endpoints
 [http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region] in the 
-Amazon Web Services Glossary .
+Amazon Web Services Glossary.
 
-Valid Values: &quot;us-east-1&quot;, &quot;us-west-1&quot;, &quot;us-west-2&quot;, &quot;eu-west-1&quot;,
+ Valid Values: &quot;us-east-1&quot;, &quot;us-west-1&quot;, &quot;us-west-2&quot;, &quot;eu-west-1&quot;,
 &quot;eu-central-1&quot;, &quot;ap-northeast-1&quot;, &quot;ap-northeast-2&quot;, &quot;ap-southeast-1&quot;,
 &quot;ap-southeast-2&quot;, &quot;sa-east-1&quot; **/
         GatewayRegion: RegionId;
         /** A value that defines the type of gateway to activate. The type specified is
 critical to all later functions of the gateway and cannot be changed after
-activation. The default value is STORED . **/
+activation. The default value is STORED. **/
         GatewayType?: GatewayType;
         /** The value that indicates the type of tape drive to use for gateway-VTL. This
 field is optional.
 
-Valid Values: &quot;IBM-ULT3580-TD5&quot; **/
+ Valid Values: &quot;IBM-ULT3580-TD5&quot; **/
         TapeDriveType?: TapeDriveType;
         /** The value that indicates the type of medium changer to use for gateway-VTL. This
 field is optional.
 
-Valid Values: &quot;STK-L700&quot;, &quot;AWS-Gateway-VTL&quot; **/
+ Valid Values: &quot;STK-L700&quot;, &quot;AWS-Gateway-VTL&quot; **/
         MediumChangerType?: MediumChangerType;
     }
     export interface ActivateGatewayOutput {
@@ -1233,7 +1233,7 @@ canceled. **/
     export interface ChapInfo {
         /** The Amazon Resource Name (ARN) of the volume.
 
-Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+ Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
 (-). **/
         TargetARN?: TargetARN;
         /** The secret key that the initiator (for example, the Windows client) must provide
@@ -1313,8 +1313,8 @@ Storage Gateway snapshot Details pane, Description field **/
         /** The Amazon Resource Name (ARN) of the volume of which the snapshot was taken. **/
         VolumeARN?: VolumeARN;
         /** The snapshot ID that is used to refer to the snapshot in future operations such
-as describing snapshots (Amazon Elastic Compute Cloud API DescribeSnapshots ) or
-creating a volume from a snapshot ( CreateStorediSCSIVolume ). **/
+as describing snapshots (Amazon Elastic Compute Cloud API DescribeSnapshots) or
+creating a volume from a snapshot (CreateStorediSCSIVolume). **/
         SnapshotId?: SnapshotId;
     }
     export interface CreateStorediSCSIVolumeInput {
@@ -1329,12 +1329,12 @@ stored volume. Specify this field if you want to create the iSCSI storage volume
 from a snapshot otherwise do not include this field. To list snapshots for your
 account use DescribeSnapshots
 [http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html] 
-in the Amazon Elastic Compute Cloud API Reference . **/
+in the Amazon Elastic Compute Cloud API Reference. **/
         SnapshotId?: SnapshotId;
         /** Specify this field as true if you want to preserve the data on the local disk.
 Otherwise, specifying this field as false creates an empty volume.
 
-Valid Values: true, false **/
+ Valid Values: true, false **/
         PreserveExistingData: boolean;
         /** The name of the iSCSI target used by initiators to connect to the target and as
 a suffix for the target ARN. For example, specifying TargetName as myvolume 
@@ -1346,7 +1346,7 @@ The target name must be unique across all volumes of a gateway. **/
 IPv4 addresses are accepted. Use DescribeGatewayInformation to get a list of the
 network interfaces available on a gateway.
 
-Valid Values: A valid IP address. **/
+ Valid Values: A valid IP address. **/
         NetworkInterfaceId: NetworkInterfaceId;
     }
     export interface CreateStorediSCSIVolumeOutput {
@@ -1408,7 +1408,7 @@ that were created. **/
         /** One of the BandwidthType values that indicates the gateway bandwidth rate limit
 to delete.
 
-Valid Values: Upload , Download , All . **/
+Valid Values: Upload, Download, All. **/
         BandwidthType: BandwidthType;
     }
     export interface DeleteBandwidthRateLimitOutput {
@@ -1523,19 +1523,19 @@ array contains CHAP credential information for one target-initiator pair. If no
 CHAP credentials are set, an empty array is returned. CHAP credential
 information is provided in a JSON object with the following fields:
 
- &amp;#42; InitiatorName : The iSCSI initiator that connects to the target.
+ &amp;#42;   InitiatorName: The iSCSI initiator that connects to the target.
    
    
- * SecretToAuthenticateInitiator : The secret key that the initiator (for
+ *   SecretToAuthenticateInitiator: The secret key that the initiator (for
    example, the Windows client) must provide to participate in mutual CHAP with
    the target.
    
    
- * SecretToAuthenticateTarget : The secret key that the target must provide to
+ *   SecretToAuthenticateTarget: The secret key that the target must provide to
    participate in mutual CHAP with the initiator (e.g. Windows client).
    
    
- * TargetARN : The Amazon Resource Name (ARN) of the storage volume. **/
+ *   TargetARN: The Amazon Resource Name (ARN) of the storage volume. **/
         ChapCredentials?: ChapCredentials;
     }
     export interface DescribeGatewayInformationInput {
@@ -1572,10 +1572,10 @@ response. **/
     }
     export interface DescribeMaintenanceStartTimeOutput {
         GatewayARN?: GatewayARN;
-        /** The hour component of the maintenance start time represented as hh , where hh is
+        /** The hour component of the maintenance start time represented as hh, where hh is
 the hour (0 to 23). The hour of the day is in the time zone of the gateway. **/
         HourOfDay?: HourOfDay;
-        /** The minute component of the maintenance start time represented as mm , where mm 
+        /** The minute component of the maintenance start time represented as mm, where mm 
 is the minute (0 to 59). The minute of the hour is in the time zone of the
 gateway. **/
         MinuteOfHour?: MinuteOfHour;
@@ -1668,8 +1668,8 @@ virtual tapes you want to describe. If this parameter is not specified, AWS
 Storage Gateway returns a description of all virtual tapes associated with the
 specified gateway. **/
         TapeARNs?: TapeARNs;
-        /** A marker value, obtained in a previous call to DescribeTapes . This marker
-indicates which page of results to retrieve.
+        /** A marker value, obtained in a previous call to DescribeTapes. This marker
+indicates which page of results to retrieve. 
 
 If not specified, the first page of results is retrieved. **/
         Marker?: Marker;
@@ -1819,7 +1819,7 @@ to ListFileShares. Optional. **/
         Marker?: Marker;
     }
     export interface ListFileSharesOutput {
-        /** If the request includes Marker , the response returns that value in this field. **/
+        /** If the request includes Marker, the response returns that value in this field. **/
         Marker?: Marker;
         /** If a value is present, there are more file shares to return. In a subsequent
 request, use NextMarker as the value for Marker to retrieve the next set of file
@@ -1955,7 +1955,7 @@ populated, the default value S3_STANDARD is used. Optional. **/
 This is currently unsupported and will not be returned in output. **/
         MacAddress?: string;
         /** The Internet Protocol version 6 (IPv6) address of the interface. Currently not
-supported . **/
+supported. **/
         Ipv6Address?: string;
     }
     export interface RemoveTagsFromResourceInput {
@@ -2059,7 +2059,7 @@ snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included. **/
         /** Indicates if when the stored volume was created, existing data on the underlying
 local disk was preserved.
 
-Valid Values: true, false **/
+ Valid Values: true, false **/
         PreservedExistingData?: boolean;
         /** An VolumeiSCSIAttributes object that represents a collection of iSCSI attributes
 for one stored volume. **/
@@ -2190,10 +2190,10 @@ specified in the request. **/
     }
     export interface UpdateMaintenanceStartTimeInput {
         GatewayARN: GatewayARN;
-        /** The hour component of the maintenance start time represented as hh , where hh is
+        /** The hour component of the maintenance start time represented as hh, where hh is
 the hour (00 to 23). The hour of the day is in the time zone of the gateway. **/
         HourOfDay: HourOfDay;
-        /** The minute component of the maintenance start time represented as mm , where mm 
+        /** The minute component of the maintenance start time represented as mm, where mm 
 is the minute (00 to 59). The minute of the hour is in the time zone of the
 gateway. **/
         MinuteOfHour: MinuteOfHour;
@@ -2228,7 +2228,7 @@ populated, the default value S3_STANDARD is used. Optional. **/
         /** The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation to
 return a list of gateway volumes. **/
         VolumeARN: VolumeARN;
-        /** The hour of the day at which the snapshot schedule begins represented as hh ,
+        /** The hour of the day at which the snapshot schedule begins represented as hh,
 where hh is the hour (0 to 23). The hour of the day is in the time zone of the
 gateway. **/
         StartAt: HourOfDay;
@@ -2246,7 +2246,7 @@ gateway. **/
         VTLDeviceARN: VTLDeviceARN;
         /** The type of medium changer you want to select.
 
-Valid Values: &quot;STK-L700&quot;, &quot;AWS-Gateway-VTL&quot; **/
+ Valid Values: &quot;STK-L700&quot;, &quot;AWS-Gateway-VTL&quot; **/
         DeviceType: DeviceType;
     }
     export interface UpdateVTLDeviceTypeOutput {
@@ -2267,16 +2267,16 @@ media changer). **/
         /** The Amazon Resource Name (ARN) for the storage volume. For example, the
 following is a valid ARN:
 
+ 
+arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB 
 
-arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB
-
-Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+ Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
 (-). **/
         VolumeARN?: VolumeARN;
         /** The unique identifier assigned to the volume. This ID becomes part of the volume
 Amazon Resource Name (ARN), which you use as input for other operations.
 
-Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+ Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
 (-). **/
         VolumeId?: VolumeId;
         GatewayARN?: GatewayARN;
@@ -2284,7 +2284,7 @@ Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
 becomes part of the gateway Amazon Resource Name (ARN), which you use as input
 for other operations.
 
-Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+ Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
 (-). **/
         GatewayId?: GatewayId;
         VolumeType?: VolumeType;

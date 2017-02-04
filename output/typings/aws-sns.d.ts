@@ -14,20 +14,20 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * Amazon Simple Notification ServiceAmazon Simple Notification Service (Amazon
+   * Amazon Simple Notification Service Amazon Simple Notification Service (Amazon
 SNS) is a web service that enables you to build distributed web-enabled
 applications. Applications can use Amazon SNS to easily push real-time
 notification messages to interested subscribers over multiple delivery
 protocols. For more information about this product see http://aws.amazon.com/sns
-[http://aws.amazon.com/sns/] . For detailed information about Amazon SNS
-features and their associated API calls, see the Amazon SNS Developer Guide
-[http://docs.aws.amazon.com/sns/latest/dg/] .
+[http://aws.amazon.com/sns/]. For detailed information about Amazon SNS features
+and their associated API calls, see the Amazon SNS Developer Guide
+[http://docs.aws.amazon.com/sns/latest/dg/]. 
 
 We also provide SDKs that enable you to access Amazon SNS from your preferred
 programming language. The SDKs contain functionality that automatically takes
 care of tasks such as: cryptographically signing your service requests, retrying
 requests, and handling error responses. For a list of available SDKs, go to 
-Tools for Amazon Web Services [http://aws.amazon.com/tools/] .
+Tools for Amazon Web Services [http://aws.amazon.com/tools/].
    *
    */
   export class SNS extends Service {
@@ -90,21 +90,20 @@ For WNS, PlatformCredential is &quot;secret key&quot;. For MPNS, PlatformCredent
 PlatformApplicationArn that is returned when using CreatePlatformApplication is
 then used as an attribute for the CreatePlatformEndpoint action. For more
 information, see Using Amazon SNS Mobile Push Notifications
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] . For more
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html]. For more
 information about obtaining the PlatformPrincipal and PlatformCredential for
 each of the supported push notification services, see Getting Started with Apple
 Push Notification Service
-[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html] , Getting
+[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html], Getting
 Started with Amazon Device Messaging
-[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html] , Getting
-Started with Baidu Cloud Push
-[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html] , Getting
+[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html], Getting Started
+with Baidu Cloud Push
+[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html], Getting
 Started with Google Cloud Messaging for Android
-[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html] , Getting
-Started with MPNS
-[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html] , or Getting
-Started with WNS [http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html] 
-.
+[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html], Getting Started
+with MPNS [http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html], or 
+Getting Started with WNS
+[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html].
      *
      * @error InvalidParameterException   
      * @error InternalErrorException   
@@ -114,19 +113,19 @@ Started with WNS [http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html]
     /**
      * Creates an endpoint for a device and mobile app on one of the supported push
 notification services, such as GCM and APNS. CreatePlatformEndpoint requires the
-PlatformApplicationArn that is returned from CreatePlatformApplication . The
+PlatformApplicationArn that is returned from CreatePlatformApplication. The
 EndpointArn that is returned when using CreatePlatformEndpoint can then be used
 by the Publish action to send a message to a mobile app or by the Subscribe 
 action for subscription to a topic. The CreatePlatformEndpoint action is
 idempotent, so if the requester already owns an endpoint with the same device
 token and attributes, that endpoint&#x27;s ARN is returned without creating a new
 endpoint. For more information, see Using Amazon SNS Mobile Push Notifications
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html]. 
 
 When using CreatePlatformEndpoint with Baidu, two attributes must be provided:
 ChannelId and UserId. The token field must also contain the ChannelId. For more
 information, see Creating an Amazon SNS Endpoint for Baidu
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html].
      *
      * @error InvalidParameterException   
      * @error InternalErrorException   
@@ -137,7 +136,7 @@ information, see Creating an Amazon SNS Endpoint for Baidu
     /**
      * Creates a topic to which notifications can be published. Users can create at
 most 100,000 topics. For more information, see http://aws.amazon.com/sns
-[http://aws.amazon.com/sns/] . This action is idempotent, so if the requester
+[http://aws.amazon.com/sns/]. This action is idempotent, so if the requester
 already owns a topic with the specified name, that topic&#x27;s ARN is returned
 without creating a new topic.
      *
@@ -150,7 +149,7 @@ without creating a new topic.
     /**
      * Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
 idempotent. For more information, see Using Amazon SNS Mobile Push Notifications
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html]. 
 
 When you delete an endpoint that is also subscribed to a topic, then you must
 also unsubscribe the endpoint from the topic.
@@ -164,7 +163,7 @@ also unsubscribe the endpoint from the topic.
      * Deletes a platform application object for one of the supported push notification
 services, such as APNS and GCM. For more information, see Using Amazon SNS
 Mobile Push Notifications
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html].
      *
      * @error InvalidParameterException   
      * @error InternalErrorException   
@@ -187,7 +186,7 @@ an error.
      * Retrieves the endpoint attributes for a device on one of the supported push
 notification services, such as GCM and APNS. For more information, see Using
 Amazon SNS Mobile Push Notifications
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html].
      *
      * @error InvalidParameterException   
      * @error InternalErrorException   
@@ -199,7 +198,7 @@ Amazon SNS Mobile Push Notifications
      * Retrieves the attributes of the platform application object for the supported
 push notification services, such as APNS and GCM. For more information, see 
 Using Amazon SNS Mobile Push Notifications
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html].
      *
      * @error InvalidParameterException   
      * @error InternalErrorException   
@@ -246,7 +245,7 @@ results, then a NextToken string will be returned. To receive the next page, you
 call ListEndpointsByPlatformApplication again using the NextToken string
 received from the previous call. When there are no more records to return,
 NextToken will be null. For more information, see Using Amazon SNS Mobile Push
-Notifications [http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] .
+Notifications [http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html].
      *
      * @error InvalidParameterException   
      * @error InternalErrorException   
@@ -280,7 +279,7 @@ be returned. To receive the next page, you call ListPlatformApplications using
 the NextToken string received from the previous call. When there are no more
 records to return, NextToken will be null. For more information, see Using
 Amazon SNS Mobile Push Notifications
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html].
      *
      * @error InvalidParameterException   
      * @error InternalErrorException   
@@ -341,11 +340,11 @@ subscribed endpoint depends on the notification protocol.
 To use the Publish action for sending a message to a mobile endpoint, such as an
 app on a Kindle device or mobile phone, you must specify the EndpointArn for the
 TargetArn parameter. The EndpointArn is returned when making a call with the 
-CreatePlatformEndpoint action.
+CreatePlatformEndpoint action. 
 
 For more information about formatting messages, see Send Custom
 Platform-Specific Payloads in Messages to Mobile Devices
-[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html].
      *
      * @error InvalidParameterException   
      * @error InvalidParameterValueException   
@@ -369,7 +368,7 @@ Platform-Specific Payloads in Messages to Mobile Devices
      * Sets the attributes for an endpoint for a device on one of the supported push
 notification services, such as GCM and APNS. For more information, see Using
 Amazon SNS Mobile Push Notifications
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html].
      *
      * @error InvalidParameterException   
      * @error InternalErrorException   
@@ -381,10 +380,10 @@ Amazon SNS Mobile Push Notifications
      * Sets the attributes of the platform application object for the supported push
 notification services, such as APNS and GCM. For more information, see Using
 Amazon SNS Mobile Push Notifications
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html] . For information
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html]. For information
 on configuring attributes for message delivery status, see Using Amazon SNS
 Application Attributes for Message Delivery Status
-[http://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html] .
+[http://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html].
      *
      * @error InvalidParameterException   
      * @error InternalErrorException   
@@ -400,7 +399,7 @@ You can override some of these settings for a single message when you use the
 Publish action with the MessageAttributes.entry.N parameter. For more
 information, see Sending an SMS Message
 [http://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html] in the 
-Amazon SNS Developer Guide .
+Amazon SNS Developer Guide.
      *
      * @error InvalidParameterException   
      * @error ThrottledException   
@@ -548,12 +547,12 @@ Valid values: any Amazon SNS action name. **/
     export interface CheckIfPhoneNumberIsOptedOutResponse {
         /** Indicates whether the phone number is opted out:
 
- &amp;#42; true – The phone number is opted out, meaning you cannot publish SMS messages
-   to it.
+ &amp;#42;   true – The phone number is opted out, meaning you cannot publish SMS
+   messages to it.
    
    
- * false – The phone number is opted in, meaning you can publish SMS messages to
-   it. **/
+ *   false – The phone number is opted in, meaning you can publish SMS messages
+   to it. **/
         isOptedOut?: boolean;
     }
     export interface ConfirmSubscriptionInput {
@@ -606,7 +605,7 @@ equivalent is called the registration ID. **/
 data. The data must be in UTF-8 format and less than 2KB. **/
         CustomUserData?: String;
         /** For a list of attributes, see SetEndpointAttributes
-[http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html] . **/
+[http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html]. **/
         Attributes?: MapStringToString;
     }
     export interface CreateTopicInput {
@@ -650,18 +649,18 @@ characters long. **/
     export interface GetEndpointAttributesResponse {
         /** Attributes include the following:
 
- &amp;#42; CustomUserData -- arbitrary user data to associate with the endpoint. Amazon
+ &amp;#42;   CustomUserData -- arbitrary user data to associate with the endpoint. Amazon
    SNS does not use this data. The data must be in UTF-8 format and less than
    2KB.
    
    
- * Enabled -- flag that enables/disables delivery to the endpoint. Amazon SNS
+ *   Enabled -- flag that enables/disables delivery to the endpoint. Amazon SNS
    will set this to false when a notification service indicates to Amazon SNS
    that the endpoint is invalid. Users can set it back to true, typically after
    updating Token.
    
    
- * Token -- device token, also referred to as a registration id, for an app and
+ *   Token -- device token, also referred to as a registration id, for an app and
    mobile device. This is returned from the notification service when an app and
    mobile device are registered with the notification service. **/
         Attributes?: MapStringToString;
@@ -673,29 +672,29 @@ characters long. **/
     export interface GetPlatformApplicationAttributesResponse {
         /** Attributes include the following:
 
- &amp;#42; EventEndpointCreated -- Topic ARN to which EndpointCreated event
+ &amp;#42;   EventEndpointCreated -- Topic ARN to which EndpointCreated event
    notifications should be sent.
    
    
- * EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
+ *   EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
    notifications should be sent.
    
    
- * EventEndpointUpdated -- Topic ARN to which EndpointUpdate event notifications
-   should be sent.
+ *   EventEndpointUpdated -- Topic ARN to which EndpointUpdate event
+   notifications should be sent.
    
    
- * EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
+ *   EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
    notifications should be sent upon Direct Publish delivery failure (permanent)
    to one of the application&#x27;s endpoints. **/
         Attributes?: MapStringToString;
     }
     export interface GetSMSAttributesInput {
-        /** A list of the individual attribute names, such as MonthlySpendLimit , for which
+        /** A list of the individual attribute names, such as MonthlySpendLimit, for which
 you want values.
 
 For all attribute names, see SetSMSAttributes
-[http://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html] .
+[http://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html].
 
 If you don&#x27;t use this parameter, Amazon SNS returns all SMS attributes. **/
         attributes?: ListString;
@@ -712,24 +711,24 @@ If you don&#x27;t use this parameter, Amazon SNS returns all SMS attributes. **/
         /** A map of the subscription&#x27;s attributes. Attributes in this map include the
 following:
 
- &amp;#42; SubscriptionArn -- the subscription&#x27;s ARN
+ &amp;#42;   SubscriptionArn -- the subscription&#x27;s ARN
    
    
- * TopicArn -- the topic ARN that the subscription is associated with
+ *   TopicArn -- the topic ARN that the subscription is associated with
    
    
- * Owner -- the AWS account ID of the subscription&#x27;s owner
+ *   Owner -- the AWS account ID of the subscription&#x27;s owner
    
    
- * ConfirmationWasAuthenticated -- true if the subscription confirmation request
-   was authenticated
+ *   ConfirmationWasAuthenticated -- true if the subscription confirmation
+   request was authenticated
    
    
- * DeliveryPolicy -- the JSON serialization of the subscription&#x27;s delivery
+ *   DeliveryPolicy -- the JSON serialization of the subscription&#x27;s delivery
    policy
    
    
- * EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
+ *   EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
    policy that takes into account the topic delivery policy and account system
    defaults **/
         Attributes?: SubscriptionAttributesMap;
@@ -741,33 +740,34 @@ following:
     export interface GetTopicAttributesResponse {
         /** A map of the topic&#x27;s attributes. Attributes in this map include the following:
 
- &amp;#42; TopicArn -- the topic&#x27;s ARN
+ &amp;#42;   TopicArn -- the topic&#x27;s ARN
    
    
- * Owner -- the AWS account ID of the topic&#x27;s owner
+ *   Owner -- the AWS account ID of the topic&#x27;s owner
    
    
- * Policy -- the JSON serialization of the topic&#x27;s access control policy
+ *   Policy -- the JSON serialization of the topic&#x27;s access control policy
    
    
- * DisplayName -- the human-readable name used in the &quot;From&quot; field for
+ *   DisplayName -- the human-readable name used in the &quot;From&quot; field for
    notifications to email and email-json endpoints
    
    
- * SubscriptionsPending -- the number of subscriptions pending confirmation on
+ *   SubscriptionsPending -- the number of subscriptions pending confirmation on
    this topic
    
    
- * SubscriptionsConfirmed -- the number of confirmed subscriptions on this topic
+ *   SubscriptionsConfirmed -- the number of confirmed subscriptions on this
+   topic
    
    
- * SubscriptionsDeleted -- the number of deleted subscriptions on this topic
+ *   SubscriptionsDeleted -- the number of deleted subscriptions on this topic
    
    
- * DeliveryPolicy -- the JSON serialization of the topic&#x27;s delivery policy
+ *   DeliveryPolicy -- the JSON serialization of the topic&#x27;s delivery policy
    
    
- * EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
+ *   EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
    policy that takes into account system defaults **/
         Attributes?: TopicAttributesMap;
     }
@@ -858,12 +858,12 @@ there are additional topics to retrieve. **/
     export interface MessageAttributeValue {
         /** Amazon SNS supports the following logical data types: String, Number, and
 Binary. For more information, see Message Attribute Data Types
-[http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes] 
+[http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes]
 . **/
         DataType: String;
         /** Strings are Unicode with UTF8 binary encoding. For a list of code values, see 
 http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
-[http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters] . **/
+[http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters]. **/
         StringValue?: String;
         /** Binary type attributes can store any binary data, for example, compressed data,
 encrypted data, or images. **/
@@ -911,42 +911,42 @@ text of the message as a String value.
 
 If you want to send different messages for each transport protocol, set the
 value of the MessageStructure parameter to json and use a JSON object for the 
-Message parameter.
+Message parameter. 
 
 Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size
 (262144 bytes, not 262144 characters).
 
 JSON-specific constraints:
 
- &amp;#42; Keys in the JSON object that correspond to supported transport protocols must
-   have simple JSON string values.
+ &amp;#42;  Keys in the JSON object that correspond to supported transport protocols
+   must have simple JSON string values.
    
    
- * The values will be parsed (unescaped) before they are used in outgoing
+ *  The values will be parsed (unescaped) before they are used in outgoing
    messages.
    
    
- * Outbound notifications are JSON encoded (meaning that the characters will be
+ *  Outbound notifications are JSON encoded (meaning that the characters will be
    reescaped for sending).
    
    
- * Values have a minimum length of 0 (the empty string, &quot;&quot;, is allowed).
+ *  Values have a minimum length of 0 (the empty string, &quot;&quot;, is allowed).
    
    
- * Values have a maximum length bounded by the overall message size (so,
+ *  Values have a maximum length bounded by the overall message size (so,
    including multiple protocols may limit message sizes).
    
    
- * Non-string values will cause the key to be ignored.
+ *  Non-string values will cause the key to be ignored.
    
    
- * Keys that do not correspond to supported transport protocols are ignored.
+ *  Keys that do not correspond to supported transport protocols are ignored.
    
    
- * Duplicate keys are not allowed.
+ *  Duplicate keys are not allowed.
    
    
- * Failure to parse or validate any key or value in the message will cause the 
+ *  Failure to parse or validate any key or value in the message will cause the 
    Publish call to return an error (no partial delivery). **/
         Message: message;
         /** Optional parameter to be used as the &quot;Subject&quot; line when the message is
@@ -960,12 +960,12 @@ be less than 100 characters long. **/
         /** Set MessageStructure to json if you want to send a different message for each
 protocol. For example, using one publish action, you can send a short message to
 your SMS subscribers and a longer message to your email subscribers. If you set 
-MessageStructure to json , the value of the Message parameter must:
+MessageStructure to json, the value of the Message parameter must: 
 
- &amp;#42; be a syntactically valid JSON object; and
+ &amp;#42;  be a syntactically valid JSON object; and
    
    
- * contain at least a top-level JSON key of &quot;default&quot; with a value that is a
+ *  contain at least a top-level JSON key of &quot;default&quot; with a value that is a
    string.
    
    
@@ -976,7 +976,7 @@ a specific transport protocol (e.g., &quot;http&quot;).
 For information about sending different messages for each protocol using the AWS
 Management Console, go to Create Different Messages for Each Protocol
 [http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol] 
-in the Amazon Simple Notification Service Getting Started Guide .
+in the Amazon Simple Notification Service Getting Started Guide. 
 
 Valid value: json **/
         MessageStructure?: messageStructure;
@@ -1000,18 +1000,18 @@ Length Constraint: Maximum 100 characters **/
         EndpointArn: String;
         /** A map of the endpoint attributes. Attributes in this map include the following:
 
- &amp;#42; CustomUserData -- arbitrary user data to associate with the endpoint. Amazon
+ &amp;#42;   CustomUserData -- arbitrary user data to associate with the endpoint. Amazon
    SNS does not use this data. The data must be in UTF-8 format and less than
    2KB.
    
    
- * Enabled -- flag that enables/disables delivery to the endpoint. Amazon SNS
+ *   Enabled -- flag that enables/disables delivery to the endpoint. Amazon SNS
    will set this to false when a notification service indicates to Amazon SNS
    that the endpoint is invalid. Users can set it back to true, typically after
    updating Token.
    
    
- * Token -- device token, also referred to as a registration id, for an app and
+ *   Token -- device token, also referred to as a registration id, for an app and
    mobile device. This is returned from the notification service when an app and
    mobile device are registered with the notification service. **/
         Attributes: MapStringToString;
@@ -1022,44 +1022,44 @@ Length Constraint: Maximum 100 characters **/
         /** A map of the platform application attributes. Attributes in this map include the
 following:
 
- &amp;#42; PlatformCredential -- The credential received from the notification service.
+ &amp;#42;   PlatformCredential -- The credential received from the notification service.
    For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM,
    PlatformCredential is &quot;API key&quot;. For ADM, PlatformCredential is &quot;client
    secret&quot;.
    
    
- * PlatformPrincipal -- The principal received from the notification service.
+ *   PlatformPrincipal -- The principal received from the notification service.
    For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM,
    PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is &quot;client
    id&quot;.
    
    
- * EventEndpointCreated -- Topic ARN to which EndpointCreated event
+ *   EventEndpointCreated -- Topic ARN to which EndpointCreated event
    notifications should be sent.
    
    
- * EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
+ *   EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
    notifications should be sent.
    
    
- * EventEndpointUpdated -- Topic ARN to which EndpointUpdate event notifications
-   should be sent.
+ *   EventEndpointUpdated -- Topic ARN to which EndpointUpdate event
+   notifications should be sent.
    
    
- * EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
+ *   EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
    notifications should be sent upon Direct Publish delivery failure (permanent)
    to one of the application&#x27;s endpoints.
    
    
- * SuccessFeedbackRoleArn -- IAM role ARN used to give Amazon SNS write access
+ *   SuccessFeedbackRoleArn -- IAM role ARN used to give Amazon SNS write access
    to use CloudWatch Logs on your behalf.
    
    
- * FailureFeedbackRoleArn -- IAM role ARN used to give Amazon SNS write access
+ *   FailureFeedbackRoleArn -- IAM role ARN used to give Amazon SNS write access
    to use CloudWatch Logs on your behalf.
    
    
- * SuccessFeedbackSampleRate -- Sample rate percentage (0-100) of successfully
+ *   SuccessFeedbackSampleRate -- Sample rate percentage (0-100) of successfully
    delivered messages. **/
         Attributes: MapStringToString;
     }
@@ -1067,8 +1067,8 @@ following:
         /** The default settings for sending SMS messages from your account. You can set
 values for the following attribute names:
 
-MonthlySpendLimit – The maximum amount in USD that you are willing to spend each
-month to send SMS messages. When Amazon SNS determines that sending an SMS
+ MonthlySpendLimit – The maximum amount in USD that you are willing to spend
+each month to send SMS messages. When Amazon SNS determines that sending an SMS
 message would incur a cost that exceeds this limit, it stops sending SMS
 messages within minutes.
 
@@ -1081,64 +1081,64 @@ want to exceed the maximum, contact AWS Support
 [https://aws.amazon.com/premiumsupport/] or your AWS sales representative for a
 service limit increase.
 
-DeliveryStatusIAMRole – The ARN of the IAM role that allows Amazon SNS to write
+ DeliveryStatusIAMRole – The ARN of the IAM role that allows Amazon SNS to write
 logs about SMS deliveries in CloudWatch Logs. For each SMS message that you
 send, Amazon SNS writes a log that includes the message price, the success or
 failure status, the reason for failure (if the message failed), the message
 dwell time, and other information.
 
-DeliveryStatusSuccessSamplingRate – The percentage of successful SMS deliveries
+ DeliveryStatusSuccessSamplingRate – The percentage of successful SMS deliveries
 for which Amazon SNS will write logs in CloudWatch Logs. The value can be an
 integer from 0 - 100. For example, to write logs only for failed deliveries, set
-this value to 0 . To write logs for 10% of your successful deliveries, set it to 
-10 .
+this value to 0. To write logs for 10% of your successful deliveries, set it to 
+10.
 
-DefaultSenderID – A string, such as your business brand, that is displayed as
+ DefaultSenderID – A string, such as your business brand, that is displayed as
 the sender on the receiving device. Support for sender IDs varies by country.
 The sender ID can be 1 - 11 alphanumeric characters, and it must contain at
 least one letter.
 
-DefaultSMSType – The type of SMS message that you will send by default. You can
+ DefaultSMSType – The type of SMS message that you will send by default. You can
 assign the following values:
 
- &amp;#42; Promotional – (Default) Noncritical messages, such as marketing messages.
+ &amp;#42;   Promotional – (Default) Noncritical messages, such as marketing messages.
    Amazon SNS optimizes the message delivery to incur the lowest cost.
    
    
- * Transactional – Critical messages that support customer transactions, such as
-   one-time passcodes for multi-factor authentication. Amazon SNS optimizes the
-   message delivery to achieve the highest reliability.
+ *   Transactional – Critical messages that support customer transactions, such
+   as one-time passcodes for multi-factor authentication. Amazon SNS optimizes
+   the message delivery to achieve the highest reliability.
    
    
 
-UsageReportS3Bucket – The name of the Amazon S3 bucket to receive daily SMS
+ UsageReportS3Bucket – The name of the Amazon S3 bucket to receive daily SMS
 usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report
 as a CSV file to the bucket. The report includes the following information for
 each SMS message that was successfully delivered by your account:
 
- * Time that the message was published (in UTC)
+ *  Time that the message was published (in UTC)
    
    
- * Message ID
+ *  Message ID
    
    
- * Destination phone number
+ *  Destination phone number
    
    
- * Message type
+ *  Message type
    
    
- * Delivery status
+ *  Delivery status
    
    
- * Message price (in USD)
+ *  Message price (in USD)
    
    
- * Part number (a message is split into multiple parts if it is too long for a
+ *  Part number (a message is split into multiple parts if it is too long for a
    single message)
    
    
- * Total number of parts
+ *  Total number of parts
    
    
 
@@ -1147,7 +1147,7 @@ service principle to perform the s3:PutObject and s3:GetBucketLocation actions.
 
 For an example bucket policy and usage report, see Monitoring SMS Activity
 [http://docs.aws.amazon.com/sns/latest/dg/sms_stats.html] in the Amazon SNS
-Developer Guide . **/
+Developer Guide. **/
         attributes: MapStringToString;
     }
     export interface SetSMSAttributesResponse {
@@ -1179,55 +1179,55 @@ Valid values: Policy | DisplayName | DeliveryPolicy **/
         TopicArn: topicARN;
         /** The protocol you want to use. Supported protocols include:
 
- &amp;#42; http -- delivery of JSON-encoded message via HTTP POST
+ &amp;#42;   http -- delivery of JSON-encoded message via HTTP POST
    
    
- * https -- delivery of JSON-encoded message via HTTPS POST
+ *   https -- delivery of JSON-encoded message via HTTPS POST
    
    
- * email -- delivery of message via SMTP
+ *   email -- delivery of message via SMTP
    
    
- * email-json -- delivery of JSON-encoded message via SMTP
+ *   email-json -- delivery of JSON-encoded message via SMTP
    
    
- * sms -- delivery of message via SMS
+ *   sms -- delivery of message via SMS
    
    
- * sqs -- delivery of JSON-encoded message to an Amazon SQS queue
+ *   sqs -- delivery of JSON-encoded message to an Amazon SQS queue
    
    
- * application -- delivery of JSON-encoded message to an EndpointArn for a
+ *   application -- delivery of JSON-encoded message to an EndpointArn for a
    mobile app and device.
    
    
- * lambda -- delivery of JSON-encoded message to an AWS Lambda function. **/
+ *   lambda -- delivery of JSON-encoded message to an AWS Lambda function. **/
         Protocol: protocol;
         /** The endpoint that you want to receive notifications. Endpoints vary by protocol:
 
- &amp;#42; For the http protocol, the endpoint is an URL beginning with &quot;http://&quot;
+ &amp;#42;  For the http protocol, the endpoint is an URL beginning with &quot;http://&quot;
    
    
- * For the https protocol, the endpoint is a URL beginning with &quot;https://&quot;
+ *  For the https protocol, the endpoint is a URL beginning with &quot;https://&quot;
    
    
- * For the email protocol, the endpoint is an email address
+ *  For the email protocol, the endpoint is an email address
    
    
- * For the email-json protocol, the endpoint is an email address
+ *  For the email-json protocol, the endpoint is an email address
    
    
- * For the sms protocol, the endpoint is a phone number of an SMS-enabled device
+ *  For the sms protocol, the endpoint is a phone number of an SMS-enabled device
    
    
- * For the sqs protocol, the endpoint is the ARN of an Amazon SQS queue
+ *  For the sqs protocol, the endpoint is the ARN of an Amazon SQS queue
    
    
- * For the application protocol, the endpoint is the EndpointArn of a mobile app
+ *  For the application protocol, the endpoint is the EndpointArn of a mobile app
    and device.
    
    
- * For the lambda protocol, the endpoint is the ARN of an AWS Lambda function. **/
+ *  For the lambda protocol, the endpoint is the ARN of an AWS Lambda function. **/
         Endpoint?: endpoint;
     }
     export interface SubscribeResponse {

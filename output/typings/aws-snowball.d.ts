@@ -22,7 +22,7 @@ AWS Snowball Management Console, which enables you to create and manage jobs for
 Snowball. To transfer data locally with a Snowball appliance, you&#x27;ll need to use
 the Snowball client or the Amazon S3 API adapter for Snowball. For more
 information, see the User Guide
-[http://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html] .
+[http://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html].
    *
    */
   export class Snowball extends Service {
@@ -40,7 +40,7 @@ to cancel it.
     cancelCluster(params: Snowball.CancelClusterRequest, callback?: (err: Snowball.KMSRequestFailedException|Snowball.InvalidJobStateException|Snowball.InvalidResourceException|any, data: Snowball.CancelClusterResult|any) => void): Request<Snowball.CancelClusterResult|any,Snowball.KMSRequestFailedException|Snowball.InvalidJobStateException|Snowball.InvalidResourceException|any>;
     /**
      * Cancels the specified job. You can only cancel a job before its JobState value
-changes to PreparingAppliance . Requesting the ListJobs or DescribeJob action
+changes to PreparingAppliance. Requesting the ListJobs or DescribeJob action
 will return a job&#x27;s JobState as part of the response element data returned.
      *
      * @error InvalidResourceException   
@@ -49,7 +49,7 @@ will return a job&#x27;s JobState as part of the response element data returned.
      */
     cancelJob(params: Snowball.CancelJobRequest, callback?: (err: Snowball.InvalidResourceException|Snowball.InvalidJobStateException|Snowball.KMSRequestFailedException|any, data: Snowball.CancelJobResult|any) => void): Request<Snowball.CancelJobResult|any,Snowball.InvalidResourceException|Snowball.InvalidJobStateException|Snowball.KMSRequestFailedException|any>;
     /**
-     * Creates an address for a Snowball to be shipped to.
+     * Creates an address for a Snowball to be shipped to. 
 
 Addresses are validated at the time of creation. The address you provide must be
 located within the serviceable area of your region. If the address is invalid or
@@ -200,7 +200,7 @@ created, this action is no longer available.
      */
     updateCluster(params: Snowball.UpdateClusterRequest, callback?: (err: Snowball.InvalidResourceException|Snowball.InvalidJobStateException|Snowball.KMSRequestFailedException|Snowball.InvalidInputCombinationException|any, data: Snowball.UpdateClusterResult|any) => void): Request<Snowball.UpdateClusterResult|any,Snowball.InvalidResourceException|Snowball.InvalidJobStateException|Snowball.KMSRequestFailedException|Snowball.InvalidInputCombinationException|any>;
     /**
-     * While a job&#x27;s JobState value is New , you can update some of the information
+     * While a job&#x27;s JobState value is New, you can update some of the information
 associated with a job. Once the job changes to a different job state, usually
 within 60 minutes of the job being created, this action is no longer available.
      *
@@ -301,14 +301,14 @@ to. **/
     }
     export interface CancelClusterRequest {
         /** The 39-character ID for the cluster that you want to cancel, for example 
-CID123e4567-e89b-12d3-a456-426655440000 . **/
+CID123e4567-e89b-12d3-a456-426655440000. **/
         ClusterId: ClusterId;
     }
     export interface CancelClusterResult {
     }
     export interface CancelJobRequest {
         /** The 39-character job ID for the job that you want to cancel, for example 
-JID123e4567-e89b-12d3-a456-426655440000 . **/
+JID123e4567-e89b-12d3-a456-426655440000. **/
         JobId: JobId;
     }
     export interface CancelJobResult {
@@ -318,15 +318,15 @@ JID123e4567-e89b-12d3-a456-426655440000 . **/
     }
     export interface ClusterListEntry {
         /** The 39-character ID for the cluster that you want to list, for example 
-CID123e4567-e89b-12d3-a456-426655440000 . **/
+CID123e4567-e89b-12d3-a456-426655440000. **/
         ClusterId?: String;
         /** The current state of this cluster. For information about the state of a specific
-node, see JobListEntry$JobState . **/
+node, see JobListEntry$JobState. **/
         ClusterState?: ClusterState;
         /** The creation date for this cluster. **/
         CreationDate?: Timestamp;
         /** Defines an optional description of the cluster, for example Environmental Data
-Cluster-01 . **/
+Cluster-01. **/
         Description?: String;
     }
     export interface ClusterMetadata {
@@ -347,10 +347,10 @@ action in AWS Identity and Access Management (IAM). **/
         /** The current status of the cluster. **/
         ClusterState?: ClusterState;
         /** The type of job for this cluster. Currently, the only job type supported for
-clusters is LOCAL_USE . **/
+clusters is LOCAL_USE. **/
         JobType?: JobType;
         /** The type of AWS Snowball appliance to use for this cluster. Currently, the only
-supported appliance type for cluster jobs is EDGE . **/
+supported appliance type for cluster jobs is EDGE. **/
         SnowballType?: SnowballType;
         /** The creation date for this cluster. **/
         CreationDate?: Timestamp;
@@ -364,20 +364,20 @@ soon you&#x27;ll get each Snowball Edge appliance, rather it represents how quic
 each appliance moves to its destination while in transit. Regional shipping
 speeds are as follows:
 
- &amp;#42; In Australia, you have access to express shipping. Typically, appliances
+ &amp;#42;  In Australia, you have access to express shipping. Typically, appliances
    shipped express are delivered in about a day.
    
    
- * In the European Union (EU), you have access to express shipping. Typically,
+ *  In the European Union (EU), you have access to express shipping. Typically,
    Snowball Edges shipped express are delivered in about a day. In addition,
    most countries in the EU have access to standard shipping, which typically
    takes less than a week, one way.
    
    
- * In India, Snowball Edges are delivered in one to seven days.
+ *  In India, Snowball Edges are delivered in one to seven days.
    
    
- * In the US, you have access to one-day shipping and two-day shipping. **/
+ *  In the US, you have access to one-day shipping and two-day shipping. **/
         ShippingOption?: ShippingOption;
         /** The Amazon Simple Notification Service (Amazon SNS) notification settings for
 this cluster. **/
@@ -395,13 +395,13 @@ shipped to. **/
     }
     export interface CreateClusterRequest {
         /** The type of job for this cluster. Currently, the only job type supported for
-clusters is LOCAL_USE . **/
+clusters is LOCAL_USE. **/
         JobType: JobType;
         /** The resources associated with the cluster job. These resources include Amazon S3
 buckets and optional AWS Lambda functions written in the Python language. **/
         Resources: JobResource;
         /** An optional description of this specific cluster, for example Environmental Data
-Cluster-01 . **/
+Cluster-01. **/
         Description?: String;
         /** The ID for the address that you want the cluster shipped to.&gt; **/
         AddressId: AddressId;
@@ -416,27 +416,27 @@ created by using the CreateRole
 action in AWS Identity and Access Management (IAM). **/
         RoleARN: RoleARN;
         /** The type of AWS Snowball appliance to use for this cluster. Currently, the only
-supported appliance type for cluster jobs is EDGE . **/
+supported appliance type for cluster jobs is EDGE. **/
         SnowballType?: SnowballType;
         /** The shipping speed for each node in this cluster. This speed doesn&#x27;t dictate how
 soon you&#x27;ll get each Snowball Edge appliance, rather it represents how quickly
 each appliance moves to its destination while in transit. Regional shipping
 speeds are as follows:
 
- &amp;#42; In Australia, you have access to express shipping. Typically, appliances
+ &amp;#42;  In Australia, you have access to express shipping. Typically, appliances
    shipped express are delivered in about a day.
    
    
- * In the European Union (EU), you have access to express shipping. Typically,
+ *  In the European Union (EU), you have access to express shipping. Typically,
    Snowball Edges shipped express are delivered in about a day. In addition,
    most countries in the EU have access to standard shipping, which typically
    takes less than a week, one way.
    
    
- * In India, Snowball Edges are delivered in one to seven days.
+ *  In India, Snowball Edges are delivered in one to seven days.
    
    
- * In the US, you have access to one-day shipping and two-day shipping. **/
+ *  In the US, you have access to one-day shipping and two-day shipping. **/
         ShippingOption: ShippingOption;
         /** The Amazon Simple Notification Service (Amazon SNS) notification settings for
 this cluster. **/
@@ -461,17 +461,17 @@ an inclusive BeginMarker value, an inclusive EndMarker value, or both. Ranges
 are UTF-8 binary sorted. **/
         Resources?: JobResource;
         /** Defines an optional description of this specific job, for example Important
-Photos 2016-08-11 . **/
+Photos 2016-08-11. **/
         Description?: String;
         /** The ID for the address that you want the Snowball shipped to. **/
         AddressId?: AddressId;
-        /** The KmsKeyARN that you want to associate with this job. KmsKeyARN s are created
+        /** The KmsKeyARN that you want to associate with this job. KmsKeyARNs are created
 using the CreateKey
 [http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html] AWS Key
 Management Service (KMS) API action. **/
         KmsKeyARN?: KmsKeyARN;
-        /** The RoleARN that you want to associate with this job. RoleArn s are created
-using the CreateRole
+        /** The RoleARN that you want to associate with this job. RoleArns are created using
+the CreateRole
 [http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html] AWS
 Identity and Access Management (IAM) API action. **/
         RoleARN?: RoleARN;
@@ -483,20 +483,20 @@ Snowballs come with 80 TB in storage capacity. **/
 the Snowball, rather it represents how quickly the Snowball moves to its
 destination while in transit. Regional shipping speeds are as follows:
 
- &amp;#42; In Australia, you have access to express shipping. Typically, Snowballs
+ &amp;#42;  In Australia, you have access to express shipping. Typically, Snowballs
    shipped express are delivered in about a day.
    
    
- * In the European Union (EU), you have access to express shipping. Typically,
+ *  In the European Union (EU), you have access to express shipping. Typically,
    Snowballs shipped express are delivered in about a day. In addition, most
    countries in the EU have access to standard shipping, which typically takes
    less than a week, one way.
    
    
- * In India, Snowballs are delivered in one to seven days.
+ *  In India, Snowballs are delivered in one to seven days.
    
    
- * In the US, you have access to one-day shipping and two-day shipping. **/
+ *  In the US, you have access to one-day shipping and two-day shipping. **/
         ShippingOption?: ShippingOption;
         /** Defines the Amazon Simple Notification Service (Amazon SNS) notification
 settings for this job. **/
@@ -506,12 +506,12 @@ to provide only this clusterId value. The other job attributes are inherited
 from the cluster. **/
         ClusterId?: ClusterId;
         /** The type of AWS Snowball appliance to use for this job. Currently, the only
-supported appliance type for cluster jobs is EDGE . **/
+supported appliance type for cluster jobs is EDGE. **/
         SnowballType?: SnowballType;
     }
     export interface CreateJobResult {
         /** The automatically generated ID for a job, for example 
-JID123e4567-e89b-12d3-a456-426655440000 . **/
+JID123e4567-e89b-12d3-a456-426655440000. **/
         JobId?: JobId;
     }
     export interface DataTransfer {
@@ -564,7 +564,7 @@ status, and other important metadata. **/
     }
     export interface DescribeJobRequest {
         /** The automatically generated ID for a job, for example 
-JID123e4567-e89b-12d3-a456-426655440000 . **/
+JID123e4567-e89b-12d3-a456-426655440000. **/
         JobId: JobId;
     }
     export interface DescribeJobResult {
@@ -582,7 +582,7 @@ Lambda function&#x27;s event trigger associated with this job. **/
     }
     export interface GetJobManifestRequest {
         /** The ID for a job that you want to get the manifest file for, for example 
-JID123e4567-e89b-12d3-a456-426655440000 . **/
+JID123e4567-e89b-12d3-a456-426655440000. **/
         JobId: JobId;
     }
     export interface GetJobManifestResult {
@@ -592,7 +592,7 @@ JobId value. **/
     }
     export interface GetJobUnlockCodeRequest {
         /** The ID for the job that you want to get the UnlockCode value for, for example 
-JID123e4567-e89b-12d3-a456-426655440000 . **/
+JID123e4567-e89b-12d3-a456-426655440000. **/
         JobId: JobId;
     }
     export interface GetJobUnlockCodeResult {
@@ -623,7 +623,7 @@ default service limit is 1 (one). **/
     }
     export interface JobListEntry {
         /** The automatically generated ID for a job, for example 
-JID123e4567-e89b-12d3-a456-426655440000 . **/
+JID123e4567-e89b-12d3-a456-426655440000. **/
         JobId?: String;
         /** The current state of this job. **/
         JobState?: JobState;
@@ -641,7 +641,7 @@ created after the master job is created. **/
         /** The creation date for this job. **/
         CreationDate?: Timestamp;
         /** The optional description of this specific job, for example Important Photos
-2016-08-11 . **/
+2016-08-11. **/
         Description?: String;
     }
     export interface JobLogs {
@@ -654,7 +654,7 @@ created after the master job is created. **/
     }
     export interface JobMetadata {
         /** The automatically generated ID for a job, for example 
-JID123e4567-e89b-12d3-a456-426655440000 . **/
+JID123e4567-e89b-12d3-a456-426655440000. **/
         JobId?: String;
         /** The current status of the jobs. **/
         JobState?: JobState;
@@ -691,7 +691,7 @@ the response syntax of the DescribeJob action in the JobMetadata data type. **/
         Notification?: Notification;
         /** A value that defines the real-time status of a Snowball&#x27;s data transfer while
 the appliance is at AWS. This data is only available while a job has a JobState 
-value of InProgress , for both import and export jobs. **/
+value of InProgress, for both import and export jobs. **/
         DataTransferProgress?: DataTransfer;
         /** Links to Amazon S3 presigned URLs for the job report and logs. For import jobs,
 the PDF job report becomes available at the end of the import process. For
@@ -699,7 +699,7 @@ export jobs, your job report typically becomes available while the Snowball for
 your job part is being delivered to you. **/
         JobLogInfo?: JobLogs;
         /** The 39-character ID for the cluster, for example 
-CID123e4567-e89b-12d3-a456-426655440000 . **/
+CID123e4567-e89b-12d3-a456-426655440000. **/
         ClusterId?: String;
     }
     export interface JobResource {
@@ -729,7 +729,7 @@ associated with this job. **/
     }
     export interface ListClusterJobsRequest {
         /** The 39-character ID for the cluster that you want to list, for example 
-CID123e4567-e89b-12d3-a456-426655440000 . **/
+CID123e4567-e89b-12d3-a456-426655440000. **/
         ClusterId: ClusterId;
         /** The number of JobListEntry objects to return. **/
         MaxResults?: ListLimit;
@@ -802,13 +802,13 @@ Notification Service (SNS) API action. **/
         BucketArn?: ResourceARN;
         /** For export jobs, you can provide an optional KeyRange within a specific Amazon
 S3 bucket. The length of the range is defined at job creation, and has either an
-inclusive BeginMarker , an inclusive EndMarker , or both. Ranges are UTF-8
-binary sorted. **/
+inclusive BeginMarker, an inclusive EndMarker, or both. Ranges are UTF-8 binary
+sorted. **/
         KeyRange?: KeyRange;
     }
     export interface Shipment {
-        /** Status information for a shipment. Valid statuses include NEW , IN_TRANSIT , and 
-DELIVERED . **/
+        /** Status information for a shipment. Valid statuses include NEW, IN_TRANSIT, and 
+DELIVERED. **/
         Status?: String;
         /** The tracking number for this job. Using this tracking number with your region&#x27;s
 carrier&#x27;s website, you can track a Snowball as the carrier transports it.
@@ -823,21 +823,21 @@ you&#x27;ll get the Snowball from the job&#x27;s creation date. This speed repre
 quickly it moves to its destination while in transit. Regional shipping speeds
 are as follows:
 
- &amp;#42; In Australia, you have access to express shipping. Typically, Snowballs
+ &amp;#42;  In Australia, you have access to express shipping. Typically, Snowballs
    shipped express are delivered in about a day.
    
    
- * In the European Union (EU), you have access to express shipping. Typically,
+ *  In the European Union (EU), you have access to express shipping. Typically,
    Snowballs shipped express are delivered in about a day. In addition, most
    countries in the EU have access to standard shipping, which typically takes
    less than a week, one way.
    
    
- * In India, Snowballs are delivered in one to seven days.
+ *  In India, Snowballs are delivered in one to seven days.
    
    
- * In the United States of America (US), you have access to one-day shipping and
-   two-day shipping. **/
+ *  In the United States of America (US), you have access to one-day shipping
+   and two-day shipping. **/
         ShippingOption?: ShippingOption;
         /** The Status and TrackingNumber values for a Snowball being delivered to the
 address that you specified for a particular job. **/
@@ -851,7 +851,7 @@ particular job. **/
     }
     export interface UpdateClusterRequest {
         /** The cluster ID of the cluster that you want to update, for example 
-CID123e4567-e89b-12d3-a456-426655440000 . **/
+CID123e4567-e89b-12d3-a456-426655440000. **/
         ClusterId: ClusterId;
         /** The new role Amazon Resource Name (ARN) that you want to associate with this
 cluster. To create a role ARN, use the CreateRole
@@ -874,7 +874,7 @@ objects or LambdaResource objects. **/
     }
     export interface UpdateJobRequest {
         /** The job ID of the job that you want to update, for example 
-JID123e4567-e89b-12d3-a456-426655440000 . **/
+JID123e4567-e89b-12d3-a456-426655440000. **/
         JobId: JobId;
         /** The new role Amazon Resource Name (ARN) that you want to associate with this
 job. To create a role ARN, use the CreateRole

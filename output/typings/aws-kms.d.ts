@@ -14,11 +14,11 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Key Management ServiceAWS Key Management Service (AWS KMS) is an encryption
+   * AWS Key Management Service AWS Key Management Service (AWS KMS) is an encryption
 and key management web service. This guide describes the AWS KMS operations that
 you can call programmatically. For general information about AWS KMS, see the 
 AWS Key Management Service Developer Guide
-[http://docs.aws.amazon.com/kms/latest/developerguide/] .
+[http://docs.aws.amazon.com/kms/latest/developerguide/].
 
 AWS provides SDKs that consist of libraries and sample code for various
 programming languages and platforms (Java, Ruby, .Net, iOS, Android, etc.). The
@@ -26,7 +26,7 @@ SDKs provide a convenient way to create programmatic access to AWS KMS and other
 AWS services. For example, the SDKs take care of tasks such as signing requests
 (see below), managing errors, and retrying requests automatically. For more
 information about the AWS SDKs, including how to download and install them, see 
-Tools for Amazon Web Services [http://aws.amazon.com/tools/] .
+Tools for Amazon Web Services [http://aws.amazon.com/tools/].
 
 We recommend that you use the AWS SDKs to make programmatic API calls to AWS
 KMS.
@@ -36,7 +36,7 @@ Clients must also support cipher suites with Perfect Forward Secrecy (PFS) such
 as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman
 (ECDHE). Most modern systems such as Java 7 and later support these modes.
 
-Signing Requests
+ Signing Requests 
 
 Requests must be signed by using an access key ID and a secret access key. We
 strongly recommend that you do not use your AWS account (root) access key ID and
@@ -45,9 +45,9 @@ secret access key for an IAM user, or you can use the AWS Security Token Service
 to generate temporary security credentials that you can use to sign requests.
 
 All AWS KMS operations require Signature Version 4
-[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] .
+[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html].
 
-Logging API Requests
+ Logging API Requests 
 
 AWS KMS supports AWS CloudTrail, a service that logs AWS API calls and related
 events for your AWS account and delivers them to an Amazon S3 bucket that you
@@ -55,47 +55,47 @@ specify. By using the information collected by CloudTrail, you can determine
 what requests were made to AWS KMS, who made the request, when it was made, and
 so on. To learn more about CloudTrail, including how to turn it on and find your
 log files, see the AWS CloudTrail User Guide
-[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/] .
+[http://docs.aws.amazon.com/awscloudtrail/latest/userguide/].
 
-Additional Resources
+ Additional Resources 
 
 For more information about credentials and request signing, see the following:
 
- &amp;#42; AWS Security Credentials
+ &amp;#42;   AWS Security Credentials
    [http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html] 
    - This topic provides general information about the types of credentials used
    for accessing AWS.
    
    
- * Temporary Security Credentials
+ *   Temporary Security Credentials
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html] -
    This section of the IAM User Guide describes how to create and use temporary
    security credentials.
    
    
- * Signature Version 4 Signing Process
+ *   Signature Version 4 Signing Process
    [http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] -
    This set of topics walks you through the process of signing a request using
    an access key ID and a secret access key.
    
    
 
-Commonly Used APIs
+ Commonly Used APIs 
 
 Of the APIs discussed in this guide, the following will prove the most useful
 for most applications. You will likely perform actions other than these, such as
 creating keys and assigning policies, by using the console.
 
- * Encrypt
+ *   Encrypt 
    
    
- * Decrypt
+ *   Decrypt 
    
    
- * GenerateDataKey
+ *   GenerateDataKey 
    
    
- * GenerateDataKeyWithoutPlaintext
+ *   GenerateDataKeyWithoutPlaintext
    *
    */
   export class KMS extends Service {
@@ -103,13 +103,13 @@ creating keys and assigning policies, by using the console.
     endpoint: Endpoint;
     /**
      * Cancels the deletion of a customer master key (CMK). When this operation is
-successful, the CMK is set to the Disabled state. To enable a CMK, use EnableKey 
+successful, the CMK is set to the Disabled state. To enable a CMK, use EnableKey
 .
 
 For more information about scheduling and canceling deletion of a CMK, see 
 Deleting Customer Master Keys
 [http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html] in the 
-AWS Key Management Service Developer Guide .
+AWS Key Management Service Developer Guide.
      *
      * @error NotFoundException   
      * @error InvalidArnException   
@@ -130,7 +130,7 @@ Web Services (AWS).
 The alias and the key it is mapped to must be in the same AWS account and the
 same region.
 
-To map an alias to a different key, call UpdateAlias .
+To map an alias to a different key, call UpdateAlias.
      *
      * @error DependencyTimeoutException   
      * @error AlreadyExistsException   
@@ -147,7 +147,7 @@ Grants are alternate permission mechanisms to key policies.
 
 For more information about grants, see Grants
 [http://docs.aws.amazon.com/kms/latest/developerguide/grants.html] in the AWS
-Key Management Service Developer Guide .
+Key Management Service Developer Guide.
      *
      * @error NotFoundException   
      * @error DisabledException   
@@ -167,10 +167,10 @@ CMKs are more commonly used to encrypt data encryption keys (DEKs), which are
 used to encrypt raw data. For more information about DEKs and the difference
 between CMKs and DEKs, see the following:
 
- &amp;#42; The GenerateDataKey operation
+ &amp;#42;  The GenerateDataKey operation
    
    
- * AWS Key Management Service Concepts
+ *   AWS Key Management Service Concepts
    [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html] in the 
    AWS Key Management Service Developer Guide
      *
@@ -186,13 +186,13 @@ between CMKs and DEKs, see the following:
      * Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted
 by using any of the following functions:
 
- &amp;#42; GenerateDataKey
+ &amp;#42;   GenerateDataKey 
    
    
- * GenerateDataKeyWithoutPlaintext
+ *   GenerateDataKeyWithoutPlaintext 
    
    
- * Encrypt
+ *   Encrypt 
    
    
 
@@ -216,7 +216,7 @@ you should scope the resource to specific keys or to specific trusted accounts.
     decrypt(params: KMS.DecryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.DecryptResponse|any) => void): Request<KMS.DecryptResponse|any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Deletes the specified alias. To map an alias to a different key, call 
-UpdateAlias .
+UpdateAlias.
      *
      * @error DependencyTimeoutException   
      * @error NotFoundException   
@@ -229,10 +229,10 @@ UpdateAlias .
 customer master key (CMK) unusable. For more information about importing key
 material into AWS KMS, see Importing Key Material
 [http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html] in
-the AWS Key Management Service Developer Guide .
+the AWS Key Management Service Developer Guide.
 
 When the specified CMK is in the PendingDeletion state, this operation does not
-change the CMK&#x27;s state. Otherwise, it changes the CMK&#x27;s state to PendingImport .
+change the CMK&#x27;s state. Otherwise, it changes the CMK&#x27;s state to PendingImport.
 
 After you delete key material, you can use ImportKeyMaterial to reimport the
 same key material into the CMK.
@@ -259,7 +259,7 @@ same key material into the CMK.
 its use for cryptographic operations. For more information about how key state
 affects the use of a CMK, see How Key State Affects the Use of a Customer Master
 Key [http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the 
-AWS Key Management Service Developer Guide .
+AWS Key Management Service Developer Guide.
      *
      * @error NotFoundException   
      * @error InvalidArnException   
@@ -307,12 +307,12 @@ AWS Key Management Service Developer Guide .
      * Encrypts plaintext into ciphertext by using a customer master key. The Encrypt 
 function has two primary use cases:
 
- &amp;#42; You can encrypt up to 4 KB of arbitrary data such as an RSA key, a database
+ &amp;#42;  You can encrypt up to 4 KB of arbitrary data such as an RSA key, a database
    password, or other sensitive customer information.
    
    
- * If you are moving encrypted data from one region to another, you can use this
-   API to encrypt in the new region the plaintext data key that was used to
+ *  If you are moving encrypted data from one region to another, you can use
+   this API to encrypt in the new region the plaintext data key that was used to
    encrypt the data in the original region. This provides you with an encrypted
    copy of the data key that can be decrypted in the new region and used there
    to decrypt the encrypted data.
@@ -323,7 +323,7 @@ Unless you are moving encrypted data from one region to another, you don&#x27;t 
 this function to encrypt a generated data key within a region. You retrieve data
 keys already encrypted by calling the GenerateDataKey or 
 GenerateDataKeyWithoutPlaintext function. Data keys don&#x27;t need to be encrypted
-again by calling Encrypt .
+again by calling Encrypt.
 
 If you want to encrypt data locally in your application, you can use the 
 GenerateDataKey function to return a plaintext data encryption key and a copy of
@@ -347,7 +347,7 @@ You must specify the customer master key (CMK) under which to generate the data
 key. You must also specify the length of the data key using either the KeySpec 
 or NumberOfBytes field. You must specify one field or the other, but not both.
 For common key lengths (128-bit and 256-bit symmetric keys), we recommend that
-you use KeySpec .
+you use KeySpec.
 
 This operation returns a plaintext copy of the data key in the Plaintext field
 of the response, and an encrypted copy of the data key in the CiphertextBlob 
@@ -357,33 +357,33 @@ the request.
 We recommend that you use the following pattern to encrypt data locally in your
 application:
 
- 1. Use this operation ( GenerateDataKey ) to retrieve a data encryption key.
+ 1.  Use this operation (GenerateDataKey) to retrieve a data encryption key.
     
     
- 2. Use the plaintext data encryption key (returned in the Plaintext field of
+ 2.  Use the plaintext data encryption key (returned in the Plaintext field of
     the response) to encrypt data locally, then erase the plaintext data key
     from memory.
     
     
- 3. Store the encrypted data key (returned in the CiphertextBlob field of the
+ 3.  Store the encrypted data key (returned in the CiphertextBlob field of the
     response) alongside the locally encrypted data.
     
     
 
 To decrypt data locally:
 
- 1. Use the Decrypt operation to decrypt the encrypted data key into a plaintext
+ 1.  Use the Decrypt operation to decrypt the encrypted data key into a plaintext
     copy of the data key.
     
     
- 2. Use the plaintext data key to decrypt data locally, then erase the plaintext
-    data key from memory.
+ 2.  Use the plaintext data key to decrypt data locally, then erase the
+    plaintext data key from memory.
     
     
 
 To return only an encrypted copy of the data key, use 
-GenerateDataKeyWithoutPlaintext . To return an arbitrary unpredictable byte
-string, use GenerateRandom .
+GenerateDataKeyWithoutPlaintext. To return an arbitrary unpredictable byte
+string, use GenerateRandom.
 
 If you use the optional EncryptionContext field, you must store at least enough
 information to be able to reconstruct the full encryption context when you later
@@ -391,7 +391,7 @@ send the ciphertext to the Decrypt operation. It is a good practice to choose an
 encryption context that you can reconstruct on the fly to better secure the
 ciphertext. For more information, see Encryption Context
 [http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html] 
-in the AWS Key Management Service Developer Guide .
+in the AWS Key Management Service Developer Guide.
      *
      * @error NotFoundException   
      * @error DisabledException   
@@ -411,11 +411,11 @@ the data key.
 This operation is useful in a system that has multiple components with different
 degrees of trust. For example, consider a system that stores encrypted data in
 containers. Each container stores the encrypted data and an encrypted copy of
-the data key. One component of the system, called the control plane , creates
-new containers. When it creates a new container, it uses this operation ( 
-GenerateDataKeyWithoutPlaintext ) to get an encrypted data key and then stores
-it in the container. Later, a different component of the system, called the data
-plane , puts encrypted data into the containers. To do this, it passes the
+the data key. One component of the system, called the control plane, creates new
+containers. When it creates a new container, it uses this operation (
+GenerateDataKeyWithoutPlaintext) to get an encrypted data key and then stores it
+in the container. Later, a different component of the system, called the data
+plane, puts encrypted data into the containers. To do this, it passes the
 encrypted data key to the Decrypt operation, then uses the returned plaintext
 data key to encrypt data, and finally stores the encrypted data in the
 container. In this system, the control plane never sees the plaintext data key.
@@ -464,10 +464,10 @@ specified key.
 your existing key management infrastructure. For more information about
 importing key material into AWS KMS, see Importing Key Material
 [http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html] in
-the AWS Key Management Service Developer Guide .
+the AWS Key Management Service Developer Guide.
 
 You must specify the key ID of the customer master key (CMK) into which you will
-import key material. This CMK&#x27;s Origin must be EXTERNAL . You must also specify
+import key material. This CMK&#x27;s Origin must be EXTERNAL. You must also specify
 the wrapping algorithm and type of wrapping key (public key) that you will use
 to encrypt the key material.
 
@@ -491,10 +491,10 @@ ones, send another GetParametersForImport request.
 existing key management infrastructure. For more information about importing key
 material into AWS KMS, see Importing Key Material
 [http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html] in
-the AWS Key Management Service Developer Guide .
+the AWS Key Management Service Developer Guide.
 
 You must specify the key ID of the CMK to import the key material into. This
-CMK&#x27;s Origin must be EXTERNAL . You must also send an import token and the
+CMK&#x27;s Origin must be EXTERNAL. You must also send an import token and the
 encrypted key material. Send the import token that you received in the same 
 GetParametersForImport response that contained the public key that you used to
 encrypt the key material. You must also specify whether the key material expires
@@ -504,7 +504,7 @@ key material. If you set an expiration date, you can change it only by
 reimporting the same key material and specifying a new expiration date.
 
 When this operation is successful, the specified CMK&#x27;s key state changes to 
-Enabled , and you can use the CMK.
+Enabled, and you can use the CMK.
 
 After you successfully import key material into a CMK, you can reimport the same
 key material into that CMK, but you cannot import different key material.
@@ -563,7 +563,7 @@ key material into that CMK, but you cannot import different key material.
 one specified.
 
 A typical use is to list all grants that you are able to retire. To retire a
-grant, use RetireGrant .
+grant, use RetireGrant.
      *
      * @error DependencyTimeoutException   
      * @error InvalidMarkerException   
@@ -577,7 +577,7 @@ grant, use RetireGrant .
 
 For more information about key policies, see Key Policies
 [http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html] in the 
-AWS Key Management Service Developer Guide .
+AWS Key Management Service Developer Guide.
      *
      * @error NotFoundException   
      * @error InvalidArnException   
@@ -620,13 +620,13 @@ a key policy with the PutKeyPolicy operation.
 You should revoke a grant when you intend to actively deny operations that
 depend on it. The following are permitted to call this API:
 
- &amp;#42; The AWS account (root user) under which the grant was created
+ &amp;#42;  The AWS account (root user) under which the grant was created
    
    
- * The RetiringPrincipal , if present in the grant
+ *  The RetiringPrincipal, if present in the grant
    
    
- * The GranteePrincipal , if RetireGrant is an operation specified in the grant
+ *  The GranteePrincipal, if RetireGrant is an operation specified in the grant
    
    
 
@@ -660,19 +660,19 @@ on it.
      * Schedules the deletion of a customer master key (CMK). You may provide a waiting
 period, specified in days, before deletion occurs. If you do not provide a
 waiting period, the default period of 30 days is used. When this operation is
-successful, the state of the CMK changes to PendingDeletion . Before the waiting
+successful, the state of the CMK changes to PendingDeletion. Before the waiting
 period ends, you can use CancelKeyDeletion to cancel the deletion of the CMK.
 After the waiting period ends, AWS KMS deletes the CMK and all AWS KMS data
 associated with it, including all aliases that refer to it.
 
 Deleting a CMK is a destructive and potentially dangerous operation. When a CMK
 is deleted, all data that was encrypted under the CMK is rendered unrecoverable.
-To restrict the use of a CMK without deleting it, use DisableKey .
+To restrict the use of a CMK without deleting it, use DisableKey.
 
 For more information about scheduling a CMK for deletion, see Deleting Customer
 Master Keys
 [http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html] in the 
-AWS Key Management Service Developer Guide .
+AWS Key Management Service Developer Guide.
      *
      * @error NotFoundException   
      * @error InvalidArnException   
@@ -808,16 +808,16 @@ deletion.
 To specify this value, use the unique key ID or the Amazon Resource Name (ARN)
 of the CMK. Examples:
 
- &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
    
    
- * Key ARN:
+ *  Key ARN:
    arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
    
    
 
 To obtain the unique key ID and key ARN for a given CMK, use ListKeys or 
-DescribeKey . **/
+DescribeKey. **/
         KeyId: KeyIdType;
     }
     export interface CancelKeyDeletionResponse {
@@ -833,11 +833,11 @@ reserved. **/
 be another alias but can be a globally unique identifier or a fully specified
 ARN to a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         TargetKeyId: KeyIdType;
     }
     export interface CreateGrantRequest {
@@ -847,10 +847,10 @@ to.
 To specify this value, use the globally unique key ID or the Amazon Resource
 Name (ARN) of the key. Examples:
 
- &amp;#42; Globally unique key ID: 12345678-1234-1234-1234-123456789012
+ &amp;#42;  Globally unique key ID: 12345678-1234-1234-1234-123456789012
    
    
- * Key ARN:
+ *  Key ARN:
    arn:aws:kms:us-west-2:123456789012:key/12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
         /** The principal that is given permission to perform the operations that the grant
@@ -862,7 +862,7 @@ an AWS principal. Valid AWS principals include AWS accounts (root), IAM users,
 federated users, and assumed role users. For examples of the ARN syntax to use
 for specifying a principal, see AWS Identity and Access Management (IAM)
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam] 
-in the Example ARNs section of the AWS General Reference . **/
+in the Example ARNs section of the AWS General Reference. **/
         GranteePrincipal: PrincipalIdType;
         /** The principal that is given permission to retire the grant by using RetireGrant 
 operation.
@@ -873,7 +873,7 @@ an AWS principal. Valid AWS principals include AWS accounts (root), IAM users,
 federated users, and assumed role users. For examples of the ARN syntax to use
 for specifying a principal, see AWS Identity and Access Management (IAM)
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam] 
-in the Example ARNs section of the AWS General Reference . **/
+in the Example ARNs section of the AWS General Reference. **/
         RetiringPrincipal?: PrincipalIdType;
         /** A list of operations that the grant permits. **/
         Operations?: GrantOperationList;
@@ -883,13 +883,13 @@ You can use this value to allow the operations permitted by the grant only when
 a specified encryption context is present. For more information, see Encryption
 Context
 [http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         Constraints?: GrantConstraints;
         /** A list of grant tokens.
 
 For more information, see Grant Tokens
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         GrantTokens?: GrantTokenList;
         /** A friendly name for identifying the grant. Use this value to prevent unintended
 creation of duplicate grants when retrying this request.
@@ -910,7 +910,7 @@ tokens obtained in this way can be used interchangeably. **/
 
 For more information, see Grant Tokens
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         GrantToken?: GrantTokenType;
         /** The unique identifier for the grant.
 
@@ -923,29 +923,29 @@ You can use the GrantId in a subsequent RetireGrant or RevokeGrant operation. **
 If you specify a policy and do not set BypassPolicyLockoutSafetyCheck to true,
 the policy must meet the following criteria:
 
- &amp;#42; It must allow the principal making the CreateKey request to make a subsequent 
+ &amp;#42;  It must allow the principal making the CreateKey request to make a subsequent 
    PutKeyPolicy request on the CMK. This reduces the likelihood that the CMK
    becomes unmanageable. For more information, refer to the scenario in the 
    Default Key Policy
    [http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam] 
-   section in the AWS Key Management Service Developer Guide .
+   section in the AWS Key Management Service Developer Guide.
    
    
- * The principal(s) specified in the key policy must exist and be visible to AWS
-   KMS. When you create a new AWS principal (for example, an IAM user or role),
-   you might need to enforce a delay before specifying the new principal in a
-   key policy because the new principal might not immediately be visible to AWS
-   KMS. For more information, see Changes that I make are not always immediately
-   visible
+ *  The principal(s) specified in the key policy must exist and be visible to
+   AWS KMS. When you create a new AWS principal (for example, an IAM user or
+   role), you might need to enforce a delay before specifying the new principal
+   in a key policy because the new principal might not immediately be visible to
+   AWS KMS. For more information, see Changes that I make are not always
+   immediately visible
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency] 
-   in the IAM User Guide .
+   in the IAM User Guide.
    
    
 
 If you do not specify a policy, AWS KMS attaches a default key policy to the
 CMK. For more information, see Default Key Policy
 [http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default] 
-in the AWS Key Management Service Developer Guide .
+in the AWS Key Management Service Developer Guide.
 
 The policy size limit is 32 KiB (32768 bytes). **/
         Policy?: PolicyType;
@@ -960,13 +960,13 @@ You can use CMKs only for symmetric encryption and decryption. **/
         KeyUsage?: KeyUsageType;
         /** The source of the CMK&#x27;s key material.
 
-The default is AWS_KMS , which means AWS KMS creates the key material. When this
-parameter is set to EXTERNAL , the request creates a CMK without key material so
+The default is AWS_KMS, which means AWS KMS creates the key material. When this
+parameter is set to EXTERNAL, the request creates a CMK without key material so
 that you can import key material from your existing key management
 infrastructure. For more information about importing key material into AWS KMS,
 see Importing Key Material
 [http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html] in
-the AWS Key Management Service Developer Guide .
+the AWS Key Management Service Developer Guide.
 
 The CMK&#x27;s Origin is immutable and is set when the CMK is created. **/
         Origin?: OriginType;
@@ -977,7 +977,7 @@ unmanageable. Do not set this value to true indiscriminately.
 
 For more information, refer to the scenario in the Default Key Policy
 [http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam] 
-section in the AWS Key Management Service Developer Guide .
+section in the AWS Key Management Service Developer Guide.
 
 Use this parameter only when you include a policy in the request and you intend
 to prevent the principal making the request from making a subsequent 
@@ -996,13 +996,13 @@ The default value is false. **/
         /** The encryption context. If this was specified in the Encrypt function, it must
 be specified here or the decryption operation will fail. For more information,
 see Encryption Context
-[http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html] . **/
+[http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html]. **/
         EncryptionContext?: EncryptionContextType;
         /** A list of grant tokens.
 
 For more information, see Grant Tokens
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         GrantTokens?: GrantTokenList;
     }
     export interface DecryptResponse {
@@ -1020,15 +1020,15 @@ forward slash (alias/). Aliases that begin with &quot;alias/AWS&quot; are reserv
     }
     export interface DeleteImportedKeyMaterialRequest {
         /** The identifier of the CMK whose key material to delete. The CMK&#x27;s Origin must be 
-EXTERNAL .
+EXTERNAL.
 
 A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
 CMK. Examples:
 
- &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab 
    
    
- * Key ARN: 
+ *  Key ARN: 
    arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
     }
@@ -1040,23 +1040,23 @@ CMK. Examples:
 unique identifier, a fully specified ARN to either an alias or a key, or an
 alias name prefixed by &quot;alias/&quot;.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+ *  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
    
    
- * Alias Name Example - alias/MyAliasName **/
+ *  Alias Name Example - alias/MyAliasName **/
         KeyId: KeyIdType;
         /** A list of grant tokens.
 
 For more information, see Grant Tokens
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         GrantTokens?: GrantTokenList;
     }
     export interface DescribeKeyResponse {
@@ -1068,10 +1068,10 @@ in the AWS Key Management Service Developer Guide . **/
 
 Use the CMK&#x27;s unique identifier or its Amazon Resource Name (ARN). For example:
 
- &amp;#42; Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab
    
    
- * ARN:
+ *  ARN:
    arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
     }
@@ -1079,11 +1079,11 @@ Use the CMK&#x27;s unique identifier or its Amazon Resource Name (ARN). For exam
         /** A unique identifier for the customer master key. This value can be a globally
 unique identifier or the fully specified ARN to a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
     }
     export interface DisabledException {
@@ -1093,22 +1093,22 @@ unique identifier or the fully specified ARN to a key.
         /** A unique identifier for the customer master key. This value can be a globally
 unique identifier or the fully specified ARN to a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
     }
     export interface EnableKeyRotationRequest {
         /** A unique identifier for the customer master key. This value can be a globally
 unique identifier or the fully specified ARN to a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
     }
     export interface EncryptRequest {
@@ -1116,17 +1116,17 @@ unique identifier or the fully specified ARN to a key.
 unique identifier, a fully specified ARN to either an alias or a key, or an
 alias name prefixed by &quot;alias/&quot;.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+ *  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
    
    
- * Alias Name Example - alias/MyAliasName **/
+ *  Alias Name Example - alias/MyAliasName **/
         KeyId: KeyIdType;
         /** Data to be encrypted. **/
         Plaintext: PlaintextType;
@@ -1134,13 +1134,13 @@ alias name prefixed by &quot;alias/&quot;.
 authenticated encryption. If used here, the same value must be supplied to the 
 Decrypt API or decryption will fail. For more information, see Encryption
 Context
-[http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html] . **/
+[http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html]. **/
         EncryptionContext?: EncryptionContextType;
         /** A list of grant tokens.
 
 For more information, see Grant Tokens
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         GrantTokens?: GrantTokenList;
     }
     export interface EncryptResponse {
@@ -1160,23 +1160,23 @@ encryption key.
 A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
 CMK, or the alias name or ARN of an alias that refers to the CMK. Examples:
 
- &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab 
    
    
- * CMK ARN: 
-   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+ *  CMK ARN: 
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab 
    
    
- * Alias name: alias/ExampleAlias
+ *  Alias name: alias/ExampleAlias 
    
    
- * Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias **/
+ *  Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias **/
         KeyId: KeyIdType;
         /** A set of key-value pairs that represents additional authenticated data.
 
 For more information, see Encryption Context
 [http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         EncryptionContext?: EncryptionContextType;
         /** The length of the data encryption key in bytes. For example, use the value 64 to
 generate a 512-bit data key (64 bytes is 512 bits). For common key lengths
@@ -1190,7 +1190,7 @@ symmetric key, or AES_256 to generate a 256-bit symmetric key. **/
 
 For more information, see Grant Tokens
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         GrantTokens?: GrantTokenList;
     }
     export interface GenerateDataKeyResponse {
@@ -1210,23 +1210,23 @@ encryption key.
 A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
 CMK, or the alias name or ARN of an alias that refers to the CMK. Examples:
 
- &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab 
    
    
- * CMK ARN: 
-   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+ *  CMK ARN: 
+   arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab 
    
    
- * Alias name: alias/ExampleAlias
+ *  Alias name: alias/ExampleAlias 
    
    
- * Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias **/
+ *  Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias **/
         KeyId: KeyIdType;
         /** A set of key-value pairs that represents additional authenticated data.
 
 For more information, see Encryption Context
 [http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         EncryptionContext?: EncryptionContextType;
         /** The length of the data encryption key. Use AES_128 to generate a 128-bit
 symmetric key, or AES_256 to generate a 256-bit symmetric key. **/
@@ -1240,7 +1240,7 @@ field instead of this one. **/
 
 For more information, see Grant Tokens
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         GrantTokens?: GrantTokenList;
     }
     export interface GenerateDataKeyWithoutPlaintextResponse {
@@ -1262,14 +1262,14 @@ encrypted. **/
         /** A unique identifier for the customer master key. This value can be a globally
 unique identifier or the fully specified ARN to a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
         /** String that contains the name of the policy. Currently, this must be &quot;default&quot;.
-Policy names can be discovered by calling ListKeyPolicies . **/
+Policy names can be discovered by calling ListKeyPolicies. **/
         PolicyName: PolicyNameType;
     }
     export interface GetKeyPolicyResponse {
@@ -1280,11 +1280,11 @@ Policy names can be discovered by calling ListKeyPolicies . **/
         /** A unique identifier for the customer master key. This value can be a globally
 unique identifier or the fully specified ARN to a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
     }
     export interface GetKeyRotationStatusResponse {
@@ -1293,21 +1293,21 @@ unique identifier or the fully specified ARN to a key.
     }
     export interface GetParametersForImportRequest {
         /** The identifier of the CMK into which you will import key material. The CMK&#x27;s 
-Origin must be EXTERNAL .
+Origin must be EXTERNAL.
 
 A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
 CMK. Examples:
 
- &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab 
    
    
- * Key ARN: 
+ *  Key ARN: 
    arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
         /** The algorithm you will use to encrypt the key material before importing it with 
-ImportKeyMaterial . For more information, see Encrypt the Key Material
+ImportKeyMaterial. For more information, see Encrypt the Key Material
 [http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         WrappingAlgorithm: AlgorithmSpec;
         /** The type of wrapping key (public key) to return in the response. Only 2048-bit
 RSA public keys are supported. **/
@@ -1320,7 +1320,7 @@ is the same CMK specified in the GetParametersForImport request. **/
         /** The import token to send in a subsequent ImportKeyMaterial request. **/
         ImportToken?: CiphertextType;
         /** The public key to use to encrypt the key material before importing it with 
-ImportKeyMaterial . **/
+ImportKeyMaterial. **/
         PublicKey?: PlaintextType;
         /** The time at which the import token and public key are no longer valid. After
 this time, you cannot use them to make an ImportKeyMaterial request and you must
@@ -1365,15 +1365,15 @@ CreateGrant request, that name is returned. Otherwise this value is null. **/
     }
     export interface ImportKeyMaterialRequest {
         /** The identifier of the CMK to import the key material into. The CMK&#x27;s Origin must
-be EXTERNAL .
+be EXTERNAL.
 
 A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
 CMK. Examples:
 
- &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab 
    
    
- * Key ARN: 
+ *  Key ARN: 
    arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
         /** The import token that you received in the response to a previous 
@@ -1387,11 +1387,11 @@ using the wrapping algorithm that you specified in that request. **/
         /** The time at which the imported key material expires. When the key material
 expires, AWS KMS deletes the key material and the CMK becomes unusable. You must
 omit this parameter when the ExpirationModel parameter is set to 
-KEY_MATERIAL_DOES_NOT_EXPIRE . Otherwise it is required. **/
+KEY_MATERIAL_DOES_NOT_EXPIRE. Otherwise it is required. **/
         ValidTo?: DateType;
-        /** Specifies whether the key material expires. The default is KEY_MATERIAL_EXPIRES 
-, in which case you must include the ValidTo parameter. When this parameter is
-set to KEY_MATERIAL_DOES_NOT_EXPIRE , you must omit the ValidTo parameter. **/
+        /** Specifies whether the key material expires. The default is KEY_MATERIAL_EXPIRES,
+in which case you must include the ValidTo parameter. When this parameter is set
+to KEY_MATERIAL_DOES_NOT_EXPIRE, you must omit the ValidTo parameter. **/
         ExpirationModel?: ExpirationModelType;
     }
     export interface ImportKeyMaterialResponse {
@@ -1443,7 +1443,7 @@ set to KEY_MATERIAL_DOES_NOT_EXPIRE , you must omit the ValidTo parameter. **/
         /** The Amazon Resource Name (ARN) of the CMK. For examples, see AWS Key Management
 Service (AWS KMS)
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms] 
-in the Example ARNs section of the AWS General Reference . **/
+in the Example ARNs section of the AWS General Reference. **/
         Arn?: ArnType;
         /** The date and time when the CMK was created. **/
         CreationDate?: DateType;
@@ -1453,7 +1453,7 @@ true, otherwise it is false. **/
         /** The description of the CMK. **/
         Description?: DescriptionType;
         /** The cryptographic operations for which you can use the CMK. Currently the only
-allowed value is ENCRYPT_DECRYPT , which means you can use the CMK for the 
+allowed value is ENCRYPT_DECRYPT, which means you can use the CMK for the 
 Encrypt and Decrypt operations. **/
         KeyUsage?: KeyUsageType;
         /** The state of the CMK.
@@ -1461,23 +1461,23 @@ Encrypt and Decrypt operations. **/
 For more information about how key state affects the use of a CMK, see How Key
 State Affects the Use of a Customer Master Key
 [http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide . **/
+Key Management Service Developer Guide. **/
         KeyState?: KeyState;
         /** The date and time after which AWS KMS deletes the CMK. This value is present
-only when KeyState is PendingDeletion , otherwise this value is omitted. **/
+only when KeyState is PendingDeletion, otherwise this value is omitted. **/
         DeletionDate?: DateType;
         /** The time at which the imported key material expires. When the key material
 expires, AWS KMS deletes the key material and the CMK becomes unusable. This
 value is present only for CMKs whose Origin is EXTERNAL and whose 
-ExpirationModel is KEY_MATERIAL_EXPIRES , otherwise this value is omitted. **/
+ExpirationModel is KEY_MATERIAL_EXPIRES, otherwise this value is omitted. **/
         ValidTo?: DateType;
-        /** The source of the CMK&#x27;s key material. When this value is AWS_KMS , AWS KMS
-created the key material. When this value is EXTERNAL , the key material was
+        /** The source of the CMK&#x27;s key material. When this value is AWS_KMS, AWS KMS
+created the key material. When this value is EXTERNAL, the key material was
 imported from your existing key management infrastructure or the CMK lacks key
 material. **/
         Origin?: OriginType;
         /** Specifies whether the CMK&#x27;s key material expires. This value is present only
-when Origin is EXTERNAL , otherwise this value is omitted. **/
+when Origin is EXTERNAL, otherwise this value is omitted. **/
         ExpirationModel?: ExpirationModelType;
     }
     export interface KeyUnavailableException {
@@ -1525,11 +1525,11 @@ NextMarker from the response you just received. **/
         /** A unique identifier for the customer master key. This value can be a globally
 unique identifier or the fully specified ARN to a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
     }
     export interface ListGrantsResponse {
@@ -1547,10 +1547,10 @@ request to retrieve more items in the list. **/
         /** A unique identifier for the customer master key (CMK). You can use the unique
 key ID or the Amazon Resource Name (ARN) of the CMK. Examples:
 
- &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab 
    
    
- * Key ARN: 
+ *  Key ARN: 
    arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
         /** When paginating results, specify the maximum number of items to return in the
@@ -1623,7 +1623,7 @@ an AWS principal. Valid AWS principals include AWS accounts (root), IAM users,
 federated users, and assumed role users. For examples of the ARN syntax for
 specifying a principal, see AWS Identity and Access Management (IAM)
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam] 
-in the Example ARNs section of the Amazon Web Services General Reference . **/
+in the Example ARNs section of the Amazon Web Services General Reference. **/
         RetiringPrincipal: PrincipalIdType;
     }
     export interface MalformedPolicyDocumentException {
@@ -1637,37 +1637,37 @@ in the Example ARNs section of the Amazon Web Services General Reference . **/
 
 Use the CMK&#x27;s unique identifier or its Amazon Resource Name (ARN). For example:
 
- &amp;#42; Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab
    
    
- * ARN:
+ *  ARN:
    arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId: KeyIdType;
         /** The name of the key policy.
 
-This value must be default . **/
+This value must be default. **/
         PolicyName: PolicyNameType;
         /** The key policy to attach to the CMK.
 
 If you do not set BypassPolicyLockoutSafetyCheck to true, the policy must meet
 the following criteria:
 
- &amp;#42; It must allow the principal making the PutKeyPolicy request to make a
+ &amp;#42;  It must allow the principal making the PutKeyPolicy request to make a
    subsequent PutKeyPolicy request on the CMK. This reduces the likelihood that
    the CMK becomes unmanageable. For more information, refer to the scenario in
    the Default Key Policy
    [http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam] 
-   section in the AWS Key Management Service Developer Guide .
+   section in the AWS Key Management Service Developer Guide.
    
    
- * The principal(s) specified in the key policy must exist and be visible to AWS
-   KMS. When you create a new AWS principal (for example, an IAM user or role),
-   you might need to enforce a delay before specifying the new principal in a
-   key policy because the new principal might not immediately be visible to AWS
-   KMS. For more information, see Changes that I make are not always immediately
-   visible
+ *  The principal(s) specified in the key policy must exist and be visible to
+   AWS KMS. When you create a new AWS principal (for example, an IAM user or
+   role), you might need to enforce a delay before specifying the new principal
+   in a key policy because the new principal might not immediately be visible to
+   AWS KMS. For more information, see Changes that I make are not always
+   immediately visible
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency] 
-   in the IAM User Guide .
+   in the IAM User Guide.
    
    
 
@@ -1680,7 +1680,7 @@ unmanageable. Do not set this value to true indiscriminately.
 
 For more information, refer to the scenario in the Default Key Policy
 [http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam] 
-section in the AWS Key Management Service Developer Guide .
+section in the AWS Key Management Service Developer Guide.
 
 Use this parameter only when you intend to prevent the principal making the
 request from making a subsequent PutKeyPolicy request on the CMK.
@@ -1698,17 +1698,17 @@ CiphertextBlob parameter. **/
 a globally unique identifier, a fully specified ARN to either an alias or a key,
 or an alias name prefixed by &quot;alias/&quot;.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+ *  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
    
    
- * Alias Name Example - alias/MyAliasName **/
+ *  Alias Name Example - alias/MyAliasName **/
         DestinationKeyId: KeyIdType;
         /** Encryption context to use when the data is reencrypted. **/
         DestinationEncryptionContext?: EncryptionContextType;
@@ -1716,7 +1716,7 @@ or an alias name prefixed by &quot;alias/&quot;.
 
 For more information, see Grant Tokens
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token] 
-in the AWS Key Management Service Developer Guide . **/
+in the AWS Key Management Service Developer Guide. **/
         GrantTokens?: GrantTokenList;
     }
     export interface ReEncryptResponse {
@@ -1732,12 +1732,12 @@ in the AWS Key Management Service Developer Guide . **/
         GrantToken?: GrantTokenType;
         /** The Amazon Resource Name of the CMK associated with the grant. Example:
 
- &amp;#42; arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
+ &amp;#42;  arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
         KeyId?: KeyIdType;
         /** Unique identifier of the grant to retire. The grant ID is returned in the
 response to a CreateGrant operation.
 
- &amp;#42; Grant ID Example -
+ &amp;#42;  Grant ID Example -
    0123456789012345678901234567890123456789012345678901234567890123 **/
         GrantId?: GrantIdType;
     }
@@ -1745,11 +1745,11 @@ response to a CreateGrant operation.
         /** A unique identifier for the customer master key associated with the grant. This
 value can be a globally unique identifier or the fully specified ARN to a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
         /** Identifier of the grant to be revoked. **/
         GrantId: GrantIdType;
@@ -1760,16 +1760,16 @@ value can be a globally unique identifier or the fully specified ARN to a key.
 To specify this value, use the unique key ID or the Amazon Resource Name (ARN)
 of the CMK. Examples:
 
- &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+ &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
    
    
- * Key ARN:
+ *  Key ARN:
    arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
    
    
 
 To obtain the unique key ID and key ARN for a given CMK, use ListKeys or 
-DescribeKey . **/
+DescribeKey. **/
         KeyId: KeyIdType;
         /** The waiting period, specified in number of days. After the waiting period ends,
 AWS KMS deletes the customer master key (CMK).
@@ -1796,27 +1796,27 @@ with &quot;alias/aws&quot; are reserved. **/
         /** Unique identifier of the customer master key to be mapped to the alias. This
 value can be a globally unique identifier or the fully specified ARN of a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
    
    
 
 You can call ListAliases to verify that the alias is mapped to the correct 
-TargetKeyId . **/
+TargetKeyId. **/
         TargetKeyId: KeyIdType;
     }
     export interface UpdateKeyDescriptionRequest {
         /** A unique identifier for the CMK. This value can be a globally unique identifier
 or the fully specified ARN to a key.
 
- &amp;#42; Key ARN Example -
+ &amp;#42;  Key ARN Example -
    arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
    
    
- * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+ *  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
         KeyId: KeyIdType;
         /** New description for the CMK. **/
         Description: DescriptionType;

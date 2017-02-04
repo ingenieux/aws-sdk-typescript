@@ -46,12 +46,12 @@ is a group of partitions that spans multiple physical HSMs.
 There is an upfront fee charged for each HSM instance that you create with the 
 CreateHsm operation. If you accidentally provision an HSM and want to request a
 refund, delete the instance using the DeleteHsm operation, go to the AWS Support
-Center [https://console.aws.amazon.com/support/home#/] , create a new case, and
-select Account and Billing Support .
+Center [https://console.aws.amazon.com/support/home#/], create a new case, and
+select Account and Billing Support.
 
 It can take up to 20 minutes to create and provision an HSM. You can monitor the
 status of the HSM with the DescribeHsm operation. The HSM is ready to be
-initialized when the status changes to RUNNING .
+initialized when the status changes to RUNNING.
      *
      * @error CloudHsmServiceException   
      * @error CloudHsmInternalException   
@@ -213,7 +213,7 @@ the client&#x27;s HSMs.
      * Removes one or more tags from the specified AWS CloudHSM resource.
 
 To remove a tag, specify only the tag key to remove (not the value). To
-overwrite the value for an existing tag, use AddTagsToResource .
+overwrite the value for an existing tag, use AddTagsToResource.
      *
      * @error CloudHsmServiceException   
      * @error CloudHsmInternalException   
@@ -338,7 +338,7 @@ the CIDR range of the subnet. **/
         /** The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on
 your behalf. **/
         IamRoleArn: IamRoleArn;
-        /** The external ID from IamRoleArn , if present. **/
+        /** The external ID from IamRoleArn, if present. **/
         ExternalId?: ExternalId;
         SubscriptionType: SubscriptionType;
         /** A user-defined token to ensure idempotence. Subsequent calls to this operation
@@ -504,7 +504,7 @@ associated with the client. **/
         AZList?: AZList;
     }
     export interface ListHapgsRequest {
-        /** The NextToken value from a previous call to ListHapgs . Pass null if this is the
+        /** The NextToken value from a previous call to ListHapgs. Pass null if this is the
 first call. **/
         NextToken?: PaginationToken;
     }
@@ -516,7 +516,7 @@ retrieve the next set of items. **/
         NextToken?: PaginationToken;
     }
     export interface ListHsmsRequest {
-        /** The NextToken value from a previous call to ListHsms . Pass null if this is the
+        /** The NextToken value from a previous call to ListHsms. Pass null if this is the
 first call. **/
         NextToken?: PaginationToken;
     }
@@ -528,7 +528,7 @@ the next set of items. **/
         NextToken?: PaginationToken;
     }
     export interface ListLunaClientsRequest {
-        /** The NextToken value from a previous call to ListLunaClients . Pass null if this
+        /** The NextToken value from a previous call to ListLunaClients. Pass null if this
 is the first call. **/
         NextToken?: PaginationToken;
     }
@@ -599,7 +599,7 @@ only supports one syslog monitoring server. **/
         /** The tag key or keys to remove.
 
 Specify only the tag key to remove (not the value). To overwrite the value for
-an existing tag, use AddTagsToResource . **/
+an existing tag, use AddTagsToResource. **/
         TagKeyList: TagKeyList;
     }
     export interface RemoveTagsFromResourceResponse {

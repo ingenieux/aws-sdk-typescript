@@ -14,12 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * AWS Identity and Access ManagementAWS Identity and Access Management (IAM) is a
+   * AWS Identity and Access Management AWS Identity and Access Management (IAM) is a
 web service that you can use to manage users and user permissions under your AWS
 account. This guide provides descriptions of IAM actions that you can call
 programmatically. For general information about IAM, see AWS Identity and Access
-Management (IAM) [http://aws.amazon.com/iam/] . For the user guide for IAM, see 
-Using IAM [http://docs.aws.amazon.com/IAM/latest/UserGuide/] .
+Management (IAM) [http://aws.amazon.com/iam/]. For the user guide for IAM, see 
+Using IAM [http://docs.aws.amazon.com/IAM/latest/UserGuide/]. 
 
 AWS provides SDKs that consist of libraries and sample code for various
 programming languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The
@@ -27,7 +27,7 @@ SDKs provide a convenient way to create programmatic access to IAM and AWS. For
 example, the SDKs take care of tasks such as cryptographically signing requests
 (see below), managing errors, and retrying requests automatically. For
 information about the AWS SDKs, including how to download and install them, see
-the Tools for Amazon Web Services [http://aws.amazon.com/tools/] page.
+the Tools for Amazon Web Services [http://aws.amazon.com/tools/] page. 
 
 We recommend that you use the AWS SDKs to make programmatic API calls to IAM.
 However, you can also use the IAM Query API to make direct calls to the IAM web
@@ -36,9 +36,9 @@ service. To learn more about the IAM Query API, see Making Query Requests
 Using IAM guide. IAM supports GET and POST requests for all actions. That is,
 the API does not require you to use GET for some actions and POST for others.
 However, GET requests are subject to the limitation size of a URL. Therefore,
-for operations that require larger sizes, use a POST request.
+for operations that require larger sizes, use a POST request. 
 
-Signing Requests
+ Signing Requests 
 
 Requests must be signed using an access key ID and a secret access key. We
 strongly recommend that you do not use your AWS account access key ID and secret
@@ -47,32 +47,32 @@ access key for an IAM user or you can use the AWS Security Token Service to
 generate temporary security credentials and use those to sign requests.
 
 To sign requests, we recommend that you use Signature Version 4
-[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] . If you
+[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html]. If you
 have an existing application that uses Signature Version 2, you do not have to
 update it to use Signature Version 4. However, some operations now require
 Signature Version 4. The documentation for operations that require version 4
-indicate this requirement.
+indicate this requirement. 
 
-Additional Resources
+ Additional Resources 
 
 For more information, see the following:
 
- &amp;#42; AWS Security Credentials
-   [http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html] 
-   . This topic provides general information about the types of credentials used
-   for accessing AWS.
+ &amp;#42;   AWS Security Credentials
+   [http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html].
+   This topic provides general information about the types of credentials used
+   for accessing AWS. 
    
    
- * IAM Best Practices
-   [http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html] .
-   This topic presents a list of suggestions for using the IAM service to help
-   secure your AWS resources.
+ *   IAM Best Practices
+   [http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html]. This
+   topic presents a list of suggestions for using the IAM service to help secure
+   your AWS resources. 
    
    
- * Signing AWS API Requests
-   [http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html] 
-   . This set of topics walk you through the process of signing a request using
-   an access key ID and secret access key.
+ *   Signing AWS API Requests
+   [http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html].
+   This set of topics walk you through the process of signing a request using an
+   access key ID and secret access key.
    *
    */
   export class IAM extends Service {
@@ -98,9 +98,9 @@ The caller of this API must be granted the PassRole permission on the IAM role
 by a permission policy.
 
 For more information about roles, go to Working with Roles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html] . For
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html]. For
 more information about instance profiles, go to About Instance Profiles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html].
      *
      * @error NoSuchEntityException   
      * @error EntityAlreadyExistsException   
@@ -120,11 +120,11 @@ more information about instance profiles, go to About Instance Profiles
      * Attaches the specified managed policy to the specified IAM group.
 
 You use this API to attach a managed policy to a group. To embed an inline
-policy in a group, use PutGroupPolicy .
+policy in a group, use PutGroupPolicy.
 
 For more information about policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -138,14 +138,14 @@ in the IAM User Guide .
 When you attach a managed policy to a role, the managed policy becomes part of
 the role&#x27;s permission (access) policy. You cannot use a managed policy as the
 role&#x27;s trust policy. The role&#x27;s trust policy is created at the same time as the
-role, using CreateRole . You can update a role&#x27;s trust policy using 
-UpdateAssumeRolePolicy .
+role, using CreateRole. You can update a role&#x27;s trust policy using 
+UpdateAssumeRolePolicy.
 
 Use this API to attach a managed policy to a role. To embed an inline policy in
-a role, use PutRolePolicy . For more information about policies, see Managed
+a role, use PutRolePolicy. For more information about policies, see Managed
 Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -157,11 +157,11 @@ in the IAM User Guide .
      * Attaches the specified managed policy to the specified user.
 
 You use this API to attach a managed policy to a user. To embed an inline policy
-in a user, use PutUserPolicy .
+in a user, use PutUserPolicy.
 
 For more information about policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -173,10 +173,10 @@ in the IAM User Guide .
      * Changes the password of the IAM user who is calling this action. The root
 account password is not affected by this action.
 
-To change the password for a different user, see UpdateLoginProfile . For more
+To change the password for a different user, see UpdateLoginProfile. For more
 information about modifying passwords, see Managing Passwords
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error InvalidUserTypeException   
@@ -188,17 +188,17 @@ the IAM User Guide .
     changePassword(params: IAM.ChangePasswordRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidUserTypeException|IAM.LimitExceededException|IAM.EntityTemporarilyUnmodifiableException|IAM.PasswordPolicyViolationException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.InvalidUserTypeException|IAM.LimitExceededException|IAM.EntityTemporarilyUnmodifiableException|IAM.PasswordPolicyViolationException|IAM.ServiceFailureException|any>;
     /**
      * Creates a new AWS secret access key and corresponding AWS access key ID for the
-specified user. The default status for new keys is Active .
+specified user. The default status for new keys is Active.
 
 If you do not specify a user name, IAM determines the user name implicitly based
 on the AWS access key ID signing the request. Because this action works for
 access keys under the AWS account, you can use this action to manage root
 credentials even if the AWS account has no associated users.
 
-For information about limits on the number of keys you can create, see 
+ For information about limits on the number of keys you can create, see 
 Limitations on IAM Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
 
 To ensure the security of your AWS account, the secret access key is accessible
 only during key and user creation. You must save the key (for example, in a text
@@ -214,7 +214,7 @@ can delete the access keys for the associated user and then create new keys.
      * Creates an alias for your AWS account. For information about using an AWS
 account alias, see Using an Alias for Your AWS Account ID
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html] in the IAM
-User Guide .
+User Guide.
      *
      * @error EntityAlreadyExistsException   
      * @error LimitExceededException   
@@ -224,10 +224,10 @@ User Guide .
     /**
      * Creates a new group.
 
-For information about the number of groups you can create, see Limitations on
+ For information about the number of groups you can create, see Limitations on
 IAM Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error LimitExceededException   
      * @error EntityAlreadyExistsException   
@@ -238,12 +238,12 @@ the IAM User Guide .
     /**
      * Creates a new instance profile. For information about instance profiles, go to 
 About Instance Profiles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html].
 
-For information about the number of instance profiles you can create, see 
+ For information about the number of instance profiles you can create, see 
 Limitations on IAM Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error EntityAlreadyExistsException   
      * @error LimitExceededException   
@@ -251,11 +251,11 @@ the IAM User Guide .
      */
     createInstanceProfile(params: IAM.CreateInstanceProfileRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateInstanceProfileResponse|any) => void): Request<IAM.CreateInstanceProfileResponse|any,IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
-     * Creates a password for the specified user, giving the user the ability to access
-AWS services through the AWS Management Console. For more information about
-managing passwords, see Managing Passwords
+     * Creates a password for the specified user, giving the user the ability to
+access AWS services through the AWS Management Console. For more information
+about managing passwords, see Managing Passwords
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error EntityAlreadyExistsException   
      * @error NoSuchEntityException   
@@ -266,7 +266,7 @@ the IAM User Guide .
     createLoginProfile(params: IAM.CreateLoginProfileRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateLoginProfileResponse|any) => void): Request<IAM.CreateLoginProfileResponse|any,IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Creates an IAM entity to describe an identity provider (IdP) that supports 
-OpenID Connect (OIDC) [http://openid.net/connect/] .
+OpenID Connect (OIDC) [http://openid.net/connect/].
 
 The OIDC provider that you create with this operation can be used as a principal
 in a role&#x27;s trust policy to establish a trust relationship between AWS and the
@@ -296,12 +296,12 @@ This operation creates a policy version with a version identifier of v1 and sets
 v1 as the policy&#x27;s default version. For more information about policy versions,
 see Versioning for Managed Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 For more information about managed policies in general, see Managed Policies and
 Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error InvalidInputException   
      * @error LimitExceededException   
@@ -323,7 +323,7 @@ roles to which the policy is attached.
 For more information about managed policy versions, see Versioning for Managed
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error MalformedPolicyDocumentException   
@@ -335,11 +335,11 @@ in the IAM User Guide .
     /**
      * Creates a new role for your AWS account. For more information about roles, go to 
 Working with Roles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html] . For
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html]. For
 information about limitations on role names and the number of roles you can
 create, go to Limitations on IAM Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error LimitExceededException   
      * @error EntityAlreadyExistsException   
@@ -364,15 +364,15 @@ authentication response (assertions) that the IdP sends. You must generate the
 metadata document using the identity management software that is used as your
 organization&#x27;s IdP.
 
-This operation requires Signature Version 4
-[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] .
+ This operation requires Signature Version 4
+[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html].
 
-For more information, see Enabling SAML 2.0 Federated Users to Access the AWS
+ For more information, see Enabling SAML 2.0 Federated Users to Access the AWS
 Management Console
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html] 
 and About SAML 2.0-based Federation
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error InvalidInputException   
      * @error EntityAlreadyExistsException   
@@ -383,7 +383,7 @@ in the IAM User Guide .
     /**
      * Generates a set of credentials consisting of a user name and password that can
 be used to access the service specified in the request. These credentials are
-generated by IAM, and can be used only for the specified service.
+generated by IAM, and can be used only for the specified service. 
 
 You can have a maximum of two sets of service-specific credentials for each
 supported service per user.
@@ -391,12 +391,12 @@ supported service per user.
 The only supported service at this time is AWS CodeCommit.
 
 You can reset the password to a new service-generated value by calling 
-ResetServiceSpecificCredential .
+ResetServiceSpecificCredential.
 
 For more information about service-specific credentials, see Using IAM with AWS
 CodeCommit: Git Credentials, SSH Keys, and AWS Access Keys
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error LimitExceededException   
      * @error NoSuchEntityException   
@@ -406,10 +406,10 @@ in the IAM User Guide .
     /**
      * Creates a new IAM user for your AWS account.
 
-For information about limitations on the number of IAM users you can create, see 
-Limitations on IAM Entities
+ For information about limitations on the number of IAM users you can create,
+see Limitations on IAM Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error LimitExceededException   
      * @error EntityAlreadyExistsException   
@@ -423,12 +423,12 @@ MFA, use EnableMFADevice to attach the MFA device to an IAM user. For more
 information about creating and working with virtual MFA devices, go to Using a
 Virtual MFA Device
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html] in the 
-IAM User Guide .
+IAM User Guide.
 
 For information about limits on the number of MFA devices you can create, see 
 Limitations on Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
 
 The seed information contained in the QR code and the Base32 string should be
 treated like any other secret access information, such as your AWS access keys
@@ -447,7 +447,7 @@ user name for which it was originally enabled.
 For more information about creating and working with virtual MFA devices, go to 
 Using a Virtual MFA Device
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html] in the 
-IAM User Guide .
+IAM User Guide.
      *
      * @error EntityTemporarilyUnmodifiableException   
      * @error NoSuchEntityException   
@@ -472,7 +472,7 @@ credentials even if the AWS account has no associated users.
      * Deletes the specified AWS account alias. For information about using an AWS
 account alias, see Using an Alias for Your AWS Account ID
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html] in the IAM
-User Guide .
+User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -501,10 +501,10 @@ any attached policies.
      * Deletes the specified inline policy that is embedded in the specified IAM group.
 
 A group can also have managed policies attached to it. To detach a managed
-policy from a group, use DetachGroupPolicy . For more information about
-policies, refer to Managed Policies and Inline Policies
+policy from a group, use DetachGroupPolicy. For more information about policies,
+refer to Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -521,7 +521,7 @@ associated with a running instance will break any applications running on the
 instance.
 
 For more information about instance profiles, go to About Instance Profiles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html].
      *
      * @error NoSuchEntityException   
      * @error DeleteConflictException   
@@ -533,10 +533,10 @@ For more information about instance profiles, go to About Instance Profiles
      * Deletes the password for the specified IAM user, which terminates the user&#x27;s
 ability to access AWS services through the AWS Management Console.
 
-Deleting a user&#x27;s password does not prevent a user from accessing AWS through
+ Deleting a user&#x27;s password does not prevent a user from accessing AWS through
 the command line interface or the API. To prevent all user access you must also
 either make any access keys inactive or delete them. For more information about
-making keys inactive or deleting them, see UpdateAccessKey and DeleteAccessKey .
+making keys inactive or deleting them, see UpdateAccessKey and DeleteAccessKey.
      *
      * @error EntityTemporarilyUnmodifiableException   
      * @error NoSuchEntityException   
@@ -567,27 +567,26 @@ all users, groups, and roles that it is attached to, and you must delete all of
 the policy&#x27;s versions. The following steps describe the process for deleting a
 managed policy:
 
- &amp;#42; Detach the policy from all users, groups, and roles that the policy is
-   attached to, using the DetachUserPolicy , DetachGroupPolicy , or 
+ &amp;#42;  Detach the policy from all users, groups, and roles that the policy is
+   attached to, using the DetachUserPolicy, DetachGroupPolicy, or 
    DetachRolePolicy APIs. To list all the users, groups, and roles that a policy
-   is attached to, use ListEntitiesForPolicy .
+   is attached to, use ListEntitiesForPolicy.
    
    
- * Delete all versions of the policy using DeletePolicyVersion . To list the
-   policy&#x27;s versions, use ListPolicyVersions . You cannot use 
-   DeletePolicyVersion to delete the version that is marked as the default
-   version. You delete the policy&#x27;s default version in the next step of the
-   process.
+ *  Delete all versions of the policy using DeletePolicyVersion. To list the
+   policy&#x27;s versions, use ListPolicyVersions. You cannot use DeletePolicyVersion 
+   to delete the version that is marked as the default version. You delete the
+   policy&#x27;s default version in the next step of the process.
    
    
- * Delete the policy (this automatically deletes the policy&#x27;s default version)
+ *  Delete the policy (this automatically deletes the policy&#x27;s default version)
    using this API.
    
    
 
 For information about managed policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -600,13 +599,13 @@ in the IAM User Guide .
      * Deletes the specified version from the specified managed policy.
 
 You cannot delete the default version from a policy using this API. To delete
-the default version from a policy, use DeletePolicy . To find out which version
-of a policy is marked as the default version, use ListPolicyVersions .
+the default version from a policy, use DeletePolicy. To find out which version
+of a policy is marked as the default version, use ListPolicyVersions.
 
 For information about versions for managed policies, see Versioning for Managed
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -618,7 +617,7 @@ in the IAM User Guide .
     /**
      * Deletes the specified role. The role must not have any policies attached. For
 more information about roles, go to Working with Roles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html].
 
 Make sure you do not have any Amazon EC2 instances running with the role you are
 about to delete. Deleting a role or instance profile that is associated with a
@@ -634,10 +633,10 @@ running instance will break any applications running on the instance.
      * Deletes the specified inline policy that is embedded in the specified IAM role.
 
 A role can also have managed policies attached to it. To detach a managed policy
-from a role, use DetachRolePolicy . For more information about policies, refer
-to Managed Policies and Inline Policies
+from a role, use DetachRolePolicy. For more information about policies, refer to 
+Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -652,8 +651,8 @@ the SAML provider resource&#x27;s ARN as a principal in their trust policies. An
 attempt to assume a role that references a non-existent provider resource ARN
 fails.
 
-This operation requires Signature Version 4
-[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] .
+ This operation requires Signature Version 4
+[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html].
      *
      * @error InvalidInputException   
      * @error LimitExceededException   
@@ -669,7 +668,7 @@ associated IAM user to an AWS CodeCommit repository. For more information about
 using SSH keys to authenticate to an AWS CodeCommit repository, see Set up AWS
 CodeCommit for SSH Connections
 [http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html] 
-in the AWS CodeCommit User Guide .
+in the AWS CodeCommit User Guide.
      *
      * @error NoSuchEntityException   
      */
@@ -681,9 +680,9 @@ For more information about working with server certificates, including a list of
 AWS services that can use the server certificates that you manage with IAM, go
 to Working with Server Certificates
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
-If you are using a server certificate with Elastic Load Balancing, deleting the
+ If you are using a server certificate with Elastic Load Balancing, deleting the
 certificate could have implications for your application. If Elastic Load
 Balancing doesn&#x27;t detect the deletion of bound certificates, it may continue to
 use the certificates. This could cause Elastic Load Balancing to stop accepting
@@ -691,7 +690,7 @@ traffic. We recommend that you remove the reference to the certificate from
 Elastic Load Balancing before using this command to delete the certificate. For
 more information, go to DeleteLoadBalancerListeners
 [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html] 
-in the Elastic Load Balancing API Reference .
+in the Elastic Load Balancing API Reference.
      *
      * @error NoSuchEntityException   
      * @error DeleteConflictException   
@@ -732,10 +731,10 @@ any access keys, signing certificates, or attached policies.
      * Deletes the specified inline policy that is embedded in the specified IAM user.
 
 A user can also have managed policies attached to it. To detach a managed policy
-from a user, use DetachUserPolicy . For more information about policies, refer
-to Managed Policies and Inline Policies
+from a user, use DetachUserPolicy. For more information about policies, refer to 
+Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -745,8 +744,8 @@ in the IAM User Guide .
     /**
      * Deletes a virtual MFA device.
 
-You must deactivate a user&#x27;s virtual MFA device before you can delete it. For
-information about deactivating MFA devices, see DeactivateMFADevice .
+ You must deactivate a user&#x27;s virtual MFA device before you can delete it. For
+information about deactivating MFA devices, see DeactivateMFADevice.
      *
      * @error NoSuchEntityException   
      * @error DeleteConflictException   
@@ -761,7 +760,7 @@ A group can also have inline policies embedded with it. To delete an inline
 policy, use the DeleteGroupPolicy API. For information about policies, see 
 Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -776,7 +775,7 @@ A role can also have inline policies embedded with it. To delete an inline
 policy, use the DeleteRolePolicy API. For information about policies, see 
 Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -791,7 +790,7 @@ A user can also have inline policies embedded with it. To delete an inline
 policy, use the DeleteUserPolicy API. For information about policies, see 
 Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -816,7 +815,7 @@ user associated with the device.
      * Generates a credential report for the AWS account. For more information about
 the credential report, see Getting Credential Reports
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html] in the 
-IAM User Guide .
+IAM User Guide.
      *
      * @error LimitExceededException   
      * @error ServiceFailureException   
@@ -845,7 +844,7 @@ paginate the results using the MaxItems and Marker parameters.
     /**
      * Retrieves the password policy for the AWS account. For more information about
 using a password policy, go to Managing an IAM Password Policy
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html] 
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html]
 .
      *
      * @error NoSuchEntityException   
@@ -855,10 +854,10 @@ using a password policy, go to Managing an IAM Password Policy
     /**
      * Retrieves information about IAM entity usage and IAM quotas in the AWS account.
 
-For information about limitations on IAM entities, see Limitations on IAM
+ For information about limitations on IAM entities, see Limitations on IAM
 Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error ServiceFailureException   
      */
@@ -867,14 +866,14 @@ the IAM User Guide .
      * Gets a list of all of the context keys referenced in the input policies. The
 policies are supplied as a list of one or more strings. To get the context keys
 from policies associated with an IAM user, group, or role, use 
-GetContextKeysForPrincipalPolicy .
+GetContextKeysForPrincipalPolicy.
 
 Context keys are variables maintained by AWS and its services that provide
 details about the context of an API query request, and can be evaluated by
 testing against a value specified in an IAM policy. Use
 GetContextKeysForCustomPolicy to understand what key names and values you must
-supply when you call SimulateCustomPolicy . Note that all parameters are shown
-in unencoded form here for clarity, but must be URL encoded to be included as a
+supply when you call SimulateCustomPolicy. Note that all parameters are shown in
+unencoded form here for clarity, but must be URL encoded to be included as a
 part of a real HTML request.
      *
      * @error InvalidInputException   
@@ -890,7 +889,7 @@ You can optionally include a list of one or more additional policies, specified
 as strings. If you want to include only a list of policies by string, use 
 GetContextKeysForCustomPolicy instead.
 
-Note: This API discloses information about the permissions granted to other
+ Note: This API discloses information about the permissions granted to other
 users. If you do not want users to see other user&#x27;s permissions, then consider
 allowing them to use GetContextKeysForCustomPolicy instead.
 
@@ -898,7 +897,7 @@ Context keys are variables maintained by AWS and its services that provide
 details about the context of an API query request, and can be evaluated by
 testing against a value in an IAM policy. Use GetContextKeysForPrincipalPolicy 
 to understand what key names and values you must supply when you call 
-SimulatePrincipalPolicy .
+SimulatePrincipalPolicy.
      *
      * @error NoSuchEntityException   
      * @error InvalidInputException   
@@ -908,7 +907,7 @@ SimulatePrincipalPolicy .
      * Retrieves a credential report for the AWS account. For more information about
 the credential report, see Getting Credential Reports
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html] in the 
-IAM User Guide .
+IAM User Guide.
      *
      * @error CredentialReportNotPresentException   
      * @error CredentialReportExpiredException   
@@ -929,7 +928,7 @@ paginate the results using the MaxItems and Marker parameters.
 IAM group.
 
 Policies returned by this API are URL-encoded compliant with RFC 3986
-[https://tools.ietf.org/html/rfc3986] . You can use a URL decoding method to
+[https://tools.ietf.org/html/rfc3986]. You can use a URL decoding method to
 convert the policy back to plain JSON text. For example, if you use Java, you
 can use the decode method of the java.net.URLDecoder utility class in the Java
 SDK. Other languages and SDKs provide similar functionality.
@@ -941,7 +940,7 @@ document.
 
 For more information about policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
@@ -952,7 +951,7 @@ in the IAM User Guide .
 instance profile&#x27;s path, GUID, ARN, and role. For more information about
 instance profiles, see About Instance Profiles
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
@@ -960,8 +959,8 @@ the IAM User Guide .
     getInstanceProfile(params: IAM.GetInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetInstanceProfileResponse|any) => void): Request<IAM.GetInstanceProfileResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves the user name and password-creation date for the specified IAM user.
-If the user has not been assigned a password, the action returns a 404 ( 
-NoSuchEntity ) error.
+If the user has not been assigned a password, the action returns a 404 (
+NoSuchEntity) error.
      *
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
@@ -982,15 +981,15 @@ default version and the total number of IAM users, groups, and roles to which
 the policy is attached. To retrieve the list of the specific users, groups, and
 roles that the policy is attached to, use the ListEntitiesForPolicy API. This
 API returns metadata about the policy. To retrieve the actual policy document
-for a specific version of the policy, use GetPolicyVersion .
+for a specific version of the policy, use GetPolicyVersion.
 
 This API retrieves information about managed policies. To retrieve information
 about an inline policy that is embedded with an IAM user, group, or role, use
-the GetUserPolicy , GetGroupPolicy , or GetRolePolicy API.
+the GetUserPolicy, GetGroupPolicy, or GetRolePolicy API.
 
 For more information about policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error InvalidInputException   
@@ -1002,26 +1001,26 @@ in the IAM User Guide .
 policy, including the policy document.
 
 Policies returned by this API are URL-encoded compliant with RFC 3986
-[https://tools.ietf.org/html/rfc3986] . You can use a URL decoding method to
+[https://tools.ietf.org/html/rfc3986]. You can use a URL decoding method to
 convert the policy back to plain JSON text. For example, if you use Java, you
 can use the decode method of the java.net.URLDecoder utility class in the Java
 SDK. Other languages and SDKs provide similar functionality.
 
-To list the available versions for a policy, use ListPolicyVersions .
+To list the available versions for a policy, use ListPolicyVersions.
 
 This API retrieves information about managed policies. To retrieve information
 about an inline policy that is embedded in a user, group, or role, use the 
-GetUserPolicy , GetGroupPolicy , or GetRolePolicy API.
+GetUserPolicy, GetGroupPolicy, or GetRolePolicy API.
 
 For more information about the types of policies, see Managed Policies and
 Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 For more information about managed policy versions, see Versioning for Managed
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error InvalidInputException   
@@ -1032,10 +1031,10 @@ in the IAM User Guide .
      * Retrieves information about the specified role, including the role&#x27;s path, GUID,
 ARN, and the role&#x27;s trust policy that grants permission to assume the role. For
 more information about roles, see Working with Roles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html].
 
 Policies returned by this API are URL-encoded compliant with RFC 3986
-[https://tools.ietf.org/html/rfc3986] . You can use a URL decoding method to
+[https://tools.ietf.org/html/rfc3986]. You can use a URL decoding method to
 convert the policy back to plain JSON text. For example, if you use Java, you
 can use the decode method of the java.net.URLDecoder utility class in the Java
 SDK. Other languages and SDKs provide similar functionality.
@@ -1049,7 +1048,7 @@ SDK. Other languages and SDKs provide similar functionality.
 specified IAM role.
 
 Policies returned by this API are URL-encoded compliant with RFC 3986
-[https://tools.ietf.org/html/rfc3986] . You can use a URL decoding method to
+[https://tools.ietf.org/html/rfc3986]. You can use a URL decoding method to
 convert the policy back to plain JSON text. For example, if you use Java, you
 can use the decode method of the java.net.URLDecoder utility class in the Java
 SDK. Other languages and SDKs provide similar functionality.
@@ -1061,11 +1060,11 @@ document.
 
 For more information about policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 For more information about roles, see Using Roles to Delegate Permissions and
 Federate Identities
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html].
      *
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
@@ -1076,7 +1075,7 @@ Federate Identities
 provider resource object was created or updated.
 
 This operation requires Signature Version 4
-[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] .
+[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html].
      *
      * @error NoSuchEntityException   
      * @error InvalidInputException   
@@ -1091,7 +1090,7 @@ associated IAM user to an AWS CodeCommit repository. For more information about
 using SSH keys to authenticate to an AWS CodeCommit repository, see Set up AWS
 CodeCommit for SSH Connections
 [http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html] 
-in the AWS CodeCommit User Guide .
+in the AWS CodeCommit User Guide.
      *
      * @error NoSuchEntityException   
      * @error UnrecognizedPublicKeyEncodingException   
@@ -1104,7 +1103,7 @@ For more information about working with server certificates, including a list of
 AWS services that can use the server certificates that you manage with IAM, go
 to Working with Server Certificates
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
@@ -1126,7 +1125,7 @@ on the AWS access key ID used to sign the request to this API.
 IAM user.
 
 Policies returned by this API are URL-encoded compliant with RFC 3986
-[https://tools.ietf.org/html/rfc3986] . You can use a URL decoding method to
+[https://tools.ietf.org/html/rfc3986]. You can use a URL decoding method to
 convert the policy back to plain JSON text. For example, if you use Java, you
 can use the decode method of the java.net.URLDecoder utility class in the Java
 SDK. Other languages and SDKs provide similar functionality.
@@ -1138,7 +1137,7 @@ document.
 
 For more information about policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
@@ -1168,7 +1167,7 @@ only during key and user creation.
 one). For information about using an AWS account alias, see Using an Alias for
 Your AWS Account ID
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html] in the IAM
-User Guide .
+User Guide.
      *
      * @error ServiceFailureException   
      */
@@ -1180,7 +1179,7 @@ An IAM group can also have inline policies embedded with it. To list the inline
 policies for a group, use the ListGroupPolicies API. For information about
 policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 You can paginate the results using the MaxItems and Marker parameters. You can
 use the PathPrefix parameter to limit the list of policies to only those
@@ -1200,7 +1199,7 @@ An IAM role can also have inline policies embedded with it. To list the inline
 policies for a role, use the ListRolePolicies API. For information about
 policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 You can paginate the results using the MaxItems and Marker parameters. You can
 use the PathPrefix parameter to limit the list of policies to only those
@@ -1220,7 +1219,7 @@ An IAM user can also have inline policies embedded with it. To list the inline
 policies for a user, use the ListUserPolicies API. For information about
 policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 You can paginate the results using the MaxItems and Marker parameters. You can
 use the PathPrefix parameter to limit the list of policies to only those
@@ -1239,7 +1238,7 @@ attached to.
 
 You can use the optional EntityFilter parameter to limit the results to a
 particular type of entity (users, groups, or roles). For example, to list only
-the roles that are attached to the specified policy, set EntityFilter to Role .
+the roles that are attached to the specified policy, set EntityFilter to Role.
 
 You can paginate the results using the MaxItems and Marker parameters.
      *
@@ -1253,10 +1252,10 @@ You can paginate the results using the MaxItems and Marker parameters.
 group.
 
 An IAM group can also have managed policies attached to it. To list the managed
-policies that are attached to a group, use ListAttachedGroupPolicies . For more
+policies that are attached to a group, use ListAttachedGroupPolicies. For more
 information about policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 You can paginate the results using the MaxItems and Marker parameters. If there
 are no inline policies embedded with the specified group, the action returns an
@@ -1269,7 +1268,7 @@ empty list.
     /**
      * Lists the IAM groups that have the specified path prefix.
 
-You can paginate the results using the MaxItems and Marker parameters.
+ You can paginate the results using the MaxItems and Marker parameters.
      *
      * @error ServiceFailureException   
      */
@@ -1287,7 +1286,7 @@ You can paginate the results using the MaxItems and Marker parameters.
      * Lists the instance profiles that have the specified path prefix. If there are
 none, the action returns an empty list. For more information about instance
 profiles, go to About Instance Profiles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html].
 
 You can paginate the results using the MaxItems and Marker parameters.
      *
@@ -1298,7 +1297,7 @@ You can paginate the results using the MaxItems and Marker parameters.
      * Lists the instance profiles that have the specified associated IAM role. If
 there are none, the action returns an empty list. For more information about
 instance profiles, go to About Instance Profiles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html].
 
 You can paginate the results using the MaxItems and Marker parameters.
      *
@@ -1330,16 +1329,16 @@ defined in the AWS account.
 your own customer-defined managed policies and all AWS managed policies.
 
 You can filter the list of policies that is returned using the optional 
-OnlyAttached , Scope , and PathPrefix parameters. For example, to list only the
-customer managed policies in your AWS account, set Scope to Local . To list only
-AWS managed policies, set Scope to AWS .
+OnlyAttached, Scope, and PathPrefix parameters. For example, to list only the
+customer managed policies in your AWS account, set Scope to Local. To list only
+AWS managed policies, set Scope to AWS.
 
 You can paginate the results using the MaxItems and Marker parameters.
 
 For more information about managed policies, see Managed Policies and Inline
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error ServiceFailureException   
      */
@@ -1351,7 +1350,7 @@ the version that is currently set as the policy&#x27;s default version.
 For more information about managed policies, see Managed Policies and Inline
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error InvalidInputException   
@@ -1363,10 +1362,10 @@ in the IAM User Guide .
 role.
 
 An IAM role can also have managed policies attached to it. To list the managed
-policies that are attached to a role, use ListAttachedRolePolicies . For more
+policies that are attached to a role, use ListAttachedRolePolicies. For more
 information about policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 You can paginate the results using the MaxItems and Marker parameters. If there
 are no inline policies embedded with the specified role, the action returns an
@@ -1380,7 +1379,7 @@ empty list.
      * Lists the IAM roles that have the specified path prefix. If there are none, the
 action returns an empty list. For more information about roles, go to Working
 with Roles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html].
 
 You can paginate the results using the MaxItems and Marker parameters.
      *
@@ -1390,8 +1389,8 @@ You can paginate the results using the MaxItems and Marker parameters.
     /**
      * Lists the SAML provider resource objects defined in IAM in the account.
 
-This operation requires Signature Version 4
-[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] .
+ This operation requires Signature Version 4
+[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html].
      *
      * @error ServiceFailureException   
      */
@@ -1405,7 +1404,7 @@ IAM user to an AWS CodeCommit repository. For more information about using SSH
 keys to authenticate to an AWS CodeCommit repository, see Set up AWS CodeCommit
 for SSH Connections
 [http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html] 
-in the AWS CodeCommit User Guide .
+in the AWS CodeCommit User Guide.
 
 Although each user is limited to a small number of keys, you can still paginate
 the results using the MaxItems and Marker parameters.
@@ -1417,13 +1416,13 @@ the results using the MaxItems and Marker parameters.
      * Lists the server certificates stored in IAM that have the specified path prefix.
 If none exist, the action returns an empty list.
 
-You can paginate the results using the MaxItems and Marker parameters.
+ You can paginate the results using the MaxItems and Marker parameters.
 
 For more information about working with server certificates, including a list of
 AWS services that can use the server certificates that you manage with IAM, go
 to Working with Server Certificates
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error ServiceFailureException   
      */
@@ -1462,10 +1461,10 @@ to manage root credentials even if the AWS account has no associated users.
      * Lists the names of the inline policies embedded in the specified IAM user.
 
 An IAM user can also have managed policies attached to it. To list the managed
-policies that are attached to a user, use ListAttachedUserPolicies . For more
+policies that are attached to a user, use ListAttachedUserPolicies. For more
 information about policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 You can paginate the results using the MaxItems and Marker parameters. If there
 are no inline policies embedded with the specified user, the action returns an
@@ -1488,7 +1487,7 @@ You can paginate the results using the MaxItems and Marker parameters.
     /**
      * Lists the virtual MFA devices defined in the AWS account by assignment status.
 If you do not specify an assignment status, the action returns a list of all
-virtual MFA devices. Assignment status can be Assigned , Unassigned , or Any .
+virtual MFA devices. Assignment status can be Assigned, Unassigned, or Any.
 
 You can paginate the results using the MaxItems and Marker parameters.
      *
@@ -1499,22 +1498,22 @@ You can paginate the results using the MaxItems and Marker parameters.
 group.
 
 A user can also have managed policies attached to it. To attach a managed policy
-to a group, use AttachGroupPolicy . To create a new managed policy, use 
-CreatePolicy . For information about policies, see Managed Policies and Inline
+to a group, use AttachGroupPolicy. To create a new managed policy, use 
+CreatePolicy. For information about policies, see Managed Policies and Inline
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 For information about limits on the number of inline policies that you can embed
 in a group, see Limitations on IAM Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
 
 Because policy documents can be large, you should use POST rather than GET when
-calling PutGroupPolicy . For general information about using the Query API with
+calling PutGroupPolicy. For general information about using the Query API with
 IAM, go to Making Query Requests
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html] in the 
-IAM User Guide .
+IAM User Guide.
      *
      * @error LimitExceededException   
      * @error MalformedPolicyDocumentException   
@@ -1528,28 +1527,28 @@ role.
 
 When you embed an inline policy in a role, the inline policy is used as part of
 the role&#x27;s access (permissions) policy. The role&#x27;s trust policy is created at
-the same time as the role, using CreateRole . You can update a role&#x27;s trust
-policy using UpdateAssumeRolePolicy . For more information about IAM roles, go
-to Using Roles to Delegate Permissions and Federate Identities
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html] .
+the same time as the role, using CreateRole. You can update a role&#x27;s trust
+policy using UpdateAssumeRolePolicy. For more information about IAM roles, go to 
+Using Roles to Delegate Permissions and Federate Identities
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html].
 
 A role can also have a managed policy attached to it. To attach a managed policy
-to a role, use AttachRolePolicy . To create a new managed policy, use 
-CreatePolicy . For information about policies, see Managed Policies and Inline
+to a role, use AttachRolePolicy. To create a new managed policy, use 
+CreatePolicy. For information about policies, see Managed Policies and Inline
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 For information about limits on the number of inline policies that you can embed
 with a role, see Limitations on IAM Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
 
 Because policy documents can be large, you should use POST rather than GET when
-calling PutRolePolicy . For general information about using the Query API with
+calling PutRolePolicy. For general information about using the Query API with
 IAM, go to Making Query Requests
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html] in the 
-IAM User Guide .
+IAM User Guide.
      *
      * @error LimitExceededException   
      * @error MalformedPolicyDocumentException   
@@ -1562,22 +1561,22 @@ IAM User Guide .
 user.
 
 An IAM user can also have a managed policy attached to it. To attach a managed
-policy to a user, use AttachUserPolicy . To create a new managed policy, use 
-CreatePolicy . For information about policies, see Managed Policies and Inline
+policy to a user, use AttachUserPolicy. To create a new managed policy, use 
+CreatePolicy. For information about policies, see Managed Policies and Inline
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 For information about limits on the number of inline policies that you can embed
 in a user, see Limitations on IAM Entities
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html] in
-the IAM User Guide .
+the IAM User Guide.
 
 Because policy documents can be large, you should use POST rather than GET when
-calling PutUserPolicy . For general information about using the Query API with
+calling PutUserPolicy. For general information about using the Query API with
 IAM, go to Making Query Requests
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html] in the 
-IAM User Guide .
+IAM User Guide.
      *
      * @error LimitExceededException   
      * @error MalformedPolicyDocumentException   
@@ -1606,10 +1605,10 @@ about to remove from the instance profile. Removing a role from an instance
 profile that is associated with a running instance break any applications
 running on the instance.
 
-For more information about IAM roles, go to Working with Roles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html] . For
+ For more information about IAM roles, go to Working with Roles
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html]. For
 more information about instance profiles, go to About Instance Profiles
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html].
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -1640,7 +1639,7 @@ servers.
 For more information about creating and working with virtual MFA devices, go to 
 Using a Virtual MFA Device
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html] in the 
-IAM User Guide .
+IAM User Guide.
      *
      * @error InvalidAuthenticationCodeException   
      * @error NoSuchEntityException   
@@ -1658,7 +1657,7 @@ ListEntitiesForPolicy API.
 
 For information about managed policies, see Managed Policies and Inline Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error InvalidInputException   
@@ -1681,7 +1680,7 @@ Context keys are variables maintained by AWS and its services that provide
 details about the context of an API query request. You can use the Condition 
 element of an IAM policy to evaluate context keys. To get the list of context
 keys that the policies require for correct simulation, use 
-GetContextKeysForCustomPolicy .
+GetContextKeysForCustomPolicy.
 
 If the output is long, you can use MaxItems and Marker parameters to paginate
 the results.
@@ -1707,7 +1706,7 @@ each of the resources included in the simulation.
 The simulation does not perform the API actions, it only checks the
 authorization to determine if the simulated policies allow or deny the actions.
 
-Note: This API discloses information about the permissions granted to other
+ Note: This API discloses information about the permissions granted to other
 users. If you do not want users to see other user&#x27;s permissions, then consider
 allowing them to use SimulateCustomPolicy instead.
 
@@ -1715,7 +1714,7 @@ Context keys are variables maintained by AWS and its services that provide
 details about the context of an API query request. You can use the Condition 
 element of an IAM policy to evaluate context keys. To get the list of context
 keys that the policies require for correct simulation, use 
-GetContextKeysForPrincipalPolicy .
+GetContextKeysForPrincipalPolicy.
 
 If the output is long, you can use the MaxItems and Marker parameters to
 paginate the results.
@@ -1737,7 +1736,7 @@ root credentials even if the AWS account has no associated users.
 
 For information about rotating keys, see Managing Keys and Certificates
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -1751,10 +1750,10 @@ This action does not support partial updates. No parameters are required, but if
 you do not specify a parameter, that parameter&#x27;s value reverts to its default
 value. See the Request Parameters section for each parameter&#x27;s default value.
 
-For more information about using a password policy, see Managing an IAM Password
-Policy
+ For more information about using a password policy, see Managing an IAM
+Password Policy
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html] 
-in the IAM User Guide .
+in the IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error MalformedPolicyDocumentException   
@@ -1766,7 +1765,7 @@ in the IAM User Guide .
      * Updates the policy that grants an IAM entity permission to assume a role. This
 is typically referred to as the &quot;role trust policy&quot;. For more information about
 roles, go to Using Roles to Delegate Permissions and Federate Identities
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html].
      *
      * @error NoSuchEntityException   
      * @error MalformedPolicyDocumentException   
@@ -1777,17 +1776,17 @@ roles, go to Using Roles to Delegate Permissions and Federate Identities
     /**
      * Updates the name and/or the path of the specified IAM group.
 
-You should understand the implications of changing a group&#x27;s path or name. For
+ You should understand the implications of changing a group&#x27;s path or name. For
 more information, see Renaming Users and Groups
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 To change an IAM group name the requester must have appropriate permissions on
 both the source object and the target object. For example, to change &quot;Managers&quot;
 to &quot;MGRs&quot;, the entity making the request must have permission on both &quot;Managers&quot;
 and &quot;MGRs&quot;, or must have permission on all (&amp;#42;). For more information about
 permissions, see Permissions and Policies
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html].
      *
      * @error NoSuchEntityException   
      * @error EntityAlreadyExistsException   
@@ -1798,10 +1797,10 @@ permissions, see Permissions and Policies
     /**
      * Changes the password for the specified IAM user.
 
-IAM users can change their own passwords by calling ChangePassword . For more
+IAM users can change their own passwords by calling ChangePassword. For more
 information about modifying passwords, see Managing Passwords
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html] in
-the IAM User Guide .
+the IAM User Guide.
      *
      * @error EntityTemporarilyUnmodifiableException   
      * @error NoSuchEntityException   
@@ -1836,7 +1835,7 @@ users.
      * Updates the metadata document for an existing SAML provider resource object.
 
 This operation requires Signature Version 4
-[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] .
+[http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html].
      *
      * @error NoSuchEntityException   
      * @error InvalidInputException   
@@ -1854,7 +1853,7 @@ associated IAM user to an AWS CodeCommit repository. For more information about
 using SSH keys to authenticate to an AWS CodeCommit repository, see Set up AWS
 CodeCommit for SSH Connections
 [http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html] 
-in the AWS CodeCommit User Guide .
+in the AWS CodeCommit User Guide.
      *
      * @error NoSuchEntityException   
      */
@@ -1867,12 +1866,12 @@ For more information about working with server certificates, including a list of
 AWS services that can use the server certificates that you manage with IAM, go
 to Working with Server Certificates
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 You should understand the implications of changing a server certificate&#x27;s path
 or name. For more information, see Renaming a Server Certificate
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 To change a server certificate name the requester must have appropriate
 permissions on both the source object and the target object. For example, to
@@ -1880,7 +1879,7 @@ change the name from &quot;ProductionCert&quot; to &quot;ProdCert&quot;, the ent
 request must have permission on &quot;ProductionCert&quot; and &quot;ProdCert&quot;, or must have
 permission on all (&amp;#42;). For more information about permissions, see Access
 Management [http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html] in the 
-IAM User Guide .
+IAM User Guide.
      *
      * @error NoSuchEntityException   
      * @error EntityAlreadyExistsException   
@@ -1889,7 +1888,7 @@ IAM User Guide .
      */
     updateServerCertificate(params: IAM.UpdateServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
-     * Sets the status of a service-specific credential to Active or Inactive .
+     * Sets the status of a service-specific credential to Active or Inactive.
 Service-specific credentials that are inactive cannot be used for authentication
 to the service. This action can be used to disable a user’s service-specific
 credential as part of a credential rotation work flow.
@@ -1915,19 +1914,19 @@ root credentials even if the AWS account has no associated users.
     /**
      * Updates the name and/or the path of the specified IAM user.
 
-You should understand the implications of changing an IAM user&#x27;s path or name.
+ You should understand the implications of changing an IAM user&#x27;s path or name.
 For more information, see Renaming an IAM User
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming] 
 and Renaming an IAM Group
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
-To change a user name the requester must have appropriate permissions on both
+ To change a user name the requester must have appropriate permissions on both
 the source object and the target object. For example, to change Bob to Robert,
 the entity making the request must have permission on Bob and Robert, or must
 have permission on all (&amp;#42;). For more information about permissions, see 
 Permissions and Policies
-[http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html] .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html].
      *
      * @error NoSuchEntityException   
      * @error LimitExceededException   
@@ -1944,7 +1943,7 @@ the associated IAM user to an AWS CodeCommit repository. For more information
 about using SSH keys to authenticate to an AWS CodeCommit repository, see Set up
 AWS CodeCommit for SSH Connections
 [http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html] 
-in the AWS CodeCommit User Guide .
+in the AWS CodeCommit User Guide.
      *
      * @error LimitExceededException   
      * @error NoSuchEntityException   
@@ -1962,22 +1961,22 @@ For more information about working with server certificates, including a list of
 AWS services that can use the server certificates that you manage with IAM, go
 to Working with Server Certificates
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html] 
-in the IAM User Guide .
+in the IAM User Guide.
 
 For information about the number of server certificates you can upload, see 
 Limitations on IAM Entities and Objects
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html] in
-the IAM User Guide .
+the IAM User Guide.
 
 Because the body of the public key certificate, private key, and the certificate
 chain can be large, you should use POST rather than GET when calling 
-UploadServerCertificate . For information about setting up signatures and
+UploadServerCertificate. For information about setting up signatures and
 authorization through the API, go to Signing AWS API Requests
 [http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html] in
-the AWS General Reference . For general information about using the Query API
+the AWS General Reference. For general information about using the Query API
 with IAM, go to Calling the API by Making HTTP Query Requests
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html] in the IAM
-User Guide .
+User Guide.
      *
      * @error LimitExceededException   
      * @error EntityAlreadyExistsException   
@@ -1990,7 +1989,7 @@ User Guide .
      * Uploads an X.509 signing certificate and associates it with the specified IAM
 user. Some AWS services use X.509 signing certificates to validate requests that
 are signed with a corresponding private key. When you upload the certificate,
-its default status is Active .
+its default status is Active.
 
 If the UserName field is not specified, the IAM user name is determined
 implicitly based on the AWS access key ID used to sign the request. Because this
@@ -1998,13 +1997,13 @@ action works for access keys under the AWS account, you can use this action to
 manage root credentials even if the AWS account has no associated users.
 
 Because the body of a X.509 certificate can be large, you should use POST rather
-than GET when calling UploadSigningCertificate . For information about setting
-up signatures and authorization through the API, go to Signing AWS API Requests
+than GET when calling UploadSigningCertificate. For information about setting up
+signatures and authorization through the API, go to Signing AWS API Requests
 [http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html] in
-the AWS General Reference . For general information about using the Query API
+the AWS General Reference. For general information about using the Query API
 with IAM, go to Making Query Requests
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html] in the 
-IAM User Guide .
+IAM User Guide.
      *
      * @error LimitExceededException   
      * @error EntityAlreadyExistsException   
@@ -2306,41 +2305,41 @@ Inactive means it is not. **/
         CreateDate?: dateType;
     }
     export interface AccessKeyLastUsed {
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the access key was most recently used. This field is null when:
 
- &amp;#42; The user does not have an access key.
+ &amp;#42;  The user does not have an access key.
    
    
- * An access key exists but has never been used, at least not since IAM started
+ *  An access key exists but has never been used, at least not since IAM started
    tracking this information on April 22nd, 2015.
    
    
- * There is no sign-in data associated with the user **/
+ *  There is no sign-in data associated with the user **/
         LastUsedDate: dateType;
         /** The name of the AWS service with which this access key was most recently used.
 This field is null when:
 
- &amp;#42; The user does not have an access key.
+ &amp;#42;  The user does not have an access key.
    
    
- * An access key exists but has never been used, at least not since IAM started
+ *  An access key exists but has never been used, at least not since IAM started
    tracking this information on April 22nd, 2015.
    
    
- * There is no sign-in data associated with the user **/
+ *  There is no sign-in data associated with the user **/
         ServiceName: stringType;
         /** The AWS region where this access key was most recently used. This field is null
 when:
 
- &amp;#42; The user does not have an access key.
+ &amp;#42;  The user does not have an access key.
    
    
- * An access key exists but has never been used, at least not since IAM started
+ *  An access key exists but has never been used, at least not since IAM started
    tracking this information on April 22nd, 2015.
    
    
- * There is no sign-in data associated with the user
+ *  There is no sign-in data associated with the user
    
    
 
@@ -2372,13 +2371,13 @@ resource. **/
     export interface AddRoleToInstanceProfileRequest {
         /** The name of the instance profile to update.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         InstanceProfileName: instanceProfileNameType;
         /** The name of the role to add.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
@@ -2386,13 +2385,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface AddUserToGroupRequest {
         /** The name of the group to update.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
         /** The name of the user to add.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
@@ -2400,7 +2399,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface AttachGroupPolicyRequest {
         /** The name (friendly name, not ARN) of the group to attach the policy to.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
@@ -2409,13 +2408,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
     }
     export interface AttachRolePolicyRequest {
         /** The name (friendly name, not ARN) of the role to attach the policy to.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
@@ -2424,13 +2423,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
     }
     export interface AttachUserPolicyRequest {
         /** The name (friendly name, not ARN) of the IAM user to attach the policy to.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
@@ -2439,7 +2438,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
     }
     export interface AttachedPolicy {
@@ -2465,7 +2464,7 @@ meaning within that tool. **/
     }
     export interface ContextEntry {
         /** The full name of a condition context key, including the service prefix. For
-example, aws:SourceIp or s3:VersionId . **/
+example, aws:SourceIp or s3:VersionId. **/
         ContextKeyName?: ContextKeyNameType;
         /** The value (or values, if the condition context key supports multiple values) to
 provide to the simulation for use when the key is referenced by a Condition 
@@ -2478,7 +2477,7 @@ parameter. **/
     export interface CreateAccessKeyRequest {
         /** The name of the IAM user that the new key will belong to.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
@@ -2490,7 +2489,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface CreateAccountAliasRequest {
         /** The account alias to create.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of lowercase letters, digits, and dashes. You
 cannot start or finish with a dash, nor can you have two dashes in a row. **/
         AccountAlias: accountAliasType;
@@ -2498,11 +2497,11 @@ cannot start or finish with a dash, nor can you have two dashes in a row. **/
     export interface CreateGroupRequest {
         /** The path to the group. For more information about paths, see IAM Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
-IAM User Guide .
+IAM User Guide.
 
 This parameter is optional. If it is not included, it defaults to a slash (/).
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -2510,7 +2509,7 @@ punctuation characters, digits, and upper and lowercased letters. **/
         Path?: pathType;
         /** The name of the group to create. Do not include the path in this value.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@-. The
 group name must be unique within the account. Group names are not distinguished
@@ -2524,18 +2523,18 @@ by case. For example, you cannot create groups named both &quot;ADMINS&quot; and
     export interface CreateInstanceProfileRequest {
         /** The name of the instance profile to create.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         InstanceProfileName: instanceProfileNameType;
         /** The path to the instance profile. For more information about paths, see IAM
 Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
-IAM User Guide .
+IAM User Guide.
 
 This parameter is optional. If it is not included, it defaults to a slash (/).
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -2549,7 +2548,7 @@ punctuation characters, digits, and upper and lowercased letters. **/
     export interface CreateLoginProfileRequest {
         /** The name of the IAM user to create a password for. The user must already exist.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
@@ -2614,18 +2613,18 @@ https://keys.server.example.com.
 For more information about obtaining the OIDC provider&#x27;s thumbprint, see 
 Obtaining the Thumbprint for an OpenID Connect Provider
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html] 
-in the IAM User Guide . **/
+in the IAM User Guide. **/
         ThumbprintList: thumbprintListType;
     }
     export interface CreateOpenIDConnectProviderResponse {
         /** The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is
-created. For more information, see OpenIDConnectProviderListEntry . **/
+created. For more information, see OpenIDConnectProviderListEntry. **/
         OpenIDConnectProviderArn?: arnType;
     }
     export interface CreatePolicyRequest {
         /** The friendly name of the policy.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -2633,11 +2632,11 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 
 For more information about paths, see IAM Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
-IAM User Guide .
+IAM User Guide.
 
 This parameter is optional. If it is not included, it defaults to a slash (/).
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -2672,7 +2671,7 @@ version.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
         /** The JSON policy document that you want to use as the content for this new
 version of the policy.
@@ -2686,14 +2685,14 @@ characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyDocument: policyDocumentType;
         /** Specifies whether to set this version as the policy&#x27;s default version.
 
-When this parameter is true , the new policy version becomes the operative
+When this parameter is true, the new policy version becomes the operative
 version; that is, the version that is in effect for the IAM users, groups, and
 roles that the policy is attached to.
 
 For more information about managed policy versions, see Versioning for Managed
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html] 
-in the IAM User Guide . **/
+in the IAM User Guide. **/
         SetAsDefault?: booleanType;
     }
     export interface CreatePolicyVersionResponse {
@@ -2703,11 +2702,11 @@ in the IAM User Guide . **/
     export interface CreateRoleRequest {
         /** The path to the role. For more information about paths, see IAM Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
-IAM User Guide .
+IAM User Guide.
 
 This parameter is optional. If it is not included, it defaults to a slash (/).
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -2715,7 +2714,7 @@ punctuation characters, digits, and upper and lowercased letters. **/
         Path?: pathType;
         /** The name of the role to create.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@-.
 Role names are not distinguished by case. For example, you cannot create roles
@@ -2749,7 +2748,7 @@ in the IAM User Guide **/
         SAMLMetadataDocument: SAMLMetadataDocumentType;
         /** The name of the provider to create.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         Name: SAMLProviderNameType;
@@ -2763,7 +2762,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 service-specific credentials have the same permissions as the associated user
 except that they can be used only to access the specified service.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
@@ -2778,18 +2777,18 @@ credential.
 
 This is the only time that the password for this credential set is available. It
 cannot be recovered later. Instead, you will have to reset the password with 
-ResetServiceSpecificCredential . **/
+ResetServiceSpecificCredential. **/
         ServiceSpecificCredential?: ServiceSpecificCredential;
     }
     export interface CreateUserRequest {
         /** The path for the user name. For more information about paths, see IAM
 Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
-IAM User Guide .
+IAM User Guide.
 
 This parameter is optional. If it is not included, it defaults to a slash (/).
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -2797,7 +2796,7 @@ punctuation characters, digits, and upper and lowercased letters. **/
         Path?: pathType;
         /** The name of the user to create.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@-.
 User names are not distinguished by case. For example, you cannot create users
@@ -2812,11 +2811,11 @@ named both &quot;TESTUSER&quot; and &quot;testuser&quot;. **/
         /** The path for the virtual MFA device. For more information about paths, see IAM
 Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
-IAM User Guide .
+IAM User Guide.
 
 This parameter is optional. If it is not included, it defaults to a slash (/).
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -2825,7 +2824,7 @@ punctuation characters, digits, and upper and lowercased letters. **/
         /** The name of the virtual MFA device. Use with path to uniquely identify a virtual
 MFA device.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         VirtualMFADeviceName: virtualMFADeviceName;
@@ -2846,14 +2845,14 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface DeactivateMFADeviceRequest {
         /** The name of the user whose MFA device you want to deactivate.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
         /** The serial number that uniquely identifies the MFA device. For virtual MFA
 devices, the serial number is the device ARN.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =/:,.@- **/
         SerialNumber: serialNumberType;
@@ -2861,14 +2860,14 @@ with no spaces. You can also include any of the following characters: =/:,.@- **
     export interface DeleteAccessKeyRequest {
         /** The name of the user whose access key pair you want to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
         /** The access key ID for the access key ID and secret access key you want to
 delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         AccessKeyId: accessKeyIdType;
@@ -2876,7 +2875,7 @@ digit. **/
     export interface DeleteAccountAliasRequest {
         /** The name of the account alias to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of lowercase letters, digits, and dashes. You
 cannot start or finish with a dash, nor can you have two dashes in a row. **/
         AccountAlias: accountAliasType;
@@ -2888,13 +2887,13 @@ cannot start or finish with a dash, nor can you have two dashes in a row. **/
         /** The name (friendly name, not ARN) identifying the group that the policy is
 embedded in.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
         /** The name identifying the policy document to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -2902,7 +2901,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface DeleteGroupRequest {
         /** The name of the IAM group to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
@@ -2910,7 +2909,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface DeleteInstanceProfileRequest {
         /** The name of the instance profile to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         InstanceProfileName: instanceProfileNameType;
@@ -2918,7 +2917,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface DeleteLoginProfileRequest {
         /** The name of the user whose password you want to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
@@ -2935,7 +2934,7 @@ using the ListOpenIDConnectProviders action. **/
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
     }
     export interface DeletePolicyVersionRequest {
@@ -2945,11 +2944,11 @@ version.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
         /** The policy version to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that consists of the lowercase letter &#x27;v&#x27; followed by one
 or two digits, and optionally followed by a period &#x27;.&#x27; and a string of letters
 and digits.
@@ -2957,20 +2956,20 @@ and digits.
 For more information about managed policy versions, see Versioning for Managed
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html] 
-in the IAM User Guide . **/
+in the IAM User Guide. **/
         VersionId: policyVersionIdType;
     }
     export interface DeleteRolePolicyRequest {
         /** The name (friendly name, not ARN) identifying the role that the policy is
 embedded in.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
         /** The name of the inline policy to delete from the specified IAM role.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -2978,7 +2977,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface DeleteRoleRequest {
         /** The name of the role to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
@@ -2990,13 +2989,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface DeleteSSHPublicKeyRequest {
         /** The name of the IAM user associated with the SSH public key.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
         /** The unique identifier for the SSH public key.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         SSHPublicKeyId: publicKeyIdType;
@@ -3004,7 +3003,7 @@ digit. **/
     export interface DeleteServerCertificateRequest {
         /** The name of the server certificate you want to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         ServerCertificateName: serverCertificateNameType;
@@ -3014,14 +3013,14 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 this value is not specified, then the operation assumes the user whose
 credentials are used to call the operation.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: userNameType;
         /** The unique identifier of the service-specific credential. You can get this value
-by calling ListServiceSpecificCredentials .
+by calling ListServiceSpecificCredentials.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         ServiceSpecificCredentialId: serviceSpecificCredentialId;
@@ -3029,7 +3028,7 @@ digit. **/
     export interface DeleteSigningCertificateRequest {
         /** The name of the user the signing certificate belongs to.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
@@ -3044,13 +3043,13 @@ upper- or lower-cased letters or digits. **/
         /** The name (friendly name, not ARN) identifying the user that the policy is
 embedded in.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
         /** The name identifying the policy document to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -3058,7 +3057,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface DeleteUserRequest {
         /** The name of the user to delete.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
@@ -3067,7 +3066,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
         /** The serial number that uniquely identifies the MFA device. For virtual MFA
 devices, the serial number is the same as the ARN.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =/:,.@- **/
         SerialNumber: serialNumberType;
@@ -3075,7 +3074,7 @@ with no spaces. You can also include any of the following characters: =/:,.@- **
     export interface DetachGroupPolicyRequest {
         /** The name (friendly name, not ARN) of the IAM group to detach the policy from.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
@@ -3084,13 +3083,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
     }
     export interface DetachRolePolicyRequest {
         /** The name (friendly name, not ARN) of the IAM role to detach the policy from.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
@@ -3099,13 +3098,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
     }
     export interface DetachUserPolicyRequest {
         /** The name (friendly name, not ARN) of the IAM user to detach the policy from.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
@@ -3114,7 +3113,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
     }
     export interface DuplicateCertificateException {
@@ -3126,14 +3125,14 @@ the AWS General Reference . **/
     export interface EnableMFADeviceRequest {
         /** The name of the IAM user for whom you want to enable the MFA device.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
         /** The serial number that uniquely identifies the MFA device. For virtual MFA
 devices, the serial number is the device ARN.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =/:,.@- **/
         SerialNumber: serialNumberType;
@@ -3171,7 +3170,7 @@ resource in a simulation is &quot;&amp;#42;&quot;, either explicitly, or when th
 parameter blank. If you include a list of resources, then any missing context
 values are instead included under the ResourceSpecificResults section. To
 discover the context keys used by a set of policies, you can call 
-GetContextKeysForCustomPolicy or GetContextKeysForPrincipalPolicy . **/
+GetContextKeysForCustomPolicy or GetContextKeysForPrincipalPolicy. **/
         MissingContextValues?: ContextKeyNamesResultListType;
         /** Additional details about the results of the evaluation decision. When there are
 both IAM policies and resource policies, this parameter explains how each set of
@@ -3194,7 +3193,7 @@ EvalActionName on each resource. **/
     export interface GetAccessKeyLastUsedRequest {
         /** The identifier of an access key.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         AccessKeyId: accessKeyIdType;
@@ -3216,7 +3215,7 @@ below. **/
         Filter?: entityListType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3245,7 +3244,7 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
@@ -3287,7 +3286,7 @@ to be included as a part of a real HTML request.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicySourceArn: arnType;
         /** An optional list of additional policies for which you want the list of context
 keys that are referenced.
@@ -3306,19 +3305,19 @@ characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         /** The format (MIME type) of the credential report. **/
         ReportFormat?: ReportFormatType;
         /** The date and time when the credential report was created, in ISO 8601 date-time
-format [http://www.iso.org/iso/iso8601] . **/
+format [http://www.iso.org/iso/iso8601]. **/
         GeneratedTime?: dateType;
     }
     export interface GetGroupPolicyRequest {
         /** The name of the group the policy is associated with.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
         /** The name of the policy document to get.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -3334,7 +3333,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface GetGroupRequest {
         /** The name of the group.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
@@ -3345,7 +3344,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3365,14 +3364,14 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface GetInstanceProfileRequest {
         /** The name of the instance profile to get information about.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         InstanceProfileName: instanceProfileNameType;
@@ -3384,7 +3383,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface GetLoginProfileRequest {
         /** The name of the user whose login profile you want to retrieve.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
@@ -3401,20 +3400,20 @@ the ListOpenIDConnectProviders action.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         OpenIDConnectProviderArn: arnType;
     }
     export interface GetOpenIDConnectProviderResponse {
         /** The URL that the IAM OIDC provider resource object is associated with. For more
-information, see CreateOpenIDConnectProvider . **/
+information, see CreateOpenIDConnectProvider. **/
         Url?: OpenIDConnectProviderUrlType;
         /** A list of client IDs (also known as audiences) that are associated with the
 specified IAM OIDC provider resource object. For more information, see 
-CreateOpenIDConnectProvider . **/
+CreateOpenIDConnectProvider. **/
         ClientIDList?: clientIDListType;
         /** A list of certificate thumbprints that are associated with the specified IAM
 OIDC provider resource object. For more information, see 
-CreateOpenIDConnectProvider . **/
+CreateOpenIDConnectProvider. **/
         ThumbprintList?: thumbprintListType;
         /** The date and time when the IAM OIDC provider resource object was created in the
 AWS account. **/
@@ -3427,7 +3426,7 @@ about.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
     }
     export interface GetPolicyResponse {
@@ -3441,11 +3440,11 @@ about.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
         /** Identifies the policy version to retrieve.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that consists of the lowercase letter &#x27;v&#x27; followed by one
 or two digits, and optionally followed by a period &#x27;.&#x27; and a string of letters
 and digits. **/
@@ -3458,13 +3457,13 @@ and digits. **/
     export interface GetRolePolicyRequest {
         /** The name of the role associated with the policy.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
         /** The name of the policy document to get.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -3480,7 +3479,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface GetRoleRequest {
         /** The name of the IAM role to get information about.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
@@ -3496,7 +3495,7 @@ get information about.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         SAMLProviderArn: arnType;
     }
     export interface GetSAMLProviderResponse {
@@ -3510,19 +3509,19 @@ the AWS General Reference . **/
     export interface GetSSHPublicKeyRequest {
         /** The name of the IAM user associated with the SSH public key.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
         /** The unique identifier for the SSH public key.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         SSHPublicKeyId: publicKeyIdType;
         /** Specifies the public key encoding format to use in the response. To retrieve the
-public key in ssh-rsa format, use SSH . To retrieve the public key in PEM
-format, use PEM . **/
+public key in ssh-rsa format, use SSH. To retrieve the public key in PEM format,
+use PEM. **/
         Encoding: encodingType;
     }
     export interface GetSSHPublicKeyResponse {
@@ -3532,7 +3531,7 @@ format, use PEM . **/
     export interface GetServerCertificateRequest {
         /** The name of the server certificate you want to retrieve information about.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         ServerCertificateName: serverCertificateNameType;
@@ -3544,13 +3543,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface GetUserPolicyRequest {
         /** The name of the user who the policy is associated with.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
         /** The name of the policy document to get.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -3568,7 +3567,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 
 This parameter is optional. If it is not included, it defaults to the user
 making the request. This parameter allows (per its regex pattern
-[http://wikipedia.org/wiki/regex] ) a string of characters consisting of upper
+[http://wikipedia.org/wiki/regex]) a string of characters consisting of upper
 and lowercase alphanumeric characters with no spaces. You can also include any
 of the following characters: =,.@- **/
         UserName?: existingUserNameType;
@@ -3594,7 +3593,7 @@ ARNs and how to use them in policies, see IAM Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
 Using IAM guide. **/
         Arn: arnType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the group was created. **/
         CreateDate: dateType;
     }
@@ -3611,7 +3610,7 @@ IDs, see IAM Identifiers
 Using IAM guide. **/
         GroupId?: idType;
         Arn?: arnType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the group was created. **/
         CreateDate?: dateType;
         /** A list of the inline policies embedded in the group. **/
@@ -3666,7 +3665,7 @@ Using IAM guide. **/
     export interface ListAccessKeysRequest {
         /** The name of the user.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
@@ -3677,7 +3676,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3695,7 +3694,7 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
@@ -3707,7 +3706,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3726,21 +3725,21 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListAttachedGroupPoliciesRequest {
         /** The name (friendly name, not ARN) of the group to list attached policies for.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
         /** The path prefix for filtering the results. This parameter is optional. If it is
 not included, it defaults to a slash (/), listing all policies.
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -3753,7 +3752,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3771,21 +3770,21 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListAttachedRolePoliciesRequest {
         /** The name (friendly name, not ARN) of the role to list attached policies for.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
         /** The path prefix for filtering the results. This parameter is optional. If it is
 not included, it defaults to a slash (/), listing all policies.
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -3798,7 +3797,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3816,21 +3815,21 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListAttachedUserPoliciesRequest {
         /** The name (friendly name, not ARN) of the user to list attached policies for.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
         /** The path prefix for filtering the results. This parameter is optional. If it is
 not included, it defaults to a slash (/), listing all policies.
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -3843,7 +3842,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3861,7 +3860,7 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
@@ -3872,11 +3871,11 @@ versions.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
         /** The entity type to use for filtering the results.
 
-For example, when EntityFilter is Role , only the roles that are attached to the
+For example, when EntityFilter is Role, only the roles that are attached to the
 specified policy are returned. This parameter is optional. If it is not
 included, all attached entities (users, groups, and roles) are returned. The
 argument for this parameter must be one of the valid values listed below. **/
@@ -3884,7 +3883,7 @@ argument for this parameter must be one of the valid values listed below. **/
         /** The path prefix for filtering the results. This parameter is optional. If it is
 not included, it defaults to a slash (/), listing all entities.
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -3897,7 +3896,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3919,14 +3918,14 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListGroupPoliciesRequest {
         /** The name of the group to list policies for.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
@@ -3937,7 +3936,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3955,14 +3954,14 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListGroupsForUserRequest {
         /** The name of the user to list groups for.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
@@ -3973,7 +3972,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -3991,19 +3990,19 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListGroupsRequest {
         /** The path prefix for filtering the results. For example, the prefix 
 /division_abc/subdivision_xyz/ gets all groups whose path starts with 
-/division_abc/subdivision_xyz/ .
+/division_abc/subdivision_xyz/.
 
 This parameter is optional. If it is not included, it defaults to a slash (/),
 listing all groups. This paramater allows (per its regex pattern
-[http://wikipedia.org/wiki/regex] ) a string of characters consisting of either
-a forward slash (/) by itself or a string that must begin and end with forward
+[http://wikipedia.org/wiki/regex]) a string of characters consisting of either a
+forward slash (/) by itself or a string that must begin and end with forward
 slashes, containing any ASCII character from the ! (\u0021) thru the DEL
 character (\u007F), including most punctuation characters, digits, and upper and
 lowercased letters. **/
@@ -4015,7 +4014,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4033,14 +4032,14 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListInstanceProfilesForRoleRequest {
         /** The name of the role to list instance profiles for.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
@@ -4051,7 +4050,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4069,19 +4068,19 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListInstanceProfilesRequest {
         /** The path prefix for filtering the results. For example, the prefix 
 /application_abc/component_xyz/ gets all instance profiles whose path starts
-with /application_abc/component_xyz/ .
+with /application_abc/component_xyz/.
 
 This parameter is optional. If it is not included, it defaults to a slash (/),
 listing all instance profiles. This paramater allows (per its regex pattern
-[http://wikipedia.org/wiki/regex] ) a string of characters consisting of either
-a forward slash (/) by itself or a string that must begin and end with forward
+[http://wikipedia.org/wiki/regex]) a string of characters consisting of either a
+forward slash (/) by itself or a string that must begin and end with forward
 slashes, containing any ASCII character from the ! (\u0021) thru the DEL
 character (\u007F), including most punctuation characters, digits, and upper and
 lowercased letters. **/
@@ -4093,7 +4092,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4111,14 +4110,14 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListMFADevicesRequest {
         /** The name of the user whose MFA devices you want to list.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
@@ -4129,7 +4128,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4147,7 +4146,7 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
@@ -4160,21 +4159,21 @@ for the Marker parameter in a subsequent pagination request. **/
     export interface ListPoliciesRequest {
         /** The scope to use for filtering the results.
 
-To list only AWS managed policies, set Scope to AWS . To list only the customer
-managed policies in your AWS account, set Scope to Local .
+To list only AWS managed policies, set Scope to AWS. To list only the customer
+managed policies in your AWS account, set Scope to Local.
 
-This parameter is optional. If it is not included, or if it is set to All , all
+This parameter is optional. If it is not included, or if it is set to All, all
 policies are returned. **/
         Scope?: policyScopeType;
         /** A flag to filter the results to only the attached policies.
 
-When OnlyAttached is true , the returned list contains only the policies that
-are attached to an IAM user, group, or role. When OnlyAttached is false , or
-when the parameter is not included, all policies are returned. **/
+When OnlyAttached is true, the returned list contains only the policies that are
+attached to an IAM user, group, or role. When OnlyAttached is false, or when the
+parameter is not included, all policies are returned. **/
         OnlyAttached?: booleanType;
         /** The path prefix for filtering the results. This parameter is optional. If it is
 not included, it defaults to a slash (/), listing all policies. This paramater
-allows (per its regex pattern [http://wikipedia.org/wiki/regex] ) a string of
+allows (per its regex pattern [http://wikipedia.org/wiki/regex]) a string of
 characters consisting of either a forward slash (/) by itself or a string that
 must begin and end with forward slashes, containing any ASCII character from the
 ! (\u0021) thru the DEL character (\u007F), including most punctuation
@@ -4187,7 +4186,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4205,7 +4204,7 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
@@ -4216,7 +4215,7 @@ versions.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
         /** Use this parameter only when paginating results and only after you receive a
 response indicating that the results are truncated. Set it to the value of the 
@@ -4225,7 +4224,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4239,7 +4238,7 @@ include in the subsequent call that tells the service where to continue from. **
 For more information about managed policy versions, see Versioning for Managed
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html] 
-in the IAM User Guide . **/
+in the IAM User Guide. **/
         Versions?: policyDocumentVersionListType;
         /** A flag that indicates whether there are more items to return. If your results
 were truncated, you can make a subsequent pagination request using the Marker 
@@ -4248,14 +4247,14 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListRolePoliciesRequest {
         /** The name of the role to list policies for.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
@@ -4266,7 +4265,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4284,19 +4283,19 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListRolesRequest {
         /** The path prefix for filtering the results. For example, the prefix 
 /application_abc/component_xyz/ gets all roles whose path starts with 
-/application_abc/component_xyz/ .
+/application_abc/component_xyz/.
 
 This parameter is optional. If it is not included, it defaults to a slash (/),
 listing all roles. This paramater allows (per its regex pattern
-[http://wikipedia.org/wiki/regex] ) a string of characters consisting of either
-a forward slash (/) by itself or a string that must begin and end with forward
+[http://wikipedia.org/wiki/regex]) a string of characters consisting of either a
+forward slash (/) by itself or a string that must begin and end with forward
 slashes, containing any ASCII character from the ! (\u0021) thru the DEL
 character (\u007F), including most punctuation characters, digits, and upper and
 lowercased letters. **/
@@ -4308,7 +4307,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4326,7 +4325,7 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
@@ -4341,7 +4340,7 @@ for the Marker parameter in a subsequent pagination request. **/
 UserName field is determined implicitly based on the AWS access key used to sign
 the request.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: userNameType;
@@ -4352,7 +4351,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4370,19 +4369,19 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListServerCertificatesRequest {
         /** The path prefix for filtering the results. For example: /company/servercerts 
 would get all server certificates for which the path starts with 
-/company/servercerts .
+/company/servercerts.
 
 This parameter is optional. If it is not included, it defaults to a slash (/),
 listing all server certificates. This paramater allows (per its regex pattern
-[http://wikipedia.org/wiki/regex] ) a string of characters consisting of either
-a forward slash (/) by itself or a string that must begin and end with forward
+[http://wikipedia.org/wiki/regex]) a string of characters consisting of either a
+forward slash (/) by itself or a string that must begin and end with forward
 slashes, containing any ASCII character from the ! (\u0021) thru the DEL
 character (\u007F), including most punctuation characters, digits, and upper and
 lowercased letters. **/
@@ -4394,7 +4393,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4412,7 +4411,7 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
@@ -4421,7 +4420,7 @@ for the Marker parameter in a subsequent pagination request. **/
 about. If this value is not specified then the operation assumes the user whose
 credentials are used to call the operation.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: userNameType;
@@ -4437,7 +4436,7 @@ credential. **/
     export interface ListSigningCertificatesRequest {
         /** The name of the IAM user whose signing certificates you want to examine.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
@@ -4448,7 +4447,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4466,14 +4465,14 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListUserPoliciesRequest {
         /** The name of the user to list policies for.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
@@ -4484,7 +4483,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4502,19 +4501,19 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListUsersRequest {
         /** The path prefix for filtering the results. For example: 
-/division_abc/subdivision_xyz/ , which would get all user names whose path
-starts with /division_abc/subdivision_xyz/ .
+/division_abc/subdivision_xyz/, which would get all user names whose path starts
+with /division_abc/subdivision_xyz/.
 
 This parameter is optional. If it is not included, it defaults to a slash (/),
 listing all user names. This paramater allows (per its regex pattern
-[http://wikipedia.org/wiki/regex] ) a string of characters consisting of either
-a forward slash (/) by itself or a string that must begin and end with forward
+[http://wikipedia.org/wiki/regex]) a string of characters consisting of either a
+forward slash (/) by itself or a string that must begin and end with forward
 slashes, containing any ASCII character from the ! (\u0021) thru the DEL
 character (\u007F), including most punctuation characters, digits, and upper and
 lowercased letters. **/
@@ -4526,7 +4525,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4544,13 +4543,13 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
     export interface ListVirtualMFADevicesRequest {
-        /** The status ( Unassigned or Assigned ) of the devices to list. If you do not
-specify an AssignmentStatus , the action defaults to Any which lists both
+        /** The status (Unassigned or Assigned) of the devices to list. If you do not
+specify an AssignmentStatus, the action defaults to Any which lists both
 assigned and unassigned virtual MFA devices. **/
         AssignmentStatus?: assignmentStatusType;
         /** Use this parameter only when paginating results and only after you receive a
@@ -4560,7 +4559,7 @@ should start. **/
         Marker?: markerType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -4579,7 +4578,7 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
@@ -4637,10 +4636,10 @@ attached to. **/
         IsAttachable?: booleanType;
         /** A friendly description of the policy. **/
         Description?: policyDescriptionType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the policy was created. **/
         CreateDate?: dateType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the policy was last updated.
 
 When a policy has only one version, this field contains the date and time when
@@ -4713,10 +4712,10 @@ to. **/
 This element is included in the response to the GetPolicy operation. It is not
 included in the response to the ListPolicies operation. **/
         Description?: policyDescriptionType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the policy was created. **/
         CreateDate?: dateType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the policy was last updated.
 
 When a policy has only one version, this field contains the date and time when
@@ -4739,7 +4738,7 @@ contains the date and time when the most recent policy version was created. **/
         /** The stable and unique string identifying the group. For more information about
 IDs, see IAM Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html] in
-the IAM User Guide . **/
+the IAM User Guide. **/
         GroupId?: idType;
     }
     export interface PolicyRole {
@@ -4748,7 +4747,7 @@ the IAM User Guide . **/
         /** The stable and unique string identifying the role. For more information about
 IDs, see IAM Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html] in
-the IAM User Guide . **/
+the IAM User Guide. **/
         RoleId?: idType;
     }
     export interface PolicyUser {
@@ -4757,7 +4756,7 @@ the IAM User Guide . **/
         /** The stable and unique string identifying the user. For more information about
 IDs, see IAM Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html] in
-the IAM User Guide . **/
+the IAM User Guide. **/
         UserId?: idType;
     }
     export interface PolicyVersion {
@@ -4770,11 +4769,11 @@ the CreatePolicyVersion or ListPolicyVersions operations. **/
         /** The identifier for the policy version.
 
 Policy version identifiers always begin with v (always lowercase). When a policy
-is created, the first policy version is v1 . **/
+is created, the first policy version is v1. **/
         VersionId?: policyVersionIdType;
         /** Specifies whether the policy version is set as the policy&#x27;s default version. **/
         IsDefaultVersion?: booleanType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the policy version was created. **/
         CreateDate?: dateType;
     }
@@ -4787,13 +4786,13 @@ is created, the first policy version is v1 . **/
     export interface PutGroupPolicyRequest {
         /** The name of the group to associate the policy with.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
         /** The name of the policy document.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -4810,13 +4809,13 @@ characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
     export interface PutRolePolicyRequest {
         /** The name of the role to associate the policy with.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
         /** The name of the policy document.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -4833,13 +4832,13 @@ characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
     export interface PutUserPolicyRequest {
         /** The name of the user to associate the policy with.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
         /** The name of the policy document.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         PolicyName: policyNameType;
@@ -4861,23 +4860,23 @@ ListOpenIDConnectProviders action.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         OpenIDConnectProviderArn: arnType;
         /** The client ID (also known as audience) to remove from the IAM OIDC provider
-resource. For more information about client IDs, see CreateOpenIDConnectProvider 
+resource. For more information about client IDs, see CreateOpenIDConnectProvider
 . **/
         ClientID: clientIDType;
     }
     export interface RemoveRoleFromInstanceProfileRequest {
         /** The name of the instance profile to update.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         InstanceProfileName: instanceProfileNameType;
         /** The name of the role to remove.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
@@ -4885,13 +4884,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface RemoveUserFromGroupRequest {
         /** The name of the group to update.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
         /** The name of the user to remove.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
@@ -4901,13 +4900,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 this value is not specified, then the operation assumes the user whose
 credentials are used to call the operation.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: userNameType;
         /** The unique identifier of the service-specific credential.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         ServiceSpecificCredentialId: serviceSpecificCredentialId;
@@ -4924,7 +4923,7 @@ password later, but you can reset it again. **/
         /** The name of the simulated resource, in Amazon Resource Name (ARN) format. **/
         EvalResourceName: ResourceNameType;
         /** The result of the simulation of the simulated API action on the resource
-specified in EvalResourceName . **/
+specified in EvalResourceName. **/
         EvalResourceDecision: PolicyEvaluationDecisionType;
         /** A list of the statements in the input policies that determine the result for
 this part of the simulation. Remember that even if multiple statements allow the
@@ -4939,7 +4938,7 @@ specify individual resources, by setting ResourceArns to &quot;*&quot; or by not
 the ResourceArns parameter, then any missing context values are instead included
 under the EvaluationResults section. To discover the context keys used by a set
 of policies, you can call GetContextKeysForCustomPolicy or 
-GetContextKeysForPrincipalPolicy . **/
+GetContextKeysForPrincipalPolicy. **/
         MissingContextValues?: ContextKeyNamesResultListType;
         /** Additional details about the results of the evaluation decision. When there are
 both IAM policies and resource policies, this parameter explains how each set of
@@ -4951,13 +4950,13 @@ caller&#x27;s IAM policy must grant access. **/
     export interface ResyncMFADeviceRequest {
         /** The name of the user whose MFA device you want to resynchronize.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
         /** Serial number that uniquely identifies the MFA device.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         SerialNumber: serialNumberType;
@@ -4987,7 +4986,7 @@ ARNs and how to use them in policies, see IAM Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
 Using IAM guide. **/
         Arn: arnType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the role was created. **/
         CreateDate: dateType;
         /** The policy that grants an entity permission to assume the role. **/
@@ -5006,7 +5005,7 @@ IDs, see IAM Identifiers
 Using IAM guide. **/
         RoleId?: idType;
         Arn?: arnType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the role was created. **/
         CreateDate?: dateType;
         /** The trust policy that grants permission to assume the role. **/
@@ -5041,7 +5040,7 @@ access (permissions) policies. **/
 authentication with an AWS CodeCommit repository. Inactive means the key cannot
 be used. **/
         Status: statusType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the SSH public key was uploaded. **/
         UploadDate?: dateType;
     }
@@ -5054,7 +5053,7 @@ be used. **/
 authentication with an AWS CodeCommit repository. Inactive means the key cannot
 be used. **/
         Status: statusType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the SSH public key was uploaded. **/
         UploadDate: dateType;
     }
@@ -5097,14 +5096,14 @@ Using IAM guide. **/
         message?: serviceNotSupportedMessage;
     }
     export interface ServiceSpecificCredential {
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the service-specific credential were created. **/
         CreateDate: dateType;
         /** The name of the service associated with the service-specific credential. **/
         ServiceName: serviceName;
         /** The generated user name for the service-specific credential. This value is
 generated by combining the IAM user&#x27;s name combined with the ID number of the
-AWS account, as in jane-at-123456789012 , for example. This value cannot be
+AWS account, as in jane-at-123456789012, for example. This value cannot be
 configured by the user. **/
         ServiceUserName: serviceUserName;
         /** The generated password for the service-specific credential. **/
@@ -5125,7 +5124,7 @@ API calls, while Inactive means it is not. **/
         Status: statusType;
         /** The generated user name for the service-specific credential. **/
         ServiceUserName: serviceUserName;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the service-specific credential were created. **/
         CreateDate: dateType;
         /** The unique identifier for the service-specific credential. **/
@@ -5140,14 +5139,14 @@ to set.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicyArn: arnType;
         /** The version of the policy to set as the default (operative) version.
 
 For more information about managed policy versions, see Versioning for Managed
 Policies
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html] 
-in the IAM User Guide . **/
+in the IAM User Guide. **/
         VersionId: policyVersionIdType;
     }
     export interface SigningCertificate {
@@ -5184,7 +5183,7 @@ characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyInputList: SimulationPolicyListType;
         /** A list of names of API actions to evaluate in the simulation. Each action is
 evaluated against each resource. Each action must include the service
-identifier, such as iam:CreateUser . **/
+identifier, such as iam:CreateUser. **/
         ActionNames: ActionNameListType;
         /** A list of ARNs of AWS resources to include in the simulation. If this parameter
 is not provided then the value defaults to &amp;#42; (all resources). Each API in the 
@@ -5196,13 +5195,13 @@ The simulation does not automatically retrieve policies for the specified
 resources. If you want to include a resource policy in the simulation, then you
 must include the policy as a string in the ResourcePolicy parameter.
 
-If you include a ResourcePolicy , then it must be applicable to all of the
+If you include a ResourcePolicy, then it must be applicable to all of the
 resources included in the simulation or you receive an invalid input error.
 
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         ResourceArns?: ResourceNameListType;
         /** A resource-based policy to include in the simulation provided as a string. Each
 resource in the simulation is treated as if it had this policy attached. You can
@@ -5220,9 +5219,9 @@ not identify its owner in the resource ARN, such as an S3 bucket or object. If
 ResourceOwner is specified, it is also used as the account owner of any 
 ResourcePolicy included in the simulation. If the ResourceOwner parameter is not
 specified, then the owner of the resources and the resource policy defaults to
-the account of the identity provided in CallerArn . This parameter is required
+the account of the identity provided in CallerArn. This parameter is required
 only if you specify a resource-based policy and account that owns the resource
-is different from the account that owns the simulated calling user CallerArn . **/
+is different from the account that owns the simulated calling user CallerArn. **/
         ResourceOwner?: ResourceNameType;
         /** The ARN of the IAM user that you want to use as the simulated caller of the
 APIs. CallerArn is required if you include a ResourcePolicy so that the policy&#x27;s 
@@ -5250,40 +5249,40 @@ must supply the network-interface resource. If it includes an IP subnet, then
 you must specify the subnet resource. For more information on the EC2 scenario
 options, see Supported Platforms
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html] 
-in the AWS EC2 User Guide .
+in the AWS EC2 User Guide.
 
- &amp;#42; EC2-Classic-InstanceStore
+ &amp;#42;   EC2-Classic-InstanceStore 
    
    instance, image, security-group
    
    
- * EC2-Classic-EBS
+ *   EC2-Classic-EBS 
    
    instance, image, security-group, volume
    
    
- * EC2-VPC-InstanceStore
+ *   EC2-VPC-InstanceStore 
    
    instance, image, security-group, network-interface
    
    
- * EC2-VPC-InstanceStore-Subnet
+ *   EC2-VPC-InstanceStore-Subnet 
    
    instance, image, security-group, network-interface, subnet
    
    
- * EC2-VPC-EBS
+ *   EC2-VPC-EBS 
    
    instance, image, security-group, network-interface, volume
    
    
- * EC2-VPC-EBS-Subnet
+ *   EC2-VPC-EBS-Subnet 
    
    instance, image, security-group, network-interface, subnet, volume **/
         ResourceHandlingOption?: ResourceHandlingOptionType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -5306,7 +5305,7 @@ the MaxItems number of results even when there are more results available. We
 recommend that you check IsTruncated after every call to ensure that you receive
 all of your results. **/
         IsTruncated?: booleanType;
-        /** When IsTruncated is true , this element is present and contains the value to use
+        /** When IsTruncated is true, this element is present and contains the value to use
 for the Marker parameter in a subsequent pagination request. **/
         Marker?: markerType;
     }
@@ -5320,7 +5319,7 @@ any groups the user belongs to.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         PolicySourceArn: arnType;
         /** An optional list of additional policy documents to include in the simulation.
 Each document is specified as a string containing the complete, valid JSON text
@@ -5335,7 +5334,7 @@ characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         PolicyInputList?: SimulationPolicyListType;
         /** A list of names of API actions to evaluate in the simulation. Each action is
 evaluated for each resource. Each action must include the service identifier,
-such as iam:CreateUser . **/
+such as iam:CreateUser. **/
         ActionNames: ActionNameListType;
         /** A list of ARNs of AWS resources to include in the simulation. If this parameter
 is not provided then the value defaults to &amp;#42; (all resources). Each API in the 
@@ -5350,7 +5349,7 @@ must include the policy as a string in the ResourcePolicy parameter.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         ResourceArns?: ResourceNameListType;
         /** A resource-based policy to include in the simulation provided as a string. Each
 resource in the simulation is treated as if it had this policy attached. You can
@@ -5368,28 +5367,28 @@ not identify its owner in the resource ARN, such as an S3 bucket or object. If
 ResourceOwner is specified, it is also used as the account owner of any 
 ResourcePolicy included in the simulation. If the ResourceOwner parameter is not
 specified, then the owner of the resources and the resource policy defaults to
-the account of the identity provided in CallerArn . This parameter is required
+the account of the identity provided in CallerArn. This parameter is required
 only if you specify a resource-based policy and account that owns the resource
-is different from the account that owns the simulated calling user CallerArn . **/
+is different from the account that owns the simulated calling user CallerArn. **/
         ResourceOwner?: ResourceNameType;
         /** The ARN of the IAM user that you want to specify as the simulated caller of the
-APIs. If you do not specify a CallerArn , it defaults to the ARN of the user
-that you specify in PolicySourceArn , if you specified a user. If you include
-both a PolicySourceArn (for example, arn:aws:iam::123456789012:user/David ) and
-a CallerArn (for example, arn:aws:iam::123456789012:user/Bob ), the result is
-that you simulate calling the APIs as Bob, as if Bob had David&#x27;s policies.
+APIs. If you do not specify a CallerArn, it defaults to the ARN of the user that
+you specify in PolicySourceArn, if you specified a user. If you include both a 
+PolicySourceArn (for example, arn:aws:iam::123456789012:user/David) and a 
+CallerArn (for example, arn:aws:iam::123456789012:user/Bob), the result is that
+you simulate calling the APIs as Bob, as if Bob had David&#x27;s policies.
 
 You can specify only the ARN of an IAM user. You cannot specify the ARN of an
 assumed role, federated user, or a service principal.
 
-CallerArn is required if you include a ResourcePolicy and the PolicySourceArn is
-not the ARN for an IAM user. This is required so that the resource-based
+ CallerArn is required if you include a ResourcePolicy and the PolicySourceArn 
+is not the ARN for an IAM user. This is required so that the resource-based
 policy&#x27;s Principal element has a value to use in evaluating the policy.
 
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         CallerArn?: ResourceNameType;
         /** A list of context keys and corresponding values for the simulation to use.
 Whenever a context key is evaluated in one of the simulated IAM permission
@@ -5410,40 +5409,40 @@ must supply the network-interface resource. If it includes an IP subnet, then
 you must specify the subnet resource. For more information on the EC2 scenario
 options, see Supported Platforms
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html] 
-in the AWS EC2 User Guide .
+in the AWS EC2 User Guide.
 
- &amp;#42; EC2-Classic-InstanceStore
+ &amp;#42;   EC2-Classic-InstanceStore 
    
    instance, image, security-group
    
    
- * EC2-Classic-EBS
+ *   EC2-Classic-EBS 
    
    instance, image, security-group, volume
    
    
- * EC2-VPC-InstanceStore
+ *   EC2-VPC-InstanceStore 
    
    instance, image, security-group, network-interface
    
    
- * EC2-VPC-InstanceStore-Subnet
+ *   EC2-VPC-InstanceStore-Subnet 
    
    instance, image, security-group, network-interface, subnet
    
    
- * EC2-VPC-EBS
+ *   EC2-VPC-EBS 
    
    instance, image, security-group, network-interface, volume
    
    
- * EC2-VPC-EBS-Subnet
+ *   EC2-VPC-EBS-Subnet 
    
    instance, image, security-group, network-interface, subnet, volume **/
         ResourceHandlingOption?: ResourceHandlingOptionType;
         /** (Optional) Use this only when paginating results to indicate the maximum number
 of items you want in the response. If additional items exist beyond the maximum
-you specify, the IsTruncated response element is true .
+you specify, the IsTruncated response element is true.
 
 If you do not include this parameter, it defaults to 100. Note that IAM might
 return fewer results, even when there are more results available. In that case,
@@ -5472,18 +5471,18 @@ should start. **/
     export interface UpdateAccessKeyRequest {
         /** The name of the user whose key you want to update.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
         /** The access key ID of the secret access key you want to update.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         AccessKeyId: accessKeyIdType;
-        /** The status you want to assign to the secret access key. Active means the key can
-be used for API calls to AWS, while Inactive means the key cannot be used. **/
+        /** The status you want to assign to the secret access key. Active means the key
+can be used for API calls to AWS, while Inactive means the key cannot be used. **/
         Status: statusType;
     }
     export interface UpdateAccountPasswordPolicyRequest {
@@ -5513,11 +5512,11 @@ character from the ISO basic Latin alphabet (a to z).
 
 Default value: false **/
         RequireLowercaseCharacters?: booleanType;
-        /** Allows all IAM users in your account to use the AWS Management Console to change
-their own passwords. For more information, see Letting IAM Users Change Their
-Own Passwords
+        /** Allows all IAM users in your account to use the AWS Management Console to
+change their own passwords. For more information, see Letting IAM Users Change
+Their Own Passwords
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html] in the 
-IAM User Guide .
+IAM User Guide.
 
 Default value: false **/
         AllowUsersToChangePassword?: booleanType;
@@ -5540,7 +5539,7 @@ Default value: false **/
     export interface UpdateAssumeRolePolicyRequest {
         /** The name of the role to update with the new policy.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         RoleName: roleNameType;
@@ -5558,13 +5557,13 @@ characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         /** Name of the IAM group to update. If you&#x27;re changing the name of the group, this
 is the original name.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         GroupName: groupNameType;
         /** New path for the IAM group. Only include this if changing the group&#x27;s path.
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -5572,7 +5571,7 @@ punctuation characters, digits, and upper and lowercased letters. **/
         NewPath?: pathType;
         /** New name for the IAM group. Only include this if changing the group&#x27;s name.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         NewGroupName?: groupNameType;
@@ -5580,7 +5579,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface UpdateLoginProfileRequest {
         /** The name of the user whose password you want to update.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
@@ -5594,7 +5593,7 @@ Supplement character set (through \u00FF). It also includes the special
 characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 However, the format can be further restricted by the account administrator by
 setting a password policy on the AWS account. For more information, see 
-UpdateAccountPasswordPolicy . **/
+UpdateAccountPasswordPolicy. **/
         Password?: passwordType;
         /** Allows this new password to be used only once by requiring the specified IAM
 user to set a new password on next sign-in. **/
@@ -5608,10 +5607,10 @@ ARNs by using the ListOpenIDConnectProviders action.
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         OpenIDConnectProviderArn: arnType;
         /** A list of certificate thumbprints that are associated with the specified IAM
-OpenID Connect provider. For more information, see CreateOpenIDConnectProvider . **/
+OpenID Connect provider. For more information, see CreateOpenIDConnectProvider. **/
         ThumbprintList: thumbprintListType;
     }
     export interface UpdateSAMLProviderRequest {
@@ -5626,7 +5625,7 @@ identity management software that is used as your organization&#x27;s IdP. **/
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         SAMLProviderArn: arnType;
     }
     export interface UpdateSAMLProviderResponse {
@@ -5636,13 +5635,13 @@ the AWS General Reference . **/
     export interface UpdateSSHPublicKeyRequest {
         /** The name of the IAM user associated with the SSH public key.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
         /** The unique identifier for the SSH public key.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         SSHPublicKeyId: publicKeyIdType;
@@ -5654,14 +5653,14 @@ be used. **/
     export interface UpdateServerCertificateRequest {
         /** The name of the server certificate that you want to update.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         ServerCertificateName: serverCertificateNameType;
         /** The new path for the server certificate. Include this only if you are updating
 the server certificate&#x27;s path.
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -5671,7 +5670,7 @@ punctuation characters, digits, and upper and lowercased letters. **/
 the server certificate&#x27;s name. The name of the certificate cannot contain any
 spaces.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         NewServerCertificateName?: serverCertificateNameType;
@@ -5681,13 +5680,13 @@ with no spaces. You can also include any of the following characters: =,.@- **/
 do not specify this value, then the operation assumes the user whose credentials
 are used to call the operation.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: userNameType;
         /** The unique identifier of the service-specific credential.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         ServiceSpecificCredentialId: serviceSpecificCredentialId;
@@ -5697,13 +5696,13 @@ digit. **/
     export interface UpdateSigningCertificateRequest {
         /** The name of the IAM user the signing certificate belongs to.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
         /** The ID of the signing certificate you want to update.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters that can consist of any upper or lowercased letter or
 digit. **/
         CertificateId: certificateIdType;
@@ -5716,14 +5715,14 @@ used. **/
         /** Name of the user to update. If you&#x27;re changing the name of the user, this is the
 original user name.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: existingUserNameType;
         /** New path for the IAM user. Include this parameter only if you&#x27;re changing the
 user&#x27;s path.
 
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
@@ -5732,7 +5731,7 @@ punctuation characters, digits, and upper and lowercased letters. **/
         /** New name for the user. Include this parameter only if you&#x27;re changing the user&#x27;s
 name.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         NewUserName?: userNameType;
@@ -5740,7 +5739,7 @@ with no spaces. You can also include any of the following characters: =,.@- **/
     export interface UploadSSHPublicKeyRequest {
         /** The name of the IAM user to associate the SSH public key with.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName: userNameType;
@@ -5763,24 +5762,24 @@ characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). **/
         /** The path for the server certificate. For more information about paths, see IAM
 Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
-IAM User Guide .
+IAM User Guide.
 
 This parameter is optional. If it is not included, it defaults to a slash (/).
-This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This paramater allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of either a forward slash (/) by itself or a
 string that must begin and end with forward slashes, containing any ASCII
 character from the ! (\u0021) thru the DEL character (\u007F), including most
 punctuation characters, digits, and upper and lowercased letters.
 
-If you are uploading a server certificate specifically for use with Amazon
+ If you are uploading a server certificate specifically for use with Amazon
 CloudFront distributions, you must specify a path using the --path option. The
 path must begin with /cloudfront and must include a trailing slash (for example, 
-/cloudfront/test/ ). **/
+/cloudfront/test/). **/
         Path?: pathType;
         /** The name for the server certificate. Do not include the path in this value. The
 name of the certificate cannot contain any spaces.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         ServerCertificateName: serverCertificateNameType;
@@ -5821,7 +5820,7 @@ body, certificate chain, and private key. **/
     export interface UploadSigningCertificateRequest {
         /** The name of the user the signing certificate is for.
 
-This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex] )
+This parameter allows (per its regex pattern [http://wikipedia.org/wiki/regex])
 a string of characters consisting of upper and lowercase alphanumeric characters
 with no spaces. You can also include any of the following characters: =,.@- **/
         UserName?: existingUserNameType;
@@ -5856,10 +5855,10 @@ about ARNs and how to use ARNs in policies, see IAM Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] in the 
 Using IAM guide. **/
         Arn: arnType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the user was created. **/
         CreateDate: dateType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the user&#x27;s password was last used to sign in to an AWS website. For a
 list of AWS websites that capture a user&#x27;s last sign-in time, see the Credential
 Reports
@@ -5868,14 +5867,14 @@ in the Using IAM guide. If a password is used more than once in a five-minute
 span, only the first use is returned in this field. This field is null (not
 present) when:
 
- &amp;#42; The user does not have a password
+ &amp;#42;  The user does not have a password
    
    
- * The password exists but has never been used (at least not since IAM started
+ *  The password exists but has never been used (at least not since IAM started
    tracking this information on October 20th, 2014
    
    
- * there is no sign-in data associated with the user
+ *  there is no sign-in data associated with the user
    
    
 
@@ -5895,7 +5894,7 @@ IDs, see IAM Identifiers
 Using IAM guide. **/
         UserId?: idType;
         Arn?: arnType;
-        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601] 
+        /** The date and time, in ISO 8601 date-time format [http://www.iso.org/iso/iso8601]
 , when the user was created. **/
         CreateDate?: dateType;
         /** A list of the inline policies embedded in the user. **/
@@ -5906,10 +5905,10 @@ Using IAM guide. **/
         AttachedManagedPolicies?: attachedPoliciesListType;
     }
     export interface VirtualMFADevice {
-        /** The serial number associated with VirtualMFADevice . **/
+        /** The serial number associated with VirtualMFADevice. **/
         SerialNumber: serialNumberType;
         /** The Base32 seed defined as specified in RFC3548
-[https://tools.ietf.org/html/rfc3548.txt] . The Base32StringSeed is
+[https://tools.ietf.org/html/rfc3548.txt]. The Base32StringSeed is
 Base64-encoded. **/
         Base32StringSeed?: BootstrapDatum;
         /** A QR code PNG image that encodes 

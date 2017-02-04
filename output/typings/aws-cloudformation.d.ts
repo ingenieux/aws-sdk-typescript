@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * AWS CloudFormationAWS CloudFormation allows you to create and manage AWS
+   * AWS CloudFormation AWS CloudFormation allows you to create and manage AWS
 infrastructure deployments predictably and repeatedly. You can use AWS
 CloudFormation to leverage AWS products, such as Amazon Elastic Compute Cloud,
 Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load
@@ -28,11 +28,11 @@ called a stack. AWS CloudFormation creates and deletes all member resources of
 the stack together and manages all dependencies between the resources for you.
 
 For more information about AWS CloudFormation, see the AWS CloudFormation
-Product Page [http://aws.amazon.com/cloudformation/] .
+Product Page [http://aws.amazon.com/cloudformation/].
 
 Amazon CloudFormation makes use of other AWS products. For additional technical
 information about a specific AWS product, see its technical documentation
-[http://docs.aws.amazon.com/] .
+[http://docs.aws.amazon.com/].
    *
    */
   export class CloudFormation extends Service {
@@ -159,11 +159,11 @@ than this, you should use ListStackResources instead.
 For deleted stacks, DescribeStackResources returns resource information for up
 to 90 days after the stack has been deleted.
 
-You must specify either StackName or PhysicalResourceId , but not both. In
+You must specify either StackName or PhysicalResourceId, but not both. In
 addition, you can specify LogicalResourceId to filter the returned result. For
-more information about resources, the LogicalResourceId and PhysicalResourceId ,
+more information about resources, the LogicalResourceId and PhysicalResourceId,
 go to the AWS CloudFormation User Guide
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/] .
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/].
 
 A ValidationError is returned if you specify both StackName and 
 PhysicalResourceId in the same request.
@@ -216,7 +216,7 @@ running or deleted stacks.
 For deleted stacks, GetTemplate returns the template for up to 90 days after the
 stack has been deleted.
 
-If the template does not exist, a ValidationError is returned.
+ If the template does not exist, a ValidationError is returned.
      *
      * @error ChangeSetNotFoundException   
      */
@@ -247,10 +247,10 @@ CREATE_PENDING state.
 this action. Use this action to see the exported output values that you can
 import into other stacks. To import values, use the Fn::ImportValue
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html] 
-function.
+function. 
 
 For more information, see AWS CloudFormation Export Stack Output Values
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html]
 .
      *
      */
@@ -258,7 +258,7 @@ For more information, see AWS CloudFormation Export Stack Output Values
     /**
      * Lists all stacks that are importing an exported output value. To modify or
 remove an exported output value, first use this action to see which stacks are
-using it. To see the exported output values in your account, see ListExports .
+using it. To see the exported output values in your account, see ListExports. 
 
 For more information about importing an exported output value, see the 
 Fn::ImportValue
@@ -309,7 +309,7 @@ action.
 
 For more information about creating an update template, updating a stack, and
 monitoring the progress of the update, see Updating a Stack
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html]
 .
      *
      * @error InsufficientCapabilitiesException   
@@ -525,7 +525,7 @@ validation error.
     export type Version = string;
 
     export interface AccountLimit {
-        /** The name of the account limit. Currently, the only account limit is StackLimit . **/
+        /** The name of the account limit. Currently, the only account limit is StackLimit. **/
         Name?: LimitName;
         /** The value that is associated with the account limit name. **/
         Value?: LimitValue;
@@ -538,7 +538,7 @@ validation error.
     }
     export interface Change {
         /** The type of entity that AWS CloudFormation changes. Currently, the only entity
-type is Resource . **/
+type is Resource. **/
         Type?: ChangeType;
         /** A ResourceChange structure that describes the resource and action that AWS
 CloudFormation will perform. **/
@@ -555,13 +555,13 @@ CloudFormation will perform. **/
         ChangeSetId?: ChangeSetId;
         /** The name of the change set. **/
         ChangeSetName?: ChangeSetName;
-        /** If the change set execution status is AVAILABLE , you can execute the change
-set. If you can’t execute the change set, the status indicates why. For example,
-a change set might be in an UNAVAILABLE state because AWS CloudFormation is
-still creating it or in an OBSOLETE state because the stack was already updated. **/
+        /** If the change set execution status is AVAILABLE, you can execute the change set.
+If you can’t execute the change set, the status indicates why. For example, a
+change set might be in an UNAVAILABLE state because AWS CloudFormation is still
+creating it or in an OBSOLETE state because the stack was already updated. **/
         ExecutionStatus?: ExecutionStatus;
-        /** The state of the change set, such as CREATE_IN_PROGRESS , CREATE_COMPLETE , or 
-FAILED . **/
+        /** The state of the change set, such as CREATE_IN_PROGRESS, CREATE_COMPLETE, or 
+FAILED. **/
         Status?: ChangeSetStatus;
         /** A description of the change set&#x27;s status. For example, if your change set is in
 the FAILED state, AWS CloudFormation shows the error message. **/
@@ -596,7 +596,7 @@ the continue update rollback operation. You can specify only resources that are
 in the UPDATE_FAILED state because a rollback failed. You can&#x27;t specify
 resources that are in the UPDATE_FAILED state for other reasons, for example,
 because an update was canceled. To check why a resource update failed, use the 
-DescribeStackResources action, and view the resource status reason.
+DescribeStackResources action, and view the resource status reason. 
 
 Specify this property to skip rolling back resources that AWS CloudFormation
 can&#x27;t successfully roll back. We recommend that you troubleshoot
@@ -607,16 +607,16 @@ After the rollback is complete, the state of the skipped resources will be
 inconsistent with the state of the resources in the stack template. Before
 performing another stack update, you must update the stack or resources to be
 consistent with each other. If you don&#x27;t, subsequent stack updates might fail,
-and the stack will become unrecoverable.
+and the stack will become unrecoverable. 
 
 Specify the minimum number of resources required to successfully roll back your
 stack. For example, a failed resource update might cause dependent resources to
-fail. In this case, it might not be necessary to skip the dependent resources.
+fail. In this case, it might not be necessary to skip the dependent resources. 
 
 To specify resources in a nested stack, use the following format: 
-NestedStackName.ResourceLogicalID . You can specify a nested stack resource (the
+NestedStackName.ResourceLogicalID. You can specify a nested stack resource (the
 logical ID of an AWS::CloudFormation::Stack resource) only if it&#x27;s in one of the
-following states: DELETE_IN_PROGRESS , DELETE_COMPLETE , or DELETE_FAILED . **/
+following states: DELETE_IN_PROGRESS, DELETE_COMPLETE, or DELETE_FAILED. **/
         ResourcesToSkip?: ResourcesToSkip;
     }
     export interface ContinueUpdateRollbackOutput {
@@ -632,14 +632,14 @@ length of 1 byte and a maximum length of 51,200 bytes. AWS CloudFormation
 generates the change set by comparing this template with the template of the
 stack that you specified.
 
-Conditional: You must specify only TemplateBody or TemplateURL . **/
+Conditional: You must specify only TemplateBody or TemplateURL. **/
         TemplateBody?: TemplateBody;
         /** The location of the file that contains the revised template. The URL must point
 to a template (max size: 460,800 bytes) that is located in an S3 bucket. AWS
 CloudFormation generates the change set by comparing this template with the
 stack that you specified.
 
-Conditional: You must specify only TemplateBody or TemplateURL . **/
+Conditional: You must specify only TemplateBody or TemplateURL. **/
         TemplateURL?: TemplateURL;
         /** Whether to reuse the template that is associated with the stack to create the
 change set. **/
@@ -655,37 +655,36 @@ permissions in your AWS account, for example, by creating new AWS Identity and
 Access Management (IAM) users. For those stacks, you must explicitly acknowledge
 their capabilities by specifying this parameter.
 
-The only valid values are CAPABILITY_IAM and CAPABILITY_NAMED_IAM . The
-following resources require you to specify this parameter: AWS::IAM::AccessKey
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html] 
+The only valid values are CAPABILITY_IAM and CAPABILITY_NAMED_IAM. The following
+resources require you to specify this parameter: AWS::IAM::AccessKey
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html]
 , AWS::IAM::Group
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html]
 , AWS::IAM::InstanceProfile
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html]
 , AWS::IAM::Policy
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html]
 , AWS::IAM::Role
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html]
 , AWS::IAM::User
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html]
 , and AWS::IAM::UserToGroupAddition
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html]
 . If your stack template contains these resources, we recommend that you review
 all permissions associated with them and edit their permissions if necessary.
 
 If you have IAM resources, you can specify either capability. If you have IAM
-resources with custom names, you must specify CAPABILITY_NAMED_IAM . If you
-don&#x27;t specify this parameter, this action returns an InsufficientCapabilities 
-error.
+resources with custom names, you must specify CAPABILITY_NAMED_IAM. If you don&#x27;t
+specify this parameter, this action returns an InsufficientCapabilities error.
 
 For more information, see Acknowledging IAM Resources in AWS CloudFormation
 Templates
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities]
 . **/
         Capabilities?: Capabilities;
         /** The template resource types that you have permissions to work with if you
-execute this change set, such as AWS::EC2::Instance , AWS::EC2::&amp;#42; , or 
-Custom::MyCustomInstance .
+execute this change set, such as AWS::EC2::Instance, AWS::EC2::&amp;#42;, or 
+Custom::MyCustomInstance.
 
 If the list of resource types doesn&#x27;t include a resource type that you&#x27;re
 updating, the stack update fails. By default, AWS CloudFormation grants
@@ -731,7 +730,7 @@ them. **/
         /** A description to help you identify this change set. **/
         Description?: Description;
         /** The type of change set operation. To create a change set for a new stack,
-specify CREATE . To create a change set for an existing stack, specify UPDATE .
+specify CREATE. To create a change set for an existing stack, specify UPDATE.
 
 If you create a change set for a new stack, AWS Cloudformation creates a stack
 with a unique stack ID, but no template or resources. The stack will be in the 
@@ -739,7 +738,7 @@ REVIEW_IN_PROGRESS
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995] 
 state until you execute the change set.
 
-By default, AWS CloudFormation specifies UPDATE . You can&#x27;t use the UPDATE type
+By default, AWS CloudFormation specifies UPDATE. You can&#x27;t use the UPDATE type
 to create a change set for a new stack or the CREATE type to create a change set
 for an existing stack. **/
         ChangeSetType?: ChangeSetType;
@@ -781,13 +780,12 @@ more information, see the Parameter
 data type. **/
         Parameters?: Parameters;
         /** Set to true to disable rollback of the stack if stack creation failed. You can
-specify either DisableRollback or OnFailure , but not both.
+specify either DisableRollback or OnFailure, but not both.
 
 Default: false **/
         DisableRollback?: DisableRollback;
         /** The amount of time that can pass before the stack status becomes CREATE_FAILED;
-if DisableRollback is not set or is set to false , the stack will be rolled
-back. **/
+if DisableRollback is not set or is set to false, the stack will be rolled back. **/
         TimeoutInMinutes?: TimeoutMinutes;
         /** The Simple Notification Service (SNS) topic ARNs to publish stack related
 events. You can find your SNS topic ARNs using the SNS console
@@ -799,48 +797,47 @@ permissions in your AWS account, for example, by creating new AWS Identity and
 Access Management (IAM) users. For those stacks, you must explicitly acknowledge
 their capabilities by specifying this parameter.
 
-The only valid values are CAPABILITY_IAM and CAPABILITY_NAMED_IAM . The
-following resources require you to specify this parameter: AWS::IAM::AccessKey
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html] 
+The only valid values are CAPABILITY_IAM and CAPABILITY_NAMED_IAM. The following
+resources require you to specify this parameter: AWS::IAM::AccessKey
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html]
 , AWS::IAM::Group
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html]
 , AWS::IAM::InstanceProfile
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html]
 , AWS::IAM::Policy
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html]
 , AWS::IAM::Role
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html]
 , AWS::IAM::User
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html]
 , and AWS::IAM::UserToGroupAddition
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html]
 . If your stack template contains these resources, we recommend that you review
 all permissions associated with them and edit their permissions if necessary.
 
 If you have IAM resources, you can specify either capability. If you have IAM
-resources with custom names, you must specify CAPABILITY_NAMED_IAM . If you
-don&#x27;t specify this parameter, this action returns an InsufficientCapabilities 
-error.
+resources with custom names, you must specify CAPABILITY_NAMED_IAM. If you don&#x27;t
+specify this parameter, this action returns an InsufficientCapabilities error.
 
 For more information, see Acknowledging IAM Resources in AWS CloudFormation
 Templates
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities]
 . **/
         Capabilities?: Capabilities;
         /** The template resource types that you have permissions to work with for this
-create stack action, such as AWS::EC2::Instance , AWS::EC2::&amp;#42; , or 
-Custom::MyCustomInstance . Use the following syntax to describe template
-resource types: AWS::* (for all AWS resource), Custom::* (for all custom
-resources), Custom:: logical_ID (for a specific custom resource), AWS:: 
-service_name ::* (for all resources of a particular AWS service), and AWS:: 
-service_name :: resource_logical_ID (for a specific AWS resource).
+create stack action, such as AWS::EC2::Instance, AWS::EC2::&amp;#42;, or 
+Custom::MyCustomInstance. Use the following syntax to describe template resource
+types: AWS::* (for all AWS resource), Custom::* (for all custom resources), 
+Custom::logical_ID (for a specific custom resource), AWS::service_name::* (for
+all resources of a particular AWS service), and AWS::service_name::
+resource_logical_ID (for a specific AWS resource).
 
 If the list of resource types doesn&#x27;t include a resource that you&#x27;re creating,
 the stack creation fails. By default, AWS CloudFormation grants permissions to
 all resource types. AWS Identity and Access Management (IAM) uses this parameter
 for AWS CloudFormation-specific condition keys in IAM policies. For more
 information, see Controlling Access with AWS Identity and Access Management
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html]
 . **/
         ResourceTypes?: ResourceTypes;
         /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
@@ -858,15 +855,15 @@ credentials. **/
         RoleARN?: RoleARN;
         /** Determines what action will be taken if stack creation fails. This must be one
 of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either OnFailure or 
-DisableRollback , but not both.
+DisableRollback, but not both.
 
 Default: ROLLBACK **/
         OnFailure?: OnFailure;
         /** Structure containing the stack policy body. For more information, go to Prevent
 Updates to Stack Resources
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html] 
-in the AWS CloudFormation User Guide . You can specify either the 
-StackPolicyBody or the StackPolicyURL parameter, but not both. **/
+in the AWS CloudFormation User Guide. You can specify either the StackPolicyBody 
+or the StackPolicyURL parameter, but not both. **/
         StackPolicyBody?: StackPolicyBody;
         /** Location of a file containing the stack policy. The URL must point to a policy
 (maximum size: 16 KB) located in an S3 bucket in the same region as the stack.
@@ -953,13 +950,13 @@ data type. **/
         Parameters?: Parameters;
         /** The start time when the change set was created, in UTC. **/
         CreationTime?: CreationTime;
-        /** If the change set execution status is AVAILABLE , you can execute the change
-set. If you can’t execute the change set, the status indicates why. For example,
-a change set might be in an UNAVAILABLE state because AWS CloudFormation is
-still creating it or in an OBSOLETE state because the stack was already updated. **/
+        /** If the change set execution status is AVAILABLE, you can execute the change set.
+If you can’t execute the change set, the status indicates why. For example, a
+change set might be in an UNAVAILABLE state because AWS CloudFormation is still
+creating it or in an OBSOLETE state because the stack was already updated. **/
         ExecutionStatus?: ExecutionStatus;
-        /** The current status of the change set, such as CREATE_IN_PROGRESS , 
-CREATE_COMPLETE , or FAILED . **/
+        /** The current status of the change set, such as CREATE_IN_PROGRESS, 
+CREATE_COMPLETE, or FAILED. **/
         Status?: ChangeSetStatus;
         /** A description of the change set&#x27;s status. For example, if your attempt to create
 a change set failed, AWS CloudFormation shows the error message. **/
@@ -983,11 +980,11 @@ If there is no additional page, this value is null. **/
         /** The name or the unique stack ID that is associated with the stack, which are not
 always interchangeable:
 
- &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
+ &amp;#42;  Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
    
    
- * Deleted stacks: You must specify the unique stack ID.
+ *  Deleted stacks: You must specify the unique stack ID.
    
    
 
@@ -1007,11 +1004,11 @@ events. If no additional page exists, this value is null. **/
         /** The name or the unique stack ID that is associated with the stack, which are not
 always interchangeable:
 
- &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
+ &amp;#42;  Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
    
    
- * Deleted stacks: You must specify the unique stack ID.
+ *  Deleted stacks: You must specify the unique stack ID.
    
    
 
@@ -1031,18 +1028,18 @@ resource in the specified stack. **/
         /** The name or the unique stack ID that is associated with the stack, which are not
 always interchangeable:
 
- &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
+ &amp;#42;  Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
    
    
- * Deleted stacks: You must specify the unique stack ID.
+ *  Deleted stacks: You must specify the unique stack ID.
    
    
 
 Default: There is no default value.
 
-Required: Conditional. If you do not specify StackName , you must specify 
-PhysicalResourceId . **/
+Required: Conditional. If you do not specify StackName, you must specify 
+PhysicalResourceId. **/
         StackName?: StackName;
         /** The logical name of the resource as specified in the template.
 
@@ -1052,12 +1049,12 @@ Default: There is no default value. **/
 resource supported by AWS CloudFormation.
 
 For example, for an Amazon Elastic Compute Cloud (EC2) instance, 
-PhysicalResourceId corresponds to the InstanceId . You can pass the EC2 
+PhysicalResourceId corresponds to the InstanceId. You can pass the EC2 
 InstanceId to DescribeStackResources to find which stack the instance belongs to
 and what other resources are part of the stack.
 
-Required: Conditional. If you do not specify PhysicalResourceId , you must
-specify StackName .
+Required: Conditional. If you do not specify PhysicalResourceId, you must
+specify StackName.
 
 Default: There is no default value. **/
         PhysicalResourceId?: PhysicalResourceId;
@@ -1070,11 +1067,11 @@ Default: There is no default value. **/
         /** The name or the unique stack ID that is associated with the stack, which are not
 always interchangeable:
 
- &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
+ &amp;#42;  Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
    
    
- * Deleted stacks: You must specify the unique stack ID.
+ *  Deleted stacks: You must specify the unique stack ID.
    
    
 
@@ -1096,8 +1093,8 @@ maximum length of 51,200 bytes. (For more information, go to Template Anatomy
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html] 
 in the AWS CloudFormation User Guide.)
 
-Conditional: You must pass TemplateBody or TemplateURL . If both are passed,
-only TemplateBody is used. **/
+Conditional: You must pass TemplateBody or TemplateURL. If both are passed, only 
+TemplateBody is used. **/
         TemplateBody?: TemplateBody;
         /** Location of file containing the template body. The URL must point to a template
 that is located in an Amazon S3 bucket. For more information, go to Template
@@ -1105,8 +1102,8 @@ Anatomy
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html] 
 in the AWS CloudFormation User Guide.
 
-Conditional: You must pass TemplateURL or TemplateBody . If both are passed,
-only TemplateBody is used. **/
+Conditional: You must pass TemplateURL or TemplateBody. If both are passed, only 
+TemplateBody is used. **/
         TemplateURL?: TemplateURL;
         /** A list of Parameter structures that specify input parameters. **/
         Parameters?: Parameters;
@@ -1153,11 +1150,11 @@ in the AWS CloudFormation User Guide.) **/
         /** The name or the unique stack ID that is associated with the stack, which are not
 always interchangeable:
 
- &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
+ &amp;#42;  Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
    
    
- * Deleted stacks: You must specify the unique stack ID.
+ *  Deleted stacks: You must specify the unique stack ID.
    
    
 
@@ -1165,15 +1162,15 @@ Default: There is no default value. **/
         StackName?: StackName;
         /** The name or Amazon Resource Name (ARN) of a change set for which AWS
 CloudFormation returns the associated template. If you specify a name, you must
-also specify the StackName . **/
+also specify the StackName. **/
         ChangeSetName?: ChangeSetNameOrId;
         /** For templates that include transforms, the stage of the template that AWS
-CloudFormation returns. To get the user-submitted template, specify Original .
-To get the template after AWS CloudFormation has processed all transforms,
-specify Processed .
+CloudFormation returns. To get the user-submitted template, specify Original. To
+get the template after AWS CloudFormation has processed all transforms, specify 
+Processed. 
 
 If the template doesn&#x27;t include transforms, Original and Processed return the
-same template. By default, AWS CloudFormation specifies Original . **/
+same template. By default, AWS CloudFormation specifies Original. **/
         TemplateStage?: TemplateStage;
     }
     export interface GetTemplateOutput {
@@ -1198,8 +1195,8 @@ Template Anatomy
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html] 
 in the AWS CloudFormation User Guide.
 
-Conditional: You must specify only one of the following parameters: StackName , 
-TemplateBody , or TemplateURL . **/
+Conditional: You must specify only one of the following parameters: StackName, 
+TemplateBody, or TemplateURL. **/
         TemplateBody?: TemplateBody;
         /** Location of file containing the template body. The URL must point to a template
 (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more
@@ -1207,15 +1204,15 @@ information about templates, see Template Anatomy
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html] 
 in the AWS CloudFormation User Guide.
 
-Conditional: You must specify only one of the following parameters: StackName , 
-TemplateBody , or TemplateURL . **/
+Conditional: You must specify only one of the following parameters: StackName, 
+TemplateBody, or TemplateURL. **/
         TemplateURL?: TemplateURL;
         /** The name or the stack ID that is associated with the stack, which are not always
 interchangeable. For running stacks, you can specify either the stack&#x27;s name or
 its unique stack ID. For deleted stack, you must specify the unique stack ID.
 
-Conditional: You must specify only one of the following parameters: StackName , 
-TemplateBody , or TemplateURL . **/
+Conditional: You must specify only one of the following parameters: StackName, 
+TemplateBody, or TemplateURL. **/
         StackName?: StackNameOrId;
     }
     export interface GetTemplateSummaryOutput {
@@ -1231,14 +1228,14 @@ template; otherwise, those actions return an InsufficientCapabilities error.
 
 For more information, see Acknowledging IAM Resources in AWS CloudFormation
 Templates
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities]
 . **/
         Capabilities?: Capabilities;
         /** The list of resources that generated the values in the Capabilities response
 element. **/
         CapabilitiesReason?: CapabilitiesReason;
         /** A list of all the template resource types that are defined in the template, such
-as AWS::EC2::Instance , AWS::Dynamo::Table , and Custom::MyCustomInstance . **/
+as AWS::EC2::Instance, AWS::Dynamo::Table, and Custom::MyCustomInstance. **/
         ResourceTypes?: ResourceTypes;
         /** The AWS template format version, which identifies the capabilities of the
 template. **/
@@ -1301,11 +1298,11 @@ page, this value is null. **/
         /** The name or the unique stack ID that is associated with the stack, which are not
 always interchangeable:
 
- &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
+ &amp;#42;  Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
    
    
- * Deleted stacks: You must specify the unique stack ID.
+ *  Deleted stacks: You must specify the unique stack ID.
    
    
 
@@ -1354,7 +1351,7 @@ specified in your template. **/
         /** The value associated with the parameter. **/
         ParameterValue?: ParameterValue;
         /** During a stack update, use the existing parameter value that the stack is using
-for a given parameter key. If you specify true , do not specify a parameter
+for a given parameter key. If you specify true, do not specify a parameter
 value. **/
         UsePreviousValue?: UsePreviousValue;
     }
@@ -1386,24 +1383,23 @@ new resource), Modify (changes a resource), or Remove (deletes a resource). **/
         /** The resource&#x27;s physical ID (resource name). Resources that you are adding don&#x27;t
 have physical IDs because they haven&#x27;t been created. **/
         PhysicalResourceId?: PhysicalResourceId;
-        /** The type of AWS CloudFormation resource, such as AWS::S3::Bucket . **/
+        /** The type of AWS CloudFormation resource, such as AWS::S3::Bucket. **/
         ResourceType?: ResourceType;
         /** For the Modify action, indicates whether AWS CloudFormation will replace the
 resource by creating a new one and deleting the old one. This value depends on
 the value of the RequiresRecreation property in the ResourceTargetDefinition 
 structure. For example, if the RequiresRecreation field is Always and the 
-Evaluation field is Static , Replacement is True . If the RequiresRecreation 
-field is Always and the Evaluation field is Dynamic , Replacement is 
-Conditionally .
+Evaluation field is Static, Replacement is True. If the RequiresRecreation field
+is Always and the Evaluation field is Dynamic, Replacement is Conditionally.
 
 If you have multiple changes with different RequiresRecreation values, the 
 Replacement value depends on the change with the most impact. A 
 RequiresRecreation value of Always has the most impact, followed by 
-Conditionally , and then Never . **/
+Conditionally, and then Never. **/
         Replacement?: Replacement;
         /** For the Modify action, indicates which resource attribute is triggering this
-update, such as a change in the resource attribute&#x27;s Metadata , Properties , or 
-Tags . **/
+update, such as a change in the resource attribute&#x27;s Metadata, Properties, or 
+Tags. **/
         Scope?: Scope;
         /** For the Modify action, a list of ResourceChangeDetail structures that describes
 the changes that AWS CloudFormation will make to the resource. **/
@@ -1432,24 +1428,24 @@ ID, so all references to that resource will also be updated. **/
         /** The group to which the CausingEntity value belongs. There are five entity
 groups:
 
- &amp;#42; ResourceReference entities are Ref intrinsic functions that refer to
-   resources in the template, such as { &quot;Ref&quot; : &quot;MyEC2InstanceResource&quot; } .
+ &amp;#42;   ResourceReference entities are Ref intrinsic functions that refer to
+   resources in the template, such as { &quot;Ref&quot; : &quot;MyEC2InstanceResource&quot; }.
    
    
- * ParameterReference entities are Ref intrinsic functions that get template
-   parameter values, such as { &quot;Ref&quot; : &quot;MyPasswordParameter&quot; } .
+ *   ParameterReference entities are Ref intrinsic functions that get template
+   parameter values, such as { &quot;Ref&quot; : &quot;MyPasswordParameter&quot; }.
    
    
- * ResourceAttribute entities are Fn::GetAtt intrinsic functions that get
+ *   ResourceAttribute entities are Fn::GetAtt intrinsic functions that get
    resource attribute values, such as { &quot;Fn::GetAtt&quot; : [
-   &quot;MyEC2InstanceResource&quot;, &quot;PublicDnsName&quot; ] } .
+   &quot;MyEC2InstanceResource&quot;, &quot;PublicDnsName&quot; ] }.
    
    
- * DirectModification entities are changes that are made directly to the
+ *   DirectModification entities are changes that are made directly to the
    template.
    
    
- * Automatic entities are AWS::CloudFormation::Stack resource types, which are
+ *   Automatic entities are AWS::CloudFormation::Stack resource types, which are
    also known as nested stacks. If you made no changes to the 
    AWS::CloudFormation::Stack resource, AWS CloudFormation sets the ChangeSource 
    to Automatic because the nested stack&#x27;s template might have changed. Changes
@@ -1459,23 +1455,23 @@ groups:
         /** The identity of the entity that triggered this change. This entity is a member
 of the group that is specified by the ChangeSource field. For example, if you
 modified the value of the KeyPairName parameter, the CausingEntity is the name
-of the parameter ( KeyPairName ).
+of the parameter (KeyPairName).
 
-If the ChangeSource value is DirectModification , no value is given for 
-CausingEntity . **/
+If the ChangeSource value is DirectModification, no value is given for 
+CausingEntity. **/
         CausingEntity?: CausingEntity;
     }
     export interface ResourceTargetDefinition {
         /** Indicates which resource attribute is triggering this update, such as a change
-in the resource attribute&#x27;s Metadata , Properties , or Tags . **/
+in the resource attribute&#x27;s Metadata, Properties, or Tags. **/
         Attribute?: ResourceAttribute;
-        /** If the Attribute value is Properties , the name of the property. For all other
+        /** If the Attribute value is Properties, the name of the property. For all other
 attributes, the value is null. **/
         Name?: PropertyName;
-        /** If the Attribute value is Properties , indicates whether a change to this
-property causes the resource to be recreated. The value can be Never , Always ,
-or Conditionally . To determine the conditions for a Conditionally recreation,
-see the update behavior for that property
+        /** If the Attribute value is Properties, indicates whether a change to this
+property causes the resource to be recreated. The value can be Never, Always, or 
+Conditionally. To determine the conditions for a Conditionally recreation, see
+the update behavior for that property
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html] 
 in the AWS CloudFormation User Guide. **/
         RequiresRecreation?: RequiresRecreation;
@@ -1533,10 +1529,10 @@ stack has been updated at least once. **/
         StackStatusReason?: StackStatusReason;
         /** Boolean to enable or disable rollback on stack creation failures:
 
- &amp;#42; true : disable rollback
+ &amp;#42;   true: disable rollback
    
    
- * false : enable rollback **/
+ *   false: enable rollback **/
         DisableRollback?: DisableRollback;
         /** SNS topic ARNs to which stack related events are published. **/
         NotificationARNs?: NotificationARNs;
@@ -1550,7 +1546,7 @@ stack has been updated at least once. **/
 role that is associated with the stack. During a stack operation, AWS
 CloudFormation uses this role&#x27;s credentials to make calls on your behalf. **/
         RoleARN?: RoleARN;
-        /** A list of Tag s that specify information about the stack. **/
+        /** A list of Tags that specify information about the stack. **/
         Tags?: Tags;
     }
     export interface StackEvent {
@@ -1666,11 +1662,11 @@ stack has been updated at least once. **/
         StackStatusReason?: StackStatusReason;
     }
     export interface Tag {
-        /** Required . A string used to identify this tag. You can specify a maximum of 128
+        /** Required. A string used to identify this tag. You can specify a maximum of 128
 characters for a tag key. Tags owned by Amazon Web Services (AWS) have the
-reserved prefix: aws: . **/
+reserved prefix: aws:. **/
         Key?: TagKey;
-        /** Required . A string containing the value for this tag. You can specify a maximum
+        /** Required. A string containing the value for this tag. You can specify a maximum
 of 256 characters for a tag value. **/
         Value?: TagValue;
     }
@@ -1736,44 +1732,43 @@ permissions in your AWS account, for example, by creating new AWS Identity and
 Access Management (IAM) users. For those stacks, you must explicitly acknowledge
 their capabilities by specifying this parameter.
 
-The only valid values are CAPABILITY_IAM and CAPABILITY_NAMED_IAM . The
-following resources require you to specify this parameter: AWS::IAM::AccessKey
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html] 
+The only valid values are CAPABILITY_IAM and CAPABILITY_NAMED_IAM. The following
+resources require you to specify this parameter: AWS::IAM::AccessKey
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html]
 , AWS::IAM::Group
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html]
 , AWS::IAM::InstanceProfile
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html]
 , AWS::IAM::Policy
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html]
 , AWS::IAM::Role
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html]
 , AWS::IAM::User
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html]
 , and AWS::IAM::UserToGroupAddition
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html]
 . If your stack template contains these resources, we recommend that you review
 all permissions associated with them and edit their permissions if necessary.
 
 If you have IAM resources, you can specify either capability. If you have IAM
-resources with custom names, you must specify CAPABILITY_NAMED_IAM . If you
-don&#x27;t specify this parameter, this action returns an InsufficientCapabilities 
-error.
+resources with custom names, you must specify CAPABILITY_NAMED_IAM. If you don&#x27;t
+specify this parameter, this action returns an InsufficientCapabilities error.
 
 For more information, see Acknowledging IAM Resources in AWS CloudFormation
 Templates
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities]
 . **/
         Capabilities?: Capabilities;
         /** The template resource types that you have permissions to work with for this
-update stack action, such as AWS::EC2::Instance , AWS::EC2::&amp;#42; , or 
-Custom::MyCustomInstance .
+update stack action, such as AWS::EC2::Instance, AWS::EC2::&amp;#42;, or 
+Custom::MyCustomInstance.
 
 If the list of resource types doesn&#x27;t include a resource that you&#x27;re updating,
 the stack update fails. By default, AWS CloudFormation grants permissions to all
 resource types. AWS Identity and Access Management (IAM) uses this parameter for
 AWS CloudFormation-specific condition keys in IAM policies. For more
 information, see Controlling Access with AWS Identity and Access Management
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html]
 . **/
         ResourceTypes?: ResourceTypes;
         /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
@@ -1828,8 +1823,8 @@ maximum length of 51,200 bytes. For more information, go to Template Anatomy
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html] 
 in the AWS CloudFormation User Guide.
 
-Conditional: You must pass TemplateURL or TemplateBody . If both are passed,
-only TemplateBody is used. **/
+Conditional: You must pass TemplateURL or TemplateBody. If both are passed, only 
+TemplateBody is used. **/
         TemplateBody?: TemplateBody;
         /** Location of file containing the template body. The URL must point to a template
 (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more
@@ -1837,8 +1832,8 @@ information, go to Template Anatomy
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html] 
 in the AWS CloudFormation User Guide.
 
-Conditional: You must pass TemplateURL or TemplateBody . If both are passed,
-only TemplateBody is used. **/
+Conditional: You must pass TemplateURL or TemplateBody. If both are passed, only 
+TemplateBody is used. **/
         TemplateURL?: TemplateURL;
     }
     export interface ValidateTemplateOutput {
@@ -1853,7 +1848,7 @@ template; otherwise, those actions return an InsufficientCapabilities error.
 
 For more information, see Acknowledging IAM Resources in AWS CloudFormation
 Templates
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities]
 . **/
         Capabilities?: Capabilities;
         /** The list of resources that generated the values in the Capabilities response

@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Database Migration ServiceAWS Database Migration Service (AWS DMS) can
+   * AWS Database Migration Service AWS Database Migration Service (AWS DMS) can
 migrate your data to and from the most widely used commercial and open-source
 databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift,
 MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The
@@ -482,7 +482,7 @@ AWS region. **/
         CertificateArn?: String;
         /** The SSL mode to use for the SSL connection.
 
-SSL mode can be one of four values: none, require, verify-ca, verify-full.
+SSL mode can be one of four values: none, require, verify-ca, verify-full. 
 
 The default value is none. **/
         SslMode?: DmsSslModeValue;
@@ -497,13 +497,13 @@ string.
 
 Constraints:
 
- &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens.
+ *  Cannot end with a hyphen or contain two consecutive hyphens.
    
    
 
@@ -515,7 +515,7 @@ replication instance. **/
         /** The compute and memory capacity of the replication instance as specified by the
 replication instance class.
 
-Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
+ Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
 dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge **/
         ReplicationInstanceClass: String;
         /** Specifies the VPC security group to be used with the replication instance. The
@@ -525,14 +525,14 @@ VPC security group must work with the VPC containing the replication instance. *
 
 Default: A random, system-chosen Availability Zone in the endpoint&#x27;s region.
 
-Example: us-east-1d **/
+ Example: us-east-1d **/
         AvailabilityZone?: String;
         /** A subnet group to associate with the replication instance. **/
         ReplicationSubnetGroupIdentifier?: String;
         /** The weekly time range during which system maintenance can occur, in Universal
 Coordinated Time (UTC).
 
-Format: ddd:hh24:mi-ddd:hh24:mi
+ Format: ddd:hh24:mi-ddd:hh24:mi 
 
 Default: A 30-minute window selected at random from an 8-hour block of time per
 region, occurring on a random day of the week.
@@ -542,7 +542,7 @@ Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 Constraints: Minimum 30-minute window. **/
         PreferredMaintenanceWindow?: String;
         /** Specifies if the replication instance is a Multi-AZ deployment. You cannot set
-the AvailabilityZone parameter if the Multi-AZ parameter is set to true . **/
+the AvailabilityZone parameter if the Multi-AZ parameter is set to true. **/
         MultiAZ?: BooleanOptional;
         /** The engine version number of the replication instance. **/
         EngineVersion?: String;
@@ -561,7 +561,7 @@ encryption key for each AWS region. **/
         KmsKeyId?: String;
         /** Specifies the accessibility options for the replication instance. A value of 
 true represents an instance with a public IP address. A value of false 
-represents an instance with a private IP address. The default value is true . **/
+represents an instance with a private IP address. The default value is true. **/
         PubliclyAccessible?: BooleanOptional;
     }
     export interface CreateReplicationInstanceResponse {
@@ -593,13 +593,13 @@ Example: mySubnetgroup **/
 
 Constraints:
 
- &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens. **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens. **/
         ReplicationTaskIdentifier: String;
         /** The Amazon Resource Name (ARN) string that uniquely identifies the endpoint. **/
         SourceEndpointArn: String;
@@ -616,7 +616,7 @@ For example, --table-mappings file://mappingfile.json **/
         TableMappings: String;
         /** Settings for the task, such as target metadata settings. For a complete list of
 task settings, see Task Settings for AWS Database Migration Service Tasks
-[http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html] 
+[http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html]
 . **/
         ReplicationTaskSettings?: String;
         /** The start time for the Change Data Capture (CDC) operation. **/
@@ -677,13 +677,13 @@ task settings, see Task Settings for AWS Database Migration Service Tasks
         Filters?: FilterList;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 10 **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeCertificatesResponse {
@@ -700,7 +700,7 @@ Valid filter names: endpoint-arn | replication-instance-arn **/
         Filters?: FilterList;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 100
 
@@ -708,13 +708,13 @@ Constraints: Minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeConnectionsResponse {
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
         /** A description of the connections. **/
         Connections?: ConnectionList;
@@ -726,7 +726,7 @@ Valid filter names: engine-name | endpoint-type **/
         Filters?: FilterList;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 100
 
@@ -734,13 +734,13 @@ Constraints: Minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeEndpointTypesResponse {
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
         /** The type of endpoints that are supported. **/
         SupportedEndpointTypes?: SupportedEndpointTypeList;
@@ -752,7 +752,7 @@ Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name **/
         Filters?: FilterList;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 100
 
@@ -760,13 +760,13 @@ Constraints: Minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeEndpointsResponse {
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
         /** Endpoint description. **/
         Endpoints?: EndpointList;
@@ -774,7 +774,7 @@ value specified by MaxRecords . **/
     export interface DescribeOrderableReplicationInstancesMessage {
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 100
 
@@ -782,7 +782,7 @@ Constraints: Minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeOrderableReplicationInstancesResponse {
@@ -790,7 +790,7 @@ value specified by MaxRecords . **/
         OrderableReplicationInstances?: OrderableReplicationInstanceList;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeRefreshSchemasStatusMessage {
@@ -809,7 +809,7 @@ replication-instance-class | engine-version **/
         Filters?: FilterList;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 100
 
@@ -817,13 +817,13 @@ Constraints: Minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeReplicationInstancesResponse {
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
         /** The replication instances described. **/
         ReplicationInstances?: ReplicationInstanceList;
@@ -833,7 +833,7 @@ value specified by MaxRecords . **/
         Filters?: FilterList;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 100
 
@@ -841,13 +841,13 @@ Constraints: Minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeReplicationSubnetGroupsResponse {
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
         /** A description of the replication subnet groups. **/
         ReplicationSubnetGroups?: ReplicationSubnetGroups;
@@ -860,7 +860,7 @@ Valid filter names: replication-task-arn | replication-task-id | migration-type
         Filters?: FilterList;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 100
 
@@ -868,13 +868,13 @@ Constraints: Minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeReplicationTasksResponse {
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
         /** A description of the replication tasks. **/
         ReplicationTasks?: ReplicationTaskList;
@@ -884,7 +884,7 @@ value specified by MaxRecords . **/
         EndpointArn: String;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 100
 
@@ -892,13 +892,13 @@ Constraints: Minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeSchemasResponse {
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
         /** The described schema. **/
         Schemas?: SchemaList;
@@ -908,7 +908,7 @@ value specified by MaxRecords . **/
         ReplicationTaskArn: String;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
-included in the response so that the remaining results can be retrieved.
+included in the response so that the remaining results can be retrieved. 
 
 Default: 100
 
@@ -916,7 +916,7 @@ Constraints: Minimum 20, maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface DescribeTableStatisticsResponse {
@@ -926,7 +926,7 @@ value specified by MaxRecords . **/
         TableStatistics?: TableStatisticsList;
         /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
-value specified by MaxRecords . **/
+value specified by MaxRecords. **/
         Marker?: String;
     }
     export interface Endpoint {
@@ -963,7 +963,7 @@ AWS region. **/
         CertificateArn?: String;
         /** The SSL mode used to connect to the endpoint.
 
-SSL mode can be one of four values: none, require, verify-ca, verify-full.
+SSL mode can be one of four values: none, require, verify-ca, verify-full. 
 
 The default value is none. **/
         SslMode?: DmsSslModeValue;
@@ -1042,7 +1042,7 @@ POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER. **/
         CertificateArn?: String;
         /** The SSL mode to be used.
 
-SSL mode can be one of four values: none, require, verify-ca, verify-full.
+SSL mode can be one of four values: none, require, verify-ca, verify-full. 
 
 The default value is none. **/
         SslMode?: DmsSslModeValue;
@@ -1062,7 +1062,7 @@ maintenance window. **/
         ApplyImmediately?: Boolean;
         /** The compute and memory capacity of the replication instance.
 
-Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
+ Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
 dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge **/
         ReplicationInstanceClass?: String;
         /** Specifies the VPC security group to be used with the replication instance. The
@@ -1084,7 +1084,7 @@ Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 Constraints: Must be at least 30 minutes **/
         PreferredMaintenanceWindow?: String;
         /** Specifies if the replication instance is a Multi-AZ deployment. You cannot set
-the AvailabilityZone parameter if the Multi-AZ parameter is set to true . **/
+the AvailabilityZone parameter if the Multi-AZ parameter is set to true. **/
         MultiAZ?: BooleanOptional;
         /** The engine version number of the replication instance. **/
         EngineVersion?: String;
@@ -1131,13 +1131,13 @@ string. **/
 
 Constraints:
 
- &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens. **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens. **/
         ReplicationTaskIdentifier?: String;
         /** The migration type.
 
@@ -1162,7 +1162,7 @@ For example, --table-mappings file://mappingfile.json **/
         EngineVersion?: String;
         /** The compute and memory capacity of the replication instance.
 
-Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
+ Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
 dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge **/
         ReplicationInstanceClass?: String;
         /** The type of storage used by the replication instance. **/
@@ -1217,13 +1217,13 @@ string.
 
 Constraints:
 
- &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens.
+ *  Cannot end with a hyphen or contain two consecutive hyphens.
    
    
 
@@ -1231,7 +1231,7 @@ Example: myrepinstance **/
         ReplicationInstanceIdentifier?: String;
         /** The compute and memory capacity of the replication instance.
 
-Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
+ Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
 dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge **/
         ReplicationInstanceClass?: String;
         /** The status of the replication instance. **/
@@ -1252,7 +1252,7 @@ instance. **/
         /** The pending modification values. **/
         PendingModifiedValues?: ReplicationPendingModifiedValues;
         /** Specifies if the replication instance is a Multi-AZ deployment. You cannot set
-the AvailabilityZone parameter if the Multi-AZ parameter is set to true . **/
+the AvailabilityZone parameter if the Multi-AZ parameter is set to true. **/
         MultiAZ?: Boolean;
         /** The engine version number of the replication instance. **/
         EngineVersion?: String;
@@ -1277,7 +1277,7 @@ for each AWS region. **/
         ReplicationInstancePrivateIpAddresses?: ReplicationInstancePrivateIpAddressList;
         /** Specifies the accessibility options for the replication instance. A value of 
 true represents an instance with a public IP address. A value of false 
-represents an instance with a private IP address. The default value is true . **/
+represents an instance with a private IP address. The default value is true. **/
         PubliclyAccessible?: Boolean;
         /** The availability zone of the standby replication instance in a Multi-AZ
 deployment. **/
@@ -1286,14 +1286,14 @@ deployment. **/
     export interface ReplicationPendingModifiedValues {
         /** The compute and memory capacity of the replication instance.
 
-Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
+ Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
 dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge **/
         ReplicationInstanceClass?: String;
         /** The amount of storage (in gigabytes) that is allocated for the replication
 instance. **/
         AllocatedStorage?: IntegerOptional;
         /** Specifies if the replication instance is a Multi-AZ deployment. You cannot set
-the AvailabilityZone parameter if the Multi-AZ parameter is set to true . **/
+the AvailabilityZone parameter if the Multi-AZ parameter is set to true. **/
         MultiAZ?: BooleanOptional;
         /** The engine version number of the replication instance. **/
         EngineVersion?: String;
@@ -1319,13 +1319,13 @@ the AvailabilityZone parameter if the Multi-AZ parameter is set to true . **/
 
 Constraints:
 
- &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
    
    
- * First character must be a letter.
+ *  First character must be a letter.
    
    
- * Cannot end with a hyphen or contain two consecutive hyphens. **/
+ *  Cannot end with a hyphen or contain two consecutive hyphens. **/
         ReplicationTaskIdentifier?: String;
         /** The Amazon Resource Name (ARN) string that uniquely identifies the endpoint. **/
         SourceEndpointArn?: String;

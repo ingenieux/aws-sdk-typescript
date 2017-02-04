@@ -44,16 +44,16 @@ your own cluster with a unique name with the CreateCluster action.
     createCluster(params: ECS.CreateClusterRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.CreateClusterResponse|any) => void): Request<ECS.CreateClusterResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
      * Runs and maintains a desired number of tasks from a specified task definition.
-If the number of tasks running in a service drops below desiredCount , Amazon
-ECS spawns another copy of the task in the specified cluster. To update an
-existing service, see UpdateService .
+If the number of tasks running in a service drops below desiredCount, Amazon ECS
+spawns another copy of the task in the specified cluster. To update an existing
+service, see UpdateService.
 
 In addition to maintaining the desired count of tasks in your service, you can
 optionally run your service behind a load balancer. The load balancer
 distributes traffic across the tasks that are associated with the service. For
 more information, see Service Load Balancing
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html] 
-in the Amazon EC2 Container Service Developer Guide .
+in the Amazon EC2 Container Service Developer Guide.
 
 You can optionally specify a deployment configuration for your service. During a
 deployment (which is triggered by changing the task definition or the desired
@@ -85,23 +85,23 @@ cluster resources required to do this are available). The default value is 200%.
 When the service scheduler launches new tasks, it determines task placement in
 your cluster using the following logic:
 
- &amp;#42; Determine which of the container instances in your cluster can support your
+ &amp;#42;  Determine which of the container instances in your cluster can support your
    service&#x27;s task definition (for example, they have the required CPU, memory,
    ports, and container instance attributes).
    
    
- * By default, the service scheduler attempts to balance tasks across
+ *  By default, the service scheduler attempts to balance tasks across
    Availability Zones in this manner (although you can choose a different
    placement strategy):
    
-    * Sort the valid container instances by the fewest number of running tasks
+    *  Sort the valid container instances by the fewest number of running tasks
       for this service in the same Availability Zone as the instance. For
       example, if zone A has one running service task and zones B and C each
       have zero, valid container instances in either zone B or C are considered
       optimal for placement.
       
       
-    * Place the new service task on a valid container instance in an optimal
+    *  Place the new service task on a valid container instance in an optimal
       Availability Zone (based on the previous steps), favoring container
       instances with the fewest number of running tasks for this service.
      *
@@ -123,7 +123,7 @@ your cluster using the following logic:
      * Deletes the specified cluster. You must deregister all container instances from
 this cluster before you may delete it. You can list the container instances in a
 cluster with ListContainerInstances and deregister them with 
-DeregisterContainerInstance .
+DeregisterContainerInstance.
      *
      * @error ServerException   
      * @error ClientException   
@@ -137,17 +137,17 @@ DeregisterContainerInstance .
      * Deletes a specified service within a cluster. You can delete a service if you
 have no running tasks in it and the desired task count is zero. If the service
 is actively maintaining tasks, you cannot delete it, and you must update the
-service to a desired task count of zero. For more information, see UpdateService 
+service to a desired task count of zero. For more information, see UpdateService
 .
 
 When you delete a service, if there are still running tasks that require
-cleanup, the service status moves from ACTIVE to DRAINING , and the service is
-no longer visible in the console or in ListServices API operations. After the
-tasks have stopped, then the service status moves from DRAINING to INACTIVE .
-Services in the DRAINING or INACTIVE status can still be viewed with 
-DescribeServices API operations; however, in the future, INACTIVE services may
-be cleaned up and purged from Amazon ECS record keeping, and DescribeServices 
-API operations on those services will return a ServiceNotFoundException error.
+cleanup, the service status moves from ACTIVE to DRAINING, and the service is no
+longer visible in the console or in ListServices API operations. After the tasks
+have stopped, then the service status moves from DRAINING to INACTIVE. Services
+in the DRAINING or INACTIVE status can still be viewed with DescribeServices API
+operations; however, in the future, INACTIVE services may be cleaned up and
+purged from Amazon ECS record keeping, and DescribeServices API operations on
+those services will return a ServiceNotFoundException error.
      *
      * @error ServerException   
      * @error ClientException   
@@ -182,7 +182,7 @@ terminated).
     deregisterContainerInstance(params: ECS.DeregisterContainerInstanceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.DeregisterContainerInstanceResponse|any) => void): Request<ECS.DeregisterContainerInstanceResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Deregisters the specified task definition by family and revision. Upon
-deregistration, the task definition is marked as INACTIVE . Existing tasks and
+deregistration, the task definition is marked as INACTIVE. Existing tasks and
 services that reference an INACTIVE task definition continue to run without
 disruption. Existing services that reference an INACTIVE task definition can
 still scale up or down by modifying the service&#x27;s desired count.
@@ -264,7 +264,7 @@ list of attribute objects, one for each attribute on each resource. You can
 filter the list of results to a single attribute name to only return results
 that have that name. You can also filter the results by attribute name and
 value, for example, to see which container instances in a cluster are running a
-Linux AMI ( ecs.os-type=linux ).
+Linux AMI (ecs.os-type=linux).
      *
      * @error ClusterNotFoundException   
      * @error InvalidParameterException   
@@ -284,7 +284,7 @@ results of a ListContainerInstances operation with cluster query language
 statements inside the filter parameter. For more information, see Cluster Query
 Language
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html] 
-in the Amazon EC2 Container Service Developer Guide .
+in the Amazon EC2 Container Service Developer Guide.
      *
      * @error ServerException   
      * @error ClientException   
@@ -307,7 +307,7 @@ in the Amazon EC2 Container Service Developer Guide .
 definition revisions).
 
 You can filter out task definition families that do not contain any ACTIVE task
-definition revisions by setting the status parameter to ACTIVE . You can also
+definition revisions by setting the status parameter to ACTIVE. You can also
 filter the results with the familyPrefix parameter.
      *
      * @error ServerException   
@@ -328,7 +328,7 @@ with the status parameter.
     /**
      * Returns a list of tasks for a specified cluster. You can filter the results by
 family name, by a particular container instance, or by the desired status of the
-task with the family , containerInstance , and desiredStatus parameters.
+task with the family, containerInstance, and desiredStatus parameters.
 
 Recently-stopped tasks might appear in the returned results. Currently, stopped
 tasks appear in the returned results for at least one hour.
@@ -343,10 +343,10 @@ tasks appear in the returned results for at least one hour.
     /**
      * Create or update an attribute on an Amazon ECS resource. If the attribute does
 not exist, it is created. If the attribute exists, its value is replaced with
-the specified value. To delete an attribute, use DeleteAttributes . For more
+the specified value. To delete an attribute, use DeleteAttributes. For more
 information, see Attributes
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes] 
-in the Amazon EC2 Container Service Developer Guide .
+in the Amazon EC2 Container Service Developer Guide.
      *
      * @error ClusterNotFoundException   
      * @error TargetNotFoundException   
@@ -367,11 +367,11 @@ available to place containers on.
     registerContainerInstance(params: ECS.RegisterContainerInstanceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.RegisterContainerInstanceResponse|any) => void): Request<ECS.RegisterContainerInstanceResponse|any,ECS.ServerException|ECS.ClientException|any>;
     /**
      * Registers a new task definition from the supplied family and 
-containerDefinitions . Optionally, you can add data volumes to your containers
+containerDefinitions. Optionally, you can add data volumes to your containers
 with the volumes parameter. For more information about task definition
 parameters and defaults, see Amazon ECS Task Definitions
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html] 
-in the Amazon EC2 Container Service Developer Guide .
+in the Amazon EC2 Container Service Developer Guide.
 
 You can specify an IAM role for your task with the taskRoleArn parameter. When
 you specify an IAM role for a task, its containers can then use the latest
@@ -379,7 +379,7 @@ versions of the AWS CLI or SDKs to make API requests to the AWS services that
 are specified in the IAM policy associated with the role. For more information,
 see IAM Roles for Tasks
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html] 
-in the Amazon EC2 Container Service Developer Guide .
+in the Amazon EC2 Container Service Developer Guide.
 
 You can specify a Docker networking mode for the containers in your task
 definition with the networkMode parameter. The available network modes
@@ -399,7 +399,7 @@ You can allow Amazon ECS to place tasks for you, or you can customize how Amazon
 ECS places tasks using placement constraints and placement strategies. For more
 information, see Scheduling Tasks
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html] 
-in the Amazon EC2 Container Service Developer Guide .
+in the Amazon EC2 Container Service Developer Guide.
 
 Alternatively, you can use StartTask to use your own scheduler or place tasks
 manually on specific container instances.
@@ -417,7 +417,7 @@ instance or instances.
 Alternatively, you can use RunTask to place tasks for you. For more information,
 see Scheduling Tasks
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html] 
-in the Amazon EC2 Container Service Developer Guide .
+in the Amazon EC2 Container Service Developer Guide.
      *
      * @error ServerException   
      * @error ClientException   
@@ -467,12 +467,12 @@ services on the container instance. The process for updating the agent differs
 depending on whether your container instance was launched with the Amazon
 ECS-optimized AMI or another operating system.
 
-UpdateContainerAgent requires the Amazon ECS-optimized AMI or Amazon Linux with
+ UpdateContainerAgent requires the Amazon ECS-optimized AMI or Amazon Linux with
 the ecs-init service installed and running. For help updating the Amazon ECS
 container agent on other operating systems, see Manually Updating the Amazon ECS
 Container Agent
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent] 
-in the Amazon EC2 Container Service Developer Guide .
+in the Amazon EC2 Container Service Developer Guide.
      *
      * @error ServerException   
      * @error ClientException   
@@ -488,9 +488,9 @@ in the Amazon EC2 Container Service Developer Guide .
 
 You can change the status of a container instance to DRAINING to manually remove
 an instance from a cluster, for example to perform system updates, update the
-Docker daemon, or scale down the cluster size.
+Docker daemon, or scale down the cluster size. 
 
-When you set a container instance to DRAINING , Amazon ECS prevents new tasks
+When you set a container instance to DRAINING, Amazon ECS prevents new tasks
 from being scheduled for placement on the container instance and replacement
 service tasks are started on other container instances in the cluster if the
 resources are available. Service tasks on the container instance that are in the 
@@ -498,10 +498,10 @@ PENDING state are stopped immediately.
 
 Service tasks on the container instance that are in the RUNNING state are
 stopped and replaced according the service&#x27;s deployment configuration
-parameters, minimumHealthyPercent and maximumPercent . Note that you can change
-the deployment configuration of your service using UpdateService .
+parameters, minimumHealthyPercent and maximumPercent. Note that you can change
+the deployment configuration of your service using UpdateService.
 
- &amp;#42; If minimumHealthyPercent is below 100%, the scheduler can ignore desiredCount 
+ &amp;#42;  If minimumHealthyPercent is below 100%, the scheduler can ignore desiredCount 
    temporarily during task replacement. For example, desiredCount is four tasks,
    a minimum of 50% allows the scheduler to stop two existing tasks before
    starting two new tasks. If the minimum is 100%, the service scheduler can&#x27;t
@@ -512,7 +512,7 @@ the deployment configuration of your service using UpdateService .
    instance they are hosted on is reported as healthy by the load balancer.
    
    
- * The maximumPercent parameter represents an upper limit on the number of
+ *  The maximumPercent parameter represents an upper limit on the number of
    running tasks during task replacement, which enables you to define the
    replacement batch size. For example, if desiredCount of four tasks, a maximum
    of 200% starts four new tasks before stopping the four tasks to be drained
@@ -526,9 +526,9 @@ Any PENDING or RUNNING tasks that do not belong to a service are not affected;
 you must wait for them to finish or stop them manually.
 
 A container instance has completed draining when it has no more RUNNING tasks.
-You can verify this using ListTasks .
+You can verify this using ListTasks.
 
-When you set a container instance to ACTIVE , the Amazon ECS scheduler can begin
+When you set a container instance to ACTIVE, the Amazon ECS scheduler can begin
 scheduling tasks on the instance again.
      *
      * @error ServerException   
@@ -551,9 +551,9 @@ version of your service.
 You can also update the deployment configuration of a service. When a deployment
 is triggered by updating the task definition of a service, the service scheduler
 uses the deployment configuration parameters, minimumHealthyPercent and 
-maximumPercent , to determine the deployment strategy.
+maximumPercent, to determine the deployment strategy.
 
- &amp;#42; If minimumHealthyPercent is below 100%, the scheduler can ignore desiredCount 
+ &amp;#42;  If minimumHealthyPercent is below 100%, the scheduler can ignore desiredCount 
    temporarily during a deployment. For example, if desiredCount is four tasks,
    a minimum of 50% allows the scheduler to stop two existing tasks before
    starting two new tasks. Tasks for services that do not use a load balancer
@@ -563,7 +563,7 @@ maximumPercent , to determine the deployment strategy.
    the load balancer.
    
    
- * The maximumPercent parameter represents an upper limit on the number of
+ *  The maximumPercent parameter represents an upper limit on the number of
    running tasks during a deployment, which enables you to define the deployment
    batch size. For example, if desiredCount is four tasks, a maximum of 200%
    starts four new tasks before stopping the four older tasks (provided that the
@@ -580,23 +580,23 @@ within 30 seconds from receiving it, no SIGKILL is sent.
 When the service scheduler launches new tasks, it determines task placement in
 your cluster with the following logic:
 
- * Determine which of the container instances in your cluster can support your
+ *  Determine which of the container instances in your cluster can support your
    service&#x27;s task definition (for example, they have the required CPU, memory,
    ports, and container instance attributes).
    
    
- * By default, the service scheduler attempts to balance tasks across
+ *  By default, the service scheduler attempts to balance tasks across
    Availability Zones in this manner (although you can choose a different
    placement strategy):
    
-    * Sort the valid container instances by the fewest number of running tasks
+    *  Sort the valid container instances by the fewest number of running tasks
       for this service in the same Availability Zone as the instance. For
       example, if zone A has one running service task and zones B and C each
       have zero, valid container instances in either zone B or C are considered
       optimal for placement.
       
       
-    * Place the new service task on a valid container instance in an optimal
+    *  Place the new service task on a valid container instance in an optimal
       Availability Zone (based on the previous steps), favoring container
       instances with the fewest number of running tasks for this service.
       
@@ -605,15 +605,15 @@ your cluster with the following logic:
    
 
 When the service scheduler stops running tasks, it attempts to maintain balance
-across the Availability Zones in your cluster using the following logic:
+across the Availability Zones in your cluster using the following logic: 
 
- * Sort the container instances by the largest number of running tasks for this
+ *  Sort the container instances by the largest number of running tasks for this
    service in the same Availability Zone as the instance. For example, if zone A
    has one running service task and zones B and C each have two, container
    instances in either zone B or C are considered optimal for termination.
    
    
- * Stop the task on a container instance in an optimal Availability Zone (based
+ *  Stop the task on a container instance in an optimal Availability Zone (based
    on the previous steps), favoring container instances with the largest number
    of running tasks for this service.
      *
@@ -755,11 +755,11 @@ full Amazon Resource Name (ARN). **/
         /** The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains the 
 arn:aws:ecs namespace, followed by the region of the cluster, the AWS account ID
 of the cluster owner, the cluster namespace, and then the cluster name. For
-example, arn:aws:ecs: region : 012345678910 :cluster/ test .. **/
+example, arn:aws:ecs:region:012345678910:cluster/test .. **/
         clusterArn?: String;
         /** A user-generated string that you use to identify your cluster. **/
         clusterName?: String;
-        /** The status of the cluster. The valid values are ACTIVE or INACTIVE . ACTIVE 
+        /** The status of the cluster. The valid values are ACTIVE or INACTIVE. ACTIVE 
 indicates that you can register container instances with the cluster and the
 associated instances can accept tasks. **/
         status?: String;
@@ -770,7 +770,7 @@ associated instances can accept tasks. **/
         /** The number of tasks in the cluster that are in the PENDING state. **/
         pendingTasksCount?: Integer;
         /** The number of services that are running on the cluster in an ACTIVE state. You
-can view these services with ListServices . **/
+can view these services with ListServices. **/
         activeServicesCount?: Integer;
     }
     export interface ClusterContainsContainerInstancesException {
@@ -805,37 +805,37 @@ to name in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---name option to docker run [https://docs.docker.com/engine/reference/run/] . **/
+--name option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         name?: String;
         /** The image used to start a container. This string is passed directly to the
 Docker daemon. Images in the Docker Hub registry are available by default. Other
-repositories are specified with repository-url / image : tag . Up to 255 letters
+repositories are specified with repository-url/image:tag . Up to 255 letters
 (uppercase and lowercase), numbers, hyphens, underscores, colons, periods,
 forward slashes, and number signs are allowed. This parameter maps to Image in
 the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
-IMAGE parameter of docker run [https://docs.docker.com/engine/reference/run/] .
+IMAGE parameter of docker run [https://docs.docker.com/engine/reference/run/].
 
 Amazon ECS task definitions currently only support tags as image identifiers
 within a specified repository (and not sha256 digests).
 
- &amp;#42; Images in Amazon ECR repositories use the full registry and repository URI
+ &amp;#42;  Images in Amazon ECR repositories use the full registry and repository URI
    (for example, 
-   012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt; ).
+   012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;). 
    
    
- * Images in official repositories on Docker Hub use a single name (for example, 
-   ubuntu or mongo ).
+ *  Images in official repositories on Docker Hub use a single name (for
+   example, ubuntu or mongo).
    
    
- * Images in other repositories on Docker Hub are qualified with an organization
-   name (for example, amazon/amazon-ecs-agent ).
+ *  Images in other repositories on Docker Hub are qualified with an
+   organization name (for example, amazon/amazon-ecs-agent).
    
    
- * Images in other online repositories are qualified further by a domain name
-   (for example, quay.io/assemblyline/ubuntu ). **/
+ *  Images in other online repositories are qualified further by a domain name
+   (for example, quay.io/assemblyline/ubuntu). **/
         image?: String;
         /** The number of cpu units reserved for the container. A container instance has
 1,024 cpu units for every CPU core. This parameter specifies the minimum amount
@@ -846,7 +846,7 @@ amount. This parameter maps to CpuShares in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --cpu-shares option to docker run
-[https://docs.docker.com/engine/reference/run/] .
+[https://docs.docker.com/engine/reference/run/].
 
 You can determine the number of CPU units that are available per EC2 instance
 type by multiplying the vCPUs listed for that instance type on the Amazon EC2
@@ -870,13 +870,13 @@ allows is 2; however, the CPU parameter is not required, and you can use CPU
 values below 2 in your container definitions. For CPU values below 2 (including
 null), the behavior varies based on your Amazon ECS container agent version:
 
- &amp;#42; Agent versions less than or equal to 1.1.0: Null and zero CPU values are
+ &amp;#42;   Agent versions less than or equal to 1.1.0: Null and zero CPU values are
    passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU
    values of 1 are passed to Docker as 1, which the Linux kernel converts to 2
    CPU shares.
    
    
- * Agent versions greater than or equal to 1.2.0: Null, zero, and CPU values of
+ *   Agent versions greater than or equal to 1.2.0: Null, zero, and CPU values of
    1 are passed to Docker as 2. **/
         cpu?: Integer;
         /** The hard limit (in MiB) of memory to present to the container. If your container
@@ -885,11 +885,11 @@ parameter maps to Memory in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---memory option to docker run [https://docs.docker.com/engine/reference/run/] .
+--memory option to docker run [https://docs.docker.com/engine/reference/run/].
 
 You must specify a non-zero integer for one or both of memory or 
 memoryReservation in container definitions. If you specify both, memory must be
-greater than memoryReservation . If you specify memoryReservation , then that
+greater than memoryReservation. If you specify memoryReservation, then that
 value is subtracted from the available memory resources for the container
 instance on which the container is placed; otherwise, the value of memory is
 used.
@@ -907,11 +907,11 @@ comes first. This parameter maps to MemoryReservation in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --memory-reservation option to docker run
-[https://docs.docker.com/engine/reference/run/] .
+[https://docs.docker.com/engine/reference/run/].
 
 You must specify a non-zero integer for one or both of memory or 
 memoryReservation in container definitions. If you specify both, memory must be
-greater than memoryReservation . If you specify memoryReservation , then that
+greater than memoryReservation. If you specify memoryReservation, then that
 value is subtracted from the available memory resources for the container
 instance on which the container is placed; otherwise, the value of memory is
 used.
@@ -927,14 +927,14 @@ to consume more memory resources when needed. **/
 need for port mappings, using the name parameter and optionally, an alias for
 the link. This construct is analogous to name:alias in Docker links. Up to 255
 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
-for each name and alias . For more information on linking Docker containers, see 
+for each name and alias. For more information on linking Docker containers, see 
 https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/
-[https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/] 
+[https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/]
 . This parameter maps to Links in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---link option to docker run [https://docs.docker.com/engine/reference/run/] .
+--link option to docker run [https://docs.docker.com/engine/reference/run/].
 
 Containers that are collocated on a single container instance may be able to
 communicate with each other without requiring links or host port mappings.
@@ -947,20 +947,20 @@ parameter maps to PortBindings in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---publish option to docker run [https://docs.docker.com/engine/reference/run/] .
-If the network mode of a task definition is set to none , then you cannot
-specify port mappings. If the network mode of a task definition is set to host ,
-then host ports must either be undefined or they must match the container port
-in the port mapping.
+--publish option to docker run [https://docs.docker.com/engine/reference/run/].
+If the network mode of a task definition is set to none, then you cannot specify
+port mappings. If the network mode of a task definition is set to host, then
+host ports must either be undefined or they must match the container port in the
+port mapping.
 
 After a task reaches the RUNNING status, manual and automatic host and container
 port assignments are visible in the Network Bindings section of a container
 description of a selected task in the Amazon ECS console, or the networkBindings 
 section DescribeTasks responses. **/
         portMappings?: PortMappingList;
-        /** If the essential parameter of a container is marked as true , and that container
+        /** If the essential parameter of a container is marked as true, and that container
 fails or stops for any reason, all other containers that are part of the task
-are stopped. If the essential parameter of a container is marked as false , then
+are stopped. If the essential parameter of a container is marked as false, then
 its failure does not affect the rest of the containers in a task. If this
 parameter is omitted, a container is assumed to be essential.
 
@@ -970,10 +970,10 @@ used for a common purpose into components, and separate the different components
 into multiple task definitions. For more information, see Application
 Architecture
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html] 
-in the Amazon EC2 Container Service Developer Guide . **/
+in the Amazon EC2 Container Service Developer Guide. **/
         essential?: BoxedBoolean;
         /** Early versions of the Amazon ECS container agent do not properly handle 
-entryPoint parameters. If you have problems using entryPoint , update your
+entryPoint parameters. If you have problems using entryPoint, update your
 container agent or enter your commands and arguments as command array items
 instead.
 
@@ -983,26 +983,25 @@ Entrypoint in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --entrypoint option to docker run
-[https://docs.docker.com/engine/reference/run/] . For more information, see 
+[https://docs.docker.com/engine/reference/run/]. For more information, see 
 https://docs.docker.com/engine/reference/builder/#entrypoint
-[https://docs.docker.com/engine/reference/builder/#entrypoint] . **/
+[https://docs.docker.com/engine/reference/builder/#entrypoint]. **/
         entryPoint?: StringList;
         /** The command that is passed to the container. This parameter maps to Cmd in the 
 Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
-COMMAND parameter to docker run [https://docs.docker.com/engine/reference/run/] 
-. For more information, see 
-https://docs.docker.com/engine/reference/builder/#cmd
-[https://docs.docker.com/engine/reference/builder/#cmd] . **/
+COMMAND parameter to docker run [https://docs.docker.com/engine/reference/run/].
+For more information, see https://docs.docker.com/engine/reference/builder/#cmd
+[https://docs.docker.com/engine/reference/builder/#cmd]. **/
         command?: StringList;
         /** The environment variables to pass to a container. This parameter maps to Env in
 the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---env option to docker run [https://docs.docker.com/engine/reference/run/] .
+--env option to docker run [https://docs.docker.com/engine/reference/run/].
 
 We do not recommend using plain text environment variables for sensitive
 information, such as credential data. **/
@@ -1012,7 +1011,7 @@ Volumes in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---volume option to docker run [https://docs.docker.com/engine/reference/run/] . **/
+--volume option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         mountPoints?: MountPointList;
         /** Data volumes to mount from another container. This parameter maps to VolumesFrom 
 in the Create a container
@@ -1020,35 +1019,34 @@ in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --volumes-from option to docker run
-[https://docs.docker.com/engine/reference/run/] . **/
+[https://docs.docker.com/engine/reference/run/]. **/
         volumesFrom?: VolumeFromList;
         /** The hostname to use for your container. This parameter maps to Hostname in the 
 Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---hostname option to docker run [https://docs.docker.com/engine/reference/run/] 
-. **/
+--hostname option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         hostname?: String;
         /** The user name to use inside the container. This parameter maps to User in the 
 Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---user option to docker run [https://docs.docker.com/engine/reference/run/] . **/
+--user option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         user?: String;
         /** The working directory in which to run commands inside the container. This
 parameter maps to WorkingDir in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---workdir option to docker run [https://docs.docker.com/engine/reference/run/] . **/
+--workdir option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         workingDirectory?: String;
         /** When this parameter is true, networking is disabled within the container. This
 parameter maps to NetworkDisabled in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
-[https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] . **/
+[https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/]. **/
         disableNetworking?: BoxedBoolean;
         /** When this parameter is true, the container is given elevated privileges on the
 host container instance (similar to the root user). This parameter maps to 
@@ -1057,21 +1055,21 @@ Privileged in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --privileged option to docker run
-[https://docs.docker.com/engine/reference/run/] . **/
+[https://docs.docker.com/engine/reference/run/]. **/
         privileged?: BoxedBoolean;
         /** When this parameter is true, the container is given read-only access to its root
 file system. This parameter maps to ReadonlyRootfs in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---read-only option to docker run . **/
+--read-only option to docker run. **/
         readonlyRootFilesystem?: BoxedBoolean;
         /** A list of DNS servers that are presented to the container. This parameter maps
 to Dns in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---dns option to docker run [https://docs.docker.com/engine/reference/run/] . **/
+--dns option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         dnsServers?: StringList;
         /** A list of DNS search domains that are presented to the container. This parameter
 maps to DnsSearch in the Create a container
@@ -1079,15 +1077,14 @@ maps to DnsSearch in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --dns-search option to docker run
-[https://docs.docker.com/engine/reference/run/] . **/
+[https://docs.docker.com/engine/reference/run/]. **/
         dnsSearchDomains?: StringList;
         /** A list of hostnames and IP address mappings to append to the /etc/hosts file on
 the container. This parameter maps to ExtraHosts in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---add-host option to docker run [https://docs.docker.com/engine/reference/run/] 
-. **/
+--add-host option to docker run [https://docs.docker.com/engine/reference/run/]. **/
         extraHosts?: HostEntryList;
         /** A list of strings to provide custom labels for SELinux and AppArmor multi-level
 security systems. This parameter maps to SecurityOpt in the Create a container
@@ -1095,21 +1092,21 @@ security systems. This parameter maps to SecurityOpt in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --security-opt option to docker run
-[https://docs.docker.com/engine/reference/run/] .
+[https://docs.docker.com/engine/reference/run/].
 
 The Amazon ECS container agent running on a container instance must register
 with the ECS_SELINUX_CAPABLE=true or ECS_APPARMOR_CAPABLE=true environment
 variables before containers placed on that instance can use these security
 options. For more information, see Amazon ECS Container Agent Configuration
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html] 
-in the Amazon EC2 Container Service Developer Guide . **/
+in the Amazon EC2 Container Service Developer Guide. **/
         dockerSecurityOptions?: StringList;
         /** A key/value map of labels to add to the container. This parameter maps to Labels 
 in the Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---label option to docker run [https://docs.docker.com/engine/reference/run/] .
+--label option to docker run [https://docs.docker.com/engine/reference/run/].
 This parameter requires version 1.18 of the Docker Remote API or greater on your
 container instance. To check the Docker Remote API version on your container
 instance, log into your container instance and run the following command: sudo
@@ -1120,7 +1117,7 @@ Create a container
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container] 
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
---ulimit option to docker run [https://docs.docker.com/engine/reference/run/] .
+--ulimit option to docker run [https://docs.docker.com/engine/reference/run/].
 Valid naming values are displayed in the Ulimit data type. This parameter
 requires version 1.18 of the Docker Remote API or greater on your container
 instance. To check the Docker Remote API version on your container instance, log
@@ -1133,7 +1130,7 @@ LogConfig in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/] and the 
 --log-driver option to docker run
-[https://docs.docker.com/engine/reference/run/] . By default, containers use the
+[https://docs.docker.com/engine/reference/run/]. By default, containers use the
 same logging driver that the Docker daemon uses; however the container may use a
 different logging driver than the Docker daemon by specifying a log driver with
 this parameter in the container definition. To use a different logging driver
@@ -1150,7 +1147,7 @@ may be available in future releases of the Amazon ECS container agent.
 This parameter requires version 1.18 of the Docker Remote API or greater on your
 container instance. To check the Docker Remote API version on your container
 instance, log into your container instance and run the following command: sudo
-docker version | grep &quot;Server API version&quot;
+docker version | grep &quot;Server API version&quot; 
 
 The Amazon ECS container agent running on a container instance must register the
 logging drivers available on that instance with the 
@@ -1158,15 +1155,15 @@ ECS_AVAILABLE_LOGGING_DRIVERS environment variable before containers placed on
 that instance can use these log configuration options. For more information, see 
 Amazon ECS Container Agent Configuration
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html] 
-in the Amazon EC2 Container Service Developer Guide . **/
+in the Amazon EC2 Container Service Developer Guide. **/
         logConfiguration?: LogConfiguration;
     }
     export interface ContainerInstance {
         /** The Amazon Resource Name (ARN) of the container instance. The ARN contains the 
 arn:aws:ecs namespace, followed by the region of the container instance, the AWS
 account ID of the container instance owner, the container-instance namespace,
-and then the container instance ID. For example, arn:aws:ecs: region : 
-aws_account_id :container-instance/ container_instance_ID . **/
+and then the container instance ID. For example, arn:aws:ecs:region:
+aws_account_id:container-instance/container_instance_ID . **/
         containerInstanceArn?: String;
         /** The EC2 instance ID of the container instance. **/
         ec2InstanceId?: String;
@@ -1192,11 +1189,11 @@ the container instance that are in use by current tasks. For port resource
 types, this parameter describes the ports that were reserved by the Amazon ECS
 container agent when it registered the container instance with Amazon ECS. **/
         registeredResources?: Resources;
-        /** The status of the container instance. The valid values are ACTIVE or INACTIVE . 
+        /** The status of the container instance. The valid values are ACTIVE or INACTIVE. 
 ACTIVE indicates that the container instance can accept tasks. **/
         status?: String;
         /** This parameter returns true if the agent is actually connected to Amazon ECS.
-Registered instances with an agent that may be unhealthy or stopped return false 
+Registered instances with an agent that may be unhealthy or stopped return false
 , and instances without a connected agent cannot accept placement requests. **/
         agentConnected?: Boolean;
         /** The number of tasks on the container instance that are in the RUNNING status. **/
@@ -1204,7 +1201,7 @@ Registered instances with an agent that may be unhealthy or stopped return false
         /** The number of tasks on the container instance that are in the PENDING status. **/
         pendingTasksCount?: Integer;
         /** The status of the most recent agent update. If an update has never been
-requested, this value is NULL . **/
+requested, this value is NULL. **/
         agentUpdateStatus?: AgentUpdateStatus;
         /** The attributes set for the container instance, either by the Amazon ECS
 container agent at instance registration or manually with the PutAttributes 
@@ -1224,7 +1221,7 @@ existing environment variables from the Docker image or the task definition. **/
     }
     export interface CreateClusterRequest {
         /** The name of your cluster. If you do not specify a name for your cluster, you
-create a cluster named default . Up to 255 letters (uppercase and lowercase),
+create a cluster named default. Up to 255 letters (uppercase and lowercase),
 numbers, hyphens, and underscores are allowed. **/
         clusterName?: String;
     }
@@ -1241,9 +1238,9 @@ hyphens, and underscores are allowed. Service names must be unique within a
 cluster, but you can have similarly named services in multiple clusters within a
 region or across multiple regions. **/
         serviceName: String;
-        /** The family and revision ( family:revision ) or full Amazon Resource Name (ARN)
-of the task definition to run in your service. If a revision is not specified,
-the latest ACTIVE revision is used. **/
+        /** The family and revision (family:revision) or full Amazon Resource Name (ARN) of
+the task definition to run in your service. If a revision is not specified, the
+latest ACTIVE revision is used. **/
         taskDefinition: String;
         /** A load balancer object representing the load balancer to use with your service.
 Currently, you are limited to one load balancer or target group per service.
@@ -1276,13 +1273,12 @@ required if you are using a load balancer with your service. If you specify the
 role parameter, you must also specify a load balancer object with the 
 loadBalancers parameter.
 
-If your specified role has a path other than / , then you must either specify
-the full role ARN (this is recommended) or prefix the role name with the path.
-For example, if a role with the name bar has a path of /foo/ then you would
-specify /foo/bar as the role name. For more information, see Friendly Names and
-Paths
+If your specified role has a path other than /, then you must either specify the
+full role ARN (this is recommended) or prefix the role name with the path. For
+example, if a role with the name bar has a path of /foo/ then you would specify 
+/foo/bar as the role name. For more information, see Friendly Names and Paths
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names] 
-in the IAM User Guide . **/
+in the IAM User Guide. **/
         role?: String;
         /** Optional deployment parameters that control how many tasks run during the
 deployment and the ordering of stopping and starting tasks. **/
@@ -1356,15 +1352,15 @@ deploy or maintain. **/
         updatedAt?: Timestamp;
     }
     export interface DeploymentConfiguration {
-        /** The upper limit (as a percentage of the service&#x27;s desiredCount ) of the number
-of tasks that are allowed in the RUNNING or PENDING state in a service during a
+        /** The upper limit (as a percentage of the service&#x27;s desiredCount) of the number of
+tasks that are allowed in the RUNNING or PENDING state in a service during a
 deployment. The maximum number of tasks during a deployment is the desiredCount 
-multiplied by maximumPercent /100, rounded down to the nearest integer value. **/
+multiplied by maximumPercent/100, rounded down to the nearest integer value. **/
         maximumPercent?: BoxedInteger;
-        /** The lower limit (as a percentage of the service&#x27;s desiredCount ) of the number
-of running tasks that must remain in the RUNNING state in a service during a
+        /** The lower limit (as a percentage of the service&#x27;s desiredCount) of the number of
+running tasks that must remain in the RUNNING state in a service during a
 deployment. The minimum healthy tasks during a deployment is the desiredCount 
-multiplied by minimumHealthyPercent /100, rounded up to the nearest integer
+multiplied by minimumHealthyPercent/100, rounded up to the nearest integer
 value. **/
         minimumHealthyPercent?: BoxedInteger;
     }
@@ -1377,8 +1373,8 @@ cluster is assumed. **/
 instance to deregister. The ARN contains the arn:aws:ecs namespace, followed by
 the region of the container instance, the AWS account ID of the container
 instance owner, the container-instance namespace, and then the container
-instance ID. For example, arn:aws:ecs: region : aws_account_id 
-:container-instance/ container_instance_ID . **/
+instance ID. For example, arn:aws:ecs:region:aws_account_id:container-instance/
+container_instance_ID . **/
         containerInstance: String;
         /** Forces the deregistration of the container instance. If you have tasks running
 on the container instance when you deregister it with the force option, these
@@ -1386,7 +1382,7 @@ tasks remain running until you terminate the instance or the tasks stop through
 some other means, but they are orphaned (no longer monitored or accounted for by
 Amazon ECS). If an orphaned task on your container instance is part of an Amazon
 ECS service, then the service scheduler starts another copy of that task, on a
-different container instance if possible.
+different container instance if possible. 
 
 Any containers in orphaned service tasks that are registered with a Classic load
 balancer or an Application load balancer target group are deregistered, and they
@@ -1399,8 +1395,8 @@ target group. **/
         containerInstance?: ContainerInstance;
     }
     export interface DeregisterTaskDefinitionRequest {
-        /** The family and revision ( family:revision ) or full Amazon Resource Name (ARN)
-of the task definition to deregister. You must specify a revision . **/
+        /** The family and revision (family:revision) or full Amazon Resource Name (ARN) of
+the task definition to deregister. You must specify a revision. **/
         taskDefinition: String;
     }
     export interface DeregisterTaskDefinitionResponse {
@@ -1449,9 +1445,9 @@ a single operation. **/
         failures?: Failures;
     }
     export interface DescribeTaskDefinitionRequest {
-        /** The family for the latest ACTIVE revision, family and revision ( family:revision 
-) for a specific revision in the family, or full Amazon Resource Name (ARN) of
-the task definition to describe. **/
+        /** The family for the latest ACTIVE revision, family and revision (family:revision)
+for a specific revision in the family, or full Amazon Resource Name (ARN) of the
+task definition to describe. **/
         taskDefinition: String;
     }
     export interface DescribeTaskDefinitionResponse {
@@ -1477,8 +1473,7 @@ assumed. **/
 instance. The ARN contains the arn:aws:ecs namespace, followed by the region of
 the container instance, the AWS account ID of the container instance owner, the 
 container-instance namespace, and then the container instance ID. For example, 
-arn:aws:ecs: region : aws_account_id :container-instance/ container_instance_ID 
-. **/
+arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID . **/
         containerInstance?: String;
         /** The cluster that the container instance belongs to. **/
         cluster?: String;
@@ -1553,8 +1548,8 @@ a nextToken value if applicable. **/
         /** A list of attribute objects that meet the criteria of the request. **/
         attributes?: Attributes;
         /** The nextToken value to include in a future ListAttributes request. When the
-results of a ListAttributes request exceed maxResults , this value can be used
-to retrieve the next page of results. This value is null when there are no more
+results of a ListAttributes request exceed maxResults, this value can be used to
+retrieve the next page of results. This value is null when there are no more
 results to return. **/
         nextToken?: String;
     }
@@ -1581,7 +1576,7 @@ nextToken value if applicable. **/
 with your account. **/
         clusterArns?: StringList;
         /** The nextToken value to include in a future ListClusters request. When the
-results of a ListClusters request exceed maxResults , this value can be used to
+results of a ListClusters request exceed maxResults, this value can be used to
 retrieve the next page of results. This value is null when there are no more
 results to return. **/
         nextToken?: String;
@@ -1594,7 +1589,7 @@ cluster is assumed. **/
         /** You can filter the results of a ListContainerInstances operation with cluster
 query language statements. For more information, see Cluster Query Language
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html] 
-in the Amazon EC2 Container Service Developer Guide . **/
+in the Amazon EC2 Container Service Developer Guide. **/
         filter?: String;
         /** The nextToken value returned from a previous paginated ListContainerInstances 
 request where maxResults was used and the results exceeded the value of that
@@ -1625,7 +1620,7 @@ UpdateContainerInstancesState operation. **/
 each container instance associated with the specified cluster. **/
         containerInstanceArns?: StringList;
         /** The nextToken value to include in a future ListContainerInstances request. When
-the results of a ListContainerInstances request exceed maxResults , this value
+the results of a ListContainerInstances request exceed maxResults, this value
 can be used to retrieve the next page of results. This value is null when there
 are no more results to return. **/
         nextToken?: String;
@@ -1657,21 +1652,21 @@ between 1 and 10. If this parameter is not used, then ListServices returns up to
 with the specified cluster. **/
         serviceArns?: StringList;
         /** The nextToken value to include in a future ListServices request. When the
-results of a ListServices request exceed maxResults , this value can be used to
+results of a ListServices request exceed maxResults, this value can be used to
 retrieve the next page of results. This value is null when there are no more
 results to return. **/
         nextToken?: String;
     }
     export interface ListTaskDefinitionFamiliesRequest {
         /** The familyPrefix is a string that is used to filter the results of 
-ListTaskDefinitionFamilies . If you specify a familyPrefix , only task
-definition family names that begin with the familyPrefix string are returned. **/
+ListTaskDefinitionFamilies. If you specify a familyPrefix, only task definition
+family names that begin with the familyPrefix string are returned. **/
         familyPrefix?: String;
         /** The task definition family status with which to filter the 
 ListTaskDefinitionFamilies results. By default, both ACTIVE and INACTIVE task
-definition families are listed. If this parameter is set to ACTIVE , only task
+definition families are listed. If this parameter is set to ACTIVE, only task
 definition families that have an ACTIVE task definition revision are returned.
-If this parameter is set to INACTIVE , only task definition families that do not
+If this parameter is set to INACTIVE, only task definition families that do not
 have any ACTIVE task definition revisions are returned. If you paginate the
 resulting output, be sure to keep the status value constant in each subsequent
 request. **/
@@ -1700,9 +1695,9 @@ value if applicable. **/
 ListTaskDefinitionFamilies request. **/
         families?: StringList;
         /** The nextToken value to include in a future ListTaskDefinitionFamilies request.
-When the results of a ListTaskDefinitionFamilies request exceed maxResults ,
-this value can be used to retrieve the next page of results. This value is null 
-when there are no more results to return. **/
+When the results of a ListTaskDefinitionFamilies request exceed maxResults, this
+value can be used to retrieve the next page of results. This value is null when
+there are no more results to return. **/
         nextToken?: String;
     }
     export interface ListTaskDefinitionsRequest {
@@ -1712,16 +1707,16 @@ revisions that belong to that family. **/
         familyPrefix?: String;
         /** The task definition status with which to filter the ListTaskDefinitions results.
 By default, only ACTIVE task definitions are listed. By setting this parameter
-to INACTIVE , you can view task definitions that are INACTIVE as long as an
+to INACTIVE, you can view task definitions that are INACTIVE as long as an
 active task or service still references them. If you paginate the resulting
 output, be sure to keep the status value constant in each subsequent request. **/
         status?: TaskDefinitionStatus;
-        /** The order in which to sort the results. Valid values are ASC and DESC . By
-default ( ASC ), task definitions are listed lexicographically by family name
-and in ascending numerical order by revision so that the newest task definitions
-in a family are listed last. Setting this parameter to DESC reverses the sort
-order on family name and revision so that the newest task definitions in a
-family are listed first. **/
+        /** The order in which to sort the results. Valid values are ASC and DESC. By
+default (ASC), task definitions are listed lexicographically by family name and
+in ascending numerical order by revision so that the newest task definitions in
+a family are listed last. Setting this parameter to DESC reverses the sort order
+on family name and revision so that the newest task definitions in a family are
+listed first. **/
         sort?: SortOrder;
         /** The nextToken value returned from a previous paginated ListTaskDefinitions 
 request where maxResults was used and the results exceeded the value of that
@@ -1746,7 +1741,7 @@ returns up to 100 results and a nextToken value if applicable. **/
 ListTaskDefinitions request. **/
         taskDefinitionArns?: StringList;
         /** The nextToken value to include in a future ListTaskDefinitions request. When the
-results of a ListTaskDefinitions request exceed maxResults , this value can be
+results of a ListTaskDefinitions request exceed maxResults, this value can be
 used to retrieve the next page of results. This value is null when there are no
 more results to return. **/
         nextToken?: String;
@@ -1787,21 +1782,21 @@ serviceName limits the results to tasks that belong to that service. **/
         serviceName?: String;
         /** The task desired status with which to filter the ListTasks results. Specifying a 
 desiredStatus of STOPPED limits the results to tasks that ECS has set the
-desired status to STOPPED , which can be useful for debugging tasks that are not
-starting properly or have died or finished. The default status filter is RUNNING 
-, which shows tasks that ECS has set the desired status to RUNNING .
+desired status to STOPPED, which can be useful for debugging tasks that are not
+starting properly or have died or finished. The default status filter is RUNNING
+, which shows tasks that ECS has set the desired status to RUNNING.
 
-Although you can filter results based on a desired status of PENDING , this will
+Although you can filter results based on a desired status of PENDING, this will
 not return any results because ECS never sets the desired status of a task to
-that value (only a task&#x27;s lastStatus may have a value of PENDING ). **/
+that value (only a task&#x27;s lastStatus may have a value of PENDING). **/
         desiredStatus?: DesiredStatus;
     }
     export interface ListTasksResponse {
         /** The list of task Amazon Resource Name (ARN) entries for the ListTasks request. **/
         taskArns?: StringList;
         /** The nextToken value to include in a future ListTasks request. When the results
-of a ListTasks request exceed maxResults , this value can be used to retrieve
-the next page of results. This value is null when there are no more results to
+of a ListTasks request exceed maxResults, this value can be used to retrieve the
+next page of results. This value is null when there are no more results to
 return. **/
         nextToken?: String;
     }
@@ -1822,7 +1817,7 @@ instances must allow ingress traffic on the hostPort of the port mapping. **/
     export interface LogConfiguration {
         /** The log driver to use for the container. The valid values listed for this
 parameter are log drivers that the Amazon ECS container agent can communicate
-with by default.
+with by default. 
 
 If you have a custom driver that is not listed above that you would like to work
 with the Amazon ECS container agent, you can fork the Amazon ECS container agent
@@ -1851,9 +1846,9 @@ container instance and run the following command: sudo docker version | grep
         sourceVolume?: String;
         /** The path on the container to mount the host volume at. **/
         containerPath?: String;
-        /** If this value is true , the container has read-only access to the volume. If
-this value is false , then the container can write to the volume. The default
-value is false . **/
+        /** If this value is true, the container has read-only access to the volume. If this
+value is false, then the container can write to the volume. The default value is 
+false. **/
         readOnly?: BoxedBoolean;
     }
     export interface NetworkBinding {
@@ -1875,10 +1870,10 @@ restrict selection to a group of valid candidates. Note that distinctInstance is
 not supported in task definitions. **/
         type?: PlacementConstraintType;
         /** A cluster query language expression to apply to the constraint. Note you cannot
-specify an expression if the constraint type is distinctInstance . For more
+specify an expression if the constraint type is distinctInstance. For more
 information, see Cluster Query Language
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html] 
-in the Amazon EC2 Container Service Developer Guide . **/
+in the Amazon EC2 Container Service Developer Guide. **/
         expression?: String;
     }
     export interface PlacementStrategy {
@@ -1891,10 +1886,10 @@ if you binpack on memory, a task is placed on the instance with the least amount
 of remaining memory (but still enough to run the task). **/
         type?: PlacementStrategyType;
         /** The field to apply the placement strategy against. For the spread placement
-strategy, valid values are instanceId (or host , which has the same effect), or
+strategy, valid values are instanceId (or host, which has the same effect), or
 any platform or custom attribute that is applied to a container instance, such
-as attribute:ecs.availability-zone . For the binpack placement strategy, valid
-values are cpu and memory . For the random placement strategy, this field is not
+as attribute:ecs.availability-zone. For the binpack placement strategy, valid
+values are cpu and memory. For the random placement strategy, this field is not
 used. **/
         field?: String;
     }
@@ -1902,24 +1897,24 @@ used. **/
         /** The port number on the container that is bound to the user-specified or
 automatically assigned host port. If you specify a container port and not a host
 port, your container automatically receives a host port in the ephemeral port
-range (for more information, see hostPort ). Port mappings that are
-automatically assigned in this way do not count toward the 100 reserved ports
-limit of a container instance. **/
+range (for more information, see hostPort). Port mappings that are automatically
+assigned in this way do not count toward the 100 reserved ports limit of a
+container instance. **/
         containerPort?: BoxedInteger;
         /** The port number on the container instance to reserve for your container. You can
 specify a non-reserved host port for your container port mapping, or you can
-omit the hostPort (or set it to 0 ) while specifying a containerPort and your
+omit the hostPort (or set it to 0) while specifying a containerPort and your
 container automatically receives a port in the ephemeral port range for your
 container instance operating system and Docker version.
 
 The default ephemeral port range is 49153 to 65535, and this range is used for
 Docker versions prior to 1.6.0. For Docker version 1.6.0 and later, the Docker
 daemon tries to read the ephemeral port range from 
-/proc/sys/net/ipv4/ip_local_port_range ; if this kernel parameter is
-unavailable, the default ephemeral port range is used. You should not attempt to
-specify a host port in the ephemeral port range, because these are reserved for
-automatic assignment. In general, ports below 32768 are outside of the ephemeral
-port range.
+/proc/sys/net/ipv4/ip_local_port_range; if this kernel parameter is unavailable,
+the default ephemeral port range is used. You should not attempt to specify a
+host port in the ephemeral port range, because these are reserved for automatic
+assignment. In general, ports below 32768 are outside of the ephemeral port
+range.
 
 The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and
 the Amazon ECS container agent ports 51678 and 51679. Any host port that was
@@ -1930,8 +1925,8 @@ output, and a container instance may have up to 100 reserved ports at a time,
 including the default reserved ports (automatically assigned ports do not count
 toward the 100 reserved ports limit). **/
         hostPort?: BoxedInteger;
-        /** The protocol used for the port mapping. Valid values are tcp and udp . The
-default is tcp . **/
+        /** The protocol used for the port mapping. Valid values are tcp and udp. The
+default is tcp. **/
         protocol?: TransportProtocol;
     }
     export interface PutAttributesRequest {
@@ -1986,12 +1981,12 @@ containers in this task can assume. All containers in this task are granted the
 permissions that are specified in this role. For more information, see IAM Roles
 for Tasks
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html] 
-in the Amazon EC2 Container Service Developer Guide . **/
+in the Amazon EC2 Container Service Developer Guide. **/
         taskRoleArn?: String;
         /** The Docker networking mode to use for the containers in the task. The valid
-values are none , bridge , and host .
+values are none, bridge, and host. 
 
-The default Docker network mode is bridge . If the network mode is set to none ,
+The default Docker network mode is bridge. If the network mode is set to none,
 you cannot specify port mappings in your container definitions, and the task&#x27;s
 containers do not have external connectivity. The host network mode offers the
 highest networking performance for containers because they use the host network
@@ -2003,7 +1998,7 @@ are used.
 
 For more information, see Network settings
 [https://docs.docker.com/engine/reference/run/#network-settings] in the Docker
-run reference . **/
+run reference. **/
         networkMode?: NetworkMode;
         /** A list of container definitions in JSON format that describe the different
 containers that make up your task. **/
@@ -2021,10 +2016,10 @@ definition and those specified at run time). **/
         taskDefinition?: TaskDefinition;
     }
     export interface Resource {
-        /** The name of the resource, such as cpu , memory , ports , or a user-defined
+        /** The name of the resource, such as cpu, memory, ports, or a user-defined
 resource. **/
         name?: String;
-        /** The type of the resource, such as INTEGER , DOUBLE , LONG , or STRINGSET . **/
+        /** The type of the resource, such as INTEGER, DOUBLE, LONG, or STRINGSET. **/
         type?: String;
         /** When the doubleValue type is set, the value of the resource must be a double
 precision floating-point type. **/
@@ -2042,8 +2037,8 @@ type. **/
         /** The short name or full Amazon Resource Name (ARN) of the cluster on which to run
 your task. If you do not specify a cluster, the default cluster is assumed. **/
         cluster?: String;
-        /** The family and revision ( family:revision ) or full Amazon Resource Name (ARN)
-of the task definition to run. If a revision is not specified, the latest ACTIVE 
+        /** The family and revision (family:revision) or full Amazon Resource Name (ARN) of
+the task definition to run. If a revision is not specified, the latest ACTIVE 
 revision is used. **/
         taskDefinition: String;
         /** A list of container overrides in JSON format that specify the name of a
@@ -2095,7 +2090,7 @@ placed on your cluster are described here. **/
         /** The Amazon Resource Name (ARN) that identifies the service. The ARN contains the 
 arn:aws:ecs namespace, followed by the region of the service, the AWS account ID
 of the service owner, the service namespace, and then the service name. For
-example, arn:aws:ecs: region : 012345678910 :service/ my-service . **/
+example, arn:aws:ecs:region:012345678910:service/my-service . **/
         serviceArn?: String;
         /** The name of your service. Up to 255 letters (uppercase and lowercase), numbers,
 hyphens, and underscores are allowed. Service names must be unique within a
@@ -2108,20 +2103,19 @@ region or across multiple regions. **/
 balancer name, the container name (as it appears in a container definition), and
 the container port to access from the load balancer. **/
         loadBalancers?: LoadBalancers;
-        /** The status of the service. The valid values are ACTIVE , DRAINING , or INACTIVE 
-. **/
+        /** The status of the service. The valid values are ACTIVE, DRAINING, or INACTIVE. **/
         status?: String;
         /** The desired number of instantiations of the task definition to keep running on
 the service. This value is specified when the service is created with 
-CreateService , and it can be modified with UpdateService . **/
+CreateService, and it can be modified with UpdateService. **/
         desiredCount?: Integer;
         /** The number of tasks in the cluster that are in the RUNNING state. **/
         runningCount?: Integer;
         /** The number of tasks in the cluster that are in the PENDING state. **/
         pendingCount?: Integer;
         /** The task definition to use for tasks in the service. This value is specified
-when the service is created with CreateService , and it can be modified with 
-UpdateService . **/
+when the service is created with CreateService, and it can be modified with 
+UpdateService. **/
         taskDefinition?: String;
         /** Optional deployment parameters that control how many tasks run during the
 deployment and the ordering of stopping and starting tasks. **/
@@ -2159,9 +2153,9 @@ displayed. **/
 start your task. If you do not specify a cluster, the default cluster is
 assumed. **/
         cluster?: String;
-        /** The family and revision ( family:revision ) or full Amazon Resource Name (ARN)
-of the task definition to start. If a revision is not specified, the latest 
-ACTIVE revision is used. **/
+        /** The family and revision (family:revision) or full Amazon Resource Name (ARN) of
+the task definition to start. If a revision is not specified, the latest ACTIVE 
+revision is used. **/
         taskDefinition: String;
         /** A list of container overrides in JSON format that specify the name of a
 container in the specified task definition and the overrides it should receive.
@@ -2304,7 +2298,7 @@ RUNNING state to the STOPPED state). **/
 containers that make up your task. For more information about container
 definition parameters and defaults, see Amazon ECS Task Definitions
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html] 
-in the Amazon EC2 Container Service Developer Guide . **/
+in the Amazon EC2 Container Service Developer Guide. **/
         containerDefinitions?: ContainerDefinitions;
         /** The family of your task definition, used as the definition name. **/
         family?: String;
@@ -2313,27 +2307,27 @@ assume. All containers in this task are granted the permissions that are
 specified in this role. **/
         taskRoleArn?: String;
         /** The Docker networking mode to use for the containers in the task. The valid
-values are none , bridge , and host .
+values are none, bridge, and host. 
 
-If the network mode is none , the containers do not have external connectivity.
-The default Docker network mode is bridge . The host network mode offers the
+If the network mode is none, the containers do not have external connectivity.
+The default Docker network mode is bridge. The host network mode offers the
 highest networking performance for containers because it uses the host network
 stack instead of the virtualized network stack provided by the bridge mode.
 
 For more information, see Network settings
 [https://docs.docker.com/engine/reference/run/#network-settings] in the Docker
-run reference . **/
+run reference. **/
         networkMode?: NetworkMode;
         /** The revision of the task in a particular family. The revision is a version
 number of a task definition in a family. When you register a task definition for
-the first time, the revision is 1 ; each time you register a new revision of a
+the first time, the revision is 1; each time you register a new revision of a
 task definition in the same family, the revision value always increases by one
 (even if you have deregistered previous revisions in this family). **/
         revision?: Integer;
         /** The list of volumes in a task. For more information about volume definition
 parameters and defaults, see Amazon ECS Task Definitions
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html] 
-in the Amazon EC2 Container Service Developer Guide . **/
+in the Amazon EC2 Container Service Developer Guide. **/
         volumes?: VolumeList;
         /** The status of the task definition. **/
         status?: TaskDefinitionStatus;
@@ -2350,7 +2344,7 @@ constraint restricts selection to be from a group of valid candidates. **/
         /** A cluster query language expression to apply to the constraint. For more
 information, see Cluster Query Language
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html] 
-in the Amazon EC2 Container Service Developer Guide . **/
+in the Amazon EC2 Container Service Developer Guide. **/
         expression?: String;
     }
     export interface TaskOverride {
@@ -2362,7 +2356,7 @@ specified in this role. **/
         taskRoleArn?: String;
     }
     export interface Ulimit {
-        /** The type of the ulimit . **/
+        /** The type of the ulimit. **/
         name: UlimitName;
         /** The soft limit for the ulimit type. **/
         softLimit: Integer;
@@ -2412,10 +2406,10 @@ assumed. **/
         /** The number of instantiations of the task to place and keep running in your
 service. **/
         desiredCount?: BoxedInteger;
-        /** The family and revision ( family:revision ) or full Amazon Resource Name (ARN)
-of the task definition to run in your service. If a revision is not specified,
-the latest ACTIVE revision is used. If you modify the task definition with 
-UpdateService , Amazon ECS spawns a task with the new version of the task
+        /** The family and revision (family:revision) or full Amazon Resource Name (ARN) of
+the task definition to run in your service. If a revision is not specified, the
+latest ACTIVE revision is used. If you modify the task definition with 
+UpdateService, Amazon ECS spawns a task with the new version of the task
 definition and then stops an old task after the new version is running. **/
         taskDefinition?: String;
         /** Optional deployment parameters that control how many tasks run during the
@@ -2439,7 +2433,7 @@ repository. **/
     export interface Volume {
         /** The name of the volume. Up to 255 letters (uppercase and lowercase), numbers,
 hyphens, and underscores are allowed. This name is referenced in the 
-sourceVolume parameter of container definition mountPoints . **/
+sourceVolume parameter of container definition mountPoints. **/
         name?: String;
         /** The contents of the host parameter determine whether your data volume persists
 on the host container instance and where it is stored. If the host parameter is
@@ -2451,9 +2445,9 @@ running. **/
     export interface VolumeFrom {
         /** The name of the container to mount volumes from. **/
         sourceContainer?: String;
-        /** If this value is true , the container has read-only access to the volume. If
-this value is false , then the container can write to the volume. The default
-value is false . **/
+        /** If this value is true, the container has read-only access to the volume. If this
+value is false, then the container can write to the volume. The default value is 
+false. **/
         readOnly?: BoxedBoolean;
     }
   }

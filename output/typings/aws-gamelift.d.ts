@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon GameLift ServiceWelcome to the Amazon GameLift API Reference . Amazon GameLift is a managed
+   * Amazon GameLift Service Welcome to the Amazon GameLift API Reference. Amazon GameLift is a managed
 Amazon Web Services (AWS) service for developers who need a scalable,
 server-based solution for multiplayer games. Amazon GameLift provides setup and
 deployment of game servers, and handles infrastructure scaling and session
@@ -26,76 +26,76 @@ preferred language. The AWS SDK includes a set of high-level GameLift actions
 multiplayer game sessions. Alternatively, you can use the AWS command-line
 interface [http://aws.amazon.com/cli/] (CLI) tool, which includes commands for
 GameLift. For administrative actions, you can also use the Amazon GameLift
-console.
+console. 
 
-More Resources
+ More Resources 
 
- &amp;#42; Amazon GameLift Developer Guide
-   [http://docs.aws.amazon.com/gamelift/latest/developerguide/] : Learn more
-   about GameLift features and how to use them
+ &amp;#42;   Amazon GameLift Developer Guide
+   [http://docs.aws.amazon.com/gamelift/latest/developerguide/]: Learn more
+   about GameLift features and how to use them 
    
    
- * Lumberyard and GameLift Tutorials
-   [https://gamedev.amazon.com/forums/tutorials] : Get started fast with
+ *   Lumberyard and GameLift Tutorials
+   [https://gamedev.amazon.com/forums/tutorials]: Get started fast with
    walkthroughs and sample projects
    
    
- * GameDev Blog [http://aws.amazon.com/blogs/gamedev/] : Stay up to date with
+ *   GameDev Blog [http://aws.amazon.com/blogs/gamedev/]: Stay up to date with
    new features and techniques
    
    
- * GameDev Forums
-   [https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html] :
+ *   GameDev Forums
+   [https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html]:
    Connect with the GameDev community
    
    
 
-Manage Games and Players Through GameLift
+ Manage Games and Players Through GameLift 
 
 Call these actions from your game clients and/or services to create and manage
 multiplayer game sessions and player sessions.
 
- * Game sessions:
+ *   Game sessions: 
    
-    * CreateGameSession
+    *   CreateGameSession 
       
       
-    * DescribeGameSessions
+    *   DescribeGameSessions 
       
       
-    * DescribeGameSessionDetails
+    *   DescribeGameSessionDetails 
       
       
-    * UpdateGameSession
+    *   UpdateGameSession 
       
       
-    * SearchGameSessions
-      
-      
-   
-   
- * Player sessions:
-   
-    * CreatePlayerSession
-      
-      
-    * CreatePlayerSessions
-      
-      
-    * DescribePlayerSessions
+    *   SearchGameSessions 
       
       
    
    
- * Other actions:
+ *   Player sessions: 
    
-    * GetGameSessionLogUrl
+    *   CreatePlayerSession 
+      
+      
+    *   CreatePlayerSessions 
+      
+      
+    *   DescribePlayerSessions 
+      
+      
+   
+   
+ *   Other actions: 
+   
+    *   GetGameSessionLogUrl 
       
       
    
    
 
-Set Up and Manage Game Servers
+ Set Up and Manage Game Servers 
 
 Use these administrative actions to configure GameLift to host your game
 servers. When setting up GameLift, you will need to (1) configure a build for
@@ -103,123 +103,123 @@ your game and upload build files, and (2) set up one or more fleets to host game
 sessions. Once you&#x27;ve created and activated a fleet, you can assign aliases to
 it, scale capacity, track performance and utilization, etc.
 
- * Game builds:
+ *   Game builds: 
    
-    * ListBuilds
+    *   ListBuilds 
       
       
-    * CreateBuild
+    *   CreateBuild 
       
       
-    * DescribeBuild
+    *   DescribeBuild 
       
       
-    * UpdateBuild
+    *   UpdateBuild 
       
       
-    * DeleteBuild
+    *   DeleteBuild 
       
       
-    * RequestUploadCredentials
-      
-      
-   
-   
- * Fleets:
-   
-    * ListFleets
-      
-      
-    * CreateFleet
-      
-      
-    * Describe fleets:
-      
-       * DescribeFleetAttributes
-         
-         
-       * DescribeFleetCapacity
-         
-         
-       * DescribeFleetPortSettings
-         
-         
-       * DescribeFleetUtilization
-         
-         
-       * DescribeEC2InstanceLimits
-         
-         
-       * DescribeFleetEvents
-         
-         
-       * DescribeRuntimeConfiguration
-         
-         
-      
-      
-    * Update fleets:
-      
-       * UpdateFleetAttributes
-         
-         
-       * UpdateFleetCapacity
-         
-         
-       * UpdateFleetPortSettings
-         
-         
-       * UpdateRuntimeConfiguration
-         
-         
-      
-      
-    * DeleteFleet
+    *   RequestUploadCredentials 
       
       
    
    
- * Manage your instances:
+ *   Fleets: 
    
-    * DescribeInstances
+    *   ListFleets 
       
       
-    * GetInstanceAccess
+    *   CreateFleet 
+      
+      
+    *  Describe fleets:
+      
+       *   DescribeFleetAttributes 
+         
+         
+       *   DescribeFleetCapacity 
+         
+         
+       *   DescribeFleetPortSettings 
+         
+         
+       *   DescribeFleetUtilization 
+         
+         
+       *   DescribeEC2InstanceLimits 
+         
+         
+       *   DescribeFleetEvents 
+         
+         
+       *   DescribeRuntimeConfiguration 
+         
+         
+      
+      
+    *  Update fleets:
+      
+       *   UpdateFleetAttributes 
+         
+         
+       *   UpdateFleetCapacity 
+         
+         
+       *   UpdateFleetPortSettings 
+         
+         
+       *   UpdateRuntimeConfiguration 
+         
+         
+      
+      
+    *   DeleteFleet 
       
       
    
    
- * Manage fleet aliases:
+ *   Manage your instances: 
    
-    * ListAliases
+    *   DescribeInstances 
       
       
-    * CreateAlias
-      
-      
-    * DescribeAlias
-      
-      
-    * UpdateAlias
-      
-      
-    * DeleteAlias
-      
-      
-    * ResolveAlias
+    *   GetInstanceAccess 
       
       
    
    
- * Manage autoscaling:
+ *   Manage fleet aliases: 
    
-    * PutScalingPolicy
+    *   ListAliases 
       
       
-    * DescribeScalingPolicies
+    *   CreateAlias 
       
       
-    * DeleteScalingPolicy
+    *   DescribeAlias 
+      
+      
+    *   UpdateAlias 
+      
+      
+    *   DeleteAlias 
+      
+      
+    *   ResolveAlias 
+      
+      
+   
+   
+ *   Manage autoscaling: 
+   
+    *   PutScalingPolicy 
+      
+      
+    *   DescribeScalingPolicies 
+      
+      
+    *   DeleteScalingPolicy 
       
       
    
@@ -245,7 +245,7 @@ want to provide better messaging than a standard 404 error.
 To create a fleet alias, specify an alias name, routing strategy, and optional
 description. If successful, a new alias record is returned, including an alias
 ID, which you can reference when creating a game session. To reassign the alias
-to another fleet ID, call UpdateAlias .
+to another fleet ID, call UpdateAlias.
      *
      * @error UnauthorizedException   
      * @error InvalidRequestException   
@@ -257,15 +257,15 @@ to another fleet ID, call UpdateAlias .
     /**
      * Initializes a new build record and generates information required to upload a
 game build to Amazon GameLift. Once the build record has been created and its
-status is INITIALIZED , you can upload your game build.
+status is INITIALIZED, you can upload your game build.
 
 Do not use this API action unless you are using your own Amazon Simple Storage
 Service (Amazon S3) client and need to manually upload your build files.
-Instead, to create a build, use the CLI command upload-build , which creates a
+Instead, to create a build, use the CLI command upload-build, which creates a
 new build record and uploads the build files in one step. (See the Amazon
 GameLift Developer Guide
 [http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html] 
-help on packaging and uploading your build.)
+help on packaging and uploading your build.) 
 
 To create a new build, identify the operating system of the game server
 binaries. All game servers in a build must use the same operating system.
@@ -301,24 +301,24 @@ the location of default log files for GameLift to upload and store.
 If the CreateFleet call is successful, Amazon GameLift performs the following
 tasks:
 
- &amp;#42; Creates a fleet record and sets the status to NEW (followed by other statuses
+ &amp;#42;  Creates a fleet record and sets the status to NEW (followed by other statuses
    as the fleet is activated).
    
    
- * Sets the fleet&#x27;s capacity to 1 &quot;desired&quot;, which causes GameLift to start one
+ *  Sets the fleet&#x27;s capacity to 1 &quot;desired&quot;, which causes GameLift to start one
    new EC2 instance.
    
    
- * Starts launching server processes on the instance. If the fleet is configured
-   to run multiple server processes per instance, GameLift staggers each launch
-   by a few seconds.
+ *  Starts launching server processes on the instance. If the fleet is
+   configured to run multiple server processes per instance, GameLift staggers
+   each launch by a few seconds.
    
    
- * Begins writing events to the fleet event log, which can be accessed in the
+ *  Begins writing events to the fleet event log, which can be accessed in the
    GameLift console.
    
    
- * Sets the fleet&#x27;s status to ACTIVE once one server process in the fleet is
+ *  Sets the fleet&#x27;s status to ACTIVE once one server process in the fleet is
    ready to host a game session.
    
    
@@ -326,21 +326,21 @@ tasks:
 After a fleet is created, use the following actions to change fleet properties
 and configuration:
 
- * UpdateFleetAttributes -- Update fleet metadata, including name and
+ *   UpdateFleetAttributes -- Update fleet metadata, including name and
    description.
    
    
- * UpdateFleetCapacity -- Increase or decrease the number of instances you want
+ *   UpdateFleetCapacity -- Increase or decrease the number of instances you want
    the fleet to maintain.
    
    
- * UpdateFleetPortSettings -- Change the IP address and port ranges that allow
+ *   UpdateFleetPortSettings -- Change the IP address and port ranges that allow
    access to incoming traffic.
    
    
- * UpdateRuntimeConfiguration -- Change how server processes are launched in the
-   fleet, including launch path, launch parameters, and the number of concurrent
-   processes.
+ *   UpdateRuntimeConfiguration -- Change how server processes are launched in
+   the fleet, including launch path, launch parameters, and the number of
+   concurrent processes.
      *
      * @error InternalServiceException   
      * @error NotFoundException   
@@ -381,7 +381,7 @@ evaluate the fleet&#x27;s resource limit creation policy.
     createGameSession(params: GameLift.CreateGameSessionInput, callback?: (err: GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|GameLift.LimitExceededException|GameLift.IdempotentParameterMismatchException|any, data: GameLift.CreateGameSessionOutput|any) => void): Request<GameLift.CreateGameSessionOutput|any,GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|GameLift.LimitExceededException|GameLift.IdempotentParameterMismatchException|any>;
     /**
      * Adds a player to a game session and creates a player session record. A game
-session must be in an ACTIVE status, have a creation policy of ALLOW_ALL , and
+session must be in an ACTIVE status, have a creation policy of ALLOW_ALL, and
 have an open player slot before players can be added to the session.
 
 To create a player session, specify a game session ID and player ID. If
@@ -398,10 +398,10 @@ object is returned.
      */
     createPlayerSession(params: GameLift.CreatePlayerSessionInput, callback?: (err: GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any, data: GameLift.CreatePlayerSessionOutput|any) => void): Request<GameLift.CreatePlayerSessionOutput|any,GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any>;
     /**
-     * Adds a group of players to a game session. Similar to CreatePlayerSession , this
+     * Adds a group of players to a game session. Similar to CreatePlayerSession, this
 action allows you to add multiple players in a single call, which is useful for
 games that provide party and/or matchmaking features. A game session must be in
-an ACTIVE status, have a creation policy of ALLOW_ALL , and have an open player
+an ACTIVE status, have a creation policy of ALLOW_ALL, and have an open player
 slot before players can be added to the session.
 
 To create player sessions, specify a game session ID and a list of player IDs.
@@ -444,7 +444,7 @@ with the deleted build.
     deleteBuild(params: GameLift.DeleteBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any, data: any) => void): Request<any,GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any>;
     /**
      * Deletes everything related to a fleet. Before deleting a fleet, you must set the
-fleet&#x27;s desired capacity to zero. See UpdateFleetCapacity .
+fleet&#x27;s desired capacity to zero. See UpdateFleetCapacity.
 
 This action removes the fleet&#x27;s resources and the fleet record. Once a fleet is
 deleted, you can no longer use that fleet.
@@ -490,10 +490,10 @@ successful, an object containing the build properties is returned.
     /**
      * Retrieves the following information for the specified EC2 instance type:
 
- &amp;#42; maximum number of instances allowed per AWS account (service limit)
+ &amp;#42;  maximum number of instances allowed per AWS account (service limit)
    
    
- * current usage level for the AWS account
+ *  current usage level for the AWS account
    
    
 
@@ -513,7 +513,7 @@ of one or more fleet IDs. When requesting multiple fleets, use the pagination
 parameters to retrieve results as a set of sequential pages. If successful, a 
 FleetAttributes object is returned for each requested fleet ID. When specifying
 a list of fleet IDs, attribute objects are returned only for fleets that
-currently exist.
+currently exist. 
 
 Some API actions may limit the number of fleet IDs allowed in one request. If a
 request exceeds this limit, the request fails and the error message includes the
@@ -533,7 +533,7 @@ or specify a list of one or more fleet IDs. When requesting multiple fleets, use
 the pagination parameters to retrieve results as a set of sequential pages. If
 successful, a FleetCapacity object is returned for each requested fleet ID. When
 specifying a list of fleet IDs, attribute objects are returned only for fleets
-that currently exist.
+that currently exist. 
 
 Some API actions may limit the number of fleet IDs allowed in one request. If a
 request exceeds this limit, the request fails and the error message includes the
@@ -577,7 +577,7 @@ utilization data for all fleets, or specify a list of one or more fleet IDs.
 When requesting multiple fleets, use the pagination parameters to retrieve
 results as a set of sequential pages. If successful, a FleetUtilization object
 is returned for each requested fleet ID. When specifying a list of fleet IDs,
-utilization objects are returned only for fleets that currently exist.
+utilization objects are returned only for fleets that currently exist. 
 
 Some API actions may limit the number of fleet IDs allowed in one request. If a
 request exceeds this limit, the request fails and the error message includes the
@@ -594,7 +594,7 @@ maximum allowed.
 game sessions. This action can be used in several ways: (1) provide a 
 GameSessionId to request details for a specific game session; (2) provide either
 a FleetId or an AliasId to request properties for all game sessions running on a
-fleet.
+fleet. 
 
 To get game session record(s), specify just one of the following: game session
 ID, fleet ID, or alias ID. You can filter this request by game session status.
@@ -613,10 +613,10 @@ the request.
      * Retrieves a set of one or more game sessions and properties. This action can be
 used in several ways: (1) provide a GameSessionId to request properties for a
 specific game session; (2) provide a FleetId or an AliasId to request properties
-for all game sessions running on a fleet. You can also use SearchGameSessions ,
+for all game sessions running on a fleet. You can also use SearchGameSessions,
 which allows you to retrieve all game sessions or filter on certain criteria,
 but only returns game sessions with a status of ACTIVE. If you need to retrieve
-the protection policy for each game session, use DescribeGameSessionDetails .
+the protection policy for each game session, use DescribeGameSessionDetails.
 
 To get game session record(s), specify just one of the following: game session
 ID, fleet ID, or alias ID. You can filter this request by game session status.
@@ -653,7 +653,7 @@ several ways: (1) provide a PlayerSessionId parameter to request properties for
 a specific player session; (2) provide a GameSessionId parameter to request
 properties for all player sessions in the specified game session; (3) provide a 
 PlayerId parameter to request properties for all player sessions of a specified
-player.
+player. 
 
 To get game session record(s), specify only one of the following: a player
 session ID, a game session ID, or a player ID. You can filter this request by
@@ -709,7 +709,7 @@ page for maximum log file sizes. Log files that exceed this limit are not saved.
     getGameSessionLogUrl(params: GameLift.GetGameSessionLogUrlInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: GameLift.GetGameSessionLogUrlOutput|any) => void): Request<GameLift.GetGameSessionLogUrlOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any>;
     /**
      * Requests remote access to a fleet instance. Remote access is useful for
-debugging, gathering benchmarking data, or watching activity in real time.
+debugging, gathering benchmarking data, or watching activity in real time. 
 
 Access requires credentials that match the operating system of the instance. For
 a Windows instance, GameLift returns a username and password as strings for use
@@ -719,7 +719,7 @@ private key must be saved in the proper format to a .pem file before using. If
 you&#x27;re making this request using the AWS CLI, saving the secret can be handled
 as part of the GetInstanceAccess request (see the example later in this topic).
 For more information on remote access, see Remotely Accessing an Instance
-[http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-remote-access.html] 
+[http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-remote-access.html]
 .
 
 To request access to a specific instance, specify the IDs of the instance and
@@ -748,7 +748,7 @@ Aliases are not listed in any particular order.
      * Retrieves build records for all builds associated with the AWS account in use.
 You can limit results to builds that are in a specific status by using the 
 Status parameter. Use the pagination parameters to retrieve results in a set of
-sequential pages.
+sequential pages. 
 
 Build records are not listed in any particular order.
      *
@@ -780,7 +780,7 @@ simultaneously.
 A scaling policy rule statement has the following structure:
 
 If [MetricName] is [ComparisonOperator] [Threshold] for [EvaluationPeriods] 
-minutes, then [ScalingAdjustmentType] to/by [ScalingAdjustment] .
+minutes, then [ScalingAdjustmentType] to/by [ScalingAdjustment].
 
 For example, this policy: &quot;If the number of idle instances exceeds 20 for more
 than 15 minutes, then reduce the fleet capacity by 10 instances&quot; could be
@@ -792,7 +792,7 @@ then [ChangeInCapacity] by [-10].
 To create or update a scaling policy, specify a unique combination of name and
 fleet ID, and set the rule values. All parameters for this action are required.
 If successful, the policy name is returned. Scaling policies cannot be suspended
-or made inactive. To stop enforcing a scaling policy, call DeleteScalingPolicy .
+or made inactive. To stop enforcing a scaling policy, call DeleteScalingPolicy.
      *
      * @error InternalServiceException   
      * @error InvalidRequestException   
@@ -807,12 +807,12 @@ game build files to Amazon S3.
 
 Call this action only if you need credentials for a build created with 
 CreateBuild . This is a rare situation; in most cases, builds are created using
-the CLI command upload-build , which creates a build record and also uploads
-build files.
+the CLI command upload-build, which creates a build record and also uploads
+build files. 
 
 Upload credentials are returned when you create the build, but they have a
 limited lifespan. You can get fresh credentials and use them to re-upload game
-files until the status of that build changes to READY . Once this happens, you
+files until the status of that build changes to READY. Once this happens, you
 must create a brand new build.
      *
      * @error UnauthorizedException   
@@ -836,39 +836,39 @@ must create a brand new build.
 them in a specified order. Currently a game session search is limited to a
 single fleet. Search results include only game sessions that are in ACTIVE
 status. If you need to retrieve game sessions with a status other than active,
-use DescribeGameSessions . If you need to retrieve the protection policy for
-each game session, use DescribeGameSessionDetails .
+use DescribeGameSessions. If you need to retrieve the protection policy for each
+game session, use DescribeGameSessionDetails.
 
 You can search or sort by the following game session attributes:
 
- &amp;#42; gameSessionId -- ID value assigned to a game session. This unique value is
-   returned in a GameSession object when a new game session is created.
+ &amp;#42;   gameSessionId -- ID value assigned to a game session. This unique value is
+   returned in a GameSession object when a new game session is created. 
    
    
- * gameSessionName -- Name assigned to a game session. This value is set when
+ *   gameSessionName -- Name assigned to a game session. This value is set when
    requesting a new game session with CreateGameSession or updating with 
-   UpdateGameSession . Game session names do not need to be unique to a game
+   UpdateGameSession. Game session names do not need to be unique to a game
    session.
    
    
- * creationTimeMillis -- Value indicating when a game session was created. It is
-   expressed in Unix time as milliseconds.
+ *   creationTimeMillis -- Value indicating when a game session was created. It
+   is expressed in Unix time as milliseconds.
    
    
- * playerSessionCount -- Number of players currently connected to a game
+ *   playerSessionCount -- Number of players currently connected to a game
    session. This value changes rapidly as players join the session or drop out.
    
    
- * maximumSessions -- Maximum number of player sessions allowed for a game
+ *   maximumSessions -- Maximum number of player sessions allowed for a game
    session. This value is set when requesting a new game session with 
-   CreateGameSession or updating with UpdateGameSession .
+   CreateGameSession or updating with UpdateGameSession.
    
    
- * hasAvailablePlayerSessions -- Boolean value indicating whether or not a game
+ *   hasAvailablePlayerSessions -- Boolean value indicating whether or not a game
    session has reached its maximum number of players. When searching with this
-   attribute, the search value must be true or false . It is highly recommended
+   attribute, the search value must be true or false. It is highly recommended
    that all search requests include this filter attribute to optimize search
-   performance and return only sessions that players can join.
+   performance and return only sessions that players can join. 
    
    
 
@@ -932,18 +932,18 @@ EC2 instances (hosts) that you want this fleet to contain. Before calling this
 action, you may want to call DescribeEC2InstanceLimits to get the maximum
 capacity based on the fleet&#x27;s EC2 instance type.
 
-If you&#x27;re using autoscaling (see PutScalingPolicy ), you may want to specify a
+If you&#x27;re using autoscaling (see PutScalingPolicy), you may want to specify a
 minimum and/or maximum capacity. If you don&#x27;t provide these, autoscaling can set
 capacity anywhere between zero and the service limits
-[http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift] 
+[http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift]
 .
 
 To update fleet capacity, specify the fleet ID and the number of instances you
 want the fleet to host. If successful, Amazon GameLift starts or terminates
 instances so that the fleet&#x27;s active instance count matches the desired instance
 count. You can view a fleet&#x27;s current capacity information by calling 
-DescribeFleetCapacity . If the desired instance count is higher than the
-instance type&#x27;s limit, the &quot;Limit Exceeded&quot; exception occurs.
+DescribeFleetCapacity. If the desired instance count is higher than the instance
+type&#x27;s limit, the &quot;Limit Exceeded&quot; exception occurs.
      *
      * @error NotFoundException   
      * @error ConflictException   
@@ -957,8 +957,8 @@ instance type&#x27;s limit, the &quot;Limit Exceeded&quot; exception occurs.
     /**
      * Updates port settings for a fleet. To update settings, specify the fleet ID to
 be updated and list the permissions you want to update. List the permissions you
-want to add in InboundPermissionAuthorizations , and permissions you want to
-remove in InboundPermissionRevocations . Permissions to be removed must match
+want to add in InboundPermissionAuthorizations, and permissions you want to
+remove in InboundPermissionRevocations. Permissions to be removed must match
 existing fleet permissions. If successful, the fleet ID for the updated fleet is
 returned.
      *
@@ -1157,29 +1157,29 @@ number expressed in Unix time as milliseconds (ex: &quot;1469498468.057&quot;). 
         /** Unique identifier for a build. **/
         BuildId?: BuildId;
         /** Descriptive label associated with a build. Build names do not need to be unique.
-It can be set using CreateBuild or UpdateBuild . **/
+It can be set using CreateBuild or UpdateBuild. **/
         Name?: FreeText;
         /** Version associated with this build. Version strings do not need to be unique to
-a build. This value can be set using CreateBuild or UpdateBuild . **/
+a build. This value can be set using CreateBuild or UpdateBuild. **/
         Version?: FreeText;
         /** Current status of the build.
 
 Possible build statuses include the following:
 
- &amp;#42; INITIALIZED – A new build has been defined, but no files have been uploaded.
+ &amp;#42;   INITIALIZED – A new build has been defined, but no files have been uploaded.
    You cannot create fleets for builds that are in this status. When a build is
-   successfully created, the build status is set to this value.
+   successfully created, the build status is set to this value. 
    
    
- * READY – The game build has been successfully uploaded. You can now create new
-   fleets for this build.
+ *   READY – The game build has been successfully uploaded. You can now create
+   new fleets for this build.
    
    
- * FAILED – The game build upload failed. You cannot create new fleets for this
+ *   FAILED – The game build upload failed. You cannot create new fleets for this
    build. **/
         Status?: BuildStatus;
         /** File size of the uploaded game build, expressed in bytes. When the build status
-is INITIALIZED , this value is 0. **/
+is INITIALIZED, this value is 0. **/
         SizeOnDisk?: PositiveLong;
         /** Operating system that the game server binaries are built to run on. This value
 determines the type of fleet resources that you can use for this build. **/
@@ -1248,7 +1248,7 @@ and launch parameters instead of a runtime configuration will continue to work.)
 GameLift captures and stores any log files in this location. These logs are in
 addition to game session logs; see more on game session logs in the Amazon
 GameLift Developer Guide
-[http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code] 
+[http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code]
 . If no default log path for a fleet is specified, GameLift will automatically
 upload logs stored on each instance at C:\game\logs (for Windows) or 
 /local/game/logs (for Linux). Use the GameLift console to access stored logs. **/
@@ -1269,12 +1269,12 @@ for a fleet. **/
 parameter is not set, instances in this fleet default to no protection. You can
 change a fleet&#x27;s protection policy using UpdateFleetAttributes, but this change
 will only affect sessions created after the policy change. You can also set
-protection for individual instances using UpdateGameSession .
+protection for individual instances using UpdateGameSession.
 
- &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+ &amp;#42;   NoProtection – The game session can be terminated during a scale-down event.
    
    
- * FullProtection – If the game session is in an ACTIVE status, it cannot be
+ *   FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         NewGameSessionProtectionPolicy?: ProtectionPolicy;
         /** Instructions for launching server processes on each instance in the fleet. The
@@ -1285,7 +1285,7 @@ launch parameters, and the number of concurrent processes with that
 configuration to maintain on each instance. A CreateFleet request must include a
 runtime configuration with at least one server process configuration; otherwise
 the request will fail with an invalid request exception. (This parameter
-replaces the parameters ServerLaunchPath and ServerLaunchParameters ; requests
+replaces the parameters ServerLaunchPath and ServerLaunchParameters; requests
 that contain values for these parameters instead of a runtime configuration will
 continue to work.) **/
         RuntimeConfiguration?: RuntimeConfiguration;
@@ -1519,7 +1519,7 @@ was specified when the game session was created) an autogenerated string. **/
 all game sessions active on the fleet. **/
         AliasId?: AliasId;
         /** Game session status to filter results on. Possible game session statuses include
-ACTIVE, TERMINATED , ACTIVATING and TERMINATING (the last two are transitory). **/
+ACTIVE, TERMINATED, ACTIVATING and TERMINATING (the last two are transitory). **/
         StatusFilter?: NonZeroAndMaxString;
         /** Maximum number of results to return. Use this parameter with NextToken to get
 results as a set of sequential pages. **/
@@ -1550,8 +1550,7 @@ was specified when the game session was created) an autogenerated string. **/
 all game sessions active on the fleet. **/
         AliasId?: AliasId;
         /** Game session status to filter results on. Possible game session statuses include 
-ACTIVE , TERMINATED , ACTIVATING , and TERMINATING (the last two are
-transitory). **/
+ACTIVE, TERMINATED, ACTIVATING, and TERMINATING (the last two are transitory). **/
         StatusFilter?: NonZeroAndMaxString;
         /** Maximum number of results to return. Use this parameter with NextToken to get
 results as a set of sequential pages. **/
@@ -1605,18 +1604,18 @@ was specified when the game session was created) an autogenerated string. **/
 
 Possible player session statuses include the following:
 
- &amp;#42; RESERVED – The player session request has been received, but the player has
-   not yet connected to the server process and/or been validated.
+ &amp;#42;   RESERVED – The player session request has been received, but the player has
+   not yet connected to the server process and/or been validated. 
    
    
- * ACTIVE – The player has been validated by the server process and is currently
-   connected.
+ *   ACTIVE – The player has been validated by the server process and is
+   currently connected.
    
    
- * COMPLETED – The player connection has been dropped.
+ *   COMPLETED – The player connection has been dropped.
    
    
- * TIMEDOUT – A player session request was received, but the player did not
+ *   TIMEDOUT – A player session request was received, but the player did not
    connect and/or was not validated within the time-out limit (60 seconds). **/
         PlayerSessionStatusFilter?: NonZeroAndMaxString;
         /** Maximum number of results to return. Use this parameter with NextToken to get
@@ -1653,25 +1652,25 @@ for. **/
         /** Scaling policy status to filter results on. A scaling policy is only in force
 when in an ACTIVE status.
 
- &amp;#42; ACTIVE – The scaling policy is currently in force.
+ &amp;#42;   ACTIVE – The scaling policy is currently in force.
    
    
- * UPDATEREQUESTED – A request to update the scaling policy has been received.
+ *   UPDATEREQUESTED – A request to update the scaling policy has been received.
    
    
- * UPDATING – A change is being made to the scaling policy.
+ *   UPDATING – A change is being made to the scaling policy.
    
    
- * DELETEREQUESTED – A request to delete the scaling policy has been received.
+ *   DELETEREQUESTED – A request to delete the scaling policy has been received.
    
    
- * DELETING – The scaling policy is being deleted.
+ *   DELETING – The scaling policy is being deleted.
    
    
- * DELETED – The scaling policy has been deleted.
+ *   DELETED – The scaling policy has been deleted.
    
    
- * ERROR – An error occurred in creating the policy. It should be removed and
+ *   ERROR – An error occurred in creating the policy. It should be removed and
    recreated. **/
         StatusFilter?: ScalingStatusType;
         /** Maximum number of results to return. Use this parameter with NextToken to get
@@ -1750,25 +1749,25 @@ expressed in Unix time as milliseconds (ex: &quot;1469498468.057&quot;). **/
 
 Possible fleet statuses include the following:
 
- &amp;#42; NEW – A new fleet has been defined and desired instances is set to 1.
+ &amp;#42;   NEW – A new fleet has been defined and desired instances is set to 1. 
    
    
- * DOWNLOADING/VALIDATING/BUILDING/ACTIVATING – GameLift is setting up the new
+ *   DOWNLOADING/VALIDATING/BUILDING/ACTIVATING – GameLift is setting up the new
    fleet, creating new instances with the game build and starting server
    processes.
    
    
- * ACTIVE – Hosts can now accept game sessions.
+ *   ACTIVE – Hosts can now accept game sessions.
    
    
- * ERROR – An error occurred when downloading, validating, building, or
+ *   ERROR – An error occurred when downloading, validating, building, or
    activating the fleet.
    
    
- * DELETING – Hosts are responding to a delete fleet request.
+ *   DELETING – Hosts are responding to a delete fleet request.
    
    
- * TERMINATED – The fleet no longer exists. **/
+ *   TERMINATED – The fleet no longer exists. **/
         Status?: FleetStatus;
         /** Unique identifier for a build. **/
         BuildId?: BuildId;
@@ -1785,7 +1784,7 @@ date are specified in the fleet&#x27;s RuntimeConfiguration . **/
 GameLift captures and stores any log files in this location. These logs are in
 addition to game session logs; see more on game session logs in the Amazon
 GameLift Developer Guide
-[http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code] 
+[http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code]
 . If no default log path for a fleet is specified, GameLift will automatically
 upload logs that are stored on each instance at C:\game\logs (for Windows) or 
 /local/game/logs (for Linux). Use the GameLift console to access stored logs. **/
@@ -1793,10 +1792,10 @@ upload logs that are stored on each instance at C:\game\logs (for Windows) or
         /** Type of game session protection to set for all new instances started in the
 fleet.
 
- &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+ &amp;#42;   NoProtection – The game session can be terminated during a scale-down event.
    
    
- * FullProtection – If the game session is in an ACTIVE status, it cannot be
+ *   FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         NewGameSessionProtectionPolicy?: ProtectionPolicy;
         /** Operating system of the fleet&#x27;s computing resources. A fleet&#x27;s operating system
@@ -1886,10 +1885,10 @@ of concurrent active game sessions for a single player. **/
         GameSession?: GameSession;
         /** Current status of protection for the game session.
 
- &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+ &amp;#42;   NoProtection – The game session can be terminated during a scale-down event.
    
    
- * FullProtection – If the game session is in an ACTIVE status, it cannot be
+ *   FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         ProtectionPolicy?: ProtectionPolicy;
     }
@@ -1938,17 +1937,17 @@ address and access credentials. **/
         Type?: EC2InstanceType;
         /** Current status of the instance. Possible statuses include the following:
 
- &amp;#42; PENDING – The instance is in the process of being created and launching
-   server processes as defined in the fleet&#x27;s runtime configuration.
+ &amp;#42;   PENDING – The instance is in the process of being created and launching
+   server processes as defined in the fleet&#x27;s runtime configuration. 
    
    
- * ACTIVE – The instance has been successfully created and at least one server
+ *   ACTIVE – The instance has been successfully created and at least one server
    process has successfully launched and reported back to GameLift that it is
    ready to host a game session. The instance is now considered ready to host
-   game sessions.
+   game sessions. 
    
    
- * TERMINATING – The instance is in the process of shutting down. This may
+ *   TERMINATING – The instance is in the process of shutting down. This may
    happen to reduce capacity during a scaling down event or to recycle resources
    in the event of a problem. **/
         Status?: InstanceStatus;
@@ -1991,11 +1990,11 @@ instances, it is a private key. **/
         /** Starting value for a range of allowed port numbers. **/
         FromPort: PortNumber;
         /** Ending value for a range of allowed port numbers. Port numbers are
-end-inclusive. This value must be higher than FromPort . **/
+end-inclusive. This value must be higher than FromPort. **/
         ToPort: PortNumber;
         /** Range of allowed IP addresses. This value must be expressed in CIDR notation
-[https://tools.ietf.org/id/cidr] . Example: &quot; 000.000.000.000/[subnet mask] &quot; or
-optionally the shortened version &quot; 0.0.0.0/[subnet mask] &quot;. **/
+[https://tools.ietf.org/id/cidr]. Example: &quot;000.000.000.000/[subnet mask]&quot; or
+optionally the shortened version &quot;0.0.0.0/[subnet mask]&quot;. **/
         IpRange: NonBlankString;
         /** Network communication protocol used by the fleet. **/
         Protocol: IpProtocol;
@@ -2009,11 +2008,11 @@ aliases of a certain type. To retrieve all aliases, leave this parameter empty.
 
 Possible routing types include the following:
 
- &amp;#42; SIMPLE – The alias resolves to one specific fleet. Use this type when routing
-   to active fleets.
+ &amp;#42;   SIMPLE – The alias resolves to one specific fleet. Use this type when
+   routing to active fleets.
    
    
- * TERMINAL – The alias does not resolve to a fleet but instead can be used to
+ *   TERMINAL – The alias does not resolve to a fleet but instead can be used to
    display a message to the user. A terminal alias throws a
    TerminalRoutingStrategyException with the RoutingStrategy message embedded. **/
         RoutingStrategyType?: RoutingStrategyType;
@@ -2041,16 +2040,16 @@ empty.
 
 Possible build statuses include the following:
 
- &amp;#42; INITIALIZED – A new build has been defined, but no files have been uploaded.
+ &amp;#42;   INITIALIZED – A new build has been defined, but no files have been uploaded.
    You cannot create fleets for builds that are in this status. When a build is
-   successfully created, the build status is set to this value.
+   successfully created, the build status is set to this value. 
    
    
- * READY – The game build has been successfully uploaded. You can now create new
-   fleets for this build.
+ *   READY – The game build has been successfully uploaded. You can now create
+   new fleets for this build.
    
    
- * FAILED – The game build upload failed. You cannot create new fleets for this
+ *   FAILED – The game build upload failed. You cannot create new fleets for this
    build. **/
         Status?: BuildStatus;
         /** Maximum number of results to return. Use this parameter with NextToken to get
@@ -2084,7 +2083,7 @@ the result set, do not specify a value. **/
     export interface ListFleetsOutput {
         /** Set of fleet IDs matching the list request. You can retrieve additional
 information about all returned fleets by passing this result set to a call to 
-DescribeFleetAttributes , DescribeFleetCapacity , and DescribeFleetUtilization . **/
+DescribeFleetAttributes, DescribeFleetCapacity, and DescribeFleetUtilization. **/
         FleetIds?: FleetIdList;
         /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list. **/
@@ -2112,18 +2111,18 @@ expressed in Unix time as milliseconds (ex: &quot;1469498468.057&quot;). **/
 
 Possible player session statuses include the following:
 
- &amp;#42; RESERVED – The player session request has been received, but the player has
-   not yet connected to the server process and/or been validated.
+ &amp;#42;   RESERVED – The player session request has been received, but the player has
+   not yet connected to the server process and/or been validated. 
    
    
- * ACTIVE – The player has been validated by the server process and is currently
-   connected.
+ *   ACTIVE – The player has been validated by the server process and is
+   currently connected.
    
    
- * COMPLETED – The player connection has been dropped.
+ *   COMPLETED – The player connection has been dropped.
    
    
- * TIMEDOUT – A player session request was received, but the player did not
+ *   TIMEDOUT – A player session request was received, but the player did not
    connect and/or was not validated within the time-out limit (60 seconds). **/
         Status?: PlayerSessionStatus;
         /** Game session IP address. All player sessions reference the game session
@@ -2141,17 +2140,17 @@ be unique. A fleet can have only one scaling policy with the same name. **/
         FleetId: FleetId;
         /** Amount of adjustment to make, based on the scaling adjustment type. **/
         ScalingAdjustment: Integer;
-        /** Type of adjustment to make to a fleet&#x27;s instance count (see FleetCapacity ):
+        /** Type of adjustment to make to a fleet&#x27;s instance count (see FleetCapacity):
 
- &amp;#42; ChangeInCapacity – add (or subtract) the scaling adjustment value from the
+ &amp;#42;   ChangeInCapacity – add (or subtract) the scaling adjustment value from the
    current instance count. Positive values scale up while negative values scale
    down.
    
    
- * ExactCapacity – set the instance count to the scaling adjustment value.
+ *   ExactCapacity – set the instance count to the scaling adjustment value.
    
    
- * PercentChangeInCapacity – increase or reduce the current instance count by
+ *   PercentChangeInCapacity – increase or reduce the current instance count by
    the scaling adjustment, read as a percentage. Positive values scale up while
    negative values scale down; for example, a value of &quot;-10&quot; scales the fleet
    down by 10%. **/
@@ -2167,29 +2166,29 @@ a scaling event is triggered. **/
         /** Name of the Amazon GameLift-defined metric that is used to trigger an
 adjustment.
 
- &amp;#42; ActivatingGameSessions – number of game sessions in the process of being
-   created (game session status = ACTIVATING ).
+ &amp;#42;   ActivatingGameSessions – number of game sessions in the process of being
+   created (game session status = ACTIVATING).
    
    
- * ActiveGameSessions – number of game sessions currently running (game session
-   status = ACTIVE ).
+ *   ActiveGameSessions – number of game sessions currently running (game session
+   status = ACTIVE).
    
    
- * CurrentPlayerSessions – number of active or reserved player sessions (player
-   session status = ACTIVE or RESERVED ).
+ *   CurrentPlayerSessions – number of active or reserved player sessions (player
+   session status = ACTIVE or RESERVED). 
    
    
- * AvailablePlayerSessions – number of player session slots currently available
+ *   AvailablePlayerSessions – number of player session slots currently available
    in active game sessions across the fleet, calculated by subtracting a game
    session&#x27;s current player session count from its maximum player session count.
    This number includes game sessions that are not currently accepting players
-   (game session PlayerSessionCreationPolicy = DENY_ALL ).
+   (game session PlayerSessionCreationPolicy = DENY_ALL).
    
    
- * ActiveInstances – number of instances currently running a game session.
+ *   ActiveInstances – number of instances currently running a game session.
    
    
- * IdleInstances – number of instances not currently running a game session. **/
+ *   IdleInstances – number of instances not currently running a game session. **/
         MetricName: MetricName;
     }
     export interface PutScalingPolicyOutput {
@@ -2229,11 +2228,11 @@ period. **/
 
 Possible routing types include the following:
 
- &amp;#42; SIMPLE – The alias resolves to one specific fleet. Use this type when routing
-   to active fleets.
+ &amp;#42;   SIMPLE – The alias resolves to one specific fleet. Use this type when
+   routing to active fleets.
    
    
- * TERMINAL – The alias does not resolve to a fleet but instead can be used to
+ *   TERMINAL – The alias does not resolve to a fleet but instead can be used to
    display a message to the user. A terminal alias throws a
    TerminalRoutingStrategyException with the RoutingStrategy message embedded. **/
         Type?: RoutingStrategyType;
@@ -2265,40 +2264,40 @@ be unique. **/
         /** Current status of the scaling policy. The scaling policy is only in force when
 in an ACTIVE status.
 
- &amp;#42; ACTIVE – The scaling policy is currently in force.
+ &amp;#42;   ACTIVE – The scaling policy is currently in force.
    
    
- * UPDATE_REQUESTED – A request to update the scaling policy has been received.
+ *   UPDATE_REQUESTED – A request to update the scaling policy has been received.
    
    
- * UPDATING – A change is being made to the scaling policy.
+ *   UPDATING – A change is being made to the scaling policy.
    
    
- * DELETE_REQUESTED – A request to delete the scaling policy has been received.
+ *   DELETE_REQUESTED – A request to delete the scaling policy has been received.
    
    
- * DELETING – The scaling policy is being deleted.
+ *   DELETING – The scaling policy is being deleted.
    
    
- * DELETED – The scaling policy has been deleted.
+ *   DELETED – The scaling policy has been deleted.
    
    
- * ERROR – An error occurred in creating the policy. It should be removed and
+ *   ERROR – An error occurred in creating the policy. It should be removed and
    recreated. **/
         Status?: ScalingStatusType;
         /** Amount of adjustment to make, based on the scaling adjustment type. **/
         ScalingAdjustment?: Integer;
-        /** Type of adjustment to make to a fleet&#x27;s instance count (see FleetCapacity ):
+        /** Type of adjustment to make to a fleet&#x27;s instance count (see FleetCapacity):
 
- &amp;#42; ChangeInCapacity – add (or subtract) the scaling adjustment value from the
+ &amp;#42;   ChangeInCapacity – add (or subtract) the scaling adjustment value from the
    current instance count. Positive values scale up while negative values scale
    down.
    
    
- * ExactCapacity – set the instance count to the scaling adjustment value.
+ *   ExactCapacity – set the instance count to the scaling adjustment value.
    
    
- * PercentChangeInCapacity – increase or reduce the current instance count by
+ *   PercentChangeInCapacity – increase or reduce the current instance count by
    the scaling adjustment, read as a percentage. Positive values scale up while
    negative values scale down. **/
         ScalingAdjustmentType?: ScalingAdjustmentType;
@@ -2311,29 +2310,29 @@ a scaling event is triggered. **/
         EvaluationPeriods?: PositiveInteger;
         /** Name of the GameLift-defined metric that is used to trigger an adjustment.
 
- &amp;#42; ActivatingGameSessions – number of game sessions in the process of being
-   created (game session status = ACTIVATING ).
+ &amp;#42;   ActivatingGameSessions – number of game sessions in the process of being
+   created (game session status = ACTIVATING).
    
    
- * ActiveGameSessions – number of game sessions currently running (game session
-   status = ACTIVE ).
+ *   ActiveGameSessions – number of game sessions currently running (game session
+   status = ACTIVE).
    
    
- * CurrentPlayerSessions – number of active or reserved player sessions (player
-   session status = ACTIVE or RESERVED ).
+ *   CurrentPlayerSessions – number of active or reserved player sessions (player
+   session status = ACTIVE or RESERVED). 
    
    
- * AvailablePlayerSessions – number of player session slots currently available
+ *   AvailablePlayerSessions – number of player session slots currently available
    in active game sessions across the fleet, calculated by subtracting a game
    session&#x27;s current player session count from its maximum player session count.
    This number does include game sessions that are not currently accepting
-   players (game session PlayerSessionCreationPolicy = DENY_ALL ).
+   players (game session PlayerSessionCreationPolicy = DENY_ALL).
    
    
- * ActiveInstances – number of instances currently running a game session.
+ *   ActiveInstances – number of instances currently running a game session.
    
    
- * IdleInstances – number of instances not currently running a game session. **/
+ *   IdleInstances – number of instances not currently running a game session. **/
         MetricName?: MetricName;
     }
     export interface SearchGameSessionsInput {
@@ -2350,65 +2349,65 @@ fleet that are in ACTIVE status.
 A filter expression can contain one or multiple conditions. Each condition
 consists of the following:
 
- &amp;#42; Operand -- Name of a game session attribute. Valid values are gameSessionName 
-   , gameSessionId , creationTimeMillis , playerSessionCount , maximumSessions , 
-   hasAvailablePlayerSessions .
+ &amp;#42;   Operand -- Name of a game session attribute. Valid values are 
+   gameSessionName, gameSessionId, creationTimeMillis, playerSessionCount, 
+   maximumSessions, hasAvailablePlayerSessions.
    
    
- * Comparator -- Valid comparators are: = , &lt;&gt; , &lt; , &gt; , &lt;= , &gt;= .
+ *   Comparator -- Valid comparators are: =, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=. 
    
    
- * Value -- Value to be searched for. Values can be numbers, boolean values
+ *   Value -- Value to be searched for. Values can be numbers, boolean values
    (true/false) or strings. String values are case sensitive, enclosed in single
    quotes. Special characters must be escaped. Boolean and string values can
-   only be used with the comparators = and &lt;&gt; . For example, the following
-   filter expression searches on gameSessionName : &quot; FilterExpression&quot;:
-   &quot;gameSessionName = &#x27;Matt\\&#x27;s Awesome Game 1&#x27;&quot; .
+   only be used with the comparators = and &lt;&gt;. For example, the following filter
+   expression searches on gameSessionName: &quot;FilterExpression&quot;: &quot;gameSessionName
+   = &#x27;Matt\\&#x27;s Awesome Game 1&#x27;&quot;. 
    
    
 
 To chain multiple conditions in a single expression, use the logical keywords 
-AND , OR , and NOT and parentheses as needed. For example: x AND y AND NOT z , 
-NOT (x OR y) .
+AND, OR, and NOT and parentheses as needed. For example: x AND y AND NOT z, NOT
+(x OR y).
 
 Session search evaluates conditions from left to right using the following
 precedence rules:
 
- 1. = , &lt;&gt; , &lt; , &gt; , &lt;= , &gt;=
+ 1.   =, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;= 
     
     
- 2. Parentheses
+ 2.  Parentheses
     
     
- 3. NOT
+ 3.  NOT
     
     
- 4. AND
+ 4.  AND
     
     
- 5. OR
+ 5.  OR
     
     
 
 For example, this filter expression retrieves game sessions hosting at least ten
 players that have an open player slot: &quot;maximumSessions&gt;=10 AND
-hasAvailablePlayerSessions=true&quot; . **/
+hasAvailablePlayerSessions=true&quot;. **/
         FilterExpression?: NonZeroAndMaxString;
         /** Instructions on how to sort the search results. If no sort expression is
 included, the request returns results in random order. A sort expression
 consists of the following elements:
 
- &amp;#42; Operand -- Name of a game session attribute. Valid values are gameSessionName 
-   , gameSessionId , creationTimeMillis , playerSessionCount , maximumSessions , 
-   hasAvailablePlayerSessions .
+ &amp;#42;   Operand -- Name of a game session attribute. Valid values are 
+   gameSessionName, gameSessionId, creationTimeMillis, playerSessionCount, 
+   maximumSessions, hasAvailablePlayerSessions.
    
    
- * Order -- Valid sort orders are ASC (ascending) and DESC (descending).
+ *   Order -- Valid sort orders are ASC (ascending) and DESC (descending).
    
    
 
 For example, this sort expression returns the oldest active sessions first: 
-&quot;SortExpression&quot;: &quot;creationTimeMillis ASC&quot; . Results with a null value for the
+&quot;SortExpression&quot;: &quot;creationTimeMillis ASC&quot;. Results with a null value for the
 sort operand are returned at the end of the list. **/
         SortExpression?: NonZeroAndMaxString;
         /** Maximum number of results to return. Use this parameter with NextToken to get
@@ -2430,12 +2429,12 @@ action. If no token is returned, these results represent the end of the list. **
     }
     export interface ServerProcess {
         /** Location of the server executable in a game build. All game builds are installed
-on instances at the root : for Windows instances C:\game , and for Linux
-instances /local/game . A Windows game build with an executable file located at 
-MyGame\latest\server.exe must have a launch path of &quot; 
-C:\game\MyGame\latest\server.exe &quot;. A Linux game build with an executable file
-located at MyGame/latest/server.exe must have a launch path of &quot; 
-/local/game/MyGame/latest/server.exe &quot;. **/
+on instances at the root : for Windows instances C:\game, and for Linux
+instances /local/game. A Windows game build with an executable file located at 
+MyGame\latest\server.exe must have a launch path of &quot;
+C:\game\MyGame\latest\server.exe&quot;. A Linux game build with an executable file
+located at MyGame/latest/server.exe must have a launch path of &quot;
+/local/game/MyGame/latest/server.exe&quot;. **/
         LaunchPath: NonZeroAndMaxString;
         /** Optional list of parameters to pass to the server executable on launch. **/
         Parameters?: NonZeroAndMaxString;
@@ -2486,12 +2485,12 @@ a build. **/
         Description?: NonZeroAndMaxString;
         /** Game session protection policy to apply to all new instances created in this
 fleet. Instances that already exist are not affected. You can set protection for
-individual instances using UpdateGameSession .
+individual instances using UpdateGameSession.
 
- &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+ &amp;#42;   NoProtection – The game session can be terminated during a scale-down event.
    
    
- * FullProtection – If the game session is in an ACTIVE status, it cannot be
+ *   FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         NewGameSessionProtectionPolicy?: ProtectionPolicy;
         /** Policy that limits the number of game sessions an individual player can create
@@ -2544,10 +2543,10 @@ be unique. **/
         PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy;
         /** Game session protection policy to apply to this game session only.
 
- &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+ &amp;#42;   NoProtection – The game session can be terminated during a scale-down event.
    
    
- * FullProtection – If the game session is in an ACTIVE status, it cannot be
+ *   FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         ProtectionPolicy?: ProtectionPolicy;
     }

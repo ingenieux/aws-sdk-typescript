@@ -14,21 +14,21 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Directory ServiceAWS Directory Service is a web service that makes it easy
+   * AWS Directory Service AWS Directory Service is a web service that makes it easy
 for you to setup and run directories in the AWS cloud, or connect your AWS
 resources with an existing on-premises Microsoft Active Directory. This guide
 provides detailed information about AWS Directory Service operations, data
 types, parameters, and errors. For information about AWS Directory Services
 features, see AWS Directory Service [https://aws.amazon.com/directoryservice/] 
 and the AWS Directory Service Administration Guide
-[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html] .
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html].
 
 AWS provides SDKs that consist of libraries and sample code for various
 programming languages and platforms (Java, Ruby, .Net, iOS, Android, etc.). The
 SDKs provide a convenient way to create programmatic access to AWS Directory
 Service and other AWS services. For more information about the AWS SDKs,
 including how to download and install them, see Tools for Amazon Web Services
-[http://aws.amazon.com/tools/] .
+[http://aws.amazon.com/tools/].
    *
    */
   export class DirectoryService extends Service {
@@ -39,13 +39,13 @@ including how to download and install them, see Tools for Amazon Web Services
 address, you must add a CIDR address block to correctly route traffic to and
 from your Microsoft AD on Amazon Web Services. AddIpRoutes adds this address
 block. You can also use AddIpRoutes to facilitate routing traffic that uses
-public IP ranges from your Microsoft AD on AWS to a peer VPC.
+public IP ranges from your Microsoft AD on AWS to a peer VPC. 
 
-Before you call AddIpRoutes , ensure that all of the required permissions have
+Before you call AddIpRoutes, ensure that all of the required permissions have
 been explicitly granted through a policy. For details about what permissions are
 required to run the AddIpRoutes operation, see AWS Directory Service API
 Permissions: Actions, Resources, and Conditions Reference
-[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html]
 .
      *
      * @error EntityDoesNotExistException   
@@ -73,7 +73,7 @@ Tag keys must be unique to each resource.
      * Cancels an in-progress schema extension to a Microsoft AD directory. Once a
 schema extension has started replicating to all domain controllers, the task can
 no longer be canceled. A schema extension can be canceled during any of the
-following states; Initializing , CreatingSnapshot , and UpdatingSchema .
+following states; Initializing, CreatingSnapshot, and UpdatingSchema.
      *
      * @error EntityDoesNotExistException   
      * @error ClientException   
@@ -83,11 +83,11 @@ following states; Initializing , CreatingSnapshot , and UpdatingSchema .
     /**
      * Creates an AD Connector to connect to an on-premises directory.
 
-Before you call ConnectDirectory , ensure that all of the required permissions
+Before you call ConnectDirectory, ensure that all of the required permissions
 have been explicitly granted through a policy. For details about what
 permissions are required to run the ConnectDirectory operation, see AWS
 Directory Service API Permissions: Actions, Resources, and Conditions Reference
-[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html]
 .
      *
      * @error DirectoryLimitExceededException   
@@ -99,7 +99,7 @@ Directory Service API Permissions: Actions, Resources, and Conditions Reference
     /**
      * Creates an alias for a directory and assigns the alias to the directory. The
 alias is used to construct the access URL for the directory, such as 
-http://&lt;alias&gt;.awsapps.com .
+http://&lt;alias&gt;.awsapps.com.
 
 After an alias has been created, it cannot be deleted or reused, so this
 operation should only be used when absolutely necessary.
@@ -142,11 +142,11 @@ domain. The conditional forwarder points to the trusted domain.
     /**
      * Creates a Simple AD directory.
 
-Before you call CreateDirectory , ensure that all of the required permissions
+Before you call CreateDirectory, ensure that all of the required permissions
 have been explicitly granted through a policy. For details about what
 permissions are required to run the CreateDirectory operation, see AWS Directory
 Service API Permissions: Actions, Resources, and Conditions Reference
-[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html]
 .
      *
      * @error DirectoryLimitExceededException   
@@ -158,11 +158,11 @@ Service API Permissions: Actions, Resources, and Conditions Reference
     /**
      * Creates a Microsoft AD in the AWS cloud.
 
-Before you call CreateMicrosoftAD , ensure that all of the required permissions
+Before you call CreateMicrosoftAD, ensure that all of the required permissions
 have been explicitly granted through a policy. For details about what
 permissions are required to run the CreateMicrosoftAD operation, see AWS
 Directory Service API Permissions: Actions, Resources, and Conditions Reference
-[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html]
 .
      *
      * @error DirectoryLimitExceededException   
@@ -216,11 +216,11 @@ between a Microsoft AD in the AWS cloud and an external domain.
     /**
      * Deletes an AWS Directory Service directory.
 
-Before you call DeleteDirectory , ensure that all of the required permissions
+Before you call DeleteDirectory, ensure that all of the required permissions
 have been explicitly granted through a policy. For details about what
 permissions are required to run the DeleteDirectory operation, see AWS Directory
 Service API Permissions: Actions, Resources, and Conditions Reference
-[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html] 
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html]
 .
      *
      * @error EntityDoesNotExistException   
@@ -464,7 +464,7 @@ after the snapshot date are overwritten.
 This action returns as soon as the restore operation is initiated. You can
 monitor the progress of the restore operation by calling the DescribeDirectories 
 operation with the directory identifier. When the DirectoryDescription.Stage 
-value changes to Active , the restore operation is complete.
+value changes to Active, the restore operation is complete.
      *
      * @error EntityDoesNotExistException   
      * @error InvalidParameterException   
@@ -729,59 +729,59 @@ IP address block of the DNS server used for your on-premises domain. **/
         IpRoutes: IpRoutes;
         /** If set to true, updates the inbound and outbound rules of the security group
 that has the description: &quot;AWS created security group for directory ID directory
-controllers.&quot; Following are the new rules:
+controllers.&quot; Following are the new rules: 
 
 Inbound:
 
- &amp;#42; Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0
+ &amp;#42;  Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0
    
    
- * Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0
+ *  Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0
    
    
- * Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0
+ *  Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0
    
    
- * Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0
+ *  Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0
    
    
- * Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0
+ *  Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0
    
    
- * Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0
+ *  Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0
    
    
- * Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0
+ *  Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0
    
    
- * Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0
+ *  Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0
    
    
- * Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0
+ *  Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0
    
    
- * Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0
+ *  Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0
    
    
- * Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0
+ *  Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0
    
    
- * Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0
+ *  Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0
    
    
- * Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0
+ *  Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0
    
    
- * Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0
+ *  Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0
    
    
- * Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0
+ *  Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0
    
    
- * Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0
+ *  Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0
    
    
- * Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0
+ *  Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0
    
    
 
@@ -789,7 +789,7 @@ Inbound:
 
 Outbound:
 
- * Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0
+ *  Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0
    
    
 
@@ -848,15 +848,14 @@ conditional forwarder. **/
 is the IP address of the DNS server that your conditional forwarder points to. **/
         DnsIpAddrs?: DnsIpAddrs;
         /** The replication scope of the conditional forwarder. The only allowed value is 
-Domain , which will replicate the conditional forwarder to all of the domain
+Domain, which will replicate the conditional forwarder to all of the domain
 controllers for your AWS directory. **/
         ReplicationScope?: ReplicationScope;
     }
     export interface ConnectDirectoryRequest {
-        /** The fully-qualified name of the on-premises directory, such as corp.example.com 
-. **/
+        /** The fully-qualified name of the on-premises directory, such as corp.example.com. **/
         Name: DirectoryName;
-        /** The NetBIOS name of the on-premises directory, such as CORP . **/
+        /** The NetBIOS name of the on-premises directory, such as CORP. **/
         ShortName?: DirectoryShortName;
         /** The password for the on-premises user account. **/
         Password: ConnectPassword;
@@ -919,9 +918,9 @@ set up a trust relationship. **/
     export interface CreateConditionalForwarderResult {
     }
     export interface CreateDirectoryRequest {
-        /** The fully qualified name for the directory, such as corp.example.com . **/
+        /** The fully qualified name for the directory, such as corp.example.com. **/
         Name: DirectoryName;
-        /** The short name of the directory, such as CORP . **/
+        /** The short name of the directory, such as CORP. **/
         ShortName?: DirectoryShortName;
         /** The password for the directory administrator. The directory creation process
 creates a directory administrator account with the username Administrator and
@@ -940,15 +939,15 @@ operation. **/
         DirectoryId?: DirectoryId;
     }
     export interface CreateMicrosoftADRequest {
-        /** The fully qualified domain name for the directory, such as corp.example.com .
+        /** The fully qualified domain name for the directory, such as corp.example.com.
 This name will resolve inside your VPC only. It does not need to be publicly
 resolvable. **/
         Name: DirectoryName;
         /** The NetBIOS name for your domain. A short identifier for your domain, such as 
-CORP . If you don&#x27;t specify a NetBIOS name, it will default to the first part of
-your directory DNS. For example, CORP for the directory DNS corp.example.com . **/
+CORP. If you don&#x27;t specify a NetBIOS name, it will default to the first part of
+your directory DNS. For example, CORP for the directory DNS corp.example.com. **/
         ShortName?: DirectoryShortName;
-        /** The password for the default administrative user named Admin . **/
+        /** The password for the default administrative user named Admin. **/
         Password: Password;
         /** A textual description for the directory. This label will appear on the AWS
 console Directory Details page after the directory is created. **/
@@ -1054,7 +1053,7 @@ returned.
 An empty list results in an InvalidParameterException being thrown. **/
         DirectoryIds?: DirectoryIds;
         /** The DescribeDirectoriesResult.NextToken value from a previous call to 
-DescribeDirectories . Pass null if this is the first call. **/
+DescribeDirectories. Pass null if this is the first call. **/
         NextToken?: NextToken;
         /** The maximum number of items to return. If this value is zero, the maximum number
 of items is specified by the limitations of the operation. **/
@@ -1096,7 +1095,7 @@ member is null or empty, all snapshots are returned using the Limit and
 NextToken members. **/
         SnapshotIds?: SnapshotIds;
         /** The DescribeSnapshotsResult.NextToken value from a previous call to 
-DescribeSnapshots . Pass null if this is the first call. **/
+DescribeSnapshots. Pass null if this is the first call. **/
         NextToken?: NextToken;
         /** The maximum number of objects to return. **/
         Limit?: Limit;
@@ -1110,7 +1109,7 @@ requested number of items left to retrieve, or if the limitations of the
 operation have been exceeded. **/
         Snapshots?: Snapshots;
         /** If not null, more results are available. Pass this value in the NextToken member
-of a subsequent call to DescribeSnapshots . **/
+of a subsequent call to DescribeSnapshots. **/
         NextToken?: NextToken;
     }
     export interface DescribeTrustsRequest {
@@ -1123,8 +1122,8 @@ current account are returned.
 
 An empty list results in an InvalidParameterException being thrown. **/
         TrustIds?: TrustIds;
-        /** The DescribeTrustsResult.NextToken value from a previous call to DescribeTrusts 
-. Pass null if this is the first call. **/
+        /** The DescribeTrustsResult.NextToken value from a previous call to DescribeTrusts.
+Pass null if this is the first call. **/
         NextToken?: NextToken;
         /** The maximum number of objects to return. **/
         Limit?: Limit;
@@ -1153,13 +1152,13 @@ on-premises directory. **/
         /** The username of an account in the on-premises directory that is used to connect
 to the directory. This account must have the following privileges:
 
- &amp;#42; Read users and groups
+ &amp;#42;  Read users and groups
    
    
- * Create computer objects
+ *  Create computer objects
    
    
- * Join computers to the domain **/
+ *  Join computers to the domain **/
         CustomerUserName: UserName;
     }
     export interface DirectoryConnectSettingsDescription {
@@ -1186,11 +1185,11 @@ to the directory. This account must have the following privileges:
         /** The directory size. **/
         Size?: DirectorySize;
         /** The alias for the directory. If no alias has been created for the directory, the
-alias is the directory identifier, such as d-XXXXXXXXXX . **/
+alias is the directory identifier, such as d-XXXXXXXXXX. **/
         Alias?: AliasName;
-        /** The access URL for the directory, such as http://&lt;alias&gt;.awsapps.com . If no
+        /** The access URL for the directory, such as http://&lt;alias&gt;.awsapps.com. If no
 alias has been created for the directory, &lt;alias&gt; is the directory identifier,
-such as d-XXXXXXXXXX . **/
+such as d-XXXXXXXXXX. **/
         AccessUrl?: AccessUrl;
         /** The textual description for the directory. **/
         Description?: Description;
@@ -1224,7 +1223,7 @@ configured for this directory. **/
         /** Additional information about the directory stage. **/
         StageReason?: StageReason;
         /** Indicates if single-sign on is enabled for the directory. For more information,
-see EnableSso and DisableSso . **/
+see EnableSso and DisableSso. **/
         SsoEnabled?: SsoEnabled;
     }
     export interface DirectoryLimitExceededException {
@@ -1390,7 +1389,7 @@ IP address use a CIDR address block with /32. For example 10.0.0.0/32. **/
     export interface IpRouteInfo {
         /** Identifier (ID) of the directory associated with the IP addresses. **/
         DirectoryId?: DirectoryId;
-        /** IP address block in the IpRoute . **/
+        /** IP address block in the IpRoute. **/
         CidrIp?: CidrIp;
         /** The status of the IP address block. **/
         IpRouteStatusMsg?: IpRouteStatusMsg;
@@ -1398,7 +1397,7 @@ IP address use a CIDR address block with /32. For example 10.0.0.0/32. **/
         AddedDateTime?: AddedDateTime;
         /** The reason for the IpRouteStatusMsg. **/
         IpRouteStatusReason?: IpRouteStatusReason;
-        /** Description of the IpRouteInfo . **/
+        /** Description of the IpRouteInfo. **/
         Description?: Description;
     }
     export interface IpRouteLimitExceededException {
@@ -1409,15 +1408,15 @@ IP address use a CIDR address block with /32. For example 10.0.0.0/32. **/
         /** Identifier (ID) of the directory for which you want to retrieve the IP
 addresses. **/
         DirectoryId: DirectoryId;
-        /** The ListIpRoutes.NextToken value from a previous call to ListIpRoutes . Pass
-null if this is the first call. **/
+        /** The ListIpRoutes.NextToken value from a previous call to ListIpRoutes. Pass null
+if this is the first call. **/
         NextToken?: NextToken;
         /** Maximum number of items to return. If this value is zero, the maximum number of
 items is specified by the limitations of the operation. **/
         Limit?: Limit;
     }
     export interface ListIpRoutesResult {
-        /** A list of IpRoute s. **/
+        /** A list of IpRoutes. **/
         IpRoutesInfo?: IpRoutesInfo;
         /** If not null, more results are available. Pass this value for the NextToken 
 parameter in a subsequent call to ListIpRoutes to retrieve the next set of
@@ -1429,7 +1428,7 @@ items. **/
 information. **/
         DirectoryId: DirectoryId;
         /** The ListSchemaExtensions.NextToken value from a previous call to 
-ListSchemaExtensions . Pass null if this is the first call. **/
+ListSchemaExtensions. Pass null if this is the first call. **/
         NextToken?: NextToken;
         /** The maximum number of items to return. **/
         Limit?: Limit;
@@ -1518,7 +1517,7 @@ topic must be in the same region as the specified Directory ID. **/
         Description?: Description;
         /** The current status of the schema extension. **/
         SchemaExtensionStatus?: SchemaExtensionStatus;
-        /** The reason for the SchemaExtensionStatus . **/
+        /** The reason for the SchemaExtensionStatus. **/
         SchemaExtensionStatusReason?: SchemaExtensionStatusReason;
         /** The date and time that the schema extension started being applied to the
 directory. **/

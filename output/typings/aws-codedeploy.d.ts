@@ -14,17 +14,17 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS CodeDeployOverview
+   * AWS CodeDeploy  Overview 
 
 This reference guide provides descriptions of the AWS CodeDeploy APIs. For more
 information about AWS CodeDeploy, see the AWS CodeDeploy User Guide
-[http://docs.aws.amazon.com/codedeploy/latest/userguide] .
+[http://docs.aws.amazon.com/codedeploy/latest/userguide].
 
-Using the APIs
+ Using the APIs 
 
 You can use the AWS CodeDeploy APIs to work with the following:
 
- &amp;#42; Applications are unique identifiers used by AWS CodeDeploy to ensure the
+ &amp;#42;  Applications are unique identifiers used by AWS CodeDeploy to ensure the
    correct combinations of revisions, deployment configurations, and deployment
    groups are being referenced during deployments.
    
@@ -32,36 +32,36 @@ You can use the AWS CodeDeploy APIs to work with the following:
    applications.
    
    
- * Deployment configurations are sets of deployment rules and success and
+ *  Deployment configurations are sets of deployment rules and success and
    failure conditions used by AWS CodeDeploy during deployments.
    
    You can use the AWS CodeDeploy APIs to create, delete, get, and list
    deployment configurations.
    
    
- * Deployment groups are groups of instances to which application revisions can
+ *  Deployment groups are groups of instances to which application revisions can
    be deployed.
    
    You can use the AWS CodeDeploy APIs to create, delete, get, list, and update
    deployment groups.
    
    
- * Instances represent Amazon EC2 instances to which application revisions are
+ *  Instances represent Amazon EC2 instances to which application revisions are
    deployed. Instances are identified by their Amazon EC2 tags or Auto Scaling
    group names. Instances belong to deployment groups.
    
    You can use the AWS CodeDeploy APIs to get and list instance.
    
    
- * Deployments represent the process of deploying revisions to instances.
+ *  Deployments represent the process of deploying revisions to instances.
    
    You can use the AWS CodeDeploy APIs to create, get, list, and stop
    deployments.
    
    
- * Application revisions are archive files stored in Amazon S3 buckets or GitHub
-   repositories. These revisions contain source content (such as source code,
-   web pages, executable files, and deployment scripts) along with an
+ *  Application revisions are archive files stored in Amazon S3 buckets or
+   GitHub repositories. These revisions contain source content (such as source
+   code, web pages, executable files, and deployment scripts) along with an
    application specification (AppSpec) file. (The AppSpec file is unique to AWS
    CodeDeploy; it defines the deployment actions you want AWS CodeDeploy to
    execute.) For application revisions stored in Amazon S3 buckets, an
@@ -717,11 +717,11 @@ used only once in a list of alarms. **/
 state of alarms cannot be retrieved from Amazon CloudWatch. The default value is
 false.
 
- &amp;#42; true: The deployment will proceed even if alarm status information can&#x27;t be
+ &amp;#42;  true: The deployment will proceed even if alarm status information can&#x27;t be
    retrieved from Amazon CloudWatch.
    
    
- * false: The deployment will stop if alarm status information can&#x27;t be
+ *  false: The deployment will stop if alarm status information can&#x27;t be
    retrieved from Amazon CloudWatch. **/
         ignorePollAlarmFailure?: Boolean;
         /** A list of alarms configured for the deployment group. A maximum of 10 alarms can
@@ -843,10 +843,10 @@ a blue/green deployment. **/
         /** The action to take on instances in the original environment after a successful
 blue/green deployment.
 
- &amp;#42; TERMINATE: Instances are terminated after a specified wait time.
+ &amp;#42;  TERMINATE: Instances are terminated after a specified wait time.
    
    
- * KEEP_ALIVE: Instances are left running after they are deregistered from the
+ *  KEEP_ALIVE: Instances are left running after they are deregistered from the
    load balancer and removed from the deployment group. **/
         action?: InstanceAction;
         /** The number of minutes to wait after a successful blue/green deployment before
@@ -878,11 +878,11 @@ value.
 
 The type parameter takes either of the following values:
 
- &amp;#42; HOST_COUNT: The value parameter represents the minimum number of healthy
+ &amp;#42;  HOST_COUNT: The value parameter represents the minimum number of healthy
    instances as an absolute value.
    
    
- * FLEET_PERCENT: The value parameter represents the minimum number of healthy
+ *  FLEET_PERCENT: The value parameter represents the minimum number of healthy
    instances as a percentage of the total number of instances in the deployment.
    If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy
    converts the percentage to the equivalent number of instance and rounds up
@@ -1119,13 +1119,13 @@ servers that participate in the deployment process. **/
         description?: Description;
         /** The means by which the deployment was created:
 
- &amp;#42; user: A user created the deployment.
+ &amp;#42;  user: A user created the deployment.
    
    
- * autoscaling: Auto Scaling created the deployment.
+ *  autoscaling: Auto Scaling created the deployment.
    
    
- * codeDeployRollback: A rollback process created the deployment. **/
+ *  codeDeployRollback: A rollback process created the deployment. **/
         creator?: DeploymentCreator;
         /** If true, then if the deployment causes the ApplicationStop deployment lifecycle
 event to an instance to fail, the deployment to that instance will not be
@@ -1190,12 +1190,12 @@ a blue/green deployment. **/
         /** Information about when to reroute traffic from an original environment to a
 replacement environment in a blue/green deployment.
 
- &amp;#42; CONTINUE_DEPLOYMENT: Register new instances with the load balancer
+ &amp;#42;  CONTINUE_DEPLOYMENT: Register new instances with the load balancer
    immediately after the new application revision is installed on the instances
    in the replacement environment.
    
    
- * STOP_DEPLOYMENT: Do not register new instances with load balancer unless
+ *  STOP_DEPLOYMENT: Do not register new instances with load balancer unless
    traffic is rerouted manually. If traffic is not rerouted manually before the
    end of the specified wait period, the deployment status is changed to
    Stopped. **/
@@ -1220,24 +1220,24 @@ STOP_DEPLOYMENT option for actionOnTimeout **/
     export interface Diagnostics {
         /** The associated error code:
 
- &amp;#42; Success: The specified script ran.
+ &amp;#42;  Success: The specified script ran.
    
    
- * ScriptMissing: The specified script was not found in the specified location.
+ *  ScriptMissing: The specified script was not found in the specified location.
    
    
- * ScriptNotExecutable: The specified script is not a recognized executable file
-   type.
+ *  ScriptNotExecutable: The specified script is not a recognized executable
+   file type.
    
    
- * ScriptTimedOut: The specified script did not finish running in the specified
+ *  ScriptTimedOut: The specified script did not finish running in the specified
    time period.
    
    
- * ScriptFailed: The specified script failed to run as expected.
+ *  ScriptFailed: The specified script failed to run as expected.
    
    
- * UnknownError: The specified script did not run for an unknown reason. **/
+ *  UnknownError: The specified script did not run for an unknown reason. **/
         errorCode?: LifecycleErrorCode;
         /** The name of the script. **/
         scriptName?: ScriptName;
@@ -1255,13 +1255,13 @@ If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log. 
         Value?: Value;
         /** The tag filter type:
 
- &amp;#42; KEY_ONLY: Key only.
+ &amp;#42;  KEY_ONLY: Key only.
    
    
- * VALUE_ONLY: Value only.
+ *  VALUE_ONLY: Value only.
    
    
- * KEY_AND_VALUE: Key and value. **/
+ *  KEY_AND_VALUE: Key and value. **/
         Type?: EC2TagFilterType;
     }
     export interface ELBInfo {
@@ -1273,55 +1273,56 @@ instances to replacement instances in a blue/green deployment. **/
         /** For information about additional error codes, see Error Codes for AWS CodeDeploy
 [http://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html] in the 
 AWS CodeDeploy User Guide
-[http://docs.aws.amazon.com/codedeploy/latest/userguide] .
+[http://docs.aws.amazon.com/codedeploy/latest/userguide].
 
 The error code:
 
- &amp;#42; APPLICATION_MISSING: The application was missing. This error code will most
+ &amp;#42;  APPLICATION_MISSING: The application was missing. This error code will most
    likely be raised if the application is deleted after the deployment is
    created but before it is started.
    
    
- * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code
+ *  DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code
    will most likely be raised if the deployment group is deleted after the
    deployment is created but before it is started.
    
    
- * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be
+ *  HEALTH_CONSTRAINTS: The deployment failed on too many instances to be
    successfully deployed within the instance health constraints specified.
    
    
- * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed
+ *  HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed
    within the instance health constraints specified.
    
    
- * IAM_ROLE_MISSING: The service role cannot be accessed.
+ *  IAM_ROLE_MISSING: The service role cannot be accessed.
    
    
- * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.
+ *  IAM_ROLE_PERMISSIONS: The service role does not have the correct
+   permissions.
    
    
- * INTERNAL_ERROR: There was an internal error.
+ *  INTERNAL_ERROR: There was an internal error.
    
    
- * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2
+ *  NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2
    service.
    
    
- * NO_INSTANCES: No instance were specified, or no instance can be found.
+ *  NO_INSTANCES: No instance were specified, or no instance can be found.
    
    
- * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.
+ *  OVER_MAX_INSTANCES: The maximum number of instance was exceeded.
    
    
- * THROTTLED: The operation was throttled because the calling account exceeded
+ *  THROTTLED: The operation was throttled because the calling account exceeded
    the throttling limits of one or more AWS services.
    
    
- * TIMEOUT: The deployment has timed out.
+ *  TIMEOUT: The deployment has timed out.
    
    
- * REVISION_MISSING: The revision ID was missing. This error code will most
+ *  REVISION_MISSING: The revision ID was missing. This error code will most
    likely be raised if the revision is deleted after the deployment is created
    but before it is started. **/
         code?: ErrorCode;
@@ -1411,7 +1412,7 @@ user or AWS account. **/
     }
     export interface GitHubLocation {
         /** The GitHub account and repository pair that stores a reference to the commit
-that represents the bundled artifacts for the application revision.
+that represents the bundled artifacts for the application revision. 
 
 Specified as account/repository. **/
         repository?: Repository;
@@ -1422,11 +1423,11 @@ for the application revision. **/
     export interface GreenFleetProvisioningOption {
         /** The method used to add instances to a replacement environment.
 
- &amp;#42; DISCOVER_EXISTING: Use instances that already exist or will be created
+ &amp;#42;  DISCOVER_EXISTING: Use instances that already exist or will be created
    manually.
    
    
- * COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to
+ *  COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to
    define and create instances in a new Auto Scaling group. **/
         action?: GreenFleetProvisioningAction;
     }
@@ -1474,22 +1475,22 @@ instance was deregistered. **/
         instanceId?: InstanceId;
         /** The deployment status for this instance:
 
- &amp;#42; Pending: The deployment is pending for this instance.
+ &amp;#42;  Pending: The deployment is pending for this instance.
    
    
- * In Progress: The deployment is in progress for this instance.
+ *  In Progress: The deployment is in progress for this instance.
    
    
- * Succeeded: The deployment has succeeded for this instance.
+ *  Succeeded: The deployment has succeeded for this instance.
    
    
- * Failed: The deployment has failed for this instance.
+ *  Failed: The deployment has failed for this instance.
    
    
- * Skipped: The deployment has been skipped for this instance.
+ *  Skipped: The deployment has been skipped for this instance.
    
    
- * Unknown: The deployment status is unknown for this instance. **/
+ *  Unknown: The deployment status is unknown for this instance. **/
         status?: InstanceStatus;
         /** A timestamp indicating when the instance information was last updated. **/
         lastUpdatedAt?: Timestamp;
@@ -1498,10 +1499,10 @@ instance was deregistered. **/
         /** Information about which environment an instance belongs to in a blue/green
 deployment.
 
- &amp;#42; BLUE: The instance is part of the original environment.
+ &amp;#42;  BLUE: The instance is part of the original environment.
    
    
- * GREEN: The instance is part of the replacement environment. **/
+ *  GREEN: The instance is part of the replacement environment. **/
         instanceType?: InstanceType;
     }
     export interface InvalidAlarmConfigException {
@@ -1582,22 +1583,22 @@ AfterInstall, ApplicationStart, or ValidateService. **/
         endTime?: Timestamp;
         /** The deployment lifecycle event status:
 
- &amp;#42; Pending: The deployment lifecycle event is pending.
+ &amp;#42;  Pending: The deployment lifecycle event is pending.
    
    
- * InProgress: The deployment lifecycle event is in progress.
+ *  InProgress: The deployment lifecycle event is in progress.
    
    
- * Succeeded: The deployment lifecycle event ran successfully.
+ *  Succeeded: The deployment lifecycle event ran successfully.
    
    
- * Failed: The deployment lifecycle event has failed.
+ *  Failed: The deployment lifecycle event has failed.
    
    
- * Skipped: The deployment lifecycle event has been skipped.
+ *  Skipped: The deployment lifecycle event has been skipped.
    
    
- * Unknown: The deployment lifecycle event is unknown. **/
+ *  Unknown: The deployment lifecycle event is unknown. **/
         status?: LifecycleEventStatus;
     }
     export interface LifecycleHookLimitExceededException {
@@ -1608,15 +1609,15 @@ user or AWS account. **/
         applicationName: ApplicationName;
         /** The column name to use to sort the list results:
 
- &amp;#42; registerTime: Sort by the time the revisions were registered with AWS
+ &amp;#42;  registerTime: Sort by the time the revisions were registered with AWS
    CodeDeploy.
    
    
- * firstUsedTime: Sort by the time the revisions were first used in a
+ *  firstUsedTime: Sort by the time the revisions were first used in a
    deployment.
    
    
- * lastUsedTime: Sort by the time the revisions were last used in a deployment.
+ *  lastUsedTime: Sort by the time the revisions were last used in a deployment.
    
    
 
@@ -1625,10 +1626,10 @@ order. **/
         sortBy?: ApplicationRevisionSortBy;
         /** The order in which to sort the list results:
 
- &amp;#42; ascending: ascending order.
+ &amp;#42;  ascending: ascending order.
    
    
- * descending: descending order.
+ *  descending: descending order.
    
    
 
@@ -1645,14 +1646,14 @@ If set to null, all of the user&#x27;s buckets will be searched. **/
         /** Whether to list revisions based on whether the revision is the target revision
 of an deployment group:
 
- &amp;#42; include: List revisions that are target revisions of a deployment group.
+ &amp;#42;  include: List revisions that are target revisions of a deployment group.
    
    
- * exclude: Do not list revisions that are target revisions of a deployment
+ *  exclude: Do not list revisions that are target revisions of a deployment
    group.
    
    
- * ignore: List all revisions. **/
+ *  ignore: List all revisions. **/
         deployed?: ListStateFilterAction;
         /** An identifier returned from the previous list application revisions call. It can
 be used to return the next set of applications in the list. **/
@@ -1719,22 +1720,22 @@ be used to return the next set of deployment instances in the list. **/
         nextToken?: NextToken;
         /** A subset of instances to list by status:
 
- &amp;#42; Pending: Include those instance with pending deployments.
+ &amp;#42;  Pending: Include those instance with pending deployments.
    
    
- * InProgress: Include those instance where deployments are still in progress.
+ *  InProgress: Include those instance where deployments are still in progress.
    
    
- * Succeeded: Include those instances with successful deployments.
+ *  Succeeded: Include those instances with successful deployments.
    
    
- * Failed: Include those instance with failed deployments.
+ *  Failed: Include those instance with failed deployments.
    
    
- * Skipped: Include those instance with skipped deployments.
+ *  Skipped: Include those instance with skipped deployments.
    
    
- * Unknown: Include those instance with deployments in an unknown state. **/
+ *  Unknown: Include those instance with deployments in an unknown state. **/
         instanceStatusFilter?: InstanceStatusList;
         /** The set of instances in a blue/green deployment, either those in the original
 environment (&quot;BLUE&quot;) or those in the replacement environment (&quot;GREEN&quot;), for
@@ -1757,22 +1758,22 @@ user or AWS account. **/
         deploymentGroupName?: DeploymentGroupName;
         /** A subset of deployments to list by status:
 
- &amp;#42; Created: Include created deployments in the resulting list.
+ &amp;#42;  Created: Include created deployments in the resulting list.
    
    
- * Queued: Include queued deployments in the resulting list.
+ *  Queued: Include queued deployments in the resulting list.
    
    
- * In Progress: Include in-progress deployments in the resulting list.
+ *  In Progress: Include in-progress deployments in the resulting list.
    
    
- * Succeeded: Include successful deployments in the resulting list.
+ *  Succeeded: Include successful deployments in the resulting list.
    
    
- * Failed: Include failed deployments in the resulting list.
+ *  Failed: Include failed deployments in the resulting list.
    
    
- * Stopped: Include stopped deployments in the resulting list. **/
+ *  Stopped: Include stopped deployments in the resulting list. **/
         includeOnlyStatuses?: DeploymentStatusList;
         /** A time range (start and end) for returning a subset of the list of deployments. **/
         createTimeRange?: TimeRange;
@@ -1791,11 +1792,11 @@ deployments in the list. **/
     export interface ListOnPremisesInstancesInput {
         /** The registration status of the on-premises instances:
 
- &amp;#42; Deregistered: Include deregistered on-premises instances in the resulting
+ &amp;#42;  Deregistered: Include deregistered on-premises instances in the resulting
    list.
    
    
- * Registered: Include registered on-premises instances in the resulting list. **/
+ *  Registered: Include registered on-premises instances in the resulting list. **/
         registrationStatus?: RegistrationStatus;
         /** The on-premises instance tags that will be used to restrict the corresponding
 on-premises instance names returned. **/
@@ -1822,10 +1823,10 @@ Balancing to use in a blue/green deployment. **/
         value?: MinimumHealthyHostsValue;
         /** The minimum healthy instance type:
 
- &amp;#42; HOST_COUNT: The minimum number of healthy instance as an absolute value.
+ &amp;#42;  HOST_COUNT: The minimum number of healthy instance as an absolute value.
    
    
- * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the
+ *  FLEET_PERCENT: The minimum number of healthy instance as a percentage of the
    total number of instance in the deployment.
    
    
@@ -1886,10 +1887,10 @@ associated deployment groups. **/
     export interface RevisionLocation {
         /** The type of application revision:
 
- &amp;#42; S3: An application revision stored in Amazon S3.
+ &amp;#42;  S3: An application revision stored in Amazon S3.
    
    
- * GitHub: An application revision stored in GitHub. **/
+ *  GitHub: An application revision stored in GitHub. **/
         revisionType?: RevisionLocationType;
         /** Information about the location of application artifacts stored in Amazon S3. **/
         s3Location?: S3Location;
@@ -1918,13 +1919,13 @@ application revision. **/
         key?: S3Key;
         /** The file type of the application revision. Must be one of the following:
 
- &amp;#42; tar: A tar archive file.
+ &amp;#42;  tar: A tar archive file.
    
    
- * tgz: A compressed tar archive file.
+ *  tgz: A compressed tar archive file.
    
    
- * zip: A zip archive file. **/
+ *  zip: A zip archive file. **/
         bundleType?: BundleType;
         /** A specific version of the Amazon S3 object that represents the bundled artifacts
 for the application revision.
@@ -1955,10 +1956,10 @@ revision. **/
     export interface StopDeploymentOutput {
         /** The status of the stop deployment operation:
 
- &amp;#42; Pending: The stop operation is pending.
+ &amp;#42;  Pending: The stop operation is pending.
    
    
- * Succeeded: The stop operation was successful. **/
+ *  Succeeded: The stop operation was successful. **/
         status?: StopStatus;
         /** An accompanying status message. **/
         statusMessage?: Message;
@@ -1976,13 +1977,13 @@ revision. **/
         Value?: Value;
         /** The on-premises instance tag filter type:
 
- &amp;#42; KEY_ONLY: Key only.
+ &amp;#42;  KEY_ONLY: Key only.
    
    
- * VALUE_ONLY: Value only.
+ *  VALUE_ONLY: Value only.
    
    
- * KEY_AND_VALUE: Key and value. **/
+ *  KEY_AND_VALUE: Key and value. **/
         Type?: TagFilterType;
     }
     export interface TagLimitExceededException {

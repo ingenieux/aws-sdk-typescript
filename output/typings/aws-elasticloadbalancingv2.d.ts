@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * Elastic Load BalancingA load balancer distributes incoming traffic across
+   * Elastic Load Balancing A load balancer distributes incoming traffic across
 targets, such as your EC2 instances. This enables you to increase the
 availability of your application. The load balancer also monitors the health of
 its registered targets and ensures that it routes traffic only to healthy
@@ -34,37 +34,37 @@ application layer (HTTP/HTTPS), supports path-based routing, and can route
 requests to one or more ports on each EC2 instance or container instance in your
 virtual private cloud (VPC). For more information, see the Elastic Load
 Balancing User Guide
-[http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/] .
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/].
 
 This reference covers the 2015-12-01 API, which supports Application Load
 Balancers. The 2012-06-01 API supports Classic Load Balancers.
 
 To get started, complete the following tasks:
 
- 1. Create an Application Load Balancer using CreateLoadBalancer .
+ 1.  Create an Application Load Balancer using CreateLoadBalancer.
     
     
- 2. Create a target group using CreateTargetGroup .
+ 2.  Create a target group using CreateTargetGroup.
     
     
- 3. Register targets for the target group using RegisterTargets .
+ 3.  Register targets for the target group using RegisterTargets.
     
     
- 4. Create one or more listeners for your load balancer using CreateListener .
+ 4.  Create one or more listeners for your load balancer using CreateListener.
     
     
- 5. (Optional) Create one or more rules for content routing based on URL using 
-    CreateRule .
+ 5.  (Optional) Create one or more rules for content routing based on URL using 
+    CreateRule.
     
     
 
 To delete an Application Load Balancer and its related resources, complete the
 following tasks:
 
- 1. Delete the load balancer using DeleteLoadBalancer .
+ 1.  Delete the load balancer using DeleteLoadBalancer.
     
     
- 2. Delete the target group using DeleteTargetGroup .
+ 2.  Delete the target group using DeleteTargetGroup.
     
     
 
@@ -82,8 +82,8 @@ Load Balancers and your target groups.
 Each tag consists of a key and an optional value. If a resource already has a
 tag with the same key, AddTags updates its value.
 
-To list the current tags for your resources, use DescribeTags . To remove tags
-from your resources, use RemoveTags .
+To list the current tags for your resources, use DescribeTags. To remove tags
+from your resources, use RemoveTags.
      *
      * @error DuplicateTagKeysException   
      * @error TooManyTagsException   
@@ -96,14 +96,14 @@ from your resources, use RemoveTags .
 
 You can create up to 10 listeners per load balancer.
 
-To update a listener, use ModifyListener . When you are finished with a
-listener, you can delete it using DeleteListener . If you are finished with both
-the listener and the load balancer, you can delete them both using 
-DeleteLoadBalancer .
+To update a listener, use ModifyListener. When you are finished with a listener,
+you can delete it using DeleteListener. If you are finished with both the
+listener and the load balancer, you can delete them both using 
+DeleteLoadBalancer.
 
 For more information, see Listeners for Your Application Load Balancers
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html] 
-in the Application Load Balancers Guide .
+in the Application Load Balancers Guide.
      *
      * @error DuplicateListenerException   
      * @error TooManyListenersException   
@@ -123,22 +123,22 @@ in the Application Load Balancers Guide .
      * Creates an Application Load Balancer.
 
 When you create a load balancer, you can specify security groups, subnets, IP
-address type, and tags. Otherwise, you could do so later using SetSecurityGroups 
-, SetSubnets , SetIpAddressType , and AddTags .
+address type, and tags. Otherwise, you could do so later using SetSecurityGroups
+, SetSubnets, SetIpAddressType, and AddTags.
 
-To create listeners for your load balancer, use CreateListener . To describe
-your current load balancers, see DescribeLoadBalancers . When you are finished
-with a load balancer, you can delete it using DeleteLoadBalancer .
+To create listeners for your load balancer, use CreateListener. To describe your
+current load balancers, see DescribeLoadBalancers. When you are finished with a
+load balancer, you can delete it using DeleteLoadBalancer.
 
 You can create up to 20 load balancers per region per account. You can request
 an increase for the number of load balancers for your account. For more
 information, see Limits for Your Application Load Balancer
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html] 
-in the Application Load Balancers Guide .
+in the Application Load Balancers Guide.
 
 For more information, see Application Load Balancers
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html] 
-in the Application Load Balancers Guide .
+in the Application Load Balancers Guide.
      *
      * @error DuplicateLoadBalancerNameException   
      * @error TooManyLoadBalancersException   
@@ -159,11 +159,11 @@ order, from the lowest value to the highest value. When the condition for a rule
 is met, the specified action is taken. If no conditions are met, the default
 action for the default rule is taken. For more information, see Listener Rules
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules] 
-in the Application Load Balancers Guide .
+in the Application Load Balancers Guide.
 
-To view your current rules, use DescribeRules . To update a rule, use ModifyRule 
-. To set the priorities of your rules, use SetRulePriorities . To delete a rule,
-use DeleteRule .
+To view your current rules, use DescribeRules. To update a rule, use ModifyRule.
+To set the priorities of your rules, use SetRulePriorities. To delete a rule,
+use DeleteRule.
      *
      * @error PriorityInUseException   
      * @error TooManyTargetGroupsException   
@@ -178,18 +178,18 @@ use DeleteRule .
     /**
      * Creates a target group.
 
-To register targets with the target group, use RegisterTargets . To update the
-health check settings for the target group, use ModifyTargetGroup . To monitor
-the health of targets in the target group, use DescribeTargetHealth .
+To register targets with the target group, use RegisterTargets. To update the
+health check settings for the target group, use ModifyTargetGroup. To monitor
+the health of targets in the target group, use DescribeTargetHealth.
 
 To route traffic to the targets in a target group, specify the target group in
-an action using CreateListener or CreateRule .
+an action using CreateListener or CreateRule.
 
-To delete a target group, use DeleteTargetGroup .
+To delete a target group, use DeleteTargetGroup.
 
 For more information, see Target Groups for Your Application Load Balancers
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html] 
-in the Application Load Balancers Guide .
+in the Application Load Balancers Guide.
      *
      * @error DuplicateTargetGroupNameException   
      * @error TooManyTargetGroupsException   
@@ -199,7 +199,7 @@ in the Application Load Balancers Guide .
      * Deletes the specified listener.
 
 Alternatively, your listener is deleted when you delete the load balancer it is
-attached to using DeleteLoadBalancer .
+attached to using DeleteLoadBalancer.
      *
      * @error ListenerNotFoundException   
      */
@@ -261,9 +261,8 @@ Load Balancer. You must specify either a load balancer or one or more listeners.
      * Describes the specified Application Load Balancers or all of your Application
 Load Balancers.
 
-To describe the listeners for a load balancer, use DescribeListeners . To
-describe the attributes for a load balancer, use DescribeLoadBalancerAttributes 
-.
+To describe the listeners for a load balancer, use DescribeListeners. To
+describe the attributes for a load balancer, use DescribeLoadBalancerAttributes.
      *
      * @error LoadBalancerNotFoundException   
      */
@@ -305,8 +304,8 @@ all target groups are described. Alternatively, you can specify one of the
 following to filter the results: the ARN of the load balancer, the names of one
 or more target groups, or the ARNs of one or more target groups.
 
-To describe the targets for a target group, use DescribeTargetHealth . To
-describe the attributes of a target group, use DescribeTargetGroupAttributes .
+To describe the targets for a target group, use DescribeTargetHealth. To
+describe the attributes of a target group, use DescribeTargetGroupAttributes.
      *
      * @error LoadBalancerNotFoundException   
      * @error TargetGroupNotFoundException   
@@ -358,7 +357,7 @@ values.
 
 Any existing properties that you do not modify retain their current values.
 
-To modify the default action, use ModifyListener .
+To modify the default action, use ModifyListener.
      *
      * @error TargetGroupAssociationLimitException   
      * @error RuleNotFoundException   
@@ -370,7 +369,7 @@ To modify the default action, use ModifyListener .
      * Modifies the health checks used when evaluating the health state of the targets
 in the specified target group.
 
-To monitor the health of the targets, use DescribeTargetHealth .
+To monitor the health of the targets, use DescribeTargetHealth.
      *
      * @error TargetGroupNotFoundException   
      */
@@ -392,7 +391,7 @@ The target must be in the virtual private cloud (VPC) that you specified for the
 target group. If the target is an EC2 instance, it must be in the running state
 when you register it.
 
-To remove a target from a target group, use DeregisterTargets .
+To remove a target from a target group, use DeregisterTargets.
      *
      * @error TargetGroupNotFoundException   
      * @error TooManyTargetsException   
@@ -403,7 +402,7 @@ To remove a target from a target group, use DeregisterTargets .
     /**
      * Removes the specified tags from the specified resource.
 
-To list the current tags for your resources, use DescribeTags .
+To list the current tags for your resources, use DescribeTags.
      *
      * @error LoadBalancerNotFoundException   
      * @error TargetGroupNotFoundException   
@@ -697,7 +696,7 @@ The default is an Internet-facing load balancer. **/
         Tags?: TagList;
         /** The type of IP addresses used by the subnets for your load balancer. The
 possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6
-addresses). Internal load balancers must use ipv4 . **/
+addresses). Internal load balancers must use ipv4. **/
         IpAddressType?: IpAddressType;
     }
     export interface CreateLoadBalancerOutput {
@@ -712,19 +711,19 @@ pattern. A path pattern is case sensitive, can be up to 128 characters in
 length, and can contain any of the following characters. Note that you can
 include up to three wildcard characters in a path pattern.
 
- &amp;#42; A-Z, a-z, 0-9
+ &amp;#42;  A-Z, a-z, 0-9
    
    
- * _ - . $ / ~ &quot; &#x27; @ : +
+ *  _ - . $ / ~ &quot; &#x27; @ : +
    
    
- * &amp; (using &amp;amp;)
+ *  &amp; (using &amp;amp;)
    
    
- * * (matches 0 or more characters)
+ *  * (matches 0 or more characters)
    
    
- * ? (matches exactly 1 character) **/
+ *  ? (matches exactly 1 character) **/
         Conditions: RuleConditionList;
         /** The priority for the rule. A listener can&#x27;t have multiple rules with the same
 priority. **/
@@ -750,7 +749,7 @@ specify a port override when registering the target. **/
 The default is the HTTP protocol. **/
         HealthCheckProtocol?: ProtocolEnum;
         /** The port the load balancer uses when performing health checks on targets. The
-default is traffic-port , which indicates the port on which each target receives
+default is traffic-port, which indicates the port on which each target receives
 traffic from the load balancer. **/
         HealthCheckPort?: HealthCheckPort;
         /** The ping path that is the destination on the targets for health checks. The
@@ -1006,25 +1005,25 @@ addresses). **/
     export interface LoadBalancerAttribute {
         /** The name of the attribute.
 
- &amp;#42; access_logs.s3.enabled - Indicates whether access logs stored in Amazon S3
-   are enabled. The value is true or false .
+ &amp;#42;   access_logs.s3.enabled - Indicates whether access logs stored in Amazon S3
+   are enabled. The value is true or false.
    
    
- * access_logs.s3.bucket - The name of the S3 bucket for the access logs. This
+ *   access_logs.s3.bucket - The name of the S3 bucket for the access logs. This
    attribute is required if access logs in Amazon S3 are enabled. The bucket
    must exist in the same region as the load balancer and have a bucket policy
    that grants Elastic Load Balancing permission to write to the bucket.
    
    
- * access_logs.s3.prefix - The prefix for the location in the S3 bucket. If you
+ *   access_logs.s3.prefix - The prefix for the location in the S3 bucket. If you
    don&#x27;t specify a prefix, the access logs are stored in the root of the bucket.
    
    
- * deletion_protection.enabled - Indicates whether deletion protection is
-   enabled. The value is true or false .
+ *   deletion_protection.enabled - Indicates whether deletion protection is
+   enabled. The value is true or false.
    
    
- * idle_timeout.timeout_seconds - The idle timeout value, in seconds. The valid
+ *   idle_timeout.timeout_seconds - The idle timeout value, in seconds. The valid
    range is 1-3600. The default is 60 seconds. **/
         Key?: LoadBalancerAttributeKey;
         /** The value of the attribute. **/
@@ -1033,9 +1032,9 @@ addresses). **/
     export interface LoadBalancerNotFoundException {
     }
     export interface LoadBalancerState {
-        /** The state code. The initial state of the load balancer is provisioning . After
+        /** The state code. The initial state of the load balancer is provisioning. After
 the load balancer is fully set up and ready to route traffic, its state is 
-active . If the load balancer could not be set up, its state is failed . **/
+active. If the load balancer could not be set up, its state is failed. **/
         Code?: LoadBalancerStateEnum;
         /** A description of the state. **/
         Reason?: StateReason;
@@ -1160,7 +1159,7 @@ it again using a different port. **/
         IsDefault?: IsDefault;
     }
     export interface RuleCondition {
-        /** The only possible value is path-pattern . **/
+        /** The only possible value is path-pattern. **/
         Field?: ConditionFieldName;
         /** The path pattern. You can specify a single path pattern.
 
@@ -1168,19 +1167,19 @@ A path pattern is case sensitive, can be up to 128 characters in length, and can
 contain any of the following characters. Note that you can include up to three
 wildcard characters in a path pattern.
 
- &amp;#42; A-Z, a-z, 0-9
+ &amp;#42;  A-Z, a-z, 0-9
    
    
- * _ - . $ / ~ &quot; &#x27; @ : +
+ *  _ - . $ / ~ &quot; &#x27; @ : +
    
    
- * &amp; (using &amp;amp;)
+ *  &amp; (using &amp;amp;)
    
    
- * * (matches 0 or more characters)
+ *  * (matches 0 or more characters)
    
    
- * ? (matches exactly 1 character) **/
+ *  ? (matches exactly 1 character) **/
         Values?: ListOfString;
     }
     export interface RuleNotFoundException {
@@ -1197,7 +1196,7 @@ wildcard characters in a path pattern.
         /** The Amazon Resource Name (ARN) of the load balancer. **/
         LoadBalancerArn: LoadBalancerArn;
         /** The IP address type. The possible values are ipv4 (for IPv4 addresses) and 
-dualstack (for IPv4 and IPv6 addresses). Internal load balancers must use ipv4 . **/
+dualstack (for IPv4 and IPv6 addresses). Internal load balancers must use ipv4. **/
         IpAddressType: IpAddressType;
     }
     export interface SetIpAddressTypeOutput {
@@ -1301,21 +1300,21 @@ target group. **/
     export interface TargetGroupAttribute {
         /** The name of the attribute.
 
- &amp;#42; deregistration_delay.timeout_seconds - The amount time for Elastic Load
+ &amp;#42;   deregistration_delay.timeout_seconds - The amount time for Elastic Load
    Balancing to wait before changing the state of a deregistering target from 
-   draining to unused . The range is 0-3600 seconds. The default value is 300
+   draining to unused. The range is 0-3600 seconds. The default value is 300
    seconds.
    
    
- * stickiness.enabled - Indicates whether sticky sessions are enabled. The value
-   is true or false .
+ *   stickiness.enabled - Indicates whether sticky sessions are enabled. The
+   value is true or false.
    
    
- * stickiness.type - The type of sticky sessions. The possible value is 
-   lb_cookie .
+ *   stickiness.type - The type of sticky sessions. The possible value is 
+   lb_cookie.
    
    
- * stickiness.lb_cookie.duration_seconds - The time period, in seconds, during
+ *   stickiness.lb_cookie.duration_seconds - The time period, in seconds, during
    which requests from a client should be routed to the same target. After this
    time period expires, the load balancer-generated cookie is considered stale.
    The range is 1 second to 1 week (604800 seconds). The default value is 1 day
@@ -1329,60 +1328,60 @@ target group. **/
     export interface TargetHealth {
         /** The state of the target. **/
         State?: TargetHealthStateEnum;
-        /** The reason code. If the target state is healthy , a reason code is not provided.
+        /** The reason code. If the target state is healthy, a reason code is not provided.
 
-If the target state is initial , the reason code can be one of the following
+If the target state is initial, the reason code can be one of the following
 values:
 
- &amp;#42; Elb.RegistrationInProgress - The target is in the process of being registered
-   with the load balancer.
+ &amp;#42;   Elb.RegistrationInProgress - The target is in the process of being
+   registered with the load balancer.
    
    
- * Elb.InitialHealthChecking - The load balancer is still sending the target the
-   minimum number of health checks required to determine its health status.
+ *   Elb.InitialHealthChecking - The load balancer is still sending the target
+   the minimum number of health checks required to determine its health status.
    
    
 
-If the target state is unhealthy , the reason code can be one of the following
+If the target state is unhealthy, the reason code can be one of the following
 values:
 
- * Target.ResponseCodeMismatch - The health checks did not return an expected
+ *   Target.ResponseCodeMismatch - The health checks did not return an expected
    HTTP code.
    
    
- * Target.Timeout - The health check requests timed out.
+ *   Target.Timeout - The health check requests timed out.
    
    
- * Target.FailedHealthChecks - The health checks failed because the connection
+ *   Target.FailedHealthChecks - The health checks failed because the connection
    to the target timed out, the target response was malformed, or the target
    failed the health check for an unknown reason.
    
    
- * Elb.InternalError - The health checks failed due to an internal error.
+ *   Elb.InternalError - The health checks failed due to an internal error.
    
    
 
-If the target state is unused , the reason code can be one of the following
+If the target state is unused, the reason code can be one of the following
 values:
 
- * Target.NotRegistered - The target is not registered with the target group.
+ *   Target.NotRegistered - The target is not registered with the target group.
    
    
- * Target.NotInUse - The target group is not used by any load balancer or the
+ *   Target.NotInUse - The target group is not used by any load balancer or the
    target is in an Availability Zone that is not enabled for its load balancer.
    
    
- * Target.InvalidState - The target is in the stopped or terminated state.
+ *   Target.InvalidState - The target is in the stopped or terminated state.
    
    
 
-If the target state is draining , the reason code can be the following value:
+If the target state is draining, the reason code can be the following value:
 
- * Target.DeregistrationInProgress - The target is in the process of being
+ *   Target.DeregistrationInProgress - The target is in the process of being
    deregistered and the deregistration delay period has not expired. **/
         Reason?: TargetHealthReasonEnum;
         /** A description of the target health that provides additional details. If the
-state is healthy , a description is not provided. **/
+state is healthy, a description is not provided. **/
         Description?: Description;
     }
     export interface TargetHealthDescription {

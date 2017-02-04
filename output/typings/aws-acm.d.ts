@@ -14,12 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Certificate ManagerWelcome to the AWS Certificate Manager (ACM) API
+   * AWS Certificate Manager Welcome to the AWS Certificate Manager (ACM) API
 documentation.
 
 You can use ACM to manage SSL/TLS certificates for your AWS-based websites and
 applications. For general information about using ACM, see the AWS Certificate
-Manager User Guide [http://docs.aws.amazon.com/acm/latest/userguide/] .
+Manager User Guide [http://docs.aws.amazon.com/acm/latest/userguide/].
    *
    */
   export class ACM extends Service {
@@ -28,8 +28,8 @@ Manager User Guide [http://docs.aws.amazon.com/acm/latest/userguide/] .
     /**
      * Adds one or more tags to an ACM Certificate. Tags are labels that you can use to
 identify and organize your AWS resources. Each tag consists of a key and an
-optional value . You specify the certificate on input by its Amazon Resource
-Name (ARN). You specify the tag by using a key-value pair.
+optional value. You specify the certificate on input by its Amazon Resource Name
+(ARN). You specify the tag by using a key-value pair.
 
 You can apply a tag to just one certificate if you want to identify a specific
 characteristic of that certificate, or you can apply the same tag to multiple
@@ -39,7 +39,7 @@ want to specify a relationship among those resources. For example, you can add
 the same tag to an ACM Certificate and an Elastic Load Balancing load balancer
 to indicate that they are both used by the same website. For more information,
 see Tagging ACM Certificates
-[http://docs.aws.amazon.com/acm/latest/userguide/tags.html] .
+[http://docs.aws.amazon.com/acm/latest/userguide/tags.html].
 
 To remove one or more tags, use the RemoveTagsFromCertificate action. To view
 all of the tags that have been applied to the certificate, use the 
@@ -93,7 +93,7 @@ Amazon CloudFront.
     /**
      * Imports an SSL/TLS certificate into AWS Certificate Manager (ACM) to use with 
 ACM&#x27;s integrated AWS services
-[http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html] .
+[http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html].
 
 ACM does not provide managed renewal
 [http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html] for
@@ -103,7 +103,7 @@ For more information about importing certificates into ACM, including the
 differences between certificates that you import and those that ACM provides,
 see Importing Certificates
 [http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html] in the 
-AWS Certificate Manager User Guide .
+AWS Certificate Manager User Guide.
 
 To import a certificate, you must provide the certificate and the matching
 private key. When the certificate is not self-signed, you must also provide a
@@ -114,7 +114,7 @@ The certificate, private key, and certificate chain must be PEM-encoded. For
 more information about converting these items to PEM format, see Importing
 Certificates Troubleshooting
 [http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html#import-certificate-troubleshooting] 
-in the AWS Certificate Manager User Guide .
+in the AWS Certificate Manager User Guide.
 
 To import a new certificate, omit the CertificateArn field. Include this field
 only when you want to replace a previously imported certificate.
@@ -167,7 +167,7 @@ using other names. For each domain name you specify, email is sent to the domain
 owner to request approval to issue the certificate. After receiving approval
 from the domain owner, the ACM Certificate is issued. For more information, see
 the AWS Certificate Manager User Guide
-[http://docs.aws.amazon.com/acm/latest/userguide/] .
+[http://docs.aws.amazon.com/acm/latest/userguide/].
      *
      * @error LimitExceededException   
      * @error InvalidDomainValidationOptionsException   
@@ -177,12 +177,12 @@ the AWS Certificate Manager User Guide
      * Resends the email that requests domain ownership validation. The domain owner or
 an authorized representative must approve the ACM Certificate before it can be
 issued. The certificate can be approved by clicking a link in the mail to
-navigate to the Amazon certificate approval website and then clicking I Approve 
-. However, the validation email can be blocked by spam filters. Therefore, if
-you do not receive the original mail, you can request that the mail be resent
-within 72 hours of requesting the ACM Certificate. If more than 72 hours have
-elapsed since your original request or since your last attempt to resend
-validation mail, you must request a new certificate.
+navigate to the Amazon certificate approval website and then clicking I Approve.
+However, the validation email can be blocked by spam filters. Therefore, if you
+do not receive the original mail, you can request that the mail be resent within
+72 hours of requesting the ACM Certificate. If more than 72 hours have elapsed
+since your original request or since your last attempt to resend validation
+mail, you must request a new certificate.
      *
      * @error ResourceNotFoundException   
      * @error InvalidStateException   
@@ -257,11 +257,12 @@ validation mail, you must request a new certificate.
         /** String that contains the ARN of the ACM Certificate to which the tag is to be
 applied. This must be of the form:
 
-arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+ 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012 
 
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
-[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html]. **/
         CertificateArn: Arn;
         /** The key-value pair that defines the tag. The tag value is optional. **/
         Tags: TagList;
@@ -270,7 +271,7 @@ Service Namespaces
         /** The Amazon Resource Name (ARN) of the certificate. For more information about
 ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
-the AWS General Reference . **/
+the AWS General Reference. **/
         CertificateArn?: Arn;
         /** The fully qualified domain name for the certificate, such as www.example.com or
 example.com. **/
@@ -283,7 +284,7 @@ that can be used to connect to the website. **/
         SubjectAlternativeNames?: DomainList;
         /** Contains information about the initial validation of each domain name that
 occurs as a result of the RequestCertificate request. This field exists only
-when the certificate type is AMAZON_ISSUED . **/
+when the certificate type is AMAZON_ISSUED. **/
         DomainValidationOptions?: DomainValidationList;
         /** The serial number of the certificate. **/
         Serial?: String;
@@ -293,21 +294,21 @@ certificate. **/
         /** The name of the certificate authority that issued and signed the certificate. **/
         Issuer?: String;
         /** The time at which the certificate was requested. This value exists only when the
-certificate type is AMAZON_ISSUED . **/
+certificate type is AMAZON_ISSUED. **/
         CreatedAt?: TStamp;
         /** The time at which the certificate was issued. This value exists only when the
-certificate type is AMAZON_ISSUED . **/
+certificate type is AMAZON_ISSUED. **/
         IssuedAt?: TStamp;
         /** The date and time at which the certificate was imported. This value exists only
-when the certificate type is IMPORTED . **/
+when the certificate type is IMPORTED. **/
         ImportedAt?: TStamp;
         /** The status of the certificate. **/
         Status?: CertificateStatus;
         /** The time at which the certificate was revoked. This value exists only when the
-certificate status is REVOKED . **/
+certificate status is REVOKED. **/
         RevokedAt?: TStamp;
         /** The reason the certificate was revoked. This value exists only when the
-certificate status is REVOKED . **/
+certificate status is REVOKED. **/
         RevocationReason?: RevocationReason;
         /** The time before which the certificate is not valid. **/
         NotBefore?: TStamp;
@@ -322,33 +323,34 @@ key). **/
 certificate can be used by multiple AWS resources. **/
         InUseBy?: InUseList;
         /** The reason the certificate request failed. This value exists only when the
-certificate status is FAILED . For more information, see Certificate Request
+certificate status is FAILED. For more information, see Certificate Request
 Failed
 [http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed] 
-in the AWS Certificate Manager User Guide . **/
+in the AWS Certificate Manager User Guide. **/
         FailureReason?: FailureReason;
         /** The source of the certificate. For certificates provided by ACM, this value is 
-AMAZON_ISSUED . For certificates that you imported with ImportCertificate , this
-value is IMPORTED . ACM does not provide managed renewal
+AMAZON_ISSUED. For certificates that you imported with ImportCertificate, this
+value is IMPORTED. ACM does not provide managed renewal
 [http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html] for imported
 certificates. For more information about the differences between certificates
 that you import and those that ACM provides, see Importing Certificates
 [http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html] in the 
-AWS Certificate Manager User Guide . **/
+AWS Certificate Manager User Guide. **/
         Type?: CertificateType;
         /** Contains information about the status of ACM&#x27;s managed renewal
 [http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html] for the
-certificate. This field exists only when the certificate type is AMAZON_ISSUED . **/
+certificate. This field exists only when the certificate type is AMAZON_ISSUED. **/
         RenewalSummary?: RenewalSummary;
     }
     export interface CertificateSummary {
         /** Amazon Resource Name (ARN) of the certificate. This is of the form:
 
-arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+ 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012 
 
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
-[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html]. **/
         CertificateArn?: Arn;
         /** Fully qualified domain name (FQDN), such as www.example.com or example.com, for
 the certificate. **/
@@ -358,22 +360,24 @@ the certificate. **/
         /** String that contains the ARN of the ACM Certificate to be deleted. This must be
 of the form:
 
-arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+ 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012 
 
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
-[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html]. **/
         CertificateArn: Arn;
     }
     export interface DescribeCertificateRequest {
         /** The Amazon Resource Name (ARN) of the ACM Certificate. The ARN must have the
 following form:
 
-arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+ 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012 
 
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
-[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html]. **/
         CertificateArn: Arn;
     }
     export interface DescribeCertificateResponse {
@@ -382,7 +386,7 @@ Service Namespaces
     }
     export interface DomainValidation {
         /** A fully qualified domain name (FQDN) in the certificate. For example, 
-www.example.com or example.com . **/
+www.example.com or example.com. **/
         DomainName: DomainNameString;
         /** A list of email addresses that ACM used to send domain validation emails. **/
         ValidationEmails?: ValidationEmailList;
@@ -397,33 +401,34 @@ www.example.com or example.com . **/
         /** The domain name that you want ACM to use to send you validation emails. This
 domain name is the suffix of the email addresses that you want ACM to use. This
 must be the same as the DomainName value or a superdomain of the DomainName 
-value. For example, if you request a certificate for testing.example.com , you
+value. For example, if you request a certificate for testing.example.com, you
 can specify example.com for this value. In that case, ACM sends domain
 validation emails to the following five addresses:
 
- &amp;#42; admin@example.com
+ &amp;#42;  admin@example.com
    
    
- * administrator@example.com
+ *  administrator@example.com
    
    
- * hostmaster@example.com
+ *  hostmaster@example.com
    
    
- * postmaster@example.com
+ *  postmaster@example.com
    
    
- * webmaster@example.com **/
+ *  webmaster@example.com **/
         ValidationDomain: DomainNameString;
     }
     export interface GetCertificateRequest {
         /** String that contains a certificate ARN in the following format:
 
-arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+ 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012 
 
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
-[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html]. **/
         CertificateArn: Arn;
     }
     export interface GetCertificateResponse {
@@ -442,23 +447,23 @@ field. **/
         CertificateArn?: Arn;
         /** The certificate to import. It must meet the following requirements:
 
- &amp;#42; Must be PEM-encoded.
+ &amp;#42;  Must be PEM-encoded.
    
    
- * Must contain a 1024-bit or 2048-bit RSA public key.
+ *  Must contain a 1024-bit or 2048-bit RSA public key.
    
    
- * Must be valid at the time of import. You cannot import a certificate before
+ *  Must be valid at the time of import. You cannot import a certificate before
    its validity period begins (the certificate&#x27;s NotBefore date) or after it
    expires (the certificate&#x27;s NotAfter date). **/
         Certificate: CertificateBodyBlob;
         /** The private key that matches the public key in the certificate. It must meet the
 following requirements:
 
- &amp;#42; Must be PEM-encoded.
+ &amp;#42;  Must be PEM-encoded.
    
    
- * Must be unencrypted. You cannot import a private key that is protected by a
+ *  Must be unencrypted. You cannot import a private key that is protected by a
    password or passphrase. **/
         PrivateKey: PrivateKeyBlob;
         /** The certificate chain. It must be PEM-encoded. **/
@@ -509,11 +514,12 @@ for the NextToken parameter in a subsequent pagination request. **/
         /** String that contains the ARN of the ACM Certificate for which you want to list
 the tags. This has the following form:
 
-arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+ 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012 
 
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
-[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html]. **/
         CertificateArn: Arn;
     }
     export interface ListTagsForCertificateResponse {
@@ -524,11 +530,12 @@ Service Namespaces
         /** String that contains the ARN of the ACM Certificate with one or more tags that
 you want to remove. This must be of the form:
 
-arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+ 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012 
 
 For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 Service Namespaces
-[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html]. **/
         CertificateArn: Arn;
         /** The key-value pair that defines the tag to remove. **/
         Tags: TagList;
@@ -540,10 +547,10 @@ certificate. **/
         RenewalStatus: RenewalStatus;
         /** Contains information about the validation of each domain name in the
 certificate, as it pertains to ACM&#x27;s managed renewal
-[http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html] . This is
+[http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html]. This is
 different from the initial validation that occurs as a result of the 
 RequestCertificate request. This field exists only when the certificate type is 
-AMAZON_ISSUED . **/
+AMAZON_ISSUED. **/
         DomainValidationOptions: DomainValidationList;
     }
     export interface RequestCertificateRequest {
@@ -559,7 +566,7 @@ which the DomainName field is www.example.com if users can reach your site by
 using either name. **/
         SubjectAlternativeNames?: DomainList;
         /** Customer chosen string that can be used to distinguish between calls to 
-RequestCertificate . Idempotency tokens time out after one hour. Therefore, if
+RequestCertificate. Idempotency tokens time out after one hour. Therefore, if
 you call RequestCertificate multiple times with the same idempotency token
 within one hour, ACM recognizes that you are requesting only one certificate and
 will issue only one. If you change the idempotency token for each call, ACM
@@ -573,7 +580,7 @@ ownership of the domain. **/
         /** String that contains the ARN of the issued certificate. This must be of the
 form:
 
-
+ 
 arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012 **/
         CertificateArn?: Arn;
     }
@@ -588,7 +595,7 @@ top-level domains you specified in the certificate request.
 
 The ARN must be of the form:
 
-
+ 
 arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012 **/
         CertificateArn: Arn;
         /** The fully qualified domain name (FQDN) of the certificate that needs to be
@@ -598,22 +605,22 @@ validated. **/
 that are used to send the emails. This must be the same as the Domain value or a
 superdomain of the Domain value. For example, if you requested a certificate for 
 site.subdomain.example.com and specify a ValidationDomain of 
-subdomain.example.com , ACM sends email to the domain registrant, technical
+subdomain.example.com, ACM sends email to the domain registrant, technical
 contact, and administrative contact in WHOIS and the following five addresses:
 
- &amp;#42; admin@subdomain.example.com
+ &amp;#42;  admin@subdomain.example.com
    
    
- * administrator@subdomain.example.com
+ *  administrator@subdomain.example.com
    
    
- * hostmaster@subdomain.example.com
+ *  hostmaster@subdomain.example.com
    
    
- * postmaster@subdomain.example.com
+ *  postmaster@subdomain.example.com
    
    
- * webmaster@subdomain.example.com **/
+ *  webmaster@subdomain.example.com **/
         ValidationDomain: DomainNameString;
     }
     export interface ResourceInUseException {

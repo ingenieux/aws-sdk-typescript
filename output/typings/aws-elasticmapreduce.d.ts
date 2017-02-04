@@ -40,7 +40,7 @@ the master node and submitting queries directly to the software running on the
 master node, such as Hive and Hadoop. For more information on how to do this,
 see Add More than 256 Steps to a Job Flow
 [http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html] 
-in the Amazon EMR Developer&#x27;s Guide .
+in the Amazon EMR Developer&#x27;s Guide.
 
 A step specifies the location of a JAR file stored either on the master node of
 the job flow or in Amazon S3. Each step is performed by the main function of the
@@ -61,7 +61,7 @@ STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
      * Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters
 in various ways, such as grouping clusters to track your Amazon EMR resource
 allocation costs. For more information, see Tagging Amazon EMR Resources
-[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html] 
+[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html]
 .
      *
      * @error InternalServerException   
@@ -98,7 +98,7 @@ specified when a cluster is created.
     /**
      * Provides cluster-level details including status, hardware and software
 configuration, VPC settings, and so on. For information about the cluster steps,
-see ListSteps .
+see ListSteps.
      *
      * @error InternalServerException   
      * @error InvalidRequestException   
@@ -106,7 +106,7 @@ see ListSteps .
     describeCluster(params: EMR.DescribeClusterInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.DescribeClusterOutput|any) => void): Request<EMR.DescribeClusterOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * This API is deprecated and will eventually be removed. We recommend you use 
-ListClusters , DescribeCluster , ListSteps , ListInstanceGroups and 
+ListClusters, DescribeCluster, ListSteps, ListInstanceGroups and 
 ListBootstrapActions instead.
 
 DescribeJobFlows returns a list of job flows that match all of the supplied
@@ -119,11 +119,11 @@ months are returned.
 If no parameters are supplied, then job flows matching either of the following
 criteria are returned:
 
- &amp;#42; Job flows created and completed in the last two weeks
+ &amp;#42;  Job flows created and completed in the last two weeks
    
    
- * Job flows created within the last two months that are in one of the following
-   states: RUNNING , WAITING , SHUTTING_DOWN , STARTING
+ *   Job flows created within the last two months that are in one of the
+   following states: RUNNING, WAITING, SHUTTING_DOWN, STARTING 
    
    
 
@@ -229,8 +229,8 @@ EMR cluster.
 clusters in various ways, such as grouping clusters to track your Amazon EMR
 resource allocation costs. For more information, see Tagging Amazon EMR
 Resources
-[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html] 
-.
+[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html]
+. 
 
 The following example removes the stack tag with value Prod from a cluster:
      *
@@ -243,9 +243,9 @@ The following example removes the stack tag with value Prod from a cluster:
 steps specified. After the job flow completes, the cluster is stopped and the
 HDFS partition is lost. To prevent loss of data, configure the last step of the
 job flow to store results in Amazon S3. If the JobFlowInstancesConfig 
-KeepJobFlowAliveWhenNoSteps parameter is set to TRUE , the job flow will
+KeepJobFlowAliveWhenNoSteps parameter is set to TRUE, the job flow will
 transition to the WAITING state rather than shutting down after the steps have
-completed.
+completed. 
 
 For additional protection, you can set the JobFlowInstancesConfig 
 TerminationProtected parameter to TRUE to lock the job flow and prevent it from
@@ -261,7 +261,7 @@ the master node and submitting queries directly to the software running on the
 master node, such as Hive and Hadoop. For more information on how to do this,
 see Add More than 256 Steps to a Job Flow
 [http://docs.aws.amazon.com/ElasticMapReduce/latest/Management/Guide/AddMoreThan256Steps.html] 
-in the Amazon EMR Management Guide .
+in the Amazon EMR Management Guide.
 
 For long running job flows, we recommend that you periodically store your
 results.
@@ -281,11 +281,11 @@ SetTerminationProtection is used to prevent accidental termination of a job flow
 and to ensure that in the event of an error, the instances will persist so you
 can recover any data stored in their ephemeral instance storage.
 
-To terminate a job flow that has been locked by setting SetTerminationProtection
-to true , you must first unlock the job flow by a subsequent call to
-SetTerminationProtection in which you set the value to false .
+ To terminate a job flow that has been locked by setting
+SetTerminationProtection to true, you must first unlock the job flow by a
+subsequent call to SetTerminationProtection in which you set the value to false. 
 
-For more information, see Protecting a Job Flow from Termination
+ For more information, seeProtecting a Job Flow from Termination
 [http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html] 
 in the Amazon EMR Guide.
      *
@@ -296,7 +296,7 @@ in the Amazon EMR Guide.
      * Sets whether all AWS Identity and Access Management (IAM) users under your
 account can access the specified job flows. This action works on running job
 flows. You can also set the visibility of a job flow when you launch it using
-the VisibleToAllUsers parameter of RunJobFlow . The SetVisibleToAllUsers action
+the VisibleToAllUsers parameter of RunJobFlow. The SetVisibleToAllUsers action
 can be called only by an IAM user who created the job flow or the AWS account
 that owns the job flow.
      *
@@ -492,7 +492,7 @@ resources, such as Amazon EC2 instances.
     }
     export interface AddJobFlowStepsInput {
         /** A string that uniquely identifies the job flow. This identifier is returned by 
-RunJobFlow and can also be obtained from ListClusters . **/
+RunJobFlow and can also be obtained from ListClusters. **/
         JobFlowId: XmlStringMaxLen256;
         /** A list of StepConfig to be executed by the job flow. **/
         Steps: StepConfigList;
@@ -543,7 +543,7 @@ below these limits. **/
         Rules?: ScalingRuleList;
     }
     export interface AutoScalingPolicyStateChangeReason {
-        /** The code indicating the reason for the change in status. USER_REQUEST indicates
+        /** The code indicating the reason for the change in status.USER_REQUEST indicates
 that the scaling policy status was changed by a user. PROVISION_FAILURE 
 indicates that the status change was because the policy failed to provision. 
 CLEANUP_FAILURE indicates something unclean happened.--&gt; **/
@@ -582,29 +582,29 @@ the specified cluster. **/
         StepIds?: StepIdsList;
     }
     export interface CancelStepsOutput {
-        /** A list of CancelStepsInfo , which shows the status of specified cancel requests
+        /** A list of CancelStepsInfo, which shows the status of specified cancel requests
 for each StepID specified. **/
         CancelStepsInfoList?: CancelStepsInfoList;
     }
     export interface CloudWatchAlarmDefinition {
         /** Determines how the metric specified by MetricName is compared to the value
-specified by Threshold . **/
+specified by Threshold. **/
         ComparisonOperator: ComparisonOperator;
-        /** The number of periods, expressed in seconds using Period , during which the
-alarm condition must exist before the alarm triggers automatic scaling activity.
-The default value is 1 . **/
+        /** The number of periods, expressed in seconds using Period, during which the alarm
+condition must exist before the alarm triggers automatic scaling activity. The
+default value is 1. **/
         EvaluationPeriods?: Integer;
         /** The name of the CloudWatch metric that is watched to determine an alarm
 condition. **/
         MetricName: String;
-        /** The namespace for the CloudWatch metric. The default is AWS/ElasticMapReduce . **/
+        /** The namespace for the CloudWatch metric. The default is AWS/ElasticMapReduce. **/
         Namespace?: String;
         /** The period, in seconds, over which the statistic is applied. EMR CloudWatch
 metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch
-metric is specified, specify 300 . **/
+metric is specified, specify 300. **/
         Period: Integer;
         /** The statistic to apply to the metric associated with the alarm. The default is 
-AVERAGE . **/
+AVERAGE. **/
         Statistic?: Statistic;
         /** The value against which the specified statistic is compared. **/
         Threshold: NonNegativeDouble;
@@ -641,9 +641,9 @@ from being terminated by an API call or user intervention, or in the event of a
 cluster error. **/
         TerminationProtected?: Boolean;
         /** Indicates whether the job flow is visible to all IAM users of the AWS account
-associated with the job flow. If this value is set to true , all IAM users of
+associated with the job flow. If this value is set to true, all IAM users of
 that AWS account can view and manage the job flow if they have the proper policy
-permissions set. If this value is false , only the IAM user that created the
+permissions set. If this value is false, only the IAM user that created the
 cluster can view and manage it. This value can be changed using the 
 SetVisibleToAllUsers action. **/
         VisibleToAllUsers?: Boolean;
@@ -670,7 +670,7 @@ The list of Configurations supplied to the EMR cluster. **/
         /** The name of the security configuration applied to the cluster. **/
         SecurityConfiguration?: XmlString;
         /** An IAM role for automatic scaling policies. The default role is 
-EMR_AutoScaling_DefaultRole . The IAM role provides permissions that the
+EMR_AutoScaling_DefaultRole. The IAM role provides permissions that the
 automatic scaling feature requires to launch and terminate EC2 instances in an
 instance group. **/
         AutoScalingRole?: XmlString;
@@ -738,8 +738,7 @@ the actual billing rate. **/
     export interface Configuration {
         /** The classification of a configuration. For more information see, Amazon EMR
 Configurations
-[http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html] 
-. **/
+[http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html]. **/
         Classification?: String;
         /** A list of configurations you apply to this configuration object. **/
         Configurations?: ConfigurationList;
@@ -991,7 +990,7 @@ group. **/
         /** An automatic scaling policy for a core instance group or task instance group in
 an Amazon EMR cluster. The automatic scaling policy defines how an instance
 group dynamically adds and terminates EC2 instances in response to the value of
-a CloudWatch metric. See PutAutoScalingPolicy . **/
+a CloudWatch metric. See PutAutoScalingPolicy. **/
         AutoScalingPolicy?: AutoScalingPolicy;
     }
     export interface InstanceGroupDetail {
@@ -1128,9 +1127,9 @@ you are not using third party software to manage the job flow this value is
 empty. **/
         SupportedProducts?: SupportedProductsList;
         /** Specifies whether the job flow is visible to all IAM users of the AWS account
-associated with the job flow. If this value is set to true , all IAM users of
+associated with the job flow. If this value is set to true, all IAM users of
 that AWS account can view and (if they have the proper policy permissions set)
-manage the job flow. If it is set to false , only the IAM user that created the
+manage the job flow. If it is set to false, only the IAM user that created the
 job flow can view and manage it. This value can be changed using the 
 SetVisibleToAllUsers action. **/
         VisibleToAllUsers?: Boolean;
@@ -1141,7 +1140,7 @@ instances of the job flow assume this role. **/
 resources on your behalf. **/
         ServiceRole?: XmlString;
         /** An IAM role for automatic scaling policies. The default role is 
-EMR_AutoScaling_DefaultRole . The IAM role provides a way for the automatic
+EMR_AutoScaling_DefaultRole. The IAM role provides a way for the automatic
 scaling feature to get the required permissions it needs to launch and terminate
 EC2 instances in an instance group. **/
         AutoScalingRole?: XmlString;
@@ -1421,7 +1420,7 @@ use ReleaseLabel.
 The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2
 instances in the job flow. The following values are valid:
 
- &amp;#42; The version number of the AMI to use, for example, &quot;2.0.&quot;
+ &amp;#42;  The version number of the AMI to use, for example, &quot;2.0.&quot;
    
    
 
@@ -1432,7 +1431,7 @@ parameter to modify the version of Hadoop from the defaults shown above.
 For details about the AMI versions currently supported by Amazon Elastic
 MapReduce, see AMI Versions Supported in Elastic MapReduce
 [http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported] 
-in the Amazon Elastic MapReduce Developer Guide.
+in the Amazon Elastic MapReduce Developer Guide. 
 
 Previously, the EMR AMI version API parameter options allowed you to use latest
 for the latest AMI version rather than specify a numerical value. Some regions
@@ -1458,13 +1457,13 @@ use Applications.
 
 A list of strings that indicates third-party software to use with the job flow.
 For more information, see Use Third Party Applications with Amazon EMR
-[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html] 
+[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html]
 . Currently supported values are:
 
- &amp;#42; &quot;mapr-m3&quot; - launch the job flow using MapR M3 Edition.
+ &amp;#42;  &quot;mapr-m3&quot; - launch the job flow using MapR M3 Edition.
    
    
- * &quot;mapr-m5&quot; - launch the job flow using MapR M5 Edition. **/
+ *  &quot;mapr-m5&quot; - launch the job flow using MapR M5 Edition. **/
         SupportedProducts?: SupportedProductsList;
         /** For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,
 use Applications.
@@ -1473,32 +1472,32 @@ A list of strings that indicates third-party software to use with the job flow
 that accepts a user argument list. EMR accepts and forwards the argument list to
 the corresponding installation script as bootstrap action arguments. For more
 information, see Launch a Job Flow on the MapR Distribution for Hadoop
-[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html] 
+[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html]
 . Currently supported values are:
 
- &amp;#42; &quot;mapr-m3&quot; - launch the cluster using MapR M3 Edition.
+ &amp;#42;  &quot;mapr-m3&quot; - launch the cluster using MapR M3 Edition.
    
    
- * &quot;mapr-m5&quot; - launch the cluster using MapR M5 Edition.
+ *  &quot;mapr-m5&quot; - launch the cluster using MapR M5 Edition.
    
    
- * &quot;mapr&quot; with the user arguments specifying &quot;--edition,m3&quot; or &quot;--edition,m5&quot; -
+ *  &quot;mapr&quot; with the user arguments specifying &quot;--edition,m3&quot; or &quot;--edition,m5&quot; -
    launch the job flow using MapR M3 or M5 Edition respectively.
    
    
- * &quot;mapr-m7&quot; - launch the cluster using MapR M7 Edition.
+ *  &quot;mapr-m7&quot; - launch the cluster using MapR M7 Edition.
    
    
- * &quot;hunk&quot; - launch the cluster with the Hunk Big Data Analtics Platform.
+ *  &quot;hunk&quot; - launch the cluster with the Hunk Big Data Analtics Platform.
    
    
- * &quot;hue&quot;- launch the cluster with Hue installed.
+ *  &quot;hue&quot;- launch the cluster with Hue installed.
    
    
- * &quot;spark&quot; - launch the cluster with Apache Spark installed.
+ *  &quot;spark&quot; - launch the cluster with Apache Spark installed.
    
    
- * &quot;ganglia&quot; - launch the cluster with the Ganglia Monitoring System installed. **/
+ *  &quot;ganglia&quot; - launch the cluster with the Ganglia Monitoring System installed. **/
         NewSupportedProducts?: NewSupportedProductsList;
         /** Amazon EMR releases 4.x or later.
 
@@ -1510,14 +1509,14 @@ A list of applications for the cluster. Valid values are: &quot;Hadoop&quot;, &q
 The list of configurations supplied for the EMR cluster you are creating. **/
         Configurations?: ConfigurationList;
         /** Whether the job flow is visible to all IAM users of the AWS account associated
-with the job flow. If this value is set to true , all IAM users of that AWS
+with the job flow. If this value is set to true, all IAM users of that AWS
 account can view and (if they have the proper policy permissions set) manage the
-job flow. If it is set to false , only the IAM user that created the job flow
-can view and manage it. **/
+job flow. If it is set to false, only the IAM user that created the job flow can
+view and manage it. **/
         VisibleToAllUsers?: Boolean;
         /** Also called instance profile and EC2 role. An IAM role for an EMR cluster. The
 EC2 instances of the cluster assume this role. The default role is 
-EMR_EC2_DefaultRole . In order to use the default role, you must have already
+EMR_EC2_DefaultRole. In order to use the default role, you must have already
 created it using the CLI or console. **/
         JobFlowRole?: XmlString;
         /** The IAM role that will be assumed by the Amazon EMR service to access AWS
@@ -1529,7 +1528,7 @@ instances. **/
         /** The name of a security configuration to apply to the cluster. **/
         SecurityConfiguration?: XmlString;
         /** An IAM role for automatic scaling policies. The default role is 
-EMR_AutoScaling_DefaultRole . The IAM role provides permissions that the
+EMR_AutoScaling_DefaultRole. The IAM role provides permissions that the
 automatic scaling feature requires to launch and terminate EC2 instances in an
 instance group. **/
         AutoScalingRole?: XmlString;
@@ -1633,21 +1632,21 @@ instances when shrinking an instance group. **/
 number) or terminated (if ScalingAdjustment is a negative number) each time the
 scaling activity is triggered. CHANGE_IN_CAPACITY is the default. 
 CHANGE_IN_CAPACITY indicates that the EC2 instance count increments or
-decrements by ScalingAdjustment , which should be expressed as an integer. 
+decrements by ScalingAdjustment, which should be expressed as an integer. 
 PERCENT_CHANGE_IN_CAPACITY indicates the instance count increments or decrements
-by the percentage specified by ScalingAdjustment , which should be expressed as
-a decimal, for example, 0.20 indicates an increase in 20% increments of cluster
+by the percentage specified by ScalingAdjustment, which should be expressed as a
+decimal, for example, 0.20 indicates an increase in 20% increments of cluster
 capacity. EXACT_CAPACITY indicates the scaling activity results in an instance
-group with the number of EC2 instances specified by ScalingAdjustment , which
+group with the number of EC2 instances specified by ScalingAdjustment, which
 should be expressed as a positive integer. **/
         AdjustmentType?: AdjustmentType;
         /** The amount by which to scale in or scale out, based on the specified 
-AdjustmentType . A positive value adds to the instance group&#x27;s EC2 instance
-count while a negative number removes instances. If AdjustmentType is set to 
-EXACT_CAPACITY , the number should only be a positive integer. If AdjustmentType 
-is set to PERCENT_CHANGE_IN_CAPACITY , the value should express the percentage
-as a decimal. For example, -0.20 indicates a decrease in 20% increments of
-cluster capacity. **/
+AdjustmentType. A positive value adds to the instance group&#x27;s EC2 instance count
+while a negative number removes instances. If AdjustmentType is set to 
+EXACT_CAPACITY, the number should only be a positive integer. If AdjustmentType 
+is set to PERCENT_CHANGE_IN_CAPACITY, the value should express the percentage as
+a decimal. For example, -0.20 indicates a decrease in 20% increments of cluster
+capacity. **/
         ScalingAdjustment: Integer;
         /** The amount of time, in seconds, after a scaling activity completes before any
 further trigger-related scaling activities can start. The default value is 0. **/
@@ -1740,12 +1739,12 @@ are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. **/
     export interface Tag {
         /** A user-defined key, which is the minimum required information for a valid tag.
 For more information, see Tagging Amazon EMR Resources
-[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html] 
+[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html]
 . **/
         Key?: String;
         /** A user-defined value, which is optional in a tag. For more information, see 
 Tagging Amazon EMR Resources
-[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html] 
+[http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html]
 . **/
         Value?: String;
     }

@@ -14,14 +14,14 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: rest-json
    *
-   * Amazon Cloud DirectoryAmazon Cloud Directory is a component of the AWS Directory
-Service that simplifies the development and management of cloud-scale web,
-mobile and IoT applications. This guide describes the Cloud Directory operations
-that you can call programatically and includes detailed information on data
-types and errors. For information about AWS Directory Services features, see AWS
-Directory Service [https://aws.amazon.com/directoryservice/] and the AWS
+   * Amazon Cloud Directory Amazon Cloud Directory is a component of the AWS
+Directory Service that simplifies the development and management of cloud-scale
+web, mobile and IoT applications. This guide describes the Cloud Directory
+operations that you can call programatically and includes detailed information
+on data types and errors. For information about AWS Directory Services features,
+see AWS Directory Service [https://aws.amazon.com/directoryservice/] and the AWS
 Directory Service Administration Guide
-[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html] .
+[http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html].
    *
    */
   export class CloudDirectory extends Service {
@@ -59,10 +59,10 @@ of published schema .
      * Attaches an existing object to another object. An object can be accessed in two
 ways:
 
- 1. Using the path
+ 1.  Using the path
     
     
- 2. Using ObjectIdentifier
+ 2.  Using ObjectIdentifier
      *
      * @error InternalServiceException   
      * @error InvalidArnException   
@@ -184,7 +184,7 @@ for more information.
      */
     createIndex(params: CloudDirectory.CreateIndexRequest, callback?: (err: CloudDirectory.InternalServiceException|CloudDirectory.InvalidArnException|CloudDirectory.RetryableConflictException|CloudDirectory.ValidationException|CloudDirectory.LimitExceededException|CloudDirectory.AccessDeniedException|CloudDirectory.DirectoryNotEnabledException|CloudDirectory.ResourceNotFoundException|CloudDirectory.FacetValidationException|CloudDirectory.LinkNameAlreadyInUseException|CloudDirectory.UnsupportedIndexTypeException|any, data: CloudDirectory.CreateIndexResponse|any) => void): Request<CloudDirectory.CreateIndexResponse|any,CloudDirectory.InternalServiceException|CloudDirectory.InvalidArnException|CloudDirectory.RetryableConflictException|CloudDirectory.ValidationException|CloudDirectory.LimitExceededException|CloudDirectory.AccessDeniedException|CloudDirectory.DirectoryNotEnabledException|CloudDirectory.ResourceNotFoundException|CloudDirectory.FacetValidationException|CloudDirectory.LinkNameAlreadyInUseException|CloudDirectory.UnsupportedIndexTypeException|any>;
     /**
-     * Creates an object in a Directory . Additionally attaches the object to a parent,
+     * Creates an object in a Directory. Additionally attaches the object to a parent,
 if a parent reference and LinkName is specified. An object is simply a
 collection of Facet attributes. You can also use this API call to create a
 policy object, if the facet from which you create the object is a policy facet.
@@ -206,15 +206,15 @@ policy object, if the facet from which you create the object is a policy facet.
     /**
      * Creates a new schema in a development state. A schema can exist in three phases:
 
- &amp;#42; Development: This is a mutable phase of the schema. All new schemas are in
+ &amp;#42;   Development: This is a mutable phase of the schema. All new schemas are in
    the development phase. Once the schema is finalized, it can be published.
    
    
- * Published: Published schemas are immutable and have a version associated with
-   them.
+ *   Published: Published schemas are immutable and have a version associated
+   with them.
    
    
- * Applied: Applied schemas are mutable in a way that allows you to add new
+ *   Applied: Applied schemas are mutable in a way that allows you to add new
    schema facets. You can also add new, nonrequired attributes to existing
    schema facets. You can apply only published schemas to directories.
      *
@@ -242,7 +242,7 @@ directory cannot be undone. Exercise extreme caution when deleting directories.
      */
     deleteDirectory(params: CloudDirectory.DeleteDirectoryRequest, callback?: (err: CloudDirectory.ResourceNotFoundException|CloudDirectory.DirectoryNotDisabledException|CloudDirectory.InternalServiceException|CloudDirectory.ValidationException|CloudDirectory.LimitExceededException|CloudDirectory.AccessDeniedException|CloudDirectory.DirectoryDeletedException|any, data: CloudDirectory.DeleteDirectoryResponse|any) => void): Request<CloudDirectory.DeleteDirectoryResponse|any,CloudDirectory.ResourceNotFoundException|CloudDirectory.DirectoryNotDisabledException|CloudDirectory.InternalServiceException|CloudDirectory.ValidationException|CloudDirectory.LimitExceededException|CloudDirectory.AccessDeniedException|CloudDirectory.DirectoryDeletedException|any>;
     /**
-     * Deletes a given Facet . All attributes and Rule s associated with the facet will
+     * Deletes a given Facet. All attributes and Rules associated with the facet will
 be deleted. Only development schema facets are allowed deletion.
      *
      * @error InternalServiceException   
@@ -366,9 +366,9 @@ enabled, the directory can then be read and written to.
      */
     getDirectory(params: CloudDirectory.GetDirectoryRequest, callback?: (err: CloudDirectory.InternalServiceException|CloudDirectory.InvalidArnException|CloudDirectory.RetryableConflictException|CloudDirectory.ValidationException|CloudDirectory.LimitExceededException|CloudDirectory.AccessDeniedException|any, data: CloudDirectory.GetDirectoryResponse|any) => void): Request<CloudDirectory.GetDirectoryResponse|any,CloudDirectory.InternalServiceException|CloudDirectory.InvalidArnException|CloudDirectory.RetryableConflictException|CloudDirectory.ValidationException|CloudDirectory.LimitExceededException|CloudDirectory.AccessDeniedException|any>;
     /**
-     * Gets details of the Facet , such as Facet Name, Attributes, Rule s, or
-ObjectType. You can call this on all kinds of schema facets -- published,
-development, or applied.
+     * Gets details of the Facet, such as Facet Name, Attributes, Rules, or ObjectType.
+You can call this on all kinds of schema facets -- published, development, or
+applied.
      *
      * @error InternalServiceException   
      * @error InvalidArnException   
@@ -503,7 +503,7 @@ for more information.
     /**
      * Lists all attributes associated with an object. This also supports common
 namespace prefix (key) listing. For example, if you want to retrieve all
-attributes associated with facet1, key can be facet1 . If key is empty, all
+attributes associated with facet1, key can be facet1. If key is empty, all
 attributes are returned in a paginated list.
      *
      * @error InternalServiceException   
@@ -702,13 +702,13 @@ for more information.
     /**
      * Does the following:
 
- 1. Adds new Attributes, Rules, or ObjectTypes.
+ 1.  Adds new Attributes, Rules, or ObjectTypes.
     
     
- 2. Updates existing Attributes, Rules, or ObjectTypes.
+ 2.  Updates existing Attributes, Rules, or ObjectTypes.
     
     
- 3. Deletes existing Attributes, Rules, or ObjectTypes.
+ 3.  Deletes existing Attributes, Rules, or ObjectTypes.
      *
      * @error InternalServiceException   
      * @error InvalidArnException   
@@ -889,7 +889,7 @@ updated.
     }
     export interface AddFacetToObjectRequest {
         /** ARN associated with the Directory where the object resides. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
         /** Identifiers for the facet that you are adding to the object. **/
         SchemaFacet: SchemaFacet;
@@ -901,23 +901,23 @@ information, see arns . **/
     export interface AddFacetToObjectResponse {
     }
     export interface ApplySchemaRequest {
-        /** Published schema ARN that needs to be copied. For more information, see arns . **/
+        /** Published schema ARN that needs to be copied. For more information, see arns. **/
         PublishedSchemaArn: Arn;
         /** ARN associated with the Directory into which the schema is copied. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
     }
     export interface ApplySchemaResponse {
-        /** Applied schema ARN associated with the copied schema in the Directory . You can
+        /** Applied schema ARN associated with the copied schema in the Directory. You can
 use this ARN to describe the schema information applied on this directory. For
-more information, see arns . **/
+more information, see arns. **/
         AppliedSchemaArn?: Arn;
-        /** ARN associated with the Directory . For more information, see arns . **/
+        /** ARN associated with the Directory. For more information, see arns. **/
         DirectoryArn?: Arn;
     }
     export interface AttachObjectRequest {
         /** ARN associated with the Directory where both objects reside. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
         /** Parent object reference. **/
         ParentReference: ObjectReference;
@@ -932,7 +932,7 @@ information, see arns . **/
     }
     export interface AttachPolicyRequest {
         /** ARN associated with the Directory where both objects reside. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn?: Arn;
         /** Reference associated with the policy object. **/
         PolicyReference: ObjectReference;
@@ -991,7 +991,7 @@ information, see arns . **/
     }
     export interface BatchCreateObject {
         /** List of FacetArns that will be associated with the object. For more information,
-see arns . **/
+see arns. **/
         SchemaFacet: SchemaFacetList;
         /** Attribute map, which contains an attribute ARN as the key and attribute value as
 the map value. **/
@@ -1081,7 +1081,7 @@ object. **/
         ExceptionResponse?: BatchReadException;
     }
     export interface BatchReadRequest {
-        /** ARN associated with the Directory . For more information, see arns . **/
+        /** ARN associated with the Directory. For more information, see arns. **/
         DirectoryArn: Arn;
         /** List of operations that are part of the batch. **/
         Operations: BatchReadOperationList;
@@ -1125,13 +1125,13 @@ object is reflected in a subsequent read operation of that same object. **/
     export interface BatchWriteOperation {
         /** Creates an object. **/
         CreateObject?: BatchCreateObject;
-        /** Attaches an object to a Directory . **/
+        /** Attaches an object to a Directory. **/
         AttachObject?: BatchAttachObject;
-        /** Detaches an object from a Directory . **/
+        /** Detaches an object from a Directory. **/
         DetachObject?: BatchDetachObject;
         /** Update a given object&#x27;s attributes. **/
         UpdateObjectAttributes?: BatchUpdateObjectAttributes;
-        /** Deletes an object in a Directory . **/
+        /** Deletes an object in a Directory. **/
         DeleteObject?: BatchDeleteObject;
         /** Batch operation adding a facet to an object. **/
         AddFacetToObject?: BatchAddFacetToObject;
@@ -1139,15 +1139,15 @@ object is reflected in a subsequent read operation of that same object. **/
         RemoveFacetFromObject?: BatchRemoveFacetFromObject;
     }
     export interface BatchWriteOperationResponse {
-        /** Creates an object in a Directory . **/
+        /** Creates an object in a Directory. **/
         CreateObject?: BatchCreateObjectResponse;
-        /** Attaches an object to a Directory . **/
+        /** Attaches an object to a Directory. **/
         AttachObject?: BatchAttachObjectResponse;
-        /** Detaches an object from a Directory . **/
+        /** Detaches an object from a Directory. **/
         DetachObject?: BatchDetachObjectResponse;
         /** Updates a given object’s attributes. **/
         UpdateObjectAttributes?: BatchUpdateObjectAttributesResponse;
-        /** Deletes an object in a Directory . **/
+        /** Deletes an object in a Directory. **/
         DeleteObject?: BatchDeleteObjectResponse;
         /** Result of an add facet to object batch operation. **/
         AddFacetToObject?: BatchAddFacetToObjectResponse;
@@ -1155,7 +1155,7 @@ object is reflected in a subsequent read operation of that same object. **/
         RemoveFacetFromObject?: BatchRemoveFacetFromObjectResponse;
     }
     export interface BatchWriteRequest {
-        /** ARN associated with the Directory . For more information, see arns . **/
+        /** ARN associated with the Directory. For more information, see arns. **/
         DirectoryArn: Arn;
         /** List of operations that are part of the batch. **/
         Operations: BatchWriteOperationList;
@@ -1168,51 +1168,51 @@ object is reflected in a subsequent read operation of that same object. **/
         Message?: ExceptionMessage;
     }
     export interface CreateDirectoryRequest {
-        /** Name of the Directory . Should be unique per account, per region. **/
+        /** Name of the Directory. Should be unique per account, per region. **/
         Name: DirectoryName;
-        /** ARN of the published schema that will be copied into the data Directory . For
-more information, see arns . **/
+        /** ARN of the published schema that will be copied into the data Directory. For
+more information, see arns. **/
         SchemaArn: Arn;
     }
     export interface CreateDirectoryResponse {
-        /** ARN associated with the Directory . For more information, see arns . **/
+        /** ARN associated with the Directory. For more information, see arns. **/
         DirectoryArn: DirectoryArn;
-        /** Name of the Directory . **/
+        /** Name of the Directory. **/
         Name: DirectoryName;
         /** The root object node of the created directory. **/
         ObjectIdentifier: ObjectIdentifier;
-        /** ARN of the published schema in the Directory . Once a published schema is copied
+        /** ARN of the published schema in the Directory. Once a published schema is copied
 into the directory, it has its own ARN which is referred to applied schema ARN.
-For more information, see arns . **/
+For more information, see arns. **/
         AppliedSchemaArn: Arn;
     }
     export interface CreateFacetRequest {
         /** Schema ARN in which the new Facet will be created. For more information, see 
-arns . **/
+arns. **/
         SchemaArn: Arn;
-        /** Name of the Facet , which is unique for a given schema. **/
+        /** Name of the Facet, which is unique for a given schema. **/
         Name: FacetName;
-        /** Attributes associated with the Facet .e **/
+        /** Attributes associated with the Facet.e **/
         Attributes?: FacetAttributeList;
         /** Specifies whether a given object created from this facet is of type Node, Leaf
 Node, Policy or Index.
 
- &amp;#42; Node: Can have multiple children but one parent.
+ &amp;#42;  Node: Can have multiple children but one parent.
    
    
 
- * Leaf Node: Cannot have children but can have multiple parents.
+ *  Leaf Node: Cannot have children but can have multiple parents.
    
    
 
- * Policy: Allows you to store a policy document and policy type. For more
+ *  Policy: Allows you to store a policy document and policy type. For more
    information, see Policies
-   [http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies] 
+   [http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies]
    .
    
    
 
- * Index: Can be created with the Index API. **/
+ *  Index: Can be created with the Index API. **/
         ObjectType: ObjectType;
     }
     export interface CreateFacetResponse {
@@ -1237,10 +1237,10 @@ the index. **/
     }
     export interface CreateObjectRequest {
         /** ARN associated with the Directory in which the object will be created. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
         /** List of facet ARNs to be associated with the object. For more information, see 
-arns . **/
+arns. **/
         SchemaFacets: SchemaFacetList;
         /** Attribute map whose attribute ARN contains the key and attribute value as the
 map value. **/
@@ -1260,7 +1260,7 @@ region. **/
         Name: SchemaName;
     }
     export interface CreateSchemaResponse {
-        /** ARN associated with the schema. For more information, see arns . **/
+        /** ARN associated with the schema. For more information, see arns. **/
         SchemaArn?: Arn;
     }
     export interface DeleteDirectoryRequest {
@@ -1272,7 +1272,7 @@ region. **/
         DirectoryArn: Arn;
     }
     export interface DeleteFacetRequest {
-        /** ARN associated with the Facet . For more information, see arns . **/
+        /** ARN associated with the Facet. For more information, see arns. **/
         SchemaArn: Arn;
         /** The name of the facet to delete. **/
         Name: FacetName;
@@ -1281,7 +1281,7 @@ region. **/
     }
     export interface DeleteObjectRequest {
         /** ARN associated with the Directory where the object resides. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
         /** Reference that identifies the object. **/
         ObjectReference: ObjectReference;
@@ -1289,12 +1289,12 @@ information, see arns . **/
     export interface DeleteObjectResponse {
     }
     export interface DeleteSchemaRequest {
-        /** ARN of the development schema. For more information, see arns . **/
+        /** ARN of the development schema. For more information, see arns. **/
         SchemaArn: Arn;
     }
     export interface DeleteSchemaResponse {
         /** Input ARN that is returned as part of the response. For more information, see 
-arns . **/
+arns. **/
         SchemaArn?: Arn;
     }
     export interface DetachFromIndexRequest {
@@ -1311,7 +1311,7 @@ arns . **/
     }
     export interface DetachObjectRequest {
         /** ARN associated with the Directory where objects reside. For more information,
-see arns . **/
+see arns. **/
         DirectoryArn: Arn;
         /** Parent reference from which the object with the specified link name is detached. **/
         ParentReference: ObjectReference;
@@ -1324,7 +1324,7 @@ see arns . **/
     }
     export interface DetachPolicyRequest {
         /** ARN associated with the Directory where both objects reside. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
         /** Reference that identifies the policy object. **/
         PolicyReference: ObjectReference;
@@ -1336,7 +1336,7 @@ information, see arns . **/
     export interface Directory {
         /** The name of the directory. **/
         Name?: DirectoryName;
-        /** ARN associated with the directory. For more information, see arns . **/
+        /** ARN associated with the directory. For more information, see arns. **/
         DirectoryArn?: DirectoryArn;
         /** The state of the directory. Can be either Enabled, Disabled, or Deleted. **/
         State?: DirectoryState;
@@ -1372,7 +1372,7 @@ information, see arns . **/
         DirectoryArn: Arn;
     }
     export interface Facet {
-        /** The name of the Facet . **/
+        /** The name of the Facet. **/
         Name?: FacetName;
         /** Object type associated with the facet. See CreateFacetRequest$ObjectType for
 more details. **/
@@ -1441,7 +1441,7 @@ for more information. **/
         Directory: Directory;
     }
     export interface GetFacetRequest {
-        /** ARN associated with the Facet . For more information, see arns . **/
+        /** ARN associated with the Facet. For more information, see arns. **/
         SchemaArn: Arn;
         /** The name of the facet to retrieve. **/
         Name: FacetName;
@@ -1624,7 +1624,7 @@ Deleted. **/
     }
     export interface ListObjectAttributesRequest {
         /** ARN associated with the Directory where the object resides. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
         /** Reference that identifies the object whose attributes will be listed. **/
         ObjectReference: ObjectReference;
@@ -1646,7 +1646,7 @@ attribute value is the value. **/
     }
     export interface ListObjectChildrenRequest {
         /** ARN associated with the Directory where the object resides. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
         /** Reference that identifies the object for which child objects are being listed. **/
         ObjectReference: ObjectReference;
@@ -1668,7 +1668,7 @@ as the value. **/
     }
     export interface ListObjectParentsRequest {
         /** ARN associated with the Directory where the object resides. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
         /** Reference that identifies the object for which parent objects are being listed. **/
         ObjectReference: ObjectReference;
@@ -1690,7 +1690,7 @@ as the value. **/
     }
     export interface ListObjectPoliciesRequest {
         /** ARN associated with the Directory where objects reside. For more information,
-see arns . **/
+see arns. **/
         DirectoryArn: Arn;
         /** Reference that identifies the object for which policies will be listed. **/
         ObjectReference: ObjectReference;
@@ -1711,7 +1711,7 @@ object is reflected in a subsequent read operation of that same object. **/
     }
     export interface ListPolicyAttachmentsRequest {
         /** ARN associated with the Directory where objects reside. For more information,
-see arns . **/
+see arns. **/
         DirectoryArn: Arn;
         /** Reference that identifies the policy object. **/
         PolicyReference: ObjectReference;
@@ -1760,7 +1760,7 @@ there are no more results to return. **/
         NextToken?: NextToken;
     }
     export interface LookupPolicyRequest {
-        /** ARN associated with the Directory . For more information, see arns . **/
+        /** ARN associated with the Directory. For more information, see arns. **/
         DirectoryArn: Arn;
         /** Reference that identifies the object whose policies will be looked up. **/
         ObjectReference: ObjectReference;
@@ -1814,13 +1814,13 @@ and PolicyType. **/
         /** Allows you to specify an object. You can identify an object in one of the
 following ways:
 
- &amp;#42; $ObjectIdentifier - Identifies the object by ObjectIdentifier
+ &amp;#42;   $ObjectIdentifier - Identifies the object by ObjectIdentifier
    
    
- * /some/path - Identifies the object based on path
+ *   /some/path - Identifies the object based on path
    
    
- * #SomeBatchReference - Identifies the object in a batch call **/
+ *   #SomeBatchReference - Identifies the object in a batch call **/
         Selector?: SelectorObjectReference;
     }
     export interface PolicyAttachment {
@@ -1838,7 +1838,7 @@ following ways:
         Policies?: PolicyAttachmentList;
     }
     export interface PublishSchemaRequest {
-        /** ARN associated with the development schema. For more information, see arns . **/
+        /** ARN associated with the development schema. For more information, see arns. **/
         DevelopmentSchemaArn: Arn;
         /** Version under which the schema will be published. **/
         Version: Version;
@@ -1847,7 +1847,7 @@ development schema is considered. **/
         Name?: SchemaName;
     }
     export interface PublishSchemaResponse {
-        /** ARN associated with the published schema. For more information, see arns . **/
+        /** ARN associated with the published schema. For more information, see arns. **/
         PublishedSchemaArn?: Arn;
     }
     export interface PutSchemaFromJsonRequest {
@@ -1945,11 +1945,11 @@ development schema is considered. **/
     export interface UntagResourceResponse {
     }
     export interface UpdateFacetRequest {
-        /** ARN associated with the Facet . For more information, see arns . **/
+        /** ARN associated with the Facet. For more information, see arns. **/
         SchemaArn: Arn;
         /**  **/
         Name: FacetName;
-        /** List of attributes that need to be updated in a given schema Facet . Each
+        /** List of attributes that need to be updated in a given schema Facet. Each
 attribute is followed by AttributeAction, which specifies the type of update
 operation to perform. **/
         AttributeUpdates?: FacetAttributeUpdateList;
@@ -1961,7 +1961,7 @@ more details. **/
     }
     export interface UpdateObjectAttributesRequest {
         /** ARN associated with the Directory where the object resides. For more
-information, see arns . **/
+information, see arns. **/
         DirectoryArn: Arn;
         /** Reference that identifies the object. **/
         ObjectReference: ObjectReference;
@@ -1973,13 +1973,13 @@ information, see arns . **/
         ObjectIdentifier?: ObjectIdentifier;
     }
     export interface UpdateSchemaRequest {
-        /** ARN of the development schema. For more information, see arns . **/
+        /** ARN of the development schema. For more information, see arns. **/
         SchemaArn: Arn;
         /** Name of the schema. **/
         Name: SchemaName;
     }
     export interface UpdateSchemaResponse {
-        /** ARN associated with the updated schema. For more information, see arns . **/
+        /** ARN associated with the updated schema. For more information, see arns. **/
         SchemaArn?: Arn;
     }
     export interface ValidationException {

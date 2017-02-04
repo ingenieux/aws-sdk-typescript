@@ -14,18 +14,18 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS HealthThe AWS Health API provides programmatic access to the AWS Health
+   * AWS Health The AWS Health API provides programmatic access to the AWS Health
 information that is presented in the AWS Personal Health Dashboard
-[https://phd.aws.amazon.com/phd/home#/] . You can get information about events
+[https://phd.aws.amazon.com/phd/home#/]. You can get information about events
 that affect your AWS resources:
 
- &amp;#42; DescribeEvents : Summary information about events.
+ &amp;#42;   DescribeEvents: Summary information about events.
    
    
- * DescribeEventDetails : Detailed information about one or more events.
+ *   DescribeEventDetails: Detailed information about one or more events.
    
    
- * DescribeAffectedEntities : Information about AWS resources that are affected
+ *   DescribeAffectedEntities: Information about AWS resources that are affected
    by one or more events.
    
    
@@ -33,37 +33,36 @@ that affect your AWS resources:
 In addition, these operations provide information about event types and summary
 counts of events or affected entities:
 
- * DescribeEventTypes : Information about the kinds of events that AWS Health
+ *   DescribeEventTypes: Information about the kinds of events that AWS Health
    tracks.
    
    
- * DescribeEventAggregates : A count of the number of events that meet specified
+ *   DescribeEventAggregates: A count of the number of events that meet specified
    criteria.
    
    
- * DescribeEntityAggregates : A count of the number of affected entities that
+ *   DescribeEntityAggregates: A count of the number of affected entities that
    meet specified criteria.
    
    
 
 The Health API requires a Business or Enterprise support plan from AWS Support
-[http://aws.amazon.com/premiumsupport/] . Calling the Health API from an account
+[http://aws.amazon.com/premiumsupport/]. Calling the Health API from an account
 that does not have a Business or Enterprise support plan causes a 
-SubscriptionRequiredException .
+SubscriptionRequiredException. 
 
 For authentication of requests, AWS Health uses the Signature Version 4 Signing
-Process [http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] 
-.
+Process [http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html].
 
 See the AWS Health User Guide
 [http://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html] for
 information about how to use the API.
 
-Service Endpoint
+ Service Endpoint 
 
 The HTTP endpoint for the AWS Health API is:
 
- * https://health.us-east-1.amazonaws.com
+ *  https://health.us-east-1.amazonaws.com
    *
    */
   export class Health extends Service {
@@ -102,7 +101,7 @@ each category are returned.
     /**
      * Returns detailed information about one or more specified events. Information
 includes standard event data (region, service, etc., as returned by 
-DescribeEvents ), a detailed event description, and possible additional metadata
+DescribeEvents), a detailed event description, and possible additional metadata
 that depends upon the nature of the event. Affected entities are not included;
 to retrieve those, use the DescribeAffectedEntities operation.
 
@@ -128,7 +127,7 @@ To retrieve that information, use the DescribeEventDetails and
 DescribeAffectedEntities operations.
 
 If no filter criteria are specified, all events are returned. Results are sorted
-by lastModifiedTime , starting with the most recent.
+by lastModifiedTime, starting with the most recent.
      *
      * @error InvalidPaginationToken   
      * @error UnsupportedLocale   
@@ -236,12 +235,12 @@ by lastModifiedTime , starting with the most recent.
     export type timestamp = number;
 
     export interface AffectedEntity {
-        /** The unique identifier for the entity. Format: arn:aws:health: entity-region : 
-aws-account :entity/ entity-id . Example: 
+        /** The unique identifier for the entity. Format: arn:aws:health:entity-region:
+aws-account:entity/entity-id . Example: 
 arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K **/
         entityArn?: entityArn;
-        /** The unique identifier for the event. Format: arn:aws:health: event-region 
-::event/ EVENT_TYPE_PLUS_ID . Example: 
+        /** The unique identifier for the event. Format: arn:aws:health:event-region::event/
+EVENT_TYPE_PLUS_ID . Example: 
 arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331 **/
         eventArn?: eventArn;
         /** The ID of the affected entity. **/
@@ -251,7 +250,7 @@ arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331 **/
         /** The most recent time that the entity was updated. **/
         lastUpdatedTime?: timestamp;
         /** The most recent status of the entity affected by the event. The possible values
-are IMPAIRED , UNIMPAIRED , and UNKNOWN . **/
+are IMPAIRED, UNIMPAIRED, and UNKNOWN. **/
         statusCode?: entityStatusCode;
         /** A map of entity tags attached to the affected entity. **/
         tags?: tagSet;
@@ -301,7 +300,7 @@ contain a pagination token value. **/
     export interface DescribeEventAggregatesRequest {
         /** Values to narrow the results returned. **/
         filter?: EventFilter;
-        /** The only currently supported value is eventTypeCategory . **/
+        /** The only currently supported value is eventTypeCategory. **/
         aggregateField: eventAggregateField;
         /** The maximum number of items to return in one batch, between 10 and 100,
 inclusive. **/
@@ -356,9 +355,9 @@ inclusive. **/
     }
     export interface DescribeEventTypesResponse {
         /** A list of event types that match the filter criteria. Event types have a
-category ( issue , accountNotification , or scheduledChange ), a service (for
-example, EC2 , RDS , DATAPIPELINE , BILLING ), and a code (in the format AWS_ 
-SERVICE _ DESCRIPTION ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT ). **/
+category (issue, accountNotification, or scheduledChange), a service (for
+example, EC2, RDS, DATAPIPELINE, BILLING), and a code (in the format AWS_SERVICE
+_DESCRIPTION ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT). **/
         eventTypes?: EventTypeList;
         /** If the results of a search are large, only a portion of the results are
 returned, and a nextToken pagination token is returned in the response. To
@@ -394,8 +393,8 @@ contain a pagination token value. **/
         nextToken?: nextToken;
     }
     export interface EntityAggregate {
-        /** The unique identifier for the event. Format: arn:aws:health: event-region 
-::event/ EVENT_TYPE_PLUS_ID . Example: 
+        /** The unique identifier for the event. Format: arn:aws:health:event-region::event/
+EVENT_TYPE_PLUS_ID . Example: 
 arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331 **/
         eventArn?: eventArn;
         /** The number entities that match the criteria for the specified events. **/
@@ -414,18 +413,18 @@ arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331 **/
         lastUpdatedTimes?: dateTimeRangeList;
         /** A map of entity tags attached to the affected entity. **/
         tags?: tagFilter;
-        /** A list of entity status codes ( IMPAIRED , UNIMPAIRED , or UNKNOWN ). **/
+        /** A list of entity status codes (IMPAIRED, UNIMPAIRED, or UNKNOWN). **/
         statusCodes?: entityStatusCodeList;
     }
     export interface Event {
-        /** The unique identifier for the event. Format: arn:aws:health: event-region 
-::event/ EVENT_TYPE_PLUS_ID . Example: 
+        /** The unique identifier for the event. Format: arn:aws:health:event-region::event/
+EVENT_TYPE_PLUS_ID . Example: 
 arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331 **/
         arn?: eventArn;
-        /** The AWS service that is affected by the event. For example, EC2 , RDS . **/
+        /** The AWS service that is affected by the event. For example, EC2, RDS. **/
         service?: service;
-        /** The unique identifier for the event type. The format is AWS_ SERVICE _ 
-DESCRIPTION ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT . **/
+        /** The unique identifier for the event type. The format is AWS_SERVICE_DESCRIPTION 
+; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT. **/
         eventTypeCode?: eventTypeCode;
         /** The **/
         eventTypeCategory?: eventTypeCategory;
@@ -439,8 +438,8 @@ DESCRIPTION ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT . **/
         endTime?: timestamp;
         /** The most recent date and time that the event was updated. **/
         lastUpdatedTime?: timestamp;
-        /** The most recent status of the event. Possible values are open , closed , and 
-upcoming . **/
+        /** The most recent status of the event. Possible values are open, closed, and 
+upcoming. **/
         statusCode?: eventStatusCode;
     }
     export interface EventAggregate {
@@ -462,8 +461,8 @@ upcoming . **/
         eventMetadata?: eventMetadata;
     }
     export interface EventDetailsErrorItem {
-        /** The unique identifier for the event. Format: arn:aws:health: event-region 
-::event/ EVENT_TYPE_PLUS_ID . Example: 
+        /** The unique identifier for the event. Format: arn:aws:health:event-region::event/
+EVENT_TYPE_PLUS_ID . Example: 
 arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331 **/
         eventArn?: eventArn;
         /** The name of the error. **/
@@ -479,7 +478,7 @@ arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331 **/
         /** A list of unique identifiers for event types. For example, 
 &quot;AWS_EC2_SYSTEM_MAINTENANCE_EVENT&quot;,&quot;AWS_RDS_MAINTENANCE_SCHEDULED&quot; **/
         eventTypeCodes?: eventTypeList;
-        /** The AWS services associated with the event. For example, EC2 , RDS . **/
+        /** The AWS services associated with the event. For example, EC2, RDS. **/
         services?: serviceList;
         /** A list of AWS regions. **/
         regions?: regionList;
@@ -493,11 +492,11 @@ arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331 **/
         lastUpdatedTimes?: dateTimeRangeList;
         /** A list of entity ARNs (unique identifiers). **/
         entityArns?: entityArnList;
-        /** A list of entity identifiers, such as EC2 instance IDs ( i-34ab692e ) or EBS
-volumes ( vol-426ab23e ). **/
+        /** A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS
+volumes (vol-426ab23e). **/
         entityValues?: entityValueList;
-        /** A list of event type category codes ( issue , scheduledChange , or 
-accountNotification ). **/
+        /** A list of event type category codes (issue, scheduledChange, or 
+accountNotification). **/
         eventTypeCategories?: eventTypeCategoryList;
         /** A map of entity tags attached to the affected entity. **/
         tags?: tagFilter;
@@ -505,22 +504,22 @@ accountNotification ). **/
         eventStatusCodes?: eventStatusCodeList;
     }
     export interface EventType {
-        /** The AWS service that is affected by the event. For example, EC2 , RDS . **/
+        /** The AWS service that is affected by the event. For example, EC2, RDS. **/
         service?: service;
-        /** The unique identifier for the event type. The format is AWS_ SERVICE _ 
-DESCRIPTION ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT . **/
+        /** The unique identifier for the event type. The format is AWS_SERVICE_DESCRIPTION 
+; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT. **/
         code?: eventTypeCode;
-        /** A list of event type category codes ( issue , scheduledChange , or 
-accountNotification ). **/
+        /** A list of event type category codes (issue, scheduledChange, or 
+accountNotification). **/
         category?: eventTypeCategory;
     }
     export interface EventTypeFilter {
         /** A list of event type codes. **/
         eventTypeCodes?: EventTypeCodeList;
-        /** The AWS services associated with the event. For example, EC2 , RDS . **/
+        /** The AWS services associated with the event. For example, EC2, RDS. **/
         services?: serviceList;
-        /** A list of event type category codes ( issue , scheduledChange , or 
-accountNotification ). **/
+        /** A list of event type category codes (issue, scheduledChange, or 
+accountNotification). **/
         eventTypeCategories?: EventTypeCategoryList;
     }
     export interface InvalidPaginationToken {

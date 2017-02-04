@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon WorkSpaces ServiceThis reference provides detailed information about the
+   * Amazon WorkSpaces Service This reference provides detailed information about the
 Amazon WorkSpaces operations.
    *
    */
@@ -81,8 +81,8 @@ retrieve the next set of items.
     /**
      * Obtains information about the specified WorkSpaces.
 
-Only one of the filter parameters, such as BundleId , DirectoryId , or 
-WorkspaceIds , can be specified at a time.
+Only one of the filter parameters, such as BundleId, DirectoryId, or 
+WorkspaceIds, can be specified at a time.
 
 This operation supports pagination with the use of the NextToken request and
 response parameters. If more results are available, the NextToken response
@@ -114,8 +114,8 @@ retrieve the next set of items.
     /**
      * Reboots the specified WorkSpaces.
 
-To be able to reboot a WorkSpace, the WorkSpace must have a State of AVAILABLE , 
-IMPAIRED , or INOPERABLE .
+To be able to reboot a WorkSpace, the WorkSpace must have a State of AVAILABLE, 
+IMPAIRED, or INOPERABLE.
 
 This operation is asynchronous and returns before the WorkSpaces have rebooted.
      *
@@ -127,20 +127,20 @@ This operation is asynchronous and returns before the WorkSpaces have rebooted.
 Rebuilding a WorkSpace is a potentially destructive action that can result in
 the loss of data. Rebuilding a WorkSpace causes the following to occur:
 
- &amp;#42; The system is restored to the image of the bundle that the WorkSpace is
+ &amp;#42;  The system is restored to the image of the bundle that the WorkSpace is
    created from. Any applications that have been installed, or system settings
    that have been made since the WorkSpace was created will be lost.
    
    
- * The data drive (D drive) is re-created from the last automatic snapshot taken
-   of the data drive. The current contents of the data drive are overwritten.
-   Automatic snapshots of the data drive are taken every 12 hours, so the
-   snapshot can be as much as 12 hours old.
+ *  The data drive (D drive) is re-created from the last automatic snapshot
+   taken of the data drive. The current contents of the data drive are
+   overwritten. Automatic snapshots of the data drive are taken every 12 hours,
+   so the snapshot can be as much as 12 hours old.
    
    
 
 To be able to rebuild a WorkSpace, the WorkSpace must have a State of AVAILABLE 
-or ERROR .
+or ERROR.
 
 This operation is asynchronous and returns before the WorkSpaces have been
 completely rebuilt.
@@ -167,7 +167,7 @@ Terminating a WorkSpace is a permanent action and cannot be undone. The user&#x2
 data is not maintained and will be destroyed. If you need to archive any user
 data, contact Amazon Web Services before terminating the WorkSpace.
 
-You can terminate a WorkSpace that is in any state except SUSPENDED .
+You can terminate a WorkSpace that is in any state except SUSPENDED.
 
 This operation is asynchronous and returns before the WorkSpaces have been
 completely terminated.
@@ -360,10 +360,10 @@ other filter parameter.
 
 This contains one of the following values:
 
- &amp;#42; null- Retrieves the bundles that belong to the account making the call.
+ &amp;#42;  null- Retrieves the bundles that belong to the account making the call.
    
    
- * AMAZON - Retrieves the bundles that are provided by AWS. **/
+ *   AMAZON- Retrieves the bundles that are provided by AWS. **/
         Owner?: BundleOwner;
         /** The NextToken value from a previous call to this operation. Pass null if this is
 the first call. **/

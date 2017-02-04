@@ -22,7 +22,7 @@ or the CloudWatch Logs SDK.
 
 You can use CloudWatch Logs to:
 
- &amp;#42; Monitor Logs from Amazon EC2 Instances in Real-time : You can use CloudWatch
+ &amp;#42;   Monitor Logs from Amazon EC2 Instances in Real-time: You can use CloudWatch
    Logs to monitor applications and systems using log data. For example,
    CloudWatch Logs can track the number of errors that occur in your application
    logs and send you a notification whenever the rate of errors exceeds a
@@ -35,12 +35,12 @@ You can use CloudWatch Logs to:
    CloudWatch metric that you specify.
    
    
- * Monitor Amazon CloudTrail Logged Events : You can create alarms in Amazon
+ *   Monitor Amazon CloudTrail Logged Events: You can create alarms in Amazon
    CloudWatch and receive notifications of particular API activity as captured
    by CloudTrail and use the notification to perform troubleshooting.
    
    
- * Archive Log Data : You can use CloudWatch Logs to store your log data in
+ *   Archive Log Data: You can use CloudWatch Logs to store your log data in
    highly durable storage. You can change the log retention setting so that any
    log events older than this setting are automatically deleted. The CloudWatch
    Logs agent makes it easy to quickly send both rotated and non-rotated log
@@ -69,8 +69,8 @@ group to an Amazon S3 bucket.
 This is an asynchronous call. If all the required information is provided, this
 operation initiates an export task and responds with the ID of the task. After
 the task has started, you can use DescribeExportTasks to get the status of the
-export task. Each account can only have one active ( RUNNING or PENDING ) export
-task at a time. To cancel an export task, use CancelExportTask .
+export task. Each account can only have one active (RUNNING or PENDING) export
+task at a time. To cancel an export task, use CancelExportTask.
 
 You can export logs from multiple log groups or multiple time ranges to the same
 S3 bucket. To separate out log data for each export task, you can specify a
@@ -91,13 +91,13 @@ You can create up to 5000 log groups per account.
 
 You must use the following guidelines when naming a log group:
 
- &amp;#42; Log group names must be unique within a region for an AWS account.
+ &amp;#42;  Log group names must be unique within a region for an AWS account.
    
    
- * Log group names can be between 1 and 512 characters long.
+ *  Log group names can be between 1 and 512 characters long.
    
    
- * Log group names consist of the following characters: a-z, A-Z, 0-9, &#x27;_&#x27;
+ *  Log group names consist of the following characters: a-z, A-Z, 0-9, &#x27;_&#x27;
    (underscore), &#x27;-&#x27; (hyphen), &#x27;/&#x27; (forward slash), and &#x27;.&#x27; (period).
      *
      * @error InvalidParameterException   
@@ -115,13 +115,13 @@ group.
 
 You must use the following guidelines when naming a log stream:
 
- &amp;#42; Log stream names must be unique within the log group.
+ &amp;#42;  Log stream names must be unique within the log group.
    
    
- * Log stream names can be between 1 and 512 characters long.
+ *  Log stream names can be between 1 and 512 characters long.
    
    
- * The &#x27;:&#x27; (colon) and &#x27;*&#x27; (asterisk) characters are not allowed.
+ *  The &#x27;:&#x27; (colon) and &#x27;*&#x27; (asterisk) characters are not allowed.
      *
      * @error InvalidParameterException   
      * @error ResourceAlreadyExistsException   
@@ -279,7 +279,7 @@ of the tokens in a subsequent call.
     /**
      * Lists the tags for the specified log group.
 
-To add tags, use TagLogGroup . To remove tags, use UntagLogGroup .
+To add tags, use TagLogGroup. To remove tags, use UntagLogGroup.
      *
      * @error ResourceNotFoundException   
      * @error ServiceUnavailableException   
@@ -288,7 +288,7 @@ To add tags, use TagLogGroup . To remove tags, use UntagLogGroup .
     /**
      * Creates or updates a destination. A destination encapsulates a physical resource
 (such as a Kinesis stream) and enables you to subscribe to a real-time stream of
-log events of a different account, ingested using PutLogEvents . Currently, the
+log events of a different account, ingested using PutLogEvents. Currently, the
 only supported physical resource is a Amazon Kinesis stream belonging to the
 same account as the destination.
 
@@ -296,7 +296,7 @@ A destination controls what is written to its Amazon Kinesis stream through an
 access policy. By default, PutDestination does not set any access policy with
 the destination, which means a cross-account user cannot call 
 PutSubscriptionFilter against this destination. To enable this, the destination
-owner must call PutDestinationPolicy after PutDestination .
+owner must call PutDestinationPolicy after PutDestination.
      *
      * @error InvalidParameterException   
      * @error OperationAbortedException   
@@ -320,30 +320,30 @@ destination.
 
 You must include the sequence token obtained from the response of the previous
 call. An upload in a newly created log stream does not require a sequence token.
-You can also get the sequence token using DescribeLogStreams .
+You can also get the sequence token using DescribeLogStreams.
 
 The batch of events must satisfy the following constraints:
 
- &amp;#42; The maximum batch size is 1,048,576 bytes, and this size is calculated as the
-   sum of all event messages in UTF-8, plus 26 bytes for each log event.
+ &amp;#42;  The maximum batch size is 1,048,576 bytes, and this size is calculated as
+   the sum of all event messages in UTF-8, plus 26 bytes for each log event.
    
    
- * None of the log events in the batch can be more than 2 hours in the future.
+ *  None of the log events in the batch can be more than 2 hours in the future.
    
    
- * None of the log events in the batch can be older than 14 days or the
+ *  None of the log events in the batch can be older than 14 days or the
    retention period of the log group.
    
    
- * The log events in the batch must be in chronological ordered by their
+ *  The log events in the batch must be in chronological ordered by their
    timestamp (the time the event occurred, expressed as the number of
    milliseconds since Jan 1, 1970 00:00:00 UTC).
    
    
- * The maximum number of log events in a batch is 10,000.
+ *  The maximum number of log events in a batch is 10,000.
    
    
- * A batch of log events in a single request cannot span more than 24 hours.
+ *  A batch of log events in a single request cannot span more than 24 hours.
    Otherwise, the operation fails.
      *
      * @error InvalidParameterException   
@@ -356,7 +356,7 @@ The batch of events must satisfy the following constraints:
     /**
      * Creates or updates a metric filter and associates it with the specified log
 group. Metric filters allow you to configure rules to extract metric data from
-log events ingested through PutLogEvents .
+log events ingested through PutLogEvents.
 
 The maximum number of metric filters that can be associated with a log group is
 100.
@@ -385,19 +385,19 @@ log group. Subscription filters allow you to subscribe to a real-time stream of
 log events ingested through PutLogEvents and have them delivered to a specific
 destination. Currently, the supported destinations are:
 
- &amp;#42; An Amazon Kinesis stream belonging to the same account as the subscription
+ &amp;#42;  An Amazon Kinesis stream belonging to the same account as the subscription
    filter, for same-account delivery.
    
    
- * A logical destination that belongs to a different account, for cross-account
+ *  A logical destination that belongs to a different account, for cross-account
    delivery.
    
    
- * An Amazon Kinesis Firehose stream that belongs to the same account as the
+ *  An Amazon Kinesis Firehose stream that belongs to the same account as the
    subscription filter, for same-account delivery.
    
    
- * An AWS Lambda function that belongs to the same account as the subscription
+ *  An AWS Lambda function that belongs to the same account as the subscription
    filter, for same-account delivery.
    
    
@@ -414,12 +414,12 @@ There can only be one subscription filter associated with a log group.
     /**
      * Adds or updates the specified tags for the specified log group.
 
-To list the tags for a log group, use ListTagsLogGroup . To remove tags, use 
-UntagLogGroup .
+To list the tags for a log group, use ListTagsLogGroup. To remove tags, use 
+UntagLogGroup.
 
 For more information about tags, see Tag Log Groups in Amazon CloudWatch Logs
 [http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html] 
-in the Amazon CloudWatch Logs User Guide .
+in the Amazon CloudWatch Logs User Guide.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParameterException   
@@ -437,8 +437,8 @@ filter pattern.
     /**
      * Removes the specified tags from the specified log group.
 
-To list the tags for a log group, use ListTagsLogGroup . To add tags, use 
-UntagLogGroup .
+To list the tags for a log group, use ListTagsLogGroup. To add tags, use 
+UntagLogGroup.
      *
      * @error ResourceNotFoundException   
      */
@@ -590,7 +590,7 @@ this time are not exported. **/
 AWS region. **/
         destination: ExportDestinationBucket;
         /** The prefix used as the start of the key for every object exported. If you don&#x27;t
-specify a value, the default is exportedlogs . **/
+specify a value, the default is exportedlogs. **/
         destinationPrefix?: ExportDestinationPrefix;
     }
     export interface CreateExportTaskResponse {
@@ -696,11 +696,11 @@ is up to 50 items. **/
         logGroupName: LogGroupName;
         /** The prefix to match.
 
-You cannot specify this parameter if orderBy is LastEventTime . **/
+You cannot specify this parameter if orderBy is LastEventTime. **/
         logStreamNamePrefix?: LogStreamName;
-        /** If the value is LogStreamName , the results are ordered by log stream name. If
-the value is LastEventTime , the results are ordered by the event time. The
-default value is LogStreamName .
+        /** If the value is LogStreamName, the results are ordered by log stream name. If
+the value is LastEventTime, the results are ordered by the event time. The
+default value is LogStreamName.
 
 If you order the results by event time, you cannot specify the 
 logStreamNamePrefix parameter. **/
@@ -1053,19 +1053,19 @@ Kinesis PutRecord on the destination stream. **/
         /** The ARN of the destination to deliver matching log events to. Currently, the
 supported destinations are:
 
- &amp;#42; An Amazon Kinesis stream belonging to the same account as the subscription
+ &amp;#42;  An Amazon Kinesis stream belonging to the same account as the subscription
    filter, for same-account delivery.
    
    
- * A logical destination (specified using an ARN) belonging to a different
+ *  A logical destination (specified using an ARN) belonging to a different
    account, for cross-account delivery.
    
    
- * An Amazon Kinesis Firehose stream belonging to the same account as the
+ *  An Amazon Kinesis Firehose stream belonging to the same account as the
    subscription filter, for same-account delivery.
    
    
- * An AWS Lambda function belonging to the same account as the subscription
+ *  An AWS Lambda function belonging to the same account as the subscription
    filter, for same-account delivery. **/
         destinationArn: DestinationArn;
         /** The ARN of an IAM role that grants CloudWatch Logs permissions to deliver

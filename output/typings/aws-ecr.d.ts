@@ -40,7 +40,7 @@ should use the docker CLI to pull, tag, and push images.
     batchCheckLayerAvailability(params: ECR.BatchCheckLayerAvailabilityRequest, callback?: (err: ECR.RepositoryNotFoundException|ECR.InvalidParameterException|ECR.ServerException|any, data: ECR.BatchCheckLayerAvailabilityResponse|any) => void): Request<ECR.BatchCheckLayerAvailabilityResponse|any,ECR.RepositoryNotFoundException|ECR.InvalidParameterException|ECR.ServerException|any>;
     /**
      * Deletes a list of specified images within a specified repository. Images are
-specified with either imageTag or imageDigest .
+specified with either imageTag or imageDigest.
 
 You can remove a tag from an image by specifying the image&#x27;s tag in your
 request. When you remove the last tag from an image, the image is deleted from
@@ -56,7 +56,7 @@ image&#x27;s digest in your request.
     batchDeleteImage(params: ECR.BatchDeleteImageRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.BatchDeleteImageResponse|any) => void): Request<ECR.BatchDeleteImageResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any>;
     /**
      * Gets detailed information for specified images within a specified repository.
-Images are specified with either imageTag or imageDigest .
+Images are specified with either imageTag or imageDigest.
      *
      * @error ServerException   
      * @error InvalidParameterException   
@@ -117,7 +117,7 @@ tags, and creation date.
 Beginning with Docker version 1.9, the Docker client compresses image layers
 before pushing them to a V2 Docker registry. The output of the docker images 
 command shows the uncompressed image size, so it may return a larger image size
-than the image sizes returned by DescribeImages .
+than the image sizes returned by DescribeImages.
      *
      * @error ServerException   
      * @error InvalidParameterException   
@@ -187,7 +187,7 @@ should use the docker CLI to pull, tag, and push images.
      * Lists all the image IDs for a given repository.
 
 You can filter images based on whether or not they are tagged by setting the 
-tagStatus parameter to TAGGED or UNTAGGED . For example, you can filter your
+tagStatus parameter to TAGGED or UNTAGGED. For example, you can filter your
 results to return only UNTAGGED images and then pipe that result to a 
 BatchDeleteImage operation to delete them. Or, you can filter your results to
 return only TAGGED images to list all of the tags in your repository.
@@ -334,15 +334,15 @@ should use the docker CLI to pull, tag, and push images.
     export interface AuthorizationData {
         /** A base64-encoded string that contains authorization data for the specified
 Amazon ECR registry. When the string is decoded, it is presented in the format 
-user:password for private registry authentication using docker login . **/
+user:password for private registry authentication using docker login. **/
         authorizationToken?: Base64;
         /** The Unix time in seconds and milliseconds when the authorization token expires.
 Authorization tokens are valid for 12 hours. **/
         expiresAt?: ExpirationTimestamp;
         /** The registry URL to use for this authorization token in a docker login command.
 The Amazon ECR registry URL format is 
-https://aws_account_id.dkr.ecr.region.amazonaws.com . For example, 
-https://012345678910.dkr.ecr.us-east-1.amazonaws.com .. **/
+https://aws_account_id.dkr.ecr.region.amazonaws.com. For example, 
+https://012345678910.dkr.ecr.us-east-1.amazonaws.com.. **/
         proxyEndpoint?: ProxyEndpoint;
     }
     export interface BatchCheckLayerAvailabilityRequest {
@@ -368,7 +368,7 @@ delete. If you do not specify a registry, the default registry is assumed. **/
         /** The repository that contains the image to delete. **/
         repositoryName: RepositoryName;
         /** A list of image ID references that correspond to images to delete. The format of
-the imageIds reference is imageTag=tag or imageDigest=digest . **/
+the imageIds reference is imageTag=tag or imageDigest=digest. **/
         imageIds: ImageIdentifierList;
     }
     export interface BatchDeleteImageResponse {
@@ -384,7 +384,7 @@ describe. If you do not specify a registry, the default registry is assumed. **/
         /** The repository that contains the images to describe. **/
         repositoryName: RepositoryName;
         /** A list of image ID references that correspond to images to describe. The format
-of the imageIds reference is imageTag=tag or imageDigest=digest . **/
+of the imageIds reference is imageTag=tag or imageDigest=digest. **/
         imageIds: ImageIdentifierList;
         /** The accepted media types for the request.
 
@@ -423,8 +423,8 @@ the image layer. **/
     }
     export interface CreateRepositoryRequest {
         /** The name to use for the repository. The repository name may be specified on its
-own (such as nginx-web-app ) or it can be prepended with a namespace to group
-the repository into a category (such as project-a/nginx-web-app ). **/
+own (such as nginx-web-app) or it can be prepended with a namespace to group the
+repository into a category (such as project-a/nginx-web-app). **/
         repositoryName: RepositoryName;
     }
     export interface CreateRepositoryResponse {
@@ -463,7 +463,7 @@ delete. If you do not specify a registry, the default registry is assumed. **/
     }
     export interface DescribeImagesFilter {
         /** The tag status with which to filter your DescribeImages results. You can filter
-results based on whether they are TAGGED or UNTAGGED . **/
+results based on whether they are TAGGED or UNTAGGED. **/
         tagStatus?: TagStatus;
     }
     export interface DescribeImagesRequest {
@@ -496,8 +496,8 @@ a nextToken value, if applicable. **/
         /** A list of ImageDetail objects that contain data about the image. **/
         imageDetails?: ImageDetailList;
         /** The nextToken value to include in a future DescribeImages request. When the
-results of a DescribeImages request exceed maxResults , this value can be used
-to retrieve the next page of results. This value is null when there are no more
+results of a DescribeImages request exceed maxResults, this value can be used to
+retrieve the next page of results. This value is null when there are no more
 results to return. **/
         nextToken?: NextToken;
     }
@@ -531,7 +531,7 @@ returns up to 100 results and a nextToken value, if applicable. **/
         /** A list of repository objects corresponding to valid repositories. **/
         repositories?: RepositoryList;
         /** The nextToken value to include in a future DescribeRepositories request. When
-the results of a DescribeRepositories request exceed maxResults , this value can
+the results of a DescribeRepositories request exceed maxResults, this value can
 be used to retrieve the next page of results. This value is null when there are
 no more results to return. **/
         nextToken?: NextToken;
@@ -609,7 +609,7 @@ you do not specify a registry, the default registry is assumed. **/
 Beginning with Docker version 1.9, the Docker client compresses image layers
 before pushing them to a V2 Docker registry. The output of the docker images 
 command shows the uncompressed image size, so it may return a larger image size
-than the image sizes returned by DescribeImages . **/
+than the image sizes returned by DescribeImages. **/
         imageSizeInBytes?: ImageSizeInBytes;
         /** The date and time, expressed in standard JavaScript date format, at which the
 current image was pushed to the repository. **/
@@ -676,7 +676,7 @@ the exception. **/
         layerSize?: LayerSizeInBytes;
         /** The media type of the layer, such as 
 application/vnd.docker.image.rootfs.diff.tar.gzip or 
-application/vnd.oci.image.layer.v1.tar+gzip . **/
+application/vnd.oci.image.layer.v1.tar+gzip. **/
         mediaType?: MediaType;
     }
     export interface LayerAlreadyExistsException {
@@ -709,7 +709,7 @@ application/vnd.oci.image.layer.v1.tar+gzip . **/
     }
     export interface ListImagesFilter {
         /** The tag status with which to filter your ListImages results. You can filter
-results based on whether they are TAGGED or UNTAGGED . **/
+results based on whether they are TAGGED or UNTAGGED. **/
         tagStatus?: TagStatus;
     }
     export interface ListImagesRequest {
@@ -742,7 +742,7 @@ applicable. **/
         /** The list of image IDs for the requested repository. **/
         imageIds?: ImageIdentifierList;
         /** The nextToken value to include in a future ListImages request. When the results
-of a ListImages request exceed maxResults , this value can be used to retrieve
+of a ListImages request exceed maxResults, this value can be used to retrieve
 the next page of results. This value is null when there are no more results to
 return. **/
         nextToken?: NextToken;
@@ -768,7 +768,7 @@ use the Docker Image Manifest V2 Schema 2 or OCI formats. **/
         /** The Amazon Resource Name (ARN) that identifies the repository. The ARN contains
 the arn:aws:ecr namespace, followed by the region of the repository, the AWS
 account ID of the repository owner, the repository namespace, and then the
-repository name. For example, arn:aws:ecr:region:012345678910:repository/test . **/
+repository name. For example, arn:aws:ecr:region:012345678910:repository/test. **/
         repositoryArn?: Arn;
         /** The AWS account ID associated with the registry that contains the repository. **/
         registryId?: RegistryId;

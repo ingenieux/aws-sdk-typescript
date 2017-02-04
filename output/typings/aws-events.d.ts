@@ -18,7 +18,7 @@ declare module "aws-sdk" {
 resources. When your resources change state they automatically send events into
 an event stream. You can create rules that match selected events in the stream
 and route them to targets to take action. You can also use rules to take action
-on a pre-determined schedule. For example, you can configure rules to:
+on a pre-determined schedule. For example, you can configure rules to: 
 
  &amp;#42; Automatically invoke an AWS Lambda function to update DNS entries when an
    event notifies you that Amazon EC2 instance enters the running state.
@@ -27,9 +27,9 @@ on a pre-determined schedule. For example, you can configure rules to:
  * Periodically invoke a built-in target to create a snapshot of an Amazon EBS
    volume.
 
-For more information about Amazon CloudWatch Events features, see the Amazon
+ For more information about Amazon CloudWatch Events features, see the Amazon
 CloudWatch Developer Guide
-[http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide] .
+[http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide].
    *
    */
   export class CloudWatchEvents extends Service {
@@ -39,7 +39,7 @@ CloudWatch Developer Guide
      * Deletes a rule. You must remove all targets from a rule using RemoveTargets 
 before you can delete the rule.
 
-Note: When you delete a rule, incoming events might still continue to match to
+ Note: When you delete a rule, incoming events might still continue to match to
 the deleted rule. Please allow a short period of time for changes to take
 effect.
      *
@@ -58,7 +58,7 @@ effect.
      * Disables a rule. A disabled rule won&#x27;t match any events, and won&#x27;t self-trigger
 if it has a schedule expression.
 
-Note: When you disable a rule, incoming events might still continue to match to
+ Note: When you disable a rule, incoming events might still continue to match to
 the disabled rule. Please allow a short period of time for changes to take
 effect.
      *
@@ -70,7 +70,7 @@ effect.
     /**
      * Enables a rule. If the rule does not exist, the operation fails.
 
-Note: When you enable a rule, incoming events might not immediately start
+ Note: When you enable a rule, incoming events might not immediately start
 matching to a newly enabled rule. Please allow a short period of time for
 changes to take effect.
      *
@@ -116,9 +116,9 @@ rules.
     putEvents(params: CloudWatchEvents.PutEventsRequest, callback?: (err: CloudWatchEvents.InternalException|any, data: CloudWatchEvents.PutEventsResponse|any) => void): Request<CloudWatchEvents.PutEventsResponse|any,CloudWatchEvents.InternalException|any>;
     /**
      * Creates or updates a rule. Rules are enabled by default, or based on value of
-the State parameter. You can disable a rule using DisableRule .
+the State parameter. You can disable a rule using DisableRule.
 
-Note: When you create or update a rule, incoming events might not immediately
+ Note: When you create or update a rule, incoming events might not immediately
 start matching to new or updated rules. Please allow a short period of time for
 changes to take effect.
 
@@ -128,10 +128,10 @@ ScheduleExpressions self-trigger based on the given schedule. A rule can have
 both an EventPattern and a ScheduleExpression, in which case the rule will
 trigger on matching events as well as on a schedule.
 
-Note: Most services in AWS treat : or / as the same character in Amazon Resource
-Names (ARNs). However, CloudWatch Events uses an exact match in event patterns
-and rules. Be sure to use the correct ARN characters when creating event
-patterns so that they match the ARN syntax in the event you want to match.
+ Note: Most services in AWS treat : or / as the same character in Amazon
+Resource Names (ARNs). However, CloudWatch Events uses an exact match in event
+patterns and rules. Be sure to use the correct ARN characters when creating
+event patterns so that they match the ARN syntax in the event you want to match.
      *
      * @error InvalidEventPatternException The event pattern is invalid.  
      * @error LimitExceededException This exception occurs if you try to create more rules or add more targets to a
@@ -153,20 +153,20 @@ SNS resources, CloudWatch Events relies on resource-based policies. For Amazon
 Kinesis streams, CloudWatch Events relies on IAM roles. For more information,
 see Permissions for Sending Events to Targets
 [http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/EventsTargetPermissions.html] 
-in the Amazon CloudWatch Developer Guide .
+in the Amazon CloudWatch Developer Guide.
 
 Input and InputPath are mutually-exclusive and optional parameters of a target.
 When a rule is triggered due to a matched event, if for a target:
 
  &amp;#42; Neither Input nor InputPath is specified, then the entire event is passed to
    the target in JSON form.
- * InputPath is specified in the form of JSONPath (e.g. $.detail ), then only
+ *  InputPath is specified in the form of JSONPath (e.g. $.detail), then only
    the part of the event specified in the path is passed to the target (e.g.
-   only the detail part of the event is passed).
- * Input is specified in the form of a valid JSON, then the matched event is
+   only the detail part of the event is passed). 
+ *  Input is specified in the form of a valid JSON, then the matched event is
    overridden with this constant.
 
-Note: When you add targets to a rule, when the associated rule triggers, new or
+ Note: When you add targets to a rule, when the associated rule triggers, new or
 updated targets might not be immediately invoked. Please allow a short period of
 time for changes to take effect.
      *
@@ -181,7 +181,7 @@ rule than allowed by default.
      * Removes target(s) from a rule so that when the rule is triggered, those targets
 will no longer be invoked.
 
-Note: When you remove a target, when the associated rule triggers, removed
+ Note: When you remove a target, when the associated rule triggers, removed
 targets might still continue to be invoked. Please allow a short period of time
 for changes to take effect.
      *
@@ -193,10 +193,10 @@ for changes to take effect.
     /**
      * Tests whether an event pattern matches the provided event.
 
-Note: Most services in AWS treat : or / as the same character in Amazon Resource
-Names (ARNs). However, CloudWatch Events uses an exact match in event patterns
-and rules. Be sure to use the correct ARN characters when creating event
-patterns so that they match the ARN syntax in the event you want to match.
+ Note: Most services in AWS treat : or / as the same character in Amazon
+Resource Names (ARNs). However, CloudWatch Events uses an exact match in event
+patterns and rules. Be sure to use the correct ARN characters when creating
+event patterns so that they match the ARN syntax in the event you want to match.
      *
      * @error InvalidEventPatternException The event pattern is invalid.  
      * @error InternalException This exception occurs due to unexpected causes.  
@@ -360,8 +360,8 @@ associated with the event, and so on. **/
         Entries: PutEventsRequestEntryList;
     }
     export interface PutEventsRequestEntry {
-        /** Timestamp of event, per RFC3339 [https://www.rfc-editor.org/rfc/rfc3339.txt] .
-If no timestamp is provided, the timestamp of the PutEvents call will be used. **/
+        /** Timestamp of event, per RFC3339 [https://www.rfc-editor.org/rfc/rfc3339.txt]. If
+no timestamp is provided, the timestamp of the PutEvents call will be used. **/
         Time?: EventTime;
         /** The source of the event. **/
         Source?: String;
@@ -475,11 +475,11 @@ invocation. **/
         Arn: TargetArn;
         /** Valid JSON text passed to the target. For more information about JSON text, see 
 The JavaScript Object Notation (JSON) Data Interchange Format
-[http://www.rfc-editor.org/rfc/rfc7159.txt] . **/
+[http://www.rfc-editor.org/rfc/rfc7159.txt]. **/
         Input?: TargetInput;
         /** The value of the JSONPath that is used for extracting part of the matched event
 when passing it to the target. For more information about JSON paths, see 
-JSONPath [http://goessner.net/articles/JsonPath/] . **/
+JSONPath [http://goessner.net/articles/JsonPath/]. **/
         InputPath?: TargetInputPath;
     }
     export interface TestEventPatternRequest {

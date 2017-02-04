@@ -14,26 +14,26 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Marketplace Metering ServiceThis reference provides descriptions of the
+   * AWS Marketplace Metering Service This reference provides descriptions of the
 low-level AWS Marketplace Metering Service API.
 
 AWS Marketplace sellers can use this API to submit usage data for custom usage
 dimensions.
 
-Submitting Metering Records
+ Submitting Metering Records 
 
- &amp;#42; MeterUsage - Submits the metering record for a Marketplace product.
+ &amp;#42;   MeterUsage- Submits the metering record for a Marketplace product.
    MeterUsage is called from an EC2 instance.
    
    
- * BatchMeterUsage - Submits the metering record for a set of customers.
+ *   BatchMeterUsage- Submits the metering record for a set of customers.
    BatchMeterUsage is called from a software-as-a-service (SaaS) application.
    
    
 
-Accepting New Customers
+ Accepting New Customers 
 
- * ResolveCustomer - Called by a SaaS application during the registration
+ *   ResolveCustomer- Called by a SaaS application during the registration
    process. When a buyer visits your website during the registration process,
    the buyer submits a Registration Token through the browser. The Registration
    Token is resolved through this API to obtain a CustomerIdentifier and Product
@@ -229,15 +229,15 @@ application. **/
         /** The UsageRecordResult Status indicates the status of an individual UsageRecord
 processed by BatchMeterUsage.
 
- &amp;#42; Success - The UsageRecord was accepted and honored by BatchMeterUsage.
+ &amp;#42;   Success- The UsageRecord was accepted and honored by BatchMeterUsage.
    
    
- * CustomerNotSubscribed - The CustomerIdentifier specified is not subscribed to
+ *   CustomerNotSubscribed- The CustomerIdentifier specified is not subscribed to
    your product. The UsageRecord was not honored. Future UsageRecords for this
    customer will fail until the customer subscribes to your product.
    
    
- * DuplicateRecord - Indicates that the UsageRecord was invalid and not honored.
+ *   DuplicateRecord- Indicates that the UsageRecord was invalid and not honored.
    A previously metered UsageRecord had the same customer, dimension, and time,
    but a different quantity. **/
         Status?: UsageRecordResultStatus;

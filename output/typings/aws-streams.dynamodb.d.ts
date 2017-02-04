@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon DynamoDBAmazon DynamoDB Streams provides API actions for accessing
+   * Amazon DynamoDB Amazon DynamoDB Streams provides API actions for accessing
 streams and processing stream records. To learn more about application
 development with Streams, see Capturing Table Activity with DynamoDB Streams
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html] 
@@ -22,17 +22,17 @@ in the Amazon DynamoDB Developer Guide.
 
 The following are short descriptions of each low-level DynamoDB Streams action:
 
- &amp;#42; DescribeStream - Returns detailed information about a particular stream.
+ &amp;#42;   DescribeStream - Returns detailed information about a particular stream.
    
    
- * GetRecords - Retrieves the stream records from within a shard.
+ *   GetRecords - Retrieves the stream records from within a shard.
    
    
- * GetShardIterator - Returns information on how to retrieve the streams record
+ *   GetShardIterator - Returns information on how to retrieve the streams record
    from a shard with a given shard ID.
    
    
- * ListStreams - Returns a list of all the streams associated with the current
+ *   ListStreams - Returns a list of all the streams associated with the current
    AWS account and endpoint.
    *
    */
@@ -47,7 +47,7 @@ corresponding DynamoDB table.
 You can call DescribeStream at a maximum rate of 10 times per second.
 
 Each shard in the stream has a SequenceNumberRange associated with it. If the 
-SequenceNumberRange has a StartingSequenceNumber but no EndingSequenceNumber ,
+SequenceNumberRange has a StartingSequenceNumber but no EndingSequenceNumber,
 then the shard is still open (able to receive more stream records). If both 
 StartingSequenceNumber and EndingSequenceNumber are present, then that shard is
 closed and can no longer receive more data.
@@ -66,7 +66,7 @@ the shard that the iterator points to, GetRecords returns an empty list. Note
 that it might take multiple calls to get to a portion of the shard that contains
 stream records.
 
-GetRecords can retrieve a maximum of 1 MB of data or 1000 stream records,
+ GetRecords can retrieve a maximum of 1 MB of data or 1000 stream records,
 whichever comes first.
      *
      * @error ResourceNotFoundException   
@@ -221,7 +221,7 @@ This iterator can be used to access the stream records in this shard. **/
 iterator. **/
         Records?: RecordList;
         /** The next position in the shard from which to start sequentially reading stream
-records. If set to null , the shard has been closed and the requested iterator
+records. If set to null, the shard has been closed and the requested iterator
 will not return any more data. **/
         NextShardIterator?: ShardIterator;
     }
@@ -233,22 +233,22 @@ will not return any more data. **/
         /** Determines how the shard iterator is used to start reading stream records from
 the shard:
 
- &amp;#42; AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a
+ &amp;#42;   AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a
    specific sequence number.
    
    
- * AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
+ *   AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
    specific sequence number.
    
    
- * TRIM_HORIZON - Start reading at the last (untrimmed) stream record, which is
+ *   TRIM_HORIZON - Start reading at the last (untrimmed) stream record, which is
    the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit
    on data retention. Stream records whose age exceeds this limit are subject to
    removal (trimming) from the stream.
    
    
- * LATEST - Start reading just after the most recent stream record in the shard,
-   so that you always read the most recent data in the shard. **/
+ *   LATEST - Start reading just after the most recent stream record in the
+   shard, so that you always read the most recent data in the shard. **/
         ShardIteratorType: ShardIteratorType;
         /** The sequence number of a stream record in the shard from which to start reading. **/
         SequenceNumber?: SequenceNumber;
@@ -305,13 +305,13 @@ record. **/
         eventID?: String;
         /** The type of data modification that was performed on the DynamoDB table:
 
- &amp;#42; INSERT - a new item was added to the table.
+ &amp;#42;   INSERT - a new item was added to the table.
    
    
- * MODIFY - one or more of an existing item&#x27;s attributes were modified.
+ *   MODIFY - one or more of an existing item&#x27;s attributes were modified.
    
    
- * REMOVE - the item was deleted from the table **/
+ *   REMOVE - the item was deleted from the table **/
         eventName?: OperationType;
         /** The version number of the stream record format. This number is updated whenever
 the structure of Record is modified.
@@ -321,7 +321,7 @@ particular value, as this number is subject to change at any time. In general,
 eventVersion will only increase as the low-level DynamoDB Streams API evolves. **/
         eventVersion?: String;
         /** The AWS service from which the stream record originated. For DynamoDB Streams,
-this is aws:dynamodb . **/
+this is aws:dynamodb. **/
         eventSource?: String;
         /** The region in which the GetRecords request was received. **/
         awsRegion?: String;
@@ -359,13 +359,13 @@ it is possible that a stream from another table might have the same timestamp.
 However, the combination of the following three elements is guaranteed to be
 unique:
 
- &amp;#42; the AWS customer ID.
+ &amp;#42;  the AWS customer ID.
    
    
- * the table name
+ *  the table name
    
    
- * the StreamLabel **/
+ *  the StreamLabel **/
         StreamLabel?: String;
     }
     export interface StreamDescription {
@@ -378,42 +378,42 @@ it is possible that a stream from another table might have the same timestamp.
 However, the combination of the following three elements is guaranteed to be
 unique:
 
- &amp;#42; the AWS customer ID.
+ &amp;#42;  the AWS customer ID.
    
    
- * the table name
+ *  the table name
    
    
- * the StreamLabel **/
+ *  the StreamLabel **/
         StreamLabel?: String;
         /** Indicates the current status of the stream:
 
- &amp;#42; ENABLING - Streams is currently being enabled on the DynamoDB table.
+ &amp;#42;   ENABLING - Streams is currently being enabled on the DynamoDB table.
    
    
- * ENABLED - the stream is enabled.
+ *   ENABLED - the stream is enabled.
    
    
- * DISABLING - Streams is currently being disabled on the DynamoDB table.
+ *   DISABLING - Streams is currently being disabled on the DynamoDB table.
    
    
- * DISABLED - the stream is disabled. **/
+ *   DISABLED - the stream is disabled. **/
         StreamStatus?: StreamStatus;
         /** Indicates the format of the records within this stream:
 
- &amp;#42; KEYS_ONLY - only the key attributes of items that were modified in the
+ &amp;#42;   KEYS_ONLY - only the key attributes of items that were modified in the
    DynamoDB table.
    
    
- * NEW_IMAGE - entire items from the table, as they appeared after they were
+ *   NEW_IMAGE - entire items from the table, as they appeared after they were
    modified.
    
    
- * OLD_IMAGE - entire items from the table, as they appeared before they were
+ *   OLD_IMAGE - entire items from the table, as they appeared before they were
    modified.
    
    
- * NEW_AND_OLD_IMAGES - both the new and the old images of the items from the
+ *   NEW_AND_OLD_IMAGES - both the new and the old images of the items from the
    table. **/
         StreamViewType?: StreamViewType;
         /** The date and time when the request to create this stream was issued. **/
@@ -453,16 +453,16 @@ time [http://www.epochconverter.com/] format. **/
         /** The type of data from the modified DynamoDB item that was captured in this
 stream record:
 
- &amp;#42; KEYS_ONLY - only the key attributes of the modified item.
+ &amp;#42;   KEYS_ONLY - only the key attributes of the modified item.
    
    
- * NEW_IMAGE - the entire item, as it appeared after it was modified.
+ *   NEW_IMAGE - the entire item, as it appeared after it was modified.
    
    
- * OLD_IMAGE - the entire item, as it appeared before it was modified.
+ *   OLD_IMAGE - the entire item, as it appeared before it was modified.
    
    
- * NEW_AND_OLD_IMAGES - both the new and the old item images of the item. **/
+ *   NEW_AND_OLD_IMAGES - both the new and the old item images of the item. **/
         StreamViewType?: StreamViewType;
     }
     export interface TrimmedDataAccessException {

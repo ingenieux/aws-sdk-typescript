@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS CodeBuildAWS CodeBuild is a fully managed build service in the cloud. AWS
+   * AWS CodeBuild AWS CodeBuild is a fully managed build service in the cloud. AWS
 CodeBuild compiles your source code, runs unit tests, and produces artifacts
 that are ready to deploy. AWS CodeBuild eliminates the need to provision,
 manage, and scale your own build servers. It provides prepackaged build
@@ -22,11 +22,11 @@ environments for the most popular programming languages and build tools, such as
 Apach Maven, Gradle, and more. You can also fully customize build environments
 in AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically
 to meet peak build requests, and you pay only for the build time you consume.
-For more information about AWS CodeBuild, see the AWS CodeBuild User Guide .
+For more information about AWS CodeBuild, see the AWS CodeBuild User Guide.
 
 AWS CodeBuild supports these operations:
 
- &amp;#42; BatchGetProjects : Gets information about one or more build projects. A build
+ &amp;#42;   BatchGetProjects: Gets information about one or more build projects. A build
    project defines how AWS CodeBuild will run a build. This includes information
    such as where to get the source code to build, the build environment to use,
    the build commands to run, and where to store the build output. A build
@@ -35,37 +35,37 @@ AWS CodeBuild supports these operations:
    you can add tags to build projects to help manage your resources and costs.
    
    
- * CreateProject : Creates a build project.
+ *   CreateProject: Creates a build project.
    
    
- * DeleteProject : Deletes a build project.
+ *   DeleteProject: Deletes a build project.
    
    
- * ListProjects : Gets a list of build project names, with each build project
+ *   ListProjects: Gets a list of build project names, with each build project
    name representing a single build project.
    
    
- * UpdateProject : Changes the settings of an existing build project.
+ *   UpdateProject: Changes the settings of an existing build project.
    
    
- * BatchGetBuilds : Gets information about one or more builds.
+ *   BatchGetBuilds: Gets information about one or more builds.
    
    
- * ListBuilds : Gets a list of build IDs, with each build ID representing a
+ *   ListBuilds: Gets a list of build IDs, with each build ID representing a
    single build.
    
    
- * ListBuildsForProject : Gets a list of build IDs for the specified build
+ *   ListBuildsForProject: Gets a list of build IDs for the specified build
    project, with each build ID representing a single build.
    
    
- * StartBuild : Starts running a build.
+ *   StartBuild: Starts running a build.
    
    
- * StopBuild : Attempts to stop running a build.
+ *   StopBuild: Attempts to stop running a build.
    
    
- * ListCuratedEnvironmentImages : Gets information about Docker images that are
+ *   ListCuratedEnvironmentImages: Gets information about Docker images that are
    managed by AWS CodeBuild.
    *
    */
@@ -256,22 +256,22 @@ single build project.
         currentPhase?: String;
         /** The current status of the build. Valid values include:
 
- &amp;#42; FAILED : The build failed.
+ &amp;#42;   FAILED: The build failed.
    
    
- * FAULT : The build faulted.
+ *   FAULT: The build faulted.
    
    
- * IN_PROGRESS : The build is still in progress.
+ *   IN_PROGRESS: The build is still in progress.
    
    
- * STOPPED : The build stopped.
+ *   STOPPED: The build stopped.
    
    
- * SUCCEEDED : The build succeeded.
+ *   SUCCEEDED: The build succeeded.
    
    
- * TIMED_OUT : The build timed out. **/
+ *   TIMED_OUT: The build timed out. **/
         buildStatus?: StatusType;
         /** Any version identifier for the version of the source code to be built. **/
         sourceVersion?: NonEmptyString;
@@ -295,16 +295,16 @@ it does not get marked as completed. **/
         buildComplete?: Boolean;
         /** The entity that started the build. Valid values include:
 
- &amp;#42; If AWS CodePipeline started the build, the pipeline&#x27;s name (for example, 
-   codepipeline/my-demo-pipeline ).
+ &amp;#42;  If AWS CodePipeline started the build, the pipeline&#x27;s name (for example, 
+   codepipeline/my-demo-pipeline).
    
    
- * If an AWS Identity and Access Management (IAM) user started the build, the
-   user&#x27;s name (for example MyUserName ).
+ *  If an AWS Identity and Access Management (IAM) user started the build, the
+   user&#x27;s name (for example MyUserName).
    
    
- * If the Jenkins plugin for AWS CodeBuild started the build, the string 
-   CodeBuild-Jenkins-Plugin . **/
+ *  If the Jenkins plugin for AWS CodeBuild started the build, the string 
+   CodeBuild-Jenkins-Plugin. **/
         initiator?: String;
     }
     export interface BuildArtifacts {
@@ -316,7 +316,7 @@ You can use this hash along with a checksum tool to confirm both file integrity
 and authenticity.
 
 This value is available only if the build project&#x27;s packaging value is set to 
-ZIP . **/
+ZIP. **/
         sha256sum?: String;
         /** The MD5 hash of the build artifact.
 
@@ -324,60 +324,60 @@ You can use this hash along with a checksum tool to confirm both file integrity
 and authenticity.
 
 This value is available only if the build project&#x27;s packaging value is set to 
-ZIP . **/
+ZIP. **/
         md5sum?: String;
     }
     export interface BuildPhase {
         /** The name of the build phase. Valid values include:
 
- &amp;#42; BUILD : Core build activities typically occur in this build phase.
+ &amp;#42;   BUILD: Core build activities typically occur in this build phase.
    
    
- * COMPLETED : The build has been completed.
+ *   COMPLETED: The build has been completed.
    
    
- * DOWNLOAD_SOURCE : Source code is being downloaded in this build phase.
+ *   DOWNLOAD_SOURCE: Source code is being downloaded in this build phase.
    
    
- * FINALIZING : The build process is completing in this build phase.
+ *   FINALIZING: The build process is completing in this build phase.
    
    
- * INSTALL : Installation activities typically occur in this build phase.
+ *   INSTALL: Installation activities typically occur in this build phase.
    
    
- * POST_BUILD : Post-build activities typically occur in this build phase.
+ *   POST_BUILD: Post-build activities typically occur in this build phase.
    
    
- * PRE_BUILD : Pre-build activities typically occur in this build phase.
+ *   PRE_BUILD: Pre-build activities typically occur in this build phase.
    
    
- * PROVISIONING : The build environment is being set up.
+ *   PROVISIONING: The build environment is being set up.
    
    
- * SUBMITTED : The build has been submitted.
+ *   SUBMITTED: The build has been submitted.
    
    
- * UPLOAD_ARTIFACTS : Build output artifacts are being uploaded to the output
+ *   UPLOAD_ARTIFACTS: Build output artifacts are being uploaded to the output
    location. **/
         phaseType?: BuildPhaseType;
         /** The current status of the build phase. Valid values include:
 
- &amp;#42; FAILED : The build phase failed.
+ &amp;#42;   FAILED: The build phase failed.
    
    
- * FAULT : The build phase faulted.
+ *   FAULT: The build phase faulted.
    
    
- * IN_PROGRESS : The build phase is still in progress.
+ *   IN_PROGRESS: The build phase is still in progress.
    
    
- * STOPPED : The build phase stopped.
+ *   STOPPED: The build phase stopped.
    
    
- * SUCCEEDED : The build phase succeeded.
+ *   SUCCEEDED: The build phase succeeded.
    
    
- * TIMED_OUT : The build phase timed out. **/
+ *   TIMED_OUT: The build phase timed out. **/
         phaseStatus?: StatusType;
         /** When the build phase started, expressed in Unix time format. **/
         startTime?: Timestamp;
@@ -412,7 +412,7 @@ minutes. **/
 for encrypting the build output artifacts.
 
 You can specify either the CMK&#x27;s Amazon Resource Name (ARN) or, if available,
-the CMK&#x27;s alias (using the format alias/ alias-name ). **/
+the CMK&#x27;s alias (using the format alias/alias-name ). **/
         encryptionKey?: NonEmptyString;
         /** A set of tags for this build project.
 
@@ -462,17 +462,17 @@ language. **/
         projectName: NonEmptyString;
         /** The order to list build IDs. Valid values include:
 
- &amp;#42; ASCENDING : List the build IDs in ascending order by build ID.
+ &amp;#42;   ASCENDING: List the build IDs in ascending order by build ID.
    
    
- * DESCENDING : List the build IDs in descending order by build ID. **/
+ *   DESCENDING: List the build IDs in descending order by build ID. **/
         sortOrder?: SortOrderType;
         /** During a previous call, if there are more than 100 items in the list, only the
-first 100 items are returned, along with a unique string called a next token .
-To get the next batch of items in the list, call this operation again, adding
-the next token to the call. To get all of the items in the list, keep calling
-this operation with each subsequent next token that is returned, until no more
-next tokens are returned. **/
+first 100 items are returned, along with a unique string called a next token. To
+get the next batch of items in the list, call this operation again, adding the
+next token to the call. To get all of the items in the list, keep calling this
+operation with each subsequent next token that is returned, until no more next
+tokens are returned. **/
         nextToken?: String;
     }
     export interface ListBuildsForProjectOutput {
@@ -480,7 +480,7 @@ next tokens are returned. **/
 representing a single build. **/
         ids?: BuildIds;
         /** If there are more than 100 items in the list, only the first 100 items are
-returned, along with a unique string called a next token . To get the next batch
+returned, along with a unique string called a next token. To get the next batch
 of items in the list, call this operation again, adding the next token to the
 call. **/
         nextToken?: String;
@@ -488,24 +488,24 @@ call. **/
     export interface ListBuildsInput {
         /** The order to list build IDs. Valid values include:
 
- &amp;#42; ASCENDING : List the build IDs in ascending order by build ID.
+ &amp;#42;   ASCENDING: List the build IDs in ascending order by build ID.
    
    
- * DESCENDING : List the build IDs in descending order by build ID. **/
+ *   DESCENDING: List the build IDs in descending order by build ID. **/
         sortOrder?: SortOrderType;
         /** During a previous call, if there are more than 100 items in the list, only the
-first 100 items are returned, along with a unique string called a next token .
-To get the next batch of items in the list, call this operation again, adding
-the next token to the call. To get all of the items in the list, keep calling
-this operation with each subsequent next token that is returned, until no more
-next tokens are returned. **/
+first 100 items are returned, along with a unique string called a next token. To
+get the next batch of items in the list, call this operation again, adding the
+next token to the call. To get all of the items in the list, keep calling this
+operation with each subsequent next token that is returned, until no more next
+tokens are returned. **/
         nextToken?: String;
     }
     export interface ListBuildsOutput {
         /** A list of build IDs, with each build ID representing a single build. **/
         ids?: BuildIds;
         /** If there are more than 100 items in the list, only the first 100 items are
-returned, along with a unique string called a next token . To get the next batch
+returned, along with a unique string called a next token. To get the next batch
 of items in the list, call this operation again, adding the next token to the
 call. **/
         nextToken?: String;
@@ -520,15 +520,15 @@ CodeBuild. **/
     export interface ListProjectsInput {
         /** The criterion to be used to list build project names. Valid values include:
 
- &amp;#42; CREATED_TIME : List the build project names based on when each build project
+ &amp;#42;   CREATED_TIME: List the build project names based on when each build project
    was created.
    
    
- * LAST_MODIFIED_TIME : List the build project names based on when information
+ *   LAST_MODIFIED_TIME: List the build project names based on when information
    about each build project was last changed.
    
    
- * NAME : List the build project names based on each build project&#x27;s name.
+ *   NAME: List the build project names based on each build project&#x27;s name.
    
    
 
@@ -537,26 +537,26 @@ the preceding criteria. **/
         sortBy?: ProjectSortByType;
         /** The order in which to list build projects. Valid values include:
 
- &amp;#42; ASCENDING : List the build project names in ascending order.
+ &amp;#42;   ASCENDING: List the build project names in ascending order.
    
    
- * DESCENDING : List the build project names in descending order.
+ *   DESCENDING: List the build project names in descending order.
    
    
 
 Use sortBy to specify the criterion to be used to list build project names. **/
         sortOrder?: SortOrderType;
         /** During a previous call, if there are more than 100 items in the list, only the
-first 100 items are returned, along with a unique string called a next token .
-To get the next batch of items in the list, call this operation again, adding
-the next token to the call. To get all of the items in the list, keep calling
-this operation with each subsequent next token that is returned, until no more
-next tokens are returned. **/
+first 100 items are returned, along with a unique string called a next token. To
+get the next batch of items in the list, call this operation again, adding the
+next token to the call. To get all of the items in the list, keep calling this
+operation with each subsequent next token that is returned, until no more next
+tokens are returned. **/
         nextToken?: NonEmptyString;
     }
     export interface ListProjectsOutput {
         /** If there are more than 100 items in the list, only the first 100 items are
-returned, along with a unique string called a next token . To get the next batch
+returned, along with a unique string called a next token. To get the next batch
 of items in the list, call this operation again, adding the next token to the
 call. **/
         nextToken?: String;
@@ -603,7 +603,7 @@ is 60 minutes. **/
 for encrypting the build output artifacts.
 
 This is expressed either as the CMK&#x27;s Amazon Resource Name (ARN) or, if
-specified, the CMK&#x27;s alias (using the format alias/ alias-name ). **/
+specified, the CMK&#x27;s alias (using the format alias/alias-name ). **/
         encryptionKey?: NonEmptyString;
         /** The tags for this build project.
 
@@ -619,117 +619,117 @@ format. **/
     export interface ProjectArtifacts {
         /** The type of build output artifact. Valid values include:
 
- &amp;#42; CODEPIPELINE : The build project will have build output generated through AWS
+ &amp;#42;   CODEPIPELINE: The build project will have build output generated through AWS
    CodePipeline.
    
    
- * NO_ARTIFACTS : The build project will not produce any build output.
+ *   NO_ARTIFACTS: The build project will not produce any build output.
    
    
- * S3 : The build project will store build output in Amazon Simple Storage
+ *   S3: The build project will store build output in Amazon Simple Storage
    Service (Amazon S3). **/
         type: ArtifactsType;
         /** Information about the build output artifact location, as follows:
 
- &amp;#42; If type is set to CODEPIPELINE , then AWS CodePipeline will ignore this value
+ &amp;#42;  If type is set to CODEPIPELINE, then AWS CodePipeline will ignore this value
    if specified. This is because AWS CodePipeline manages its build output
    locations instead of AWS CodeBuild.
    
    
- * If type is set to NO_ARTIFACTS , then this value will be ignored if
-   specified, because no build output will be produced.
+ *  If type is set to NO_ARTIFACTS, then this value will be ignored if specified,
+   because no build output will be produced.
    
    
- * If type is set to S3 , this is the name of the output bucket. **/
+ *  If type is set to S3, this is the name of the output bucket. **/
         location?: String;
-        /** Along with namespaceType and name , the pattern that AWS CodeBuild will use to
+        /** Along with namespaceType and name, the pattern that AWS CodeBuild will use to
 name and store the output artifact, as follows:
 
- &amp;#42; If type is set to CODEPIPELINE , then AWS CodePipeline will ignore this value
+ &amp;#42;  If type is set to CODEPIPELINE, then AWS CodePipeline will ignore this value
    if specified. This is because AWS CodePipeline manages its build output names
    instead of AWS CodeBuild.
    
    
- * If type is set to NO_ARTIFACTS , then this value will be ignored if
-   specified, because no build output will be produced.
+ *  If type is set to NO_ARTIFACTS, then this value will be ignored if specified,
+   because no build output will be produced.
    
    
- * If type is set to S3 , this is the path to the output artifact. If path is
-   not specified, then path will not be used.
+ *  If type is set to S3, this is the path to the output artifact. If path is not
+   specified, then path will not be used.
    
    
 
-For example, if path is set to MyArtifacts , namespaceType is set to NONE , and 
-name is set to MyArtifact.zip , then the output artifact would be stored in the
-output bucket at MyArtifacts/MyArtifact.zip . **/
+For example, if path is set to MyArtifacts, namespaceType is set to NONE, and 
+name is set to MyArtifact.zip, then the output artifact would be stored in the
+output bucket at MyArtifacts/MyArtifact.zip. **/
         path?: String;
-        /** Along with path and name , the pattern that AWS CodeBuild will use to determine
+        /** Along with path and name, the pattern that AWS CodeBuild will use to determine
 the name and location to store the output artifact, as follows:
 
- &amp;#42; If type is set to CODEPIPELINE , then AWS CodePipeline will ignore this value
+ &amp;#42;  If type is set to CODEPIPELINE, then AWS CodePipeline will ignore this value
    if specified. This is because AWS CodePipeline manages its build output names
    instead of AWS CodeBuild.
    
    
- * If type is set to NO_ARTIFACTS , then this value will be ignored if
-   specified, because no build output will be produced.
+ *  If type is set to NO_ARTIFACTS, then this value will be ignored if specified,
+   because no build output will be produced.
    
    
- * If type is set to S3 , then valid values include:
+ *  If type is set to S3, then valid values include:
    
-    * BUILD_ID : Include the build ID in the location of the build output
+    *   BUILD_ID: Include the build ID in the location of the build output
       artifact.
       
       
-    * NONE : Do not include the build ID. This is the default if namespaceType 
+    *   NONE: Do not include the build ID. This is the default if namespaceType 
       is not specified.
       
       
    
    
 
-For example, if path is set to MyArtifacts , namespaceType is set to BUILD_ID ,
-and name is set to MyArtifact.zip , then the output artifact would be stored in 
-MyArtifacts/ build-ID /MyArtifact.zip . **/
+For example, if path is set to MyArtifacts, namespaceType is set to BUILD_ID,
+and name is set to MyArtifact.zip, then the output artifact would be stored in 
+MyArtifacts/build-ID/MyArtifact.zip. **/
         namespaceType?: ArtifactNamespace;
-        /** Along with path and namespaceType , the pattern that AWS CodeBuild will use to
+        /** Along with path and namespaceType, the pattern that AWS CodeBuild will use to
 name and store the output artifact, as follows:
 
- &amp;#42; If type is set to CODEPIPELINE , then AWS CodePipeline will ignore this value
+ &amp;#42;  If type is set to CODEPIPELINE, then AWS CodePipeline will ignore this value
    if specified. This is because AWS CodePipeline manages its build output names
    instead of AWS CodeBuild.
    
    
- * If type is set to NO_ARTIFACTS , then this value will be ignored if
-   specified, because no build output will be produced.
+ *  If type is set to NO_ARTIFACTS, then this value will be ignored if specified,
+   because no build output will be produced.
    
    
- * If type is set to S3 , this is the name of the output artifact object.
+ *  If type is set to S3, this is the name of the output artifact object.
    
    
 
-For example, if path is set to MyArtifacts , namespaceType is set to BUILD_ID ,
-and name is set to MyArtifact.zip , then the output artifact would be stored in 
-MyArtifacts/ build-ID /MyArtifact.zip . **/
+For example, if path is set to MyArtifacts, namespaceType is set to BUILD_ID,
+and name is set to MyArtifact.zip, then the output artifact would be stored in 
+MyArtifacts/build-ID/MyArtifact.zip. **/
         name?: String;
         /** The type of build output artifact to create, as follows:
 
- &amp;#42; If type is set to CODEPIPELINE , then AWS CodePipeline will ignore this value
+ &amp;#42;  If type is set to CODEPIPELINE, then AWS CodePipeline will ignore this value
    if specified. This is because AWS CodePipeline manages its build output
    artifacts instead of AWS CodeBuild.
    
    
- * If type is set to NO_ARTIFACTS , then this value will be ignored if
-   specified, because no build output will be produced.
+ *  If type is set to NO_ARTIFACTS, then this value will be ignored if specified,
+   because no build output will be produced.
    
    
- * If type is set to S3 , valid values include:
+ *  If type is set to S3, valid values include:
    
-    * NONE : AWS CodeBuild will create in the output bucket a folder containing
+    *   NONE: AWS CodeBuild will create in the output bucket a folder containing
       the build output. This is the default if packaging is not specified.
       
       
-    * ZIP : AWS CodeBuild will create in the output bucket a ZIP file containing
+    *   ZIP: AWS CodeBuild will create in the output bucket a ZIP file containing
       the build output. **/
         packaging?: ArtifactPackaging;
     }
@@ -741,13 +741,13 @@ MyArtifacts/ build-ID /MyArtifact.zip . **/
         /** Information about the compute resources the build project will use. Available
 values include:
 
- &amp;#42; BUILD_GENERAL1_SMALL : Use up to 3 GB memory and 2 vCPUs for builds.
+ &amp;#42;   BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds.
    
    
- * BUILD_GENERAL1_MEDIUM : Use up to 7 GB memory and 4 vCPUs for builds.
+ *   BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds.
    
    
- * BUILD_GENERAL1_LARGE : Use up to 15 GB memory and 8 vCPUs for builds. **/
+ *   BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds. **/
         computeType: ComputeType;
         /** A set of environment variables to make available to builds for this build
 project. **/
@@ -757,46 +757,46 @@ project. **/
         /** The type of repository that contains the source code to be built. Valid values
 include:
 
- &amp;#42; CODECOMMIT : The source code is in an AWS CodeCommit repository.
+ &amp;#42;   CODECOMMIT: The source code is in an AWS CodeCommit repository.
    
    
- * CODEPIPELINE : The source code settings are specified in the source action of
+ *   CODEPIPELINE: The source code settings are specified in the source action of
    a pipeline in AWS CodePipeline.
    
    
- * GITHUB : The source code is in a GitHub repository.
+ *   GITHUB: The source code is in a GitHub repository.
    
    
- * S3 : The source code is in an Amazon Simple Storage Service (Amazon S3) input
+ *   S3: The source code is in an Amazon Simple Storage Service (Amazon S3) input
    bucket. **/
         type: SourceType;
         /** Information about the location of the source code to be built. Valid values
 include:
 
- &amp;#42; For source code settings that are specified in the source action of a
+ &amp;#42;  For source code settings that are specified in the source action of a
    pipeline in AWS CodePipeline, location should not be specified. If it is
    specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline
    uses the settings in a pipeline&#x27;s source action instead of this value.
    
    
- * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the
+ *  For source code in an AWS CodeCommit repository, the HTTPS clone URL to the
    repository that contains the source code and the build spec (for example, 
-   https://git-codecommit. region-ID .amazonaws.com/v1/repos/ repo-name ).
+   https://git-codecommit.region-ID.amazonaws.com/v1/repos/repo-name ).
    
    
- * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket,
-   the path to the ZIP file that contains the source code (for example, 
-   bucket-name / path / to / object-name .zip )
+ *  For source code in an Amazon Simple Storage Service (Amazon S3) input
+   bucket, the path to the ZIP file that contains the source code (for example, 
+   bucket-name/path/to/object-name.zip)
    
    
- * For source code in a GitHub repository, instead of specifying a value here,
+ *  For source code in a GitHub repository, instead of specifying a value here,
    you connect your AWS account to your GitHub account. To do this, use the AWS
    CodeBuild console to begin creating a build project, and follow the on-screen
    instructions to complete the connection. (After you have connected to your
    GitHub account, you do not need to finish creating the build project, and you
    may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then
    use this connection, in the source object, set the auth object&#x27;s type value
-   to OAUTH . **/
+   to OAUTH. **/
         location?: String;
         /** The build spec declaration to use for the builds in this build project.
 
@@ -808,7 +808,7 @@ source code to be built.
 
 This information is for the AWS CodeBuild console&#x27;s use only. Your code should
 not get or set this information directly (unless the build project&#x27;s source type 
-value is GITHUB ). **/
+value is GITHUB). **/
         auth?: SourceAuth;
     }
     export interface ResourceAlreadyExistsException {
@@ -816,7 +816,7 @@ value is GITHUB ). **/
     export interface ResourceNotFoundException {
     }
     export interface SourceAuth {
-        /** The authorization type to use. The only valid value is OAUTH , which represents
+        /** The authorization type to use. The only valid value is OAUTH, which represents
 the OAuth authorization type. **/
         type: SourceAuthType;
         /** The resource value that applies to the specified authorization type. **/
@@ -828,10 +828,10 @@ the OAuth authorization type. **/
         /** A version of the build input to be built, for this build only. If not specified,
 the latest version will be used. If specified, must be one of:
 
- &amp;#42; For AWS CodeCommit or GitHub: the commit ID to use.
+ &amp;#42;  For AWS CodeCommit or GitHub: the commit ID to use.
    
    
- * For Amazon Simple Storage Service (Amazon S3): the version ID of the object
+ *  For Amazon Simple Storage Service (Amazon S3): the version ID of the object
    representing the build input ZIP file to use. **/
         sourceVersion?: String;
         /** Build output artifact settings that override, for this build only, the latest
@@ -891,7 +891,7 @@ wait before timing out any related build that did not get marked as completed. *
 to be used for encrypting the build output artifacts.
 
 You can specify either the CMK&#x27;s Amazon Resource Name (ARN) or, if available,
-the CMK&#x27;s alias (using the format alias/ alias-name ). **/
+the CMK&#x27;s alias (using the format alias/alias-name ). **/
         encryptionKey?: NonEmptyString;
         /** The replacement set of tags for this build project.
 

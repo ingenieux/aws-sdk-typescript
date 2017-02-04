@@ -85,7 +85,7 @@ iam:GetRolePolicy.
     export interface GenerateDataSetRequest {
         /** The desired data set type.
 
- &amp;#42; customer_subscriber_hourly_monthly_subscriptions - Available daily by 5:00 PM
+  &amp;#42; customer_subscriber_hourly_monthly_subscriptions - Available daily by 5:00 PM
    Pacific Time since 2014-07-21.
  * customer_subscriber_annual_subscriptions - Available daily by 5:00 PM Pacific
    Time since 2014-07-21.
@@ -111,7 +111,7 @@ iam:GetRolePolicy.
    available from 2012-04-19 until 2015-01-25. After 2015-01-25, this data set
    was split into three data sets: disbursed_amount_by_product,
    disbursed_amount_by_age_of_uncollected_funds, and
-   disbursed_amount_by_age_of_disbursed_funds.
+   disbursed_amount_by_age_of_disbursed_funds. 
  * disbursed_amount_by_instance_hours - Available every 30 days by 5:00 PM
    Pacific Time since 2012-09-04.
  * disbursed_amount_by_customer_geo - Available every 30 days by 5:00 PM Pacific
@@ -170,9 +170,9 @@ types customer_support_contacts_data and test_customer_support_contacts_data
 both result in a csv file containing the following fields: Product Id, Product
 Code, Customer Guid, Subscription Guid, Subscription Start Date, Organization,
 AWS Account Id, Given Name, Surname, Telephone Number, Email, Title, Country
-Code, ZIP Code, Operation Type, and Operation Time.
+Code, ZIP Code, Operation Type, and Operation Time. 
 
- &amp;#42; customer_support_contacts_data Customer support contact data. The data set
+  &amp;#42; customer_support_contacts_data Customer support contact data. The data set
    will contain all changes (Creates, Updates, and Deletes) to customer support
    contact data from the date specified in the from_date parameter.
  * test_customer_support_contacts_data An example data set containing static

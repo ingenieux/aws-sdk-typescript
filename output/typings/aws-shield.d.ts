@@ -14,12 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Shield AdvancedThis is the AWS Shield Advanced API Reference . This guide is for developers who
+   * AWS Shield Advanced This is the AWS Shield Advanced API Reference. This guide is for developers who
 need detailed information about the AWS Shield Advanced API actions, data types,
 and errors. For detailed information about AWS WAF and AWS Shield Advanced
 features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs,
 see the AWS WAF and AWS Shield Developer Guide
-[http://docs.aws.amazon.com/waf/latest/developerguide/] .
+[http://docs.aws.amazon.com/waf/latest/developerguide/].
    *
    */
   export class Shield extends Service {
@@ -47,7 +47,7 @@ Amazon Route 53 hosted zone.
      */
     createSubscription(params: Shield.CreateSubscriptionRequest, callback?: (err: Shield.InternalErrorException|Shield.ResourceAlreadyExistsException|any, data: Shield.CreateSubscriptionResponse|any) => void): Request<Shield.CreateSubscriptionResponse|any,Shield.InternalErrorException|Shield.ResourceAlreadyExistsException|any>;
     /**
-     * Deletes an AWS Shield Advanced Protection .
+     * Deletes an AWS Shield Advanced Protection.
      *
      * @error InternalErrorException   
      * @error ResourceNotFoundException   
@@ -257,7 +257,7 @@ left blank, all applicable resources for this account will be included. **/
         /** The end of the time period for the attacks. **/
         EndTime?: TimeRange;
         /** The ListAttacksRequest.NextMarker value from a previous call to 
-ListAttacksRequest . Pass null if this is the first call. **/
+ListAttacksRequest. Pass null if this is the first call. **/
         NextToken?: Token;
         /** The maximum number of AttackSummary objects to be returned. If this is left
 blank, the first 20 results will be returned. **/
@@ -274,7 +274,7 @@ set of items. **/
     }
     export interface ListProtectionsRequest {
         /** The ListProtectionsRequest.NextToken value from a previous call to 
-ListProtections . Pass null if this is the first call. **/
+ListProtections. Pass null if this is the first call. **/
         NextToken?: Token;
         /** The maximum number of Protection objects to be returned. If this is left blank
 the first 20 results will be returned. **/
@@ -303,7 +303,7 @@ previous response to get information about another batch of Protections. **/
     export interface Protection {
         /** The unique identifier (ID) of the protection. **/
         Id?: ProtectionId;
-        /** The friendly name of the protection. For example, My CloudFront distributions . **/
+        /** The friendly name of the protection. For example, My CloudFront distributions. **/
         Name?: ProtectionName;
         /** The ARN (Amazon Resource Name) of the AWS resource that is protected. **/
         ResourceArn?: ResourceArn;
@@ -317,7 +317,7 @@ previous response to get information about another batch of Protections. **/
     export interface SubResourceSummary {
         /** The SubResource type. **/
         Type?: SubResourceType;
-        /** The unique identifier (ID) of the SubResource . **/
+        /** The unique identifier (ID) of the SubResource. **/
         Id?: String;
         /** The list of attack types and associated counters. **/
         AttackVectors?: SummarizedAttackVectorList;

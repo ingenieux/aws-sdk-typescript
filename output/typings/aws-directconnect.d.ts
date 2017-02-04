@@ -454,7 +454,7 @@ value.
     export interface AllocateConnectionOnInterconnectRequest {
         /** Bandwidth of the connection.
 
-Example: &quot; 500Mbps &quot;
+Example: &quot;500Mbps&quot;
 
 Default: None
 
@@ -462,7 +462,7 @@ Values: 50M, 100M, 200M, 300M, 400M, or 500M **/
         bandwidth: Bandwidth;
         /** Name of the provisioned connection.
 
-Example: &quot; 500M Connection to AWS &quot;
+Example: &quot;500M Connection to AWS&quot;
 
 Default: None **/
         connectionName: ConnectionName;
@@ -533,7 +533,7 @@ Default: None **/
         /** ID of the virtual private gateway that will be attached to the virtual
 interface.
 
-A virtual private gateway can be managed via the Amazon Virtual Private Cloud
+ A virtual private gateway can be managed via the Amazon Virtual Private Cloud
 (VPC) console or the EC2 CreateVpnGateway
 [http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html] 
 action.
@@ -598,7 +598,7 @@ Default: None **/
     export interface CreateInterconnectRequest {
         /** The name of the interconnect.
 
-Example: &quot; 1G Interconnect to AWS &quot;
+Example: &quot;1G Interconnect to AWS&quot;
 
 Default: None **/
         interconnectName: InterconnectName;

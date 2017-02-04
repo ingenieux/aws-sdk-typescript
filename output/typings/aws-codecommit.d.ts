@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS CodeCommitThis is the AWS CodeCommit API Reference . This reference provides descriptions
+   * AWS CodeCommit This is the AWS CodeCommit API Reference. This reference provides descriptions
 of the operations and data types for AWS CodeCommit API along with usage
 examples.
 
@@ -22,28 +22,28 @@ You can use the AWS CodeCommit API to work with the following objects:
 
 Repositories, by calling the following:
 
- &amp;#42; BatchGetRepositories , which returns information about one or more
+ &amp;#42;   BatchGetRepositories, which returns information about one or more
    repositories associated with your AWS account
    
    
- * CreateRepository , which creates an AWS CodeCommit repository
+ *   CreateRepository, which creates an AWS CodeCommit repository
    
    
- * DeleteRepository , which deletes an AWS CodeCommit repository
+ *   DeleteRepository, which deletes an AWS CodeCommit repository
    
    
- * GetRepository , which returns information about a specified repository
+ *   GetRepository, which returns information about a specified repository
    
    
- * ListRepositories , which lists all AWS CodeCommit repositories associated
+ *   ListRepositories, which lists all AWS CodeCommit repositories associated
    with your AWS account
    
    
- * UpdateRepositoryDescription , which sets or updates the description of the
+ *   UpdateRepositoryDescription, which sets or updates the description of the
    repository
    
    
- * UpdateRepositoryName , which changes the name of the repository. If you
+ *   UpdateRepositoryName, which changes the name of the repository. If you
    change the name of a repository, no other users of that repository will be
    able to access it until you send them the new HTTPS or SSH URL to use.
    
@@ -51,30 +51,30 @@ Repositories, by calling the following:
 
 Branches, by calling the following:
 
- * CreateBranch , which creates a new branch in a specified repository
+ *   CreateBranch, which creates a new branch in a specified repository
    
    
- * GetBranch , which returns information about a specified branch
+ *   GetBranch, which returns information about a specified branch
    
    
- * ListBranches , which lists all branches for a specified repository
+ *   ListBranches, which lists all branches for a specified repository
    
    
- * UpdateDefaultBranch , which changes the default branch for a repository
+ *   UpdateDefaultBranch, which changes the default branch for a repository
    
    
 
 Information about committed code in a repository, by calling the following:
 
- * GetBlob , which returns the base-64 encoded content of an individual Git blob
+ *   GetBlob, which returns the base-64 encoded content of an individual Git blob
    object within a repository
    
    
- * GetCommit , which returns information about a commit, including commit
+ *   GetCommit, which returns information about a commit, including commit
    messages and author and committer information
    
    
- * GetDifferences , which returns information about the differences in a valid
+ *   GetDifferences, which returns information about the differences in a valid
    commit specifier (such as a branch, tag, HEAD, commit ID or other fully
    qualified reference)
    
@@ -82,21 +82,21 @@ Information about committed code in a repository, by calling the following:
 
 Triggers, by calling the following:
 
- * GetRepositoryTriggers , which returns information about triggers configured
+ *   GetRepositoryTriggers, which returns information about triggers configured
    for a repository
    
    
- * PutRepositoryTriggers , which replaces all triggers for a repository and can
+ *   PutRepositoryTriggers, which replaces all triggers for a repository and can
    be used to create or delete triggers
    
    
- * TestRepositoryTriggers , which tests the functionality of a repository
+ *   TestRepositoryTriggers, which tests the functionality of a repository
    trigger by sending data to the trigger target
    
    
 
 For information about how to use AWS CodeCommit, see the AWS CodeCommit User
-Guide [http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html] .
+Guide [http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html].
    *
    */
   export class CodeCommit extends Service {
@@ -523,16 +523,16 @@ in the AWS CodeCommit User Guide.
         path?: Path;
         /** The file mode permissions of the blob. File mode permission codes include:
 
- &amp;#42; 100644 indicates read/write
+ &amp;#42;   100644 indicates read/write
    
    
- * 100755 indicates read/write/execute
+ *   100755 indicates read/write/execute
    
    
- * 160000 indicates a submodule
+ *   160000 indicates a submodule
    
    
- * 120000 indicates a symlink **/
+ *   120000 indicates a symlink **/
         mode?: Mode;
     }
     export interface BranchDoesNotExistException {
@@ -678,7 +678,7 @@ retrieve information. **/
 commit. For example, the full commit ID. Optional. If not specified, all changes
 prior to the afterCommitSpecifier value will be shown. If you do not use 
 beforeCommitSpecifier in your request, consider limiting the results with 
-maxResults . **/
+maxResults. **/
         beforeCommitSpecifier?: CommitName;
         /** The branch, tag, HEAD, or other fully qualified reference used to identify a
 commit. **/
@@ -860,7 +860,7 @@ are specified, the trigger will apply to all branches. **/
         branches?: BranchNameList;
         /** The repository events that will cause the trigger to run actions in another
 service, such as sending a notification through Amazon Simple Notification
-Service (SNS).
+Service (SNS). 
 
 The valid value &quot;all&quot; cannot be used with any other values. **/
         events: RepositoryTriggerEventList;

@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS SupportThe AWS Support API reference is intended for programmers who need
+   * AWS Support The AWS Support API reference is intended for programmers who need
 detailed information about the AWS Support operations and data types. This
 service enables you to manage your AWS Support cases programmatically. It uses
 HTTP methods that return results in JSON format.
@@ -22,55 +22,54 @@ HTTP methods that return results in JSON format.
 The AWS Support service also exposes a set of Trusted Advisor
 [http://aws.amazon.com/premiumsupport/trustedadvisor/] features. You can
 retrieve a list of checks and their descriptions, get check results, specify
-checks to refresh, and get the refresh status of checks.
+checks to refresh, and get the refresh status of checks. 
 
 The following list describes the AWS Support case management operations:
 
- &amp;#42; Service names, issue categories, and available severity levels. The 
+ &amp;#42;   Service names, issue categories, and available severity levels. The 
    DescribeServices and DescribeSeverityLevels operations return AWS service
    names, service codes, service categories, and problem severity levels. You
-   use these values when you call the CreateCase operation.
+   use these values when you call the CreateCase operation. 
    
    
- * Case creation, case details, and case resolution. The CreateCase , 
-   DescribeCases , DescribeAttachment , and ResolveCase operations create AWS
+ *   Case creation, case details, and case resolution. The CreateCase, 
+   DescribeCases, DescribeAttachment, and ResolveCase operations create AWS
    Support cases, retrieve information about cases, and resolve cases.
    
    
- * Case communication. The DescribeCommunications , AddCommunicationToCase , and 
+ *   Case communication. The DescribeCommunications, AddCommunicationToCase, and 
    AddAttachmentsToSet operations retrieve and add communications and
-   attachments to AWS Support cases.
+   attachments to AWS Support cases. 
    
    
 
 The following list describes the operations available from the AWS Support
 service for Trusted Advisor:
 
- * DescribeTrustedAdvisorChecks returns the list of checks that run against your
-   AWS resources.
+ *   DescribeTrustedAdvisorChecks returns the list of checks that run against
+   your AWS resources.
    
    
- * Using the checkId for a specific check returned by 
-   DescribeTrustedAdvisorChecks , you can call DescribeTrustedAdvisorCheckResult 
+ *  Using the checkId for a specific check returned by 
+   DescribeTrustedAdvisorChecks, you can call DescribeTrustedAdvisorCheckResult 
    to obtain the results for the check you specified.
    
    
- * DescribeTrustedAdvisorCheckSummaries returns summarized results for one or
+ *   DescribeTrustedAdvisorCheckSummaries returns summarized results for one or
    more Trusted Advisor checks.
    
    
- * RefreshTrustedAdvisorCheck requests that Trusted Advisor rerun a specified
-   check.
+ *   RefreshTrustedAdvisorCheck requests that Trusted Advisor rerun a specified
+   check. 
    
    
- * DescribeTrustedAdvisorCheckRefreshStatuses reports the refresh status of one
-   or more checks.
+ *   DescribeTrustedAdvisorCheckRefreshStatuses reports the refresh status of one
+   or more checks. 
    
    
 
 For authentication of requests, AWS Support uses Signature Version 4 Signing
-Process [http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] 
-.
+Process [http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html].
 
 See About the AWS Support API
 [http://docs.aws.amazon.com/awssupport/latest/user/Welcome.html] in the AWS
@@ -121,55 +120,55 @@ This operation implements a subset of the features of the AWS Support Center.
      * Creates a new case in the AWS Support Center. This operation is modeled on the
 behavior of the AWS Support Center Create Case
 [https://console.aws.amazon.com/support/home#/case/create] page. Its parameters
-require you to specify the following information:
+require you to specify the following information: 
 
- &amp;#42; issueType. The type of issue for the case. You can specify either
+ &amp;#42;   issueType. The type of issue for the case. You can specify either
    &quot;customer-service&quot; or &quot;technical.&quot; If you do not indicate a value, the
-   default is &quot;technical.&quot;
+   default is &quot;technical.&quot; 
    
    
- * serviceCode. The code for an AWS service. You obtain the serviceCode by
-   calling DescribeServices .
+ *   serviceCode. The code for an AWS service. You obtain the serviceCode by
+   calling DescribeServices. 
    
    
- * categoryCode. The category for the service defined for the serviceCode value.
-   You also obtain the category code for a service by calling DescribeServices .
-   Each AWS service defines its own set of category codes.
+ *   categoryCode. The category for the service defined for the serviceCode 
+   value. You also obtain the category code for a service by calling 
+   DescribeServices. Each AWS service defines its own set of category codes. 
    
    
- * severityCode. A value that indicates the urgency of the case, which in turn
+ *   severityCode. A value that indicates the urgency of the case, which in turn
    determines the response time according to your service level agreement with
-   AWS Support. You obtain the SeverityCode by calling DescribeSeverityLevels .
+   AWS Support. You obtain the SeverityCode by calling DescribeSeverityLevels.
    
    
- * subject. The Subject field on the AWS Support Center Create Case
+ *   subject. The Subject field on the AWS Support Center Create Case
    [https://console.aws.amazon.com/support/home#/case/create] page.
    
    
- * communicationBody. The Description field on the AWS Support Center Create
+ *   communicationBody. The Description field on the AWS Support Center Create
    Case [https://console.aws.amazon.com/support/home#/case/create] page.
    
    
- * attachmentSetId. The ID of a set of attachments that has been created by
-   using AddAttachmentsToSet .
+ *   attachmentSetId. The ID of a set of attachments that has been created by
+   using AddAttachmentsToSet.
    
    
- * language. The human language in which AWS Support handles the case. English
+ *   language. The human language in which AWS Support handles the case. English
    and Japanese are currently supported.
    
    
- * ccEmailAddresses. The AWS Support Center CC field on the Create Case
+ *   ccEmailAddresses. The AWS Support Center CC field on the Create Case
    [https://console.aws.amazon.com/support/home#/case/create] page. You can list
    email addresses to be copied on any correspondence about the case. The
    account that opens the case is already identified by passing the AWS
    Credentials in the HTTP POST method or in a method or function call from one
    of the programming languages supported by an AWS SDK
-   [http://aws.amazon.com/tools/] .
+   [http://aws.amazon.com/tools/]. 
    
    
 
 To add additional communication or attachments to an existing case, use 
-AddCommunicationToCase .
+AddCommunicationToCase.
 
 A successful CreateCase request returns an AWS Support case number. Case numbers
 are used by the DescribeCases operation to retrieve existing AWS Support cases.
@@ -196,17 +195,17 @@ are returned by the DescribeCommunications operation.
 addition, you can filter the cases by date by setting values for the afterTime 
 and beforeTime request parameters. You can set values for the 
 includeResolvedCases and includeCommunications request parameters to control how
-much information is returned.
+much information is returned. 
 
 Case data is available for 12 months after creation. If a case was created more
 than 12 months ago, a request for data might cause an error.
 
 The response returns the following in JSON format:
 
- &amp;#42; One or more CaseDetails data types.
+ &amp;#42;  One or more CaseDetails data types. 
    
    
- * One or more nextToken values, which specify where to paginate the returned
+ *  One or more nextToken values, which specify where to paginate the returned
    records represented by the CaseDetails objects.
      *
      * @error InternalServerError   
@@ -255,7 +254,7 @@ included in any CreateCase request.
     describeSeverityLevels(params: Support.DescribeSeverityLevelsRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeSeverityLevelsResponse|any) => void): Request<Support.DescribeSeverityLevelsResponse|any,Support.InternalServerError|any>;
     /**
      * Returns the refresh status of the Trusted Advisor checks that have the specified
-check IDs. Check IDs can be obtained by calling DescribeTrustedAdvisorChecks .
+check IDs. Check IDs can be obtained by calling DescribeTrustedAdvisorChecks.
 
 Some checks are refreshed automatically, and their refresh statuses cannot be
 retrieved by using this operation. Use of the 
@@ -267,31 +266,31 @@ InvalidParameterValue error.
     describeTrustedAdvisorCheckRefreshStatuses(params: Support.DescribeTrustedAdvisorCheckRefreshStatusesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckRefreshStatusesResponse|any) => void): Request<Support.DescribeTrustedAdvisorCheckRefreshStatusesResponse|any,Support.InternalServerError|any>;
     /**
      * Returns the results of the Trusted Advisor check that has the specified check
-ID. Check IDs can be obtained by calling DescribeTrustedAdvisorChecks .
+ID. Check IDs can be obtained by calling DescribeTrustedAdvisorChecks.
 
 The response contains a TrustedAdvisorCheckResult object, which contains these
 three objects:
 
- &amp;#42; TrustedAdvisorCategorySpecificSummary
+ &amp;#42;   TrustedAdvisorCategorySpecificSummary 
    
    
- * TrustedAdvisorResourceDetail
+ *   TrustedAdvisorResourceDetail 
    
    
- * TrustedAdvisorResourcesSummary
+ *   TrustedAdvisorResourcesSummary 
    
    
 
 In addition, the response contains these fields:
 
- * status. The alert status of the check: &quot;ok&quot; (green), &quot;warning&quot; (yellow),
+ *   status. The alert status of the check: &quot;ok&quot; (green), &quot;warning&quot; (yellow),
    &quot;error&quot; (red), or &quot;not_available&quot;.
    
    
- * timestamp. The time of the last refresh of the check.
+ *   timestamp. The time of the last refresh of the check.
    
    
- * checkId. The unique identifier for the check.
+ *   checkId. The unique identifier for the check.
      *
      * @error InternalServerError   
      */
@@ -299,7 +298,7 @@ In addition, the response contains these fields:
     /**
      * Returns the summaries of the results of the Trusted Advisor checks that have the
 specified check IDs. Check IDs can be obtained by calling 
-DescribeTrustedAdvisorChecks .
+DescribeTrustedAdvisorChecks.
 
 The response contains an array of TrustedAdvisorCheckSummary objects.
      *
@@ -317,7 +316,7 @@ contains a TrustedAdvisorCheckDescription for each check.
     describeTrustedAdvisorChecks(params: Support.DescribeTrustedAdvisorChecksRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorChecksResponse|any) => void): Request<Support.DescribeTrustedAdvisorChecksResponse|any,Support.InternalServerError|any>;
     /**
      * Requests a refresh of the Trusted Advisor check that has the specified check ID.
-Check IDs can be obtained by calling DescribeTrustedAdvisorChecks .
+Check IDs can be obtained by calling DescribeTrustedAdvisorChecks.
 
 Some checks are refreshed automatically, and they cannot be refreshed by using
 this operation. Use of the RefreshTrustedAdvisorCheck operation for these checks
@@ -326,15 +325,15 @@ causes an InvalidParameterValue error.
 The response contains a TrustedAdvisorCheckRefreshStatus object, which contains
 these fields:
 
- &amp;#42; status. The refresh status of the check: &quot;none&quot;, &quot;enqueued&quot;, &quot;processing&quot;,
+ &amp;#42;   status. The refresh status of the check: &quot;none&quot;, &quot;enqueued&quot;, &quot;processing&quot;,
    &quot;success&quot;, or &quot;abandoned&quot;.
    
    
- * millisUntilNextRefreshable. The amount of time, in milliseconds, until the
+ *   millisUntilNextRefreshable. The amount of time, in milliseconds, until the
    check is eligible for refresh.
    
    
- * checkId. The unique identifier for the check.
+ *   checkId. The unique identifier for the check.
      *
      * @error InternalServerError   
      */
@@ -473,7 +472,7 @@ set, if it exists. **/
     }
     export interface AddCommunicationToCaseRequest {
         /** The AWS Support case ID requested or returned in the call. The case ID is an
-alphanumeric string formatted as shown in this example: case- 
+alphanumeric string formatted as shown in this example: case-
 12345678910-2013-c4c1d2bf33c5cf47 **/
         caseId?: CaseId;
         /** The body of an email communication to add to the support case. **/
@@ -530,7 +529,7 @@ can have open. **/
     }
     export interface CaseDetails {
         /** The AWS Support case ID requested or returned in the call. The case ID is an
-alphanumeric string formatted as shown in this example: case- 
+alphanumeric string formatted as shown in this example: case-
 12345678910-2013-c4c1d2bf33c5cf47 **/
         caseId?: CaseId;
         /** The ID displayed for the case in the AWS Support Center. This is a numeric
@@ -540,11 +539,11 @@ string. **/
         subject?: Subject;
         /** The status of the case. **/
         status?: Status;
-        /** The code for the AWS service returned by the call to DescribeServices . **/
+        /** The code for the AWS service returned by the call to DescribeServices. **/
         serviceCode?: ServiceCode;
         /** The category of problem for the AWS Support case. **/
         categoryCode?: CategoryCode;
-        /** The code for the severity level returned by the call to DescribeSeverityLevels . **/
+        /** The code for the severity level returned by the call to DescribeSeverityLevels. **/
         severityCode?: SeverityCode;
         /** The email address of the account that submitted the case. **/
         submittedBy?: SubmittedBy;
@@ -573,7 +572,7 @@ be passed explicitly for operations that take them. **/
     }
     export interface Communication {
         /** The AWS Support case ID requested or returned in the call. The case ID is an
-alphanumeric string formatted as shown in this example: case- 
+alphanumeric string formatted as shown in this example: case-
 12345678910-2013-c4c1d2bf33c5cf47 **/
         caseId?: CaseId;
         /** The text of the communication between the customer and AWS Support. **/
@@ -588,9 +587,9 @@ alphanumeric string formatted as shown in this example: case-
     export interface CreateCaseRequest {
         /** The title of the AWS Support case. **/
         subject: Subject;
-        /** The code for the AWS service returned by the call to DescribeServices . **/
+        /** The code for the AWS service returned by the call to DescribeServices. **/
         serviceCode?: ServiceCode;
-        /** The code for the severity level returned by the call to DescribeSeverityLevels .
+        /** The code for the severity level returned by the call to DescribeSeverityLevels.
 
 The availability of severity levels depends on each customer&#x27;s support
 subscription. In other words, your subscription may not necessarily require the
@@ -599,7 +598,7 @@ urgent level of response time. **/
         /** The category of problem for the AWS Support case. **/
         categoryCode?: CategoryCode;
         /** The communication body text when you create an AWS Support case by calling 
-CreateCase . **/
+CreateCase. **/
         communicationBody: CommunicationBody;
         /** A list of email addresses that AWS Support copies on case correspondence. **/
         ccEmailAddresses?: CcEmailAddressList;
@@ -611,12 +610,12 @@ be passed explicitly for operations that take them. **/
 &quot;technical.&quot; If you do not indicate a value, the default is &quot;technical.&quot; **/
         issueType?: IssueType;
         /** The ID of a set of one or more attachments for the case. Create the set by using 
-AddAttachmentsToSet . **/
+AddAttachmentsToSet. **/
         attachmentSetId?: AttachmentSetId;
     }
     export interface CreateCaseResponse {
         /** The AWS Support case ID requested or returned in the call. The case ID is an
-alphanumeric string formatted as shown in this example: case- 
+alphanumeric string formatted as shown in this example: case-
 12345678910-2013-c4c1d2bf33c5cf47 **/
         caseId?: CaseId;
     }
@@ -647,7 +646,7 @@ communications are available for 12 months after creation. **/
 communications are available for 12 months after creation. **/
         beforeTime?: BeforeTime;
         /** Specifies whether resolved support cases should be included in the DescribeCases 
-results. The default is false . **/
+results. The default is false. **/
         includeResolvedCases?: IncludeResolvedCases;
         /** A resumption point for pagination. **/
         nextToken?: NextToken;
@@ -658,7 +657,7 @@ currently supports English (&quot;en&quot;) and Japanese (&quot;ja&quot;). Langu
 be passed explicitly for operations that take them. **/
         language?: Language;
         /** Specifies whether communications should be included in the DescribeCases 
-results. The default is true . **/
+results. The default is true. **/
         includeCommunications?: IncludeCommunications;
     }
     export interface DescribeCasesResponse {
@@ -669,7 +668,7 @@ results. The default is true . **/
     }
     export interface DescribeCommunicationsRequest {
         /** The AWS Support case ID requested or returned in the call. The case ID is an
-alphanumeric string formatted as shown in this example: case- 
+alphanumeric string formatted as shown in this example: case-
 12345678910-2013-c4c1d2bf33c5cf47 **/
         caseId: CaseId;
         /** The end date for a filtered date search on support case communications. Case
@@ -775,7 +774,7 @@ check is eligible for refresh. **/
     }
     export interface ResolveCaseRequest {
         /** The AWS Support case ID requested or returned in the call. The case ID is an
-alphanumeric string formatted as shown in this example: case- 
+alphanumeric string formatted as shown in this example: case-
 12345678910-2013-c4c1d2bf33c5cf47 **/
         caseId?: CaseId;
     }
@@ -794,12 +793,12 @@ corresponding code. **/
         name?: ServiceName;
         /** A list of categories that describe the type of support issue a case describes.
 Categories consist of a category name and a category code. Category names and
-codes are passed to AWS Support when you call CreateCase . **/
+codes are passed to AWS Support when you call CreateCase. **/
         categories?: CategoryList;
     }
     export interface SeverityLevel {
         /** One of four values: &quot;low,&quot; &quot;medium,&quot; &quot;high,&quot; and &quot;urgent&quot;. These values
-correspond to response times returned to the caller in severityLevel.name . **/
+correspond to response times returned to the caller in severityLevel.name. **/
         code?: SeverityLevelCode;
         /** The name of the severity level that corresponds to the severity level code. **/
         name?: SeverityLevelName;
@@ -886,7 +885,7 @@ marked as suppressed by the user. **/
         isSuppressed?: Boolean;
         /** Additional information about the identified resource. The exact metadata and its
 order can be obtained by inspecting the TrustedAdvisorCheckDescription object
-returned by the call to DescribeTrustedAdvisorChecks . Metadata contains all the
+returned by the call to DescribeTrustedAdvisorChecks. Metadata contains all the
 data that is shown in the Excel download, even in those cases where the UI shows
 just summary data. **/
         metadata: StringList;

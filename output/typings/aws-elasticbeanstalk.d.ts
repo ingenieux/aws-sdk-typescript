@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * AWS Elastic BeanstalkAWS Elastic Beanstalk makes it easy for you to create,
+   * AWS Elastic Beanstalk AWS Elastic Beanstalk makes it easy for you to create,
 deploy, and manage scalable, fault-tolerant applications running on the Amazon
 Web Services cloud.
 
@@ -22,17 +22,17 @@ For more information about this product, go to the AWS Elastic Beanstalk
 [http://aws.amazon.com/elasticbeanstalk/] details page. The location of the
 latest AWS Elastic Beanstalk WSDL is 
 http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl
-[http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl] 
+[http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl]
 . To install the Software Development Kits (SDKs), Integrated Development
 Environment (IDE) Toolkits, and command line tools that enable you to access the
-API, go to Tools for Amazon Web Services [http://aws.amazon.com/tools/] .
+API, go to Tools for Amazon Web Services [http://aws.amazon.com/tools/].
 
-Endpoints
+ Endpoints 
 
 For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go
 to Regions and Endpoints
 [http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region] 
-in the Amazon Web Services Glossary .
+in the Amazon Web Services Glossary.
    *
    */
   export class ElasticBeanstalk extends Service {
@@ -47,8 +47,8 @@ deployment.
     abortEnvironmentUpdate(params: ElasticBeanstalk.AbortEnvironmentUpdateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: any) => void): Request<any,ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Applies a scheduled managed action immediately. A managed action can be applied
-only if its status is Scheduled . Get the status and action ID of a managed
-action with DescribeEnvironmentManagedActions .
+only if its status is Scheduled. Get the status and action ID of a managed
+action with DescribeEnvironmentManagedActions.
      *
      * @error ElasticBeanstalkServiceException   
      * @error ManagedActionInvalidStateException   
@@ -64,7 +64,7 @@ action with DescribeEnvironmentManagedActions .
 single application. Takes a list of version labels that specify application
 source bundles for each of the environments to create or update. The name of
 each environment and other required information must be included in the source
-bundles in an environment manifest named env.yaml . See Compose Environments
+bundles in an environment manifest named env.yaml. See Compose Environments
 [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html] 
 for details.
      *
@@ -84,12 +84,12 @@ application versions.
 application version from a source bundle in Amazon S3, a commit in AWS
 CodeCommit, or the output of an AWS CodeBuild build as follows:
 
-Specify a commit in an AWS CodeCommit repository with SourceBuildInformation .
+Specify a commit in an AWS CodeCommit repository with SourceBuildInformation.
 
 Specify a build in an AWS CodeBuild with SourceBuildInformation and 
-BuildConfiguration .
+BuildConfiguration.
 
-Specify a source bundle in S3 with SourceBundle
+Specify a source bundle in S3 with SourceBundle 
 
 Omit both SourceBuildInformation and SourceBundle to use the default sample
 application.
@@ -113,13 +113,13 @@ the same configuration settings.
 
 Related Topics
 
- &amp;#42; DescribeConfigurationOptions
+ &amp;#42;   DescribeConfigurationOptions 
    
    
- * DescribeConfigurationSettings
+ *   DescribeConfigurationSettings 
    
    
- * ListAvailableSolutionStacks
+ *   ListAvailableSolutionStacks
      *
      * @error InsufficientPrivilegesException   
      * @error TooManyBucketsException   
@@ -221,7 +221,7 @@ deploy.
 
 Related Topics
 
- &amp;#42; DeleteEnvironmentConfiguration
+ &amp;#42;   DeleteEnvironmentConfiguration
      *
      * @error TooManyBucketsException   
      */
@@ -261,14 +261,14 @@ Enhanced Health.
     /**
      * Returns list of event descriptions matching criteria up to the last 6 weeks.
 
-This action returns the most recent 1,000 events from the specified NextToken .
+This action returns the most recent 1,000 events from the specified NextToken.
      *
      */
     describeEvents(params: ElasticBeanstalk.DescribeEventsMessage, callback?: (err: any, data: ElasticBeanstalk.EventDescriptionsMessage|any) => void): Request<ElasticBeanstalk.EventDescriptionsMessage|any,any>;
     /**
      * Retrives detailed information about the health of instances in your AWS Elastic
 Beanstalk. This operation requires enhanced health reporting
-[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html] .
+[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html].
      *
      * @error InvalidRequestException   
      * @error ElasticBeanstalkServiceException   
@@ -290,18 +290,18 @@ group, load balancer, etc.) for a specified environment and forces a restart.
      * Initiates a request to compile the specified type of information of the deployed
 environment.
 
-Setting the InfoType to tail compiles the last lines from the application server
-log files of every Amazon EC2 instance in your environment.
+ Setting the InfoType to tail compiles the last lines from the application
+server log files of every Amazon EC2 instance in your environment. 
 
-Setting the InfoType to bundle compresses the application server log files for
+ Setting the InfoType to bundle compresses the application server log files for
 every Amazon EC2 instance into a .zip file. Legacy and .NET containers do not
-support bundle logs.
+support bundle logs. 
 
-Use RetrieveEnvironmentInfo to obtain the set of logs.
+ Use RetrieveEnvironmentInfo to obtain the set of logs. 
 
 Related Topics
 
- &amp;#42; RetrieveEnvironmentInfo
+ &amp;#42;   RetrieveEnvironmentInfo
      *
      */
     requestEnvironmentInfo(params: ElasticBeanstalk.RequestEnvironmentInfoMessage, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -316,7 +316,7 @@ each Amazon EC2 instance.
 
 Related Topics
 
- &amp;#42; RequestEnvironmentInfo
+ &amp;#42;   RequestEnvironmentInfo
      *
      */
     retrieveEnvironmentInfo(params: ElasticBeanstalk.RetrieveEnvironmentInfoMessage, callback?: (err: any, data: ElasticBeanstalk.RetrieveEnvironmentInfoResultMessage|any) => void): Request<ElasticBeanstalk.RetrieveEnvironmentInfoResultMessage|any,any>;
@@ -334,7 +334,7 @@ Related Topics
     /**
      * Updates the specified application to have the specified properties.
 
-If a property (for example, description ) is not provided, the value remains
+If a property (for example, description) is not provided, the value remains
 unchanged. To clear these properties, specify an empty string.
      *
      */
@@ -348,7 +348,7 @@ unchanged. To clear these properties, specify an empty string.
     /**
      * Updates the specified application version to have the specified properties.
 
-If a property (for example, description ) is not provided, the value remains
+If a property (for example, description) is not provided, the value remains
 unchanged. To clear properties, specify an empty string.
      *
      */
@@ -357,12 +357,12 @@ unchanged. To clear properties, specify an empty string.
      * Updates the specified configuration template to have the specified properties or
 configuration option values.
 
-If a property (for example, ApplicationName ) is not provided, its value remains
+If a property (for example, ApplicationName) is not provided, its value remains
 unchanged. To clear such properties, specify an empty string.
 
 Related Topics
 
- &amp;#42; DescribeConfigurationOptions
+ &amp;#42;   DescribeConfigurationOptions
      *
      * @error InsufficientPrivilegesException   
      * @error TooManyBucketsException   
@@ -373,10 +373,10 @@ Related Topics
 the configuration settings to an entirely new configuration template, or updates
 select configuration option values in the running environment.
 
-Attempting to update both the release and configuration is not allowed and AWS
-Elastic Beanstalk returns an InvalidParameterCombination error.
+ Attempting to update both the release and configuration is not allowed and AWS
+Elastic Beanstalk returns an InvalidParameterCombination error. 
 
-When updating the configuration settings to a new template or individual
+ When updating the configuration settings to a new template or individual
 settings, a draft configuration is created and DescribeConfigurationSettings for
 this environment returns two setting descriptions with different 
 DeploymentStatus values.
@@ -682,13 +682,13 @@ want to cancel. **/
         Application?: ApplicationDescription;
     }
     export interface ApplicationDescriptionsMessage {
-        /** This parameter contains a list of ApplicationDescription . **/
+        /** This parameter contains a list of ApplicationDescription. **/
         Applications?: ApplicationDescriptionList;
     }
     export interface ApplicationMetrics {
         /** The amount of time that the metrics cover (usually 10 seconds). For example, you
-might have 5 requests ( request_count ) within the most recent time slice of 10
-seconds ( duration ). **/
+might have 5 requests (request_count) within the most recent time slice of 10
+seconds (duration). **/
         Duration?: NullableInteger;
         /** Average number of requests handled by the web server per second over the last 10
 seconds. **/
@@ -776,10 +776,10 @@ are retained for an application. **/
     }
     export interface BuildConfiguration {
         /** The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk
-stores the build artifact in the S3 location S3-bucket /resources/ 
-application-name /codebuild/codebuild- version-label - artifact-name .zip. If
-not provided, Elastic Beanstalk stores the build artifact in the S3 location 
-S3-bucket /resources/ application-name /codebuild/codebuild- version-label .zip. **/
+stores the build artifact in the S3 location S3-bucket/resources/
+application-name/codebuild/codebuild-version-label-artifact-name.zip. If not
+provided, Elastic Beanstalk stores the build artifact in the S3 location 
+S3-bucket/resources/application-name/codebuild/codebuild-version-label.zip. **/
         ArtifactName?: String;
         /** The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM)
 role that enables AWS CodeBuild to interact with dependent AWS services on
@@ -787,13 +787,13 @@ behalf of the AWS account. **/
         CodeBuildServiceRole: NonEmptyString;
         /** Information about the compute resources the build project will use.
 
- &amp;#42; BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds
+ &amp;#42;   BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds 
    
    
- * BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds
+ *   BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds 
    
    
- * BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds **/
+ *   BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds **/
         ComputeType?: ComputeType;
         /** The ID of the Docker image to use for this build project. **/
         Image: NonEmptyString;
@@ -832,10 +832,10 @@ seconds. **/
     export interface CheckDNSAvailabilityResultMessage {
         /** Indicates if the specified CNAME is available:
 
- &amp;#42; true : The CNAME is available.
+ &amp;#42;   true : The CNAME is available.
    
    
- * false : The CNAME is not available. **/
+ *   false : The CNAME is not available. **/
         Available?: CnameAvailability;
         /** The fully qualified CNAME to reserve when CreateEnvironment is called with the
 provided prefix. **/
@@ -868,50 +868,50 @@ stack to use, and optionally can specify environment links to create. **/
         /** An indication of which action is required if the value for this configuration
 option changes:
 
- &amp;#42; NoInterruption : There is no interruption to the environment or application
+ &amp;#42;   NoInterruption : There is no interruption to the environment or application
    availability.
    
    
- * RestartEnvironment : The environment is entirely restarted, all AWS resources
-   are deleted and recreated, and the environment is unavailable during the
-   process.
+ *   RestartEnvironment : The environment is entirely restarted, all AWS
+   resources are deleted and recreated, and the environment is unavailable
+   during the process.
    
    
- * RestartApplicationServer : The environment is available the entire time.
+ *   RestartApplicationServer : The environment is available the entire time.
    However, a short application outage occurs when the application servers on
    the running Amazon EC2 instances are restarted. **/
         ChangeSeverity?: ConfigurationOptionSeverity;
         /** An indication of whether the user defined this configuration option:
 
- &amp;#42; true : This configuration option was defined by the user. It is a valid
+ &amp;#42;   true : This configuration option was defined by the user. It is a valid
    choice for specifying if this as an Option to Remove when updating
-   configuration settings.
+   configuration settings. 
    
    
- * false : This configuration was not defined by the user.
+ *   false : This configuration was not defined by the user.
    
    
 
-Constraint: You can remove only UserDefined options from a configuration.
+ Constraint: You can remove only UserDefined options from a configuration. 
 
-Valid Values: true | false **/
+ Valid Values: true | false **/
         UserDefined?: UserDefinedOption;
         /** An indication of which type of values this option has and whether it is
 allowable to select one or more than one of the possible values:
 
- &amp;#42; Scalar : Values for this option are a single selection from the possible
+ &amp;#42;   Scalar : Values for this option are a single selection from the possible
    values, or an unformatted string, or numeric value governed by the 
    MIN/MAX/Regex constraints.
    
    
- * List : Values for this option are multiple selections from the possible
+ *   List : Values for this option are multiple selections from the possible
    values.
    
    
- * Boolean : Values for this option are either true or false .
+ *   Boolean : Values for this option are either true or false .
    
    
- * Json : Values for this option are a JSON representation of a ConfigDocument . **/
+ *   Json : Values for this option are a JSON representation of a ConfigDocument. **/
         ValueType?: ConfigurationOptionValueType;
         /** If specified, values for the configuration option are selected from this list. **/
         ValueOptions?: ConfigurationOptionPossibleValues;
@@ -941,7 +941,7 @@ this regular expression. **/
     export interface ConfigurationOptionsDescription {
         /** The name of the solution stack these configuration options belong to. **/
         SolutionStackName?: SolutionStackName;
-        /** A list of ConfigurationOptionDescription . **/
+        /** A list of ConfigurationOptionDescription. **/
         Options?: ConfigurationOptionDescriptionsList;
     }
     export interface ConfigurationSettingsDescription {
@@ -949,28 +949,28 @@ this regular expression. **/
         SolutionStackName?: SolutionStackName;
         /** The name of the application associated with this configuration set. **/
         ApplicationName?: ApplicationName;
-        /** If not null , the name of the configuration template for this configuration set. **/
+        /** If not null, the name of the configuration template for this configuration set. **/
         TemplateName?: ConfigurationTemplateName;
         /** Describes this configuration set. **/
         Description?: Description;
-        /** If not null , the name of the environment for this configuration set. **/
+        /** If not null, the name of the environment for this configuration set. **/
         EnvironmentName?: EnvironmentName;
         /** If this configuration set is associated with an environment, the 
 DeploymentStatus parameter indicates the deployment status of this configuration
-set:
+set: 
 
- &amp;#42; null : This configuration is not associated with a running environment.
+ &amp;#42;   null: This configuration is not associated with a running environment.
    
    
- * pending : This is a draft configuration that is not deployed to the
+ *   pending: This is a draft configuration that is not deployed to the
    associated environment but is in the process of deploying.
    
    
- * deployed : This is the configuration that is currently deployed to the
+ *   deployed: This is the configuration that is currently deployed to the
    associated running environment.
    
    
- * failed : This is a draft configuration that failed to successfully deploy. **/
+ *   failed: This is a draft configuration that failed to successfully deploy. **/
         DeploymentStatus?: ConfigurationDeploymentStatus;
         /** The date (in UTC time) when this configuration set was created. **/
         DateCreated?: CreationDate;
@@ -980,11 +980,11 @@ set:
         OptionSettings?: ConfigurationOptionSettingsList;
     }
     export interface ConfigurationSettingsDescriptions {
-        /** A list of ConfigurationSettingsDescription . **/
+        /** A list of ConfigurationSettingsDescription. **/
         ConfigurationSettings?: ConfigurationSettingsDescriptionList;
     }
     export interface ConfigurationSettingsValidationMessages {
-        /** A list of ValidationMessage . **/
+        /** A list of ValidationMessage. **/
         Messages?: ValidationMessagesList;
     }
     export interface CreateApplicationMessage {
@@ -1001,7 +1001,7 @@ application from accumulating too many versions. **/
     }
     export interface CreateApplicationVersionMessage {
         /** The name of the application. If no application is found with this name, and 
-AutoCreateApplication is false , returns an InvalidParameterValue error. **/
+AutoCreateApplication is false, returns an InvalidParameterValue error. **/
         ApplicationName: ApplicationName;
         /** A label identifying this version.
 
@@ -1020,7 +1020,7 @@ this version.
 The Amazon S3 bucket must be in the same region as the environment.
 
 Specify a source bundle in S3 or a commit in an AWS CodeCommit repository (with 
-SourceBuildInformation ), but not both. If neither SourceBundle nor 
+SourceBuildInformation), but not both. If neither SourceBundle nor 
 SourceBuildInformation are provided, Elastic Beanstalk uses a sample
 application. **/
         SourceBundle?: S3Location;
@@ -1051,10 +1051,10 @@ specifies the operating system, architecture, and application server for a
 configuration template. It determines the set of configuration options as well
 as the possible and default values.
 
-Use ListAvailableSolutionStacks to obtain a list of available solution stacks.
+ Use ListAvailableSolutionStacks to obtain a list of available solution stacks. 
 
-A solution stack name or a source configuration parameter must be specified,
-otherwise AWS Elastic Beanstalk returns an InvalidParameterValue error.
+ A solution stack name or a source configuration parameter must be specified,
+otherwise AWS Elastic Beanstalk returns an InvalidParameterValue error. 
 
 If a solution stack name is not specified and the source configuration parameter
 is specified, AWS Elastic Beanstalk uses the same solution stack as the source
@@ -1063,12 +1063,12 @@ configuration template. **/
         /** If specified, AWS Elastic Beanstalk uses the configuration values from the
 specified configuration template to create a new configuration.
 
-Values specified in the OptionSettings parameter of this call overrides any
-values obtained from the SourceConfiguration .
+ Values specified in the OptionSettings parameter of this call overrides any
+values obtained from the SourceConfiguration. 
 
-If no configuration template is found, returns an InvalidParameterValue error.
+ If no configuration template is found, returns an InvalidParameterValue error. 
 
-Constraint: If both the solution stack name parameter and the source
+ Constraint: If both the solution stack name parameter and the source
 configuration parameters are specified, the solution stack of the source
 configuration template must match the specified solution stack name or else AWS
 Elastic Beanstalk returns an InvalidParameterCombination error. **/
@@ -1085,7 +1085,7 @@ solution stack or the source configuration template. **/
     export interface CreateEnvironmentMessage {
         /** The name of the application that contains the version to be deployed.
 
-If no application is found with this name, CreateEnvironment returns an 
+ If no application is found with this name, CreateEnvironment returns an 
 InvalidParameterValue error. **/
         ApplicationName: ApplicationName;
         /** A unique name for the deployment environment. Used in the application URL.
@@ -1093,7 +1093,7 @@ InvalidParameterValue error. **/
 Constraint: Must be from 4 to 40 characters in length. The name can contain only
 letters, numbers, and hyphens. It cannot start or end with a hyphen. This name
 must be unique in your account. If the specified name already exists, AWS
-Elastic Beanstalk returns an InvalidParameterValue error.
+Elastic Beanstalk returns an InvalidParameterValue error. 
 
 Default: If the CNAME parameter is not specified, the environment name becomes
 part of the CNAME, and therefore part of the visible URL for your application. **/
@@ -1116,17 +1116,17 @@ random alphanumeric string to the environment name. **/
         Tags?: Tags;
         /** The name of the application version to deploy.
 
-If the specified application has no associated application versions, AWS Elastic
-Beanstalk UpdateEnvironment returns an InvalidParameterValue error.
+ If the specified application has no associated application versions, AWS
+Elastic Beanstalk UpdateEnvironment returns an InvalidParameterValue error. 
 
 Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample
 application in the container. **/
         VersionLabel?: VersionLabel;
-        /** The name of the configuration template to use in deployment. If no configuration
-template is found with this name, AWS Elastic Beanstalk returns an 
-InvalidParameterValue error.
+        /** The name of the configuration template to use in deployment. If no
+configuration template is found with this name, AWS Elastic Beanstalk returns an 
+InvalidParameterValue error. 
 
-Condition: You must specify either this parameter or a SolutionStackName , but
+ Condition: You must specify either this parameter or a SolutionStackName, but
 not both. If you specify both, AWS Elastic Beanstalk returns an 
 InvalidParameterCombination error. If you do not specify either, AWS Elastic
 Beanstalk returns a MissingRequiredParameter error. **/
@@ -1135,7 +1135,7 @@ Beanstalk returns a MissingRequiredParameter error. **/
 Beanstalk sets the configuration values to the default values associated with
 the specified solution stack.
 
-Condition: You must specify either this or a TemplateName , but not both. If you
+ Condition: You must specify either this or a TemplateName, but not both. If you
 specify both, AWS Elastic Beanstalk returns an InvalidParameterCombination 
 error. If you do not specify either, AWS Elastic Beanstalk returns a 
 MissingRequiredParameter error. **/
@@ -1190,13 +1190,13 @@ source code or change instance configuration settings. **/
         DeploymentId?: NullableLong;
         /** The status of the deployment:
 
- &amp;#42; In Progress : The deployment is in progress.
+ &amp;#42;   In Progress : The deployment is in progress.
    
    
- * Deployed : The deployment succeeded.
+ *   Deployed : The deployment succeeded.
    
    
- * Failed : The deployment failed. **/
+ *   Failed : The deployment failed. **/
         Status?: String;
         /** For in-progress deployments, the time that the deloyment started.
 
@@ -1239,14 +1239,14 @@ describe. **/
         ApplicationName: ApplicationName;
         /** The name of the configuration template to describe.
 
-Conditional: You must specify either this parameter or an EnvironmentName, but
+ Conditional: You must specify either this parameter or an EnvironmentName, but
 not both. If you specify both, AWS Elastic Beanstalk returns an 
 InvalidParameterCombination error. If you do not specify either, AWS Elastic
 Beanstalk returns a MissingRequiredParameter error. **/
         TemplateName?: ConfigurationTemplateName;
         /** The name of the environment to describe.
 
-Condition: You must specify either this or a TemplateName, but not both. If you
+ Condition: You must specify either this or a TemplateName, but not both. If you
 specify both, AWS Elastic Beanstalk returns an InvalidParameterCombination 
 error. If you do not specify either, AWS Elastic Beanstalk returns 
 MissingRequiredParameter error. **/
@@ -1261,8 +1261,8 @@ You must specify either this or an EnvironmentName, or both. **/
 
 You must specify either this or an EnvironmentName, or both. **/
         EnvironmentId?: EnvironmentId;
-        /** Specify the response elements to return. To retrieve all attributes, set to All 
-. If no attribute names are specified, returns the name of the environment. **/
+        /** Specify the response elements to return. To retrieve all attributes, set to All.
+If no attribute names are specified, returns the name of the environment. **/
         AttributeNames?: EnvironmentHealthAttributes;
     }
     export interface DescribeEnvironmentHealthResult {
@@ -1270,10 +1270,10 @@ You must specify either this or an EnvironmentName, or both. **/
         EnvironmentName?: EnvironmentName;
         /** The health status
 [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html] 
-of the environment. For example, Ok . **/
+of the environment. For example, Ok. **/
         HealthStatus?: String;
-        /** The environment&#x27;s operational status. Ready , Launching , Updating , Terminating 
-, or Terminated . **/
+        /** The environment&#x27;s operational status. Ready, Launching, Updating, Terminating,
+or Terminated. **/
         Status?: EnvironmentHealth;
         /** The health color
 [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html] 
@@ -1321,13 +1321,13 @@ get the next page of results. **/
     export interface DescribeEnvironmentResourcesMessage {
         /** The ID of the environment to retrieve AWS resource usage data.
 
-Condition: You must specify either this or an EnvironmentName, or both. If you
+ Condition: You must specify either this or an EnvironmentName, or both. If you
 do not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
 error. **/
         EnvironmentId?: EnvironmentId;
         /** The name of the environment to retrieve AWS resource usage data.
 
-Condition: You must specify either this or an EnvironmentId, or both. If you do
+ Condition: You must specify either this or an EnvironmentId, or both. If you do
 not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
 error. **/
         EnvironmentName?: EnvironmentName;
@@ -1347,12 +1347,12 @@ include only those that have the specified names. **/
         EnvironmentNames?: EnvironmentNamesList;
         /** Indicates whether to include deleted environments:
 
-true : Environments that have been deleted after IncludedDeletedBackTo are
+ true: Environments that have been deleted after IncludedDeletedBackTo are
 displayed.
 
-false : Do not include deleted environments. **/
+ false: Do not include deleted environments. **/
         IncludeDeleted?: IncludeDeleted;
-        /** If specified when IncludeDeleted is set to true , then environments deleted
+        /** If specified when IncludeDeleted is set to true, then environments deleted
 after this date are displayed. **/
         IncludedDeletedBackTo?: IncludeDeletedBackTo;
     }
@@ -1381,8 +1381,8 @@ with the specified severity or higher. **/
         /** If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
 that occur on or after this time. **/
         StartTime?: TimeFilterStart;
-        /** If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-that occur up to, but not including, the EndTime . **/
+        /** If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+those that occur up to, but not including, the EndTime. **/
         EndTime?: TimeFilterEnd;
         /** Specifies the maximum number of events that can be returned, beginning with the
 most recent event. **/
@@ -1396,7 +1396,7 @@ most recent event. **/
         /** Specify the AWS Elastic Beanstalk environment by ID. **/
         EnvironmentId?: EnvironmentId;
         /** Specifies the response elements you wish to receive. To retrieve all attributes,
-set to All . If no attribute names are specified, returns a list of instances. **/
+set to All. If no attribute names are specified, returns a list of instances. **/
         AttributeNames?: InstancesHealthAttributes;
         /** Specify the pagination token returned by a previous call. **/
         NextToken?: NextToken;
@@ -1440,54 +1440,54 @@ single-instance environments, the IP address of the instance. **/
         DateUpdated?: UpdateDate;
         /** The current operational status of the environment:
 
- &amp;#42; Launching : Environment is in the process of initial deployment.
+ &amp;#42;   Launching: Environment is in the process of initial deployment.
    
    
- * Updating : Environment is in the process of updating its configuration
+ *   Updating: Environment is in the process of updating its configuration
    settings or application version.
    
    
- * Ready : Environment is available to have an action performed on it, such as
+ *   Ready: Environment is available to have an action performed on it, such as
    update or terminate.
    
    
- * Terminating : Environment is in the shut-down process.
+ *   Terminating: Environment is in the shut-down process.
    
    
- * Terminated : Environment is not running. **/
+ *   Terminated: Environment is not running. **/
         Status?: EnvironmentStatus;
         /** Indicates if there is an in-progress environment configuration update or
 application version deployment that you can cancel.
 
-true: There is an update in progress.
+ true: There is an update in progress. 
 
-false: There are no updates currently in progress. **/
+ false: There are no updates currently in progress. **/
         AbortableOperationInProgress?: AbortableOperationInProgress;
         /** Describes the health status of the environment. AWS Elastic Beanstalk indicates
 the failure levels for a running environment:
 
- &amp;#42; Red : Indicates the environment is not responsive. Occurs when three or more
+ &amp;#42;   Red: Indicates the environment is not responsive. Occurs when three or more
    consecutive failures occur for an environment.
    
    
- * Yellow : Indicates that something is wrong. Occurs when two consecutive
+ *   Yellow: Indicates that something is wrong. Occurs when two consecutive
    failures occur for an environment.
    
    
- * Green : Indicates the environment is healthy and fully functional.
+ *   Green: Indicates the environment is healthy and fully functional.
    
    
- * Grey : Default health for a new environment. The environment is not fully
+ *   Grey: Default health for a new environment. The environment is not fully
    launched and health checks have not started or health checks are suspended
    during an UpdateEnvironment or RestartEnvironement request.
    
    
 
-Default: Grey **/
+ Default: Grey **/
         Health?: EnvironmentHealth;
         /** Returns the health status of the application running in your environment. For
 more information, see Health Colors and Statuses
-[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html] 
+[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html]
 . **/
         HealthStatus?: EnvironmentHealthStatus;
         /** The description of the AWS resources used by this environment. **/
@@ -1534,7 +1534,7 @@ more information, see Health Colors and Statuses
         Queues?: QueueList;
     }
     export interface EnvironmentResourceDescriptionsMessage {
-        /** A list of EnvironmentResourceDescription . **/
+        /** A list of EnvironmentResourceDescription. **/
         EnvironmentResources?: EnvironmentResourceDescription;
     }
     export interface EnvironmentResourcesDescription {
@@ -1568,7 +1568,7 @@ more information, see Health Colors and Statuses
         Severity?: EventSeverity;
     }
     export interface EventDescriptionsMessage {
-        /** A list of EventDescription . **/
+        /** A list of EventDescription. **/
         Events?: EventDescriptionList;
         /** If returned, this indicates that there are more results to obtain. Use this
 token in the next DescribeEvents call to get the next batch of events. **/
@@ -1639,7 +1639,7 @@ seconds. **/
     export interface ListAvailableSolutionStacksResultMessage {
         /** A list of available solution stacks. **/
         SolutionStacks?: AvailableSolutionStackNamesList;
-        /** A list of available solution stacks and their SolutionStackDescription . **/
+        /** A list of available solution stacks and their SolutionStackDescription. **/
         SolutionStackDetails?: AvailableSolutionStackDetailsList;
     }
     export interface Listener {
@@ -1667,8 +1667,8 @@ seconds. **/
         ActionDescription?: String;
         /** The type of managed action. **/
         ActionType?: ActionType;
-        /** The status of the managed action. If the action is Scheduled , you can apply it
-immediately with ApplyEnvironmentManagedAction . **/
+        /** The status of the managed action. If the action is Scheduled, you can apply it
+immediately with ApplyEnvironmentManagedAction. **/
         Status?: ActionStatus;
         /** The start time of the maintenance window in which the managed action will
 execute. **/
@@ -1738,13 +1738,13 @@ this restriction must match. **/
     export interface RebuildEnvironmentMessage {
         /** The ID of the environment to rebuild.
 
-Condition: You must specify either this or an EnvironmentName, or both. If you
+ Condition: You must specify either this or an EnvironmentName, or both. If you
 do not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
 error. **/
         EnvironmentId?: EnvironmentId;
         /** The name of the environment to rebuild.
 
-Condition: You must specify either this or an EnvironmentId, or both. If you do
+ Condition: You must specify either this or an EnvironmentId, or both. If you do
 not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
 error. **/
         EnvironmentName?: EnvironmentName;
@@ -1753,7 +1753,7 @@ error. **/
         /** The ID of the environment of the requested data.
 
 If no such environment is found, RequestEnvironmentInfo returns an 
-InvalidParameterValue error.
+InvalidParameterValue error. 
 
 Condition: You must specify either this or an EnvironmentName, or both. If you
 do not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
@@ -1762,7 +1762,7 @@ error. **/
         /** The name of the environment of the requested data.
 
 If no such environment is found, RequestEnvironmentInfo returns an 
-InvalidParameterValue error.
+InvalidParameterValue error. 
 
 Condition: You must specify either this or an EnvironmentId, or both. If you do
 not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
@@ -1774,13 +1774,13 @@ error. **/
     export interface RestartAppServerMessage {
         /** The ID of the environment to restart the server for.
 
-Condition: You must specify either this or an EnvironmentName, or both. If you
+ Condition: You must specify either this or an EnvironmentName, or both. If you
 do not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
 error. **/
         EnvironmentId?: EnvironmentId;
         /** The name of the environment to restart the server for.
 
-Condition: You must specify either this or an EnvironmentId, or both. If you do
+ Condition: You must specify either this or an EnvironmentId, or both. If you do
 not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
 error. **/
         EnvironmentName?: EnvironmentName;
@@ -1796,9 +1796,9 @@ error. **/
         EnvironmentId?: EnvironmentId;
         /** The name of the data&#x27;s environment.
 
-If no such environment is found, returns an InvalidParameterValue error.
+ If no such environment is found, returns an InvalidParameterValue error. 
 
-Condition: You must specify either this or an EnvironmentId, or both. If you do
+ Condition: You must specify either this or an EnvironmentId, or both. If you do
 not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
 error. **/
         EnvironmentName?: EnvironmentName;
@@ -1824,12 +1824,12 @@ error. **/
         InstanceId?: InstanceId;
         /** Returns the health status of the specified instance. For more information, see 
 Health Colors and Statuses
-[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html] 
+[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html]
 . **/
         HealthStatus?: String;
         /** Represents the color indicator that gives you information about the health of
 the EC2 instance. For more information, see Health Colors and Statuses
-[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html] 
+[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html]
 . **/
         Color?: String;
         /** Represents the causes, which provide more information about the current health
@@ -1857,28 +1857,28 @@ status. **/
     export interface SourceBuildInformation {
         /** The type of repository.
 
- &amp;#42; Git
+ &amp;#42;   Git 
    
    
- * Zip **/
+ *   Zip **/
         SourceType: SourceType;
         /** Location where the repository is stored.
 
- &amp;#42; CodeCommit
+ &amp;#42;   CodeCommit 
    
    
- * S3 **/
+ *   S3 **/
         SourceRepository: SourceRepository;
         /** The location of the source code, as a formatted string, depending on the value
-of SourceRepository
+of SourceRepository 
 
- &amp;#42; For CodeCommit , the format is the repository name and commit ID, separated
-   by a forward slash. For example, 
-   my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a .
+ &amp;#42;  For CodeCommit, the format is the repository name and commit ID, separated by
+   a forward slash. For example, 
+   my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a.
    
    
- * For S3 , the format is the S3 bucket name and object key, separated by a
-   forward slash. For example, my-s3-bucket/Folders/my-source-file . **/
+ *  For S3, the format is the S3 bucket name and object key, separated by a
+   forward slash. For example, my-s3-bucket/Folders/my-source-file. **/
         SourceLocation: SourceLocation;
     }
     export interface SourceBundleDeletionException {
@@ -1906,27 +1906,27 @@ of SourceRepository
     export interface SwapEnvironmentCNAMEsMessage {
         /** The ID of the source environment.
 
-Condition: You must specify at least the SourceEnvironmentID or the 
-SourceEnvironmentName . You may also specify both. If you specify the 
-SourceEnvironmentId , you must specify the DestinationEnvironmentId . **/
+ Condition: You must specify at least the SourceEnvironmentID or the 
+SourceEnvironmentName. You may also specify both. If you specify the 
+SourceEnvironmentId, you must specify the DestinationEnvironmentId. **/
         SourceEnvironmentId?: EnvironmentId;
         /** The name of the source environment.
 
-Condition: You must specify at least the SourceEnvironmentID or the 
-SourceEnvironmentName . You may also specify both. If you specify the 
-SourceEnvironmentName , you must specify the DestinationEnvironmentName . **/
+ Condition: You must specify at least the SourceEnvironmentID or the 
+SourceEnvironmentName. You may also specify both. If you specify the 
+SourceEnvironmentName, you must specify the DestinationEnvironmentName. **/
         SourceEnvironmentName?: EnvironmentName;
         /** The ID of the destination environment.
 
-Condition: You must specify at least the DestinationEnvironmentID or the 
-DestinationEnvironmentName . You may also specify both. You must specify the 
-SourceEnvironmentId with the DestinationEnvironmentId . **/
+ Condition: You must specify at least the DestinationEnvironmentID or the 
+DestinationEnvironmentName. You may also specify both. You must specify the 
+SourceEnvironmentId with the DestinationEnvironmentId. **/
         DestinationEnvironmentId?: EnvironmentId;
         /** The name of the destination environment.
 
-Condition: You must specify at least the DestinationEnvironmentID or the 
-DestinationEnvironmentName . You may also specify both. You must specify the 
-SourceEnvironmentName with the DestinationEnvironmentName . **/
+ Condition: You must specify at least the DestinationEnvironmentID or the 
+DestinationEnvironmentName. You may also specify both. You must specify the 
+SourceEnvironmentName with the DestinationEnvironmentName. **/
         DestinationEnvironmentName?: EnvironmentName;
     }
     export interface SystemStatus {
@@ -1934,7 +1934,7 @@ SourceEnvironmentName with the DestinationEnvironmentName . **/
         CPUUtilization?: CPUUtilization;
         /** Load average in the last 1-minute and 5-minute periods. For more information,
 see Operating System Metrics
-[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os] 
+[http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os]
 . **/
         LoadAverage?: LoadAverage;
     }
@@ -1947,34 +1947,34 @@ see Operating System Metrics
     export interface TerminateEnvironmentMessage {
         /** The ID of the environment to terminate.
 
-Condition: You must specify either this or an EnvironmentName, or both. If you
+ Condition: You must specify either this or an EnvironmentName, or both. If you
 do not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
 error. **/
         EnvironmentId?: EnvironmentId;
         /** The name of the environment to terminate.
 
-Condition: You must specify either this or an EnvironmentId, or both. If you do
+ Condition: You must specify either this or an EnvironmentId, or both. If you do
 not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
 error. **/
         EnvironmentName?: EnvironmentName;
         /** Indicates whether the associated AWS resources should shut down when the
 environment is terminated:
 
- &amp;#42; true : The specified environment as well as the associated AWS resources,
+ &amp;#42;   true: The specified environment as well as the associated AWS resources,
    such as Auto Scaling group and LoadBalancer, are terminated.
    
    
- * false : AWS Elastic Beanstalk resource management is removed from the
+ *   false: AWS Elastic Beanstalk resource management is removed from the
    environment, but the AWS resources continue to operate.
    
    
 
-For more information, see the AWS Elastic Beanstalk User Guide.
-[http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/]
+ For more information, see the AWS Elastic Beanstalk User Guide.
+[http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/] 
 
-Default: true
+ Default: true 
 
-Valid Values: true | false **/
+ Valid Values: true | false **/
         TerminateResources?: TerminateEnvironmentResources;
         /** Terminates the target environment even if another environment in the same group
 is dependent on it. **/
@@ -2013,7 +2013,7 @@ description. **/
     export interface UpdateApplicationVersionMessage {
         /** The name of the application associated with this version.
 
-If no application is found with this name, UpdateApplication returns an 
+ If no application is found with this name, UpdateApplication returns an 
 InvalidParameterValue error. **/
         ApplicationName: ApplicationName;
         /** The name of the version to update.
@@ -2028,12 +2028,12 @@ InvalidParameterValue error. **/
         /** The name of the application associated with the configuration template to
 update.
 
-If no application is found with this name, UpdateConfigurationTemplate returns
+ If no application is found with this name, UpdateConfigurationTemplate returns
 an InvalidParameterValue error. **/
         ApplicationName: ApplicationName;
         /** The name of the configuration template to update.
 
-If no configuration template is found with this name, 
+ If no configuration template is found with this name, 
 UpdateConfigurationTemplate returns an InvalidParameterValue error. **/
         TemplateName: ConfigurationTemplateName;
         /** A new description for the configuration. **/
@@ -2043,7 +2043,7 @@ value. **/
         OptionSettings?: ConfigurationOptionSettingsList;
         /** A list of configuration options to remove from the configuration set.
 
-Constraint: You can remove only UserDefined configuration options. **/
+ Constraint: You can remove only UserDefined configuration options. **/
         OptionsToRemove?: OptionsSpecifierList;
     }
     export interface UpdateEnvironmentMessage {
@@ -2059,7 +2059,7 @@ do not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 error. **/
         EnvironmentId?: EnvironmentId;
         /** The name of the environment to update. If no environment with this name exists,
-AWS Elastic Beanstalk returns an InvalidParameterValue error.
+AWS Elastic Beanstalk returns an InvalidParameterValue error. 
 
 Condition: You must specify either this or an EnvironmentId, or both. If you do
 not specify either, AWS Elastic Beanstalk returns MissingRequiredParameter 
@@ -2119,11 +2119,11 @@ Condition: You cannot specify both this and a configuration template name. **/
         Message?: ValidationMessageString;
         /** An indication of the severity of this message:
 
- &amp;#42; error : This message indicates that this is not a valid setting for an
+ &amp;#42;   error: This message indicates that this is not a valid setting for an
    option.
    
    
- * warning : This message is providing information you should take into account. **/
+ *   warning: This message is providing information you should take into account. **/
         Severity?: ValidationSeverity;
         /** The namespace to which the option belongs. **/
         Namespace?: OptionNamespace;

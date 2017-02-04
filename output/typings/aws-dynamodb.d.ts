@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon DynamoDBAmazon DynamoDB is a fully managed NoSQL database service that
+   * Amazon DynamoDB Amazon DynamoDB is a fully managed NoSQL database service that
 provides fast and predictable performance with seamless scalability. DynamoDB
 lets you offload the administrative burdens of operating and scaling a
 distributed database, so that you don&#x27;t have to worry about hardware
@@ -46,7 +46,7 @@ A single operation can retrieve up to 16 MB of data, which can contain as many
 as 100 items. BatchGetItem will return a partial result if the response size
 limit is exceeded, the table&#x27;s provisioned throughput is exceeded, or an
 internal processing failure occurs. If a partial result is returned, the
-operation returns a value for UnprocessedKeys . You can use this value to retry
+operation returns a value for UnprocessedKeys. You can use this value to retry
 the operation starting with the next item to get.
 
 If you request more than 100 items BatchGetItem will return a 
@@ -61,20 +61,20 @@ assemble the pages of results into one data set.
 
 If none of the items can be processed due to insufficient provisioned throughput
 on all of the tables in the request, then BatchGetItem will return a 
-ProvisionedThroughputExceededException . If at least one of the items is
+ProvisionedThroughputExceededException. If at least one of the items is
 successfully processed, then BatchGetItem completes successfully, while
-returning the keys of the unread items in UnprocessedKeys .
+returning the keys of the unread items in UnprocessedKeys.
 
 If DynamoDB returns any unprocessed items, you should retry the batch operation
 on those items. However, we strongly recommend that you use an exponential
-backoff algorithm . If you retry the batch operation immediately, the underlying
+backoff algorithm. If you retry the batch operation immediately, the underlying
 read or write requests can still fail due to throttling on the individual
 tables. If you delay the batch operation using exponential backoff, the
 individual requests in the batch are much more likely to succeed.
 
 For more information, see Batch Operations and Error Handling
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
 
 By default, BatchGetItem performs eventually consistent reads on every table in
 the request. If you want strongly consistent reads instead, you can set 
@@ -91,7 +91,7 @@ If a requested item does not exist, it is not returned in the result. Requests
 for nonexistent items consume the minimum read capacity units according to the
 type of read. For more information, see Capacity Units Calculations
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
      *
      * @error ProvisionedThroughputExceededException   
      * @error ResourceNotFoundException   
@@ -104,7 +104,7 @@ tables. A single call to BatchWriteItem can write up to 16 MB of data, which can
 comprise as many as 25 put or delete requests. Individual items to be written
 can be as large as 400 KB.
 
-BatchWriteItem cannot update items. To update items, use the UpdateItem action.
+ BatchWriteItem cannot update items. To update items, use the UpdateItem action.
 
 The individual PutItem and DeleteItem operations specified in BatchWriteItem are
 atomic; however BatchWriteItem as a whole is not. If any requested operations
@@ -117,20 +117,20 @@ those unprocessed items until all items have been processed.
 
 Note that if none of the items can be processed due to insufficient provisioned
 throughput on all of the tables in the request, then BatchWriteItem will return
-a ProvisionedThroughputExceededException .
+a ProvisionedThroughputExceededException.
 
 If DynamoDB returns any unprocessed items, you should retry the batch operation
 on those items. However, we strongly recommend that you use an exponential
-backoff algorithm . If you retry the batch operation immediately, the underlying
+backoff algorithm. If you retry the batch operation immediately, the underlying
 read or write requests can still fail due to throttling on the individual
 tables. If you delay the batch operation using exponential backoff, the
 individual requests in the batch are much more likely to succeed.
 
 For more information, see Batch Operations and Error Handling
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
 
-With BatchWriteItem , you can efficiently write or delete large amounts of data,
+With BatchWriteItem, you can efficiently write or delete large amounts of data,
 such as from Amazon Elastic MapReduce (EMR), or copy data from another database
 into DynamoDB. In order to improve performance with these large-scale
 operations, BatchWriteItem does not behave in the same way as individual PutItem 
@@ -154,25 +154,25 @@ capacity unit.
 If one or more of the following is true, DynamoDB rejects the entire batch write
 operation:
 
- &amp;#42; One or more tables specified in the BatchWriteItem request does not exist.
+ &amp;#42;  One or more tables specified in the BatchWriteItem request does not exist.
    
    
- * Primary key attributes specified on an item in the request do not match those
-   in the corresponding table&#x27;s primary key schema.
+ *  Primary key attributes specified on an item in the request do not match
+   those in the corresponding table&#x27;s primary key schema.
    
    
- * You try to perform multiple operations on the same item in the same 
+ *  You try to perform multiple operations on the same item in the same 
    BatchWriteItem request. For example, you cannot put and delete the same item
-   in the same BatchWriteItem request.
+   in the same BatchWriteItem request. 
    
    
- * There are more than 25 requests in the batch.
+ *  There are more than 25 requests in the batch.
    
    
- * Any individual item in a batch exceeds 400 KB.
+ *  Any individual item in a batch exceeds 400 KB.
    
    
- * The total request size exceeds 16 MB.
+ *  The total request size exceeds 16 MB.
      *
      * @error ProvisionedThroughputExceededException   
      * @error ResourceNotFoundException   
@@ -185,10 +185,10 @@ operation:
 table names must be unique within each region. That is, you can have two tables
 with same name if you create the tables in different regions.
 
-CreateTable is an asynchronous operation. Upon receiving a CreateTable request,
-DynamoDB immediately returns a response with a TableStatus of CREATING . After
-the table is created, DynamoDB sets the TableStatus to ACTIVE . You can perform
-read and write operations only on an ACTIVE table.
+ CreateTable is an asynchronous operation. Upon receiving a CreateTable request,
+DynamoDB immediately returns a response with a TableStatus of CREATING. After
+the table is created, DynamoDB sets the TableStatus to ACTIVE. You can perform
+read and write operations only on an ACTIVE table. 
 
 You can optionally define secondary indexes on the new table, as part of the 
 CreateTable operation. If you want to create multiple tables with secondary
@@ -230,12 +230,12 @@ the item is not deleted.
 DeleteTable request, the specified table is in the DELETING state until DynamoDB
 completes the deletion. If the table is in the ACTIVE state, you can delete it.
 If a table is in CREATING or UPDATING states, then DynamoDB returns a 
-ResourceInUseException . If the specified table does not exist, DynamoDB returns
-a ResourceNotFoundException . If table is already in the DELETING state, no
-error is returned.
+ResourceInUseException. If the specified table does not exist, DynamoDB returns
+a ResourceNotFoundException. If table is already in the DELETING state, no error
+is returned. 
 
 DynamoDB might continue to accept data read and write operations, such as 
-GetItem and PutItem , on a table in the DELETING state until the table deletion
+GetItem and PutItem, on a table in the DELETING state until the table deletion
 is complete.
 
 When you delete a table, any indexes on that table are also deleted.
@@ -262,45 +262,45 @@ read capacity units and write capacity units that you can provision across all
 of your DynamoDB tables in a given region. Also, there are per-table limits that
 apply when you create a table there. For more information, see Limits
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html] 
-page in the Amazon DynamoDB Developer Guide .
+page in the Amazon DynamoDB Developer Guide.
 
 Although you can increase these limits by filing a case at AWS Support Center
-[https://console.aws.amazon.com/support/home#/] , obtaining the increase is not
+[https://console.aws.amazon.com/support/home#/], obtaining the increase is not
 instantaneous. The DescribeLimits action lets you write code to compare the
 capacity you are currently using to those limits imposed by your account so that
 you have enough time to apply for an increase before you hit a limit.
 
 For example, you could use one of the AWS SDKs to do the following:
 
- 1. Call DescribeLimits for a particular region to obtain your current account
+ 1.  Call DescribeLimits for a particular region to obtain your current account
     limits on provisioned capacity there.
     
     
- 2. Create a variable to hold the aggregate read capacity units provisioned for
+ 2.  Create a variable to hold the aggregate read capacity units provisioned for
     all your tables in that region, and one to hold the aggregate write capacity
     units. Zero them both.
     
     
- 3. Call ListTables to obtain a list of all your DynamoDB tables.
+ 3.  Call ListTables to obtain a list of all your DynamoDB tables.
     
     
- 4. For each table name listed by ListTables , do the following:
+ 4.  For each table name listed by ListTables, do the following:
     
-     &amp;#42; Call DescribeTable with the table name.
+     &amp;#42;  Call DescribeTable with the table name.
        
        
-     * Use the data returned by DescribeTable to add the read capacity units and
+     *  Use the data returned by DescribeTable to add the read capacity units and
        write capacity units provisioned for the table itself to your variables.
        
        
-     * If the table has one or more global secondary indexes (GSIs), loop over
+     *  If the table has one or more global secondary indexes (GSIs), loop over
        these GSIs and add their provisioned capacity values to your variables as
        well.
        
        
     
     
- 5. Report the account limits for that region returned by DescribeLimits , along
+ 5.  Report the account limits for that region returned by DescribeLimits, along
     with the total current provisioned capacity levels you have calculated.
     
     
@@ -317,7 +317,7 @@ provisioned capacity extremely rapidly, but the only upper limit that applies is
 that the aggregate provisioned capacity over all your tables and GSIs cannot
 exceed either of the per-account limits.
 
-DescribeLimits should only be called periodically. You can expect throttling
+ DescribeLimits should only be called periodically. You can expect throttling
 errors if you call it more than once in a minute.
 
 The DescribeLimits Request element has no content.
@@ -330,10 +330,10 @@ The DescribeLimits Request element has no content.
 when it was created, the primary key schema, and any indexes on the table.
 
 If you issue a DescribeTable request immediately after a CreateTable request,
-DynamoDB might return a ResourceNotFoundException . This is because 
-DescribeTable uses an eventually consistent query, and the metadata for your
-table might not be available at that moment. Wait for a few seconds, and then
-try the DescribeTable request again.
+DynamoDB might return a ResourceNotFoundException. This is because DescribeTable 
+uses an eventually consistent query, and the metadata for your table might not
+be available at that moment. Wait for a few seconds, and then try the 
+DescribeTable request again.
      *
      * @error ResourceNotFoundException   
      * @error InternalServerError   
@@ -344,8 +344,8 @@ try the DescribeTable request again.
 primary key. If there is no matching item, GetItem does not return any data and
 there will be no Item element in the response.
 
-GetItem provides an eventually consistent read by default. If your application
-requires a strongly consistent read, set ConsistentRead to true . Although a
+ GetItem provides an eventually consistent read by default. If your application
+requires a strongly consistent read, set ConsistentRead to true. Although a
 strongly consistent read might take more time than an eventually consistent
 read, it always returns the last updated value.
      *
@@ -368,7 +368,7 @@ to 10 times per second, per account.
 
 For an overview on tagging DynamoDB resources, see Tagging for DynamoDB
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
      *
      * @error ResourceNotFoundException   
      * @error InternalServerError   
@@ -396,9 +396,9 @@ attribute being used as the partition key for the table. Since every record must
 contain that attribute, the attribute_not_exists function will only succeed if
 no matching item exists.
 
-For more information about PutItem , see Working with Items
+For more information about PutItem, see Working with Items
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
      *
      * @error ConditionalCheckFailedException   
      * @error ProvisionedThroughputExceededException   
@@ -415,7 +415,7 @@ Use the KeyConditionExpression parameter to provide a specific value for the
 partition key. The Query operation will return all of the items from the table
 or index with that partition key value. You can optionally narrow the scope of
 the Query operation by specifying a sort key value and a comparison operator in 
-KeyConditionExpression . You can use the ScanIndexForward parameter to get
+KeyConditionExpression. You can use the ScanIndexForward parameter to get
 results in forward or reverse order, by sort key.
 
 Queries that do not return results consume the minimum number of read capacity
@@ -427,7 +427,7 @@ the LastEvaluatedKey element to continue the query in a subsequent operation.
 Unlike a Scan operation, a Query operation never returns both an empty result
 set and a LastEvaluatedKey value. LastEvaluatedKey is only provided if you have
 used the Limit parameter, or if the result set exceeds 1 MB (prior to applying a
-filter).
+filter). 
 
 You can query a table, a local secondary index, or a global secondary index. For
 a query on a table or on a local secondary index, you can set the ConsistentRead 
@@ -449,20 +449,20 @@ If the total number of scanned items exceeds the maximum data set size limit of
 1 MB, the scan stops and results are returned to the user as a LastEvaluatedKey 
 value to continue the scan in a subsequent operation. The results also include
 the number of items exceeding the limit. A scan can result in no table data
-meeting the filter criteria.
+meeting the filter criteria. 
 
 By default, Scan operations proceed sequentially; however, for faster
 performance on a large table or secondary index, applications can request a
 parallel Scan operation by providing the Segment and TotalSegments parameters.
 For more information, see Parallel Scan
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#QueryAndScanParallelScan] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
 
 By default, Scan uses eventually consistent reads when accessing the data in a
 table; therefore, the result set might not include the changes to data in the
 table immediately before the operation began. If you need a consistent copy of
 the data, as of the time that the Scan begins, you can set the ConsistentRead 
-parameter to true .
+parameter to true.
      *
      * @error ProvisionedThroughputExceededException   
      * @error ResourceNotFoundException   
@@ -473,11 +473,11 @@ parameter to true .
      * Associate a set of tags with an Amazon DynamoDB resource. You can then activate
 these user-defined tags so that they appear on the Billing and Cost Management
 console for cost allocation tracking. You can call TagResource up to 5 times per
-second, per account.
+second, per account. 
 
 For an overview on tagging DynamoDB resources, see Tagging for DynamoDB
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
      *
      * @error LimitExceededException   
      * @error ResourceNotFoundException   
@@ -487,11 +487,11 @@ in the Amazon DynamoDB Developer Guide .
     tagResource(params: DynamoDB.TagResourceInput, callback?: (err: DynamoDB.LimitExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|DynamoDB.ResourceInUseException|any, data: any) => void): Request<any,DynamoDB.LimitExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|DynamoDB.ResourceInUseException|any>;
     /**
      * Removes the association of tags from an Amazon DynamoDB resource. You can call
-UntagResource up to 5 times per second, per account.
+UntagResource up to 5 times per second, per account. 
 
 For an overview on tagging DynamoDB resources, see Tagging for DynamoDB
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
      *
      * @error LimitExceededException   
      * @error ResourceNotFoundException   
@@ -522,22 +522,22 @@ DynamoDB Streams settings for a given table.
 
 You can only perform one of the following operations at once:
 
- &amp;#42; Modify the provisioned throughput settings of the table.
+ &amp;#42;  Modify the provisioned throughput settings of the table.
    
    
- * Enable or disable Streams on the table.
+ *  Enable or disable Streams on the table.
    
    
- * Remove a global secondary index from the table.
+ *  Remove a global secondary index from the table.
    
    
- * Create a new global secondary index on the table. Once the index begins
+ *  Create a new global secondary index on the table. Once the index begins
    backfilling, you can use UpdateTable to perform other operations.
    
    
 
-UpdateTable is an asynchronous operation; while it is executing, the table
-status changes from ACTIVE to UPDATING . While it is UPDATING , you cannot issue
+ UpdateTable is an asynchronous operation; while it is executing, the table
+status changes from ACTIVE to UPDATING. While it is UPDATING, you cannot issue
 another UpdateTable request. When the table returns to the ACTIVE state, the 
 UpdateTable operation is complete.
      *
@@ -735,23 +735,23 @@ UpdateTable operation is complete.
         AttributeName: KeySchemaAttributeName;
         /** The data type for the attribute, where:
 
- &amp;#42; S - the attribute is of type String
+ &amp;#42;   S - the attribute is of type String
    
    
- * N - the attribute is of type Number
+ *   N - the attribute is of type Number
    
    
- * B - the attribute is of type Binary **/
+ *   B - the attribute is of type Binary **/
         AttributeType: ScalarAttributeType;
     }
     export interface AttributeValue {
         /** An attribute of type String. For example:
 
-&quot;S&quot;: &quot;Hello&quot; **/
+ &quot;S&quot;: &quot;Hello&quot; **/
         S?: StringAttributeValue;
         /** An attribute of type Number. For example:
 
-&quot;N&quot;: &quot;123.45&quot;
+ &quot;N&quot;: &quot;123.45&quot; 
 
 Numbers are sent across the network to DynamoDB as strings, to maximize
 compatibility across languages and libraries. However, DynamoDB treats them as
@@ -759,15 +759,15 @@ number type attributes for mathematical operations. **/
         N?: NumberAttributeValue;
         /** An attribute of type Binary. For example:
 
-&quot;B&quot;: &quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk&quot; **/
+ &quot;B&quot;: &quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk&quot; **/
         B?: BinaryAttributeValue;
         /** An attribute of type String Set. For example:
 
-&quot;SS&quot;: [&quot;Giraffe&quot;, &quot;Hippo&quot; ,&quot;Zebra&quot;] **/
+ &quot;SS&quot;: [&quot;Giraffe&quot;, &quot;Hippo&quot; ,&quot;Zebra&quot;] **/
         SS?: StringSetAttributeValue;
         /** An attribute of type Number Set. For example:
 
-&quot;NS&quot;: [&quot;42.2&quot;, &quot;-19&quot;, &quot;7.5&quot;, &quot;3.14&quot;]
+ &quot;NS&quot;: [&quot;42.2&quot;, &quot;-19&quot;, &quot;7.5&quot;, &quot;3.14&quot;] 
 
 Numbers are sent across the network to DynamoDB as strings, to maximize
 compatibility across languages and libraries. However, DynamoDB treats them as
@@ -775,23 +775,23 @@ number type attributes for mathematical operations. **/
         NS?: NumberSetAttributeValue;
         /** An attribute of type Binary Set. For example:
 
-&quot;BS&quot;: [&quot;U3Vubnk=&quot;, &quot;UmFpbnk=&quot;, &quot;U25vd3k=&quot;] **/
+ &quot;BS&quot;: [&quot;U3Vubnk=&quot;, &quot;UmFpbnk=&quot;, &quot;U25vd3k=&quot;] **/
         BS?: BinarySetAttributeValue;
         /** An attribute of type Map. For example:
 
-&quot;M&quot;: {&quot;Name&quot;: {&quot;S&quot;: &quot;Joe&quot;}, &quot;Age&quot;: {&quot;N&quot;: &quot;35&quot;}} **/
+ &quot;M&quot;: {&quot;Name&quot;: {&quot;S&quot;: &quot;Joe&quot;}, &quot;Age&quot;: {&quot;N&quot;: &quot;35&quot;}} **/
         M?: MapAttributeValue;
         /** An attribute of type List. For example:
 
-&quot;L&quot;: [&quot;Cookies&quot;, &quot;Coffee&quot;, 3.14159] **/
+ &quot;L&quot;: [&quot;Cookies&quot;, &quot;Coffee&quot;, 3.14159] **/
         L?: ListAttributeValue;
         /** An attribute of type Null. For example:
 
-&quot;NULL&quot;: true **/
+ &quot;NULL&quot;: true **/
         NULL?: NullAttributeValue;
         /** An attribute of type Boolean. For example:
 
-&quot;BOOL&quot;: true **/
+ &quot;BOOL&quot;: true **/
         BOOL?: BooleanAttributeValue;
     }
     export interface AttributeValueUpdate {
@@ -802,56 +802,56 @@ type, and the value is the data itself.
 
 For more information, see Data TYpes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         Value?: AttributeValue;
-        /** Specifies how to perform the update. Valid values are PUT (default), DELETE ,
-and ADD . The behavior depends on whether the specified primary key already
-exists in the table.
+        /** Specifies how to perform the update. Valid values are PUT (default), DELETE, and 
+ADD. The behavior depends on whether the specified primary key already exists in
+the table.
 
-If an item with the specified Key is found in the table:
+ If an item with the specified Key is found in the table: 
 
- &amp;#42; PUT - Adds the specified attribute to the item. If the attribute already
-   exists, it is replaced by the new value.
+ &amp;#42;   PUT - Adds the specified attribute to the item. If the attribute already
+   exists, it is replaced by the new value. 
    
    
- * DELETE - If no value is specified, the attribute and its value are removed
+ *   DELETE - If no value is specified, the attribute and its value are removed
    from the item. The data type of the specified value must match the existing
    value&#x27;s data type.
    
    If a set of values is specified, then those values are subtracted from the
    old set. For example, if the attribute value was the set [a,b,c] and the 
-   DELETE action specified [a,c] , then the final attribute value would be [b] .
+   DELETE action specified [a,c], then the final attribute value would be [b].
    Specifying an empty set is an error.
    
    
- * ADD - If the attribute does not already exist, then the attribute and its
+ *   ADD - If the attribute does not already exist, then the attribute and its
    values are added to the item. If the attribute does exist, then the behavior
    of ADD depends on the data type of the attribute:
    
-    * If the existing attribute is a number, and if Value is also a number, then
+    *  If the existing attribute is a number, and if Value is also a number, then
       the Value is mathematically added to the existing attribute. If Value is a
       negative number, then it is subtracted from the existing attribute.
       
-      If you use ADD to increment or decrement a number value for an item that
+       If you use ADD to increment or decrement a number value for an item that
       doesn&#x27;t exist before the update, DynamoDB uses 0 as the initial value.
       
       In addition, if you use ADD to update an existing item, and intend to
       increment or decrement an attribute value which does not yet exist,
       DynamoDB uses 0 as the initial value. For example, suppose that the item
-      you want to update does not yet have an attribute named itemcount , but
-      you decide to ADD the number 3 to this attribute anyway, even though it
+      you want to update does not yet have an attribute named itemcount, but you
+      decide to ADD the number 3 to this attribute anyway, even though it
       currently does not exist. DynamoDB will create the itemcount attribute,
-      set its initial value to 0 , and finally add 3 to it. The result will be a
-      new itemcount attribute in the item, with a value of 3 .
+      set its initial value to 0, and finally add 3 to it. The result will be a
+      new itemcount attribute in the item, with a value of 3.
       
       
-    * If the existing data type is a set, and if the Value is also a set, then
+    *  If the existing data type is a set, and if the Value is also a set, then
       the Value is added to the existing set. (This is a set operation, not
       mathematical addition.) For example, if the attribute value was the set 
-      [1,2] , and the ADD action specified [3] , then the final attribute value
-      would be [1,2,3] . An error occurs if an Add action is specified for a set
+      [1,2], and the ADD action specified [3], then the final attribute value
+      would be [1,2,3]. An error occurs if an Add action is specified for a set
       attribute and the attribute type specified does not match the existing set
-      type.
+      type. 
       
       Both sets must have the same primitive data type. For example, if the
       existing data type is a set of strings, the Value must also be a set of
@@ -864,16 +864,16 @@ If an item with the specified Key is found in the table:
    
    
 
-If no item with the specified Key is found:
+ If no item with the specified Key is found: 
 
- * PUT - DynamoDB creates a new item with the specified primary key, and then
-   adds the attribute.
+ *   PUT - DynamoDB creates a new item with the specified primary key, and then
+   adds the attribute. 
    
    
- * DELETE - Nothing happens; there is no attribute to delete.
+ *   DELETE - Nothing happens; there is no attribute to delete.
    
    
- * ADD - DynamoDB creates an item with the supplied primary key and number (or
+ *   ADD - DynamoDB creates an item with the supplied primary key and number (or
    set of numbers) for the attribute value. The only data types allowed are
    number and number set; no other data types can be specified. **/
         Action?: AttributeAction;
@@ -885,22 +885,23 @@ per BatchGetItem request.
 
 Each element in the map of items to retrieve consists of the following:
 
- &amp;#42; ConsistentRead - If true , a strongly consistent read is used; if false (the
+ &amp;#42;   ConsistentRead - If true, a strongly consistent read is used; if false (the
    default), an eventually consistent read is used.
    
    
- * ExpressionAttributeNames - One or more substitution tokens for attribute
+ *   ExpressionAttributeNames - One or more substitution tokens for attribute
    names in the ProjectionExpression parameter. The following are some use cases
-   for using ExpressionAttributeNames :
+   for using ExpressionAttributeNames:
    
-    * To access an attribute whose name conflicts with a DynamoDB reserved word.
+    *  To access an attribute whose name conflicts with a DynamoDB reserved
+      word.
       
       
-    * To create a placeholder for repeating occurrences of an attribute name in
+    *  To create a placeholder for repeating occurrences of an attribute name in
       an expression.
       
       
-    * To prevent special characters in an attribute name from being
+    *  To prevent special characters in an attribute name from being
       misinterpreted in an expression.
       
       
@@ -908,7 +909,7 @@ Each element in the map of items to retrieve consists of the following:
    Use the # character in an expression to dereference an attribute name. For
    example, consider the following attribute name:
    
-    * Percentile
+    *   Percentile 
       
       
    
@@ -916,36 +917,36 @@ Each element in the map of items to retrieve consists of the following:
    used directly in an expression. (For the complete list of reserved words, see 
    Reserved Words
    [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
-   in the Amazon DynamoDB Developer Guide ). To work around this, you could
-   specify the following for ExpressionAttributeNames :
+   in the Amazon DynamoDB Developer Guide). To work around this, you could
+   specify the following for ExpressionAttributeNames:
    
-    * {&quot;#P&quot;:&quot;Percentile&quot;}
+    *   {&quot;#P&quot;:&quot;Percentile&quot;} 
       
       
    
    You could then use this substitution in an expression, as in this example:
    
-    * #P = :val
+    *   #P = :val 
       
       
    
-   Tokens that begin with the : character are expression attribute values ,
-   which are placeholders for the actual value at runtime.
+   Tokens that begin with the : character are expression attribute values, which
+   are placeholders for the actual value at runtime.
    
    For more information on expression attribute names, see Accessing Item
    Attributes
    [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-   in the Amazon DynamoDB Developer Guide .
+   in the Amazon DynamoDB Developer Guide.
    
    
- * Keys - An array of primary key attribute values that define specific items in
-   the table. For each primary key, you must provide all of the key attributes.
-   For example, with a simple primary key, you only need to provide the
-   partition key value. For a composite key, you must provide both the partition
-   key value and the sort key value.
+ *   Keys - An array of primary key attribute values that define specific items
+   in the table. For each primary key, you must provide all of the key
+   attributes. For example, with a simple primary key, you only need to provide
+   the partition key value. For a composite key, you must provide both the
+   partition key value and the sort key value.
    
    
- * ProjectionExpression - A string that identifies one or more attributes to
+ *   ProjectionExpression - A string that identifies one or more attributes to
    retrieve from the table. These attributes can include scalars, sets, or
    elements of a JSON document. The attributes in the expression must be
    separated by commas.
@@ -956,13 +957,13 @@ Each element in the map of items to retrieve consists of the following:
    
    For more information, see Accessing Item Attributes
    [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-   in the Amazon DynamoDB Developer Guide .
+   in the Amazon DynamoDB Developer Guide.
    
    
- * AttributesToGet - This is a legacy parameter. Use ProjectionExpression 
+ *   AttributesToGet - This is a legacy parameter. Use ProjectionExpression 
    instead. For more information, see AttributesToGet
    [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html] 
-   in the Amazon DynamoDB Developer Guide . **/
+   in the Amazon DynamoDB Developer Guide. **/
         RequestItems: BatchGetRequestMap;
         ReturnConsumedCapacity?: ReturnConsumedCapacity;
     }
@@ -972,22 +973,22 @@ table name, along with a map of attribute data consisting of the data type and
 attribute value. **/
         Responses?: BatchGetResponseMap;
         /** A map of tables and their respective keys that were not processed with the
-current response. The UnprocessedKeys value is in the same form as RequestItems 
-, so the value can be provided directly to a subsequent BatchGetItem operation.
+current response. The UnprocessedKeys value is in the same form as RequestItems,
+so the value can be provided directly to a subsequent BatchGetItem operation.
 For more information, see RequestItems in the Request Parameters section.
 
 Each element consists of:
 
- &amp;#42; Keys - An array of primary key attribute values that define specific items in
-   the table.
+ &amp;#42;   Keys - An array of primary key attribute values that define specific items
+   in the table.
    
    
- * ProjectionExpression - One or more attributes to be retrieved from the table
+ *   ProjectionExpression - One or more attributes to be retrieved from the table
    or index. By default, all attributes are returned. If a requested attribute
    is not found, it does not appear in the result.
    
    
- * ConsistentRead - The consistency of a read operation. If set to true , then a
+ *   ConsistentRead - The consistency of a read operation. If set to true, then a
    strongly consistent read is used; otherwise, an eventually consistent read is
    used.
    
@@ -1000,21 +1001,21 @@ UnprocessedKeys map. **/
 
 Each element consists of:
 
- &amp;#42; TableName - The table that consumed the provisioned throughput.
+ &amp;#42;   TableName - The table that consumed the provisioned throughput.
    
    
- * CapacityUnits - The total number of capacity units consumed. **/
+ *   CapacityUnits - The total number of capacity units consumed. **/
         ConsumedCapacity?: ConsumedCapacityMultiple;
     }
     export interface BatchWriteItemInput {
         /** A map of one or more table names and, for each table, a list of operations to be
-performed ( DeleteRequest or PutRequest ). Each element in the map consists of
-the following:
+performed (DeleteRequest or PutRequest). Each element in the map consists of the
+following:
 
- &amp;#42; DeleteRequest - Perform a DeleteItem operation on the specified item. The
+ &amp;#42;   DeleteRequest - Perform a DeleteItem operation on the specified item. The
    item to be deleted is identified by a Key subelement:
    
-    * Key - A map of primary key attribute values that uniquely identify the !
+    *   Key - A map of primary key attribute values that uniquely identify the !
       item. Each entry in this map consists of an attribute name and an
       attribute value. For each primary key, you must provide all of the key
       attributes. For example, with a simple primary key, you only need to
@@ -1024,10 +1025,10 @@ the following:
       
    
    
- * PutRequest - Perform a PutItem operation on the specified item. The item to
+ *   PutRequest - Perform a PutItem operation on the specified item. The item to
    be put is identified by an Item subelement:
    
-    * Item - A map of attributes and their values. Each entry in this map
+    *   Item - A map of attributes and their values. Each entry in this map
       consists of an attribute name and an attribute value. Attribute values
       must not be null; string and binary type attributes must have lengths
       greater than zero; and set type attributes must not be empty. Requests
@@ -1039,7 +1040,7 @@ the following:
       attribute definition. **/
         RequestItems: BatchWriteItemRequestMap;
         ReturnConsumedCapacity?: ReturnConsumedCapacity;
-        /** Determines whether item collection metrics are returned. If set to SIZE , the
+        /** Determines whether item collection metrics are returned. If set to SIZE, the
 response includes statistics about item collections, if any, that were modified
 during the operation are returned in the response. If set to NONE (the default),
 no statistics are returned. **/
@@ -1047,27 +1048,27 @@ no statistics are returned. **/
     }
     export interface BatchWriteItemOutput {
         /** A map of tables and requests against those tables that were not processed. The 
-UnprocessedItems value is in the same form as RequestItems , so you can provide
+UnprocessedItems value is in the same form as RequestItems, so you can provide
 this value directly to a subsequent BatchGetItem operation. For more
 information, see RequestItems in the Request Parameters section.
 
 Each UnprocessedItems entry consists of a table name and, for that table, a list
-of operations to perform ( DeleteRequest or PutRequest ).
+of operations to perform (DeleteRequest or PutRequest).
 
- &amp;#42; DeleteRequest - Perform a DeleteItem operation on the specified item. The
+ &amp;#42;   DeleteRequest - Perform a DeleteItem operation on the specified item. The
    item to be deleted is identified by a Key subelement:
    
-    * Key - A map of primary key attribute values that uniquely identify the
+    *   Key - A map of primary key attribute values that uniquely identify the
       item. Each entry in this map consists of an attribute name and an
       attribute value.
       
       
    
    
- * PutRequest - Perform a PutItem operation on the specified item. The item to
+ *   PutRequest - Perform a PutItem operation on the specified item. The item to
    be put is identified by an Item subelement:
    
-    * Item - A map of attributes and their values. Each entry in this map
+    *   Item - A map of attributes and their values. Each entry in this map
       consists of an attribute name and an attribute value. Attribute values
       must not be null; string and binary type attributes must have lengths
       greater than zero; and set type attributes must not be empty. Requests
@@ -1091,11 +1092,11 @@ DeleteItem or PutItem operations.
 
 Each entry consists of the following subelements:
 
- &amp;#42; ItemCollectionKey - The partition key value of the item collection. This is
+ &amp;#42;   ItemCollectionKey - The partition key value of the item collection. This is
    the same as the partition key value of the item.
    
    
- * SizeEstimateRange - An estimate of item collection size, expressed in GB.
+ *   SizeEstimateRange - An estimate of item collection size, expressed in GB.
    This is a two-element array containing a lower bound and an upper bound for
    the estimate. The estimate includes the size of all the items in the table,
    plus the size of all attributes projected into all of the local secondary
@@ -1109,10 +1110,10 @@ Each entry consists of the following subelements:
 
 Each element consists of:
 
- &amp;#42; TableName - The table that consumed the provisioned throughput.
+ &amp;#42;   TableName - The table that consumed the provisioned throughput.
    
    
- * CapacityUnits - The total number of capacity units consumed. **/
+ *   CapacityUnits - The total number of capacity units consumed. **/
         ConsumedCapacity?: ConsumedCapacityMultiple;
     }
     export interface Capacity {
@@ -1126,10 +1127,10 @@ values in the list depends on the ComparisonOperator being used.
 For type Number, value comparisons are numeric.
 
 String value comparisons for greater than, equals, or less than are based on
-ASCII character code values. For example, a is greater than A , and a is greater
-than B . For a list of code values, see 
+ASCII character code values. For example, a is greater than A, and a is greater
+than B. For a list of code values, see 
 http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
-[http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters] .
+[http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters].
 
 For Binary, DynamoDB treats each byte of the binary data as unsigned when it
 compares binary values. **/
@@ -1139,160 +1140,161 @@ than, etc.
 
 The following comparison operators are available:
 
-EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS |
-BEGINS_WITH | IN | BETWEEN
+ EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS |
+BEGINS_WITH | IN | BETWEEN 
 
 The following are descriptions of each comparison operator.
 
- &amp;#42; EQ : Equal. EQ is supported for all data types, including lists and maps.
+ &amp;#42;   EQ : Equal. EQ is supported for all data types, including lists and maps.
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, Binary, String Set, Number Set, or Binary Set. If an item
    contains an AttributeValue element of a different type than the one provided
    in the request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not
-   equal {&quot;N&quot;:&quot;6&quot;} . Also, {&quot;N&quot;:&quot;6&quot;} does not equal {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   equal {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not equal {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * NE : Not equal. NE is supported for all data types, including lists and maps.
+ *   NE : Not equal. NE is supported for all data types, including lists and
+   maps.
    
-   AttributeValueList can contain only one AttributeValue of type String,
+    AttributeValueList can contain only one AttributeValue of type String,
    Number, Binary, String Set, Number Set, or Binary Set. If an item contains an 
    AttributeValue of a different type than the one provided in the request, the
-   value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal {&quot;N&quot;:&quot;6&quot;} . Also, 
-   {&quot;N&quot;:&quot;6&quot;} does not equal {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal {&quot;N&quot;:&quot;6&quot;}. Also, 
+   {&quot;N&quot;:&quot;6&quot;} does not equal {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * LE : Less than or equal.
+ *   LE : Less than or equal. 
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If an item contains an 
    AttributeValue element of a different type than the one provided in the
    request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal 
-   {&quot;N&quot;:&quot;6&quot;} . Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * LT : Less than.
+ *   LT : Less than. 
    
-   AttributeValueList can contain only one AttributeValue of type String,
+    AttributeValueList can contain only one AttributeValue of type String,
    Number, or Binary (not a set type). If an item contains an AttributeValue 
    element of a different type than the one provided in the request, the value
-   does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal {&quot;N&quot;:&quot;6&quot;} . Also, 
-   {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal {&quot;N&quot;:&quot;6&quot;}. Also, 
+   {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * GE : Greater than or equal.
+ *   GE : Greater than or equal. 
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If an item contains an 
    AttributeValue element of a different type than the one provided in the
    request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal 
-   {&quot;N&quot;:&quot;6&quot;} . Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * GT : Greater than.
+ *   GT : Greater than. 
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If an item contains an 
    AttributeValue element of a different type than the one provided in the
    request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal 
-   {&quot;N&quot;:&quot;6&quot;} . Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * NOT_NULL : The attribute exists. NOT_NULL is supported for all data types,
+ *   NOT_NULL : The attribute exists. NOT_NULL is supported for all data types,
    including lists and maps.
    
    This operator tests for the existence of an attribute, not its data type. If
-   the data type of attribute &quot; a &quot; is null, and you evaluate it using NOT_NULL 
-   , the result is a Boolean true . This result is because the attribute &quot; a &quot;
+   the data type of attribute &quot;a&quot; is null, and you evaluate it using NOT_NULL,
+   the result is a Boolean true. This result is because the attribute &quot;a&quot;
    exists; its data type is not relevant to the NOT_NULL comparison operator.
    
    
- * NULL : The attribute does not exist. NULL is supported for all data types,
+ *   NULL : The attribute does not exist. NULL is supported for all data types,
    including lists and maps.
    
    This operator tests for the nonexistence of an attribute, not its data type.
-   If the data type of attribute &quot; a &quot; is null, and you evaluate it using NULL ,
-   the result is a Boolean false . This is because the attribute &quot; a &quot; exists;
-   its data type is not relevant to the NULL comparison operator.
+   If the data type of attribute &quot;a&quot; is null, and you evaluate it using NULL,
+   the result is a Boolean false. This is because the attribute &quot;a&quot; exists; its
+   data type is not relevant to the NULL comparison operator.
    
    
- * CONTAINS : Checks for a subsequence, or value in a set.
+ *   CONTAINS : Checks for a subsequence, or value in a set.
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If the target attribute of the
    comparison is of type String, then the operator checks for a substring match.
    If the target attribute of the comparison is of type Binary, then the
    operator looks for a subsequence of the target that matches the input. If the
-   target attribute of the comparison is a set (&quot; SS &quot;, &quot; NS &quot;, or &quot; BS &quot;), then
-   the operator evaluates to true if it finds an exact match with any member of
-   the set.
+   target attribute of the comparison is a set (&quot;SS&quot;, &quot;NS&quot;, or &quot;BS&quot;), then the
+   operator evaluates to true if it finds an exact match with any member of the
+   set.
    
-   CONTAINS is supported for lists: When evaluating &quot; a CONTAINS b &quot;, &quot; a &quot; can
-   be a list; however, &quot; b &quot; cannot be a set, a map, or a list.
+   CONTAINS is supported for lists: When evaluating &quot;a CONTAINS b&quot;, &quot;a&quot; can be a
+   list; however, &quot;b&quot; cannot be a set, a map, or a list.
    
    
- * NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value in
+ *   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value in
    a set.
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If the target attribute of the
    comparison is a String, then the operator checks for the absence of a
    substring match. If the target attribute of the comparison is Binary, then
    the operator checks for the absence of a subsequence of the target that
-   matches the input. If the target attribute of the comparison is a set (&quot; SS 
-   &quot;, &quot; NS &quot;, or &quot; BS &quot;), then the operator evaluates to true if it does not 
-   find an exact match with any member of the set.
+   matches the input. If the target attribute of the comparison is a set (&quot;SS&quot;,
+   &quot;NS&quot;, or &quot;BS&quot;), then the operator evaluates to true if it does not find an
+   exact match with any member of the set.
    
-   NOT_CONTAINS is supported for lists: When evaluating &quot; a NOT CONTAINS b &quot;, &quot; 
-   a &quot; can be a list; however, &quot; b &quot; cannot be a set, a map, or a list.
+   NOT_CONTAINS is supported for lists: When evaluating &quot;a NOT CONTAINS b&quot;, &quot;a&quot;
+   can be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
    
    
- * BEGINS_WITH : Checks for a prefix.
+ *   BEGINS_WITH : Checks for a prefix. 
    
-   AttributeValueList can contain only one AttributeValue of type String or
+    AttributeValueList can contain only one AttributeValue of type String or
    Binary (not a Number or a set type). The target attribute of the comparison
    must be of type String or Binary (not a Number or a set type).
    
    
    
    
- * IN : Checks for matching elements in a list.
+ *   IN : Checks for matching elements in a list.
    
-   AttributeValueList can contain one or more AttributeValue elements of type
+    AttributeValueList can contain one or more AttributeValue elements of type
    String, Number, or Binary. These attributes are compared against an existing
    attribute of an item. If any elements of the input are equal to the item
    attribute, the expression evaluates to true.
    
    
- * BETWEEN : Greater than or equal to the first value, and less than or equal to
-   the second value.
+ *   BETWEEN : Greater than or equal to the first value, and less than or equal
+   to the second value. 
    
-   AttributeValueList must contain two AttributeValue elements of the same type,
-   either String, Number, or Binary (not a set type). A target attribute matches
-   if the target value is greater than, or equal to, the first element and less
-   than, or equal to, the second element. If an item contains an AttributeValue 
-   element of a different type than the one provided in the request, the value
-   does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not compare to {&quot;N&quot;:&quot;6&quot;} . Also, 
-   {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}
+    AttributeValueList must contain two AttributeValue elements of the same
+   type, either String, Number, or Binary (not a set type). A target attribute
+   matches if the target value is greater than, or equal to, the first element
+   and less than, or equal to, the second element. If an item contains an 
+   AttributeValue element of a different type than the one provided in the
+   request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not compare to 
+   {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} 
    
    
 
-For usage examples of AttributeValueList and ComparisonOperator , see Legacy
+For usage examples of AttributeValueList and ComparisonOperator, see Legacy
 Conditional Parameters
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ComparisonOperator: ComparisonOperator;
     }
     export interface ConditionalCheckFailedException {
@@ -1326,7 +1328,7 @@ secondary index.
 
 For current minimum and maximum provisioned throughput values, see Limits
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html] in
-the Amazon DynamoDB Developer Guide . **/
+the Amazon DynamoDB Developer Guide. **/
         ProvisionedThroughput: ProvisionedThroughput;
     }
     export interface CreateTableInput {
@@ -1338,43 +1340,42 @@ the Amazon DynamoDB Developer Guide . **/
 The attributes in KeySchema must also be defined in the AttributeDefinitions 
 array. For more information, see Data Model
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
 
 Each KeySchemaElement in the array is composed of:
 
- &amp;#42; AttributeName - The name of this key attribute.
+ &amp;#42;   AttributeName - The name of this key attribute.
    
    
- * KeyType - The role that the key attribute will assume:
+ *   KeyType - The role that the key attribute will assume:
    
-    * HASH - partition key
+    *   HASH - partition key
       
       
-    * RANGE - sort key
+    *   RANGE - sort key
       
       
    
    
 
-The partition key of an item is also known as its hash attribute . The term
-&quot;hash attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to
-evenly distribute data items across partitions, based on their partition key
-values.
+The partition key of an item is also known as its hash attribute. The term &quot;hash
+attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to evenly
+distribute data items across partitions, based on their partition key values.
 
-The sort key of an item is also known as its range attribute . The term &quot;range
+The sort key of an item is also known as its range attribute. The term &quot;range
 attribute&quot; derives from the way DynamoDB stores items with the same partition
 key physically close together, in sorted order by the sort key value.
 
 For a simple primary key (partition key), you must provide exactly one element
-with a KeyType of HASH .
+with a KeyType of HASH.
 
 For a composite primary key (partition key and sort key), you must provide
 exactly two elements, in this order: The first element must have a KeyType of 
-HASH , and the second element must have a KeyType of RANGE .
+HASH, and the second element must have a KeyType of RANGE.
 
 For more information, see Specifying the Primary Key
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         KeySchema: KeySchema;
         /** One or more local secondary indexes (the maximum is five) to be created on the
 table. Each index is scoped to a given partition key value. There is a 10 GB
@@ -1383,84 +1384,84 @@ index is unconstrained.
 
 Each local secondary index in the array includes the following:
 
- &amp;#42; IndexName - The name of the local secondary index. Must be unique only for
+ &amp;#42;   IndexName - The name of the local secondary index. Must be unique only for
    this table.
    
    
    
    
- * KeySchema - Specifies the key schema for the local secondary index. The key
+ *   KeySchema - Specifies the key schema for the local secondary index. The key
    schema must begin with the same partition key as the table.
    
    
- * Projection - Specifies attributes that are copied (projected) from the table
+ *   Projection - Specifies attributes that are copied (projected) from the table
    into the index. These are in addition to the primary key attributes and index
    key attributes, which are automatically projected. Each attribute
    specification is composed of:
    
-    * ProjectionType - One of the following:
+    *   ProjectionType - One of the following:
       
-       * KEYS_ONLY - Only the index and primary keys are projected into the
+       *   KEYS_ONLY - Only the index and primary keys are projected into the
          index.
          
          
-       * INCLUDE - Only the specified table attributes are projected into the
-         index. The list of projected attributes are in NonKeyAttributes .
+       *   INCLUDE - Only the specified table attributes are projected into the
+         index. The list of projected attributes are in NonKeyAttributes.
          
          
-       * ALL - All of the table attributes are projected into the index.
+       *   ALL - All of the table attributes are projected into the index.
          
          
       
       
-    * NonKeyAttributes - A list of one or more non-key attribute names that are
+    *   NonKeyAttributes - A list of one or more non-key attribute names that are
       projected into the secondary index. The total count of attributes provided
-      in NonKeyAttributes , summed across all of the secondary indexes, must not
+      in NonKeyAttributes, summed across all of the secondary indexes, must not
       exceed 20. If you project the same attribute into two different indexes,
       this counts as two distinct attributes when determining the total. **/
         LocalSecondaryIndexes?: LocalSecondaryIndexList;
         /** One or more global secondary indexes (the maximum is five) to be created on the
 table. Each global secondary index in the array includes the following:
 
- &amp;#42; IndexName - The name of the global secondary index. Must be unique only for
+ &amp;#42;   IndexName - The name of the global secondary index. Must be unique only for
    this table.
    
    
    
    
- * KeySchema - Specifies the key schema for the global secondary index.
+ *   KeySchema - Specifies the key schema for the global secondary index.
    
    
- * Projection - Specifies attributes that are copied (projected) from the table
+ *   Projection - Specifies attributes that are copied (projected) from the table
    into the index. These are in addition to the primary key attributes and index
    key attributes, which are automatically projected. Each attribute
    specification is composed of:
    
-    * ProjectionType - One of the following:
+    *   ProjectionType - One of the following:
       
-       * KEYS_ONLY - Only the index and primary keys are projected into the
+       *   KEYS_ONLY - Only the index and primary keys are projected into the
          index.
          
          
-       * INCLUDE - Only the specified table attributes are projected into the
-         index. The list of projected attributes are in NonKeyAttributes .
+       *   INCLUDE - Only the specified table attributes are projected into the
+         index. The list of projected attributes are in NonKeyAttributes.
          
          
-       * ALL - All of the table attributes are projected into the index.
+       *   ALL - All of the table attributes are projected into the index.
          
          
       
       
-    * NonKeyAttributes - A list of one or more non-key attribute names that are
+    *   NonKeyAttributes - A list of one or more non-key attribute names that are
       projected into the secondary index. The total count of attributes provided
-      in NonKeyAttributes , summed across all of the secondary indexes, must not
+      in NonKeyAttributes, summed across all of the secondary indexes, must not
       exceed 20. If you project the same attribute into two different indexes,
       this counts as two distinct attributes when determining the total.
       
       
    
    
- * ProvisionedThroughput - The provisioned throughput settings for the global
+ *   ProvisionedThroughput - The provisioned throughput settings for the global
    secondary index, consisting of read and write capacity units. **/
         GlobalSecondaryIndexes?: GlobalSecondaryIndexList;
         /** Represents the provisioned throughput settings for a specified table or index.
@@ -1468,31 +1469,31 @@ The settings can be modified using the UpdateTable operation.
 
 For current minimum and maximum provisioned throughput values, see Limits
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html] in
-the Amazon DynamoDB Developer Guide . **/
+the Amazon DynamoDB Developer Guide. **/
         ProvisionedThroughput: ProvisionedThroughput;
         /** The settings for DynamoDB Streams on the table. These settings consist of:
 
- &amp;#42; StreamEnabled - Indicates whether Streams is to be enabled (true) or disabled
-   (false).
+ &amp;#42;   StreamEnabled - Indicates whether Streams is to be enabled (true) or
+   disabled (false).
    
    
- * StreamViewType - When an item in the table is modified, StreamViewType 
+ *   StreamViewType - When an item in the table is modified, StreamViewType 
    determines what information is written to the table&#x27;s stream. Valid values
    for StreamViewType are:
    
-    * KEYS_ONLY - Only the key attributes of the modified item are written to
+    *   KEYS_ONLY - Only the key attributes of the modified item are written to
       the stream.
       
       
-    * NEW_IMAGE - The entire item, as it appears after it was modified, is
+    *   NEW_IMAGE - The entire item, as it appears after it was modified, is
       written to the stream.
       
       
-    * OLD_IMAGE - The entire item, as it appeared before it was modified, is
+    *   OLD_IMAGE - The entire item, as it appeared before it was modified, is
       written to the stream.
       
       
-    * NEW_AND_OLD_IMAGES - Both the new and the old item images of the item are
+    *   NEW_AND_OLD_IMAGES - Both the new and the old item images of the item are
       written to the stream. **/
         StreamSpecification?: StreamSpecification;
     }
@@ -1518,29 +1519,29 @@ the sort key. **/
         /** This is a legacy parameter. Use ConditionExpresssion instead. For more
 information, see Expected
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         Expected?: ExpectedAttributeMap;
         /** This is a legacy parameter. Use ConditionExpression instead. For more
 information, see ConditionalOperator
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConditionalOperator?: ConditionalOperator;
         /** Use ReturnValues if you want to get the item attributes as they appeared before
-they were deleted. For DeleteItem , the valid values are:
+they were deleted. For DeleteItem, the valid values are:
 
- &amp;#42; NONE - If ReturnValues is not specified, or if its value is NONE , then
-   nothing is returned. (This setting is the default for ReturnValues .)
+ &amp;#42;   NONE - If ReturnValues is not specified, or if its value is NONE, then
+   nothing is returned. (This setting is the default for ReturnValues.)
    
    
- * ALL_OLD - The content of the old item is returned.
+ *   ALL_OLD - The content of the old item is returned.
    
    
 
 The ReturnValues parameter is used by several DynamoDB operations; however, 
-DeleteItem does not recognize any values other than NONE or ALL_OLD . **/
+DeleteItem does not recognize any values other than NONE or ALL_OLD. **/
         ReturnValues?: ReturnValue;
         ReturnConsumedCapacity?: ReturnConsumedCapacity;
-        /** Determines whether item collection metrics are returned. If set to SIZE , the
+        /** Determines whether item collection metrics are returned. If set to SIZE, the
 response includes statistics about item collections, if any, that were modified
 during the operation are returned in the response. If set to NONE (the default),
 no statistics are returned. **/
@@ -1550,34 +1551,34 @@ succeed.
 
 An expression can contain any of the following:
 
- &amp;#42; Functions: attribute_exists | attribute_not_exists | attribute_type |
-   contains | begins_with | size
+ &amp;#42;  Functions: attribute_exists | attribute_not_exists | attribute_type |
+   contains | begins_with | size 
    
    These function names are case-sensitive.
    
    
- * Comparison operators: = | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN
+ *  Comparison operators: = | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN 
    
    
- * Logical operators: AND | OR | NOT
+ *   Logical operators: AND | OR | NOT 
    
    
 
 For more information on condition expressions, see Specifying Conditions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConditionExpression?: ConditionExpression;
         /** One or more substitution tokens for attribute names in an expression. The
-following are some use cases for using ExpressionAttributeNames :
+following are some use cases for using ExpressionAttributeNames:
 
- &amp;#42; To access an attribute whose name conflicts with a DynamoDB reserved word.
+ &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
    
    
- * To create a placeholder for repeating occurrences of an attribute name in an
+ *  To create a placeholder for repeating occurrences of an attribute name in an
    expression.
    
    
- * To prevent special characters in an attribute name from being misinterpreted
+ *  To prevent special characters in an attribute name from being misinterpreted
    in an expression.
    
    
@@ -1585,7 +1586,7 @@ following are some use cases for using ExpressionAttributeNames :
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
- * Percentile
+ *   Percentile 
    
    
 
@@ -1593,47 +1594,47 @@ The name of this attribute conflicts with a reserved word, so it cannot be used
 directly in an expression. (For the complete list of reserved words, see 
 Reserved Words
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
-in the Amazon DynamoDB Developer Guide ). To work around this, you could specify
-the following for ExpressionAttributeNames :
+in the Amazon DynamoDB Developer Guide). To work around this, you could specify
+the following for ExpressionAttributeNames:
 
- * {&quot;#P&quot;:&quot;Percentile&quot;}
+ *   {&quot;#P&quot;:&quot;Percentile&quot;} 
    
    
 
 You could then use this substitution in an expression, as in this example:
 
- * #P = :val
+ *   #P = :val 
    
    
 
-Tokens that begin with the : character are expression attribute values , which
+Tokens that begin with the : character are expression attribute values, which
 are placeholders for the actual value at runtime.
 
 For more information on expression attribute names, see Accessing Item
 Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeNames?: ExpressionAttributeNameMap;
         /** One or more values that can be substituted in an expression.
 
 Use the : (colon) character in an expression to dereference an attribute value.
 For example, suppose that you wanted to check whether the value of the 
-ProductStatus attribute was one of the following:
+ProductStatus attribute was one of the following: 
 
-Available | Backordered | Discontinued
+ Available | Backordered | Discontinued 
 
 You would first need to specify ExpressionAttributeValues as follows:
 
-{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
-&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }
+ { &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
+&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} } 
 
 You could then use these values in an expression, such as this:
 
-ProductStatus IN (:avail, :back, :disc)
+ ProductStatus IN (:avail, :back, :disc) 
 
 For more information on expression attribute values, see Specifying Conditions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeValues?: ExpressionAttributeValueMap;
     }
     export interface DeleteItemOutput {
@@ -1647,7 +1648,7 @@ the table and any indexes involved in the operation. ConsumedCapacity is only
 returned if the ReturnConsumedCapacity parameter was specified. For more
 information, see Provisioned Throughput
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConsumedCapacity?: ConsumedCapacity;
         /** Information about item collections, if any, that were affected by the DeleteItem 
 operation. ItemCollectionMetrics is only returned if the 
@@ -1656,11 +1657,11 @@ any local secondary indexes, this information is not returned in the response.
 
 Each ItemCollectionMetrics element consists of:
 
- &amp;#42; ItemCollectionKey - The partition key value of the item collection. This is
+ &amp;#42;   ItemCollectionKey - The partition key value of the item collection. This is
    the same as the partition key value of the item itself.
    
    
- * SizeEstimateRange - An estimate of item collection size, in gigabytes. This
+ *   SizeEstimateRange - An estimate of item collection size, in gigabytes. This
    value is a two-element array containing a lower bound and an upper bound for
    the estimate. The estimate includes the size of all the items in the table,
    plus the size of all attributes projected into all of the local secondary
@@ -1719,188 +1720,189 @@ type, and the value is the data itself.
 
 For more information, see Data Types
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         Value?: AttributeValue;
         /** Causes DynamoDB to evaluate the value before attempting a conditional operation:
 
- &amp;#42; If Exists is true , DynamoDB will check to see if that attribute value
-   already exists in the table. If it is found, then the operation succeeds. If
-   it is not found, the operation fails with a ConditionalCheckFailedException .
+ &amp;#42;  If Exists is true, DynamoDB will check to see if that attribute value already
+   exists in the table. If it is found, then the operation succeeds. If it is
+   not found, the operation fails with a ConditionalCheckFailedException.
    
    
- * If Exists is false , DynamoDB assumes that the attribute value does not exist
+ *  If Exists is false, DynamoDB assumes that the attribute value does not exist
    in the table. If in fact the value does not exist, then the assumption is
    valid and the operation succeeds. If the value is found, despite the
    assumption that it does not exist, the operation fails with a 
-   ConditionalCheckFailedException .
+   ConditionalCheckFailedException.
    
    
 
-The default setting for Exists is true . If you supply a Value all by itself,
-DynamoDB assumes the attribute exists: You don&#x27;t have to set Exists to true ,
+The default setting for Exists is true. If you supply a Value all by itself,
+DynamoDB assumes the attribute exists: You don&#x27;t have to set Exists to true,
 because it is implied.
 
 DynamoDB returns a ValidationException if:
 
- * Exists is true but there is no Value to check. (You expect a value to exist,
+ *   Exists is true but there is no Value to check. (You expect a value to exist,
    but don&#x27;t specify what that value is.)
    
    
- * Exists is false but you also provide a Value . (You cannot expect an
+ *   Exists is false but you also provide a Value. (You cannot expect an
    attribute to have a value, while also expecting it not to exist.) **/
         Exists?: BooleanObject;
-        /** A comparator for evaluating attributes in the AttributeValueList . For example,
+        /** A comparator for evaluating attributes in the AttributeValueList. For example,
 equals, greater than, less than, etc.
 
 The following comparison operators are available:
 
-EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS |
-BEGINS_WITH | IN | BETWEEN
+ EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS |
+BEGINS_WITH | IN | BETWEEN 
 
 The following are descriptions of each comparison operator.
 
- &amp;#42; EQ : Equal. EQ is supported for all data types, including lists and maps.
+ &amp;#42;   EQ : Equal. EQ is supported for all data types, including lists and maps.
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, Binary, String Set, Number Set, or Binary Set. If an item
    contains an AttributeValue element of a different type than the one provided
    in the request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not
-   equal {&quot;N&quot;:&quot;6&quot;} . Also, {&quot;N&quot;:&quot;6&quot;} does not equal {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   equal {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not equal {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * NE : Not equal. NE is supported for all data types, including lists and maps.
+ *   NE : Not equal. NE is supported for all data types, including lists and
+   maps.
    
-   AttributeValueList can contain only one AttributeValue of type String,
+    AttributeValueList can contain only one AttributeValue of type String,
    Number, Binary, String Set, Number Set, or Binary Set. If an item contains an 
    AttributeValue of a different type than the one provided in the request, the
-   value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal {&quot;N&quot;:&quot;6&quot;} . Also, 
-   {&quot;N&quot;:&quot;6&quot;} does not equal {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal {&quot;N&quot;:&quot;6&quot;}. Also, 
+   {&quot;N&quot;:&quot;6&quot;} does not equal {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * LE : Less than or equal.
+ *   LE : Less than or equal. 
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If an item contains an 
    AttributeValue element of a different type than the one provided in the
    request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal 
-   {&quot;N&quot;:&quot;6&quot;} . Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * LT : Less than.
+ *   LT : Less than. 
    
-   AttributeValueList can contain only one AttributeValue of type String,
+    AttributeValueList can contain only one AttributeValue of type String,
    Number, or Binary (not a set type). If an item contains an AttributeValue 
    element of a different type than the one provided in the request, the value
-   does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal {&quot;N&quot;:&quot;6&quot;} . Also, 
-   {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal {&quot;N&quot;:&quot;6&quot;}. Also, 
+   {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * GE : Greater than or equal.
+ *   GE : Greater than or equal. 
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If an item contains an 
    AttributeValue element of a different type than the one provided in the
    request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal 
-   {&quot;N&quot;:&quot;6&quot;} . Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * GT : Greater than.
+ *   GT : Greater than. 
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If an item contains an 
    AttributeValue element of a different type than the one provided in the
    request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not equal 
-   {&quot;N&quot;:&quot;6&quot;} . Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} .
+   {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}.
    
    
    
    
- * NOT_NULL : The attribute exists. NOT_NULL is supported for all data types,
+ *   NOT_NULL : The attribute exists. NOT_NULL is supported for all data types,
    including lists and maps.
    
    This operator tests for the existence of an attribute, not its data type. If
-   the data type of attribute &quot; a &quot; is null, and you evaluate it using NOT_NULL 
-   , the result is a Boolean true . This result is because the attribute &quot; a &quot;
+   the data type of attribute &quot;a&quot; is null, and you evaluate it using NOT_NULL,
+   the result is a Boolean true. This result is because the attribute &quot;a&quot;
    exists; its data type is not relevant to the NOT_NULL comparison operator.
    
    
- * NULL : The attribute does not exist. NULL is supported for all data types,
+ *   NULL : The attribute does not exist. NULL is supported for all data types,
    including lists and maps.
    
    This operator tests for the nonexistence of an attribute, not its data type.
-   If the data type of attribute &quot; a &quot; is null, and you evaluate it using NULL ,
-   the result is a Boolean false . This is because the attribute &quot; a &quot; exists;
-   its data type is not relevant to the NULL comparison operator.
+   If the data type of attribute &quot;a&quot; is null, and you evaluate it using NULL,
+   the result is a Boolean false. This is because the attribute &quot;a&quot; exists; its
+   data type is not relevant to the NULL comparison operator.
    
    
- * CONTAINS : Checks for a subsequence, or value in a set.
+ *   CONTAINS : Checks for a subsequence, or value in a set.
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If the target attribute of the
    comparison is of type String, then the operator checks for a substring match.
    If the target attribute of the comparison is of type Binary, then the
    operator looks for a subsequence of the target that matches the input. If the
-   target attribute of the comparison is a set (&quot; SS &quot;, &quot; NS &quot;, or &quot; BS &quot;), then
-   the operator evaluates to true if it finds an exact match with any member of
-   the set.
+   target attribute of the comparison is a set (&quot;SS&quot;, &quot;NS&quot;, or &quot;BS&quot;), then the
+   operator evaluates to true if it finds an exact match with any member of the
+   set.
    
-   CONTAINS is supported for lists: When evaluating &quot; a CONTAINS b &quot;, &quot; a &quot; can
-   be a list; however, &quot; b &quot; cannot be a set, a map, or a list.
+   CONTAINS is supported for lists: When evaluating &quot;a CONTAINS b&quot;, &quot;a&quot; can be a
+   list; however, &quot;b&quot; cannot be a set, a map, or a list.
    
    
- * NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value in
+ *   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value in
    a set.
    
-   AttributeValueList can contain only one AttributeValue element of type
+    AttributeValueList can contain only one AttributeValue element of type
    String, Number, or Binary (not a set type). If the target attribute of the
    comparison is a String, then the operator checks for the absence of a
    substring match. If the target attribute of the comparison is Binary, then
    the operator checks for the absence of a subsequence of the target that
-   matches the input. If the target attribute of the comparison is a set (&quot; SS 
-   &quot;, &quot; NS &quot;, or &quot; BS &quot;), then the operator evaluates to true if it does not 
-   find an exact match with any member of the set.
+   matches the input. If the target attribute of the comparison is a set (&quot;SS&quot;,
+   &quot;NS&quot;, or &quot;BS&quot;), then the operator evaluates to true if it does not find an
+   exact match with any member of the set.
    
-   NOT_CONTAINS is supported for lists: When evaluating &quot; a NOT CONTAINS b &quot;, &quot; 
-   a &quot; can be a list; however, &quot; b &quot; cannot be a set, a map, or a list.
+   NOT_CONTAINS is supported for lists: When evaluating &quot;a NOT CONTAINS b&quot;, &quot;a&quot;
+   can be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
    
    
- * BEGINS_WITH : Checks for a prefix.
+ *   BEGINS_WITH : Checks for a prefix. 
    
-   AttributeValueList can contain only one AttributeValue of type String or
+    AttributeValueList can contain only one AttributeValue of type String or
    Binary (not a Number or a set type). The target attribute of the comparison
    must be of type String or Binary (not a Number or a set type).
    
    
    
    
- * IN : Checks for matching elements in a list.
+ *   IN : Checks for matching elements in a list.
    
-   AttributeValueList can contain one or more AttributeValue elements of type
+    AttributeValueList can contain one or more AttributeValue elements of type
    String, Number, or Binary. These attributes are compared against an existing
    attribute of an item. If any elements of the input are equal to the item
    attribute, the expression evaluates to true.
    
    
- * BETWEEN : Greater than or equal to the first value, and less than or equal to
-   the second value.
+ *   BETWEEN : Greater than or equal to the first value, and less than or equal
+   to the second value. 
    
-   AttributeValueList must contain two AttributeValue elements of the same type,
-   either String, Number, or Binary (not a set type). A target attribute matches
-   if the target value is greater than, or equal to, the first element and less
-   than, or equal to, the second element. If an item contains an AttributeValue 
-   element of a different type than the one provided in the request, the value
-   does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not compare to {&quot;N&quot;:&quot;6&quot;} . Also, 
-   {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} **/
+    AttributeValueList must contain two AttributeValue elements of the same
+   type, either String, Number, or Binary (not a set type). A target attribute
+   matches if the target value is greater than, or equal to, the first element
+   and less than, or equal to, the second element. If an item contains an 
+   AttributeValue element of a different type than the one provided in the
+   request, the value does not match. For example, {&quot;S&quot;:&quot;6&quot;} does not compare to 
+   {&quot;N&quot;:&quot;6&quot;}. Also, {&quot;N&quot;:&quot;6&quot;} does not compare to {&quot;NS&quot;:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} **/
         ComparisonOperator?: ComparisonOperator;
         /** One or more values to evaluate against the supplied attribute. The number of
 values in the list depends on the ComparisonOperator being used.
@@ -1908,17 +1910,17 @@ values in the list depends on the ComparisonOperator being used.
 For type Number, value comparisons are numeric.
 
 String value comparisons for greater than, equals, or less than are based on
-ASCII character code values. For example, a is greater than A , and a is greater
-than B . For a list of code values, see 
+ASCII character code values. For example, a is greater than A, and a is greater
+than B. For a list of code values, see 
 http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
-[http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters] .
+[http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters].
 
 For Binary, DynamoDB treats each byte of the binary data as unsigned when it
 compares binary values.
 
 For information on specifying data types in JSON, see JSON Data Format
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         AttributeValueList?: AttributeValueList;
     }
     export interface GetItemInput {
@@ -1935,9 +1937,9 @@ the sort key. **/
         /** This is a legacy parameter. Use ProjectionExpression instead. For more
 information, see AttributesToGet
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         AttributesToGet?: AttributeNameList;
-        /** Determines the read consistency model: If set to true , then the operation uses
+        /** Determines the read consistency model: If set to true, then the operation uses
 strongly consistent reads; otherwise, the operation uses eventually consistent
 reads. **/
         ConsistentRead?: ConsistentRead;
@@ -1952,19 +1954,19 @@ result.
 
 For more information, see Accessing Item Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ProjectionExpression?: ProjectionExpression;
         /** One or more substitution tokens for attribute names in an expression. The
-following are some use cases for using ExpressionAttributeNames :
+following are some use cases for using ExpressionAttributeNames:
 
- &amp;#42; To access an attribute whose name conflicts with a DynamoDB reserved word.
+ &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
    
    
- * To create a placeholder for repeating occurrences of an attribute name in an
+ *  To create a placeholder for repeating occurrences of an attribute name in an
    expression.
    
    
- * To prevent special characters in an attribute name from being misinterpreted
+ *  To prevent special characters in an attribute name from being misinterpreted
    in an expression.
    
    
@@ -1972,7 +1974,7 @@ following are some use cases for using ExpressionAttributeNames :
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
- * Percentile
+ *   Percentile 
    
    
 
@@ -1980,31 +1982,31 @@ The name of this attribute conflicts with a reserved word, so it cannot be used
 directly in an expression. (For the complete list of reserved words, see 
 Reserved Words
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
-in the Amazon DynamoDB Developer Guide ). To work around this, you could specify
-the following for ExpressionAttributeNames :
+in the Amazon DynamoDB Developer Guide). To work around this, you could specify
+the following for ExpressionAttributeNames:
 
- * {&quot;#P&quot;:&quot;Percentile&quot;}
+ *   {&quot;#P&quot;:&quot;Percentile&quot;} 
    
    
 
 You could then use this substitution in an expression, as in this example:
 
- * #P = :val
+ *   #P = :val 
    
    
 
-Tokens that begin with the : character are expression attribute values , which
+Tokens that begin with the : character are expression attribute values, which
 are placeholders for the actual value at runtime.
 
 For more information on expression attribute names, see Accessing Item
 Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeNames?: ExpressionAttributeNameMap;
     }
     export interface GetItemOutput {
         /** A map of attribute names to AttributeValue objects, as specified by 
-ProjectionExpression . **/
+ProjectionExpression. **/
         Item?: AttributeMap;
         /** The capacity units consumed by the GetItem operation. The data returned includes
 the total provisioned throughput consumed, along with statistics for the table
@@ -2012,7 +2014,7 @@ and any indexes involved in the operation. ConsumedCapacity is only returned if
 the ReturnConsumedCapacity parameter was specified. For more information, see 
 Provisioned Throughput
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConsumedCapacity?: ConsumedCapacity;
     }
     export interface GlobalSecondaryIndex {
@@ -2022,19 +2024,18 @@ indexes on this table. **/
         /** The complete key schema for a global secondary index, which consists of one or
 more pairs of attribute names and key types:
 
- &amp;#42; HASH - partition key
+ &amp;#42;   HASH - partition key
    
    
- * RANGE - sort key
+ *   RANGE - sort key
    
    
 
-The partition key of an item is also known as its hash attribute . The term
-&quot;hash attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to
-evenly distribute data items across partitions, based on their partition key
-values.
+The partition key of an item is also known as its hash attribute. The term &quot;hash
+attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to evenly
+distribute data items across partitions, based on their partition key values.
 
-The sort key of an item is also known as its range attribute . The term &quot;range
+The sort key of an item is also known as its range attribute. The term &quot;range
 attribute&quot; derives from the way DynamoDB stores items with the same partition
 key physically close together, in sorted order by the sort key value. **/
         KeySchema: KeySchema;
@@ -2047,7 +2048,7 @@ secondary index.
 
 For current minimum and maximum provisioned throughput values, see Limits
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html] in
-the Amazon DynamoDB Developer Guide . **/
+the Amazon DynamoDB Developer Guide. **/
         ProvisionedThroughput: ProvisionedThroughput;
     }
     export interface GlobalSecondaryIndexDescription {
@@ -2056,19 +2057,18 @@ the Amazon DynamoDB Developer Guide . **/
         /** The complete key schema for a global secondary index, which consists of one or
 more pairs of attribute names and key types:
 
- &amp;#42; HASH - partition key
+ &amp;#42;   HASH - partition key
    
    
- * RANGE - sort key
+ *   RANGE - sort key
    
    
 
-The partition key of an item is also known as its hash attribute . The term
-&quot;hash attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to
-evenly distribute data items across partitions, based on their partition key
-values.
+The partition key of an item is also known as its hash attribute. The term &quot;hash
+attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to evenly
+distribute data items across partitions, based on their partition key values.
 
-The sort key of an item is also known as its range attribute . The term &quot;range
+The sort key of an item is also known as its range attribute. The term &quot;range
 attribute&quot; derives from the way DynamoDB stores items with the same partition
 key physically close together, in sorted order by the sort key value. **/
         KeySchema?: KeySchema;
@@ -2078,16 +2078,16 @@ key attributes, which are automatically projected. **/
         Projection?: Projection;
         /** The current state of the global secondary index:
 
- &amp;#42; CREATING - The index is being created.
+ &amp;#42;   CREATING - The index is being created.
    
    
- * UPDATING - The index is being updated.
+ *   UPDATING - The index is being updated.
    
    
- * DELETING - The index is being deleted.
+ *   DELETING - The index is being deleted.
    
    
- * ACTIVE - The index is ready for use. **/
+ *   ACTIVE - The index is ready for use. **/
         IndexStatus?: IndexStatus;
         /** Indicates whether the index is currently backfilling. Backfilling is the process
 of reading items from the table and determining whether they can be added to the
@@ -2104,7 +2104,7 @@ secondary index.
 
 For current minimum and maximum provisioned throughput values, see Limits
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html] in
-the Amazon DynamoDB Developer Guide . **/
+the Amazon DynamoDB Developer Guide. **/
         ProvisionedThroughput?: ProvisionedThroughputDescription;
         /** The total size of the specified index, in bytes. DynamoDB updates this value
 approximately every six hours. Recent changes might not be reflected in this
@@ -2124,19 +2124,19 @@ throughput settings to be applied to that index. **/
         /** The parameters required for creating a global secondary index on an existing
 table:
 
- &amp;#42; IndexName
+ &amp;#42;   IndexName 
    
    
- * KeySchema
+ *   KeySchema 
    
    
- * AttributeDefinitions
+ *   AttributeDefinitions 
    
    
- * Projection
+ *   Projection 
    
    
- * ProvisionedThroughput **/
+ *   ProvisionedThroughput **/
         Create?: CreateGlobalSecondaryIndexAction;
         /** The name of an existing global secondary index to be removed. **/
         Delete?: DeleteGlobalSecondaryIndexAction;
@@ -2170,19 +2170,18 @@ gigabytes. **/
         AttributeName: KeySchemaAttributeName;
         /** The role that this key attribute will assume:
 
- &amp;#42; HASH - partition key
+ &amp;#42;   HASH - partition key
    
    
- * RANGE - sort key
+ *   RANGE - sort key
    
    
 
-The partition key of an item is also known as its hash attribute . The term
-&quot;hash attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to
-evenly distribute data items across partitions, based on their partition key
-values.
+The partition key of an item is also known as its hash attribute. The term &quot;hash
+attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to evenly
+distribute data items across partitions, based on their partition key values.
 
-The sort key of an item is also known as its range attribute . The term &quot;range
+The sort key of an item is also known as its range attribute. The term &quot;range
 attribute&quot; derives from the way DynamoDB stores items with the same partition
 key physically close together, in sorted order by the sort key value. **/
         KeyType: KeyType;
@@ -2194,9 +2193,9 @@ associated with the items. **/
         /** This is a legacy parameter. Use ProjectionExpression instead. For more
 information, see Legacy Conditional Parameters
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         AttributesToGet?: AttributeNameList;
-        /** The consistency of a read operation. If set to true , then a strongly consistent
+        /** The consistency of a read operation. If set to true, then a strongly consistent
 read is used; otherwise, an eventually consistent read is used. **/
         ConsistentRead?: ConsistentRead;
         /** A string that identifies one or more attributes to retrieve from the table.
@@ -2209,19 +2208,19 @@ result.
 
 For more information, see Accessing Item Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ProjectionExpression?: ProjectionExpression;
         /** One or more substitution tokens for attribute names in an expression. The
-following are some use cases for using ExpressionAttributeNames :
+following are some use cases for using ExpressionAttributeNames:
 
- &amp;#42; To access an attribute whose name conflicts with a DynamoDB reserved word.
+ &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
    
    
- * To create a placeholder for repeating occurrences of an attribute name in an
+ *  To create a placeholder for repeating occurrences of an attribute name in an
    expression.
    
    
- * To prevent special characters in an attribute name from being misinterpreted
+ *  To prevent special characters in an attribute name from being misinterpreted
    in an expression.
    
    
@@ -2229,7 +2228,7 @@ following are some use cases for using ExpressionAttributeNames :
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
- * Percentile
+ *   Percentile 
    
    
 
@@ -2237,26 +2236,26 @@ The name of this attribute conflicts with a reserved word, so it cannot be used
 directly in an expression. (For the complete list of reserved words, see 
 Reserved Words
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
-in the Amazon DynamoDB Developer Guide ). To work around this, you could specify
-the following for ExpressionAttributeNames :
+in the Amazon DynamoDB Developer Guide). To work around this, you could specify
+the following for ExpressionAttributeNames:
 
- * {&quot;#P&quot;:&quot;Percentile&quot;}
+ *   {&quot;#P&quot;:&quot;Percentile&quot;} 
    
    
 
 You could then use this substitution in an expression, as in this example:
 
- * #P = :val
+ *   #P = :val 
    
    
 
-Tokens that begin with the : character are expression attribute values , which
+Tokens that begin with the : character are expression attribute values, which
 are placeholders for the actual value at runtime.
 
 For more information on expression attribute names, see Accessing Item
 Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeNames?: ExpressionAttributeNameMap;
     }
     export interface LimitExceededException {
@@ -2311,19 +2310,18 @@ indexes on this table. **/
         /** The complete key schema for the local secondary index, consisting of one or more
 pairs of attribute names and key types:
 
- &amp;#42; HASH - partition key
+ &amp;#42;   HASH - partition key
    
    
- * RANGE - sort key
+ *   RANGE - sort key
    
    
 
-The partition key of an item is also known as its hash attribute . The term
-&quot;hash attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to
-evenly distribute data items across partitions, based on their partition key
-values.
+The partition key of an item is also known as its hash attribute. The term &quot;hash
+attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to evenly
+distribute data items across partitions, based on their partition key values.
 
-The sort key of an item is also known as its range attribute . The term &quot;range
+The sort key of an item is also known as its range attribute. The term &quot;range
 attribute&quot; derives from the way DynamoDB stores items with the same partition
 key physically close together, in sorted order by the sort key value. **/
         KeySchema: KeySchema;
@@ -2338,19 +2336,18 @@ key attributes, which are automatically projected. **/
         /** The complete key schema for the local secondary index, consisting of one or more
 pairs of attribute names and key types:
 
- &amp;#42; HASH - partition key
+ &amp;#42;   HASH - partition key
    
    
- * RANGE - sort key
+ *   RANGE - sort key
    
    
 
-The partition key of an item is also known as its hash attribute . The term
-&quot;hash attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to
-evenly distribute data items across partitions, based on their partition key
-values.
+The partition key of an item is also known as its hash attribute. The term &quot;hash
+attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to evenly
+distribute data items across partitions, based on their partition key values.
 
-The sort key of an item is also known as its range attribute . The term &quot;range
+The sort key of an item is also known as its range attribute. The term &quot;range
 attribute&quot; derives from the way DynamoDB stores items with the same partition
 key physically close together, in sorted order by the sort key value. **/
         KeySchema?: KeySchema;
@@ -2372,14 +2369,14 @@ value. **/
     export interface Projection {
         /** The set of attributes that are projected into the index:
 
- &amp;#42; KEYS_ONLY - Only the index and primary keys are projected into the index.
+ &amp;#42;   KEYS_ONLY - Only the index and primary keys are projected into the index.
    
    
- * INCLUDE - Only the specified table attributes are projected into the index.
-   The list of projected attributes are in NonKeyAttributes .
+ *   INCLUDE - Only the specified table attributes are projected into the index.
+   The list of projected attributes are in NonKeyAttributes.
    
    
- * ALL - All of the table attributes are projected into the index. **/
+ *   ALL - All of the table attributes are projected into the index. **/
         ProjectionType?: ProjectionType;
         /** Represents the non-key attribute names which will be projected into the index.
 
@@ -2391,16 +2388,16 @@ when determining the total. **/
     }
     export interface ProvisionedThroughput {
         /** The maximum number of strongly consistent reads consumed per second before
-DynamoDB returns a ThrottlingException . For more information, see Specifying
+DynamoDB returns a ThrottlingException. For more information, see Specifying
 Read and Write Requirements
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ReadCapacityUnits: PositiveLongObject;
         /** The maximum number of writes consumed per second before DynamoDB returns a 
-ThrottlingException . For more information, see Specifying Read and Write
+ThrottlingException. For more information, see Specifying Read and Write
 Requirements
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         WriteCapacityUnits: PositiveLongObject;
     }
     export interface ProvisionedThroughputDescription {
@@ -2412,15 +2409,15 @@ in the Amazon DynamoDB Developer Guide . **/
 calendar day. For current maximums on provisioned throughput decreases, see 
 Limits
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html] in
-the Amazon DynamoDB Developer Guide . **/
+the Amazon DynamoDB Developer Guide. **/
         NumberOfDecreasesToday?: PositiveLongObject;
         /** The maximum number of strongly consistent reads consumed per second before
-DynamoDB returns a ThrottlingException . Eventually consistent reads require
-less effort than strongly consistent reads, so a setting of 50 ReadCapacityUnits 
-per second provides 100 eventually consistent ReadCapacityUnits per second. **/
+DynamoDB returns a ThrottlingException. Eventually consistent reads require less
+effort than strongly consistent reads, so a setting of 50 ReadCapacityUnits per
+second provides 100 eventually consistent ReadCapacityUnits per second. **/
         ReadCapacityUnits?: PositiveLongObject;
         /** The maximum number of writes consumed per second before DynamoDB returns a 
-ThrottlingException . **/
+ThrottlingException. **/
         WriteCapacityUnits?: PositiveLongObject;
     }
     export interface ProvisionedThroughputExceededException {
@@ -2445,32 +2442,32 @@ definition.
 
 For more information about primary keys, see Primary Key
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
 
 Each element in the Item map is an AttributeValue object. **/
         Item: PutItemInputAttributeMap;
         /** This is a legacy parameter. Use ConditionExpresssion instead. For more
 information, see Expected
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         Expected?: ExpectedAttributeMap;
         /** Use ReturnValues if you want to get the item attributes as they appeared before
-they were updated with the PutItem request. For PutItem , the valid values are:
+they were updated with the PutItem request. For PutItem, the valid values are:
 
- &amp;#42; NONE - If ReturnValues is not specified, or if its value is NONE , then
-   nothing is returned. (This setting is the default for ReturnValues .)
+ &amp;#42;   NONE - If ReturnValues is not specified, or if its value is NONE, then
+   nothing is returned. (This setting is the default for ReturnValues.)
    
    
- * ALL_OLD - If PutItem overwrote an attribute name-value pair, then the content
-   of the old item is returned.
+ *   ALL_OLD - If PutItem overwrote an attribute name-value pair, then the
+   content of the old item is returned.
    
    
 
 The ReturnValues parameter is used by several DynamoDB operations; however, 
-PutItem does not recognize any values other than NONE or ALL_OLD . **/
+PutItem does not recognize any values other than NONE or ALL_OLD. **/
         ReturnValues?: ReturnValue;
         ReturnConsumedCapacity?: ReturnConsumedCapacity;
-        /** Determines whether item collection metrics are returned. If set to SIZE , the
+        /** Determines whether item collection metrics are returned. If set to SIZE, the
 response includes statistics about item collections, if any, that were modified
 during the operation are returned in the response. If set to NONE (the default),
 no statistics are returned. **/
@@ -2478,41 +2475,41 @@ no statistics are returned. **/
         /** This is a legacy parameter. Use ConditionExpression instead. For more
 information, see ConditionalOperator
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConditionalOperator?: ConditionalOperator;
         /** A condition that must be satisfied in order for a conditional PutItem operation
 to succeed.
 
 An expression can contain any of the following:
 
- &amp;#42; Functions: attribute_exists | attribute_not_exists | attribute_type |
-   contains | begins_with | size
+ &amp;#42;  Functions: attribute_exists | attribute_not_exists | attribute_type |
+   contains | begins_with | size 
    
    These function names are case-sensitive.
    
    
- * Comparison operators: = | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN
+ *  Comparison operators: = | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN 
    
    
- * Logical operators: AND | OR | NOT
+ *   Logical operators: AND | OR | NOT 
    
    
 
 For more information on condition expressions, see Specifying Conditions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConditionExpression?: ConditionExpression;
         /** One or more substitution tokens for attribute names in an expression. The
-following are some use cases for using ExpressionAttributeNames :
+following are some use cases for using ExpressionAttributeNames:
 
- &amp;#42; To access an attribute whose name conflicts with a DynamoDB reserved word.
+ &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
    
    
- * To create a placeholder for repeating occurrences of an attribute name in an
+ *  To create a placeholder for repeating occurrences of an attribute name in an
    expression.
    
    
- * To prevent special characters in an attribute name from being misinterpreted
+ *  To prevent special characters in an attribute name from being misinterpreted
    in an expression.
    
    
@@ -2520,7 +2517,7 @@ following are some use cases for using ExpressionAttributeNames :
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
- * Percentile
+ *   Percentile 
    
    
 
@@ -2528,47 +2525,47 @@ The name of this attribute conflicts with a reserved word, so it cannot be used
 directly in an expression. (For the complete list of reserved words, see 
 Reserved Words
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
-in the Amazon DynamoDB Developer Guide ). To work around this, you could specify
-the following for ExpressionAttributeNames :
+in the Amazon DynamoDB Developer Guide). To work around this, you could specify
+the following for ExpressionAttributeNames:
 
- * {&quot;#P&quot;:&quot;Percentile&quot;}
+ *   {&quot;#P&quot;:&quot;Percentile&quot;} 
    
    
 
 You could then use this substitution in an expression, as in this example:
 
- * #P = :val
+ *   #P = :val 
    
    
 
-Tokens that begin with the : character are expression attribute values , which
+Tokens that begin with the : character are expression attribute values, which
 are placeholders for the actual value at runtime.
 
 For more information on expression attribute names, see Accessing Item
 Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeNames?: ExpressionAttributeNameMap;
         /** One or more values that can be substituted in an expression.
 
 Use the : (colon) character in an expression to dereference an attribute value.
 For example, suppose that you wanted to check whether the value of the 
-ProductStatus attribute was one of the following:
+ProductStatus attribute was one of the following: 
 
-Available | Backordered | Discontinued
+ Available | Backordered | Discontinued 
 
 You would first need to specify ExpressionAttributeValues as follows:
 
-{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
-&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }
+ { &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
+&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} } 
 
 You could then use these values in an expression, such as this:
 
-ProductStatus IN (:avail, :back, :disc)
+ ProductStatus IN (:avail, :back, :disc) 
 
 For more information on expression attribute values, see Specifying Conditions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeValues?: ExpressionAttributeValueMap;
     }
     export interface PutItemOutput {
@@ -2582,7 +2579,7 @@ and any indexes involved in the operation. ConsumedCapacity is only returned if
 the ReturnConsumedCapacity parameter was specified. For more information, see 
 Provisioned Throughput
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConsumedCapacity?: ConsumedCapacity;
         /** Information about item collections, if any, that were affected by the PutItem 
 operation. ItemCollectionMetrics is only returned if the 
@@ -2591,11 +2588,11 @@ any local secondary indexes, this information is not returned in the response.
 
 Each ItemCollectionMetrics element consists of:
 
- &amp;#42; ItemCollectionKey - The partition key value of the item collection. This is
+ &amp;#42;   ItemCollectionKey - The partition key value of the item collection. This is
    the same as the partition key value of the item itself.
    
    
- * SizeEstimateRange - An estimate of item collection size, in gigabytes. This
+ *   SizeEstimateRange - An estimate of item collection size, in gigabytes. This
    value is a two-element array containing a lower bound and an upper bound for
    the estimate. The estimate includes the size of all the items in the table,
    plus the size of all attributes projected into all of the local secondary
@@ -2608,7 +2605,7 @@ Each ItemCollectionMetrics element consists of:
     }
     export interface PutRequest {
         /** A map of attribute name to attribute values, representing the primary key of an
-item to be processed by PutItem . All of the table&#x27;s primary key attributes must
+item to be processed by PutItem. All of the table&#x27;s primary key attributes must
 be specified, and their data types must match those of the table&#x27;s key schema.
 If any attributes are present in the item which are part of an index key schema
 for the table, their types must match the index key schema. **/
@@ -2625,26 +2622,26 @@ parameter, you must also provide TableName. **/
 attributes, specific item attributes, the count of matching items, or in the
 case of an index, some or all of the attributes projected into the index.
 
- &amp;#42; ALL_ATTRIBUTES - Returns all of the item attributes from the specified table
+ &amp;#42;   ALL_ATTRIBUTES - Returns all of the item attributes from the specified table
    or index. If you query a local secondary index, then for each matching item
    in the index DynamoDB will fetch the entire item from the parent table. If
    the index is configured to project all item attributes, then all of the data
    can be obtained from the local secondary index, and no fetching is required.
    
    
- * ALL_PROJECTED_ATTRIBUTES - Allowed only when querying an index. Retrieves all
-   attributes that have been projected into the index. If the index is
+ *   ALL_PROJECTED_ATTRIBUTES - Allowed only when querying an index. Retrieves
+   all attributes that have been projected into the index. If the index is
    configured to project all attributes, this return value is equivalent to
-   specifying ALL_ATTRIBUTES .
+   specifying ALL_ATTRIBUTES.
    
    
- * COUNT - Returns the number of matching items, rather than the matching items
+ *   COUNT - Returns the number of matching items, rather than the matching items
    themselves.
    
    
- * SPECIFIC_ATTRIBUTES - Returns only the attributes listed in AttributesToGet .
+ *   SPECIFIC_ATTRIBUTES - Returns only the attributes listed in AttributesToGet.
    This return value is equivalent to specifying AttributesToGet without
-   specifying any value for Select .
+   specifying any value for Select.
    
    If you query or scan a local secondary index and request only attributes that
    are projected into that index, the operation will read only the index and not
@@ -2662,16 +2659,16 @@ case of an index, some or all of the attributes projected into the index.
 If neither Select nor AttributesToGet are specified, DynamoDB defaults to 
 ALL_ATTRIBUTES when accessing a table, and ALL_PROJECTED_ATTRIBUTES when
 accessing an index. You cannot use both Select and AttributesToGet together in a
-single request, unless the value for Select is SPECIFIC_ATTRIBUTES . (This usage
-is equivalent to specifying AttributesToGet without any value for Select .)
+single request, unless the value for Select is SPECIFIC_ATTRIBUTES. (This usage
+is equivalent to specifying AttributesToGet without any value for Select.)
 
 If you use the ProjectionExpression parameter, then the value for Select can
-only be SPECIFIC_ATTRIBUTES . Any other value for Select will return an error. **/
+only be SPECIFIC_ATTRIBUTES. Any other value for Select will return an error. **/
         Select?: Select;
         /** This is a legacy parameter. Use ProjectionExpression instead. For more
 information, see AttributesToGet
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         AttributesToGet?: AttributeNameList;
         /** The maximum number of items to evaluate (not necessarily the number of matching
 items). If DynamoDB processes the number of items up to the limit while
@@ -2683,43 +2680,43 @@ operation and returns the matching values up to the limit, and a key in
 LastEvaluatedKey to apply in a subsequent operation to continue the operation.
 For more information, see Query and Scan
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         Limit?: PositiveIntegerObject;
-        /** Determines the read consistency model: If set to true , then the operation uses
+        /** Determines the read consistency model: If set to true, then the operation uses
 strongly consistent reads; otherwise, the operation uses eventually consistent
 reads.
 
 Strongly consistent reads are not supported on global secondary indexes. If you
-query a global secondary index with ConsistentRead set to true , you will
-receive a ValidationException . **/
+query a global secondary index with ConsistentRead set to true, you will receive
+a ValidationException. **/
         ConsistentRead?: ConsistentRead;
         /** This is a legacy parameter. Use KeyConditionExpression instead. For more
 information, see KeyConditions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         KeyConditions?: KeyConditions;
         /** This is a legacy parameter. Use FilterExpression instead. For more information,
 see QueryFilter
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         QueryFilter?: FilterConditionMap;
         /** This is a legacy parameter. Use FilterExpression instead. For more information,
 see ConditionalOperator
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConditionalOperator?: ConditionalOperator;
         /** Specifies the order for index traversal: If true (default), the traversal is
-performed in ascending order; if false , the traversal is performed in
-descending order.
+performed in ascending order; if false, the traversal is performed in descending
+order. 
 
 Items with the same partition key value are stored in sorted order by sort key.
 If the sort key data type is Number, the results are stored in numeric order.
 For type String, the results are stored in order of ASCII character code values.
 For type Binary, DynamoDB treats each byte of the binary data as unsigned.
 
-If ScanIndexForward is true , DynamoDB returns the results in the order in which
+If ScanIndexForward is true, DynamoDB returns the results in the order in which
 they are stored (by sort key value). This is the default behavior. If 
-ScanIndexForward is false , DynamoDB reads the results in reverse order by sort
+ScanIndexForward is false, DynamoDB reads the results in reverse order by sort
 key value, and then returns the results to the client. **/
         ScanIndexForward?: BooleanObject;
         /** The primary key of the first item that this operation will evaluate. Use the
@@ -2739,7 +2736,7 @@ result.
 
 For more information, see Accessing Item Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ProjectionExpression?: ProjectionExpression;
         /** A string that contains conditions that DynamoDB applies after the Query 
 operation, but before the data is returned to you. Items that do not satisfy the 
@@ -2753,7 +2750,7 @@ process of filtering does not consume any additional read capacity units.
 
 For more information, see Filter Expressions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         FilterExpression?: ConditionExpression;
         /** The condition that specifies the key value(s) for items to be retrieved by the 
 Query action.
@@ -2767,42 +2764,42 @@ partition key value but different sort key values.
 The partition key equality test is required, and must be specified in the
 following format:
 
-partitionKeyName = :partitionkeyval
+ partitionKeyName = :partitionkeyval 
 
 If you also want to provide a condition for the sort key, it must be combined
 using AND with the condition for the sort key. Following is an example, using
 the = comparison operator for the sort key:
 
-partitionKeyName = :partitionkeyval AND sortKeyName = :sortkeyval
+ partitionKeyName = :partitionkeyval AND sortKeyName = :sortkeyval 
 
 Valid comparisons for the sort key condition are as follows:
 
- &amp;#42; sortKeyName = :sortkeyval - true if the sort key value is equal to 
-   :sortkeyval .
+ &amp;#42;   sortKeyName = :sortkeyval - true if the sort key value is equal to 
+   :sortkeyval.
    
    
- * sortKeyName &lt; :sortkeyval - true if the sort key value is less than 
-   :sortkeyval .
+ *   sortKeyName &lt; :sortkeyval - true if the sort key value is less than 
+   :sortkeyval.
    
    
- * sortKeyName &lt;= :sortkeyval - true if the sort key value is less than or equal
-   to :sortkeyval .
+ *   sortKeyName &lt;= :sortkeyval - true if the sort key value is less than or
+   equal to :sortkeyval.
    
    
- * sortKeyName &gt; :sortkeyval - true if the sort key value is greater than 
-   :sortkeyval .
+ *   sortKeyName &gt; :sortkeyval - true if the sort key value is greater than 
+   :sortkeyval.
    
    
- * sortKeyName &gt;= :sortkeyval - true if the sort key value is greater than or
-   equal to :sortkeyval .
+ *   sortKeyName &gt;= :sortkeyval - true if the sort key value is greater than or
+   equal to :sortkeyval.
    
    
- * sortKeyName BETWEEN :sortkeyval1 AND :sortkeyval2 - true if the sort key
-   value is greater than or equal to :sortkeyval1 , and less than or equal to 
-   :sortkeyval2 .
+ *   sortKeyName BETWEEN :sortkeyval1 AND :sortkeyval2 - true if the sort key
+   value is greater than or equal to :sortkeyval1, and less than or equal to 
+   :sortkeyval2.
    
    
- * begins_with ( sortKeyName , :sortkeyval ) - true if the sort key value begins
+ *   begins_with ( sortKeyName, :sortkeyval ) - true if the sort key value begins
    with a particular operand. (You cannot use this function with a sort key that
    is of type Number.) Note that the function name begins_with is
    case-sensitive.
@@ -2818,37 +2815,37 @@ might be necessary if an attribute name conflicts with a DynamoDB reserved word.
 For example, the following KeyConditionExpression parameter causes an error
 because Size is a reserved word:
 
- * Size = :myval
+ *   Size = :myval 
    
    
 
-To work around this, define a placeholder (such a #S ) to represent the
-attribute name Size . KeyConditionExpression then is as follows:
+To work around this, define a placeholder (such a #S) to represent the attribute
+name Size. KeyConditionExpression then is as follows:
 
- * #S = :myval
+ *   #S = :myval 
    
    
 
 For a list of reserved words, see Reserved Words
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
 
-For more information on ExpressionAttributeNames and ExpressionAttributeValues ,
+For more information on ExpressionAttributeNames and ExpressionAttributeValues,
 see Using Placeholders for Attribute Names and Values
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         KeyConditionExpression?: KeyExpression;
         /** One or more substitution tokens for attribute names in an expression. The
-following are some use cases for using ExpressionAttributeNames :
+following are some use cases for using ExpressionAttributeNames:
 
- &amp;#42; To access an attribute whose name conflicts with a DynamoDB reserved word.
+ &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
    
    
- * To create a placeholder for repeating occurrences of an attribute name in an
+ *  To create a placeholder for repeating occurrences of an attribute name in an
    expression.
    
    
- * To prevent special characters in an attribute name from being misinterpreted
+ *  To prevent special characters in an attribute name from being misinterpreted
    in an expression.
    
    
@@ -2856,7 +2853,7 @@ following are some use cases for using ExpressionAttributeNames :
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
- * Percentile
+ *   Percentile 
    
    
 
@@ -2864,47 +2861,47 @@ The name of this attribute conflicts with a reserved word, so it cannot be used
 directly in an expression. (For the complete list of reserved words, see 
 Reserved Words
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
-in the Amazon DynamoDB Developer Guide ). To work around this, you could specify
-the following for ExpressionAttributeNames :
+in the Amazon DynamoDB Developer Guide). To work around this, you could specify
+the following for ExpressionAttributeNames:
 
- * {&quot;#P&quot;:&quot;Percentile&quot;}
+ *   {&quot;#P&quot;:&quot;Percentile&quot;} 
    
    
 
 You could then use this substitution in an expression, as in this example:
 
- * #P = :val
+ *   #P = :val 
    
    
 
-Tokens that begin with the : character are expression attribute values , which
+Tokens that begin with the : character are expression attribute values, which
 are placeholders for the actual value at runtime.
 
 For more information on expression attribute names, see Accessing Item
 Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeNames?: ExpressionAttributeNameMap;
         /** One or more values that can be substituted in an expression.
 
 Use the : (colon) character in an expression to dereference an attribute value.
 For example, suppose that you wanted to check whether the value of the 
-ProductStatus attribute was one of the following:
+ProductStatus attribute was one of the following: 
 
-Available | Backordered | Discontinued
+ Available | Backordered | Discontinued 
 
 You would first need to specify ExpressionAttributeValues as follows:
 
-{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
-&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }
+ { &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
+&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} } 
 
 You could then use these values in an expression, such as this:
 
-ProductStatus IN (:avail, :back, :disc)
+ ProductStatus IN (:avail, :back, :disc) 
 
 For more information on expression attribute values, see Specifying Conditions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeValues?: ExpressionAttributeValueMap;
     }
     export interface QueryOutput {
@@ -2924,10 +2921,10 @@ same. **/
 ScannedCount value with few, or no, Count results indicates an inefficient Query 
 operation. For more information, see Count and ScannedCount
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
 
 If you did not use a filter in the request, then ScannedCount is the same as 
-Count . **/
+Count. **/
         ScannedCount?: Integer;
         /** The primary key of the item where the operation stopped, inclusive of the
 previous result set. Use this value to start a new operation, excluding this
@@ -2946,7 +2943,7 @@ and any indexes involved in the operation. ConsumedCapacity is only returned if
 the ReturnConsumedCapacity parameter was specified For more information, see 
 Provisioned Throughput
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConsumedCapacity?: ConsumedCapacity;
     }
     export interface ResourceInUseException {
@@ -2959,16 +2956,16 @@ in the Amazon DynamoDB Developer Guide . **/
     }
     export interface ScanInput {
         /** The name of the table containing the requested items; or, if you provide 
-IndexName , the name of the table to which that index belongs. **/
+IndexName, the name of the table to which that index belongs. **/
         TableName: TableName;
         /** The name of a secondary index to scan. This index can be any local secondary
 index or global secondary index. Note that if you use the IndexName parameter,
-you must also provide TableName . **/
+you must also provide TableName. **/
         IndexName?: IndexName;
         /** This is a legacy parameter. Use ProjectionExpression instead. For more
 information, see AttributesToGet
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         AttributesToGet?: AttributeNameList;
         /** The maximum number of items to evaluate (not necessarily the number of matching
 items). If DynamoDB processes the number of items up to the limit while
@@ -2980,32 +2977,32 @@ operation and returns the matching values up to the limit, and a key in
 LastEvaluatedKey to apply in a subsequent operation to continue the operation.
 For more information, see Query and Scan
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         Limit?: PositiveIntegerObject;
         /** The attributes to be returned in the result. You can retrieve all item
 attributes, specific item attributes, the count of matching items, or in the
 case of an index, some or all of the attributes projected into the index.
 
- &amp;#42; ALL_ATTRIBUTES - Returns all of the item attributes from the specified table
+ &amp;#42;   ALL_ATTRIBUTES - Returns all of the item attributes from the specified table
    or index. If you query a local secondary index, then for each matching item
    in the index DynamoDB will fetch the entire item from the parent table. If
    the index is configured to project all item attributes, then all of the data
    can be obtained from the local secondary index, and no fetching is required.
    
    
- * ALL_PROJECTED_ATTRIBUTES - Allowed only when querying an index. Retrieves all
-   attributes that have been projected into the index. If the index is
+ *   ALL_PROJECTED_ATTRIBUTES - Allowed only when querying an index. Retrieves
+   all attributes that have been projected into the index. If the index is
    configured to project all attributes, this return value is equivalent to
-   specifying ALL_ATTRIBUTES .
+   specifying ALL_ATTRIBUTES.
    
    
- * COUNT - Returns the number of matching items, rather than the matching items
+ *   COUNT - Returns the number of matching items, rather than the matching items
    themselves.
    
    
- * SPECIFIC_ATTRIBUTES - Returns only the attributes listed in AttributesToGet .
+ *   SPECIFIC_ATTRIBUTES - Returns only the attributes listed in AttributesToGet.
    This return value is equivalent to specifying AttributesToGet without
-   specifying any value for Select .
+   specifying any value for Select.
    
    If you query or scan a local secondary index and request only attributes that
    are projected into that index, the operation will read only the index and not
@@ -3023,21 +3020,21 @@ case of an index, some or all of the attributes projected into the index.
 If neither Select nor AttributesToGet are specified, DynamoDB defaults to 
 ALL_ATTRIBUTES when accessing a table, and ALL_PROJECTED_ATTRIBUTES when
 accessing an index. You cannot use both Select and AttributesToGet together in a
-single request, unless the value for Select is SPECIFIC_ATTRIBUTES . (This usage
-is equivalent to specifying AttributesToGet without any value for Select .)
+single request, unless the value for Select is SPECIFIC_ATTRIBUTES. (This usage
+is equivalent to specifying AttributesToGet without any value for Select.)
 
 If you use the ProjectionExpression parameter, then the value for Select can
-only be SPECIFIC_ATTRIBUTES . Any other value for Select will return an error. **/
+only be SPECIFIC_ATTRIBUTES. Any other value for Select will return an error. **/
         Select?: Select;
         /** This is a legacy parameter. Use FilterExpression instead. For more information,
 see ScanFilter
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ScanFilter?: FilterConditionMap;
         /** This is a legacy parameter. Use FilterExpression instead. For more information,
 see ConditionalOperator
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConditionalOperator?: ConditionalOperator;
         /** The primary key of the first item that this operation will evaluate. Use the
 value that was returned for LastEvaluatedKey in the previous operation.
@@ -3047,7 +3044,7 @@ data types are allowed.
 
 In a parallel scan, a Scan request that includes ExclusiveStartKey must specify
 the same segment whose previous Scan returned the corresponding value of 
-LastEvaluatedKey . **/
+LastEvaluatedKey. **/
         ExclusiveStartKey?: Key;
         ReturnConsumedCapacity?: ReturnConsumedCapacity;
         /** For a parallel Scan request, TotalSegments represents the total number of
@@ -3060,7 +3057,7 @@ The value for TotalSegments must be greater than or equal to 1, and less than or
 equal to 1000000. If you specify a TotalSegments value of 1, the Scan operation
 will be sequential rather than parallel.
 
-If you specify TotalSegments , you must also specify Segment . **/
+If you specify TotalSegments, you must also specify Segment. **/
         TotalSegments?: ScanTotalSegments;
         /** For a parallel Scan request, Segment identifies an individual segment to be
 scanned by an application worker.
@@ -3074,9 +3071,9 @@ The value of LastEvaluatedKey returned from a parallel Scan request must be used
 as ExclusiveStartKey with the same segment ID in a subsequent Scan operation.
 
 The value for Segment must be greater than or equal to 0, and less than the
-value provided for TotalSegments .
+value provided for TotalSegments.
 
-If you provide Segment , you must also provide TotalSegments . **/
+If you provide Segment, you must also provide TotalSegments. **/
         Segment?: ScanSegment;
         /** A string that identifies one or more attributes to retrieve from the specified
 table or index. These attributes can include scalars, sets, or elements of a
@@ -3088,7 +3085,7 @@ result.
 
 For more information, see Accessing Item Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ProjectionExpression?: ProjectionExpression;
         /** A string that contains conditions that DynamoDB applies after the Scan 
 operation, but before the data is returned to you. Items that do not satisfy the 
@@ -3099,19 +3096,19 @@ process of filtering does not consume any additional read capacity units.
 
 For more information, see Filter Expressions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         FilterExpression?: ConditionExpression;
         /** One or more substitution tokens for attribute names in an expression. The
-following are some use cases for using ExpressionAttributeNames :
+following are some use cases for using ExpressionAttributeNames:
 
- &amp;#42; To access an attribute whose name conflicts with a DynamoDB reserved word.
+ &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
    
    
- * To create a placeholder for repeating occurrences of an attribute name in an
+ *  To create a placeholder for repeating occurrences of an attribute name in an
    expression.
    
    
- * To prevent special characters in an attribute name from being misinterpreted
+ *  To prevent special characters in an attribute name from being misinterpreted
    in an expression.
    
    
@@ -3119,7 +3116,7 @@ following are some use cases for using ExpressionAttributeNames :
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
- * Percentile
+ *   Percentile 
    
    
 
@@ -3127,65 +3124,65 @@ The name of this attribute conflicts with a reserved word, so it cannot be used
 directly in an expression. (For the complete list of reserved words, see 
 Reserved Words
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
-in the Amazon DynamoDB Developer Guide ). To work around this, you could specify
-the following for ExpressionAttributeNames :
+in the Amazon DynamoDB Developer Guide). To work around this, you could specify
+the following for ExpressionAttributeNames:
 
- * {&quot;#P&quot;:&quot;Percentile&quot;}
+ *   {&quot;#P&quot;:&quot;Percentile&quot;} 
    
    
 
 You could then use this substitution in an expression, as in this example:
 
- * #P = :val
+ *   #P = :val 
    
    
 
-Tokens that begin with the : character are expression attribute values , which
+Tokens that begin with the : character are expression attribute values, which
 are placeholders for the actual value at runtime.
 
 For more information on expression attribute names, see Accessing Item
 Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeNames?: ExpressionAttributeNameMap;
         /** One or more values that can be substituted in an expression.
 
 Use the : (colon) character in an expression to dereference an attribute value.
 For example, suppose that you wanted to check whether the value of the 
-ProductStatus attribute was one of the following:
+ProductStatus attribute was one of the following: 
 
-Available | Backordered | Discontinued
+ Available | Backordered | Discontinued 
 
 You would first need to specify ExpressionAttributeValues as follows:
 
-{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
-&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }
+ { &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
+&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} } 
 
 You could then use these values in an expression, such as this:
 
-ProductStatus IN (:avail, :back, :disc)
+ ProductStatus IN (:avail, :back, :disc) 
 
 For more information on expression attribute values, see Specifying Conditions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeValues?: ExpressionAttributeValueMap;
         /** A Boolean value that determines the read consistency model during the scan:
 
- &amp;#42; If ConsistentRead is false , then the data returned from Scan might not
+ &amp;#42;  If ConsistentRead is false, then the data returned from Scan might not
    contain the results from other recently completed write operations (PutItem,
    UpdateItem or DeleteItem).
    
    
- * If ConsistentRead is true , then all of the write operations that completed
+ *  If ConsistentRead is true, then all of the write operations that completed
    before the Scan began are guaranteed to be contained in the Scan response.
    
    
 
-The default setting for ConsistentRead is false .
+The default setting for ConsistentRead is false.
 
 The ConsistentRead parameter is not supported on global secondary indexes. If
 you scan a global secondary index with ConsistentRead set to true, you will
-receive a ValidationException . **/
+receive a ValidationException. **/
         ConsistentRead?: ConsistentRead;
     }
     export interface ScanOutput {
@@ -3199,16 +3196,16 @@ after the filter was applied, and ScannedCount is the number of matching items
 before the filter was applied.
 
 If you did not use a filter in the request, then Count is the same as 
-ScannedCount . **/
+ScannedCount. **/
         Count?: Integer;
         /** The number of items evaluated, before any ScanFilter is applied. A high 
 ScannedCount value with few, or no, Count results indicates an inefficient Scan 
 operation. For more information, see Count and ScannedCount
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count] 
-in the Amazon DynamoDB Developer Guide .
+in the Amazon DynamoDB Developer Guide.
 
 If you did not use a filter in the request, then ScannedCount is the same as 
-Count . **/
+Count. **/
         ScannedCount?: Integer;
         /** The primary key of the item where the operation stopped, inclusive of the
 previous result set. Use this value to start a new operation, excluding this
@@ -3227,7 +3224,7 @@ and any indexes involved in the operation. ConsumedCapacity is only returned if
 the ReturnConsumedCapacity parameter was specified. For more information, see 
 Provisioned Throughput
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConsumedCapacity?: ConsumedCapacity;
     }
     export interface StreamSpecification {
@@ -3238,19 +3235,19 @@ table. **/
 information is written to the stream for this table. Valid values for 
 StreamViewType are:
 
- &amp;#42; KEYS_ONLY - Only the key attributes of the modified item are written to the
+ &amp;#42;   KEYS_ONLY - Only the key attributes of the modified item are written to the
    stream.
    
    
- * NEW_IMAGE - The entire item, as it appears after it was modified, is written
+ *   NEW_IMAGE - The entire item, as it appears after it was modified, is written
    to the stream.
    
    
- * OLD_IMAGE - The entire item, as it appeared before it was modified, is
+ *   OLD_IMAGE - The entire item, as it appeared before it was modified, is
    written to the stream.
    
    
- * NEW_AND_OLD_IMAGES - Both the new and the old item images of the item are
+ *   NEW_AND_OLD_IMAGES - Both the new and the old item images of the item are
    written to the stream. **/
         StreamViewType?: StreamViewType;
     }
@@ -3260,55 +3257,54 @@ attribute in the table and index key schema.
 
 Each AttributeDefinition object in this array is composed of:
 
- &amp;#42; AttributeName - The name of the attribute.
+ &amp;#42;   AttributeName - The name of the attribute.
    
    
- * AttributeType - The data type for the attribute. **/
+ *   AttributeType - The data type for the attribute. **/
         AttributeDefinitions?: AttributeDefinitions;
         /** The name of the table. **/
         TableName?: TableName;
         /** The primary key structure for the table. Each KeySchemaElement consists of:
 
- &amp;#42; AttributeName - The name of the attribute.
+ &amp;#42;   AttributeName - The name of the attribute.
    
    
- * KeyType - The role of the attribute:
+ *   KeyType - The role of the attribute:
    
-    * HASH - partition key
+    *   HASH - partition key
       
       
-    * RANGE - sort key
+    *   RANGE - sort key
       
       
    
-   The partition key of an item is also known as its hash attribute . The term
+   The partition key of an item is also known as its hash attribute. The term
    &quot;hash attribute&quot; derives from DynamoDB&#x27; usage of an internal hash function to
    evenly distribute data items across partitions, based on their partition key
    values.
    
-   The sort key of an item is also known as its range attribute . The term
-   &quot;range attribute&quot; derives from the way DynamoDB stores items with the same
-   partition key physically close together, in sorted order by the sort key
-   value.
+   The sort key of an item is also known as its range attribute. The term &quot;range
+   attribute&quot; derives from the way DynamoDB stores items with the same partition
+   key physically close together, in sorted order by the sort key value.
    
    
 
 For more information about primary keys, see Primary Key
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         KeySchema?: KeySchema;
         /** The current state of the table:
 
- &amp;#42; CREATING - The table is being created.
+ &amp;#42;   CREATING - The table is being created.
    
    
- * UPDATING - The table is being updated.
+ *   UPDATING - The table is being updated.
    
    
- * DELETING - The table is being deleted.
+ *   DELETING - The table is being deleted.
    
    
- * ACTIVE - The table is ready for use. **/
+ *   ACTIVE - The table is ready for use. **/
         TableStatus?: TableStatus;
         /** The date and time when the table was created, in UNIX epoch time
 [http://www.epochconverter.com/] format. **/
@@ -3331,49 +3327,49 @@ scoped to a given partition key value. Tables with one or more local secondary
 indexes are subject to an item collection size limit, where the amount of data
 within a given item collection cannot exceed 10 GB. Each element is composed of:
 
- &amp;#42; IndexName - The name of the local secondary index.
+ &amp;#42;   IndexName - The name of the local secondary index.
    
    
- * KeySchema - Specifies the complete index key schema. The attribute names in
+ *   KeySchema - Specifies the complete index key schema. The attribute names in
    the key schema must be between 1 and 255 characters (inclusive). The key
    schema must begin with the same partition key as the table.
    
    
- * Projection - Specifies attributes that are copied (projected) from the table
+ *   Projection - Specifies attributes that are copied (projected) from the table
    into the index. These are in addition to the primary key attributes and index
    key attributes, which are automatically projected. Each attribute
    specification is composed of:
    
-    * ProjectionType - One of the following:
+    *   ProjectionType - One of the following:
       
-       * KEYS_ONLY - Only the index and primary keys are projected into the
+       *   KEYS_ONLY - Only the index and primary keys are projected into the
          index.
          
          
-       * INCLUDE - Only the specified table attributes are projected into the
-         index. The list of projected attributes are in NonKeyAttributes .
+       *   INCLUDE - Only the specified table attributes are projected into the
+         index. The list of projected attributes are in NonKeyAttributes.
          
          
-       * ALL - All of the table attributes are projected into the index.
+       *   ALL - All of the table attributes are projected into the index.
          
          
       
       
-    * NonKeyAttributes - A list of one or more non-key attribute names that are
+    *   NonKeyAttributes - A list of one or more non-key attribute names that are
       projected into the secondary index. The total count of attributes provided
-      in NonKeyAttributes , summed across all of the secondary indexes, must not
+      in NonKeyAttributes, summed across all of the secondary indexes, must not
       exceed 20. If you project the same attribute into two different indexes,
       this counts as two distinct attributes when determining the total.
       
       
    
    
- * IndexSizeBytes - Represents the total size of the index, in bytes. DynamoDB
+ *   IndexSizeBytes - Represents the total size of the index, in bytes. DynamoDB
    updates this value approximately every six hours. Recent changes might not be
    reflected in this value.
    
    
- * ItemCount - Represents the number of items in the index. DynamoDB updates
+ *   ItemCount - Represents the number of items in the index. DynamoDB updates
    this value approximately every six hours. Recent changes might not be
    reflected in this value.
    
@@ -3385,79 +3381,79 @@ returned. **/
         /** The global secondary indexes, if any, on the table. Each index is scoped to a
 given partition key value. Each element is composed of:
 
- &amp;#42; Backfilling - If true, then the index is currently in the backfilling phase.
+ &amp;#42;   Backfilling - If true, then the index is currently in the backfilling phase.
    Backfilling occurs only when a new global secondary index is added to the
    table; it is the process by which DynamoDB populates the new index with data
    from the table. (This attribute does not appear for indexes that were created
    during a CreateTable operation.)
    
    
- * IndexName - The name of the global secondary index.
+ *   IndexName - The name of the global secondary index.
    
    
- * IndexSizeBytes - The total size of the global secondary index, in bytes.
+ *   IndexSizeBytes - The total size of the global secondary index, in bytes.
    DynamoDB updates this value approximately every six hours. Recent changes
-   might not be reflected in this value.
+   might not be reflected in this value. 
    
    
- * IndexStatus - The current status of the global secondary index:
+ *   IndexStatus - The current status of the global secondary index:
    
-    * CREATING - The index is being created.
+    *   CREATING - The index is being created.
       
       
-    * UPDATING - The index is being updated.
+    *   UPDATING - The index is being updated.
       
       
-    * DELETING - The index is being deleted.
+    *   DELETING - The index is being deleted.
       
       
-    * ACTIVE - The index is ready for use.
+    *   ACTIVE - The index is ready for use.
       
       
    
    
- * ItemCount - The number of items in the global secondary index. DynamoDB
+ *   ItemCount - The number of items in the global secondary index. DynamoDB
    updates this value approximately every six hours. Recent changes might not be
-   reflected in this value.
+   reflected in this value. 
    
    
- * KeySchema - Specifies the complete index key schema. The attribute names in
+ *   KeySchema - Specifies the complete index key schema. The attribute names in
    the key schema must be between 1 and 255 characters (inclusive). The key
    schema must begin with the same partition key as the table.
    
    
- * Projection - Specifies attributes that are copied (projected) from the table
+ *   Projection - Specifies attributes that are copied (projected) from the table
    into the index. These are in addition to the primary key attributes and index
    key attributes, which are automatically projected. Each attribute
    specification is composed of:
    
-    * ProjectionType - One of the following:
+    *   ProjectionType - One of the following:
       
-       * KEYS_ONLY - Only the index and primary keys are projected into the
+       *   KEYS_ONLY - Only the index and primary keys are projected into the
          index.
          
          
-       * INCLUDE - Only the specified table attributes are projected into the
-         index. The list of projected attributes are in NonKeyAttributes .
+       *   INCLUDE - Only the specified table attributes are projected into the
+         index. The list of projected attributes are in NonKeyAttributes.
          
          
-       * ALL - All of the table attributes are projected into the index.
+       *   ALL - All of the table attributes are projected into the index.
          
          
       
       
-    * NonKeyAttributes - A list of one or more non-key attribute names that are
+    *   NonKeyAttributes - A list of one or more non-key attribute names that are
       projected into the secondary index. The total count of attributes provided
-      in NonKeyAttributes , summed across all of the secondary indexes, must not
+      in NonKeyAttributes, summed across all of the secondary indexes, must not
       exceed 20. If you project the same attribute into two different indexes,
       this counts as two distinct attributes when determining the total.
       
       
    
    
- * ProvisionedThroughput - The provisioned throughput settings for the global
+ *   ProvisionedThroughput - The provisioned throughput settings for the global
    secondary index, consisting of read and write capacity units, along with data
-   about increases and decreases.
+   about increases and decreases. 
    
    
 
@@ -3473,13 +3469,13 @@ it is possible that a stream from another table might have the same timestamp.
 However, the combination of the following three elements is guaranteed to be
 unique:
 
- &amp;#42; the AWS customer ID.
+ &amp;#42;  the AWS customer ID.
    
    
- * the table name.
+ *  the table name.
    
    
- * the StreamLabel . **/
+ *  the StreamLabel. **/
         LatestStreamLabel?: String;
         /** The Amazon Resource Name (ARN) that uniquely identifies the latest stream for
 this table. **/
@@ -3516,7 +3512,7 @@ secondary index.
 
 For current minimum and maximum provisioned throughput values, see Limits
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html] in
-the Amazon DynamoDB Developer Guide . **/
+the Amazon DynamoDB Developer Guide. **/
         ProvisionedThroughput: ProvisionedThroughput;
     }
     export interface UpdateItemInput {
@@ -3533,36 +3529,36 @@ the sort key. **/
         /** This is a legacy parameter. Use UpdateExpression instead. For more information,
 see AttributeUpdates
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         AttributeUpdates?: AttributeUpdates;
         /** This is a legacy parameter. Use ConditionExpresssion instead. For more
 information, see Expected
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         Expected?: ExpectedAttributeMap;
         /** This is a legacy parameter. Use ConditionExpression instead. For more
 information, see ConditionalOperator
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConditionalOperator?: ConditionalOperator;
         /** Use ReturnValues if you want to get the item attributes as they appeared either
-before or after they were updated. For UpdateItem , the valid values are:
+before or after they were updated. For UpdateItem, the valid values are:
 
- &amp;#42; NONE - If ReturnValues is not specified, or if its value is NONE , then
-   nothing is returned. (This setting is the default for ReturnValues .)
+ &amp;#42;   NONE - If ReturnValues is not specified, or if its value is NONE, then
+   nothing is returned. (This setting is the default for ReturnValues.)
    
    
- * ALL_OLD - If UpdateItem overwrote an attribute name-value pair, then the
+ *   ALL_OLD - If UpdateItem overwrote an attribute name-value pair, then the
    content of the old item is returned.
    
    
- * UPDATED_OLD - The old versions of only the updated attributes are returned.
+ *   UPDATED_OLD - The old versions of only the updated attributes are returned.
    
    
- * ALL_NEW - All of the attributes of the new version of the item are returned.
+ *   ALL_NEW - All of the attributes of the new version of the item are returned.
    
    
- * UPDATED_NEW - The new versions of only the updated attributes are returned.
+ *   UPDATED_NEW - The new versions of only the updated attributes are returned.
    
    
 
@@ -3573,7 +3569,7 @@ Read Capacity Units are consumed.
 Values returned are strongly consistent **/
         ReturnValues?: ReturnValue;
         ReturnConsumedCapacity?: ReturnConsumedCapacity;
-        /** Determines whether item collection metrics are returned. If set to SIZE , the
+        /** Determines whether item collection metrics are returned. If set to SIZE, the
 response includes statistics about item collections, if any, that were modified
 during the operation are returned in the response. If set to NONE (the default),
 no statistics are returned. **/
@@ -3581,22 +3577,22 @@ no statistics are returned. **/
         /** An expression that defines one or more attributes to be updated, the action to
 be performed on them, and new value(s) for them.
 
-The following action values are available for UpdateExpression .
+The following action values are available for UpdateExpression.
 
- &amp;#42; SET - Adds one or more attributes and values to an item. If any of these
+ &amp;#42;   SET - Adds one or more attributes and values to an item. If any of these
    attribute already exist, they are replaced by the new values. You can also
    use SET to add or subtract from an attribute that is of type Number. For
-   example: SET myNum = myNum + :val
+   example: SET myNum = myNum + :val 
    
-   SET supports the following functions:
+    SET supports the following functions:
    
-    * if_not_exists (path, operand) - if the item does not contain an attribute
+    *   if_not_exists (path, operand) - if the item does not contain an attribute
       at the specified path, then if_not_exists evaluates to operand; otherwise,
       it evaluates to path. You can use this function to avoid overwriting an
       attribute that may already be present in the item.
       
       
-    * list_append (operand, operand) - evaluates to a list with a new element
+    *   list_append (operand, operand) - evaluates to a list with a new element
       added to it. You can append the new element to the start or the end of the
       list by reversing the order of the operands.
       
@@ -3605,14 +3601,14 @@ The following action values are available for UpdateExpression .
    These function names are case-sensitive.
    
    
- * REMOVE - Removes one or more attributes from an item.
+ *   REMOVE - Removes one or more attributes from an item.
    
    
- * ADD - Adds the specified value to the item, if the attribute does not already
-   exist. If the attribute does exist, then the behavior of ADD depends on the
-   data type of the attribute:
+ *   ADD - Adds the specified value to the item, if the attribute does not
+   already exist. If the attribute does exist, then the behavior of ADD depends
+   on the data type of the attribute:
    
-    * If the existing attribute is a number, and if Value is also a number, then 
+    *  If the existing attribute is a number, and if Value is also a number, then 
       Value is mathematically added to the existing attribute. If Value is a
       negative number, then it is subtracted from the existing attribute.
       
@@ -3622,18 +3618,18 @@ The following action values are available for UpdateExpression .
       Similarly, if you use ADD for an existing item to increment or decrement
       an attribute value that doesn&#x27;t exist before the update, DynamoDB uses 0 
       as the initial value. For example, suppose that the item you want to
-      update doesn&#x27;t have an attribute named itemcount , but you decide to ADD 
+      update doesn&#x27;t have an attribute named itemcount, but you decide to ADD 
       the number 3 to this attribute anyway. DynamoDB will create the itemcount 
-      attribute, set its initial value to 0 , and finally add 3 to it. The
-      result will be a new itemcount attribute in the item, with a value of 3 .
+      attribute, set its initial value to 0, and finally add 3 to it. The result
+      will be a new itemcount attribute in the item, with a value of 3.
       
       
-    * If the existing data type is a set and if Value is also a set, then Value 
+    *  If the existing data type is a set and if Value is also a set, then Value 
       is added to the existing set. For example, if the attribute value is the
-      set [1,2] , and the ADD action specified [3] , then the final attribute
-      value is [1,2,3] . An error occurs if an ADD action is specified for a set
+      set [1,2], and the ADD action specified [3], then the final attribute
+      value is [1,2,3]. An error occurs if an ADD action is specified for a set
       attribute and the attribute type specified does not match the existing set
-      type.
+      type. 
       
       Both sets must have the same primitive data type. For example, if the
       existing data type is a set of strings, the Value must also be a set of
@@ -3645,11 +3641,11 @@ The following action values are available for UpdateExpression .
    only be used on top-level attributes, not nested attributes.
    
    
- * DELETE - Deletes an element from a set.
+ *   DELETE - Deletes an element from a set.
    
    If a set of values is specified, then those values are subtracted from the
    old set. For example, if the attribute value was the set [a,b,c] and the 
-   DELETE action specifies [a,c] , then the final attribute value is [b] .
+   DELETE action specifies [a,c], then the final attribute value is [b].
    Specifying an empty set is an error.
    
    The DELETE action only supports set data types. In addition, DELETE can only
@@ -3658,44 +3654,44 @@ The following action values are available for UpdateExpression .
    
 
 You can have many actions in a single expression, such as the following: SET
-a=:value1, b=:value2 DELETE :value3, :value4, :value5
+a=:value1, b=:value2 DELETE :value3, :value4, :value5 
 
 For more information on update expressions, see Modifying Items and Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         UpdateExpression?: UpdateExpression;
         /** A condition that must be satisfied in order for a conditional update to succeed.
 
 An expression can contain any of the following:
 
- &amp;#42; Functions: attribute_exists | attribute_not_exists | attribute_type |
-   contains | begins_with | size
+ &amp;#42;  Functions: attribute_exists | attribute_not_exists | attribute_type |
+   contains | begins_with | size 
    
    These function names are case-sensitive.
    
    
- * Comparison operators: = | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN
+ *  Comparison operators: = | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN 
    
    
- * Logical operators: AND | OR | NOT
+ *   Logical operators: AND | OR | NOT 
    
    
 
 For more information on condition expressions, see Specifying Conditions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConditionExpression?: ConditionExpression;
         /** One or more substitution tokens for attribute names in an expression. The
-following are some use cases for using ExpressionAttributeNames :
+following are some use cases for using ExpressionAttributeNames:
 
- &amp;#42; To access an attribute whose name conflicts with a DynamoDB reserved word.
+ &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
    
    
- * To create a placeholder for repeating occurrences of an attribute name in an
+ *  To create a placeholder for repeating occurrences of an attribute name in an
    expression.
    
    
- * To prevent special characters in an attribute name from being misinterpreted
+ *  To prevent special characters in an attribute name from being misinterpreted
    in an expression.
    
    
@@ -3703,7 +3699,7 @@ following are some use cases for using ExpressionAttributeNames :
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
- * Percentile
+ *   Percentile 
    
    
 
@@ -3711,47 +3707,47 @@ The name of this attribute conflicts with a reserved word, so it cannot be used
 directly in an expression. (For the complete list of reserved words, see 
 Reserved Words
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
-in the Amazon DynamoDB Developer Guide ). To work around this, you could specify
-the following for ExpressionAttributeNames :
+in the Amazon DynamoDB Developer Guide). To work around this, you could specify
+the following for ExpressionAttributeNames:
 
- * {&quot;#P&quot;:&quot;Percentile&quot;}
+ *   {&quot;#P&quot;:&quot;Percentile&quot;} 
    
    
 
 You could then use this substitution in an expression, as in this example:
 
- * #P = :val
+ *   #P = :val 
    
    
 
-Tokens that begin with the : character are expression attribute values , which
+Tokens that begin with the : character are expression attribute values, which
 are placeholders for the actual value at runtime.
 
 For more information on expression attribute names, see Accessing Item
 Attributes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeNames?: ExpressionAttributeNameMap;
         /** One or more values that can be substituted in an expression.
 
 Use the : (colon) character in an expression to dereference an attribute value.
 For example, suppose that you wanted to check whether the value of the 
-ProductStatus attribute was one of the following:
+ProductStatus attribute was one of the following: 
 
-Available | Backordered | Discontinued
+ Available | Backordered | Discontinued 
 
 You would first need to specify ExpressionAttributeValues as follows:
 
-{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
-&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }
+ { &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;},
+&quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} } 
 
 You could then use these values in an expression, such as this:
 
-ProductStatus IN (:avail, :back, :disc)
+ ProductStatus IN (:avail, :back, :disc) 
 
 For more information on expression attribute values, see Specifying Conditions
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ExpressionAttributeValues?: ExpressionAttributeValueMap;
     }
     export interface UpdateItemOutput {
@@ -3765,7 +3761,7 @@ the table and any indexes involved in the operation. ConsumedCapacity is only
 returned if the ReturnConsumedCapacity parameter was specified. For more
 information, see Provisioned Throughput
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         ConsumedCapacity?: ConsumedCapacity;
         /** Information about item collections, if any, that were affected by the UpdateItem 
 operation. ItemCollectionMetrics is only returned if the 
@@ -3774,11 +3770,11 @@ any local secondary indexes, this information is not returned in the response.
 
 Each ItemCollectionMetrics element consists of:
 
- &amp;#42; ItemCollectionKey - The partition key value of the item collection. This is
+ &amp;#42;   ItemCollectionKey - The partition key value of the item collection. This is
    the same as the partition key value of the item itself.
    
    
- * SizeEstimateRange - An estimate of item collection size, in gigabytes. This
+ *   SizeEstimateRange - An estimate of item collection size, in gigabytes. This
    value is a two-element array containing a lower bound and an upper bound for
    the estimate. The estimate includes the size of all the items in the table,
    plus the size of all attributes projected into all of the local secondary
@@ -3801,20 +3797,20 @@ AttributeDefinitions must include the key element(s) of the new index. **/
         /** An array of one or more global secondary indexes for the table. For each index
 in the array, you can request one action:
 
- &amp;#42; Create - add a new global secondary index to the table.
+ &amp;#42;   Create - add a new global secondary index to the table.
    
    
- * Update - modify the provisioned throughput settings of an existing global
+ *   Update - modify the provisioned throughput settings of an existing global
    secondary index.
    
    
- * Delete - remove a global secondary index from the table.
+ *   Delete - remove a global secondary index from the table.
    
    
 
 For more information, see Managing Global Secondary Indexes
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html] 
-in the Amazon DynamoDB Developer Guide . **/
+in the Amazon DynamoDB Developer Guide. **/
         GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexUpdateList;
         /** Represents the DynamoDB Streams configuration for the table.
 

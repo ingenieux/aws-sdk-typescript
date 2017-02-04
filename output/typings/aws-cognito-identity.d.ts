@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon CognitoAmazon Cognito is a web service that delivers scoped temporary
+   * Amazon Cognito Amazon Cognito is a web service that delivers scoped temporary
 credentials to mobile devices and other untrusted environments. Amazon Cognito
 uniquely identifies a device and supplies the user with a consistent identity
 over the lifetime of an application.
@@ -26,29 +26,28 @@ unique identifier for each user and acts as an OpenID token provider trusted by
 AWS Security Token Service (STS) to access temporary, limited-privilege AWS
 credentials.
 
-To provide end-user credentials, first make an unsigned call to GetId . If the
+To provide end-user credentials, first make an unsigned call to GetId. If the
 end user is authenticated with one of the supported identity providers, set the 
 Logins map with the identity provider token. GetId returns a unique identifier
 for the user.
 
-Next, make an unsigned call to GetCredentialsForIdentity . This call expects the
+Next, make an unsigned call to GetCredentialsForIdentity. This call expects the
 same Logins map as the GetId call, as well as the IdentityID originally returned
-by GetId . Assuming your identity pool has been configured via the 
+by GetId. Assuming your identity pool has been configured via the 
 SetIdentityPoolRoles operation, GetCredentialsForIdentity will return AWS
 credentials for your use. If your pool has not been configured with 
-SetIdentityPoolRoles , or if you want to follow legacy flow, make an unsigned
-call to GetOpenIdToken , which returns the OpenID token necessary to call STS
-and retrieve AWS credentials. This call expects the same Logins map as the GetId 
-call, as well as the IdentityID originally returned by GetId . The token
-returned by GetOpenIdToken can be passed to the STS operation 
-AssumeRoleWithWebIdentity
+SetIdentityPoolRoles, or if you want to follow legacy flow, make an unsigned
+call to GetOpenIdToken, which returns the OpenID token necessary to call STS and
+retrieve AWS credentials. This call expects the same Logins map as the GetId 
+call, as well as the IdentityID originally returned by GetId. The token returned
+by GetOpenIdToken can be passed to the STS operation AssumeRoleWithWebIdentity
 [http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html] 
 to retrieve AWS credentials.
 
 If you want to use Amazon Cognito in an Android, iOS, or Unity application, you
 will probably want to make API calls via the AWS Mobile SDK. To learn more, see
 the AWS Mobile SDK Developer Guide
-[http://docs.aws.amazon.com/mobile/index.html] .
+[http://docs.aws.amazon.com/mobile/index.html].
    *
    */
   export class CognitoIdentity extends Service {
@@ -59,19 +58,19 @@ the AWS Mobile SDK Developer Guide
 information that is specific to your AWS account. The limit on identity pools is
 60 per account. The keys for SupportedLoginProviders are as follows:
 
- &amp;#42; Facebook: graph.facebook.com
+ &amp;#42;  Facebook: graph.facebook.com 
    
    
- * Google: accounts.google.com
+ *  Google: accounts.google.com 
    
    
- * Amazon: www.amazon.com
+ *  Amazon: www.amazon.com 
    
    
- * Twitter: api.twitter.com
+ *  Twitter: api.twitter.com 
    
    
- * Digits: www.digits.com
+ *  Digits: www.digits.com 
    
    
 
@@ -184,7 +183,7 @@ You must use AWS Developer credentials to call this API.
     getIdentityPoolRoles(params: CognitoIdentity.GetIdentityPoolRolesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.GetIdentityPoolRolesResponse|any) => void): Request<CognitoIdentity.GetIdentityPoolRolesResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
-returned by GetId . You can optionally add additional logins for the identity.
+returned by GetId. You can optionally add additional logins for the identity.
 Supplying multiple logins creates an implicit link.
 
 The OpenId token is valid for 15 minutes.
@@ -213,8 +212,8 @@ link new logins (that is, user credentials issued by a public provider or
 developer provider) to an existing identity. When you want to create a new
 identity, the IdentityId should be null. When you want to associate a new login
 with an existing authenticated/unauthenticated identity, you can do so by
-providing the existing IdentityId . This API will create the identity in the
-specified IdentityPoolId .
+providing the existing IdentityId. This API will create the identity in the
+specified IdentityPoolId.
 
 You must use AWS Developer credentials to call this API.
      *
@@ -252,11 +251,11 @@ You must use AWS Developer credentials to call this API.
     listIdentityPools(params: CognitoIdentity.ListIdentityPoolsInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.ListIdentityPoolsResponse|any) => void): Request<CognitoIdentity.ListIdentityPoolsResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Retrieves the IdentityID associated with a DeveloperUserIdentifier or the list
-of DeveloperUserIdentifier s associated with an IdentityId for an existing
+of DeveloperUserIdentifiers associated with an IdentityId for an existing
 identity. Either IdentityID or DeveloperUserIdentifier must not be null. If you
 supply only one of these values, the other value will be searched in the
 database and returned as a part of the response. If you supply both, 
-DeveloperUserIdentifier will be matched against IdentityID . If the values are
+DeveloperUserIdentifier will be matched against IdentityID. If the values are
 verified against the database, the response returns both values and is the same
 as the request. Otherwise a ResourceConflictException is thrown.
 
@@ -271,12 +270,12 @@ You must use AWS Developer credentials to call this API.
      */
     lookupDeveloperIdentity(params: CognitoIdentity.LookupDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.LookupDeveloperIdentityResponse|any) => void): Request<CognitoIdentity.LookupDeveloperIdentityResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
-     * Merges two users having different IdentityId s, existing in the same identity
+     * Merges two users having different IdentityIds, existing in the same identity
 pool, and identified by the same developer provider. You can use this action to
 request that discrete users be merged and identified as a single user in the
-Cognito environment. Cognito associates the given source user ( 
-SourceUserIdentifier ) with the IdentityId of the DestinationUserIdentifier .
-Only developer-authenticated users can be merged. If the users to be merged are
+Cognito environment. Cognito associates the given source user (
+SourceUserIdentifier) with the IdentityId of the DestinationUserIdentifier. Only
+developer-authenticated users can be merged. If the users to be merged are
 associated with the same public provider, but as two different users, an
 exception will be thrown.
 
@@ -450,7 +449,7 @@ You must use AWS Developer credentials to call this API.
 
     export interface CognitoIdentityProvider {
         /** The provider name for an Amazon Cognito Identity User Pool. For example, 
-cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789 . **/
+cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789. **/
         ProviderName?: CognitoIdentityProviderName;
         /** The client ID for the Amazon Cognito Identity User Pool. **/
         ClientId?: CognitoIdentityProviderClientId;
@@ -468,8 +467,8 @@ cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789 . **/
         SupportedLoginProviders?: IdentityProviders;
         /** The &quot;domain&quot; by which Cognito will refer to your users. This name acts as a
 placeholder that allows your backend and the Cognito service to communicate
-about the developer provider. For the DeveloperProviderName , you can use
-letters as well as period ( . ), underscore ( _ ), and dash ( - ).
+about the developer provider. For the DeveloperProviderName, you can use letters
+as well as period (.), underscore (_), and dash (-).
 
 Once you have set a developer provider name, you cannot change it. Please take
 care in setting this parameter. **/
@@ -546,23 +545,23 @@ support role customization. **/
         /** A set of optional name-value pairs that map provider names to provider tokens.
 The available provider names for Logins are as follows:
 
- &amp;#42; Facebook: graph.facebook.com
+ &amp;#42;  Facebook: graph.facebook.com 
    
    
- * Amazon Cognito Identity Provider: 
-   cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789
+ *  Amazon Cognito Identity Provider: 
+   cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789 
    
    
- * Google: accounts.google.com
+ *  Google: accounts.google.com 
    
    
- * Amazon: www.amazon.com
+ *  Amazon: www.amazon.com 
    
    
- * Twitter: api.twitter.com
+ *  Twitter: api.twitter.com 
    
    
- * Digits: www.digits.com **/
+ *  Digits: www.digits.com **/
         Logins?: LoginsMap;
     }
     export interface GetIdResponse {
@@ -580,7 +579,7 @@ The available provider names for Logins are as follows:
 unauthenticated roles are supported. **/
         Roles?: RolesMap;
         /** How users for a specific identity provider are to mapped to roles. This is a
-String-to- RoleMapping object map. The string identifies the identity provider,
+String-to-RoleMapping object map. The string identifies the identity provider,
 for example, &quot;graph.facebook.com&quot; or
 &quot;cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id&quot;. **/
         RoleMappings?: RoleMappingMap;
@@ -593,7 +592,7 @@ for example, &quot;graph.facebook.com&quot; or
         /** A set of optional name-value pairs that map provider names to provider tokens.
 Each name-value pair represents a user from a public provider or developer
 provider. If the user is from a developer provider, the name-value pair will
-follow the syntax &quot;developer_provider_name&quot;: &quot;developer_user_identifier&quot; . The
+follow the syntax &quot;developer_provider_name&quot;: &quot;developer_user_identifier&quot;. The
 developer provider is the &quot;domain&quot; by which Cognito will refer to your users;
 you provided this domain while creating/updating the identity pool. The
 developer user identifier is an identifier from your backend that uniquely
@@ -623,7 +622,7 @@ resources for the token&#x27;s duration. **/
 When using graph.facebook.com and www.amazon.com, supply the access_token
 returned from the provider&#x27;s authflow. For accounts.google.com, an Amazon
 Cognito Identity Provider, or any other OpenId Connect provider, always include
-the id_token . **/
+the id_token. **/
         Logins?: LoginsMap;
     }
     export interface GetOpenIdTokenResponse {
@@ -755,7 +754,7 @@ from the 11th match. **/
 &quot;paid&quot;. **/
         Claim: ClaimName;
         /** The match condition that specifies how closely the claim value in the IdP token
-must match Value . **/
+must match Value. **/
         MatchType: MappingRuleMatchType;
         /** A brief string that the claim must match, for example, &quot;paid&quot; or &quot;yes&quot;. **/
         Value: ClaimValue;
@@ -764,16 +763,16 @@ must match Value . **/
     }
     export interface MergeDeveloperIdentitiesInput {
         /** User identifier for the source user. The value should be a 
-DeveloperUserIdentifier . **/
+DeveloperUserIdentifier. **/
         SourceUserIdentifier: DeveloperUserIdentifier;
         /** User identifier for the destination user. The value should be a 
-DeveloperUserIdentifier . **/
+DeveloperUserIdentifier. **/
         DestinationUserIdentifier: DeveloperUserIdentifier;
         /** The &quot;domain&quot; by which Cognito will refer to your users. This is a (pseudo)
 domain name that you provide while creating an identity pool. This name acts as
 a placeholder that allows your backend and the Cognito service to communicate
-about the developer provider. For the DeveloperProviderName , you can use
-letters as well as period (.), underscore (_), and dash (-). **/
+about the developer provider. For the DeveloperProviderName, you can use letters
+as well as period (.), underscore (_), and dash (-). **/
         DeveloperProviderName: DeveloperProviderName;
         /** An identity pool ID in the format REGION:GUID. **/
         IdentityPoolId: IdentityPoolId;
@@ -799,7 +798,7 @@ letters as well as period (.), underscore (_), and dash (-). **/
 claims from the Cognito identity provider token to map groups to roles. Rules
 will attempt to match claims from the token to map to a role. **/
         Type: RoleMappingType;
-        /** If you specify Token or Rules as the Type , AmbiguousRoleResolution is required.
+        /** If you specify Token or Rules as the Type, AmbiguousRoleResolution is required.
 
 Specifies the action to be taken if either no rules match the claim value for
 the Rules type, or there is no cognito:preferred_role claim and there are

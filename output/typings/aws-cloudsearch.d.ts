@@ -14,16 +14,16 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * Amazon CloudSearch Configuration ServiceYou use the Amazon CloudSearch
+   * Amazon CloudSearch Configuration Service You use the Amazon CloudSearch
 configuration service to create, configure, and manage search domains.
 Configuration service requests are submitted using the AWS Query protocol. AWS
 Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a
 query parameter named Action.
 
-The endpoint for configuration service requests is region-specific: cloudsearch. 
-region .amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a
+The endpoint for configuration service requests is region-specific: cloudsearch.
+region.amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a
 current list of supported regions and endpoints, see Regions and Endpoints
-[http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region] .
+[http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region].
    *
    */
   export class CloudSearch extends Service {
@@ -32,12 +32,12 @@ current list of supported regions and endpoints, see Regions and Endpoints
     /**
      * Indexes the search suggestions. For more information, see Configuring Suggesters
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
@@ -45,12 +45,12 @@ not exist.
     /**
      * Creates a new search domain. For more information, see Creating a Search Domain
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      */
     createDomain(params: CloudSearch.CreateDomainRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|any, data: CloudSearch.CreateDomainResponse|any) => void): Request<CloudSearch.CreateDomainResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|any>;
@@ -59,12 +59,12 @@ persists, report an issue from the Service Health Dashboard
 to define language-specific text processing options. For more information, see 
 Configuring Analysis Schemes
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
@@ -76,12 +76,12 @@ not exist.
 and modify existing ones. If the expression exists, the new configuration
 replaces the old one. For more information, see Configuring Expressions
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
@@ -94,15 +94,15 @@ modify existing ones. You must specify the name of the domain you are
 configuring and an index field configuration. The index field configuration
 specifies a unique name, the index field type, and the options you want to
 configure for the field. The options you can specify depend on the 
-IndexFieldType . If the field exists, the new configuration replaces the old
-one. For more information, see Configuring Index Fields
+IndexFieldType. If the field exists, the new configuration replaces the old one.
+For more information, see Configuring Index Fields
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
@@ -116,12 +116,12 @@ suggester, you must specify the name of the text field you want to search for
 possible matches and a unique name for the suggester. For more information, see 
 Getting Search Suggestions
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
@@ -132,12 +132,12 @@ not exist.
      * Deletes an analysis scheme. For more information, see Configuring Analysis
 Schemes
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
@@ -148,24 +148,24 @@ not exist.
 deleted, it cannot be recovered. For more information, see Deleting a Search
 Domain
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      */
     deleteDomain(params: CloudSearch.DeleteDomainRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|any, data: CloudSearch.DeleteDomainResponse|any) => void): Request<CloudSearch.DeleteDomainResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|any>;
     /**
      * Removes an Expression from the search domain. For more information, see 
 Configuring Expressions
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
@@ -175,12 +175,12 @@ not exist.
      * Removes an IndexField from the search domain. For more information, see 
 Configuring Index Fields
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
@@ -189,12 +189,12 @@ not exist.
     /**
      * Deletes a suggester. For more information, see Getting Search Suggestions
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
@@ -208,12 +208,12 @@ includes any pending changes to the configuration. Set the Deployed option to
 true to show the active configuration and exclude pending changes. For more
 information, see Configuring Analysis Schemes
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
@@ -224,12 +224,12 @@ configuration with any pending changes. Set the Deployed option to true to show
 the active configuration and exclude pending changes. For more information, see 
 Configuring Availability Options
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
@@ -241,15 +241,15 @@ not exist.
      * Gets information about the search domains owned by this account. Can be limited
 to specific domains. Shows all domains by default. To get the number of
 searchable documents in a domain, use the console or submit a matchall request
-to your domain&#x27;s search endpoint: q=matchall&amp;amp;q.parser=structured&amp;amp;size=0 
-. For more information, see Getting Information about a Search Domain
+to your domain&#x27;s search endpoint: q=matchall&amp;amp;q.parser=structured&amp;amp;size=0.
+For more information, see Getting Information about a Search Domain
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      */
     describeDomains(params: CloudSearch.DescribeDomainsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|any, data: CloudSearch.DescribeDomainsResponse|any) => void): Request<CloudSearch.DescribeDomainsResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|any>;
     /**
@@ -259,12 +259,12 @@ pending changes to the configuration. Set the Deployed option to true to show
 the active configuration and exclude pending changes. For more information, see 
 Configuring Expressions
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
@@ -276,12 +276,12 @@ any pending changes to the configuration. Set the Deployed option to true to
 show the active configuration and exclude pending changes. For more information,
 see Getting Domain Information
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
@@ -291,12 +291,12 @@ not exist.
 parameters specify the desired search instance type and replication count. For
 more information, see Configuring Scaling Options
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
@@ -308,12 +308,12 @@ pending changes. Set the Deployed option to true to show the active
 configuration and exclude pending changes. For more information, see Configuring
 Access for a Search Domain
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
@@ -326,12 +326,12 @@ pending changes to the configuration. Set the Deployed option to true to show
 the active configuration and exclude pending changes. For more information, see 
 Getting Search Suggestions
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
@@ -339,12 +339,12 @@ not exist.
     /**
      * Tells the search domain to start indexing its documents using the latest
 indexing options. This operation must be invoked to activate options whose 
-OptionStatus is RequiresIndexDocuments .
+OptionStatus is RequiresIndexDocuments.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
@@ -362,12 +362,12 @@ same Region to increase fault tolerance in the event of a service disruption.
 Changes to the Multi-AZ option can take about half an hour to become active. For
 more information, see Configuring Availability Options
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
@@ -383,12 +383,12 @@ data and traffic, but not below the desired instance type and replication count.
 If the Multi-AZ option is enabled, these values control the resources used per
 Availability Zone. For more information, see Configuring Scaling Options
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html] 
-in the Amazon CloudSearch Developer Guide .
+in the Amazon CloudSearch Developer Guide.
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
@@ -399,13 +399,13 @@ not exist.
      * Configures the access rules that control access to the domain&#x27;s document and
 search endpoints. For more information, see Configuring Access for an Amazon
 CloudSearch Domain
-[http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html] 
+[http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html]
 .
      *
      * @error BaseException An error occurred while processing the request.  
      * @error InternalException An internal error occurred while processing the request. If this problem
 persists, report an issue from the Service Health Dashboard
-[http://status.aws.amazon.com/] .  
+[http://status.aws.amazon.com/].  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
@@ -517,15 +517,15 @@ for that term. An alias is considered a synonym of the specified term, but the
 term is not considered a synonym of the alias. For more information about
 specifying synonyms, see Synonyms
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms] 
-in the Amazon CloudSearch Developer Guide . **/
+in the Amazon CloudSearch Developer Guide. **/
         Synonyms?: String;
         /** A JSON array of terms to ignore during indexing and searching. For example, 
-[&quot;a&quot;, &quot;an&quot;, &quot;the&quot;, &quot;of&quot;] . The stopwords dictionary must explicitly list each
+[&quot;a&quot;, &quot;an&quot;, &quot;the&quot;, &quot;of&quot;]. The stopwords dictionary must explicitly list each
 word you want to ignore. Wildcards and regular expressions are not supported. **/
         Stopwords?: String;
         /** A JSON object that contains a collection of string:value pairs that each map a
 term to its stem. For example, {&quot;term1&quot;: &quot;stem1&quot;, &quot;term2&quot;: &quot;stem2&quot;, &quot;term3&quot;:
-&quot;stem3&quot;} . The stemming dictionary is applied in addition to any algorithmic
+&quot;stem3&quot;}. The stemming dictionary is applied in addition to any algorithmic
 stemming. This enables you to override the results of the algorithmic stemming
 to correct specific cases of overstemming or understemming. The maximum size of
 a stemming dictionary is 500 KB. **/
@@ -535,8 +535,8 @@ speech for Japanese Tokenizaiton. The Japanese tokenization dictionary enables
 you to override the default tokenization for selected terms. This is only valid
 for Japanese language fields. **/
         JapaneseTokenizationDictionary?: String;
-        /** The level of algorithmic stemming to perform: none , minimal , light , or full .
-The available levels vary depending on the language. For more information, see 
+        /** The level of algorithmic stemming to perform: none, minimal, light, or full. The
+available levels vary depending on the language. For more information, see 
 Language Specific Text Processing Settings
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings] 
 in the Amazon CloudSearch Developer Guide **/
@@ -678,8 +678,8 @@ options. **/
         DomainName: DomainName;
         /** The analysis schemes you want to describe. **/
         AnalysisSchemeNames?: StandardNameList;
-        /** Whether to display the deployed configuration ( true ) or include any pending
-changes ( false ). Defaults to false . **/
+        /** Whether to display the deployed configuration (true) or include any pending
+changes (false). Defaults to false. **/
         Deployed?: Boolean;
     }
     export interface DescribeAnalysisSchemesResponse {
@@ -689,8 +689,8 @@ changes ( false ). Defaults to false . **/
     export interface DescribeAvailabilityOptionsRequest {
         /** The name of the domain you want to describe. **/
         DomainName: DomainName;
-        /** Whether to display the deployed configuration ( true ) or include any pending
-changes ( false ). Defaults to false . **/
+        /** Whether to display the deployed configuration (true) or include any pending
+changes (false). Defaults to false. **/
         Deployed?: Boolean;
     }
     export interface DescribeAvailabilityOptionsResponse {
@@ -711,8 +711,8 @@ is enabled for the domain. **/
         /** Limits the DescribeExpressions response to the specified expressions. If not
 specified, all expressions are shown. **/
         ExpressionNames?: StandardNameList;
-        /** Whether to display the deployed configuration ( true ) or include any pending
-changes ( false ). Defaults to false . **/
+        /** Whether to display the deployed configuration (true) or include any pending
+changes (false). Defaults to false. **/
         Deployed?: Boolean;
     }
     export interface DescribeExpressionsResponse {
@@ -725,8 +725,8 @@ changes ( false ). Defaults to false . **/
         /** A list of the index fields you want to describe. If not specified, information
 is returned for all configured index fields. **/
         FieldNames?: DynamicFieldNameList;
-        /** Whether to display the deployed configuration ( true ) or include any pending
-changes ( false ). Defaults to false . **/
+        /** Whether to display the deployed configuration (true) or include any pending
+changes (false). Defaults to false. **/
         Deployed?: Boolean;
     }
     export interface DescribeIndexFieldsResponse {
@@ -742,8 +742,8 @@ changes ( false ). Defaults to false . **/
     export interface DescribeServiceAccessPoliciesRequest {
         /** The name of the domain you want to describe. **/
         DomainName: DomainName;
-        /** Whether to display the deployed configuration ( true ) or include any pending
-changes ( false ). Defaults to false . **/
+        /** Whether to display the deployed configuration (true) or include any pending
+changes (false). Defaults to false. **/
         Deployed?: Boolean;
     }
     export interface DescribeServiceAccessPoliciesResponse {
@@ -755,8 +755,8 @@ changes ( false ). Defaults to false . **/
         DomainName: DomainName;
         /** The suggesters you want to describe. **/
         SuggesterNames?: StandardNameList;
-        /** Whether to display the deployed configuration ( true ) or include any pending
-changes ( false ). Defaults to false . **/
+        /** Whether to display the deployed configuration (true) or include any pending
+changes (false). Defaults to false. **/
         Deployed?: Boolean;
     }
     export interface DescribeSuggestersResponse {
@@ -768,8 +768,8 @@ changes ( false ). Defaults to false . **/
     export interface DocumentSuggesterOptions {
         /** The name of the index field you want to use for suggestions. **/
         SourceField: FieldName;
-        /** The level of fuzziness allowed when suggesting matches for a string: none , low 
-, or high . With none, the specified string is treated as an exact prefix. With
+        /** The level of fuzziness allowed when suggesting matches for a string: none, low,
+or high. With none, the specified string is treated as an exact prefix. With
 low, suggestions must differ from the specified string by no more than one
 character. With high, suggestions can differ by up to two characters. The
 default is none. **/
@@ -863,16 +863,16 @@ not present in every document. **/
 regular index fields as well as dynamic fields. A dynamic field&#x27;s name defines a
 pattern that begins or ends with a wildcard. Any document fields that don&#x27;t map
 to a regular index field but do match a dynamic field&#x27;s pattern are configured
-with the dynamic field&#x27;s indexing options.
+with the dynamic field&#x27;s indexing options. 
 
 Regular field names begin with a letter and can contain the following
 characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must
 begin or end with a wildcard (&amp;#42;). The wildcard can also be the only character in
 a dynamic field name. Multiple wildcards, and wildcards embedded within a string
-are not supported.
+are not supported. 
 
 The name score is reserved and cannot be used as a field name. To reference a
-document&#x27;s ID, you can use the name _id . **/
+document&#x27;s ID, you can use the name _id. **/
         IndexFieldName: DynamicFieldName;
         IndexFieldType: IndexFieldType;
         IntOptions?: IntOptions;
@@ -980,11 +980,11 @@ not present in every document. **/
         UpdateVersion?: UIntValue;
         /** The state of processing a change to an option. Possible values:
 
- &amp;#42; RequiresIndexDocuments : the option&#x27;s latest value will not be deployed until 
+ &amp;#42;  RequiresIndexDocuments: the option&#x27;s latest value will not be deployed until 
    IndexDocuments has been called and indexing is complete.
- * Processing : the option&#x27;s latest value is in the process of being activated.
- * Active : the option&#x27;s latest value is completely deployed.
- * FailedToValidate : the option value is not compatible with the domain&#x27;s data
+ *  Processing: the option&#x27;s latest value is in the process of being activated. 
+ *  Active: the option&#x27;s latest value is completely deployed.
+ *  FailedToValidate: the option value is not compatible with the domain&#x27;s data
    and cannot be used to index the data. You must either modify the option value
    or update or remove the incompatible documents. **/
         State: OptionState;
@@ -995,7 +995,7 @@ not present in every document. **/
     }
     export interface ScalingParameters {
         /** The instance type that you want to preconfigure for your domain. For example, 
-search.m1.small . **/
+search.m1.small. **/
         DesiredInstanceType?: PartitionInstanceType;
         /** The number of replicas you want to preconfigure for each index partition. **/
         DesiredReplicationCount?: UIntValue;
@@ -1048,7 +1048,7 @@ when you select m2.2xlarge as the desired instance type. **/
         /** You expand an existing search domain to a second Availability Zone by setting
 the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to
 downgrade the domain to a single Availability Zone by setting the Multi-AZ
-option to false . **/
+option to false. **/
         MultiAZ: Boolean;
     }
     export interface UpdateAvailabilityOptionsResponse {

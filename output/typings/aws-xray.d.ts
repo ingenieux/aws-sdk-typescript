@@ -50,7 +50,7 @@ resources, HTTP web APIs, or SQL databases.
     getTraceGraph(params: XRay.GetTraceGraphRequest, callback?: (err: XRay.InvalidRequestException|XRay.ThrottledException|any, data: XRay.GetTraceGraphResult|any) => void): Request<XRay.GetTraceGraphResult|any,XRay.InvalidRequestException|XRay.ThrottledException|any>;
     /**
      * Retrieves IDs and metadata for traces available for a specified time frame using
-an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces 
+an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces
 .
      *
      * @error InvalidRequestException   
@@ -320,30 +320,30 @@ recent results, closest to the end of the time frame. **/
         /** A JSON document defining one or more segments or subsegments. Segments must
 include the following fields.
 
-Required Segment Document Fields
+ Required Segment Document Fields 
 
- &amp;#42; name - The name of the service that handled the request.
+ &amp;#42;   name - The name of the service that handled the request.
    
    
- * id - A 64-bit identifier for the segment, unique among segments in the same
+ *   id - A 64-bit identifier for the segment, unique among segments in the same
    trace, in 16 hexadecimal digits.
    
    
- * trace_id - A unique identifier that connects all segments and subsegments
+ *   trace_id - A unique identifier that connects all segments and subsegments
    originating from a single client request.
    
    
- * start_time - Time the segment or subsegment was created, in floating point
+ *   start_time - Time the segment or subsegment was created, in floating point
    seconds in epoch time, accurate to milliseconds. For example, 1480615200.010 
-   or 1.480615200010E9 .
+   or 1.480615200010E9.
    
    
- * end_time - Time the segment or subsegment was closed. For example, 
-   1480615200.090 or 1.480615200090E9 . Specify either an end_time or 
-   in_progress .
+ *   end_time - Time the segment or subsegment was closed. For example, 
+   1480615200.090 or 1.480615200090E9. Specify either an end_time or in_progress
+   .
    
    
- * in_progress - Set to true instead of specifying an end_time to record that a
+ *   in_progress - Set to true instead of specifying an end_time to record that a
    segment has been started, but is not complete. Send an in progress segment
    when your application receives a request that will take a long time to serve,
    to trace the fact that the request was received. When the response is sent,
@@ -354,17 +354,18 @@ Required Segment Document Fields
 A trace_id consists of three numbers separated by hyphens. For example,
 1-58406520-a006649127e371903a2de979. This includes:
 
-Trace ID Format
+ Trace ID Format 
 
- * The version number, i.e. 1 .
+ *  The version number, i.e. 1.
    
    
- * The time of the original request, in Unix epoch time, in 8 hexadecimal
+ *  The time of the original request, in Unix epoch time, in 8 hexadecimal
    digits. For example, 10:00AM December 2nd, 2016 PST in epoch time is 
    1480615200 seconds, or 58406520 in hexadecimal.
    
    
- * A 96-bit identifier for the trace, globally unique, in 24 hexadecimal digits. **/
+ *  A 96-bit identifier for the trace, globally unique, in 24 hexadecimal
+   digits. **/
         TraceSegmentDocuments: TraceSegmentDocumentList;
     }
     export interface PutTraceSegmentsResult {
@@ -390,19 +391,19 @@ Trace ID Format
         AccountId?: String;
         /** The type of service.
 
- &amp;#42; AWS Resource - The type of an AWS resource. For example, AWS::EC2::Instance 
+ &amp;#42;  AWS Resource - The type of an AWS resource. For example, AWS::EC2::Instance 
    for a application running on Amazon EC2 or AWS::DynamoDB::Table for an Amazon
    DynamoDB table that the application used.
    
    
- * AWS Service - The type of an AWS service. For example, AWS::DynamoDB for
+ *  AWS Service - The type of an AWS service. For example, AWS::DynamoDB for
    downstream calls to Amazon DynamoDB that didn&#x27;t target a specific table.
    
    
- * client - Represents the clients that sent requests to a root service.
+ *   client - Represents the clients that sent requests to a root service.
    
    
- * remote - A downstream service of indeterminate type. **/
+ *   remote - A downstream service of indeterminate type. **/
         Type?: String;
         /** The service&#x27;s state. **/
         State?: String;

@@ -82,14 +82,15 @@ disabled, the alarm actions do not execute when the alarm state changes.
 
 Amazon CloudWatch retains metric data as follows:
 
- &amp;#42; Data points with a period of 60 seconds (1 minute) are available for 15 days
+ &amp;#42;  Data points with a period of 60 seconds (1 minute) are available for 15 days
    
    
- * Data points with a period of 300 seconds (5 minute) are available for 63 days
+ *  Data points with a period of 300 seconds (5 minute) are available for 63
+   days
    
    
- * Data points with a period of 3600 seconds (1 hour) are available for 455 days
-   (15 months)
+ *  Data points with a period of 3600 seconds (1 hour) are available for 455
+   days (15 months)
    
    
 
@@ -112,7 +113,7 @@ is larger than the number of data points returned.
 For a list of metrics and dimensions supported by AWS services, see the Amazon
 CloudWatch Metrics and Dimensions Reference
 [http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html] 
-in the Amazon CloudWatch User Guide .
+in the Amazon CloudWatch User Guide.
      *
      * @error InvalidParameterValueException   
      * @error MissingRequiredParameterException   
@@ -129,7 +130,7 @@ use the returned token with subsequent calls.
 
 After you create a metric, allow up to fifteen minutes before the metric
 appears. Statistics about the metric, however, are available sooner using 
-GetMetricStatistics .
+GetMetricStatistics.
      *
      * @error InternalServiceFault   
      * @error InvalidParameterValueException   
@@ -141,7 +142,7 @@ Optionally, this operation can associate one or more Amazon SNS resources with
 the alarm.
 
 When this operation creates an alarm, the alarm state is immediately set to 
-INSUFFICIENT_DATA . The alarm is evaluated and its state is set appropriately.
+INSUFFICIENT_DATA. The alarm is evaluated and its state is set appropriately.
 Any actions associated with the state are then executed.
 
 When you update an existing alarm, its state is left unchanged, but the update
@@ -150,17 +151,17 @@ completely overwrites the previous configuration of the alarm.
 If you are an AWS Identity and Access Management (IAM) user, you must have
 Amazon EC2 permissions for some operations:
 
- &amp;#42; ec2:DescribeInstanceStatus and ec2:DescribeInstances for all alarms on EC2
+ &amp;#42;   ec2:DescribeInstanceStatus and ec2:DescribeInstances for all alarms on EC2
    instance status metrics
    
    
- * ec2:StopInstances for alarms with stop actions
+ *   ec2:StopInstances for alarms with stop actions
    
    
- * ec2:TerminateInstances for alarms with terminate actions
+ *   ec2:TerminateInstances for alarms with terminate actions
    
    
- * ec2:DescribeInstanceRecoveryAttribute and ec2:RecoverInstances for alarms
+ *   ec2:DescribeInstanceRecoveryAttribute and ec2:RecoverInstances for alarms
    with recover actions
    
    
@@ -192,12 +193,12 @@ using a command-line interface or an API.
 the data points with the specified metric. If the specified metric does not
 exist, Amazon CloudWatch creates the metric. When Amazon CloudWatch creates a
 metric, it can take up to fifteen minutes for the metric to appear in calls to 
-ListMetrics .
+ListMetrics.
 
 Each PutMetricData request is limited to 8 KB in size for HTTP GET requests and
 is limited to 40 KB in size for HTTP POST requests.
 
-Although the Value parameter accepts numbers of type Double , Amazon CloudWatch
+Although the Value parameter accepts numbers of type Double, Amazon CloudWatch
 rejects values that are either too small or too large. Values must be in the
 range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
 In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
@@ -220,7 +221,7 @@ message when an alarm is triggered, temporarily changing the alarm state to
 ALARM sends an Amazon SNS message. The alarm returns to its actual state (often
 within seconds). Because the alarm state change happens very quickly, it is
 typically only visible in the alarm&#x27;s History tab in the Amazon CloudWatch
-console or through DescribeAlarmHistory .
+console or through DescribeAlarmHistory.
      *
      * @error ResourceNotFound   
      * @error InvalidFormatFault   
@@ -381,7 +382,7 @@ available. **/
         /** The namespace of the metric. **/
         Namespace: Namespace;
         /** The statistic for the metric, other than percentiles. For percentile statistics,
-use ExtendedStatistics . **/
+use ExtendedStatistics. **/
         Statistic?: Statistic;
         /** The percentile statistic for the metric. Specify a value between p0.0 and p100. **/
         ExtendedStatistic?: ExtendedStatistic;
@@ -450,7 +451,7 @@ that were not specially published. You must specify the same dimensions that
 were used when the metrics were created. For an example, see Dimension
 Combinations
 [http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations] 
-in the Amazon CloudWatch User Guide . **/
+in the Amazon CloudWatch User Guide. **/
         Dimensions?: Dimensions;
         /** The time stamp that determines the first data point to return. Note that start
 times are evaluated relative to the time that CloudWatch receives the request.
@@ -461,15 +462,15 @@ time stamp. The time stamp must be in ISO 8601 UTC format (for example,
 
 CloudWatch rounds the specified time stamp as follows:
 
- &amp;#42; Start time less than 15 days ago - Round down to the nearest whole minute.
+ &amp;#42;  Start time less than 15 days ago - Round down to the nearest whole minute.
    For example, 12:32:34 is rounded down to 12:32:00.
    
    
- * Start time between 15 and 63 days ago - Round down to the nearest 5-minute
+ *  Start time between 15 and 63 days ago - Round down to the nearest 5-minute
    clock interval. For example, 12:32:34 is rounded down to 12:30:00.
    
    
- * Start time greater than 63 days ago - Round down to the nearest 1-hour clock
+ *  Start time greater than 63 days ago - Round down to the nearest 1-hour clock
    interval. For example, 12:32:34 is rounded down to 12:00:00. **/
         StartTime: Timestamp;
         /** The time stamp that determines the last data point to return.
@@ -486,15 +487,15 @@ If the StartTime parameter specifies a time stamp that is greater than 15 days
 ago, you must specify the period as follows or no data points in that time range
 is returned:
 
- &amp;#42; Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5
+ &amp;#42;  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5
    minutes).
    
    
- * Start time greater than 63 days ago - Use a multiple of 3600 seconds (1
+ *  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1
    hour). **/
         Period: Period;
         /** The metric statistics, other than percentile. For percentile statistics, use 
-ExtendedStatistic . **/
+ExtendedStatistic. **/
         Statistics?: Statistics;
         /** The percentile statistics. Specify values between p0.0 and p100. **/
         ExtendedStatistics?: ExtendedStatistics;
@@ -593,7 +594,7 @@ state from any other state. Each action is specified as an Amazon Resource Name
         /** The namespace of the metric associated with the alarm. **/
         Namespace?: Namespace;
         /** The statistic for the metric associated with the alarm, other than percentile.
-For percentile statistics, use ExtendedStatistic . **/
+For percentile statistics, use ExtendedStatistic. **/
         Statistic?: Statistic;
         /** The percentile statistic for the metric associated with the alarm. Specify a
 value between p0.0 and p100. **/
@@ -648,38 +649,38 @@ state. **/
         /** The actions to execute when this alarm transitions to an OK state from any other
 state. Each action is specified as an Amazon Resource Name (ARN).
 
-Valid Values: arn:aws:automate: region :ec2:stop | arn:aws:automate: region 
-:ec2:terminate | arn:aws:automate: region :ec2:recover
+Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region
+:ec2:terminate | arn:aws:automate:region:ec2:recover
 
-Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{ customer-account 
-}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{ 
-customer-account }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 |
-arn:aws:swf:us-east-1:{ customer-account 
+Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{customer-account
+}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{
+customer-account}:action/actions/AWS_EC2.InstanceId.Terminate/1.0 |
+arn:aws:swf:us-east-1:{customer-account
 }:action/actions/AWS_EC2.InstanceId.Reboot/1.0 **/
         OKActions?: ResourceList;
         /** The actions to execute when this alarm transitions to the ALARM state from any
 other state. Each action is specified as an Amazon Resource Name (ARN).
 
-Valid Values: arn:aws:automate: region :ec2:stop | arn:aws:automate: region 
-:ec2:terminate | arn:aws:automate: region :ec2:recover
+Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region
+:ec2:terminate | arn:aws:automate:region:ec2:recover
 
-Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{ customer-account 
-}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{ 
-customer-account }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 |
-arn:aws:swf:us-east-1:{ customer-account 
+Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{customer-account
+}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{
+customer-account}:action/actions/AWS_EC2.InstanceId.Terminate/1.0 |
+arn:aws:swf:us-east-1:{customer-account
 }:action/actions/AWS_EC2.InstanceId.Reboot/1.0 **/
         AlarmActions?: ResourceList;
         /** The actions to execute when this alarm transitions to the INSUFFICIENT_DATA 
 state from any other state. Each action is specified as an Amazon Resource Name
 (ARN).
 
-Valid Values: arn:aws:automate: region :ec2:stop | arn:aws:automate: region 
-:ec2:terminate | arn:aws:automate: region :ec2:recover
+Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region
+:ec2:terminate | arn:aws:automate:region:ec2:recover
 
-Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{ customer-account 
-}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{ 
-customer-account }:action/actions/AWS_EC2.InstanceId.Terminate/1.0 |
-arn:aws:swf:us-east-1:{ customer-account 
+Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{customer-account
+}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:us-east-1:{
+customer-account}:action/actions/AWS_EC2.InstanceId.Terminate/1.0 |
+arn:aws:swf:us-east-1:{customer-account
 }:action/actions/AWS_EC2.InstanceId.Reboot/1.0 **/
         InsufficientDataActions?: ResourceList;
         /** The name for the metric associated with the alarm. **/
@@ -687,7 +688,7 @@ arn:aws:swf:us-east-1:{ customer-account
         /** The namespace for the metric associated with the alarm. **/
         Namespace: Namespace;
         /** The statistic for the metric associated with the alarm, other than percentile.
-For percentile statistics, use ExtendedStatistic . **/
+For percentile statistics, use ExtendedStatistic. **/
         Statistic?: Statistic;
         /** The percentile statistic for the metric associated with the alarm. Specify a
 value between p0.0 and p100. **/

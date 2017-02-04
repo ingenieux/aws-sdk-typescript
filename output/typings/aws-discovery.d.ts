@@ -14,7 +14,7 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Application Discovery ServiceAWS Application Discovery Service helps you
+   * AWS Application Discovery Service AWS Application Discovery Service helps you
 plan application migration projects by automatically identifying servers,
 virtual machines (VMs), software, and software dependencies running in your
 on-premises data centers. Application Discovery Service also collects
@@ -24,11 +24,11 @@ retained in an Amazon-hosted and managed database in the cloud. You can export
 the data as a CSV or XML file into your preferred visualization tool or
 cloud-migration solution to plan your migration. For more information, see the
 Application Discovery Service FAQ
-[http://aws.amazon.com/application-discovery/faqs/] .
+[http://aws.amazon.com/application-discovery/faqs/].
 
 Application Discovery Service offers two modes of operation.
 
- &amp;#42; Agentless discovery mode is recommended for environments that use VMware
+ &amp;#42;   Agentless discovery mode is recommended for environments that use VMware
    vCenter Server. This mode doesn&#x27;t require you to install an agent on each
    host. Agentless discovery gathers server information regardless of the
    operating systems, which minimizes the time required for initial on-premises
@@ -42,14 +42,14 @@ Application Discovery Service offers two modes of operation.
    information about software and software dependencies.
    
    
- * Agent-based discovery mode collects a richer set of data than agentless
+ *   Agent-based discovery mode collects a richer set of data than agentless
    discovery by using Amazon software, the AWS Application Discovery Agent,
    which you install on one or more hosts in your data center. The agent
    captures infrastructure and application information, including an inventory
    of installed software applications, system and process performance, resource
    utilization, and network dependencies between workloads. The information
    collected by agents is secured at rest and in transit to the Application
-   Discovery Service database in the cloud.
+   Discovery Service database in the cloud. 
    
    
 
@@ -60,14 +60,14 @@ Discovery Service database using a public API. You can then import the data into
 either a visualization tool or cloud-migration solution.
 
 Application Discovery Service doesn&#x27;t gather sensitive information. All data is
-handled according to the AWS Privacy Policy [http://aws.amazon.com/privacy/] .
+handled according to the AWS Privacy Policy [http://aws.amazon.com/privacy/].
 You can operate Application Discovery Service using offline mode to inspect
 collected data before it is shared with the service.
 
 Your AWS account must be granted access to Application Discovery Service, a
-process called whitelisting . This is true for AWS partners and customers alike.
+process called whitelisting. This is true for AWS partners and customers alike.
 To request access, sign up for the AWS Application Discovery Service here
-[http://aws.amazon.com/application-discovery/preview/] . We will send you
+[http://aws.amazon.com/application-discovery/preview/]. We will send you
 information about how to get started.
 
 This API reference provides descriptions, syntax, and usage examples for each of
@@ -75,10 +75,10 @@ the actions and data types for the Application Discovery Service. The topic for
 each action shows the API request parameters and the response. Alternatively,
 you can use one of the AWS SDKs to access an API that is tailored to the
 programming language or platform that you&#x27;re using. For more information, see 
-AWS SDKs [http://aws.amazon.com/tools/#SDKs] .
+AWS SDKs [http://aws.amazon.com/tools/#SDKs].
 
 This guide is intended for use with the AWS Application Discovery Service User
-Guide [http://docs.aws.amazon.com/application-discovery/latest/userguide/] .
+Guide [http://docs.aws.amazon.com/application-discovery/latest/userguide/].
    *
    */
   export class Discovery extends Service {
@@ -153,7 +153,7 @@ the server, such as host name, operating system, and number of network cards.
 
 For a complete list of outputs for each asset type, see Querying Discovered
 Configuration Items
-[http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#DescribeConfigurations] 
+[http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#DescribeConfigurations]
 .
      *
      * @error AuthorizationErrorException   
@@ -412,9 +412,9 @@ server or virtual machine. **/
         /** The configuration ID for the item you want to tag. You can specify a list of
 keys and values. **/
         configurationId?: ConfigurationId;
-        /** A type of tag to filter on. For example, serverType . **/
+        /** A type of tag to filter on. For example, serverType. **/
         key?: TagKey;
-        /** A value to filter on. For example key = serverType and value = web server . **/
+        /** A value to filter on. For example key = serverType and value = web server. **/
         value?: TagValue;
         /** The time the configuration tag was created in Coordinated Universal Time (UTC). **/
         timeOfCreation?: TimeStamp;
@@ -433,9 +433,9 @@ keys and values. **/
         /** A list of configuration items that you want to tag. **/
         configurationIds: ConfigurationIdList;
         /** Tags that you want to associate with one or more configuration items. Specify
-the tags that you want to create in a key - value format. For example:
+the tags that you want to create in a key-value format. For example:
 
-{&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;} **/
+ {&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;} **/
         tags: TagSet;
     }
     export interface CreateTagsResponse {
@@ -482,9 +482,9 @@ the tags that you want to create in a key - value format. For example:
         /** A list of configuration items with tags that you want to delete. **/
         configurationIds: ConfigurationIdList;
         /** Tags that you want to delete from one or more configuration items. Specify the
-tags that you want to delete in a key - value format. For example:
+tags that you want to delete in a key-value format. For example:
 
-{&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;} **/
+ {&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;} **/
         tags?: TagSet;
     }
     export interface DeleteTagsResponse {
@@ -494,15 +494,15 @@ tags that you want to delete in a key - value format. For example:
 IDs, the system returns information about all agents/Connectors associated with
 your AWS user account. **/
         agentIds?: AgentIds;
-        /** You can filter the request using various logical operators and a key - value 
-format. For example:
+        /** You can filter the request using various logical operators and a key-value 
+format. For example: 
 
-{&quot;key&quot;: &quot;collectionStatus&quot;, &quot;value&quot;: &quot;STARTED&quot;}
+ {&quot;key&quot;: &quot;collectionStatus&quot;, &quot;value&quot;: &quot;STARTED&quot;} 
 
 For a complete list of filter options and guidance about using them with this
 action, see Managing AWS Application Discovery Service Agents and the AWS
 Application Discovery Connector
-[http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agent.html] 
+[http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agent.html]
 . **/
         filters?: Filters;
         /** The total number of agents/Connectors to return in a single page of output. The
@@ -557,14 +557,14 @@ set of 10. Use the token in the query to get the next set of 10. **/
         nextToken?: NextToken;
     }
     export interface DescribeTagsRequest {
-        /** You can filter the list using a key - value format. You can separate these items
-by using logical operators. Allowed filters include tagKey , tagValue , and 
-configurationId .
+        /** You can filter the list using a key-value format. You can separate these items
+by using logical operators. Allowed filters include tagKey, tagValue, and 
+configurationId. 
 
 For a complete list of filter options and guidance about using them with this
 action, see Managing AWS Application Discovery Service Agents and the AWS
 Application Discovery Connector
-[http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agents.html] 
+[http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agents.html]
 . **/
         filters?: TagFilters;
         /** The total number of items to return in a single page of output. The maximum
@@ -615,10 +615,10 @@ destinationServer.osVersion filter name, you could specify Ubuntu for the value.
         values: FilterValues;
         /** A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS,
 CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all
-filters as though concatenated by AND . If you specify multiple values for a
-particular filter, the system differentiates the values using OR . Calling
-either DescribeConfigurations or ListConfigurations returns attributes of
-matching configuration items. **/
+filters as though concatenated by AND. If you specify multiple values for a
+particular filter, the system differentiates the values using OR. Calling either 
+DescribeConfigurations or ListConfigurations returns attributes of matching
+configuration items. **/
         condition: Condition;
     }
     export interface GetDiscoverySummaryRequest {
@@ -646,14 +646,14 @@ matching configuration items. **/
     export interface ListConfigurationsRequest {
         /** A valid configuration identified by the Discovery Service. **/
         configurationType: ConfigurationItemType;
-        /** You can filter the request using various logical operators and a key - value 
-format. For example:
+        /** You can filter the request using various logical operators and a key-value 
+format. For example: 
 
-{&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;}
+ {&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;} 
 
 For a complete list of filter options and guidance about using them with this
 action, see Querying Discovered Configuration Items
-[http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations] 
+[http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations]
 . **/
         filters?: Filters;
         /** The total number of items to return. The maximum value is 100. **/
@@ -666,7 +666,7 @@ along with a token. Use that token in this query to get the next set of 10. **/
         /** Certain filter criteria return output that can be sorted in ascending or
 descending order. For a list of output characteristics for each filter, see 
 Querying Discovered Configuration Items
-[http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations] 
+[http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations]
 . **/
         orderBy?: OrderByList;
     }
